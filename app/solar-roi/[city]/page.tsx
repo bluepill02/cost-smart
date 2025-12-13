@@ -52,28 +52,94 @@ export async function generateMetadata({ params }: { params: { city: string } })
     };
 }
 
-// --- Content Injection Logic ---
+// --- Content Injection Logic (Randomized for SEO) ---
 function generateIntroText(city: SolarData) {
     const isHighSun = city.avg_daily_sunlight_hours > 5.0;
     const isHighCost = city.avg_electricity_cost_per_kwh > (city.country === 'India' ? 8 : 0.20);
+    const currency = city.country === 'India' ? '₹' : '$';
+
+    // Simple deterministic hash to pick a variation based on city name
+    const hash = city.city_name.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+    const variation = hash % 5;
+
+    const templates = [
+        // Variation 0: Direct Financial Focus
+        (
+            <>
+                <p>
+                    Is solar worth it in <strong>{city.city_name}</strong>? The numbers suggest a strong "Yes."
+                    With local electricity rates hovering around <strong>{currency}{city.avg_electricity_cost_per_kwh}/kWh</strong>,
+                    homeowners are increasingly looking for relief from monthly bills.
+                </p>
+                <p className="mt-4">
+                    Fortunately, {city.city_name} is blessed with <strong>{city.avg_daily_sunlight_hours} peak sun hours</strong> daily.
+                    This combination of high utility costs and abundant solar resource acts as a force multiplier for your ROI,
+                    potentially slashing your break-even time significantly compared to national averages.
+                </p>
+            </>
+        ),
+        // Variation 1: Inflation & Future Proofing
+        (
+            <>
+                <p>
+                    Stop renting your power and start owning it. For residents of <strong>{city.city_name}</strong>,
+                    the transition to solar is becoming a financial no-brainer.
+                    Grid rates have been climbing, currently sitting at {currency}{city.avg_electricity_cost_per_kwh}/kWh.
+                </p>
+                <p className="mt-4">
+                    By leveraging the <strong>{city.avg_daily_sunlight_hours} hours of sunlight</strong> your roof receives every day,
+                    you can lock in your energy costs for the next 25 years.
+                    {isHighSun ? "Your city's exceptional solar potential makes this investment perform even better than in most regions." : "Even with moderate sun, the rising cost of grid power makes solar a smart hedge against inflation."}
+                </p>
+            </>
+        ),
+        // Variation 2: Environmental & Efficiency Angle
+        (
+            <>
+                <p>
+                    <strong>{city.city_name}</strong> goes solar. With an impressive solar irradiance profile averaging
+                    <strong>{city.avg_daily_sunlight_hours} peak hours</strong> per day, your property is essentially a dormant power plant waiting to be activated.
+                </p>
+                <p className="mt-4">
+                    Why pay {currency}{city.avg_electricity_cost_per_kwh} per unit to the utility company when you can generate it yourself?
+                    Our data shows that efficiently designed systems in {city.city_name} can offset up to 100% of daytime usage,
+                    drastically reducing your dependence on the grid.
+                </p>
+            </>
+        ),
+        // Variation 3: Data-Driven/Analytical Tone
+        (
+            <>
+                <p>
+                    We analyzed the solar potential for <strong>{city.city_name}</strong>, and the results are compelling.
+                    Based on historical weather data, your area receives approximately <strong>{city.avg_daily_sunlight_hours} daily peak sun hours</strong>.
+                </p>
+                <p className="mt-4">
+                    When plugged into our ROI algorithm against the local tariff of {currency}{city.avg_electricity_cost_per_kwh}/kWh,
+                    the math points towards substantial long-term savings.
+                    {isHighCost ? "Since your local rates are higher than average, every kWh you generate is 'worth' more, accelerating your payback period." : "Ideally suited for net-metering strategies, your local climate supports consistent generation year-round."}
+                </p>
+            </>
+        ),
+        // Variation 4: Home Value & Investment Focus
+        (
+            <>
+                <p>
+                    Investing in solar in <strong>{city.city_name}</strong> is about more than just the monthly bill—it's about asset value.
+                    Homes with solar installations in high-sun areas (receiving {city.avg_daily_sunlight_hours} hours/day) often see increased property valuations.
+                </p>
+                <p className="mt-4">
+                    Paying <strong>{currency}{city.avg_electricity_cost_per_kwh}/kWh</strong> is a sunk cost.
+                    Redirecting that money into a solar asset helps build equity.
+                    Use our calculator below to see exactly how much wealth you could be accumulating over the next 20 years instead of paying utility bills.
+                </p>
+            </>
+        )
+    ];
 
     return (
         <div className="prose max-w-none text-slate-600 mb-8">
-            <p>
-                Residents of <strong>{city.city_name}</strong> are uniquely positioned to benefit from solar energy in 2025.
-                With an average of <strong>{city.avg_daily_sunlight_hours} peak sunlight hours</strong> per day,
-                your roof has the potential to generate significant yield.
-            </p>
-            <p className="mt-4">
-                {isHighCost
-                    ? `Current electricity rates in ${city.city_name} are higher than the national average at ${city.avg_electricity_cost_per_kwh}/kWh. This makes the switch to solar not just an environmental choice, but a critical financial defense against rising grid inflation.`
-                    : `While electricity rates are moderate at ${city.avg_electricity_cost_per_kwh}/kWh, the consistency of sun exposure in ${city.city_name} ensures a reliable payback period.`
-                }
-            </p>
-            <p className="mt-4">
-                Our algorithm factors in local installation trends (approx. {city.country === 'India' ? '₹' : '$'}{city.solar_installation_cost_per_kw}/kW)
-                to simply show you the numbers that matter: your net savings.
-            </p>
+            {templates[variation]}
         </div>
     );
 }

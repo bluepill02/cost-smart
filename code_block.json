@@ -1,322 +1,2402 @@
 [
   {
-    "city_name": "Phoenix",
+    "city_name": "Marysville",
     "country": "USA",
-    "avg_daily_sunlight_hours": 6.5,
-    "avg_electricity_cost_per_kwh": 0.13,
-    "grid_inflation_rate": 0.03,
-    "solar_installation_cost_per_kw": 2600.00
-  },
-  {
-    "city_name": "Los Angeles",
-    "country": "USA",
-    "avg_daily_sunlight_hours": 5.8,
-    "avg_electricity_cost_per_kwh": 0.26,
-    "grid_inflation_rate": 0.03,
-    "solar_installation_cost_per_kw": 2850.00
-  },
-  {
-    "city_name": "San Diego",
-    "country": "USA",
-    "avg_daily_sunlight_hours": 6.0,
-    "avg_electricity_cost_per_kwh": 0.38,
-    "grid_inflation_rate": 0.03,
-    "solar_installation_cost_per_kw": 2900.00
-  },
-  {
-    "city_name": "San Antonio",
-    "country": "USA",
-    "avg_daily_sunlight_hours": 5.2,
+    "avg_daily_sunlight_hours": 3.49,
     "avg_electricity_cost_per_kwh": 0.11,
-    "grid_inflation_rate": 0.03,
-    "solar_installation_cost_per_kw": 2400.00
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
   },
   {
-    "city_name": "Dallas",
+    "city_name": "Perris",
     "country": "USA",
-    "avg_daily_sunlight_hours": 5.1,
+    "avg_daily_sunlight_hours": 5.34,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Cleveland",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.16,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Worcester",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 3.92,
+    "avg_electricity_cost_per_kwh": 0.28,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Columbia",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.74,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Waterbury",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 3.97,
+    "avg_electricity_cost_per_kwh": 0.29,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Eagan",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.08,
+    "avg_electricity_cost_per_kwh": 0.16,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Southfield",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 3.97,
+    "avg_electricity_cost_per_kwh": 0.19,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Lafayette",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.96,
     "avg_electricity_cost_per_kwh": 0.12,
-    "grid_inflation_rate": 0.03,
-    "solar_installation_cost_per_kw": 2450.00
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
   },
   {
-    "city_name": "Austin",
+    "city_name": "Boise City",
     "country": "USA",
-    "avg_daily_sunlight_hours": 5.3,
+    "avg_daily_sunlight_hours": 4.46,
     "avg_electricity_cost_per_kwh": 0.11,
-    "grid_inflation_rate": 0.03,
-    "solar_installation_cost_per_kw": 2500.00
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
   },
   {
-    "city_name": "San Jose",
+    "city_name": "Elkhart",
     "country": "USA",
-    "avg_daily_sunlight_hours": 5.5,
-    "avg_electricity_cost_per_kwh": 0.34,
-    "grid_inflation_rate": 0.03,
-    "solar_installation_cost_per_kw": 3100.00
+    "avg_daily_sunlight_hours": 4.07,
+    "avg_electricity_cost_per_kwh": 0.16,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
   },
   {
-    "city_name": "San Francisco",
-    "country": "USA",
-    "avg_daily_sunlight_hours": 5.0,
-    "avg_electricity_cost_per_kwh": 0.35,
-    "grid_inflation_rate": 0.03,
-    "solar_installation_cost_per_kw": 3200.00
-  },
-  {
-    "city_name": "Houston",
+    "city_name": "Buena Park",
     "country": "USA",
     "avg_daily_sunlight_hours": 4.9,
-    "avg_electricity_cost_per_kwh": 0.12,
-    "grid_inflation_rate": 0.03,
-    "solar_installation_cost_per_kw": 2400.00
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
   },
   {
-    "city_name": "Miami",
+    "city_name": "Marietta",
     "country": "USA",
-    "avg_daily_sunlight_hours": 5.0,
-    "avg_electricity_cost_per_kwh": 0.13,
-    "grid_inflation_rate": 0.03,
-    "solar_installation_cost_per_kw": 2550.00
-  },
-  {
-    "city_name": "Jacksonville",
-    "country": "USA",
-    "avg_daily_sunlight_hours": 5.1,
+    "avg_daily_sunlight_hours": 4.65,
     "avg_electricity_cost_per_kwh": 0.14,
-    "grid_inflation_rate": 0.03,
-    "solar_installation_cost_per_kw": 2500.00
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
   },
   {
-    "city_name": "Denver",
+    "city_name": "Parker",
     "country": "USA",
-    "avg_daily_sunlight_hours": 5.5,
-    "avg_electricity_cost_per_kwh": 0.14,
-    "grid_inflation_rate": 0.03,
-    "solar_installation_cost_per_kw": 2950.00
-  },
-  {
-    "city_name": "Las Vegas",
-    "country": "USA",
-    "avg_daily_sunlight_hours": 6.8,
-    "avg_electricity_cost_per_kwh": 0.13,
-    "grid_inflation_rate": 0.03,
-    "solar_installation_cost_per_kw": 2650.00
-  },
-  {
-    "city_name": "Charlotte",
-    "country": "USA",
-    "avg_daily_sunlight_hours": 4.8,
-    "avg_electricity_cost_per_kwh": 0.12,
-    "grid_inflation_rate": 0.03,
-    "solar_installation_cost_per_kw": 2700.00
-  },
-  {
-    "city_name": "New York",
-    "country": "USA",
-    "avg_daily_sunlight_hours": 4.0,
-    "avg_electricity_cost_per_kwh": 0.24,
-    "grid_inflation_rate": 0.03,
-    "solar_installation_cost_per_kw": 3300.00
-  },
-  {
-    "city_name": "Chicago",
-    "country": "USA",
-    "avg_daily_sunlight_hours": 3.8,
+    "avg_daily_sunlight_hours": 5.01,
     "avg_electricity_cost_per_kwh": 0.15,
-    "grid_inflation_rate": 0.03,
-    "solar_installation_cost_per_kw": 3100.00
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
   },
   {
-    "city_name": "Philadelphia",
+    "city_name": "West Palm Beach",
     "country": "USA",
-    "avg_daily_sunlight_hours": 4.1,
-    "avg_electricity_cost_per_kwh": 0.17,
-    "grid_inflation_rate": 0.03,
-    "solar_installation_cost_per_kw": 3150.00
+    "avg_daily_sunlight_hours": 5.04,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
   },
   {
-    "city_name": "Seattle",
+    "city_name": "Salem",
     "country": "USA",
-    "avg_daily_sunlight_hours": 3.5,
-    "avg_electricity_cost_per_kwh": 0.11,
-    "grid_inflation_rate": 0.03,
-    "solar_installation_cost_per_kw": 2900.00
+    "avg_daily_sunlight_hours": 3.96,
+    "avg_electricity_cost_per_kwh": 0.28,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Aurora",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.16,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Leesburg",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.25,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Doral",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.99,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Westminster",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.93,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Lubbock",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.49,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Overland Park",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.54,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Jackson",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.92,
+    "avg_electricity_cost_per_kwh": 0.13,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Gastonia",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.66,
+    "avg_electricity_cost_per_kwh": 0.13,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Daytona Beach",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.99,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Kansas City",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.52,
+    "avg_electricity_cost_per_kwh": 0.13,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Rancho Palos Verdes",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.05,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Burnsville",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.09,
+    "avg_electricity_cost_per_kwh": 0.16,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Rowlett",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.82,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Roswell",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.63,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Montgomery",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.87,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Logan",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.76,
+    "avg_electricity_cost_per_kwh": 0.12,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Woburn",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 3.9,
+    "avg_electricity_cost_per_kwh": 0.28,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Allentown",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.15,
+    "avg_electricity_cost_per_kwh": 0.18,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Mount Pleasant",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.82,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
   },
   {
     "city_name": "Columbus",
     "country": "USA",
-    "avg_daily_sunlight_hours": 4.0,
-    "avg_electricity_cost_per_kwh": 0.13,
-    "grid_inflation_rate": 0.03,
-    "solar_installation_cost_per_kw": 2800.00
+    "avg_daily_sunlight_hours": 4.79,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
   },
   {
-    "city_name": "Indianapolis",
+    "city_name": "Buffalo",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 3.89,
+    "avg_electricity_cost_per_kwh": 0.23,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "New Berlin",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.15,
+    "avg_electricity_cost_per_kwh": 0.17,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "North Richland Hills",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.89,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Lima",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.18,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Sacramento",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.0,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Fort Smith",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.71,
+    "avg_electricity_cost_per_kwh": 0.12,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "East Providence",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 3.97,
+    "avg_electricity_cost_per_kwh": 0.26,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Urbandale",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.47,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Mount Vernon",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.05,
+    "avg_electricity_cost_per_kwh": 0.23,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Lakewood",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.9,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Henderson",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.42,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Covina",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.95,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Stamford",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.08,
+    "avg_electricity_cost_per_kwh": 0.29,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Bloomington",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.41,
+    "avg_electricity_cost_per_kwh": 0.16,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Kingsport",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.56,
+    "avg_electricity_cost_per_kwh": 0.13,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Spokane",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.08,
+    "avg_electricity_cost_per_kwh": 0.11,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Kennewick",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.21,
+    "avg_electricity_cost_per_kwh": 0.11,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Philadelphia",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.17,
+    "avg_electricity_cost_per_kwh": 0.18,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Bellingham",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 3.61,
+    "avg_electricity_cost_per_kwh": 0.11,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Visalia",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.14,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "La Crosse",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.14,
+    "avg_electricity_cost_per_kwh": 0.17,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Council Bluffs",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.49,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "North Lauderdale",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.06,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Dallas",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.84,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Antioch",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.09,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Sterling Heights",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 3.98,
+    "avg_electricity_cost_per_kwh": 0.19,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Deerfield Beach",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.14,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Fishers",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.31,
+    "avg_electricity_cost_per_kwh": 0.16,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Cheyenne",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.82,
+    "avg_electricity_cost_per_kwh": 0.12,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Murrieta",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.36,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Lenexa",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.54,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Noblesville",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.32,
+    "avg_electricity_cost_per_kwh": 0.16,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Southaven",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.69,
+    "avg_electricity_cost_per_kwh": 0.13,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Chino",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.08,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Gaithersburg",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.28,
+    "avg_electricity_cost_per_kwh": 0.17,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Fountain Valley",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.97,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Frederick",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.29,
+    "avg_electricity_cost_per_kwh": 0.17,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Greenville",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.61,
+    "avg_electricity_cost_per_kwh": 0.13,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "DeKalb",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.23,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "West Allis",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.19,
+    "avg_electricity_cost_per_kwh": 0.17,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Thornton",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.84,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "West Des Moines",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.44,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Fall River",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.01,
+    "avg_electricity_cost_per_kwh": 0.28,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Tulare",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.19,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Chula Vista",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.0,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Coral Springs",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.88,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Concord",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.62,
+    "avg_electricity_cost_per_kwh": 0.13,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Smyrna",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.64,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Apopka",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.08,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Grand Forks",
     "country": "USA",
     "avg_daily_sunlight_hours": 4.0,
-    "avg_electricity_cost_per_kwh": 0.14,
-    "grid_inflation_rate": 0.03,
-    "solar_installation_cost_per_kw": 2750.00
+    "avg_electricity_cost_per_kwh": 0.11,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
   },
   {
-    "city_name": "Jaipur",
-    "country": "India",
-    "avg_daily_sunlight_hours": 5.8,
-    "avg_electricity_cost_per_kwh": 7.50,
-    "grid_inflation_rate": 0.05,
-    "solar_installation_cost_per_kw": 42000.00
+    "city_name": "Lancaster",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.23,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
   },
   {
-    "city_name": "Ahmedabad",
-    "country": "India",
-    "avg_daily_sunlight_hours": 5.9,
-    "avg_electricity_cost_per_kwh": 6.80,
-    "grid_inflation_rate": 0.05,
-    "solar_installation_cost_per_kw": 41000.00
+    "city_name": "Naperville",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.14,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
   },
   {
-    "city_name": "Jodhpur",
-    "country": "India",
-    "avg_daily_sunlight_hours": 6.2,
-    "avg_electricity_cost_per_kwh": 7.50,
-    "grid_inflation_rate": 0.05,
-    "solar_installation_cost_per_kw": 43000.00
+    "city_name": "Hollywood",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.18,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
   },
   {
-    "city_name": "Nagpur",
-    "country": "India",
-    "avg_daily_sunlight_hours": 5.8,
-    "avg_electricity_cost_per_kwh": 9.50,
-    "grid_inflation_rate": 0.05,
-    "solar_installation_cost_per_kw": 45000.00
+    "city_name": "Rogers",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.75,
+    "avg_electricity_cost_per_kwh": 0.12,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
   },
   {
-    "city_name": "Bangalore",
-    "country": "India",
-    "avg_daily_sunlight_hours": 5.2,
-    "avg_electricity_cost_per_kwh": 8.15,
-    "grid_inflation_rate": 0.05,
-    "solar_installation_cost_per_kw": 52000.00
+    "city_name": "New Orleans",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.97,
+    "avg_electricity_cost_per_kwh": 0.12,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
   },
   {
-    "city_name": "Chennai",
-    "country": "India",
-    "avg_daily_sunlight_hours": 5.5,
-    "avg_electricity_cost_per_kwh": 7.00,
-    "grid_inflation_rate": 0.05,
-    "solar_installation_cost_per_kw": 50000.00
+    "city_name": "Lakewood",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 3.67,
+    "avg_electricity_cost_per_kwh": 0.11,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
   },
   {
-    "city_name": "Hyderabad",
-    "country": "India",
-    "avg_daily_sunlight_hours": 5.4,
-    "avg_electricity_cost_per_kwh": 9.00,
-    "grid_inflation_rate": 0.05,
-    "solar_installation_cost_per_kw": 48000.00
+    "city_name": "Oak Lawn",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.12,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
   },
   {
-    "city_name": "Pune",
-    "country": "India",
-    "avg_daily_sunlight_hours": 5.2,
-    "avg_electricity_cost_per_kwh": 10.50,
-    "grid_inflation_rate": 0.05,
-    "solar_installation_cost_per_kw": 49000.00
+    "city_name": "Caldwell",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.43,
+    "avg_electricity_cost_per_kwh": 0.11,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
   },
   {
-    "city_name": "Surat",
-    "country": "India",
-    "avg_daily_sunlight_hours": 5.8,
-    "avg_electricity_cost_per_kwh": 6.80,
-    "grid_inflation_rate": 0.05,
-    "solar_installation_cost_per_kw": 42000.00
+    "city_name": "Portland",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 3.74,
+    "avg_electricity_cost_per_kwh": 0.13,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
   },
   {
-    "city_name": "Delhi",
-    "country": "India",
-    "avg_daily_sunlight_hours": 4.8,
-    "avg_electricity_cost_per_kwh": 6.50,
-    "grid_inflation_rate": 0.05,
-    "solar_installation_cost_per_kw": 46000.00
+    "city_name": "Concord",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.08,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
   },
   {
-    "city_name": "Mumbai",
-    "country": "India",
-    "avg_daily_sunlight_hours": 4.9,
-    "avg_electricity_cost_per_kwh": 11.00,
-    "grid_inflation_rate": 0.05,
-    "solar_installation_cost_per_kw": 55000.00
+    "city_name": "Burien",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 3.58,
+    "avg_electricity_cost_per_kwh": 0.11,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
   },
   {
-    "city_name": "Kolkata",
-    "country": "India",
+    "city_name": "St. Charles",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.51,
+    "avg_electricity_cost_per_kwh": 0.13,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Waukesha",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.14,
+    "avg_electricity_cost_per_kwh": 0.17,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Flagstaff",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.73,
+    "avg_electricity_cost_per_kwh": 0.13,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Puyallup",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 3.65,
+    "avg_electricity_cost_per_kwh": 0.11,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Schenectady",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 3.82,
+    "avg_electricity_cost_per_kwh": 0.23,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Denver",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.86,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Springfield",
+    "country": "USA",
     "avg_daily_sunlight_hours": 4.5,
-    "avg_electricity_cost_per_kwh": 7.80,
-    "grid_inflation_rate": 0.05,
-    "solar_installation_cost_per_kw": 47000.00
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
   },
   {
-    "city_name": "Lucknow",
-    "country": "India",
-    "avg_daily_sunlight_hours": 4.7,
-    "avg_electricity_cost_per_kwh": 6.50,
-    "grid_inflation_rate": 0.05,
-    "solar_installation_cost_per_kw": 44000.00
+    "city_name": "Campbell",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.18,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
   },
   {
-    "city_name": "Kanpur",
-    "country": "India",
-    "avg_daily_sunlight_hours": 4.7,
-    "avg_electricity_cost_per_kwh": 6.50,
-    "grid_inflation_rate": 0.05,
-    "solar_installation_cost_per_kw": 44500.00
+    "city_name": "Moreno Valley",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.27,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
   },
   {
-    "city_name": "Indore",
-    "country": "India",
+    "city_name": "Kettering",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.31,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Lincoln Park",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 3.99,
+    "avg_electricity_cost_per_kwh": 0.19,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Lake Havasu City",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.59,
+    "avg_electricity_cost_per_kwh": 0.13,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "North Little Rock",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.71,
+    "avg_electricity_cost_per_kwh": 0.12,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Reno",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.29,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Littleton",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.91,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Prescott",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.67,
+    "avg_electricity_cost_per_kwh": 0.13,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Dublin",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.01,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Texarkana",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.77,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Portland",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 3.81,
+    "avg_electricity_cost_per_kwh": 0.23,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Brooklyn Park",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.1,
+    "avg_electricity_cost_per_kwh": 0.16,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "West Haven",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.1,
+    "avg_electricity_cost_per_kwh": 0.29,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "El Centro",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.67,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "The Colony",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.85,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Flint",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 3.92,
+    "avg_electricity_cost_per_kwh": 0.19,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Pittsburg",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.11,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Buckeye",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.54,
+    "avg_electricity_cost_per_kwh": 0.13,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Brea",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.91,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Indio",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.65,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Scottsdale",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.52,
+    "avg_electricity_cost_per_kwh": 0.13,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Columbus",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.19,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Lancaster",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.22,
+    "avg_electricity_cost_per_kwh": 0.18,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Lincoln",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.58,
+    "avg_electricity_cost_per_kwh": 0.12,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Trenton",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.16,
+    "avg_electricity_cost_per_kwh": 0.17,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Boston",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 3.94,
+    "avg_electricity_cost_per_kwh": 0.28,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Glendora",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.12,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Rochester",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.15,
+    "avg_electricity_cost_per_kwh": 0.16,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Florissant",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.52,
+    "avg_electricity_cost_per_kwh": 0.13,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Annapolis",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.36,
+    "avg_electricity_cost_per_kwh": 0.17,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Chapel Hill",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.57,
+    "avg_electricity_cost_per_kwh": 0.13,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Lawrence",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.32,
+    "avg_electricity_cost_per_kwh": 0.16,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Calexico",
+    "country": "USA",
     "avg_daily_sunlight_hours": 5.7,
-    "avg_electricity_cost_per_kwh": 7.20,
-    "grid_inflation_rate": 0.05,
-    "solar_installation_cost_per_kw": 43500.00
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
   },
   {
-    "city_name": "Bhopal",
-    "country": "India",
-    "avg_daily_sunlight_hours": 5.6,
-    "avg_electricity_cost_per_kwh": 6.90,
-    "grid_inflation_rate": 0.05,
-    "solar_installation_cost_per_kw": 44000.00
+    "city_name": "Calumet City",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.12,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
   },
   {
-    "city_name": "Visakhapatnam",
-    "country": "India",
-    "avg_daily_sunlight_hours": 5.1,
-    "avg_electricity_cost_per_kwh": 7.50,
-    "grid_inflation_rate": 0.05,
-    "solar_installation_cost_per_kw": 48000.00
+    "city_name": "Missoula",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.14,
+    "avg_electricity_cost_per_kwh": 0.13,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
   },
   {
-    "city_name": "Thane",
-    "country": "India",
-    "avg_daily_sunlight_hours": 4.9,
-    "avg_electricity_cost_per_kwh": 10.80,
-    "grid_inflation_rate": 0.05,
-    "solar_installation_cost_per_kw": 54000.00
+    "city_name": "Clovis",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.14,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
   },
   {
-    "city_name": "Vadodara",
-    "country": "India",
+    "city_name": "Pearland",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.82,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Gilbert",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.52,
+    "avg_electricity_cost_per_kwh": 0.13,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Wausau",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 3.98,
+    "avg_electricity_cost_per_kwh": 0.17,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Raleigh",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.59,
+    "avg_electricity_cost_per_kwh": 0.13,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Orange",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.0,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Walnut Creek",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.06,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Bremerton",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 3.58,
+    "avg_electricity_cost_per_kwh": 0.11,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Porterville",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.2,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Marana",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.75,
+    "avg_electricity_cost_per_kwh": 0.13,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Tallahassee",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.83,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Conroe",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.72,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Blacksburg",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.58,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "San Antonio",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.99,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Hartford",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 3.94,
+    "avg_electricity_cost_per_kwh": 0.29,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Waterloo",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.35,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Binghamton",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 3.92,
+    "avg_electricity_cost_per_kwh": 0.23,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Meridian",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.45,
+    "avg_electricity_cost_per_kwh": 0.11,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Fond du Lac",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.12,
+    "avg_electricity_cost_per_kwh": 0.17,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Baytown",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.83,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Cary",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.58,
+    "avg_electricity_cost_per_kwh": 0.13,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Weymouth Town",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 3.96,
+    "avg_electricity_cost_per_kwh": 0.28,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Tulsa",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.74,
+    "avg_electricity_cost_per_kwh": 0.12,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Mission",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.23,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Cuyahoga Falls",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.07,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Malden",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 3.95,
+    "avg_electricity_cost_per_kwh": 0.28,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Allen",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.82,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Tucson",
+    "country": "USA",
     "avg_daily_sunlight_hours": 5.8,
-    "avg_electricity_cost_per_kwh": 6.80,
-    "grid_inflation_rate": 0.05,
-    "solar_installation_cost_per_kw": 41500.00
+    "avg_electricity_cost_per_kwh": 0.13,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
   },
   {
-    "city_name": "Coimbatore",
-    "country": "India",
-    "avg_daily_sunlight_hours": 5.3,
-    "avg_electricity_cost_per_kwh": 7.00,
-    "grid_inflation_rate": 0.05,
-    "solar_installation_cost_per_kw": 49000.00
+    "city_name": "Franklin",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.51,
+    "avg_electricity_cost_per_kwh": 0.13,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Shakopee",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.1,
+    "avg_electricity_cost_per_kwh": 0.16,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Jacksonville",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.96,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Atlantic City",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.36,
+    "avg_electricity_cost_per_kwh": 0.17,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Erie",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.12,
+    "avg_electricity_cost_per_kwh": 0.18,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Merced",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.13,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Abilene",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.29,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Yorba Linda",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.91,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Greenville",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.69,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Huntersville",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.64,
+    "avg_electricity_cost_per_kwh": 0.13,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "St. Clair Shores",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.01,
+    "avg_electricity_cost_per_kwh": 0.19,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Harrisburg",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.18,
+    "avg_electricity_cost_per_kwh": 0.18,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "San Buenaventura (Ventura)",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.93,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Fremont",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.03,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Pueblo",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.15,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Chelsea",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 3.95,
+    "avg_electricity_cost_per_kwh": 0.28,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Belleville",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.55,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Minneapolis",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.13,
+    "avg_electricity_cost_per_kwh": 0.16,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Bartlett",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.67,
+    "avg_electricity_cost_per_kwh": 0.13,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Wichita Falls",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.09,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Missouri City",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.84,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "St. Louis",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.51,
+    "avg_electricity_cost_per_kwh": 0.13,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Pharr",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.21,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Albuquerque",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.6,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Athens-Clarke County",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.66,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "South Jordan",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.86,
+    "avg_electricity_cost_per_kwh": 0.12,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "North Las Vegas",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.41,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Pomona",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.96,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Eastvale",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.17,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Grove City",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.24,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Lawrence",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.58,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Midland",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.56,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Oklahoma City",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.95,
+    "avg_electricity_cost_per_kwh": 0.12,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Oro Valley",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.75,
+    "avg_electricity_cost_per_kwh": 0.13,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Mesa",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.51,
+    "avg_electricity_cost_per_kwh": 0.13,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Norwalk",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.13,
+    "avg_electricity_cost_per_kwh": 0.29,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Kentwood",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 3.95,
+    "avg_electricity_cost_per_kwh": 0.19,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Brookfield",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.16,
+    "avg_electricity_cost_per_kwh": 0.17,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Rockwall",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.76,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Mishawaka",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.07,
+    "avg_electricity_cost_per_kwh": 0.16,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Tustin",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.0,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "St. Cloud",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.13,
+    "avg_electricity_cost_per_kwh": 0.16,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Passaic",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.06,
+    "avg_electricity_cost_per_kwh": 0.17,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Escondido",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.06,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "San Bruno",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.89,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Berkeley",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.04,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "San Clemente",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.14,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Lawton",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.05,
+    "avg_electricity_cost_per_kwh": 0.12,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Eau Claire",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.02,
+    "avg_electricity_cost_per_kwh": 0.17,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Maricopa",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.61,
+    "avg_electricity_cost_per_kwh": 0.13,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "DeSoto",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.86,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Fort Wayne",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.15,
+    "avg_electricity_cost_per_kwh": 0.16,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Shoreline",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 3.64,
+    "avg_electricity_cost_per_kwh": 0.11,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Medford",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 3.95,
+    "avg_electricity_cost_per_kwh": 0.28,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "La Habra",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.91,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Albany",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 3.82,
+    "avg_electricity_cost_per_kwh": 0.23,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Daly City",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.88,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Taylor",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.0,
+    "avg_electricity_cost_per_kwh": 0.19,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Lynchburg",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.55,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Bowie",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.26,
+    "avg_electricity_cost_per_kwh": 0.17,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Danbury",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.01,
+    "avg_electricity_cost_per_kwh": 0.29,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Charlottesville",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.43,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Coral Gables",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.14,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Coeur d'Alene",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.02,
+    "avg_electricity_cost_per_kwh": 0.11,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "El Monte",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.94,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Crystal Lake",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.12,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Danville",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.06,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Goodyear",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.56,
+    "avg_electricity_cost_per_kwh": 0.13,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Paterson",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.06,
+    "avg_electricity_cost_per_kwh": 0.17,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Salem",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 3.9,
+    "avg_electricity_cost_per_kwh": 0.13,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Kissimmee",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.09,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Saginaw",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 3.91,
+    "avg_electricity_cost_per_kwh": 0.19,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Brownsville",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.09,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Flower Mound",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.82,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Grapevine",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.84,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Edina",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.09,
+    "avg_electricity_cost_per_kwh": 0.16,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Detroit",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.01,
+    "avg_electricity_cost_per_kwh": 0.19,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Fairfield",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.37,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Mansfield",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.9,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Rochester",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 3.79,
+    "avg_electricity_cost_per_kwh": 0.23,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Birmingham",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.77,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Austin",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.87,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Santa Barbara",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.17,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Addison",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.1,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Rio Rancho",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.65,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Normal",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.38,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Romeoville",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.13,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Coon Rapids",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.1,
+    "avg_electricity_cost_per_kwh": 0.16,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "San Mateo",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.94,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Orlando",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.05,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Casper",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.76,
+    "avg_electricity_cost_per_kwh": 0.12,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Bedford",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.86,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Wilmington",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.71,
+    "avg_electricity_cost_per_kwh": 0.13,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Pinellas Park",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.39,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "North Miami Beach",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.23,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Kansas City",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.52,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Fitchburg",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 3.88,
+    "avg_electricity_cost_per_kwh": 0.28,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Wheeling",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.12,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Newton",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 3.9,
+    "avg_electricity_cost_per_kwh": 0.28,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "North Miami",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.23,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Norwich",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.05,
+    "avg_electricity_cost_per_kwh": 0.29,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Newark",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.08,
+    "avg_electricity_cost_per_kwh": 0.17,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Alexandria",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.9,
+    "avg_electricity_cost_per_kwh": 0.12,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Blaine",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.07,
+    "avg_electricity_cost_per_kwh": 0.16,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Harlingen",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.08,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Lompoc",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.08,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Denton",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.87,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Galveston",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.02,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Greenwood",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.35,
+    "avg_electricity_cost_per_kwh": 0.16,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Salinas",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.97,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Miami Gardens",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.13,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Huntington",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.34,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Laredo",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.23,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Melbourne",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.12,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Haltom City",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.88,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Palm Bay",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.07,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Wilson",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.61,
+    "avg_electricity_cost_per_kwh": 0.13,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Bountiful",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.78,
+    "avg_electricity_cost_per_kwh": 0.12,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Ceres",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.09,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Parma",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.14,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Rapid City",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.49,
+    "avg_electricity_cost_per_kwh": 0.13,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Bell Gardens",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.91,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Commerce City",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.86,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Springfield",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 3.9,
+    "avg_electricity_cost_per_kwh": 0.28,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Fort Collins",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.75,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "San Leandro",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.02,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Vista",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.06,
+    "avg_electricity_cost_per_kwh": 0.32,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Yonkers",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.04,
+    "avg_electricity_cost_per_kwh": 0.23,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Cincinnati",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.4,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Hagerstown",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.26,
+    "avg_electricity_cost_per_kwh": 0.17,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Sanford",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.98,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
+  },
+  {
+    "city_name": "Union City",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.07,
+    "avg_electricity_cost_per_kwh": 0.17,
+    "grid_inflation_rate": 0.035,
+    "solar_installation_cost_per_kw": 2800.0
   }
 ]

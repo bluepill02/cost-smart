@@ -68,15 +68,38 @@ export default function ImportForm() {
     const [productValue, setProductValue] = useState<string>('');
     const [origin, setOrigin] = useState<string>('');
     const [destination, setDestination] = useState<string>('');
-    const [category, setCategory] = useState<Category | ''>('');
+    const [category, setCategory] = useState<Category | 'Custom' | ''>('');
+    const [customDutyRate, setCustomDutyRate] = useState<string>(''); // User editable rate (%)
+
+    // Handle Category Change
+    const handleCategoryChange = (val: Category | 'Custom') => {
+        setCategory(val);
+        if (val === 'Custom') {
+            setCustomDutyRate(''); // Clear for manual input
+        } else if (origin && destination) {
+            // Auto-fill average from matrix if available
+            const rate = DUTY_MATRIX[destination]?.[origin]?.[val] ?? 0.10;
+            setCustomDutyRate((rate * 100).toFixed(1)); // Convert 0.25 -> "25.0"
+        }
+    };
+
+    // Update rate if Origin/Dest changes and Category is already selected (and not Custom)
+    React.useEffect(() => {
+        if (category && category !== 'Custom' && origin && destination) {
+            const rate = DUTY_MATRIX[destination]?.[origin]?.[category as Category] ?? 0.10;
+            setCustomDutyRate((rate * 100).toFixed(1));
+        }
+    }, [origin, destination]);
+
 
     const result = useMemo(() => {
         const val = parseFloat(productValue);
-        if (isNaN(val) || !origin || !destination || !category) return null;
+        const rateInput = parseFloat(customDutyRate);
 
-        // 1. Get Base Rates
-        // Default to 10% if map missing (safe fallback)
-        const dutyPercent = DUTY_MATRIX[destination]?.[origin]?.[category as Category] ?? 0.10;
+        if (isNaN(val) || isNaN(rateInput) || !origin || !destination) return null;
+
+        // 1. Get Base Rate (User input / matrix default)
+        const dutyPercent = rateInput / 100;
 
         // 2. Get VAT
         let vatPercent = VAT_ATES[destination] ?? 0.0;
@@ -96,7 +119,7 @@ export default function ImportForm() {
             vatAmount,
             totalLanded
         };
-    }, [productValue, origin, destination, category]);
+    }, [productValue, origin, destination, customDutyRate]);
 
     const currencySymbol = destination === 'India' ? '₹' : destination === 'UK' ? '£' : '$';
 
@@ -148,19 +171,45 @@ export default function ImportForm() {
                         </div>
                     </div>
 
-                    <div className="space-y-2">
-                        <Label>Product Category</Label>
-                        <Select onValueChange={(v) => setCategory(v as Category)} value={category}>
-                            <SelectTrigger>
-                                <SelectValue placeholder="What kind of item?" />
-                            </SelectTrigger>
-                            <SelectContent>
-                                <SelectItem value="Electronics">Electronics</SelectItem>
-                                <SelectItem value="Clothing">Clothing & Apparel</SelectItem>
-                                <SelectItem value="Auto Parts">Automotive Parts</SelectItem>
-                                <SelectItem value="Beauty">Beauty & Cosmetics</SelectItem>
-                            </SelectContent>
-                        </Select>
+                    <div className="grid sm:grid-cols-2 gap-4">
+                        <div className="space-y-2">
+                            <Label>Product Category</Label>
+                            <Select onValueChange={(v) => handleCategoryChange(v as Category | 'Custom')} value={category}>
+                                <SelectTrigger>
+                                    <SelectValue placeholder="What kind of item?" />
+                                </SelectTrigger>
+                                <SelectContent>
+                                    <SelectItem value="Electronics">Electronics</SelectItem>
+                                    <SelectItem value="Clothing">Clothing & Apparel</SelectItem>
+                                    <SelectItem value="Auto Parts">Automotive Parts</SelectItem>
+                                    <SelectItem value="Beauty">Beauty & Cosmetics</SelectItem>
+                                    <SelectItem value="Custom">Custom / Other</SelectItem>
+                                </SelectContent>
+                            </Select>
+                        </div>
+
+                        <div className="space-y-2">
+                            <Label className="flex items-center gap-2">
+                                Duty Rate (%)
+                                {category !== 'Custom' && category !== '' && (
+                                    <span className="text-xs font-normal text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">
+                                        Avg. Suggested
+                                    </span>
+                                )}
+                            </Label>
+                            <Input
+                                type="number"
+                                placeholder="e.g. 10"
+                                value={customDutyRate}
+                                onChange={(e) => setCustomDutyRate(e.target.value)}
+                                className="font-medium"
+                            />
+                            <p className="text-xs text-slate-500">
+                                {category === 'Custom'
+                                    ? "Enter the exact HS code duty rate if known."
+                                    : "You can edit this if you have a specific rate."}
+                            </p>
+                        </div>
                     </div>
 
                     <div className="space-y-2">
