@@ -4,6 +4,8 @@ import React, { useState, useMemo } from 'react';
 import { Calculator, AlertCircle, TrendingUp, Info } from 'lucide-react';
 import AdContainer from '@/components/ads/AdContainer';
 import ShareButton from '@/components/features/ShareButton';
+import { useAIClassifier } from '@/lib/hooks/useAIClassifier';
+import { Loader2, Sparkles } from 'lucide-react';
 
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
@@ -70,6 +72,27 @@ export default function ImportForm() {
     const [destination, setDestination] = useState<string>('');
     const [category, setCategory] = useState<Category | 'Custom' | ''>('');
     const [customDutyRate, setCustomDutyRate] = useState<string>(''); // User editable rate (%)
+
+    // AI Integration
+    const { classify, result: aiCategory, loading: aiLoading } = useAIClassifier();
+    const [description, setDescription] = useState('');
+
+    // Debounce AI call
+    React.useEffect(() => {
+        const timer = setTimeout(() => {
+            if (description.length > 3) {
+                classify(description, ['Electronics', 'Clothing', 'Auto Parts', 'Beauty']);
+            }
+        }, 800);
+        return () => clearTimeout(timer);
+    }, [description]);
+
+    // Auto-select category
+    React.useEffect(() => {
+        if (aiCategory) {
+            handleCategoryChange(aiCategory as Category);
+        }
+    }, [aiCategory]);
 
     // Handle Category Change
     const handleCategoryChange = (val: Category | 'Custom') => {
@@ -169,6 +192,23 @@ export default function ImportForm() {
                                 </SelectContent>
                             </Select>
                         </div>
+                    </div>
+
+
+
+
+
+                    <div className="space-y-2">
+                        <Label className="flex justify-between">
+                            Product Description
+                            {aiLoading && <span className="text-xs text-emerald-600 flex items-center gap-1"><Loader2 className="w-3 h-3 animate-spin" /> AI Analyzing...</span>}
+                            {!aiLoading && aiCategory && <span className="text-xs text-emerald-600 flex items-center gap-1"><Sparkles className="w-3 h-3" /> Detected: {aiCategory}</span>}
+                        </Label>
+                        <Input
+                            placeholder="e.g. Wireless Noise Cancelling Headphones"
+                            value={description}
+                            onChange={(e) => setDescription(e.target.value)}
+                        />
                     </div>
 
                     <div className="grid sm:grid-cols-2 gap-4">
