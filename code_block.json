@@ -1,0 +1,322 @@
+[
+  {
+    "city_name": "Phoenix",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 6.5,
+    "avg_electricity_cost_per_kwh": 0.13,
+    "grid_inflation_rate": 0.03,
+    "solar_installation_cost_per_kw": 2600.00
+  },
+  {
+    "city_name": "Los Angeles",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.8,
+    "avg_electricity_cost_per_kwh": 0.26,
+    "grid_inflation_rate": 0.03,
+    "solar_installation_cost_per_kw": 2850.00
+  },
+  {
+    "city_name": "San Diego",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 6.0,
+    "avg_electricity_cost_per_kwh": 0.38,
+    "grid_inflation_rate": 0.03,
+    "solar_installation_cost_per_kw": 2900.00
+  },
+  {
+    "city_name": "San Antonio",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.2,
+    "avg_electricity_cost_per_kwh": 0.11,
+    "grid_inflation_rate": 0.03,
+    "solar_installation_cost_per_kw": 2400.00
+  },
+  {
+    "city_name": "Dallas",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.1,
+    "avg_electricity_cost_per_kwh": 0.12,
+    "grid_inflation_rate": 0.03,
+    "solar_installation_cost_per_kw": 2450.00
+  },
+  {
+    "city_name": "Austin",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.3,
+    "avg_electricity_cost_per_kwh": 0.11,
+    "grid_inflation_rate": 0.03,
+    "solar_installation_cost_per_kw": 2500.00
+  },
+  {
+    "city_name": "San Jose",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.5,
+    "avg_electricity_cost_per_kwh": 0.34,
+    "grid_inflation_rate": 0.03,
+    "solar_installation_cost_per_kw": 3100.00
+  },
+  {
+    "city_name": "San Francisco",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.0,
+    "avg_electricity_cost_per_kwh": 0.35,
+    "grid_inflation_rate": 0.03,
+    "solar_installation_cost_per_kw": 3200.00
+  },
+  {
+    "city_name": "Houston",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.9,
+    "avg_electricity_cost_per_kwh": 0.12,
+    "grid_inflation_rate": 0.03,
+    "solar_installation_cost_per_kw": 2400.00
+  },
+  {
+    "city_name": "Miami",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.0,
+    "avg_electricity_cost_per_kwh": 0.13,
+    "grid_inflation_rate": 0.03,
+    "solar_installation_cost_per_kw": 2550.00
+  },
+  {
+    "city_name": "Jacksonville",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.1,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.03,
+    "solar_installation_cost_per_kw": 2500.00
+  },
+  {
+    "city_name": "Denver",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 5.5,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.03,
+    "solar_installation_cost_per_kw": 2950.00
+  },
+  {
+    "city_name": "Las Vegas",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 6.8,
+    "avg_electricity_cost_per_kwh": 0.13,
+    "grid_inflation_rate": 0.03,
+    "solar_installation_cost_per_kw": 2650.00
+  },
+  {
+    "city_name": "Charlotte",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.8,
+    "avg_electricity_cost_per_kwh": 0.12,
+    "grid_inflation_rate": 0.03,
+    "solar_installation_cost_per_kw": 2700.00
+  },
+  {
+    "city_name": "New York",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.0,
+    "avg_electricity_cost_per_kwh": 0.24,
+    "grid_inflation_rate": 0.03,
+    "solar_installation_cost_per_kw": 3300.00
+  },
+  {
+    "city_name": "Chicago",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 3.8,
+    "avg_electricity_cost_per_kwh": 0.15,
+    "grid_inflation_rate": 0.03,
+    "solar_installation_cost_per_kw": 3100.00
+  },
+  {
+    "city_name": "Philadelphia",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.1,
+    "avg_electricity_cost_per_kwh": 0.17,
+    "grid_inflation_rate": 0.03,
+    "solar_installation_cost_per_kw": 3150.00
+  },
+  {
+    "city_name": "Seattle",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 3.5,
+    "avg_electricity_cost_per_kwh": 0.11,
+    "grid_inflation_rate": 0.03,
+    "solar_installation_cost_per_kw": 2900.00
+  },
+  {
+    "city_name": "Columbus",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.0,
+    "avg_electricity_cost_per_kwh": 0.13,
+    "grid_inflation_rate": 0.03,
+    "solar_installation_cost_per_kw": 2800.00
+  },
+  {
+    "city_name": "Indianapolis",
+    "country": "USA",
+    "avg_daily_sunlight_hours": 4.0,
+    "avg_electricity_cost_per_kwh": 0.14,
+    "grid_inflation_rate": 0.03,
+    "solar_installation_cost_per_kw": 2750.00
+  },
+  {
+    "city_name": "Jaipur",
+    "country": "India",
+    "avg_daily_sunlight_hours": 5.8,
+    "avg_electricity_cost_per_kwh": 7.50,
+    "grid_inflation_rate": 0.05,
+    "solar_installation_cost_per_kw": 42000.00
+  },
+  {
+    "city_name": "Ahmedabad",
+    "country": "India",
+    "avg_daily_sunlight_hours": 5.9,
+    "avg_electricity_cost_per_kwh": 6.80,
+    "grid_inflation_rate": 0.05,
+    "solar_installation_cost_per_kw": 41000.00
+  },
+  {
+    "city_name": "Jodhpur",
+    "country": "India",
+    "avg_daily_sunlight_hours": 6.2,
+    "avg_electricity_cost_per_kwh": 7.50,
+    "grid_inflation_rate": 0.05,
+    "solar_installation_cost_per_kw": 43000.00
+  },
+  {
+    "city_name": "Nagpur",
+    "country": "India",
+    "avg_daily_sunlight_hours": 5.8,
+    "avg_electricity_cost_per_kwh": 9.50,
+    "grid_inflation_rate": 0.05,
+    "solar_installation_cost_per_kw": 45000.00
+  },
+  {
+    "city_name": "Bangalore",
+    "country": "India",
+    "avg_daily_sunlight_hours": 5.2,
+    "avg_electricity_cost_per_kwh": 8.15,
+    "grid_inflation_rate": 0.05,
+    "solar_installation_cost_per_kw": 52000.00
+  },
+  {
+    "city_name": "Chennai",
+    "country": "India",
+    "avg_daily_sunlight_hours": 5.5,
+    "avg_electricity_cost_per_kwh": 7.00,
+    "grid_inflation_rate": 0.05,
+    "solar_installation_cost_per_kw": 50000.00
+  },
+  {
+    "city_name": "Hyderabad",
+    "country": "India",
+    "avg_daily_sunlight_hours": 5.4,
+    "avg_electricity_cost_per_kwh": 9.00,
+    "grid_inflation_rate": 0.05,
+    "solar_installation_cost_per_kw": 48000.00
+  },
+  {
+    "city_name": "Pune",
+    "country": "India",
+    "avg_daily_sunlight_hours": 5.2,
+    "avg_electricity_cost_per_kwh": 10.50,
+    "grid_inflation_rate": 0.05,
+    "solar_installation_cost_per_kw": 49000.00
+  },
+  {
+    "city_name": "Surat",
+    "country": "India",
+    "avg_daily_sunlight_hours": 5.8,
+    "avg_electricity_cost_per_kwh": 6.80,
+    "grid_inflation_rate": 0.05,
+    "solar_installation_cost_per_kw": 42000.00
+  },
+  {
+    "city_name": "Delhi",
+    "country": "India",
+    "avg_daily_sunlight_hours": 4.8,
+    "avg_electricity_cost_per_kwh": 6.50,
+    "grid_inflation_rate": 0.05,
+    "solar_installation_cost_per_kw": 46000.00
+  },
+  {
+    "city_name": "Mumbai",
+    "country": "India",
+    "avg_daily_sunlight_hours": 4.9,
+    "avg_electricity_cost_per_kwh": 11.00,
+    "grid_inflation_rate": 0.05,
+    "solar_installation_cost_per_kw": 55000.00
+  },
+  {
+    "city_name": "Kolkata",
+    "country": "India",
+    "avg_daily_sunlight_hours": 4.5,
+    "avg_electricity_cost_per_kwh": 7.80,
+    "grid_inflation_rate": 0.05,
+    "solar_installation_cost_per_kw": 47000.00
+  },
+  {
+    "city_name": "Lucknow",
+    "country": "India",
+    "avg_daily_sunlight_hours": 4.7,
+    "avg_electricity_cost_per_kwh": 6.50,
+    "grid_inflation_rate": 0.05,
+    "solar_installation_cost_per_kw": 44000.00
+  },
+  {
+    "city_name": "Kanpur",
+    "country": "India",
+    "avg_daily_sunlight_hours": 4.7,
+    "avg_electricity_cost_per_kwh": 6.50,
+    "grid_inflation_rate": 0.05,
+    "solar_installation_cost_per_kw": 44500.00
+  },
+  {
+    "city_name": "Indore",
+    "country": "India",
+    "avg_daily_sunlight_hours": 5.7,
+    "avg_electricity_cost_per_kwh": 7.20,
+    "grid_inflation_rate": 0.05,
+    "solar_installation_cost_per_kw": 43500.00
+  },
+  {
+    "city_name": "Bhopal",
+    "country": "India",
+    "avg_daily_sunlight_hours": 5.6,
+    "avg_electricity_cost_per_kwh": 6.90,
+    "grid_inflation_rate": 0.05,
+    "solar_installation_cost_per_kw": 44000.00
+  },
+  {
+    "city_name": "Visakhapatnam",
+    "country": "India",
+    "avg_daily_sunlight_hours": 5.1,
+    "avg_electricity_cost_per_kwh": 7.50,
+    "grid_inflation_rate": 0.05,
+    "solar_installation_cost_per_kw": 48000.00
+  },
+  {
+    "city_name": "Thane",
+    "country": "India",
+    "avg_daily_sunlight_hours": 4.9,
+    "avg_electricity_cost_per_kwh": 10.80,
+    "grid_inflation_rate": 0.05,
+    "solar_installation_cost_per_kw": 54000.00
+  },
+  {
+    "city_name": "Vadodara",
+    "country": "India",
+    "avg_daily_sunlight_hours": 5.8,
+    "avg_electricity_cost_per_kwh": 6.80,
+    "grid_inflation_rate": 0.05,
+    "solar_installation_cost_per_kw": 41500.00
+  },
+  {
+    "city_name": "Coimbatore",
+    "country": "India",
+    "avg_daily_sunlight_hours": 5.3,
+    "avg_electricity_cost_per_kwh": 7.00,
+    "grid_inflation_rate": 0.05,
+    "solar_installation_cost_per_kw": 49000.00
+  }
+]
