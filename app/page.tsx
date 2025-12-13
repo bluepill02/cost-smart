@@ -49,8 +49,8 @@ export default function Home() {
               <Button asChild size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold h-12 px-8 shadow-lg shadow-emerald-200">
                 <Link href="#calculators">Start Calculating</Link>
               </Button>
-              <Button size="lg" variant="outline" className="h-12 px-8 border-slate-300 text-slate-700 bg-white">
-                How It Works
+              <Button asChild size="lg" variant="outline" className="h-12 px-8 border-slate-300 text-slate-700 bg-white">
+                <Link href="/about">How It Works</Link>
               </Button>
             </div>
           </div>
