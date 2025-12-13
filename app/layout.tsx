@@ -34,6 +34,7 @@ export default function RootLayout({
             gtag('config', 'G-XXXXXXXXXX');
           `
         }} />
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4280161410958958" crossOrigin="anonymous"></script>
 
         <Navbar />
         <main className="flex-1">
