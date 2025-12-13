@@ -167,7 +167,10 @@ export default function SolarForm({ cityData }: { cityData: SolarData }) {
             </div>
 
             <div className="flex flex-col gap-3">
-                <Button className="w-full h-14 text-lg bg-slate-900 hover:bg-slate-800 text-white shadow-xl">
+                <Button
+                    className="w-full h-14 text-lg bg-slate-900 hover:bg-slate-800 text-white shadow-xl"
+                    onClick={() => alert("This checks your local installers availability! (Affiliate Link Placeholder)")}
+                >
                     Get My Verified Solar Quote
                 </Button>
 

@@ -285,7 +285,11 @@ export default function ImportForm() {
                                         variant="default"
                                         className="w-full bg-slate-900 hover:bg-slate-800 text-white"
                                     />
-                                    <Button variant="outline" className="w-full border-blue-600 text-blue-700 hover:bg-blue-50">
+                                    <Button
+                                        variant="outline"
+                                        className="w-full border-blue-600 text-blue-700 hover:bg-blue-50"
+                                        onClick={() => alert("Redirects to shipping partner! (Affiliate Link Placeholder)")}
+                                    >
                                         Get Shipping Quote
                                     </Button>
                                 </div>

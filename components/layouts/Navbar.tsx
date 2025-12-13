@@ -30,19 +30,7 @@ export default function Navbar() {
                         About
                     </Link>
                 </div>
-
-                {/* CTA */}
-                <div className="flex items-center gap-4">
-                    {/* Temporary Login/Status Placeholder */}
-                    <Badge variant="outline" className="hidden sm:flex border-slate-200 text-slate-500 font-normal">
-                        Beta v1.0
-                    </Badge>
-                    <Button size="sm" className="bg-slate-900 hover:bg-slate-800 text-white">
-                        Get Updates
-                    </Button>
-                </div>
-
             </div>
-        </nav>
+        </nav >
     );
 }

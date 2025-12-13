@@ -46,8 +46,8 @@ export default function Home() {
               get accurate estimates without the hidden fees.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold h-12 px-8 shadow-lg shadow-emerald-200">
-                Start Calculating
+              <Button asChild size="lg" className="bg-emerald-600 hover:bg-emerald-700 text-white font-semibold h-12 px-8 shadow-lg shadow-emerald-200">
+                <Link href="#calculators">Start Calculating</Link>
               </Button>
               <Button size="lg" variant="outline" className="h-12 px-8 border-slate-300 text-slate-700 bg-white">
                 How It Works
@@ -140,17 +140,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-
-      <footer className="bg-slate-50 border-t border-slate-200 py-12">
-        <div className="container mx-auto px-4 text-center text-slate-500 text-sm">
-          <div className="flex justify-center gap-6 mb-8">
-            <Link href="#" className="hover:text-slate-900">Privacy</Link>
-            <Link href="#" className="hover:text-slate-900">Terms</Link>
-            <Link href="#" className="hover:text-slate-900">Contact</Link>
-          </div>
-          <p>© 2024 CostSmart Inc. All rights reserved.</p>
-        </div>
-      </footer>
     </div>
   );
 }
