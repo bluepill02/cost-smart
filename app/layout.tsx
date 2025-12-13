@@ -9,6 +9,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "CostSmart - Financial Calculators for the Modern Economy",
+  metadataBase: new URL('https://cost-smart-five.vercel.app'),
   description: "Calculate Solar ROI, Import Duties, and more with our precise, data-driven tools.",
   icons: {
     icon: '/favicon.ico', // Default for now

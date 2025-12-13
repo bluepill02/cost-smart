@@ -7,7 +7,7 @@ interface SolarData {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://costsmart.app'; // Production URL
+    const baseUrl = 'https://cost-smart-five.vercel.app'; // Production URL
 
     // Static Routes
     const routes = [
