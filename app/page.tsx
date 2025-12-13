@@ -12,23 +12,7 @@ export default function Home() {
       </div>
 
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/80 backdrop-blur-md">
-        <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2 font-bold text-xl tracking-tight text-slate-900">
-            <div className="h-8 w-8 bg-emerald-500 rounded-lg flex items-center justify-center text-white">
-              <TrendingUp size={20} />
-            </div>
-            CostSmart
-          </div>
-          <div className="hidden md:flex gap-6 text-sm font-medium text-slate-600">
-            <Link href="#calculators" className="hover:text-emerald-600 transition-colors">Tools</Link>
-            <Link href="#about" className="hover:text-emerald-600 transition-colors">About</Link>
-          </div>
-          <Button variant="outline" className="border-slate-200 text-slate-900 hover:bg-slate-50">
-            Log In
-          </Button>
-        </div>
-      </nav>
+
 
       <main>
         {/* Hero Section */}
@@ -134,8 +118,8 @@ export default function Home() {
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-2xl font-bold mb-4">Ready to save money?</h2>
             <p className="text-slate-300 mb-8 max-w-lg mx-auto">Join thousands of smart spenders who use CostSmart to plan their next big financial move.</p>
-            <Button size="lg" className="bg-emerald-500 hover:bg-emerald-600 text-white">
-              Get Started for Free
+            <Button size="lg" className="bg-emerald-500 hover:bg-emerald-600 text-white" asChild>
+              <Link href="#calculators">Get Started for Free</Link>
             </Button>
           </div>
         </section>

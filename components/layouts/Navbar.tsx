@@ -20,7 +20,7 @@ export default function Navbar() {
 
                 {/* Desktop Links */}
                 <div className="hidden md:flex items-center gap-6">
-                    <Link href="/solar-roi/New-York" className="text-sm font-medium text-slate-600 hover:text-emerald-600 transition-colors">
+                    <Link href="/solar-roi" className="text-sm font-medium text-slate-600 hover:text-emerald-600 transition-colors">
                         Solar ROI
                     </Link>
                     <Link href="/import-duty" className="text-sm font-medium text-slate-600 hover:text-emerald-600 transition-colors">

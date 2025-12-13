@@ -21,7 +21,7 @@ export default function NotFound() {
                     </Link>
                 </Button>
                 <Button asChild variant="outline">
-                    <Link href="/solar-roi/New-York">
+                    <Link href="/solar-roi">
                         Try Solar Tool
                     </Link>
                 </Button>

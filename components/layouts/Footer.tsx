@@ -31,7 +31,7 @@ export default function Footer() {
                     <div>
                         <h4 className="text-white font-medium mb-4">Tools</h4>
                         <ul className="space-y-2 text-sm">
-                            <li><Link href="/solar-roi/New-York" className="hover:text-emerald-400">Solar Estimator</Link></li>
+                            <li><Link href="/solar-roi" className="hover:text-emerald-400">Solar Estimator</Link></li>
                             <li><Link href="/import-duty" className="hover:text-emerald-400">Import Calculator</Link></li>
                         </ul>
                     </div>

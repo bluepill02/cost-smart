@@ -39,15 +39,16 @@ function getCityData(cityParam: string): SolarData | undefined {
 }
 
 // --- Dynamic Metadata Generation ---
-export async function generateMetadata({ params }: { params: { city: string } }): Promise<Metadata> {
-    const city = getCityData(params.city);
+export async function generateMetadata({ params }: { params: Promise<{ city: string }> }): Promise<Metadata> {
+    const { city: cityParam } = await params;
+    const city = getCityData(cityParam);
     if (!city) return { title: 'City Not Found' };
 
     return {
         title: `Solar ROI Calculator for ${city.city_name} - Is it Worth it in 2025?`,
         description: `Calculate your exact solar savings in ${city.city_name}. Based on ${city.avg_daily_sunlight_hours} hours of sun and ${city.avg_electricity_cost_per_kwh} ${city.country === 'India' ? 'INR' : 'USD'}/kWh rates.`,
         alternates: {
-            canonical: `https://costsmart.app/solar-roi/${params.city}`,
+            canonical: `https://costsmart.app/solar-roi/${cityParam}`,
         }
     };
 }
@@ -167,8 +168,9 @@ function generateSchema(city: SolarData) {
 }
 
 // --- Main Page Component ---
-export default function CitySolarPage({ params }: { params: { city: string } }) {
-    const city = getCityData(params.city);
+export default async function CitySolarPage({ params }: { params: Promise<{ city: string }> }) {
+    const { city: cityParam } = await params;
+    const city = getCityData(cityParam);
 
     if (!city) {
         notFound();
