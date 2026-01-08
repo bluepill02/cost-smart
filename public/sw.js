@@ -1,6 +1,1 @@
-self.options = {
-    "domain": "3nbf4.com",
-    "zoneId": 10433231
-}
-self.lary = ""
-importScripts('https://3nbf4.com/act/files/service-worker.min.js?r=sw')
+<script src="https://quge5.com/88/tag.min.js" data-zone="199997" async data-cfasync="false"></script>
