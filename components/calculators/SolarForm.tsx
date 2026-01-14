@@ -4,10 +4,12 @@ import React, { useState, useEffect } from 'react';
 import { Slider } from '@/components/ui/slider';
 import { Card, CardContent } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
+import { Input } from '@/components/ui/input';
 import ShareButton from '@/components/features/ShareButton';
-import { Sun, BatteryCharging, DollarSign } from 'lucide-react';
+import { Sun, BatteryCharging, DollarSign, Loader2, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
+import { useAIClassifier } from '@/lib/hooks/useAIClassifier';
 
 interface SolarData {
     city_name: string;
@@ -29,8 +31,50 @@ export default function SolarForm({ cityData }: { cityData: SolarData }) {
     const [savings20Year, setSavings20Year] = useState(0);
     const [paybackPeriod, setPaybackPeriod] = useState(0);
     const [chartData, setChartData] = useState<ChartData[]>([]);
+    const [homeDescription, setHomeDescription] = useState('');
+
+    // AI Estimator
+    const { classify, result: usageTier, loading: aiLoading } = useAIClassifier();
 
     const currencySymbol = cityData.country === 'India' ? '₹' : '$';
+
+    // Debounce AI call
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            if (homeDescription.length > 5) {
+                classify(homeDescription, ['Low Usage', 'Medium Usage', 'High Usage', 'Very High Usage']);
+            }
+        }, 1000);
+        return () => clearTimeout(timer);
+    }, [homeDescription]);
+
+    // Update Bill based on AI Tier
+    useEffect(() => {
+        if (usageTier) {
+            // Estimate kWh based on tier
+            let estimatedKwh = 800; // Medium default
+
+            switch (usageTier) {
+                case 'Low Usage':
+                    estimatedKwh = 350; // Apartment / small home
+                    break;
+                case 'Medium Usage':
+                    estimatedKwh = 900; // Average home
+                    break;
+                case 'High Usage':
+                    estimatedKwh = 1600; // Large home / AC
+                    break;
+                case 'Very High Usage':
+                    estimatedKwh = 2500; // Estate / EV + Pool
+                    break;
+            }
+
+            // Calculate bill based on local rate
+            // Bill = kWh * Cost/kWh
+            const calculatedBill = Math.round(estimatedKwh * cityData.avg_electricity_cost_per_kwh);
+            setBill(calculatedBill);
+        }
+    }, [usageTier, cityData.avg_electricity_cost_per_kwh]);
 
     useEffect(() => {
         // 1. Calculate Monthly Usage (kWh) = Bill / Cost per kWh
@@ -90,6 +134,30 @@ export default function SolarForm({ cityData }: { cityData: SolarData }) {
     return (
         <div className="space-y-8">
             <div className="space-y-6">
+
+                {/* AI Estimator Input */}
+                <div className="bg-slate-50 p-4 rounded-xl border border-slate-100 space-y-3">
+                    <div className="flex justify-between items-center">
+                        <Label className="font-semibold text-slate-700 flex items-center gap-2">
+                            <Sparkles className="w-4 h-4 text-emerald-500" />
+                            AI Bill Estimator
+                        </Label>
+                        {aiLoading && <span className="text-xs text-emerald-600 flex items-center gap-1"><Loader2 className="w-3 h-3 animate-spin" /> Analyzing...</span>}
+                        {!aiLoading && usageTier && <span className="text-xs font-medium text-emerald-700 bg-emerald-100 px-2 py-1 rounded-full">{usageTier} Detected</span>}
+                    </div>
+                    <div className="relative">
+                        <Input
+                            placeholder="Describe your home (e.g., 3 bedrooms, AC, pool, 2 people)..."
+                            value={homeDescription}
+                            onChange={(e) => setHomeDescription(e.target.value)}
+                            className="bg-white"
+                        />
+                    </div>
+                    <p className="text-xs text-slate-400">
+                        Don't know your bill? Describe your home and we'll estimate it for you.
+                    </p>
+                </div>
+
                 <div className="space-y-4">
                     <div className="flex justify-between items-center mb-2">
                         <Label className="text-lg font-medium">Average Monthly Electricity Bill</Label>

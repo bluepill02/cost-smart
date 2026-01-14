@@ -17,7 +17,7 @@ import { cn } from '@/lib/utils';
 // --- Types & Constants ---
 
 type Country = 'China' | 'USA' | 'India' | 'Germany' | 'UAE' | 'UK' | 'Canada';
-type Category = 'Electronics' | 'Clothing' | 'Auto Parts' | 'Beauty';
+type Category = 'Electronics' | 'Clothing' | 'Auto Parts' | 'Beauty' | 'Toys' | 'Furniture' | 'Footwear' | 'Sports Equipment';
 
 interface DutyData {
     dutyRate: number; // Percentage (e.g., 0.25 for 25%)
@@ -28,34 +28,34 @@ interface DutyData {
 // Estimates based on standard MFN and recent trade policies (e.g. China 301 tariffs)
 const DUTY_MATRIX: Record<string, Record<string, Record<Category, number>>> = {
     'USA': {
-        'China': { 'Electronics': 0.25, 'Clothing': 0.20, 'Auto Parts': 0.25, 'Beauty': 0.10 },
-        'India': { 'Electronics': 0.05, 'Clothing': 0.10, 'Auto Parts': 0.025, 'Beauty': 0.05 },
-        'Germany': { 'Electronics': 0.0, 'Clothing': 0.05, 'Auto Parts': 0.025, 'Beauty': 0.0 }, // EU-US relations
-        'UAE': { 'Electronics': 0.0, 'Clothing': 0.10, 'Auto Parts': 0.025, 'Beauty': 0.05 },
-        'USA': { 'Electronics': 0, 'Clothing': 0, 'Auto Parts': 0, 'Beauty': 0 } // Domestic
+        'China': { 'Electronics': 0.25, 'Clothing': 0.20, 'Auto Parts': 0.25, 'Beauty': 0.10, 'Toys': 0.15, 'Furniture': 0.10, 'Footwear': 0.25, 'Sports Equipment': 0.10 },
+        'India': { 'Electronics': 0.05, 'Clothing': 0.10, 'Auto Parts': 0.025, 'Beauty': 0.05, 'Toys': 0.05, 'Furniture': 0.0, 'Footwear': 0.10, 'Sports Equipment': 0.05 },
+        'Germany': { 'Electronics': 0.0, 'Clothing': 0.05, 'Auto Parts': 0.025, 'Beauty': 0.0, 'Toys': 0.0, 'Furniture': 0.0, 'Footwear': 0.05, 'Sports Equipment': 0.0 },
+        'UAE': { 'Electronics': 0.0, 'Clothing': 0.10, 'Auto Parts': 0.025, 'Beauty': 0.05, 'Toys': 0.05, 'Furniture': 0.05, 'Footwear': 0.10, 'Sports Equipment': 0.05 },
+        'USA': { 'Electronics': 0, 'Clothing': 0, 'Auto Parts': 0, 'Beauty': 0, 'Toys': 0, 'Furniture': 0, 'Footwear': 0, 'Sports Equipment': 0 }
     },
     'India': {
-        'China': { 'Electronics': 0.20, 'Clothing': 0.25, 'Auto Parts': 0.15, 'Beauty': 0.20 },
-        'USA': { 'Electronics': 0.15, 'Clothing': 0.20, 'Auto Parts': 0.15, 'Beauty': 0.20 },
-        'Germany': { 'Electronics': 0.10, 'Clothing': 0.20, 'Auto Parts': 0.15, 'Beauty': 0.20 },
-        'UAE': { 'Electronics': 0.10, 'Clothing': 0.15, 'Auto Parts': 0.10, 'Beauty': 0.15 }, // CEPA benefits? simplified
-        'India': { 'Electronics': 0, 'Clothing': 0, 'Auto Parts': 0, 'Beauty': 0 }
+        'China': { 'Electronics': 0.20, 'Clothing': 0.25, 'Auto Parts': 0.15, 'Beauty': 0.20, 'Toys': 0.60, 'Furniture': 0.25, 'Footwear': 0.35, 'Sports Equipment': 0.20 },
+        'USA': { 'Electronics': 0.15, 'Clothing': 0.20, 'Auto Parts': 0.15, 'Beauty': 0.20, 'Toys': 0.20, 'Furniture': 0.20, 'Footwear': 0.25, 'Sports Equipment': 0.15 },
+        'Germany': { 'Electronics': 0.10, 'Clothing': 0.20, 'Auto Parts': 0.15, 'Beauty': 0.20, 'Toys': 0.20, 'Furniture': 0.20, 'Footwear': 0.25, 'Sports Equipment': 0.15 },
+        'UAE': { 'Electronics': 0.10, 'Clothing': 0.15, 'Auto Parts': 0.10, 'Beauty': 0.15, 'Toys': 0.15, 'Furniture': 0.15, 'Footwear': 0.20, 'Sports Equipment': 0.15 },
+        'India': { 'Electronics': 0, 'Clothing': 0, 'Auto Parts': 0, 'Beauty': 0, 'Toys': 0, 'Furniture': 0, 'Footwear': 0, 'Sports Equipment': 0 }
     },
     'UK': {
-        'China': { 'Electronics': 0.12, 'Clothing': 0.12, 'Auto Parts': 0.10, 'Beauty': 0.08 },
-        'USA': { 'Electronics': 0.0, 'Clothing': 0.12, 'Auto Parts': 0.10, 'Beauty': 0.0 },
-        'India': { 'Electronics': 0.0, 'Clothing': 0.10, 'Auto Parts': 0.08, 'Beauty': 0.0 },
-        'Germany': { 'Electronics': 0.0, 'Clothing': 0.0, 'Auto Parts': 0.0, 'Beauty': 0.0 }, // Brexit/EU rules?
-        'UAE': { 'Electronics': 0.05, 'Clothing': 0.10, 'Auto Parts': 0.05, 'Beauty': 0.05 },
-        'UK': { 'Electronics': 0, 'Clothing': 0, 'Auto Parts': 0, 'Beauty': 0 }
+        'China': { 'Electronics': 0.12, 'Clothing': 0.12, 'Auto Parts': 0.10, 'Beauty': 0.08, 'Toys': 0.10, 'Furniture': 0.06, 'Footwear': 0.16, 'Sports Equipment': 0.08 },
+        'USA': { 'Electronics': 0.0, 'Clothing': 0.12, 'Auto Parts': 0.10, 'Beauty': 0.0, 'Toys': 0.0, 'Furniture': 0.0, 'Footwear': 0.12, 'Sports Equipment': 0.0 },
+        'India': { 'Electronics': 0.0, 'Clothing': 0.10, 'Auto Parts': 0.08, 'Beauty': 0.0, 'Toys': 0.0, 'Furniture': 0.0, 'Footwear': 0.10, 'Sports Equipment': 0.0 },
+        'Germany': { 'Electronics': 0.0, 'Clothing': 0.0, 'Auto Parts': 0.0, 'Beauty': 0.0, 'Toys': 0.0, 'Furniture': 0.0, 'Footwear': 0.0, 'Sports Equipment': 0.0 },
+        'UAE': { 'Electronics': 0.05, 'Clothing': 0.10, 'Auto Parts': 0.05, 'Beauty': 0.05, 'Toys': 0.05, 'Furniture': 0.05, 'Footwear': 0.08, 'Sports Equipment': 0.05 },
+        'UK': { 'Electronics': 0, 'Clothing': 0, 'Auto Parts': 0, 'Beauty': 0, 'Toys': 0, 'Furniture': 0, 'Footwear': 0, 'Sports Equipment': 0 }
     },
     'Canada': {
-        'China': { 'Electronics': 0.06, 'Clothing': 0.18, 'Auto Parts': 0.06, 'Beauty': 0.065 },
-        'USA': { 'Electronics': 0.0, 'Clothing': 0.0, 'Auto Parts': 0.0, 'Beauty': 0.0 }, // USMCA
-        'India': { 'Electronics': 0.0, 'Clothing': 0.17, 'Auto Parts': 0.06, 'Beauty': 0.065 },
-        'Germany': { 'Electronics': 0.0, 'Clothing': 0.18, 'Auto Parts': 0.0, 'Beauty': 0.0 }, // CETA
-        'UAE': { 'Electronics': 0.05, 'Clothing': 0.15, 'Auto Parts': 0.05, 'Beauty': 0.05 },
-        'Canada': { 'Electronics': 0, 'Clothing': 0, 'Auto Parts': 0, 'Beauty': 0 }
+        'China': { 'Electronics': 0.06, 'Clothing': 0.18, 'Auto Parts': 0.06, 'Beauty': 0.065, 'Toys': 0.08, 'Furniture': 0.095, 'Footwear': 0.18, 'Sports Equipment': 0.07 },
+        'USA': { 'Electronics': 0.0, 'Clothing': 0.0, 'Auto Parts': 0.0, 'Beauty': 0.0, 'Toys': 0.0, 'Furniture': 0.0, 'Footwear': 0.0, 'Sports Equipment': 0.0 },
+        'India': { 'Electronics': 0.0, 'Clothing': 0.17, 'Auto Parts': 0.06, 'Beauty': 0.065, 'Toys': 0.05, 'Furniture': 0.095, 'Footwear': 0.17, 'Sports Equipment': 0.05 },
+        'Germany': { 'Electronics': 0.0, 'Clothing': 0.18, 'Auto Parts': 0.0, 'Beauty': 0.0, 'Toys': 0.0, 'Furniture': 0.0, 'Footwear': 0.18, 'Sports Equipment': 0.0 },
+        'UAE': { 'Electronics': 0.05, 'Clothing': 0.15, 'Auto Parts': 0.05, 'Beauty': 0.05, 'Toys': 0.05, 'Furniture': 0.05, 'Footwear': 0.10, 'Sports Equipment': 0.05 },
+        'Canada': { 'Electronics': 0, 'Clothing': 0, 'Auto Parts': 0, 'Beauty': 0, 'Toys': 0, 'Furniture': 0, 'Footwear': 0, 'Sports Equipment': 0 }
     }
 };
 
@@ -81,7 +81,7 @@ export default function ImportForm() {
     React.useEffect(() => {
         const timer = setTimeout(() => {
             if (description.length > 3) {
-                classify(description, ['Electronics', 'Clothing', 'Auto Parts', 'Beauty']);
+                classify(description, ['Electronics', 'Clothing', 'Auto Parts', 'Beauty', 'Toys', 'Furniture', 'Footwear', 'Sports Equipment']);
             }
         }, 800);
         return () => clearTimeout(timer);
@@ -223,6 +223,10 @@ export default function ImportForm() {
                                     <SelectItem value="Clothing">Clothing & Apparel</SelectItem>
                                     <SelectItem value="Auto Parts">Automotive Parts</SelectItem>
                                     <SelectItem value="Beauty">Beauty & Cosmetics</SelectItem>
+                                    <SelectItem value="Toys">Toys & Games</SelectItem>
+                                    <SelectItem value="Furniture">Furniture & Home</SelectItem>
+                                    <SelectItem value="Footwear">Footwear</SelectItem>
+                                    <SelectItem value="Sports Equipment">Sports Equipment</SelectItem>
                                     <SelectItem value="Custom">Custom / Other</SelectItem>
                                 </SelectContent>
                             </Select>
