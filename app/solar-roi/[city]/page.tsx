@@ -158,7 +158,7 @@ export default async function CitySolarPage({ params }: { params: Promise<{ city
             <div className="container mx-auto px-4 max-w-5xl">
                 {/* Breadcrumb / Header */}
                 <div className="mb-8">
-                    <AdContainer size="leaderboard" className="mb-8" />
+                    <AdContainer size="leaderboard" className="mb-8" slotId="1475703853" />
                     <h1 className="text-3xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
                         Solar ROI in <span className="text-emerald-600">{city.city_name}</span>
                     </h1>
@@ -190,7 +190,7 @@ export default async function CitySolarPage({ params }: { params: Promise<{ city
                         </div>
 
                         {/* Ad Placeholder (Inline) - High CTR Location: Between Form and Content */}
-                        <AdContainer size="inline" className="my-8" />
+                        <AdContainer size="inline" className="my-8" slotId="1475703853" />
 
                     </div>
 
@@ -218,7 +218,7 @@ export default async function CitySolarPage({ params }: { params: Promise<{ city
                             </Card>
 
                             {/* Sidebar Ad - Sticky Visibility */}
-                            <AdContainer size="rectangle" />
+                            <AdContainer size="rectangle" slotId="1475703853" />
                         </div>
                     </div>
                 </div>

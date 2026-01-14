@@ -7,6 +7,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // Static Routes
     const routes = [
         '',
+        '/solar-roi',
         '/import-duty',
         '/about',
         '/privacy',
