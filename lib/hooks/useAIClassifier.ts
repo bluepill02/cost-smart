@@ -2,59 +2,72 @@
 "use client";
 
 import { useEffect, useState, useRef } from 'react';
+import { workerManager } from '../worker-manager';
 
 // Define the worker type for better type safety if extending later
 type WorkerMessage = {
     status: 'ready' | 'initiate' | 'progress' | 'complete' | 'error';
-    output?: any;
-    data?: any;
+    output?: string;
+    data?: string;
+    id?: string;
 };
 
 // We use a Web Worker to run the heavy AI model off the main thread
 export function useAIClassifier() {
-    const [ready, setReady] = useState<boolean | null>(null);
+    const [ready, setReady] = useState<boolean | null>(() => workerManager.isReady());
     const [result, setResult] = useState<string | null>(null);
     const [loading, setLoading] = useState(false);
-    const worker = useRef<Worker | null>(null);
+    const requestIdRef = useRef<string | null>(null);
 
     useEffect(() => {
-        if (!worker.current) {
-            // Create the worker relative to the public folder
-            // We need to create the actual worker file as well
-            worker.current = new Worker(new URL('./ai-worker.ts', import.meta.url), {
-                type: 'module'
-            });
-        }
+        // We still need to listen for 'ready' in case it wasn't ready on mount
+        // validation: if ready is already true, this is redundant but harmless as setReady(true) won't re-render
 
         const onMessage = (event: MessageEvent<WorkerMessage>) => {
-            switch (event.data.status) {
-                case 'ready':
-                    setReady(true);
-                    break;
+            const { status, id, output, data } = event.data;
+
+            // Global ready status
+            if (status === 'ready') {
+                setReady(true);
+                return;
+            }
+
+            // For task-specific messages, check ID
+            if (id && id !== requestIdRef.current) {
+                return;
+            }
+
+            switch (status) {
                 case 'complete':
-                    setResult(event.data.output);
+                    if (output) setResult(output);
                     setLoading(false);
+                    requestIdRef.current = null;
+                    break;
+                case 'error':
+                    console.error('Worker reported error:', data);
+                    setLoading(false);
+                    requestIdRef.current = null;
                     break;
             }
         };
 
-        worker.current.addEventListener('message', onMessage);
+        workerManager.addListener(onMessage);
 
+        // Clean up listener, but NOT the worker
         return () => {
-            worker.current?.removeEventListener('message', onMessage);
-            worker.current?.terminate();
-            worker.current = null;
+            workerManager.removeListener(onMessage);
         };
     }, []);
 
     const classify = (text: string, labels: string[]) => {
-        if (worker.current) {
-            setLoading(true);
-            worker.current.postMessage({
-                text,
-                labels
-            });
-        }
+        const id = Math.random().toString(36).substring(7);
+        requestIdRef.current = id;
+        setLoading(true);
+        workerManager.postMessage({
+            text,
+            labels,
+            id
+        });
     };
 
     return { ready, classify, result, loading };
