@@ -4,6 +4,15 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import AdContainer from '@/components/ads/AdContainer';
 import { AIAssistant } from '@/components/features/AIAssistant';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'CostSmart - Financial Calculators for the Modern Economy',
+  description: 'Calculate Solar ROI, Import Duties, and more with our precise, data-driven tools.',
+  alternates: {
+    canonical: 'https://cost-smart-five.vercel.app',
+  },
+};
 
 export default function Home() {
   return (
