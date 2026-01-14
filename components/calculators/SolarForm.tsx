@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Slider } from '@/components/ui/slider';
 import { Card, CardContent } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
@@ -27,10 +27,6 @@ interface ChartData {
 
 export default function SolarForm({ cityData }: { cityData: SolarData }) {
     const [bill, setBill] = useState(150); // Default monthly bill
-    const [systemSize, setSystemSize] = useState(0);
-    const [savings20Year, setSavings20Year] = useState(0);
-    const [paybackPeriod, setPaybackPeriod] = useState(0);
-    const [chartData, setChartData] = useState<ChartData[]>([]);
     const [homeDescription, setHomeDescription] = useState('');
 
     // AI Estimator
@@ -46,7 +42,7 @@ export default function SolarForm({ cityData }: { cityData: SolarData }) {
             }
         }, 1000);
         return () => clearTimeout(timer);
-    }, [homeDescription]);
+    }, [homeDescription, classify]);
 
     // Update Bill based on AI Tier
     useEffect(() => {
@@ -72,17 +68,20 @@ export default function SolarForm({ cityData }: { cityData: SolarData }) {
             // Calculate bill based on local rate
             // Bill = kWh * Cost/kWh
             const calculatedBill = Math.round(estimatedKwh * cityData.avg_electricity_cost_per_kwh);
-            setBill(calculatedBill);
+            if (bill !== calculatedBill) {
+                 setBill(calculatedBill);
+            }
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [usageTier, cityData.avg_electricity_cost_per_kwh]);
 
-    useEffect(() => {
+    // Memoize the expensive calculations to avoid re-renders on every slider move
+    const { systemSize, savings20Year, paybackPeriod, chartData } = useMemo(() => {
         // 1. Calculate Monthly Usage (kWh) = Bill / Cost per kWh
         const monthlyKwh = bill / cityData.avg_electricity_cost_per_kwh;
 
         // 2. Required System Size (kW) = (Monthly Usage / 30) / Avg Sun Hours / 0.75 (Efficiency factor)
         const requiredKw = (monthlyKwh / 30) / cityData.avg_daily_sunlight_hours / 0.75;
-        setSystemSize(requiredKw);
 
         // 3. System Cost = Size * Cost/kW
         const grossCost = requiredKw * cityData.solar_installation_cost_per_kw;
@@ -93,7 +92,7 @@ export default function SolarForm({ cityData }: { cityData: SolarData }) {
         let cumulativeSavings = 0 - netCost; // Start negative (investment)
         const dataPoints: ChartData[] = [];
 
-        let currentAnnualBill = bill * 12;
+        const currentAnnualBill = bill * 12;
         // Initial Investment Year 0
         dataPoints.push({ year: 'Start', savings: Math.round(cumulativeSavings) });
 
@@ -125,9 +124,12 @@ export default function SolarForm({ cityData }: { cityData: SolarData }) {
             total20Year += avoidedBill;
         }
 
-        setSavings20Year(total20Year);
-        setPaybackPeriod(breakEvenYear || 0); // Use the chart derived one or fallback
-        setChartData(dataPoints);
+        return {
+            systemSize: requiredKw,
+            savings20Year: total20Year,
+            paybackPeriod: breakEvenYear || 0,
+            chartData: dataPoints
+        };
 
     }, [bill, cityData]);
 
@@ -154,7 +156,7 @@ export default function SolarForm({ cityData }: { cityData: SolarData }) {
                         />
                     </div>
                     <p className="text-xs text-slate-400">
-                        Don't know your bill? Describe your home and we'll estimate it for you.
+                        Don&apos;t know your bill? Describe your home and we&apos;ll estimate it for you.
                     </p>
                 </div>
 
