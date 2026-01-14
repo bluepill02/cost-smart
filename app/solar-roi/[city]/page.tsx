@@ -1,42 +1,12 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
-import fs from 'fs';
-import path from 'path';
 import SolarForm from '@/components/calculators/SolarForm';
 import AdContainer from '@/components/ads/AdContainer';
 import RelatedTools from '@/components/layouts/RelatedTools';
 import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from 'lucide-react';
 
-// --- Type Definitions ---
-interface SolarData {
-    city_name: string;
-    country: string;
-    avg_daily_sunlight_hours: number;
-    avg_electricity_cost_per_kwh: number;
-    grid_inflation_rate: number;
-    solar_installation_cost_per_kw: number;
-}
-
-// --- Data Fetching Helper ---
-// In a real app, this might be a DB call. Here we read the JSON file.
-async function getCityData(cityParam: string): Promise<SolarData | undefined> {
-    try {
-        const filePath = path.join(process.cwd(), 'code_block.json');
-        const fileContents = await fs.promises.readFile(filePath, 'utf8');
-        const data: SolarData[] = JSON.parse(fileContents);
-
-        // Normalize comparison (e.g. "new-york" -> "New York")
-        // Simple lookup for now matching the exact name or simple slug
-        const normalizedParam = cityParam.replace(/-/g, ' ').toLowerCase();
-
-        return data.find(c => c.city_name.toLowerCase() === normalizedParam);
-    } catch (error) {
-        console.error("Error reading solar data", error);
-        return undefined;
-    }
-}
+import { getCityData, SolarData } from '@/lib/solar-data';
 
 // --- Dynamic Metadata Generation ---
 export async function generateMetadata({ params }: { params: Promise<{ city: string }> }): Promise<Metadata> {
@@ -68,7 +38,7 @@ function generateIntroText(city: SolarData) {
         (
             <>
                 <p>
-                    Is solar worth it in <strong>{city.city_name}</strong>? The numbers suggest a strong "Yes."
+                    Is solar worth it in <strong>{city.city_name}</strong>? The numbers suggest a strong &quot;Yes.&quot;
                     With local electricity rates hovering around <strong>{currency}{city.avg_electricity_cost_per_kwh}/kWh</strong>,
                     homeowners are increasingly looking for relief from monthly bills.
                 </p>
@@ -118,7 +88,7 @@ function generateIntroText(city: SolarData) {
                 <p className="mt-4">
                     When plugged into our ROI algorithm against the local tariff of {currency}{city.avg_electricity_cost_per_kwh}/kWh,
                     the math points towards substantial long-term savings.
-                    {isHighCost ? "Since your local rates are higher than average, every kWh you generate is 'worth' more, accelerating your payback period." : "Ideally suited for net-metering strategies, your local climate supports consistent generation year-round."}
+                    {isHighCost ? "Since your local rates are higher than average, every kWh you generate is &apos;worth&apos; more, accelerating your payback period." : "Ideally suited for net-metering strategies, your local climate supports consistent generation year-round."}
                 </p>
             </>
         ),
@@ -126,7 +96,7 @@ function generateIntroText(city: SolarData) {
         (
             <>
                 <p>
-                    Investing in solar in <strong>{city.city_name}</strong> is about more than just the monthly bill—it's about asset value.
+                    Investing in solar in <strong>{city.city_name}</strong> is about more than just the monthly bill—it&apos;s about asset value.
                     Homes with solar installations in high-sun areas (receiving {city.avg_daily_sunlight_hours} hours/day) often see increased property valuations.
                 </p>
                 <p className="mt-4">
