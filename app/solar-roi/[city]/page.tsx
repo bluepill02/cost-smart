@@ -11,7 +11,7 @@ import { getCityData, SolarData } from '@/lib/solar-data';
 // --- Dynamic Metadata Generation ---
 export async function generateMetadata({ params }: { params: Promise<{ city: string }> }): Promise<Metadata> {
     const { city: cityParam } = await params;
-    const city = getCityData(cityParam);
+    const city = await getCityData(cityParam);
     if (!city) return { title: 'City Not Found' };
 
     return {
@@ -140,7 +140,7 @@ function generateSchema(city: SolarData) {
 // --- Main Page Component ---
 export default async function CitySolarPage({ params }: { params: Promise<{ city: string }> }) {
     const { city: cityParam } = await params;
-    const city = getCityData(cityParam);
+    const city = await getCityData(cityParam);
 
     if (!city) {
         notFound();
