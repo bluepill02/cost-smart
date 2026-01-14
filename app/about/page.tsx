@@ -20,7 +20,7 @@ export default function AboutPage() {
                     Making Complex Costs <span className="text-emerald-600">Transparent</span>.
                 </h1>
                 <p className="text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto">
-                    We believe financial clarity shouldn't cost a fortune. CostSmart provides free, professional-grade tools to help you navigate the hidden costs of the modern economy—from solar investments to international trade.
+                    We believe financial clarity shouldn&apos;t cost a fortune. CostSmart provides free, professional-grade tools to help you navigate the hidden costs of the modern economy—from solar investments to international trade.
                 </p>
             </div>
 
@@ -50,7 +50,7 @@ export default function AboutPage() {
                     </div>
                     <h3 className="text-lg font-bold text-slate-900 mb-2">Unbiased Data</h3>
                     <p className="text-slate-600">
-                        We don't sell solar panels or shipping services. Our calculations are 100% objective and user-first.
+                        We don&apos;t sell solar panels or shipping services. Our calculations are 100% objective and user-first.
                     </p>
                 </div>
             </div>
@@ -59,7 +59,7 @@ export default function AboutPage() {
             <div className="bg-slate-50 rounded-3xl p-8 md:p-12 text-center">
                 <h2 className="text-3xl font-bold text-slate-900 mb-4">Built for the future.</h2>
                 <p className="text-slate-600 mb-8 max-w-2xl mx-auto">
-                    CostSmart was founded to answer the simple question: "Is it actually worth it?"
+                    CostSmart was founded to answer the simple question: &quot;Is it actually worth it?&quot;
                     In a world of inflation and hidden fees, we help you do the math before you spend the money.
                 </p>
                 <div className="flex justify-center gap-4">
