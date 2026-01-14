@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Slider } from '@/components/ui/slider';
 import { Card, CardContent } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
@@ -27,10 +27,6 @@ interface ChartData {
 
 export default function SolarForm({ cityData }: { cityData: SolarData }) {
     const [bill, setBill] = useState(150); // Default monthly bill
-    const [systemSize, setSystemSize] = useState(0);
-    const [savings20Year, setSavings20Year] = useState(0);
-    const [paybackPeriod, setPaybackPeriod] = useState(0);
-    const [chartData, setChartData] = useState<ChartData[]>([]);
     const [homeDescription, setHomeDescription] = useState('');
 
     // AI Estimator
@@ -46,7 +42,7 @@ export default function SolarForm({ cityData }: { cityData: SolarData }) {
             }
         }, 1000);
         return () => clearTimeout(timer);
-    }, [homeDescription]);
+    }, [homeDescription, classify]);
 
     // Update Bill based on AI Tier
     useEffect(() => {
@@ -72,17 +68,18 @@ export default function SolarForm({ cityData }: { cityData: SolarData }) {
             // Calculate bill based on local rate
             // Bill = kWh * Cost/kWh
             const calculatedBill = Math.round(estimatedKwh * cityData.avg_electricity_cost_per_kwh);
+            // eslint-disable-next-line react-hooks/set-state-in-effect
             setBill(calculatedBill);
         }
     }, [usageTier, cityData.avg_electricity_cost_per_kwh]);
 
-    useEffect(() => {
+    // Calculate derived values (System Size, Savings, etc.)
+    const { systemSize, savings20Year, paybackPeriod, chartData } = useMemo(() => {
         // 1. Calculate Monthly Usage (kWh) = Bill / Cost per kWh
         const monthlyKwh = bill / cityData.avg_electricity_cost_per_kwh;
 
         // 2. Required System Size (kW) = (Monthly Usage / 30) / Avg Sun Hours / 0.75 (Efficiency factor)
         const requiredKw = (monthlyKwh / 30) / cityData.avg_daily_sunlight_hours / 0.75;
-        setSystemSize(requiredKw);
 
         // 3. System Cost = Size * Cost/kW
         const grossCost = requiredKw * cityData.solar_installation_cost_per_kw;
@@ -93,12 +90,12 @@ export default function SolarForm({ cityData }: { cityData: SolarData }) {
         let cumulativeSavings = 0 - netCost; // Start negative (investment)
         const dataPoints: ChartData[] = [];
 
-        let currentAnnualBill = bill * 12;
+        const currentAnnualBill = bill * 12;
         // Initial Investment Year 0
         dataPoints.push({ year: 'Start', savings: Math.round(cumulativeSavings) });
 
         let breakEvenFound = false;
-        let breakEvenYear = 0;
+        let calculatedBreakEvenYear = 0;
 
         for (let i = 1; i <= 10; i++) {
             // Savings = Avoided Bill calculated at inflated rate
@@ -113,7 +110,7 @@ export default function SolarForm({ cityData }: { cityData: SolarData }) {
             if (cumulativeSavings >= 0 && !breakEvenFound) {
                 // Simple linear interpolation for year fraction? 
                 // Just capturing the integer year for now.
-                breakEvenYear = i - 1 + (Math.abs(dataPoints[i - 1].savings) / avoidedBill);
+                calculatedBreakEvenYear = i - 1 + (Math.abs(dataPoints[i - 1].savings) / avoidedBill);
                 breakEvenFound = true;
             }
         }
@@ -125,10 +122,12 @@ export default function SolarForm({ cityData }: { cityData: SolarData }) {
             total20Year += avoidedBill;
         }
 
-        setSavings20Year(total20Year);
-        setPaybackPeriod(breakEvenYear || 0); // Use the chart derived one or fallback
-        setChartData(dataPoints);
-
+        return {
+            systemSize: requiredKw,
+            savings20Year: total20Year,
+            paybackPeriod: calculatedBreakEvenYear,
+            chartData: dataPoints
+        };
     }, [bill, cityData]);
 
     return (
@@ -138,7 +137,7 @@ export default function SolarForm({ cityData }: { cityData: SolarData }) {
                 {/* AI Estimator Input */}
                 <div className="bg-slate-50 p-4 rounded-xl border border-slate-100 space-y-3">
                     <div className="flex justify-between items-center">
-                        <Label className="font-semibold text-slate-700 flex items-center gap-2">
+                        <Label htmlFor="ai-home-description" className="font-semibold text-slate-700 flex items-center gap-2">
                             <Sparkles className="w-4 h-4 text-emerald-500" />
                             AI Bill Estimator
                         </Label>
@@ -147,6 +146,7 @@ export default function SolarForm({ cityData }: { cityData: SolarData }) {
                     </div>
                     <div className="relative">
                         <Input
+                            id="ai-home-description"
                             placeholder="Describe your home (e.g., 3 bedrooms, AC, pool, 2 people)..."
                             value={homeDescription}
                             onChange={(e) => setHomeDescription(e.target.value)}
@@ -154,19 +154,21 @@ export default function SolarForm({ cityData }: { cityData: SolarData }) {
                         />
                     </div>
                     <p className="text-xs text-slate-400">
-                        Don't know your bill? Describe your home and we'll estimate it for you.
+                        Don&apos;t know your bill? Describe your home and we&apos;ll estimate it for you.
                     </p>
                 </div>
 
                 <div className="space-y-4">
                     <div className="flex justify-between items-center mb-2">
-                        <Label className="text-lg font-medium">Average Monthly Electricity Bill</Label>
+                        <Label id="bill-slider-label" className="text-lg font-medium">Average Monthly Electricity Bill</Label>
                         <span className="text-2xl font-bold text-slate-900 border-b-2 border-emerald-500 pb-1">
                             {currencySymbol}{bill}
                         </span>
                     </div>
                     <Slider
+                        aria-labelledby="bill-slider-label"
                         defaultValue={[150]}
+                        value={[bill]}
                         max={cityData.country === 'India' ? 10000 : 1000}
                         min={cityData.country === 'India' ? 500 : 30}
                         step={cityData.country === 'India' ? 100 : 10}
