@@ -87,13 +87,6 @@ export default function ImportForm() {
         return () => clearTimeout(timer);
     }, [description]);
 
-    // Auto-select category
-    React.useEffect(() => {
-        if (aiCategory) {
-            handleCategoryChange(aiCategory as Category);
-        }
-    }, [aiCategory]);
-
     // Handle Category Change
     const handleCategoryChange = (val: Category | 'Custom') => {
         setCategory(val);
@@ -105,6 +98,13 @@ export default function ImportForm() {
             setCustomDutyRate((rate * 100).toFixed(1)); // Convert 0.25 -> "25.0"
         }
     };
+
+    // Auto-select category
+    React.useEffect(() => {
+        if (aiCategory) {
+            handleCategoryChange(aiCategory as Category);
+        }
+    }, [aiCategory]);
 
     // Update rate if Origin/Dest changes and Category is already selected (and not Custom)
     React.useEffect(() => {
@@ -163,9 +163,9 @@ export default function ImportForm() {
 
                     <div className="grid sm:grid-cols-2 gap-4">
                         <div className="space-y-2">
-                            <Label>Origin Country</Label>
+                            <Label htmlFor="origin-country">Origin Country</Label>
                             <Select onValueChange={setOrigin} value={origin}>
-                                <SelectTrigger>
+                                <SelectTrigger id="origin-country">
                                     <SelectValue placeholder="Where is it from?" />
                                 </SelectTrigger>
                                 <SelectContent>
@@ -179,9 +179,9 @@ export default function ImportForm() {
                         </div>
 
                         <div className="space-y-2">
-                            <Label>Destination Country</Label>
+                            <Label htmlFor="destination-country">Destination Country</Label>
                             <Select onValueChange={setDestination} value={destination}>
-                                <SelectTrigger>
+                                <SelectTrigger id="destination-country">
                                     <SelectValue placeholder="Where is it going?" />
                                 </SelectTrigger>
                                 <SelectContent>
@@ -199,12 +199,13 @@ export default function ImportForm() {
 
 
                     <div className="space-y-2">
-                        <Label className="flex justify-between">
+                        <Label htmlFor="product-description" className="flex justify-between">
                             Product Description
                             {aiLoading && <span className="text-xs text-emerald-600 flex items-center gap-1"><Loader2 className="w-3 h-3 animate-spin" /> AI Analyzing...</span>}
                             {!aiLoading && aiCategory && <span className="text-xs text-emerald-600 flex items-center gap-1"><Sparkles className="w-3 h-3" /> Detected: {aiCategory}</span>}
                         </Label>
                         <Input
+                            id="product-description"
                             placeholder="e.g. Wireless Noise Cancelling Headphones"
                             value={description}
                             onChange={(e) => setDescription(e.target.value)}
@@ -213,9 +214,9 @@ export default function ImportForm() {
 
                     <div className="grid sm:grid-cols-2 gap-4">
                         <div className="space-y-2">
-                            <Label>Product Category</Label>
+                            <Label htmlFor="product-category">Product Category</Label>
                             <Select onValueChange={(v) => handleCategoryChange(v as Category | 'Custom')} value={category}>
-                                <SelectTrigger>
+                                <SelectTrigger id="product-category">
                                     <SelectValue placeholder="What kind of item?" />
                                 </SelectTrigger>
                                 <SelectContent>
@@ -229,7 +230,7 @@ export default function ImportForm() {
                         </div>
 
                         <div className="space-y-2">
-                            <Label className="flex items-center gap-2">
+                            <Label htmlFor="duty-rate" className="flex items-center gap-2">
                                 Duty Rate (%)
                                 {category !== 'Custom' && category !== '' && (
                                     <span className="text-xs font-normal text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">
@@ -238,7 +239,9 @@ export default function ImportForm() {
                                 )}
                             </Label>
                             <Input
+                                id="duty-rate"
                                 type="number"
+                                min="0"
                                 placeholder="e.g. 10"
                                 value={customDutyRate}
                                 onChange={(e) => setCustomDutyRate(e.target.value)}
@@ -253,9 +256,11 @@ export default function ImportForm() {
                     </div>
 
                     <div className="space-y-2">
-                        <Label>Product Value ({currencySymbol})</Label>
+                        <Label htmlFor="product-value">Product Value ({currencySymbol})</Label>
                         <Input
+                            id="product-value"
                             type="number"
+                            min="0"
                             placeholder="e.g. 500"
                             value={productValue}
                             onChange={(e) => setProductValue(e.target.value)}
