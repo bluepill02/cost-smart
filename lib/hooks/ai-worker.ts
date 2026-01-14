@@ -8,11 +8,13 @@ env.useBrowserCache = true;
 class TextClassifier {
     static task = 'zero-shot-classification';
     static model = 'Xenova/mobilebert-uncased-mnli'; // Small, fast
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     static instance: any = null;
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
     static async getInstance(progress_callback: Function | undefined = undefined) {
         if (this.instance === null) {
-            // @ts-ignore
+            // @ts-expect-error - pipeline signature issues in this version
             this.instance = await pipeline(this.task, this.model, {
                 progress_callback
             });
@@ -22,10 +24,11 @@ class TextClassifier {
 }
 
 self.addEventListener('message', async (event) => {
-    const { text, labels } = event.data;
+    const { text, labels, id } = event.data;
 
     try {
-        const classifier = await TextClassifier.getInstance((data: any) => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars
+        const classifier = await TextClassifier.getInstance((_data: any) => {
             // Can post progress back
         });
 
@@ -38,13 +41,16 @@ self.addEventListener('message', async (event) => {
 
         self.postMessage({
             status: 'complete',
-            output: topLabel
+            output: topLabel,
+            id
         });
 
-    } catch (e: any) {
+    } catch (e: unknown) {
+        const message = e instanceof Error ? e.message : String(e);
         self.postMessage({
             status: 'error',
-            data: e.message
+            data: message,
+            id
         });
     }
 });
