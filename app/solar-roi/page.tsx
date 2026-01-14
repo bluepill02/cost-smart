@@ -1,37 +1,16 @@
 
 import Link from 'next/link';
 import { Metadata } from 'next';
-import fs from 'fs';
-import path from 'path';
 import { ArrowRight } from 'lucide-react';
+import { getAllCities } from '@/lib/solar-data';
 
 export const metadata: Metadata = {
     title: 'Select Your City - Solar ROI Calculator',
     description: 'Find your city to calculate accurate solar savings. Calculate payback periods, tax credits, and 20-year savings.'
 };
 
-interface SolarData {
-    city_name: string;
-    country: string;
-}
-
-function getCities(): SolarData[] {
-    try {
-        const filePath = path.join(process.cwd(), 'code_block.json');
-        const fileContents = fs.readFileSync(filePath, 'utf8');
-        // Return top 60 cities (mixed USA/India)
-        const allData = JSON.parse(fileContents);
-        // Simple filter for variety or just first 60?
-        // Let's take all of them if not too huge? 300 is fine for a page.
-        // Actually showing all 300 is good for SEO internal linking.
-        return allData;
-    } catch {
-        return [];
-    }
-}
-
-export default function SolarLandingPage() {
-    const cities = getCities();
+export default async function SolarLandingPage() {
+    const cities = await getAllCities();
     const featuredCity = cities.length > 0 ? cities[0] : null;
 
     return (
