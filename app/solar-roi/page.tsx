@@ -7,7 +7,10 @@ import { CitySearch } from '@/components/features/CitySearch';
 
 export const metadata: Metadata = {
     title: 'Select Your City - Solar ROI Calculator',
-    description: 'Find your city to calculate accurate solar savings. Calculate payback periods, tax credits, and 20-year savings.'
+    description: 'Find your city to calculate accurate solar savings. Calculate payback periods, tax credits, and 20-year savings.',
+    alternates: {
+        canonical: 'https://cost-smart-five.vercel.app/solar-roi',
+    }
 };
 
 export default async function SolarLandingPage() {

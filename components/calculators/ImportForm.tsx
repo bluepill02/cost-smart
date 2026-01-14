@@ -1,13 +1,13 @@
 "use client";
 
-import React, { useState, useMemo } from 'react';
-import { Calculator, AlertCircle, TrendingUp, Info } from 'lucide-react';
+import React, { useState, useMemo, useCallback } from 'react';
+import { Calculator, TrendingUp, Info } from 'lucide-react';
 import AdContainer from '@/components/ads/AdContainer';
 import ShareButton from '@/components/features/ShareButton';
 import { useAIClassifier } from '@/lib/hooks/useAIClassifier';
 import { Loader2, Sparkles } from 'lucide-react';
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -16,13 +16,7 @@ import { cn } from '@/lib/utils';
 
 // --- Types & Constants ---
 
-type Country = 'China' | 'USA' | 'India' | 'Germany' | 'UAE' | 'UK' | 'Canada';
 type Category = 'Electronics' | 'Clothing' | 'Auto Parts' | 'Beauty' | 'Toys' | 'Furniture' | 'Footwear' | 'Sports Equipment';
-
-interface DutyData {
-    dutyRate: number; // Percentage (e.g., 0.25 for 25%)
-    vatRate: number;  // VAT/GST Percentage
-}
 
 // Simplified Rate Matrix (Destination -> Origin -> Category -> Rate)
 // Estimates based on standard MFN and recent trade policies (e.g. China 301 tariffs)
@@ -85,26 +79,22 @@ export default function ImportForm() {
             }
         }, 800);
         return () => clearTimeout(timer);
-    }, [description]);
+    }, [description, classify]);
 
     // Handle Category Change
-    const handleCategoryChange = (val: Category | 'Custom') => {
+    const handleCategoryChange = useCallback((val: Category | 'Custom') => {
         setCategory(val);
         if (val === 'Custom') {
             setCustomDutyRate(''); // Clear for manual input
-        } else if (origin && destination) {
-            // Auto-fill average from matrix if available
-            const rate = DUTY_MATRIX[destination]?.[origin]?.[val] ?? 0.10;
-            setCustomDutyRate((rate * 100).toFixed(1)); // Convert 0.25 -> "25.0"
         }
-    };
+    }, []);
 
     // Auto-select category
     React.useEffect(() => {
         if (aiCategory) {
             handleCategoryChange(aiCategory as Category);
         }
-    }, [aiCategory]);
+    }, [aiCategory, handleCategoryChange]);
 
     // Update rate if Origin/Dest changes and Category is already selected (and not Custom)
     React.useEffect(() => {
@@ -112,7 +102,7 @@ export default function ImportForm() {
             const rate = DUTY_MATRIX[destination]?.[origin]?.[category as Category] ?? 0.10;
             setCustomDutyRate((rate * 100).toFixed(1));
         }
-    }, [origin, destination]);
+    }, [origin, destination, category]);
 
 
     const result = useMemo(() => {
