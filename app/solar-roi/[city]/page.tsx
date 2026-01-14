@@ -21,10 +21,10 @@ interface SolarData {
 
 // --- Data Fetching Helper ---
 // In a real app, this might be a DB call. Here we read the JSON file.
-function getCityData(cityParam: string): SolarData | undefined {
+async function getCityData(cityParam: string): Promise<SolarData | undefined> {
     try {
         const filePath = path.join(process.cwd(), 'code_block.json');
-        const fileContents = fs.readFileSync(filePath, 'utf8');
+        const fileContents = await fs.promises.readFile(filePath, 'utf8');
         const data: SolarData[] = JSON.parse(fileContents);
 
         // Normalize comparison (e.g. "new-york" -> "New York")
@@ -41,7 +41,7 @@ function getCityData(cityParam: string): SolarData | undefined {
 // --- Dynamic Metadata Generation ---
 export async function generateMetadata({ params }: { params: Promise<{ city: string }> }): Promise<Metadata> {
     const { city: cityParam } = await params;
-    const city = getCityData(cityParam);
+    const city = await getCityData(cityParam);
     if (!city) return { title: 'City Not Found' };
 
     return {
@@ -170,7 +170,7 @@ function generateSchema(city: SolarData) {
 // --- Main Page Component ---
 export default async function CitySolarPage({ params }: { params: Promise<{ city: string }> }) {
     const { city: cityParam } = await params;
-    const city = getCityData(cityParam);
+    const city = await getCityData(cityParam);
 
     if (!city) {
         notFound();
