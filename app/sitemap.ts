@@ -1,12 +1,7 @@
 import { MetadataRoute } from 'next';
-import fs from 'fs';
-import path from 'path';
+import { getAllCities } from '@/lib/solar-data';
 
-interface SolarData {
-    city_name: string;
-}
-
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const baseUrl = 'https://cost-smart-five.vercel.app'; // Production URL
 
     // Static Routes
@@ -26,14 +21,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Dynamic Solar Routes
     let cityRoutes: MetadataRoute.Sitemap = [];
     try {
-        const filePath = path.join(process.cwd(), 'code_block.json');
-        const fileContents = fs.readFileSync(filePath, 'utf8');
-        const data: SolarData[] = JSON.parse(fileContents);
+        const data = await getAllCities();
 
         cityRoutes = data.map((city) => ({
             url: `${baseUrl}/solar-roi/${city.city_name.replace(/ /g, '-')}`,
             lastModified: new Date(),
-            changeFrequency: 'weekly',
+            changeFrequency: 'weekly' as const,
             priority: 0.9, // High priority for landing pages
         }));
     } catch (error) {
