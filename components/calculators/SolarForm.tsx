@@ -10,6 +10,7 @@ import { Sun, BatteryCharging, DollarSign, Loader2, Sparkles } from 'lucide-reac
 import { Button } from '@/components/ui/button';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import { useAIClassifier } from '@/lib/hooks/useAIClassifier';
+import { cn } from '@/lib/utils';
 
 interface SolarData {
     city_name: string;
@@ -28,6 +29,7 @@ interface ChartData {
 export default function SolarForm({ cityData }: { cityData: SolarData }) {
     const [bill, setBill] = useState(150); // Default monthly bill
     const [homeDescription, setHomeDescription] = useState('');
+    const [isBillHighlighted, setIsBillHighlighted] = useState(false);
 
     // AI Estimator
     const { classify, result: usageTier, loading: aiLoading } = useAIClassifier();
@@ -68,15 +70,18 @@ export default function SolarForm({ cityData }: { cityData: SolarData }) {
             // Calculate bill based on local rate
             // Bill = kWh * Cost/kWh
             const calculatedBill = Math.round(estimatedKwh * cityData.avg_electricity_cost_per_kwh);
-            if (bill !== calculatedBill) {
-                 setBill(calculatedBill);
-            }
+            // eslint-disable-next-line react-hooks/set-state-in-effect
+            setBill(calculatedBill);
+
+            // Trigger visual feedback
+            setIsBillHighlighted(true);
+            const timer = setTimeout(() => setIsBillHighlighted(false), 2000);
+            return () => clearTimeout(timer);
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [usageTier, cityData.avg_electricity_cost_per_kwh]);
 
-    // Memoize the expensive calculations to avoid re-renders on every slider move
-    const { systemSize, savings20Year, paybackPeriod, chartData } = useMemo(() => {
+    const { systemSize, savings20Year, paybackPeriod, chartData } = React.useMemo(() => {
         // 1. Calculate Monthly Usage (kWh) = Bill / Cost per kWh
         const monthlyKwh = bill / cityData.avg_electricity_cost_per_kwh;
 
@@ -140,7 +145,7 @@ export default function SolarForm({ cityData }: { cityData: SolarData }) {
                 {/* AI Estimator Input */}
                 <div className="bg-slate-50 p-4 rounded-xl border border-slate-100 space-y-3">
                     <div className="flex justify-between items-center">
-                        <Label className="font-semibold text-slate-700 flex items-center gap-2">
+                        <Label htmlFor="home-description" className="font-semibold text-slate-700 flex items-center gap-2">
                             <Sparkles className="w-4 h-4 text-emerald-500" />
                             AI Bill Estimator
                         </Label>
@@ -149,6 +154,7 @@ export default function SolarForm({ cityData }: { cityData: SolarData }) {
                     </div>
                     <div className="relative">
                         <Input
+                            id="home-description"
                             placeholder="Describe your home (e.g., 3 bedrooms, AC, pool, 2 people)..."
                             value={homeDescription}
                             onChange={(e) => setHomeDescription(e.target.value)}
@@ -163,11 +169,15 @@ export default function SolarForm({ cityData }: { cityData: SolarData }) {
                 <div className="space-y-4">
                     <div className="flex justify-between items-center mb-2">
                         <Label className="text-lg font-medium">Average Monthly Electricity Bill</Label>
-                        <span className="text-2xl font-bold text-slate-900 border-b-2 border-emerald-500 pb-1">
+                        <span className={cn(
+                            "text-2xl font-bold text-slate-900 border-b-2 border-emerald-500 pb-1 transition-all duration-500",
+                            isBillHighlighted && "text-emerald-600 scale-110 border-emerald-600 bg-emerald-50 px-2 rounded"
+                        )}>
                             {currencySymbol}{bill}
                         </span>
                     </div>
                     <Slider
+                        aria-label="Average Monthly Electricity Bill"
                         defaultValue={[150]}
                         max={cityData.country === 'India' ? 10000 : 1000}
                         min={cityData.country === 'India' ? 500 : 30}
