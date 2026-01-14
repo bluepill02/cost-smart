@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Slider } from '@/components/ui/slider';
 import { Card, CardContent } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
@@ -78,6 +78,7 @@ export default function SolarForm({ cityData }: { cityData: SolarData }) {
             const timer = setTimeout(() => setIsBillHighlighted(false), 2000);
             return () => clearTimeout(timer);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [usageTier, cityData.avg_electricity_cost_per_kwh]);
 
     const { systemSize, savings20Year, paybackPeriod, chartData } = React.useMemo(() => {
