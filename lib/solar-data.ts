@@ -1,4 +1,4 @@
-import fs from 'fs';
+import { promises as fs } from 'fs';
 import path from 'path';
 
 export interface SolarData {
@@ -12,15 +12,23 @@ export interface SolarData {
 
 let cachedData: SolarData[] | null = null;
 
+async function loadDataIfNeeded() {
+    if (!cachedData) {
+        const filePath = path.join(process.cwd(), 'code_block.json');
+        const fileContents = await fs.readFile(filePath, 'utf8');
+        cachedData = JSON.parse(fileContents);
+    }
+}
+
 // --- Data Fetching Helper ---
-// In a real app, this might be a DB call. Here we read the JSON file.
-export function getCityData(cityParam: string): SolarData | undefined {
+export async function getCityData(cityParam: string): Promise<SolarData | undefined> {
     try {
-        if (!cachedData) {
-            const filePath = path.join(process.cwd(), 'code_block.json');
-            const fileContents = fs.readFileSync(filePath, 'utf8');
-            cachedData = JSON.parse(fileContents);
+        // Defensive check: ensure cityParam is provided
+        if (!cityParam) {
+             return undefined;
         }
+
+        await loadDataIfNeeded();
 
         // Normalize comparison (e.g. "new-york" -> "New York")
         // Simple lookup for now matching the exact name or simple slug
@@ -30,5 +38,15 @@ export function getCityData(cityParam: string): SolarData | undefined {
     } catch (error) {
         console.error("Error reading solar data", error);
         return undefined;
+    }
+}
+
+export async function getAllCities(): Promise<SolarData[]> {
+    try {
+        await loadDataIfNeeded();
+        return cachedData || [];
+    } catch (error) {
+        console.error("Error reading all cities data", error);
+        return [];
     }
 }
