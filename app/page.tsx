@@ -20,7 +20,7 @@ export default function Home() {
 
       {/* Top Ad Banner */}
       <div className="container mx-auto px-4 mt-4">
-         <AdContainer className="h-[90px] md:h-[120px]" />
+         <AdContainer className="h-[90px] md:h-[120px]" slotId="1475703853" />
       </div>
 
       <main>
