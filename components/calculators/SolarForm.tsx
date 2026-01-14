@@ -102,7 +102,7 @@ export default function SolarForm({ cityData }: { cityData: SolarData }) {
         dataPoints.push({ year: 'Start', savings: Math.round(cumulativeSavings) });
 
         let breakEvenFound = false;
-        let breakEvenYear = 0;
+        let calculatedBreakEvenYear = 0;
 
         for (let i = 1; i <= 10; i++) {
             // Savings = Avoided Bill calculated at inflated rate
@@ -117,7 +117,7 @@ export default function SolarForm({ cityData }: { cityData: SolarData }) {
             if (cumulativeSavings >= 0 && !breakEvenFound) {
                 // Simple linear interpolation for year fraction? 
                 // Just capturing the integer year for now.
-                breakEvenYear = i - 1 + (Math.abs(dataPoints[i - 1].savings) / avoidedBill);
+                calculatedBreakEvenYear = i - 1 + (Math.abs(dataPoints[i - 1].savings) / avoidedBill);
                 breakEvenFound = true;
             }
         }
@@ -179,6 +179,7 @@ export default function SolarForm({ cityData }: { cityData: SolarData }) {
                     <Slider
                         aria-label="Average Monthly Electricity Bill"
                         defaultValue={[150]}
+                        value={[bill]}
                         max={cityData.country === 'India' ? 10000 : 1000}
                         min={cityData.country === 'India' ? 500 : 30}
                         step={cityData.country === 'India' ? 100 : 10}
