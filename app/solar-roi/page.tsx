@@ -39,7 +39,7 @@ export default function SolarLandingPage() {
             <div className="text-center mb-12">
                 <h1 className="text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Select Your City</h1>
                 <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-                    We've modeled solar potential for {cities.length} cities across the US and India.
+                    We&apos;ve modeled solar potential for {cities.length} cities across the US and India.
                     Select yours to see your personalized savings report.
                 </p>
             </div>

@@ -26,7 +26,7 @@ export default function Home() {
               Make Smarter <span className="text-emerald-600">Financial Decisions</span>
             </h1>
             <p className="text-lg md:text-xl text-slate-600 mb-10 leading-relaxed max-w-2xl mx-auto">
-              Calculate your true costs instantly. Whether you're going green or going global,
+              Calculate your true costs instantly. Whether you&apos;re going green or going global,
               get accurate estimates without the hidden fees.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -104,7 +104,7 @@ export default function Home() {
             </div>
             <div className="p-6">
               <h3 className="font-bold text-lg mb-2">Privacy First</h3>
-              <p className="text-slate-500">No email required. We don't store your financial data.</p>
+              <p className="text-slate-500">No email required. We don&apos;t store your financial data.</p>
             </div>
             <div className="p-6">
               <h3 className="font-bold text-lg mb-2">Mobile Optimized</h3>
