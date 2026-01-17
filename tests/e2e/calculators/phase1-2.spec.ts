@@ -26,12 +26,14 @@ test.describe('Phase 1.2 Calculators', () => {
     await page.goto('/emergency-fund-calculator');
 
     // Input: $5,000 Monthly Expense, 6 Months, $10,000 Current
-    // Using getByLabel now that accessibility IDs are fixed
-    await page.getByLabel('Monthly Living Expenses ($)').fill('5000');
+    // Using IDs for robustness
+    const monthlyExpense = page.locator('#monthlyExpense');
+    await monthlyExpense.waitFor({ state: 'visible' });
+    await monthlyExpense.fill('5000');
 
     // Default months is 6.
 
-    await page.getByLabel('Current Emergency Cash').fill('10000');
+    await page.locator('#currentSavings').fill('10000');
 
     // Required: 5000 * 6 = 30000
     // Gap: 30000 - 10000 = 20000
