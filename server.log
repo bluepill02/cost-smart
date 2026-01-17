@@ -225,3 +225,160 @@ The width(-1) and height(-1) of chart should be greater than 0,
  GET /in/income-tax-calculator 200 in 397ms (compile: 3ms, render: 394ms)
  GET /in/salary-calculator 200 in 349ms (compile: 4ms, render: 345ms)
  GET /debt-payoff-calculator 200 in 153ms (compile: 3ms, render: 150ms)
+ GET / 200 in 1879ms (compile: 333ms, render: 1546ms)
+ GET / 200 in 815ms (compile: 17ms, render: 798ms)
+ GET /in/income-tax-calculator 200 in 1885ms (compile: 56ms, render: 1829ms)
+ GET /in/salary-calculator 200 in 1514ms (compile: 183ms, render: 1331ms)
+ GET /debt-payoff-calculator 200 in 430ms (compile: 30ms, render: 400ms)
+ GET / 200 in 4.0s (compile: 655ms, render: 3.3s)
+ GET / 200 in 261ms (compile: 6ms, render: 255ms)
+ ○ Compiling /home-loan-calculator ...
+ ⨯ ./components/calculators/tax/GSTCalculator.tsx:10:1
+Module not found: Can't resolve '@/components/ui/radio-group'
+[0m [90m  8 |[39m [36mimport[39m { [33mButton[39m } [36mfrom[39m [32m'@/components/ui/button'[39m[33m;[39m
+ [90m  9 |[39m [36mimport[39m { [33mSelect[39m[33m,[39m [33mSelectContent[39m[33m,[39m [33mSelectItem[39m[33m,[39m [33mSelectTrigger[39m[33m,[39m [33mSelectValue[39m } [36mfrom[39m [32m"@/components/ui/select"[39m[33m;[39m
+[31m[1m>[22m[39m[90m 10 |[39m [36mimport[39m { [33mRadioGroup[39m[33m,[39m [33mRadioGroupItem[39m } [36mfrom[39m [32m"@/components/ui/radio-group"[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 11 |[39m [36mimport[39m { formatCurrency } [36mfrom[39m [32m'@/lib/formatters'[39m[33m;[39m
+ [90m 12 |[39m
+ [90m 13 |[39m [36minterface[39m [33mGSTResult[39m {[0m
+
+Import map: aliased to relative './components/ui/radio-group' inside of [project]/
+
+
+Import trace:
+  Server Component:
+    ./components/calculators/tax/GSTCalculator.tsx
+    ./app/in/gst-calculator/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+
+./app/in/gst-calculator/page.tsx:4:1
+Export JsonLd doesn't exist in target module
+[0m [90m 2 |[39m [36mimport[39m type { [33mMetadata[39m } [36mfrom[39m [32m'next'[39m[33m;[39m
+ [90m 3 |[39m [36mimport[39m [33mGSTCalculator[39m [36mfrom[39m [32m'@/components/calculators/tax/GSTCalculator'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 4 |[39m [36mimport[39m { [33mJsonLd[39m } [36mfrom[39m [32m'@/components/seo/JsonLd'[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 5 |[39m
+ [90m 6 |[39m [36mexport[39m [36mconst[39m metadata[33m:[39m [33mMetadata[39m [33m=[39m {
+ [90m 7 |[39m   title[33m:[39m [32m'GST Calculator India | Inclusive vs Exclusive GST Calculation (2025)'[39m[33m,[39m[0m
+
+The export JsonLd was not found in module [project]/components/seo/JsonLd.tsx [app-rsc] (ecmascript).
+Did you mean to import default?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+
+ ⨯ ./components/calculators/loan/HomeLoanCalculator.tsx:10:1
+Module not found: Can't resolve '@/components/ui/switch'
+[0m [90m  8 |[39m [36mimport[39m { [33mButton[39m } [36mfrom[39m [32m'@/components/ui/button'[39m[33m;[39m
+ [90m  9 |[39m [36mimport[39m { [33mSlider[39m } [36mfrom[39m [32m'@/components/ui/slider'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 10 |[39m [36mimport[39m { [33mSwitch[39m } [36mfrom[39m [32m"@/components/ui/switch"[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 11 |[39m [36mimport[39m { formatCurrency } [36mfrom[39m [32m'@/lib/formatters'[39m[33m;[39m
+ [90m 12 |[39m [36mimport[39m dynamic [36mfrom[39m [32m'next/dynamic'[39m[33m;[39m
+ [90m 13 |[39m[0m
+
+Import map: aliased to relative './components/ui/switch' inside of [project]/
+
+
+Import trace:
+  Server Component:
+    ./components/calculators/loan/HomeLoanCalculator.tsx
+    ./app/home-loan-calculator/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+
+./app/home-loan-calculator/page.tsx:4:1
+Export JsonLd doesn't exist in target module
+[0m [90m 2 |[39m [36mimport[39m type { [33mMetadata[39m } [36mfrom[39m [32m'next'[39m[33m;[39m
+ [90m 3 |[39m [36mimport[39m [33mHomeLoanCalculator[39m [36mfrom[39m [32m'@/components/calculators/loan/HomeLoanCalculator'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 4 |[39m [36mimport[39m { [33mJsonLd[39m } [36mfrom[39m [32m'@/components/seo/JsonLd'[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 5 |[39m
+ [90m 6 |[39m [36mexport[39m [36mconst[39m metadata[33m:[39m [33mMetadata[39m [33m=[39m {
+ [90m 7 |[39m   title[33m:[39m [32m'Home Loan EMI Calculator with Prepayment | Amortization Schedule'[39m[33m,[39m[0m
+
+The export JsonLd was not found in module [project]/components/seo/JsonLd.tsx [app-rsc] (ecmascript).
+Did you mean to import default?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+
+ GET /in/gst-calculator 500 in 12.6s (compile: 12.1s, render: 482ms)
+ GET /home-loan-calculator 500 in 12.6s (compile: 12.6s, render: 43ms)
+ ⨯ ./components/calculators/real-estate/RentVsBuyCalculator.tsx:9:1
+Module not found: Can't resolve '@/components/ui/tabs'
+[0m [90m  7 |[39m [36mimport[39m { [33mInput[39m } [36mfrom[39m [32m'@/components/ui/input'[39m[33m;[39m
+ [90m  8 |[39m [36mimport[39m { [33mSlider[39m } [36mfrom[39m [32m'@/components/ui/slider'[39m[33m;[39m
+[31m[1m>[22m[39m[90m  9 |[39m [36mimport[39m { [33mTabs[39m[33m,[39m [33mTabsContent[39m[33m,[39m [33mTabsList[39m[33m,[39m [33mTabsTrigger[39m } [36mfrom[39m [32m"@/components/ui/tabs"[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 10 |[39m [36mimport[39m { formatCurrency } [36mfrom[39m [32m'@/lib/formatters'[39m[33m;[39m
+ [90m 11 |[39m [36mimport[39m dynamic [36mfrom[39m [32m'next/dynamic'[39m[33m;[39m
+ [90m 12 |[39m[0m
+
+Import map: aliased to relative './components/ui/tabs' inside of [project]/
+
+
+Import trace:
+  Server Component:
+    ./components/calculators/real-estate/RentVsBuyCalculator.tsx
+    ./app/rent-vs-buy-calculator/page.tsx
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+
+./app/rent-vs-buy-calculator/page.tsx:4:1
+Export JsonLd doesn't exist in target module
+[0m [90m 2 |[39m [36mimport[39m type { [33mMetadata[39m } [36mfrom[39m [32m'next'[39m[33m;[39m
+ [90m 3 |[39m [36mimport[39m [33mRentVsBuyCalculator[39m [36mfrom[39m [32m'@/components/calculators/real-estate/RentVsBuyCalculator'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 4 |[39m [36mimport[39m { [33mJsonLd[39m } [36mfrom[39m [32m'@/components/seo/JsonLd'[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 5 |[39m
+ [90m 6 |[39m [36mexport[39m [36mconst[39m metadata[33m:[39m [33mMetadata[39m [33m=[39m {
+ [90m 7 |[39m   title[33m:[39m [32m'Rent vs Buy Calculator | Real Estate Decision Tool'[39m[33m,[39m[0m
+
+The export JsonLd was not found in module [project]/components/seo/JsonLd.tsx [app-rsc] (ecmascript).
+Did you mean to import default?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+
+ GET /rent-vs-buy-calculator 500 in 1062ms (compile: 1045ms, render: 16ms)
+ GET / 200 in 181ms (compile: 48ms, render: 133ms)
+ GET / 200 in 119ms (compile: 3ms, render: 116ms)
+ GET /in/salary-calculator 200 in 781ms (compile: 76ms, render: 705ms)
+ GET /in/income-tax-calculator 200 in 800ms (compile: 225ms, render: 575ms)
+ GET /debt-payoff-calculator 200 in 251ms (compile: 61ms, render: 190ms)
+ GET /sw.js?v=3.1.644&o=0802c154e24f4a37f07c58ce64170bb2&pub=0&p=10433502&tg=0 404 in 232ms (compile: 96ms, render: 136ms)
+ ✓ Compiled in 96ms
+ ✓ Compiled in 56ms
+ ✓ Compiled in 55ms
+ ✓ Compiled in 46ms
+ ✓ Compiled in 48ms
+ ✓ Compiled in 47ms
+ GET / 200 in 225ms (compile: 72ms, render: 153ms)
+ GET / 200 in 124ms (compile: 3ms, render: 121ms)
+ GET /home-loan-calculator 200 in 1189ms (compile: 588ms, render: 602ms)
+ GET /in/gst-calculator 200 in 1192ms (compile: 311ms, render: 881ms)
+ GET /rent-vs-buy-calculator 200 in 561ms (compile: 203ms, render: 358ms)
+ GET /sw.js?v=3.1.644&o=0802c18624b64643e8a291f236cdf85a&pub=0&p=10433502&tg=0 404 in 70ms (compile: 12ms, render: 58ms)
+ GET / 200 in 165ms (compile: 41ms, render: 124ms)
+ GET / 200 in 121ms (compile: 3ms, render: 119ms)
+ GET /in/gst-calculator 200 in 318ms (compile: 3ms, render: 315ms)
+ GET /home-loan-calculator 200 in 239ms (compile: 8ms, render: 232ms)
+ GET /rent-vs-buy-calculator 200 in 409ms (compile: 124ms, render: 285ms)
+ GET /sw.js?v=3.1.644&o=0802c10ea2ba4524f7bed5845b378a17&pub=0&p=10433502&tg=0 404 in 118ms (compile: 8ms, render: 110ms)
+ GET / 200 in 306ms (compile: 62ms, render: 244ms)
+ GET / 200 in 188ms (compile: 4ms, render: 184ms)
+ GET /home-loan-calculator 200 in 369ms (compile: 10ms, render: 360ms)
+ GET /in/gst-calculator 200 in 293ms (compile: 4ms, render: 290ms)
+ GET /rent-vs-buy-calculator 200 in 116ms (compile: 3ms, render: 113ms)
+ GET /in/gst-calculator 200 in 164ms (compile: 20ms, render: 143ms)
+ GET /sw.js?v=3.1.644&o=0802c130b86749cde24b2526c81095f6&pub=0&p=10433502&tg=0 404 in 112ms (compile: 7ms, render: 104ms)
+ GET /home-loan-calculator 200 in 127ms (compile: 4ms, render: 123ms)
+ GET /sw.js?v=3.1.644&o=0802c130b86749cde24b2526c81095f6&pub=0&p=10433502&tg=0 404 in 69ms (compile: 5ms, render: 64ms)
+ GET /rent-vs-buy-calculator 200 in 108ms (compile: 4ms, render: 104ms)
+ GET /sw.js?v=3.1.644&o=0802c130b86749cde24b2526c81095f6&pub=0&p=10433502&tg=0 404 in 70ms (compile: 5ms, render: 65ms)
