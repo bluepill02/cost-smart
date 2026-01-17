@@ -1,18 +1,36 @@
 
-> cost-smart@0.1.0 start /app
-> next start
+> cost-smart@0.1.0 dev /app
+> next dev
 
-   ▲ Next.js 16.0.10
+   ▲ Next.js 16.0.10 (Turbopack)
    - Local:         http://localhost:3000
    - Network:       http://192.168.0.2:3000
 
  ✓ Starting...
- ⚠ Invalid next.config.ts options detected:
- ⚠     Unrecognized key(s) in object: 'serverComponentsExternalPackages' at "experimental"
- ⚠ See more info here: https://nextjs.org/docs/messages/invalid-next-config
- ⚠ `experimental.serverComponentsExternalPackages` has been moved to `serverExternalPackages`. Please update your next.config.ts file accordingly.
- ✓ Ready in 739ms
-The width(-1) and height(-1) of chart should be greater than 0,
-       please check the style of container, or the props width(100%) and height(100%),
-       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
-       height and width.
+Attention: Next.js now collects completely anonymous telemetry regarding usage.
+This information is used to shape Next.js' roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://nextjs.org/telemetry
+
+ ✓ Ready in 1346ms
+ ○ Compiling /loan-calculator ...
+ GET /loan-calculator 200 in 8.0s (compile: 6.7s, render: 1345ms)
+ ⨯ RangeError: Invalid currency code : â¹
+    at new NumberFormat (<anonymous>)
+    at formatCurrency (lib/formatters.ts:2:12)
+    at LoanCalculator (components/calculators/loan/LoanCalculator.tsx:165:102)
+  1 | export const formatCurrency = (value: number, currency: string = 'USD', locale: string = 'en-US'): string => {
+> 2 |     return new Intl.NumberFormat(locale, {
+    |            ^
+  3 |         style: 'currency',
+  4 |         currency: currency,
+  5 |         maximumFractionDigits: 0, {
+  digest: '2420031765'
+}
+ GET /in/emi-calculator 500 in 1793ms (compile: 1534ms, render: 259ms)
+ ✓ Compiled in 73ms
+ GET /loan-calculator 200 in 414ms (compile: 99ms, render: 315ms)
+ GET /in/emi-calculator 200 in 331ms (compile: 105ms, render: 226ms)
+ GET /investment-calculator 200 in 1450ms (compile: 1237ms, render: 213ms)
+ GET /in/sip-calculator 200 in 1138ms (compile: 993ms, render: 146ms)
+ GET /in/ppf-calculator 200 in 1163ms (compile: 938ms, render: 225ms)
