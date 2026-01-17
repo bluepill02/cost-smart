@@ -1,6 +1,15 @@
 import { promises as fs } from 'fs';
 import path from 'path';
 
+/**
+ * Solar Data Interface
+ * Represents the solar potential and economic factors for a specific city.
+ *
+ * Data Sources:
+ * - Sunlight Hours: Derived from NREL PVWatts API averages for the region.
+ * - Electricity Cost: Based on EIA (Energy Information Administration) state averages.
+ * - Installation Cost: Industry standard estimates (NREL Q1 Benchmarks).
+ */
 export interface SolarData {
     city_name: string;
     country: string;
@@ -34,6 +43,8 @@ export async function getCityData(cityParam: string): Promise<SolarData | undefi
         // Simple lookup for now matching the exact name or simple slug
         const normalizedParam = cityParam.replace(/-/g, ' ').toLowerCase();
 
+        // Note: The dataset may contain duplicate cities.
+        // We strictly use the first occurrence to ensure deterministic behavior.
         return cachedData!.find(c => c.city_name.toLowerCase() === normalizedParam);
     } catch (error) {
         console.error("Error reading solar data", error);
