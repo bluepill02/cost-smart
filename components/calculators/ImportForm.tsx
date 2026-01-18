@@ -1,17 +1,18 @@
 "use client";
 
 import React, { useState, useMemo, useCallback } from 'react';
-import { Calculator, TrendingUp, Info } from 'lucide-react';
+import { Calculator, TrendingUp, Info, ShieldCheck, ExternalLink } from 'lucide-react';
 import AdContainer from '@/components/ads/AdContainer';
 import ShareButton from '@/components/features/ShareButton';
 import { useAIClassifier } from '@/lib/hooks/useAIClassifier';
 import { Loader2, Sparkles } from 'lucide-react';
 
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { cn } from '@/lib/utils';
 
 // --- Types & Constants ---
@@ -184,10 +185,6 @@ export default function ImportForm() {
                         </div>
                     </div>
 
-
-
-
-
                     <div className="space-y-2">
                         <Label htmlFor="product-description" className="flex justify-between">
                             Product Description
@@ -263,12 +260,29 @@ export default function ImportForm() {
                         <p className="text-xs text-slate-500">Enter the invoice value of the goods.</p>
                     </div>
 
-                    <div className="pt-4 flex items-center gap-3 text-sm text-slate-500 bg-slate-50 p-4 rounded-lg border border-slate-100">
-                        <Info className="w-4 h-4 text-blue-500 shrink-0" />
-                        <p><strong>Disclaimer:</strong> Estimates for planning purposes only. Consult a customs broker for final clearance. Actual fees may vary.</p>
-                    </div>
-
                 </CardContent>
+                <CardFooter className="flex-col items-start gap-4 bg-slate-50/50 rounded-b-xl border-t border-slate-100 p-6">
+                     <div className="flex items-start gap-3">
+                         <ShieldCheck className="w-5 h-5 text-emerald-600 shrink-0 mt-0.5" />
+                         <div>
+                             <h4 className="text-sm font-semibold text-slate-900">Official Data Sources</h4>
+                             <p className="text-xs text-slate-500 mt-1">
+                                 Duty rates are estimates based on standard MFN rates. Always verify with official customs authorities for final clearance.
+                             </p>
+                             <div className="flex flex-wrap gap-2 mt-2">
+                                 <a href="https://hts.usitc.gov/" target="_blank" rel="noopener noreferrer" className="text-xs text-blue-600 hover:underline flex items-center gap-1">
+                                     USA (HTS) <ExternalLink size={10} />
+                                 </a>
+                                 <a href="https://www.trade.gov/country-commercial-guides" target="_blank" rel="noopener noreferrer" className="text-xs text-blue-600 hover:underline flex items-center gap-1">
+                                     Intl. Trade Admin <ExternalLink size={10} />
+                                 </a>
+                                 <a href="https://www.gov.uk/trade-tariff" target="_blank" rel="noopener noreferrer" className="text-xs text-blue-600 hover:underline flex items-center gap-1">
+                                     UK Tariff <ExternalLink size={10} />
+                                 </a>
+                             </div>
+                         </div>
+                     </div>
+                </CardFooter>
             </Card>
 
             {/* Sticky Summary Section */}
@@ -298,6 +312,9 @@ export default function ImportForm() {
                                     <div className="text-4xl font-extrabold text-slate-900">
                                         {currencySymbol}{result.totalLanded.toFixed(2)}
                                     </div>
+                                    <div className="text-xs text-slate-400 mt-2 italic">
+                                        *Not an invoice. For planning only.
+                                    </div>
                                 </div>
 
                                 {/* Breakdown */}
@@ -306,14 +323,38 @@ export default function ImportForm() {
                                         <span className="text-slate-600">Product Value:</span>
                                         <span className="font-medium">{currencySymbol}{parseFloat(productValue).toFixed(2)}</span>
                                     </div>
-                                    <div className="flex justify-between text-sm">
-                                        <span className="text-slate-600">Import Duty ({(result.dutyPercent * 100).toFixed(1)}%):</span>
+
+                                    <TooltipProvider>
+                                    <div className="flex justify-between text-sm items-center">
+                                        <div className="flex items-center gap-1 text-slate-600">
+                                            Import Duty ({(result.dutyPercent * 100).toFixed(1)}%):
+                                            <Tooltip>
+                                                <TooltipTrigger>
+                                                    <Info className="w-3 h-3 text-slate-400" />
+                                                </TooltipTrigger>
+                                                <TooltipContent>
+                                                    <p className="max-w-xs text-xs">Tax levied by the destination country on imported goods.</p>
+                                                </TooltipContent>
+                                            </Tooltip>
+                                        </div>
                                         <span className="font-medium text-amber-600">+{currencySymbol}{result.dutyAmount.toFixed(2)}</span>
                                     </div>
-                                    <div className="flex justify-between text-sm">
-                                        <span className="text-slate-600">VAT/GST/Fees ({(result.vatPercent * 100).toFixed(1)}%):</span>
+
+                                    <div className="flex justify-between text-sm items-center">
+                                        <div className="flex items-center gap-1 text-slate-600">
+                                            VAT/GST/Fees ({(result.vatPercent * 100).toFixed(1)}%):
+                                            <Tooltip>
+                                                <TooltipTrigger>
+                                                    <Info className="w-3 h-3 text-slate-400" />
+                                                </TooltipTrigger>
+                                                <TooltipContent>
+                                                    <p className="max-w-xs text-xs">Local sales tax (VAT, GST) + handling fees.</p>
+                                                </TooltipContent>
+                                            </Tooltip>
+                                        </div>
                                         <span className="font-medium text-red-600">+{currencySymbol}{result.vatAmount.toFixed(2)}</span>
                                     </div>
+                                    </TooltipProvider>
                                 </div>
 
                                 {/* Action */}

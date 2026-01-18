@@ -1,0 +1,87 @@
+
+> cost-smart@0.1.0 dev /app
+> next dev
+
+   ▲ Next.js 16.0.10 (Turbopack)
+   - Local:         http://localhost:3000
+   - Network:       http://192.168.0.2:3000
+
+ ✓ Starting...
+ ✓ Ready in 1098ms
+ ○ Compiling / ...
+ GET / 200 in 6.2s (compile: 5.1s, render: 1168ms)
+ GET /grid.svg 404 in 957ms (compile: 665ms, render: 292ms)
+ GET /sw.js?v=3.1.644&o=0802c15b14b44896f650a8ebd05edbde&pub=0&p=10433502&tg=0 404 in 301ms (compile: 103ms, render: 197ms)
+ ○ Compiling /loan-calculator ...
+The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+ GET /loan-calculator 200 in 4.0s (compile: 3.6s, render: 399ms)
+ GET /sw.js?v=3.1.644&o=0802c15b14b44896f650a8ebd05edbde&pub=0&p=10433502&tg=0 404 in 137ms (compile: 16ms, render: 121ms)
+The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+ GET /inflation 200 in 1723ms (compile: 1449ms, render: 274ms)
+ GET /sw.js?v=3.1.644&o=0802c15b14b44896f650a8ebd05edbde&pub=0&p=10433502&tg=0 404 in 82ms (compile: 6ms, render: 75ms)
+ GET /currency 200 in 2.1s (compile: 1600ms, render: 454ms)
+ GET / 200 in 159ms (compile: 6ms, render: 153ms)
+ GET / 200 in 127ms (compile: 3ms, render: 124ms)
+ GET / 200 in 124ms (compile: 4ms, render: 120ms)
+ GET / 200 in 155ms (compile: 6ms, render: 149ms)
+ GET / 200 in 446ms (compile: 5ms, render: 441ms)
+ GET /grid.svg 404 in 282ms (compile: 29ms, render: 253ms)
+ GET /import-duty 200 in 765ms (compile: 183ms, render: 582ms)
+ GET /import-duty 200 in 1593ms (compile: 1081ms, render: 511ms)
+ GET /grid.svg 404 in 397ms (compile: 39ms, render: 358ms)
+ GET /grid.svg 404 in 113ms (compile: 19ms, render: 94ms)
+ GET / 200 in 1134ms (compile: 4ms, render: 1130ms)
+ GET / 200 in 1000ms (compile: 9ms, render: 991ms)
+ GET /solar-roi 200 in 903ms (compile: 435ms, render: 468ms)
+ GET /solar-roi 200 in 922ms (compile: 472ms, render: 450ms)
+ GET /import-duty 200 in 290ms (compile: 4ms, render: 286ms)
+ GET /import-duty 200 in 226ms (compile: 4ms, render: 222ms)
+ GET /about 200 in 882ms (compile: 419ms, render: 463ms)
+ GET /about 200 in 954ms (compile: 489ms, render: 465ms)
+ GET /privacy 200 in 515ms (compile: 227ms, render: 288ms)
+ GET /privacy 200 in 661ms (compile: 413ms, render: 249ms)
+ GET /terms 200 in 730ms (compile: 386ms, render: 344ms)
+ GET /terms 200 in 678ms (compile: 403ms, render: 275ms)
+ GET /solar-roi 200 in 216ms (compile: 5ms, render: 211ms)
+The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+ GET /solar-roi/Denver 200 in 759ms (compile: 358ms, render: 401ms)
+ GET /solar-roi/Denver 200 in 2.6s (compile: 2.1s, render: 502ms)
+ ✓ Compiled in 668ms
+ ✓ Compiled in 223ms
+ ✓ Compiled in 199ms
+ GET / 200 in 986ms (compile: 324ms, render: 662ms)
+ GET / 200 in 404ms (compile: 7ms, render: 398ms)
+ GET / 200 in 529ms (compile: 6ms, render: 524ms)
+ GET /grid.svg 404 in 163ms (compile: 16ms, render: 146ms)
+ GET /import-duty 200 in 136ms (compile: 5ms, render: 131ms)
+ GET /import-duty 200 in 219ms (compile: 4ms, render: 215ms)
+ GET / 200 in 467ms (compile: 6ms, render: 461ms)
+ GET /grid.svg 404 in 500ms (compile: 308ms, render: 193ms)
+ GET / 200 in 774ms (compile: 17ms, render: 757ms)
+ GET /grid.svg 404 in 119ms (compile: 8ms, render: 111ms)
+ GET /solar-roi 200 in 452ms (compile: 10ms, render: 442ms)
+ GET /solar-roi 200 in 370ms (compile: 6ms, render: 364ms)
+ GET /import-duty 200 in 507ms (compile: 9ms, render: 497ms)
+ GET /import-duty 200 in 411ms (compile: 4ms, render: 407ms)
+ GET /about 200 in 542ms (compile: 9ms, render: 533ms)
+ GET /about 200 in 392ms (compile: 5ms, render: 386ms)
+ GET /privacy 200 in 102ms (compile: 8ms, render: 94ms)
+ GET /privacy 200 in 273ms (compile: 7ms, render: 266ms)
+ GET /terms 200 in 274ms (compile: 4ms, render: 270ms)
+ GET /terms 200 in 240ms (compile: 3ms, render: 237ms)
+The width(-1) and height(-1) of chart should be greater than 0,
+       please check the style of container, or the props width(100%) and height(100%),
+       or add a minWidth(0) or minHeight(undefined) or use aspect(undefined) to control the
+       height and width.
+ GET /solar-roi/Denver 200 in 656ms (compile: 118ms, render: 538ms)
+ GET /solar-roi 200 in 471ms (compile: 3ms, render: 468ms)
+ GET /solar-roi/Denver 200 in 104ms (compile: 50ms, render: 54ms)

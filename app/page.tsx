@@ -1,10 +1,14 @@
 import Link from 'next/link';
-import { ArrowRight, Sun, Globe, ShieldCheck, Zap } from 'lucide-react';
+import { ArrowRight, Sun, Globe, ShieldCheck, Zap, ArrowRightLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import AdContainer from '@/components/ads/AdContainer';
 import { AIAssistant } from '@/components/features/AIAssistant';
 import { Metadata } from 'next';
+import { getLatestRates } from '@/lib/currency-api';
+import RateTracker from '@/components/features/RateTracker';
+import Dashboard from '@/components/features/Dashboard';
+import JsonLd from '@/components/seo/JsonLd';
 
 export const metadata: Metadata = {
   title: 'CostSmart - Financial Calculators for the Modern Economy',
@@ -14,9 +18,25 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Home() {
+export default async function Home() {
+  const rates = await getLatestRates('USD');
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "CostSmart",
+    "url": "https://costsmart.app",
+    "description": "Financial calculators for Solar ROI, Import Duty, Currency, and Loans.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://costsmart.app/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  };
+
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
+      <JsonLd data={jsonLd} />
 
       {/* Top Ad Banner */}
       <div className="container mx-auto px-4 mt-4">
@@ -25,7 +45,7 @@ export default function Home() {
 
       <main>
         {/* Hero Section */}
-        <section className="py-16 md:py-24 px-4 relative overflow-hidden">
+        <section className="pt-16 md:pt-24 pb-12 px-4 relative overflow-hidden">
           <div className="container mx-auto text-center max-w-4xl relative z-10">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-100/50 text-emerald-800 text-sm font-medium mb-8 border border-emerald-200">
               <ShieldCheck size={16} />
@@ -57,8 +77,15 @@ export default function Home() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-tr from-emerald-100/40 to-blue-100/40 rounded-full blur-[100px] -z-10" />
         </section>
 
+        <div className="container mx-auto px-4 mb-8">
+             <Dashboard hideIfEmpty={true} />
+        </div>
+
+        {/* Market Rates Ticker */}
+        <RateTracker rates={rates} />
+
         {/* AI Assistant Section */}
-        <section className="container mx-auto px-4 mb-20">
+        <section className="container mx-auto px-4 my-20">
            <div className="max-w-2xl mx-auto">
              <AIAssistant />
            </div>
@@ -72,7 +99,7 @@ export default function Home() {
               <p className="text-slate-600 max-w-xl mx-auto">Choose a calculator to get started. Our algorithms are updated daily with the latest rates and data.</p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
               {/* Solar ROI Card */}
               <Link href="/solar-roi" className="group">
                 <Card className="h-full border-slate-200 shadow-sm hover:shadow-xl hover:border-emerald-200 transition-all duration-300 relative overflow-hidden">
@@ -114,6 +141,29 @@ export default function Home() {
                   <CardContent className="relative z-10">
                     <div className="flex items-center text-blue-600 font-bold group-hover:translate-x-1 transition-transform">
                       Estimate Cost <ArrowRight size={18} className="ml-2" />
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+
+              {/* Currency Card (New) */}
+              <Link href="/currency" className="group">
+                <Card className="h-full border-slate-200 shadow-sm hover:shadow-xl hover:border-indigo-200 transition-all duration-300 relative overflow-hidden">
+                  <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                     <ArrowRightLeft size={120} className="text-indigo-500" />
+                  </div>
+                  <CardHeader className="pb-4 relative z-10">
+                    <div className="h-12 w-12 bg-indigo-100 text-indigo-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-inner">
+                      <ArrowRightLeft size={24} />
+                    </div>
+                    <CardTitle className="text-2xl">Currency Converter</CardTitle>
+                    <CardDescription className="text-base">
+                       Live exchange rates and 30-day history charts for USD, EUR, GBP, and more.
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent className="relative z-10">
+                    <div className="flex items-center text-indigo-600 font-bold group-hover:translate-x-1 transition-transform">
+                      Check Rates <ArrowRight size={18} className="ml-2" />
                     </div>
                   </CardContent>
                 </Card>

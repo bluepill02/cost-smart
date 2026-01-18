@@ -1,6 +1,4 @@
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 import { Zap } from 'lucide-react';
 
 export default function Navbar() {
@@ -25,6 +23,9 @@ export default function Navbar() {
                     </Link>
                     <Link href="/import-duty" className="text-sm font-medium text-slate-600 hover:text-emerald-600 transition-colors">
                         Import Duty
+                    </Link>
+                    <Link href="/currency" className="text-sm font-medium text-slate-600 hover:text-emerald-600 transition-colors">
+                        Currency
                     </Link>
                     <Link href="/about" className="text-sm font-medium text-slate-600 hover:text-emerald-600 transition-colors">
                         About
