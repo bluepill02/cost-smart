@@ -1,6 +1,6 @@
 export interface HistoryItem {
     id: string;
-    type: 'solar' | 'import' | 'currency' | 'loan' | 'inflation' | 'investment' | 'savings' | 'debt' | 'tax' | 'salary' | 'real-estate' | 'retirement' | 'ppf' | 'fd' | 'emergency';
+    type: 'solar' | 'import' | 'currency' | 'loan' | 'inflation' | 'investment' | 'savings' | 'debt' | 'tax' | 'salary' | 'real-estate' | 'retirement' | 'ppf' | 'fd' | 'emergency' | 'business' | 'invoice' | 'shipping';
     title: string;
     summary: string;
     date: number;
