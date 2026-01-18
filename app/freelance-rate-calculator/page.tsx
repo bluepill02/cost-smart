@@ -3,7 +3,7 @@ import FreelanceRateCalculator from '@/components/calculators/business/Freelance
 
 export const metadata: Metadata = {
   title: 'Freelance Rate Calculator - Hourly & Daily Rates | CostSmart',
-  description: 'Calculate your ideal freelance hourly rate based on expenses, billable hours, and profit goals. Don't undercharge your clients.',
+  description: 'Calculate your ideal freelance hourly rate based on expenses, billable hours, and profit goals. Do not undercharge your clients.',
   alternates: {
     canonical: 'https://cost-smart-five.vercel.app/freelance-rate-calculator',
   },
