@@ -9,6 +9,7 @@ import { Input } from '@/components/ui/input';
 import { Slider } from '@/components/ui/slider';
 import { Button } from '@/components/ui/button';
 import { saveHistoryItem } from '@/lib/history-manager';
+import { formatCurrency } from '@/lib/formatters';
 
 // Lazy load Recharts components
 const PieChart = dynamic(() => import('recharts').then(mod => mod.PieChart), { ssr: false });
@@ -18,9 +19,23 @@ const ResponsiveContainer = dynamic(() => import('recharts').then(mod => mod.Res
 const RechartsTooltip = dynamic(() => import('recharts').then(mod => mod.Tooltip), { ssr: false });
 const Legend = dynamic(() => import('recharts').then(mod => mod.Legend), { ssr: false });
 
-export default function LoanCalculator() {
-    const [principal, setPrincipal] = useState<number>(250000);
-    const [rate, setRate] = useState<number>(6.5);
+interface LoanCalculatorProps {
+    currency?: string;
+    locale?: string;
+    defaultPrincipal?: number;
+    defaultRate?: number;
+    maxPrincipal?: number;
+}
+
+export default function LoanCalculator({
+    currency = 'USD',
+    locale = 'en-US',
+    defaultPrincipal = 250000,
+    defaultRate = 6.5,
+    maxPrincipal = 1000000
+}: LoanCalculatorProps) {
+    const [principal, setPrincipal] = useState<number>(defaultPrincipal);
+    const [rate, setRate] = useState<number>(defaultRate);
     const [years, setYears] = useState<number>(30);
     const [extraPayment, setExtraPayment] = useState<number>(0);
 
@@ -78,8 +93,8 @@ export default function LoanCalculator() {
     const handleSave = () => {
         saveHistoryItem({
             type: 'loan',
-            title: `Loan: $${principal.toLocaleString()}`,
-            summary: `${years}yr Term @ ${rate}% | Monthly: $${(calculation.emi + extraPayment).toFixed(0)}`,
+            title: `Loan: ${formatCurrency(principal, currency, locale)}`,
+            summary: `${years}yr Term @ ${rate}% | Monthly: ${formatCurrency(calculation.emi + extraPayment, currency, locale)}`,
             link: `/loan-calculator?p=${principal}&r=${rate}&y=${years}&e=${extraPayment}` // In future, handle URL params
         });
         setSaved(true);
@@ -101,7 +116,7 @@ export default function LoanCalculator() {
 
                     <div className="space-y-4">
                         <div className="space-y-2">
-                            <Label htmlFor="principal">Loan Amount ($)</Label>
+                            <Label htmlFor="principal">Loan Amount ({currency === 'USD' ? '$' : (currency === 'INR' ? '₹' : currency)})</Label>
                             <Input
                                 id="principal"
                                 type="number"
@@ -112,7 +127,7 @@ export default function LoanCalculator() {
                             <Slider
                                 value={[principal]}
                                 min={1000}
-                                max={1000000}
+                                max={maxPrincipal}
                                 step={1000}
                                 onValueChange={(v) => setPrincipal(v[0])}
                                 className="pt-2"
@@ -147,7 +162,7 @@ export default function LoanCalculator() {
                                     <TrendingDown className="w-4 h-4" />
                                     Pay Extra Monthly?
                                 </Label>
-                                <span className="text-sm font-bold text-emerald-600">+${extraPayment}</span>
+                                <span className="text-sm font-bold text-emerald-600">+{formatCurrency(extraPayment, currency, locale)}</span>
                             </div>
                             <Slider
                                 value={[extraPayment]}
@@ -185,11 +200,11 @@ export default function LoanCalculator() {
                         <CardContent className="p-6">
                             <div className="text-slate-400 text-sm font-medium mb-1">Monthly Payment</div>
                             <div className="text-3xl font-bold">
-                                ${(calculation.emi + extraPayment).toLocaleString(undefined, {maximumFractionDigits: 0})}
+                                {formatCurrency(calculation.emi + extraPayment, currency, locale)}
                             </div>
                             {extraPayment > 0 && (
                                 <div className="text-xs text-emerald-400 mt-1">
-                                    (Base: ${calculation.emi.toFixed(0)} + Extra: ${extraPayment})
+                                    (Base: {formatCurrency(calculation.emi, currency, locale)} + Extra: {formatCurrency(extraPayment, currency, locale)})
                                 </div>
                             )}
                         </CardContent>
@@ -198,7 +213,7 @@ export default function LoanCalculator() {
                         <CardContent className="p-6">
                             <div className="text-emerald-800 text-sm font-medium mb-1">Total Interest</div>
                             <div className="text-3xl font-bold text-emerald-700">
-                                ${calculation.totalInterestWithExtra.toLocaleString(undefined, {maximumFractionDigits: 0})}
+                                {formatCurrency(calculation.totalInterestWithExtra, currency, locale)}
                             </div>
                         </CardContent>
                     </Card>
@@ -213,7 +228,7 @@ export default function LoanCalculator() {
                         <div>
                             <h4 className="font-bold text-amber-900">Smart Move!</h4>
                             <p className="text-amber-800 text-sm mt-1">
-                                By paying <strong>${extraPayment}</strong> extra per month, you will save <strong className="text-emerald-700">${calculation.savings.toLocaleString(undefined, {maximumFractionDigits: 0})}</strong> in interest and be debt-free <strong>{(calculation.timeSavedMonths / 12).toFixed(1)} years</strong> earlier.
+                                By paying <strong>{formatCurrency(extraPayment, currency, locale)}</strong> extra per month, you will save <strong className="text-emerald-700">{formatCurrency(calculation.savings, currency, locale)}</strong> in interest and be debt-free <strong>{(calculation.timeSavedMonths / 12).toFixed(1)} years</strong> earlier.
                             </p>
                         </div>
                     </div>
@@ -241,7 +256,7 @@ export default function LoanCalculator() {
                                     ))}
                                 </Pie>
                                 {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-                                <RechartsTooltip formatter={(value: any) => `$${Number(value).toLocaleString()}`} />
+                                <RechartsTooltip formatter={(value: any) => formatCurrency(Number(value), currency, locale)} />
                                 <Legend verticalAlign="bottom" height={36}/>
                             </PieChart>
                         </ResponsiveContainer>

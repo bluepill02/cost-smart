@@ -41,6 +41,74 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'yearly',
       priority: 0.3,
     },
+    // Calculators
+    {
+      url: `${baseUrl}/in/gst-calculator`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/home-loan-calculator`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/rent-vs-buy-calculator`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+        url: `${baseUrl}/business-loan-calculator`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly',
+        priority: 0.8,
+    },
+    {
+        url: `${baseUrl}/in/gst-input-credit-calculator`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly',
+        priority: 0.8,
+    },
+    {
+        url: `${baseUrl}/in/tds-calculator`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly',
+        priority: 0.8,
+    },
+    {
+        url: `${baseUrl}/shipping-cost-calculator`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly',
+        priority: 0.8,
+    },
+    {
+        url: `${baseUrl}/invoice-generator`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly',
+        priority: 0.9,
+    },
+    // Blogs
+    {
+      url: `${baseUrl}/blog/gst-inclusive-vs-exclusive`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/blog/home-loan-prepayment-benefits`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/blog/rent-vs-buy-math`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
   ];
 
   return routes;

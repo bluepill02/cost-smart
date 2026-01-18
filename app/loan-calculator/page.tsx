@@ -41,7 +41,7 @@ export default function LoanCalculatorPage() {
                 </p>
             </div>
 
-            <LoanCalculator />
+            <LoanCalculator currency="USD" locale="en-US" />
 
             <div className="mt-16 grid md:grid-cols-[2fr_1fr] gap-8">
                 <div className="prose max-w-none text-slate-600 bg-white p-8 rounded-2xl border border-slate-100 shadow-sm">
