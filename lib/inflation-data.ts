@@ -47,12 +47,14 @@ export const CPI_DATA: Record<number, number> = {
     1913: 9.9
 };
 
+const SORTED_YEARS = Object.keys(CPI_DATA).map(Number).sort((a, b) => a - b);
+
 // Helper to get closest CPI if exact year missing (simple interpolation or nearest)
 export function getCPI(year: number): number {
     if (CPI_DATA[year]) return CPI_DATA[year];
 
     // Find closest years
-    const years = Object.keys(CPI_DATA).map(Number).sort((a, b) => a - b);
+    const years = SORTED_YEARS;
 
     if (year < years[0]) return CPI_DATA[years[0]];
     if (year > years[years.length - 1]) return CPI_DATA[years[years.length - 1]];
