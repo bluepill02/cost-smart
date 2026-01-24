@@ -1,65 +1,67 @@
 "use client";
 
 import React, { useState } from 'react';
-import { Button } from '@/components/ui/button';
 import { Share2, Check } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { useToast } from '@/components/ui/use-toast';
 import { cn } from '@/lib/utils';
 
 interface ShareButtonProps {
     title: string;
-    text: string;
+    text?: string;
     url?: string;
-    variant?: 'default' | 'outline' | 'ghost' | 'secondary';
     className?: string;
-    size?: 'default' | 'sm' | 'lg' | 'icon';
+    // Allow any extra props (though we ignore them for logic, it stops TS from complaining about unknown props passed down)
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    [key: string]: any;
 }
 
-export default function ShareButton({
-    title,
-    text,
-    url,
-    variant = "outline",
-    className,
-    size = "default"
-}: ShareButtonProps) {
+export default function ShareButton({ title, text = "Check out this calculation!", url, className, ...props }: ShareButtonProps) {
     const [copied, setCopied] = useState(false);
+    const { toast } = useToast();
+
+    // Remove 'variant' from props if it exists to prevent passing it to Button improperly if needed,
+    // or just pass it through if Button handles it.
+    // But Button does have a variant prop. The issue was ShareButton interface didn't declare it.
+    // By using `...props`, we now accept `variant` and pass it to the underlying `Button`.
 
     const handleShare = async () => {
-        const shareData = {
-            title: title,
-            text: text,
-            url: url || window.location.href,
-        };
+        const shareUrl = url || window.location.href;
 
-        // Try Native Share API first (Mobile)
-        if (navigator.share && /Mobi|Android/i.test(navigator.userAgent)) {
+        if (navigator.share) {
             try {
-                await navigator.share(shareData);
-                return;
-            } catch (err) {
-                console.log('Error sharing:', err);
+                await navigator.share({
+                    title: title,
+                    text: text,
+                    url: shareUrl,
+                });
+            } catch (error) {
+                console.log('Error sharing', error);
             }
-        }
-
-        // Fallback to Clipboard (Desktop)
-        try {
-            await navigator.clipboard.writeText(`${text} ${shareData.url}`);
-            setCopied(true);
-            setTimeout(() => setCopied(false), 2000);
-        } catch (err) {
-            console.error('Failed to copy:', err);
+        } else {
+            try {
+                await navigator.clipboard.writeText(shareUrl);
+                setCopied(true);
+                toast({
+                    title: "Link Copied",
+                    description: "Share this link with your friends!",
+                });
+                setTimeout(() => setCopied(false), 2000);
+            } catch (err) {
+                console.error('Failed to copy: ', err);
+            }
         }
     };
 
     return (
         <Button
-            variant={variant}
-            size={size}
-            className={cn("gap-2 transition-all", className)}
+            size="sm"
             onClick={handleShare}
+            className={cn("flex items-center gap-2", className)}
+            {...props}
         >
-            {copied ? <Check className="w-4 h-4 text-emerald-600" /> : <Share2 className="w-4 h-4" />}
-            {size !== 'icon' && (copied ? "Copied!" : "Share Result")}
+            {copied ? <Check size={16} /> : <Share2 size={16} />}
+            {copied ? 'Copied!' : props.children || 'Share Result'}
         </Button>
     );
 }
