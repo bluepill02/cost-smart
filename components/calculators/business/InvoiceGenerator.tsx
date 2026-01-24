@@ -67,29 +67,32 @@ export default function InvoiceGenerator() {
                                     value={currency}
                                     onChange={(e) => setCurrency(e.target.value)}
                                     placeholder="$"
+                                    aria-label="Currency Symbol"
                                 />
                             </div>
                         </div>
 
                         <div className="grid gap-4">
                             <div className="space-y-2">
-                                <Label>Seller Details</Label>
-                                <Input value={seller.name} onChange={(e) => setSeller({...seller, name: e.target.value})} placeholder="Business Name" />
-                                <Textarea value={seller.address} onChange={(e) => setSeller({...seller, address: e.target.value})} placeholder="Address" rows={2} />
+                                <Label htmlFor="sellerName">Seller Details</Label>
+                                <Input id="sellerName" value={seller.name} onChange={(e) => setSeller({...seller, name: e.target.value})} placeholder="Business Name" />
+                                <Label htmlFor="sellerAddress" className="sr-only">Seller Address</Label>
+                                <Textarea id="sellerAddress" value={seller.address} onChange={(e) => setSeller({...seller, address: e.target.value})} placeholder="Address" rows={2} />
                             </div>
                             <div className="space-y-2">
-                                <Label>Client Details</Label>
-                                <Input value={buyer.name} onChange={(e) => setBuyer({...buyer, name: e.target.value})} placeholder="Client Name" />
-                                <Textarea value={buyer.address} onChange={(e) => setBuyer({...buyer, address: e.target.value})} placeholder="Address" rows={2} />
+                                <Label htmlFor="clientName">Client Details</Label>
+                                <Input id="clientName" value={buyer.name} onChange={(e) => setBuyer({...buyer, name: e.target.value})} placeholder="Client Name" />
+                                <Label htmlFor="clientAddress" className="sr-only">Client Address</Label>
+                                <Textarea id="clientAddress" value={buyer.address} onChange={(e) => setBuyer({...buyer, address: e.target.value})} placeholder="Address" rows={2} />
                             </div>
                             <div className="grid grid-cols-2 gap-4">
                                 <div>
-                                    <Label>Invoice #</Label>
-                                    <Input value={invoiceNo} onChange={(e) => setInvoiceNo(e.target.value)} />
+                                    <Label htmlFor="invoiceNo">Invoice #</Label>
+                                    <Input id="invoiceNo" value={invoiceNo} onChange={(e) => setInvoiceNo(e.target.value)} />
                                 </div>
                                 <div>
-                                    <Label>Date</Label>
-                                    <Input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
+                                    <Label htmlFor="invoiceDate">Date</Label>
+                                    <Input id="invoiceDate" type="date" value={date} onChange={(e) => setDate(e.target.value)} />
                                 </div>
                             </div>
                         </div>
@@ -99,29 +102,35 @@ export default function InvoiceGenerator() {
                                 <Label>Line Items</Label>
                                 <Button variant="outline" size="sm" onClick={addItem}><Plus size={14} className="mr-1"/> Add Item</Button>
                             </div>
-                            {items.map((item) => (
+                            {items.map((item, index) => (
                                 <div key={item.id} className="flex gap-2 items-start">
+                                    <Label htmlFor={`desc-${item.id}`} className="sr-only">Description</Label>
                                     <Input
+                                        id={`desc-${item.id}`}
                                         className="flex-grow"
                                         value={item.description}
                                         onChange={(e) => updateItem(item.id, 'description', e.target.value)}
                                         placeholder="Description"
                                     />
+                                    <Label htmlFor={`qty-${item.id}`} className="sr-only">Quantity</Label>
                                     <Input
+                                        id={`qty-${item.id}`}
                                         className="w-20"
                                         type="number"
                                         value={item.quantity}
                                         onChange={(e) => updateItem(item.id, 'quantity', Number(e.target.value))}
                                         placeholder="Qty"
                                     />
+                                    <Label htmlFor={`rate-${item.id}`} className="sr-only">Rate</Label>
                                     <Input
+                                        id={`rate-${item.id}`}
                                         className="w-24"
                                         type="number"
                                         value={item.rate}
                                         onChange={(e) => updateItem(item.id, 'rate', Number(e.target.value))}
                                         placeholder="Rate"
                                     />
-                                    <Button variant="ghost" size="icon" onClick={() => removeItem(item.id)} className="text-red-500 hover:text-red-700 hover:bg-red-50">
+                                    <Button variant="ghost" size="icon" onClick={() => removeItem(item.id)} className="text-red-500 hover:text-red-700 hover:bg-red-50" aria-label="Remove item">
                                         <Trash2 size={16} />
                                     </Button>
                                 </div>
@@ -129,8 +138,9 @@ export default function InvoiceGenerator() {
                         </div>
 
                         <div className="flex justify-end items-center gap-4">
-                            <Label>Tax Rate (%)</Label>
+                            <Label htmlFor="taxRate">Tax Rate (%)</Label>
                             <Input
+                                id="taxRate"
                                 className="w-24 text-right"
                                 type="number"
                                 value={taxRate}
