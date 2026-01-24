@@ -1,0 +1,23 @@
+
+> cost-smart@0.1.0 build /app
+> next build
+
+   ▲ Next.js 16.0.10 (Turbopack)
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 20.5s
+   Running TypeScript ...
+Failed to compile.
+
+./app/solar-roi/[city]/[roof-size]/page.tsx:36:159
+Type error: Property 'state' does not exist on type 'SolarData'.
+
+[0m [90m 34 |[39m     [36mreturn[39m {
+ [90m 35 |[39m         title[33m:[39m [32m`Solar ROI for ${size} sq ft Roof in ${city.city_name} - Detailed Report`[39m[33m,[39m
+[31m[1m>[22m[39m[90m 36 |[39m         description[33m:[39m [32m`How much can you save with a ${size} sq ft solar installation in ${city.city_name}? Calculate generation, cost, and subsidies in ${city.state}.`[39m[33m,[39m
+ [90m    |[39m                                                                                                                                                               [31m[1m^[22m[39m
+ [90m 37 |[39m         alternates[33m:[39m {
+ [90m 38 |[39m             canonical[33m:[39m [32m`https://costsmart.app/solar-roi/${cityParam}/${size}`[39m[33m,[39m
+ [90m 39 |[39m         }[0m
+Next.js build worker exited with code: 1 and signal: null
+ ELIFECYCLE  Command failed with exit code 1.

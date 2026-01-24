@@ -1,59 +1,81 @@
-import React from 'react';
-import type { Metadata } from 'next';
+import { Metadata } from 'next';
 import HomeLoanCalculator from '@/components/calculators/loan/HomeLoanCalculator';
+import AdContainer from '@/components/ads/AdContainer';
 import JsonLd from '@/components/seo/JsonLd';
+import { getCalculatorSchema } from '@/lib/seo-utils';
+import Link from 'next/link';
+import { MapPin } from 'lucide-react';
+import { INDIAN_CITIES } from '@/lib/pseo-data/cities';
 
 export const metadata: Metadata = {
-  title: 'Home Loan EMI Calculator with Prepayment | Amortization Schedule',
-  description: 'Calculate Home Loan EMI and see how much you can save by making prepayments. View detailed amortization schedule and interest breakdown.',
+  title: 'Home Loan EMI Calculator | CostSmart',
+  description: 'Calculate your Home Loan EMI, total interest payable, and amortization schedule with our advanced calculator.',
   alternates: {
-    canonical: '/home-loan-calculator',
+    canonical: 'https://cost-smart-five.vercel.app/home-loan-calculator',
   },
-  keywords: 'home loan calculator, home loan emi calculator, prepayment calculator, loan amortization, housing loan interest',
 };
 
-export default function HomeLoanPage() {
-  return (
-    <div className="max-w-4xl mx-auto px-4 py-8">
-      <JsonLd
-        data={{
-          "@type": "SoftwareApplication",
-          name: "Home Loan EMI Calculator",
-          applicationCategory: "FinanceApplication",
-          operatingSystem: "Web",
-          offers: {
-            "@type": "Offer",
-            price: "0",
-            priceCurrency: "USD",
-          },
-        }}
-      />
+export default function Page() {
+  const jsonLd = getCalculatorSchema(
+    'Home Loan EMI Calculator',
+    'Calculate your Home Loan EMI, total interest payable, and amortization schedule.',
+    '/home-loan-calculator'
+  );
 
+  // Sort cities for the list
+  const cities = [...INDIAN_CITIES].sort((a, b) => a.name.localeCompare(b.name));
+
+  return (
+    <div className="container mx-auto px-4 py-12 max-w-5xl">
+      <JsonLd data={jsonLd} />
       <div className="mb-8 text-center">
-        <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-          Home Loan <span className="text-emerald-600">Calculator</span>
-        </h1>
-        <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-          Plan your dream home with confidence. Calculate EMIs and discover the massive power of prepayments.
-        </p>
+        <h1 className="text-4xl font-bold text-slate-900 mb-4">Home Loan EMI Calculator</h1>
+        <p className="text-xl text-slate-600 max-w-2xl mx-auto">Plan your dream home with our precise EMI planner. Supports pre-payment and tenure adjustment.</p>
       </div>
 
       <HomeLoanCalculator />
 
-      <div className="mt-12 prose prose-slate max-w-none">
-        <h2>Why Use a Home Loan Calculator?</h2>
-        <p>
-            A home loan is often the biggest financial commitment in a person's life. Small changes in interest rates or tenure can change the total cost by lakhs or millions.
-        </p>
-
-        <h3>The Power of Prepayment</h3>
-        <p>
-            Most home loans allow you to make extra payments towards the principal. This reduces your outstanding balance, which in turn reduces the interest charged in subsequent months.
-        </p>
-        <p>
-            Even a small increase in your EMI (e.g., paying 5-10% extra per month) can reduce a 20-year loan to 12-15 years, saving you a fortune in interest. Use the "Enable Prepayment" toggle above to simulate this.
-        </p>
+      <div className="mt-16 grid md:grid-cols-[2fr_1fr] gap-8">
+        <div className="prose prose-slate lg:prose-lg">
+            <h2>How to calculate Home Loan EMI?</h2>
+            <p>
+                Equated Monthly Installment (EMI) is the fixed amount you pay to the bank every month.
+                It consists of principal repayment and interest payment.
+            </p>
+            <h3>Formula Used</h3>
+            <p>
+                <strong>EMI = [P x R x (1+R)^N]/[(1+R)^N-1]</strong>
+            </p>
+            <ul>
+                <li><strong>P</strong> = Principal Loan Amount</li>
+                <li><strong>R</strong> = Monthly Interest Rate (Annual Rate/12/100)</li>
+                <li><strong>N</strong> = Loan Tenure in Months</li>
+            </ul>
+        </div>
+        <div className="space-y-6">
+             <AdContainer size="rectangle" />
+        </div>
       </div>
+
+      {/* Internal Linking for pSEO Pages */}
+      <section className="mt-16 pt-12 border-t border-slate-200">
+        <h2 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+            <MapPin className="text-emerald-500" />
+            Calculate EMI by City
+        </h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3">
+            {cities.map(city => (
+                <Link
+                    key={city.slug}
+                    href={`/home-loan-calculator/${city.slug}`}
+                    className="text-sm text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 px-3 py-2 rounded transition-colors truncate border border-transparent hover:border-emerald-100"
+                    title={`Home Loan in ${city.name}`}
+                >
+                    {city.name}
+                </Link>
+            ))}
+        </div>
+      </section>
     </div>
   );
 }
