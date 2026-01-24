@@ -11,6 +11,7 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { saveHistoryItem } from '@/lib/history-manager';
 import { formatCurrency } from '@/lib/formatters';
+import { RBI_DATA } from '@/lib/rbi-data';
 
 // Lazy load Recharts
 const BarChart = dynamic(() => import('recharts').then(mod => mod.BarChart), { ssr: false });
@@ -24,7 +25,7 @@ const Legend = dynamic(() => import('recharts').then(mod => mod.Legend), { ssr: 
 
 export default function PPFCalculator() {
     const [investment, setInvestment] = useState<number>(150000); // Max 1.5L
-    const [rate] = useState<number>(7.1); // Fixed for now, or fetchable
+    const [rate] = useState<number>(RBI_DATA.ppfInterestRate || 7.1); // Use centralized data
     const [period] = useState<number>(15); // Fixed 15 years
 
     // Validation

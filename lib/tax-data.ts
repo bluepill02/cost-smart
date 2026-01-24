@@ -28,3 +28,5 @@ export const TAX_CONSTANTS_FY24_25 = {
     },
     CESS: 0.04
 };
+
+export const GST_RATES = [5, 12, 18, 28];

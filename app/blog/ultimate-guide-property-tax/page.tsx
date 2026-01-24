@@ -49,6 +49,19 @@ export default function Post() {
           &rarr; Open Property Tax Calculator
         </a>
       </div>
-    </BlogLayout>
+
+      <div className="mt-12 p-6 bg-slate-50 rounded-xl border-l-4 border-emerald-500">
+
+    <h2>Expert Financial Insight</h2>
+    <p>When using this calculator, it's important to look beyond the raw numbers. Financial decisions should always account for <strong>inflation, opportunity cost, and risk tolerance</strong>.</p>
+
+    <h3>Strategic Planning</h3>
+    <p>Don't view this calculation in isolation. Consider how it fits into your broader financial portfolio. For instance, high-return instruments often come with higher volatility, while safe instruments like FDs risk losing value to inflation in real terms.</p>
+
+    <h3>Professional Advice</h3>
+    <p>While tools provide accuracy, they cannot replace personalized advice. Use these results as a baseline for discussions with a certified financial planner who understands your specific life goals and constraints.</p>
+
+      </div>
+</BlogLayout>
   );
 }

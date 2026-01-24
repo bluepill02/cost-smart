@@ -45,6 +45,19 @@ export default function Post() {
           Go to Calculator
         </a>
       </div>
-    </BlogLayout>
+
+      <div className="mt-12 p-6 bg-slate-50 rounded-xl border-l-4 border-emerald-500">
+
+    <h2>The 8th Wonder: Compounding in Action</h2>
+    <p>Systematic Investment Plans (SIPs) are the most effective tool for wealth creation not because of superior returns, but because they automate <strong>discipline</strong>.</p>
+
+    <h3>Rupee Cost Averaging</h3>
+    <p>The market is volatile. By investing a fixed sum monthly, you buy more units when markets are low and fewer when they are high. This automatically lowers your average cost per unit over time. You don't need to time the market; you just need "time in the market".</p>
+
+    <h3>The 10-Year Rule</h3>
+    <p>Our data shows that over any 10-year period in Indian equity history, the probability of negative returns is near zero. Use this calculator to visualize the exponential growth curve—notice how the "Interest Earned" bar starts small but eventually dwarfs the "Invested Amount". That is the power of patience.</p>
+
+      </div>
+</BlogLayout>
   );
 }

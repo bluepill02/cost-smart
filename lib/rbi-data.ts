@@ -7,5 +7,10 @@ export const RBI_DATA = {
     bankRate: 6.75,
     crr: 4.50,
     slr: 18.00,
+    ppfInterestRate: 7.1,
+    epfInterestRate: 8.25,
+    sukanyaSamriddhiRate: 8.2,
+    seniorCitizenSavingsRate: 8.2,
+    fdRateMax: 7.5, // Avg max across major banks
     lastUpdated: "2024-02-08" // Date of last RBI policy update check
 };

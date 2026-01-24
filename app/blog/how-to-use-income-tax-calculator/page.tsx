@@ -45,6 +45,19 @@ export default function Post() {
           Go to Calculator
         </a>
       </div>
-    </BlogLayout>
+
+      <div className="mt-12 p-6 bg-slate-50 rounded-xl border-l-4 border-emerald-500">
+
+    <h2>Regime Wars: New vs Old?</h2>
+    <p>With the Budget 2024 updates, the <strong>New Tax Regime</strong> has become the default and is beneficial for a vast majority of taxpayers, especially with the increased Standard Deduction of ₹75,000.</p>
+
+    <h3>The Breakeven Point</h3>
+    <p>Generally, if your total deductions (80C, 80D, HRA, Home Loan Interest) exceed ₹3.75 - ₹4 Lakhs, the Old Regime might still save you money. If your deductions are below this threshold, the New Regime is likely the winner due to its lower slab rates.</p>
+
+    <h3>Marginal Relief</h3>
+    <p>For incomes slightly above ₹7 Lakhs (New Regime), check for Marginal Relief. The tax payable should not exceed the income earned over ₹7 Lakhs. Our advanced calculation logic accounts for these nuances to give you the precise liability.</p>
+
+      </div>
+</BlogLayout>
   );
 }

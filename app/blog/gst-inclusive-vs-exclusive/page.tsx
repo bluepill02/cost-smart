@@ -61,6 +61,19 @@ export default function BlogPost() {
       <p>
         For businesses, GST is not a cost but a "pass-through". The GST you pay on purchases (Input Tax) can be subtracted from the GST you collect on sales (Output Tax). This is why calculating the "Base Price" correctly is crucial for your profitability analysis.
       </p>
-    </BlogLayout>
+
+      <div className="mt-12 p-6 bg-slate-50 rounded-xl border-l-4 border-emerald-500">
+
+    <h2>Beyond the Basics: GST for Business Owners</h2>
+    <p>While calculating GST is simple arithmetic, understanding its impact on your cash flow is where expertise comes in. The Goods and Services Tax (GST) is not a cost to your business if you are eligible for <strong>Input Tax Credit (ITC)</strong>.</p>
+
+    <h3>Input Tax Credit (ITC) Explained</h3>
+    <p>ITC allows you to reduce the tax you have already paid on inputs from the tax you have to pay on output. Effectively, you only pay tax on the <em>value addition</em>. Use our "GST Exclusive" mode to determine your base cost and tax liability separately.</p>
+
+    <h3>Reverse Charge Mechanism (RCM)</h3>
+    <p>Be aware of RCM scenarios where the recipient of goods/services is liable to pay GST instead of the supplier. This often applies to services like Goods Transport Agency (GTA) or legal services. Our calculator helps you verify the exact tax quantum to be deposited under RCM.</p>
+
+      </div>
+</BlogLayout>
   );
 }
