@@ -1,0 +1,135 @@
+
+> cost-smart@0.1.0 build /app
+> next build
+
+   ▲ Next.js 16.0.10 (Turbopack)
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 18.0s
+   Running TypeScript ...
+   Collecting page data using 3 workers ...
+   Generating static pages using 3 workers (0/160) ...
+   Generating static pages using 3 workers (40/160)
+   Generating static pages using 3 workers (80/160)
+   Generating static pages using 3 workers (120/160)
+ ✓ Generating static pages using 3 workers (160/160) in 2.4s
+   Finalizing page optimization ...
+
+Route (app)                                          Revalidate  Expire
+┌ ○ /                                                        1h      1y
+├ ○ /_not-found
+├ ○ /about
+├ ○ /blog/ctc-vs-in-hand
+├ ○ /blog/emergency-fund-importance
+├ ○ /blog/fd-vs-mutual-funds
+├ ○ /blog/gst-inclusive-vs-exclusive
+├ ○ /blog/home-loan-prepayment-benefits
+├ ○ /blog/how-to-use-break-even-calculator
+├ ○ /blog/how-to-use-business-loan-calculator
+├ ○ /blog/how-to-use-currency-converter
+├ ○ /blog/how-to-use-debt-payoff-calculator
+├ ○ /blog/how-to-use-electricity-bill-calculator
+├ ○ /blog/how-to-use-emergency-fund-calculator
+├ ○ /blog/how-to-use-emi-calculator
+├ ○ /blog/how-to-use-fd-calculator
+├ ○ /blog/how-to-use-freelance-rate-calculator
+├ ○ /blog/how-to-use-gst-calculator
+├ ○ /blog/how-to-use-gst-input-credit-calculator
+├ ○ /blog/how-to-use-home-loan-calculator
+├ ○ /blog/how-to-use-import-duty-calculator
+├ ○ /blog/how-to-use-income-tax-calculator
+├ ○ /blog/how-to-use-invoice-generator
+├ ○ /blog/how-to-use-lpg-subsidy-calculator
+├ ○ /blog/how-to-use-ppf-calculator
+├ ○ /blog/how-to-use-profit-margin-calculator
+├ ○ /blog/how-to-use-property-tax-calculator
+├ ○ /blog/how-to-use-rent-vs-buy-calculator
+├ ○ /blog/how-to-use-retirement-calculator
+├ ○ /blog/how-to-use-salary-calculator
+├ ○ /blog/how-to-use-shipping-cost-calculator
+├ ○ /blog/how-to-use-sip-calculator
+├ ○ /blog/how-to-use-solar-roi-calculator
+├ ○ /blog/how-to-use-stamp-duty-calculator
+├ ○ /blog/how-to-use-tds-calculator
+├ ○ /blog/how-to-use-water-bill-calculator
+├ ○ /blog/new-vs-old-tax-regime
+├ ○ /blog/ppf-guide
+├ ○ /blog/rent-vs-buy-math
+├ ○ /blog/retirement-corpus-guide
+├ ○ /blog/sip-vs-lumpsum
+├ ○ /blog/snowball-vs-avalanche
+├ ○ /blog/ultimate-guide-break-even-point
+├ ○ /blog/ultimate-guide-business-loan-emi
+├ ○ /blog/ultimate-guide-currency-exchange
+├ ○ /blog/ultimate-guide-debt-free-date
+├ ○ /blog/ultimate-guide-electricity-bill
+├ ○ /blog/ultimate-guide-emergency-fund
+├ ○ /blog/ultimate-guide-fixed-deposit-interest
+├ ○ /blog/ultimate-guide-freelance-hourly-rate
+├ ○ /blog/ultimate-guide-gst-amount
+├ ○ /blog/ultimate-guide-home-loan-emi
+├ ○ /blog/ultimate-guide-import-duty
+├ ○ /blog/ultimate-guide-in-hand-salary
+├ ○ /blog/ultimate-guide-income-tax-liability
+├ ○ /blog/ultimate-guide-loan-emi
+├ ○ /blog/ultimate-guide-lpg-subsidy
+├ ○ /blog/ultimate-guide-net-gst-payable
+├ ○ /blog/ultimate-guide-ppf-maturity
+├ ○ /blog/ultimate-guide-professional-invoice
+├ ○ /blog/ultimate-guide-profit-margin
+├ ○ /blog/ultimate-guide-property-registration-cost
+├ ○ /blog/ultimate-guide-property-tax
+├ ○ /blog/ultimate-guide-rent-vs-buy-decision
+├ ○ /blog/ultimate-guide-retirement-corpus
+├ ○ /blog/ultimate-guide-sip-returns
+├ ○ /blog/ultimate-guide-solar-savings
+├ ○ /blog/ultimate-guide-tds-deduction
+├ ○ /blog/ultimate-guide-volumetric-weight
+├ ○ /blog/ultimate-guide-water-bill
+├ ○ /break-even-calculator
+├ ○ /business-loan-calculator
+├ ○ /cookies
+├ ○ /currency                                                1h      1y
+├ ○ /debt-payoff-calculator
+├ ○ /emergency-fund-calculator
+├ ○ /fd-calculator
+├ ○ /freelance-rate-calculator
+├ ○ /home-loan-calculator
+├ ○ /import-duty
+├ ○ /in/electricity-bill-calculator
+├ ○ /in/emi-calculator
+├ ○ /in/fd-calculator
+├ ○ /in/gst-calculator
+├ ○ /in/gst-input-credit-calculator
+├ ○ /in/income-tax-calculator
+├ ○ /in/lpg-subsidy-calculator
+├ ○ /in/ppf-calculator
+├ ○ /in/property-tax-calculator
+├ ○ /in/salary-calculator
+├ ○ /in/sip-calculator
+├ ○ /in/stamp-duty-calculator
+├ ○ /in/tds-calculator
+├ ○ /in/water-bill-calculator
+├ ○ /inflation
+├ ○ /investment-calculator
+├ ○ /invoice-generator
+├ ○ /loan-calculator
+├ ○ /privacy
+├ ○ /profit-margin-calculator
+├ ○ /rent-vs-buy-calculator
+├ ○ /retirement-calculator
+├ ○ /robots.txt
+├ ○ /salary-calculator
+├ ○ /shipping-cost-calculator
+├ ○ /sitemap.xml
+├ ○ /solar-roi
+├ ● /solar-roi/[city]
+│ ├ /solar-roi/mumbai
+│ ├ /solar-roi/delhi
+│ ├ /solar-roi/bangalore
+│ └ [+47 more paths]
+└ ○ /terms
+
+
+○  (Static)  prerendered as static content
+●  (SSG)     prerendered as static HTML (uses generateStaticParams)

@@ -7,6 +7,15 @@ import RelatedTools from '@/components/layouts/RelatedTools';
 import { Card, CardContent } from '@/components/ui/card';
 
 import { getCityData, SolarData } from '@/lib/solar-data';
+import { INDIAN_CITIES } from '@/lib/pseo-data/cities';
+
+// --- Static Params Generation ---
+export async function generateStaticParams() {
+    // Generate params for all 50 cities
+    return INDIAN_CITIES.map((city) => ({
+        city: city.slug,
+    }));
+}
 
 // --- Dynamic Metadata Generation ---
 export async function generateMetadata({ params }: { params: Promise<{ city: string }> }): Promise<Metadata> {
