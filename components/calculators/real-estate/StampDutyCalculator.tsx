@@ -1,16 +1,32 @@
 "use client";
 
-import React, { useState, useMemo } from 'react';
-import { Calculator, ArrowRight, Building, FileText } from 'lucide-react';
+import React, { useState, useMemo, useEffect } from 'react';
+import { Building } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { formatCurrency } from '@/lib/formatters';
 
-export default function StampDutyCalculator() {
+interface StampDutyCalculatorProps {
+    defaultStampRate?: number;
+    defaultRegRate?: number;
+    stateName?: string;
+}
+
+export default function StampDutyCalculator({
+    defaultStampRate = 5,
+    defaultRegRate = 1,
+    stateName
+}: StampDutyCalculatorProps) {
     const [propertyValue, setPropertyValue] = useState<number>(5000000);
-    const [stampDutyRate, setStampDutyRate] = useState<number>(5); // Common avg
-    const [registrationRate, setRegistrationRate] = useState<number>(1); // Usually 1%
+    const [stampDutyRate, setStampDutyRate] = useState<number>(defaultStampRate);
+    const [registrationRate, setRegistrationRate] = useState<number>(defaultRegRate);
+
+    // Update state when props change (e.g. navigation between state pages)
+    useEffect(() => {
+        setStampDutyRate(defaultStampRate);
+        setRegistrationRate(defaultRegRate);
+    }, [defaultStampRate, defaultRegRate]);
 
     const result = useMemo(() => {
         const stampDuty = propertyValue * (stampDutyRate / 100);
@@ -33,7 +49,7 @@ export default function StampDutyCalculator() {
                     <CardHeader>
                         <CardTitle className="flex items-center gap-2">
                             <Building className="w-5 h-5 text-blue-600" />
-                            Property Details
+                            {stateName ? `${stateName} Property Details` : 'Property Details'}
                         </CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-6">
@@ -57,7 +73,11 @@ export default function StampDutyCalculator() {
                                     onChange={(e) => setStampDutyRate(Number(e.target.value))}
                                     step={0.1}
                                 />
-                                <p className="text-xs text-slate-500">Varies by state (3% - 7%)</p>
+                                {stateName ? (
+                                    <p className="text-xs text-emerald-600 font-medium">Pre-filled for {stateName}</p>
+                                ) : (
+                                    <p className="text-xs text-slate-500">Varies by state (3% - 7%)</p>
+                                )}
                             </div>
                             <div className="space-y-2">
                                 <Label htmlFor="reg">Registration Fee Rate (%)</Label>

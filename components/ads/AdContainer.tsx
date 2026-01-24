@@ -1,6 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 
 interface AdContainerProps {
     slotId?: string;
@@ -16,32 +17,45 @@ declare global {
 }
 
 export default function AdContainer({ slotId, className = "", size = 'leaderboard' }: AdContainerProps) {
-    const adRef = useRef<HTMLModElement>(null);
+    const { ref, inView } = useInView({
+        triggerOnce: true,
+        rootMargin: '200px', // Load 200px before it comes into view
+    });
+    const [adLoaded, setAdLoaded] = useState(false);
 
     let heightClass = "h-[90px] md:h-[120px]"; // Default / Leaderboard
     if (size === 'rectangle') heightClass = "h-[250px]";
     if (size === 'inline') heightClass = "h-[250px] md:h-[100px]";
 
     useEffect(() => {
-        if (slotId && adRef.current) {
+        if (inView && slotId && !adLoaded) {
             try {
-                // Check if the ad has already been pushed to avoid duplicates/errors
-                if (adRef.current.innerHTML === "") {
-                     (window.adsbygoogle = window.adsbygoogle || []).push({});
-                }
+                (window.adsbygoogle = window.adsbygoogle || []).push({});
+                setAdLoaded(true);
             } catch (e) {
                 console.error("AdSense error:", e);
             }
         }
-    }, [slotId]);
+    }, [inView, slotId, adLoaded]);
 
     return (
-        <div className={`w-full bg-slate-100 border border-slate-200 rounded-lg flex items-center justify-center text-xs text-slate-400 overflow-hidden relative ${heightClass} ${className}`}>
-            <span className="z-10 uppercase tracking-widest font-semibold text-slate-300">Advertisement</span>
-            {/* Pattern for visual interest without distracting */}
-            <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div
+            ref={ref}
+            className={`w-full bg-slate-100 border border-slate-200 rounded-lg flex items-center justify-center text-xs text-slate-400 overflow-hidden relative ${heightClass} ${className}`}
+        >
+            {!adLoaded && (
+                <>
+                    <span className="z-10 uppercase tracking-widest font-semibold text-slate-300">Advertisement</span>
+                    {/* Pattern for visual interest without distracting */}
+                    <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                </>
+            )}
 
-            {/* In a real app, this is where the Google AdSense code would inject the iframe */}
+            {/* Only render the ins tag if we have a slotId. We rely on the script to fill it.
+                However, AdSense expects the tag to exist when .push() happens.
+                Wait, if we render it always, AdSense script (if loaded globally) might try to fill it automatically if configured to 'auto' ads?
+                Manual push requires the tag to be present.
+            */}
             {slotId && (
                  <ins className="adsbygoogle"
                  style={{ display: 'block', width: '100%', height: '100%' }}
@@ -49,7 +63,6 @@ export default function AdContainer({ slotId, className = "", size = 'leaderboar
                  data-ad-slot={slotId}
                  data-ad-format="auto"
                  data-full-width-responsive="true"
-                 ref={adRef}
                  ></ins>
             )}
         </div>
