@@ -79,6 +79,36 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority: 0.8,
     },
     {
+        url: `${baseUrl}/in/stamp-duty-calculator`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly',
+        priority: 0.8,
+    },
+    {
+        url: `${baseUrl}/in/property-tax-calculator`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly',
+        priority: 0.8,
+    },
+    {
+        url: `${baseUrl}/in/electricity-bill-calculator`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly',
+        priority: 0.8,
+    },
+    {
+        url: `${baseUrl}/in/water-bill-calculator`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly',
+        priority: 0.8,
+    },
+    {
+        url: `${baseUrl}/in/lpg-subsidy-calculator`,
+        lastModified: new Date(),
+        changeFrequency: 'monthly',
+        priority: 0.8,
+    },
+    {
         url: `${baseUrl}/shipping-cost-calculator`,
         lastModified: new Date(),
         changeFrequency: 'monthly',
