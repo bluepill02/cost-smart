@@ -34,3 +34,5 @@ export const BlogLayout = ({ children, title, date, readingTime, category, autho
     </article>
   );
 };
+
+export default BlogLayout;
