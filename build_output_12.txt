@@ -1,0 +1,24 @@
+
+> cost-smart@0.1.0 build /app
+> next build
+
+   ▲ Next.js 16.0.10 (Turbopack)
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 16.5s
+   Running TypeScript ...
+Failed to compile.
+
+./app/home-loan-calculator/[city]/page.tsx:54:41
+Type error: Type '{ defaultAmount: number; }' is not assignable to type 'IntrinsicAttributes'.
+  Property 'defaultAmount' does not exist on type 'IntrinsicAttributes'.
+
+[0m [90m 52 |[39m
+ [90m 53 |[39m                 [33m<[39m[33mdiv[39m className[33m=[39m[32m"bg-white p-6 rounded-2xl shadow-xl border border-slate-200"[39m[33m>[39m
+[31m[1m>[22m[39m[90m 54 |[39m                     [33m<[39m[33mHomeLoanCalculator[39m defaultAmount[33m=[39m{defaultLoanAmount} [33m/[39m[33m>[39m
+ [90m    |[39m                                         [31m[1m^[22m[39m
+ [90m 55 |[39m                 [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m 56 |[39m
+ [90m 57 |[39m                 [33m<[39m[33mdiv[39m className[33m=[39m[32m"mt-12 prose max-w-none text-slate-600"[39m[33m>[39m[0m
+Next.js build worker exited with code: 1 and signal: null
+ ELIFECYCLE  Command failed with exit code 1.

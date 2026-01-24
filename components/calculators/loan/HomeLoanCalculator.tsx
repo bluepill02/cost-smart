@@ -19,10 +19,20 @@ const CartesianGrid = dynamic(() => import('recharts').then(mod => mod.Cartesian
 const Tooltip = dynamic(() => import('recharts').then(mod => mod.Tooltip), { ssr: false });
 const ResponsiveContainer = dynamic(() => import('recharts').then(mod => mod.ResponsiveContainer), { ssr: false });
 
-export default function HomeLoanCalculator() {
-    const [loanAmount, setLoanAmount] = useState<number>(5000000);
-    const [interestRate, setInterestRate] = useState<number>(8.5);
-    const [tenureYears, setTenureYears] = useState<number>(20);
+interface HomeLoanCalculatorProps {
+    defaultAmount?: number;
+    defaultRate?: number;
+    defaultTenure?: number;
+}
+
+export default function HomeLoanCalculator({
+    defaultAmount = 5000000,
+    defaultRate = 8.5,
+    defaultTenure = 20
+}: HomeLoanCalculatorProps) {
+    const [loanAmount, setLoanAmount] = useState<number>(defaultAmount);
+    const [interestRate, setInterestRate] = useState<number>(defaultRate);
+    const [tenureYears, setTenureYears] = useState<number>(defaultTenure);
 
     // Prepayment State
     const [enablePrepayment, setEnablePrepayment] = useState<boolean>(false);

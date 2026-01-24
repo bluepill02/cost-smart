@@ -1,0 +1,23 @@
+
+> cost-smart@0.1.0 build /app
+> next build
+
+   ▲ Next.js 16.0.10 (Turbopack)
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 13.9s
+   Running TypeScript ...
+Failed to compile.
+
+./app/home-loan-calculator/[city]/page.tsx:78:27
+Type error: Type '"loan"' is not assignable to type '"solar" | "import"'.
+
+[0m [90m 76 |[39m             [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m 77 |[39m
+[31m[1m>[22m[39m[90m 78 |[39m             [33m<[39m[33mRelatedTools[39m currentTool[33m=[39m[32m"loan"[39m [33m/[39m[33m>[39m
+ [90m    |[39m                           [31m[1m^[22m[39m
+ [90m 79 |[39m         [33m<[39m[33m/[39m[33mdiv[39m[33m>[39m
+ [90m 80 |[39m     )[33m;[39m
+ [90m 81 |[39m }[0m
+Next.js build worker exited with code: 1 and signal: null
+ ELIFECYCLE  Command failed with exit code 1.
