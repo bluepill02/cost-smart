@@ -1,0 +1,24 @@
+
+> cost-smart@0.1.0 build /app
+> next build
+
+   ▲ Next.js 16.0.10 (Turbopack)
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 16.7s
+   Running TypeScript ...
+Failed to compile.
+
+./components/calculators/ImportForm.tsx:366:41
+Type error: Type '{ title: string; text: string; variant: "default"; className: string; }' is not assignable to type 'IntrinsicAttributes & ShareButtonProps'.
+  Property 'className' does not exist on type 'IntrinsicAttributes & ShareButtonProps'.
+
+[0m [90m 364 |[39m                                         text[33m=[39m{[32m`Estimated landed cost for ${category} from ${origin} to ${destination}: ${currencySymbol}${result.totalLanded.toFixed(2)}.`[39m}
+ [90m 365 |[39m                                         variant[33m=[39m[32m"default"[39m
+[31m[1m>[22m[39m[90m 366 |[39m                                         className[33m=[39m[32m"w-full bg-slate-900 hover:bg-slate-800 text-white"[39m
+ [90m     |[39m                                         [31m[1m^[22m[39m
+ [90m 367 |[39m                                     [33m/[39m[33m>[39m
+ [90m 368 |[39m                                     [33m<[39m[33mButton[39m
+ [90m 369 |[39m                                         variant[33m=[39m[32m"outline"[39m[0m
+Next.js build worker exited with code: 1 and signal: null
+ ELIFECYCLE  Command failed with exit code 1.

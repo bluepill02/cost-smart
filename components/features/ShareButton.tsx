@@ -2,28 +2,22 @@
 
 import React, { useState } from 'react';
 import { Share2, Check } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Button, ButtonProps } from '@/components/ui/button';
 import { useToast } from '@/components/ui/use-toast';
 import { cn } from '@/lib/utils';
 
-interface ShareButtonProps {
+// Explicitly defining className to satisfy TypeScript if ButtonProps is ambiguous in this context
+interface ShareButtonProps extends ButtonProps {
     title: string;
     text?: string;
     url?: string;
     className?: string;
-    // Allow any extra props (though we ignore them for logic, it stops TS from complaining about unknown props passed down)
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    [key: string]: any;
+    variant?: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link";
 }
 
-export default function ShareButton({ title, text = "Check out this calculation!", url, className, ...props }: ShareButtonProps) {
+export default function ShareButton({ title, text = "Check out this calculation!", url, className, variant, ...props }: ShareButtonProps) {
     const [copied, setCopied] = useState(false);
     const { toast } = useToast();
-
-    // Remove 'variant' from props if it exists to prevent passing it to Button improperly if needed,
-    // or just pass it through if Button handles it.
-    // But Button does have a variant prop. The issue was ShareButton interface didn't declare it.
-    // By using `...props`, we now accept `variant` and pass it to the underlying `Button`.
 
     const handleShare = async () => {
         const shareUrl = url || window.location.href;
@@ -56,6 +50,7 @@ export default function ShareButton({ title, text = "Check out this calculation!
     return (
         <Button
             size="sm"
+            variant={variant}
             onClick={handleShare}
             className={cn("flex items-center gap-2", className)}
             {...props}

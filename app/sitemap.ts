@@ -311,6 +311,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.7,
     },
     {
+      url: `${baseUrl}/blog/how-to-use-home-renovation-cost-estimator`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
       url: `${baseUrl}/blog/how-to-use-import-duty-calculator`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
@@ -342,6 +348,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     {
       url: `${baseUrl}/blog/how-to-use-profit-margin-calculator`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/blog/how-to-use-property-registration-cost-calculator`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.7,
@@ -503,6 +515,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.7,
     },
     {
+      url: `${baseUrl}/blog/ultimate-guide-home-renovation-cost`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
       url: `${baseUrl}/blog/ultimate-guide-import-duty`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
@@ -552,6 +570,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     {
       url: `${baseUrl}/blog/ultimate-guide-profit-margin`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/blog/ultimate-guide-property-registration-charges`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.7,
