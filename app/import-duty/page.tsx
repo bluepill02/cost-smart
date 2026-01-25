@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import ImportForm from '@/components/calculators/ImportForm';
+import AdContainer from '@/components/ads/AdContainer';
 
 export const metadata: Metadata = {
     title: 'Import Duty & Landed Cost Calculator | CostSmart',
@@ -12,6 +13,8 @@ export const metadata: Metadata = {
 export default function ImportDutyPage() {
     return (
         <div className="container mx-auto px-4 py-12 max-w-5xl">
+            <AdContainer className="mb-12" slotId="1475703853" />
+
             {/* Header */}
             <div className="text-center mb-12 space-y-4">
                 <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">

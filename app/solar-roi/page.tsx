@@ -4,6 +4,7 @@ import { Metadata } from 'next';
 import { ArrowRight, MapPin } from 'lucide-react';
 import { CitySearch } from '@/components/features/CitySearch';
 import { INDIAN_CITIES } from '@/lib/pseo-data/cities';
+import AdContainer from '@/components/ads/AdContainer';
 
 export const metadata: Metadata = {
     title: 'Select Your City - Solar ROI Calculator',
@@ -25,6 +26,8 @@ export default async function SolarLandingPage() {
 
     return (
         <div className="container mx-auto px-4 py-12 bg-slate-50 min-h-screen">
+            <AdContainer className="mb-12" slotId="1475703853" />
+
             <div className="text-center mb-12">
                 <h1 className="text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">Select Your City</h1>
                 <p className="text-lg text-slate-600 max-w-2xl mx-auto">

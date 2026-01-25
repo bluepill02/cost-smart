@@ -22,3 +22,6 @@
  GET /in/salary-calculator 200 in 965ms (compile: 753ms, render: 212ms)
  GET /grid.svg 404 in 116ms (compile: 15ms, render: 101ms)
  GET / 200 in 546ms (compile: 4ms, render: 542ms)
+ ✓ Compiled in 1126ms
+ ✓ Compiled in 887ms
+ ✓ Compiled in 8s

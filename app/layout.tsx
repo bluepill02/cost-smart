@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import Script from "next/script";
+import AdContainer from '@/components/ads/AdContainer';
 
 // Using Inter as the primary font "Fintech Trust"
 const inter = Inter({ subsets: ["latin"] });
@@ -81,6 +82,12 @@ export default function RootLayout({
         <main className="flex-1">
           {children}
         </main>
+
+        {/* Global Bottom Ad - Safety Net */}
+        <div className="container mx-auto px-4 py-8">
+           <AdContainer slotId="1475703853" />
+        </div>
+
         <Footer />
       </body>
     </html>
