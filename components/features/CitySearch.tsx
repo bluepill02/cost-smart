@@ -18,14 +18,22 @@ interface CitySearchProps {
 export function CitySearch({ cities }: CitySearchProps) {
     const [searchQuery, setSearchQuery] = useState('');
 
+    const processedCities = useMemo(() => {
+        return cities.map(city => ({
+            ...city,
+            lower_city_name: city.city_name.toLowerCase(),
+            lower_country: city.country.toLowerCase(),
+        }));
+    }, [cities]);
+
     const filteredCities = useMemo(() => {
-        if (!searchQuery) return cities;
+        if (!searchQuery) return processedCities;
         const lowerQuery = searchQuery.toLowerCase();
-        return cities.filter(city =>
-            city.city_name.toLowerCase().includes(lowerQuery) ||
-            city.country.toLowerCase().includes(lowerQuery)
+        return processedCities.filter(city =>
+            city.lower_city_name.includes(lowerQuery) ||
+            city.lower_country.includes(lowerQuery)
         );
-    }, [cities, searchQuery]);
+    }, [processedCities, searchQuery]);
 
     return (
         <div>
