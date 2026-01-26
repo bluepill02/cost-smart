@@ -60,5 +60,45 @@ export const US_CITIES: SolarData[] = [
         solar_installation_cost_per_kw: 3100,
         slug: "new-york",
         state: "New York"
+    },
+    {
+        city_name: "Chicago",
+        country: "USA",
+        avg_daily_sunlight_hours: 4.2,
+        avg_electricity_cost_per_kwh: 0.17,
+        grid_inflation_rate: 0.03,
+        solar_installation_cost_per_kw: 2900,
+        slug: "chicago",
+        state: "Illinois"
+    },
+    {
+        city_name: "Houston",
+        country: "USA",
+        avg_daily_sunlight_hours: 4.8,
+        avg_electricity_cost_per_kwh: 0.14,
+        grid_inflation_rate: 0.02,
+        solar_installation_cost_per_kw: 2500,
+        slug: "houston",
+        state: "Texas"
+    },
+    {
+        city_name: "San Francisco",
+        country: "USA",
+        avg_daily_sunlight_hours: 5.4,
+        avg_electricity_cost_per_kwh: 0.32,
+        grid_inflation_rate: 0.05,
+        solar_installation_cost_per_kw: 3300,
+        slug: "san-francisco",
+        state: "California"
+    },
+    {
+        city_name: "Boston",
+        country: "USA",
+        avg_daily_sunlight_hours: 4.3,
+        avg_electricity_cost_per_kwh: 0.29,
+        grid_inflation_rate: 0.04,
+        solar_installation_cost_per_kw: 3200,
+        slug: "boston",
+        state: "Massachusetts"
     }
 ];

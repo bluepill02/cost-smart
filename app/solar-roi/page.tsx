@@ -49,58 +49,39 @@ export default async function SolarLandingPage() {
 
             <div className="max-w-6xl mx-auto space-y-12">
 
-                {/* US Cities */}
+                {/* US Cities - Primary Display */}
                 <section>
                     <h2 className="text-2xl font-bold text-slate-900 mb-6 border-b border-slate-200 pb-2 flex items-center gap-2">
-                        <Globe className="text-emerald-500" /> United States (Popular)
+                        <Globe className="text-emerald-500" /> United States
                     </h2>
-                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
                         {US_CITIES.map((city) => (
                             <Link
                                 key={city.slug}
                                 href={`/solar-roi/${city.slug}`}
-                                className="bg-white hover:bg-emerald-50 border border-slate-200 hover:border-emerald-200 rounded-lg p-4 text-center transition-colors shadow-sm hover:shadow-md"
+                                className="bg-white hover:bg-emerald-50 border border-slate-200 hover:border-emerald-200 rounded-lg p-4 text-center transition-colors shadow-sm hover:shadow-md group"
                             >
-                                <div className="font-semibold text-slate-800">{city.city_name}</div>
-                                <div className="text-xs text-slate-500 mt-1">{city.state}</div>
+                                <div className="font-bold text-slate-800 text-lg group-hover:text-emerald-700">{city.city_name}</div>
+                                <div className="text-sm text-slate-500 mt-1 font-medium">{city.state}</div>
                             </Link>
                         ))}
                     </div>
                 </section>
 
-                {/* Indian Tier 1 Cities */}
-                <section>
-                    <h2 className="text-2xl font-bold text-slate-900 mb-6 border-b border-slate-200 pb-2 flex items-center gap-2">
-                        <MapPin className="text-emerald-500" /> India (Metros)
+                {/* International / Other Regions (Collapsed or Secondary) */}
+                <section className="opacity-70 hover:opacity-100 transition-opacity">
+                    <h2 className="text-xl font-bold text-slate-600 mb-6 border-b border-slate-200 pb-2 flex items-center gap-2">
+                        <MapPin className="text-slate-400" /> International Locations
                     </h2>
-                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
                         {tier1.map((city) => (
                             <Link
                                 key={city.slug}
                                 href={`/solar-roi/${city.slug}`}
-                                className="bg-white hover:bg-emerald-50 border border-slate-200 hover:border-emerald-200 rounded-lg p-4 text-center transition-colors shadow-sm hover:shadow-md"
+                                className="bg-slate-50 hover:bg-white border border-slate-100 hover:border-emerald-200 rounded-md p-3 text-center transition-colors text-sm"
                             >
-                                <div className="font-semibold text-slate-800">{city.name}</div>
-                                <div className="text-xs text-slate-500 mt-1">{city.state}</div>
-                            </Link>
-                        ))}
-                    </div>
-                </section>
-
-                {/* Tier 2 Cities */}
-                <section>
-                    <h2 className="text-2xl font-bold text-slate-900 mb-6 border-b border-slate-200 pb-2">
-                        Other Major Cities (India)
-                    </h2>
-                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                        {tier2.map((city) => (
-                            <Link
-                                key={city.slug}
-                                href={`/solar-roi/${city.slug}`}
-                                className="bg-white hover:bg-emerald-50 border border-slate-200 hover:border-emerald-200 rounded-lg p-4 text-center transition-colors shadow-sm hover:shadow-md"
-                            >
-                                <div className="font-semibold text-slate-800">{city.name}</div>
-                                <div className="text-xs text-slate-500 mt-1">{city.state}</div>
+                                <div className="font-medium text-slate-700">{city.name}</div>
+                                <div className="text-xs text-slate-400">{city.state}, India</div>
                             </Link>
                         ))}
                     </div>
