@@ -3,7 +3,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Sun, Ship, ArrowRight, Calculator, Landmark } from 'lucide-react';
 
 interface RelatedToolsProps {
-    currentTool: 'solar' | 'import' | 'loan' | 'tax' | 'business';
+    currentTool: 'solar' | 'import' | 'loan' | 'tax' | 'business' | 'currency';
 }
 
 export default function RelatedTools({ currentTool }: RelatedToolsProps) {

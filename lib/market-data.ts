@@ -15,6 +15,8 @@ export async function getMarketIndices(): Promise<MarketData[]> {
         '^NSEI', // NIFTY 50
         '^BSESN', // SENSEX
         '^GSPC', // S&P 500
+        'BTC-USD', // Bitcoin
+        'ETH-USD', // Ethereum
         'GC=F', // Gold Futures
         'INR=X' // USD/INR
     ];
