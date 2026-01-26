@@ -19,7 +19,13 @@ const Tooltip = dynamic(() => import('recharts').then(mod => mod.Tooltip), { ssr
 const Legend = dynamic(() => import('recharts').then(mod => mod.Legend), { ssr: false });
 const ResponsiveContainer = dynamic(() => import('recharts').then(mod => mod.ResponsiveContainer), { ssr: false });
 
+import { Switch } from '@/components/ui/switch';
+
 export default function RentVsBuyCalculator() {
+    // Region Toggle
+    const [isGlobal, setIsGlobal] = useState(false);
+    const currency = isGlobal ? 'USD' : 'INR';
+
     // Buy Inputs
     const [propertyPrice, setPropertyPrice] = useState<number>(5000000);
     const [downPaymentPercent, setDownPaymentPercent] = useState<number>(20);
@@ -32,6 +38,21 @@ export default function RentVsBuyCalculator() {
     const [monthlyRent, setMonthlyRent] = useState<number>(15000);
     const [rentInflation, setRentInflation] = useState<number>(5);
     const [investmentReturn, setInvestmentReturn] = useState<number>(10); // Opportunity cost return
+
+    // Update defaults when region changes
+    React.useEffect(() => {
+        if (isGlobal) {
+            setPropertyPrice(500000); // $500k
+            setMonthlyRent(2500); // $2.5k
+            setInterestRate(6.5);
+            setInvestmentReturn(7);
+        } else {
+            setPropertyPrice(5000000); // ₹50L
+            setMonthlyRent(15000); // ₹15k
+            setInterestRate(8.5);
+            setInvestmentReturn(10);
+        }
+    }, [isGlobal]);
 
     const result = useMemo(() => {
         const years = tenureYears;
@@ -123,10 +144,18 @@ export default function RentVsBuyCalculator() {
             <div className="space-y-6">
                 <Card>
                     <CardHeader>
-                        <CardTitle className="flex items-center gap-2">
-                            <Building className="w-5 h-5 text-emerald-500" />
-                            Parameters
-                        </CardTitle>
+                        <div className="flex justify-between items-center">
+                            <CardTitle className="flex items-center gap-2">
+                                <Building className="w-5 h-5 text-emerald-500" />
+                                Parameters
+                            </CardTitle>
+                            <div className="flex items-center space-x-2">
+                                <Label htmlFor="region-mode" className="text-xs font-medium text-slate-500">
+                                    {isGlobal ? 'Global (USD)' : 'India (INR)'}
+                                </Label>
+                                <Switch id="region-mode" checked={isGlobal} onCheckedChange={setIsGlobal} />
+                            </div>
+                        </div>
                     </CardHeader>
                     <CardContent>
                         <Tabs defaultValue="buy" className="w-full">
@@ -137,8 +166,15 @@ export default function RentVsBuyCalculator() {
 
                             <TabsContent value="buy" className="space-y-6">
                                 <div className="space-y-2">
-                                    <Label>Property Price ({formatCurrency(propertyPrice, 'INR')})</Label>
-                                    <Slider value={[propertyPrice]} min={1000000} max={50000000} step={100000} onValueChange={(v) => setPropertyPrice(v[0])} />
+                                    <Label>Property Price ({formatCurrency(propertyPrice, currency)})</Label>
+                                    <Input type="number" value={propertyPrice} onChange={e => setPropertyPrice(Number(e.target.value))} className="font-bold text-lg" />
+                                    <Slider
+                                        value={[propertyPrice]}
+                                        min={isGlobal ? 100000 : 1000000}
+                                        max={isGlobal ? 2000000 : 50000000}
+                                        step={isGlobal ? 10000 : 100000}
+                                        onValueChange={(v) => setPropertyPrice(v[0])}
+                                    />
                                 </div>
                                 <div className="grid md:grid-cols-2 gap-6">
                                     <div className="space-y-2">
@@ -162,9 +198,15 @@ export default function RentVsBuyCalculator() {
 
                             <TabsContent value="rent" className="space-y-6">
                                 <div className="space-y-2">
-                                    <Label>Monthly Rent ({formatCurrency(monthlyRent, 'INR')})</Label>
+                                    <Label>Monthly Rent ({formatCurrency(monthlyRent, currency)})</Label>
                                     <Input type="number" value={monthlyRent} onChange={e => setMonthlyRent(Number(e.target.value))} />
-                                    <Slider value={[monthlyRent]} min={5000} max={200000} step={1000} onValueChange={(v) => setMonthlyRent(v[0])} />
+                                    <Slider
+                                        value={[monthlyRent]}
+                                        min={isGlobal ? 500 : 5000}
+                                        max={isGlobal ? 10000 : 200000}
+                                        step={isGlobal ? 100 : 1000}
+                                        onValueChange={(v) => setMonthlyRent(v[0])}
+                                    />
                                 </div>
                                 <div className="grid md:grid-cols-2 gap-6">
                                     <div className="space-y-2">
@@ -196,13 +238,13 @@ export default function RentVsBuyCalculator() {
                                 <CartesianGrid strokeDasharray="3 3" vertical={false} />
                                 <XAxis dataKey="year" tickLine={false} axisLine={false} />
                                 <YAxis
-                                    tickFormatter={(v) => `${(v/100000).toFixed(0)}L`}
+                                    tickFormatter={(v) => isGlobal ? `${(v/1000).toFixed(0)}k` : `${(v/100000).toFixed(0)}L`}
                                     tickLine={false}
                                     axisLine={false}
                                 />
                                 <Tooltip
                                     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                                    formatter={(value: any) => formatCurrency(value, 'INR')}
+                                    formatter={(value: any) => formatCurrency(value, currency)}
                                     labelFormatter={(label) => `Year ${label}`}
                                 />
                                 <Legend />
@@ -245,15 +287,15 @@ export default function RentVsBuyCalculator() {
                         <div className="space-y-3 pt-4 border-t border-slate-800">
                             <div className="flex justify-between items-center">
                                 <span className="text-slate-400">Difference after {tenureYears}y</span>
-                                <span className="font-semibold text-lg">{formatCurrency(result.difference, 'INR')}</span>
+                                <span className="font-semibold text-lg">{formatCurrency(result.difference, currency)}</span>
                             </div>
                             <div className="flex justify-between items-center">
                                 <span className="text-slate-400">Buy Net Worth</span>
-                                <span className="font-semibold text-lg">{formatCurrency(result.finalBuyNetWorth, 'INR')}</span>
+                                <span className="font-semibold text-lg">{formatCurrency(result.finalBuyNetWorth, currency)}</span>
                             </div>
                              <div className="flex justify-between items-center">
                                 <span className="text-slate-400">Rent Net Worth</span>
-                                <span className="font-semibold text-lg">{formatCurrency(result.finalRentNetWorth, 'INR')}</span>
+                                <span className="font-semibold text-lg">{formatCurrency(result.finalRentNetWorth, currency)}</span>
                             </div>
                         </div>
                     </CardContent>

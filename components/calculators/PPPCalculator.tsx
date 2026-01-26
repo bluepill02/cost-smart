@@ -12,7 +12,7 @@ import { formatCurrency } from '@/lib/formatters';
 export default function PPPCalculator() {
     const [amount, setAmount] = useState<number>(100000);
     const [sourceCode, setSourceCode] = useState<string>('USA');
-    const [targetCode, setTargetCode] = useState<string>('IND');
+    const [targetCode, setTargetCode] = useState<string>('GBR');
 
     const sourceCountry = PPP_DATA.find(c => c.code === sourceCode) || PPP_DATA[0];
     const targetCountry = PPP_DATA.find(c => c.code === targetCode) || PPP_DATA[1];

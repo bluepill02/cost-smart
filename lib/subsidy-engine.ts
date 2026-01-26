@@ -15,6 +15,22 @@ export interface SubsidyResult {
  * - Total capacity > 3 kW: Fixed at ₹78,000
  */
 export function calculateSolarSubsidy(systemSizeKw: number, country: string): SubsidyResult {
+    // US Federal Tax Credit (ITC) - 30% of system cost
+    // Assuming standard cost per kW for estimation if gross cost not passed,
+    // but better to keep it simple here.
+    // Ideally, this function should take Cost, but for now we'll estimate based on average US cost/kW ($2.8k)
+    // to give a "subsidy amount" equivalent.
+    if (country === 'USA') {
+        // Average install cost ~ $2800/kW
+        const estimatedCost = systemSizeKw * 2800;
+        const credit = estimatedCost * 0.30;
+        return {
+            subsidyAmount: Math.round(credit),
+            schemeName: 'Federal Solar Tax Credit (ITC)',
+            description: '30% tax credit on installation costs (Inflation Reduction Act).'
+        };
+    }
+
     if (country !== 'India') {
         return {
             subsidyAmount: 0,
