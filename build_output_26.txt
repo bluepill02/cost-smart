@@ -1,0 +1,23 @@
+
+> cost-smart@0.1.0 build /app
+> next build
+
+   ▲ Next.js 16.0.10 (Turbopack)
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 17.4s
+   Running TypeScript ...
+Failed to compile.
+
+./components/features/ShareButton.tsx:5:18
+Type error: Module '"@/components/ui/button"' has no exported member 'ButtonProps'.
+
+[0m [90m 3 |[39m [36mimport[39m [33mReact[39m[33m,[39m { useState } [36mfrom[39m [32m'react'[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m { [33mShare2[39m[33m,[39m [33mCheck[39m } [36mfrom[39m [32m'lucide-react'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 5 |[39m [36mimport[39m { [33mButton[39m[33m,[39m [33mButtonProps[39m } [36mfrom[39m [32m'@/components/ui/button'[39m[33m;[39m
+ [90m   |[39m                  [31m[1m^[22m[39m
+ [90m 6 |[39m [36mimport[39m { useToast } [36mfrom[39m [32m'@/components/ui/use-toast'[39m[33m;[39m
+ [90m 7 |[39m [36mimport[39m { cn } [36mfrom[39m [32m'@/lib/utils'[39m[33m;[39m
+ [90m 8 |[39m[0m
+Next.js build worker exited with code: 1 and signal: null
+ ELIFECYCLE  Command failed with exit code 1.

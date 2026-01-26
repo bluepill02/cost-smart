@@ -1,0 +1,23 @@
+
+> cost-smart@0.1.0 build /app
+> next build
+
+   ▲ Next.js 16.0.10 (Turbopack)
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 13.5s
+   Running TypeScript ...
+Failed to compile.
+
+./app/blog/ultimate-guide-ppf-maturity/page.tsx:28:23
+Type error: Cannot find name 'i'.
+
+[0m [90m 26 |[39m       [33m<[39m[33mpre[39m className[33m=[39m[32m"bg-slate-900 text-slate-100 p-4 rounded-lg overflow-x-auto"[39m[33m>[39m
+ [90m 27 |[39m         [33m<[39m[33mcode[39m[33m>[39m
+[31m[1m>[22m[39m[90m 28 |[39m           [33mA[39m [33m=[39m [33mP[39m [({([35m1[39m[33m+[39mi)[33m^[39mn}[33m-[39m[35m1[39m)[33m/[39mi]
+ [90m    |[39m                       [31m[1m^[22m[39m
+ [90m 29 |[39m         [33m<[39m[33m/[39m[33mcode[39m[33m>[39m
+ [90m 30 |[39m       [33m<[39m[33m/[39m[33mpre[39m[33m>[39m
+ [90m 31 |[39m[0m
+Next.js build worker exited with code: 1 and signal: null
+ ELIFECYCLE  Command failed with exit code 1.

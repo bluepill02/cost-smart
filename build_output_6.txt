@@ -1,0 +1,53 @@
+
+> cost-smart@0.1.0 build /app
+> next build
+
+   ▲ Next.js 16.0.10 (Turbopack)
+
+   Creating an optimized production build ...
+
+> Build error occurred
+Error: Turbopack build failed with 2 errors:
+./components/calculators/tax/IndiaTaxCalculator.tsx:11:1
+Export TAX_CONSTANTS_FY24_25 doesn't exist in target module
+[0m [90m  9 |[39m [36mimport[39m { [33mRadioGroup[39m[33m,[39m [33mRadioGroupItem[39m } [36mfrom[39m [32m"@/components/ui/radio-group"[39m[33m;[39m
+ [90m 10 |[39m [36mimport[39m { formatCurrency } [36mfrom[39m [32m'@/lib/formatters'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 11 |[39m [36mimport[39m { [33mTAX_CONSTANTS_FY24_25[39m } [36mfrom[39m [32m'@/lib/tax-data'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 12 |[39m
+ [90m 13 |[39m [36mexport[39m [36mdefault[39m [36mfunction[39m [33mIndiaTaxCalculator[39m() {
+ [90m 14 |[39m     [36mconst[39m [grossIncome[33m,[39m setGrossIncome] [33m=[39m useState[33m<[39m[33mnumber[39m[33m>[39m([35m1200000[39m)[33m;[39m[0m
+
+The export TAX_CONSTANTS_FY24_25 was not found in module [project]/lib/tax-data.ts [app-client] (ecmascript).
+Did you mean to import TAX_SLABS_NEW_REGIME_2024?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/calculators/tax/IndiaTaxCalculator.tsx
+    ./app/in/income-tax-calculator/page.tsx
+
+
+./components/calculators/tax/IndiaTaxCalculator.tsx:11:1
+Export TAX_CONSTANTS_FY24_25 doesn't exist in target module
+[0m [90m  9 |[39m [36mimport[39m { [33mRadioGroup[39m[33m,[39m [33mRadioGroupItem[39m } [36mfrom[39m [32m"@/components/ui/radio-group"[39m[33m;[39m
+ [90m 10 |[39m [36mimport[39m { formatCurrency } [36mfrom[39m [32m'@/lib/formatters'[39m[33m;[39m
+[31m[1m>[22m[39m[90m 11 |[39m [36mimport[39m { [33mTAX_CONSTANTS_FY24_25[39m } [36mfrom[39m [32m'@/lib/tax-data'[39m[33m;[39m
+ [90m    |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 12 |[39m
+ [90m 13 |[39m [36mexport[39m [36mdefault[39m [36mfunction[39m [33mIndiaTaxCalculator[39m() {
+ [90m 14 |[39m     [36mconst[39m [grossIncome[33m,[39m setGrossIncome] [33m=[39m useState[33m<[39m[33mnumber[39m[33m>[39m([35m1200000[39m)[33m;[39m[0m
+
+The export TAX_CONSTANTS_FY24_25 was not found in module [project]/lib/tax-data.ts [app-ssr] (ecmascript).
+Did you mean to import TAX_SLABS_NEW_REGIME_2024?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+Import trace:
+  Server Component:
+    ./components/calculators/tax/IndiaTaxCalculator.tsx
+    ./app/in/income-tax-calculator/page.tsx
+
+
+    at <unknown> (./components/calculators/tax/IndiaTaxCalculator.tsx:11:1)
+    at <unknown> (./components/calculators/tax/IndiaTaxCalculator.tsx:11:1)
+ ELIFECYCLE  Command failed with exit code 1.

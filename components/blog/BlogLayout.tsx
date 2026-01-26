@@ -1,4 +1,5 @@
 import React from 'react';
+import AdContainer from '@/components/ads/AdContainer';
 
 interface BlogLayoutProps {
   children: React.ReactNode;
@@ -28,9 +29,21 @@ export const BlogLayout = ({ children, title, date, readingTime, category, autho
         </div>
       </header>
 
+      {/* Top Ad */}
+      <div className="mb-10">
+        <AdContainer slotId="1475703853" />
+      </div>
+
       <div className="prose prose-slate prose-lg max-w-none">
         {children}
+      </div>
+
+      {/* Bottom Ad */}
+      <div className="mt-12">
+        <AdContainer slotId="1475703853" />
       </div>
     </article>
   );
 };
+
+export default BlogLayout;

@@ -1,0 +1,24 @@
+
+> cost-smart@0.1.0 build /app
+> next build
+
+   ▲ Next.js 16.0.10 (Turbopack)
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 12.0s
+   Running TypeScript ...
+Failed to compile.
+
+./app/blog/how-to-use-break-even-calculator/page.tsx:17:7
+Type error: Type '{ children: Element[]; title: string; date: string; readTime: string; author: string; category: string; }' is not assignable to type 'IntrinsicAttributes & BlogLayoutProps'.
+  Property 'readTime' does not exist on type 'IntrinsicAttributes & BlogLayoutProps'.
+
+[0m [90m 15 |[39m       title[33m=[39m[32m"How to use the Break-Even Calculator"[39m
+ [90m 16 |[39m       date[33m=[39m[32m"2025-01-20"[39m
+[31m[1m>[22m[39m[90m 17 |[39m       readTime[33m=[39m[32m"5 min read"[39m
+ [90m    |[39m       [31m[1m^[22m[39m
+ [90m 18 |[39m       author[33m=[39m[32m"CostSmart Team"[39m
+ [90m 19 |[39m       category[33m=[39m[32m"Guide"[39m
+ [90m 20 |[39m     [33m>[39m[0m
+Next.js build worker exited with code: 1 and signal: null
+ ELIFECYCLE  Command failed with exit code 1.

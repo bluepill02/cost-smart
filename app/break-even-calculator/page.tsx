@@ -1,20 +1,29 @@
 import { Metadata } from 'next';
 import BreakEvenCalculator from '@/components/calculators/business/BreakEvenCalculator';
+import JsonLd from '@/components/seo/JsonLd';
+import { getCalculatorSchema } from '@/lib/seo-utils';
 
 export const metadata: Metadata = {
-  title: 'Break-Even Point Calculator | CostSmart',
-  description: 'Find out how many units you need to sell to cover your fixed costs. Essential for pricing strategy and business planning.',
+  title: 'Break-Even Calculator | CostSmart',
+  description: 'Find your break-even point in units and revenue.',
   alternates: {
     canonical: 'https://cost-smart-five.vercel.app/break-even-calculator',
   },
 };
 
 export default function Page() {
+  const jsonLd = getCalculatorSchema(
+    'Break-Even Calculator',
+    'Find your break-even point in units and revenue.',
+    '/break-even-calculator'
+  );
+
   return (
     <div className="container mx-auto px-4 py-12 max-w-4xl">
+      <JsonLd data={jsonLd} />
       <div className="mb-8 text-center">
-        <h1 className="text-4xl font-bold text-slate-900 mb-4">Break-Even Point Calculator</h1>
-        <p className="text-xl text-slate-600 max-w-2xl mx-auto">Find out how many units you need to sell to cover your fixed costs. Essential for pricing strategy and business planning.</p>
+        <h1 className="text-4xl font-bold text-slate-900 mb-4">Break-Even Calculator</h1>
+        <p className="text-xl text-slate-600 max-w-2xl mx-auto">Find your break-even point in units and revenue.</p>
       </div>
 
       <BreakEvenCalculator />
@@ -22,13 +31,13 @@ export default function Page() {
       <article className="prose prose-slate lg:prose-lg mx-auto mt-16">
         <h2>How to use this calculator</h2>
         <p>
-            This tool helps you make data-driven decisions for your business.
+            This tool helps you make data-driven decisions.
             Simply enter your specific details above, and the calculator will provide instant results.
         </p>
         <h3>Why is this important?</h3>
         <p>
             Understanding your numbers is crucial for financial health.
-            Whether you are calculating margins, taxes, or shipping costs, accuracy saves money.
+            Accuracy saves money and helps in better planning.
         </p>
       </article>
     </div>

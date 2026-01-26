@@ -1,5 +1,6 @@
 import { promises as fs } from 'fs';
 import path from 'path';
+import { INDIAN_CITIES } from './pseo-data/cities';
 
 /**
  * Solar Data Interface
@@ -13,6 +14,7 @@ import path from 'path';
 export interface SolarData {
     city_name: string;
     country: string;
+    state?: string; // Optional because legacy data might not have it
     avg_daily_sunlight_hours: number;
     avg_electricity_cost_per_kwh: number;
     grid_inflation_rate: number;
@@ -23,9 +25,37 @@ let cachedData: SolarData[] | null = null;
 
 async function loadDataIfNeeded() {
     if (!cachedData) {
+        // Load legacy data
         const filePath = path.join(process.cwd(), 'code_block.json');
-        const fileContents = await fs.readFile(filePath, 'utf8');
-        cachedData = JSON.parse(fileContents);
+        let fileContents = '[]';
+        try {
+            fileContents = await fs.readFile(filePath, 'utf8');
+        } catch (e) {
+            console.warn('code_block.json not found, using pSEO data only');
+        }
+        const legacyData: SolarData[] = JSON.parse(fileContents);
+
+        // Merge/Augment with pSEO data (INDIAN_CITIES)
+        // We prioritize INDIAN_CITIES for accuracy in India context
+        const pseoData: SolarData[] = INDIAN_CITIES.map(c => ({
+            city_name: c.name,
+            country: 'India',
+            state: c.state,
+            avg_daily_sunlight_hours: c.solarIrradiance,
+            avg_electricity_cost_per_kwh: c.electricityRate, // Keeping currency distinct is UI responsibility
+            grid_inflation_rate: 5.0, // Avg inflation
+            solar_installation_cost_per_kw: 60000 // Avg INR cost/kW
+        }));
+
+        // Combine: Use pSEO data if available, else legacy
+        const combined = [...pseoData];
+        legacyData.forEach(l => {
+            if (!combined.find(c => c.city_name.toLowerCase() === l.city_name.toLowerCase())) {
+                combined.push(l);
+            }
+        });
+
+        cachedData = combined;
     }
 }
 
@@ -41,10 +71,17 @@ export async function getCityData(cityParam: string): Promise<SolarData | undefi
 
         // Normalize comparison (e.g. "new-york" -> "New York")
         // Simple lookup for now matching the exact name or simple slug
+        // pSEO slugs are lowercase, legacy names might have spaces
         const normalizedParam = cityParam.replace(/-/g, ' ').toLowerCase();
 
         // Note: The dataset may contain duplicate cities.
         // We strictly use the first occurrence to ensure deterministic behavior.
+        // Check exact slug match first (from pSEO data)
+        const city = INDIAN_CITIES.find(c => c.slug === cityParam);
+        if (city) {
+            return cachedData!.find(c => c.city_name === city.name);
+        }
+
         return cachedData!.find(c => c.city_name.toLowerCase() === normalizedParam);
     } catch (error) {
         console.error("Error reading solar data", error);

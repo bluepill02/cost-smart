@@ -1,0 +1,33 @@
+
+> cost-smart@0.1.0 build /app
+> next build
+
+   ▲ Next.js 16.0.10 (Turbopack)
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 18.9s
+   Running TypeScript ...
+Failed to compile.
+
+./components/calculators/compare/EMIVsSIPCalculator.tsx:220:42
+Type error: No overload matches this call.
+  Overload 1 of 2, '(props: TooltipProps<ValueType, NameType>, context?: any): string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | ... 4 more ... | undefined', gave the following error.
+    Type '(val: number) => string' is not assignable to type 'Formatter<ValueType, NameType>'.
+      Types of parameters 'val' and 'value' are incompatible.
+        Type 'ValueType | undefined' is not assignable to type 'number'.
+          Type 'undefined' is not assignable to type 'number'.
+  Overload 2 of 2, '(props: TooltipProps<ValueType, NameType>): string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | ... 4 more ... | undefined', gave the following error.
+    Type '(val: number) => string' is not assignable to type 'Formatter<ValueType, NameType>'.
+      Types of parameters 'val' and 'value' are incompatible.
+        Type 'ValueType | undefined' is not assignable to type 'number'.
+          Type 'undefined' is not assignable to type 'number'.
+
+[0m [90m 218 |[39m                                     width[33m=[39m{[35m40[39m}
+ [90m 219 |[39m                                 [33m/[39m[33m>[39m
+[31m[1m>[22m[39m[90m 220 |[39m                                 [33m<[39m[33mTooltip[39m formatter[33m=[39m{(val[33m:[39m number) [33m=>[39m formatCurrency(val[33m,[39m [32m'INR'[39m)} [33m/[39m[33m>[39m
+ [90m     |[39m                                          [31m[1m^[22m[39m
+ [90m 221 |[39m                                 [33m<[39m[33mLegend[39m [33m/[39m[33m>[39m
+ [90m 222 |[39m                                 [33m<[39m[33mLine[39m type[33m=[39m[32m"monotone"[39m dataKey[33m=[39m[32m"loanCost"[39m name[33m=[39m[32m"Total Paid (EMI)"[39m stroke[33m=[39m[32m"#ef4444"[39m strokeWidth[33m=[39m{[35m2[39m} [33m/[39m[33m>[39m
+ [90m 223 |[39m                                 [33m<[39m[33mLine[39m type[33m=[39m[32m"monotone"[39m dataKey[33m=[39m[32m"sipValue"[39m name[33m=[39m[32m"Investment Value (SIP)"[39m stroke[33m=[39m[32m"#10b981"[39m strokeWidth[33m=[39m{[35m2[39m} [33m/[39m[33m>[39m[0m
+Next.js build worker exited with code: 1 and signal: null
+ ELIFECYCLE  Command failed with exit code 1.

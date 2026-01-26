@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { formatCurrency } from '@/lib/formatters';
+import { GST_RATES } from '@/lib/tax-data';
 
 interface GSTResult {
     netAmount: number;
@@ -49,7 +50,8 @@ export default function GSTCalculator() {
         };
     }, [amount, rate, type]);
 
-    const presetRates = [5, 12, 18, 28];
+    // Use centralized rates if available, else fallback
+    const presetRates = GST_RATES || [5, 12, 18, 28];
 
     return (
         <div className="grid lg:grid-cols-[1.5fr_1fr] gap-8">
