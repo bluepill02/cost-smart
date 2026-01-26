@@ -12,12 +12,12 @@ const CACHE_REVALIDATE = 300; // 5 minutes
 
 export async function getMarketIndices(): Promise<MarketData[]> {
     const symbols = [
-        '^NSEI', // NIFTY 50
-        '^BSESN', // SENSEX
-        '^GSPC', // S&P 500
-        'BTC-USD', // Bitcoin
-        'ETH-USD', // Ethereum
-        'GC=F', // Gold Futures
+        '^GSPC', // S&P 500 (US Primary)
+        'BTC-USD', // Bitcoin (Global)
+        'ETH-USD', // Ethereum (Global)
+        'GC=F', // Gold Futures (Global)
+        '^NSEI', // NIFTY 50 (India Secondary)
+        '^BSESN', // SENSEX (India Secondary)
         'INR=X' // USD/INR
     ];
 

@@ -22,12 +22,12 @@ const ResponsiveContainer = dynamic(() => import('recharts').then(mod => mod.Res
 import { Switch } from '@/components/ui/switch';
 
 export default function RentVsBuyCalculator() {
-    // Region Toggle
-    const [isGlobal, setIsGlobal] = useState(false);
+    // Region Toggle - Default to Global (US)
+    const [isGlobal, setIsGlobal] = useState(true);
     const currency = isGlobal ? 'USD' : 'INR';
 
     // Buy Inputs
-    const [propertyPrice, setPropertyPrice] = useState<number>(5000000);
+    const [propertyPrice, setPropertyPrice] = useState<number>(500000);
     const [downPaymentPercent, setDownPaymentPercent] = useState<number>(20);
     const [interestRate, setInterestRate] = useState<number>(8.5);
     const [tenureYears, setTenureYears] = useState<number>(20);
@@ -35,9 +35,9 @@ export default function RentVsBuyCalculator() {
     const [maintenanceRate, setMaintenanceRate] = useState<number>(0.5); // % of value per year
 
     // Rent Inputs
-    const [monthlyRent, setMonthlyRent] = useState<number>(15000);
+    const [monthlyRent, setMonthlyRent] = useState<number>(2500);
     const [rentInflation, setRentInflation] = useState<number>(5);
-    const [investmentReturn, setInvestmentReturn] = useState<number>(10); // Opportunity cost return
+    const [investmentReturn, setInvestmentReturn] = useState<number>(7); // Opportunity cost return
 
     // Update defaults when region changes
     React.useEffect(() => {

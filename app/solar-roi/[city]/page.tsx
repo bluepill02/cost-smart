@@ -13,9 +13,10 @@ import { US_CITIES } from '@/lib/pseo-data/us-cities';
 // --- Static Params Generation ---
 export async function generateStaticParams() {
     // Generate params for all Indian and US cities
-    const indianParams = INDIAN_CITIES.map((city) => ({ city: city.slug }));
+    // We prioritize US cities for static generation ordering if it impacts sitemap, though list is merged.
     const usParams = US_CITIES.map((city) => ({ city: city.slug }));
-    return [...indianParams, ...usParams];
+    const indianParams = INDIAN_CITIES.map((city) => ({ city: city.slug }));
+    return [...usParams, ...indianParams];
 }
 
 // --- Dynamic Metadata Generation ---

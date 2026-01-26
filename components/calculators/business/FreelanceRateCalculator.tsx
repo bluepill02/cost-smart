@@ -21,7 +21,7 @@ export default function FreelanceRateCalculator() {
     // Geo-Arbitrage Inputs
     const [geoMode, setGeoMode] = useState(false);
     const [benchmarkCountryCode, setBenchmarkCountryCode] = useState('USA');
-    const [myCountryCode, setMyCountryCode] = useState('IND');
+    const [myCountryCode, setMyCountryCode] = useState('USA');
 
     const result = useMemo(() => {
         // 1. Calculate Effective Target Income based on Geo-Arbitrage
