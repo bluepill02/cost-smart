@@ -37,41 +37,13 @@ export default function IndiaTaxCalculator() {
         if (taxableIncome < 0) taxableIncome = 0;
 
         let tax = 0;
-        let previousLimit = rules.slabs[0].limit;
 
         // Calculate Tax based on Slabs
         // Note: Logic for New Regime Slabs 2024 (Budget update: 3-7L 5%, 7-10L 10%, etc)
-        // We need to iterate carefully.
-
-        // Simplified generic slab iterator
-        let remainingIncome = taxableIncome;
-
         // The slab structure in `tax-data.ts` assumes limits are absolute points (3L, 7L, 10L).
         // Calculation needs to be delta based.
 
-        // Reset tax
-        tax = 0;
-        let tempIncome = taxableIncome;
-        let lastLimit = rules.slabs[0].limit; // 300000
-
-        // If income is below exemption, tax is 0.
-        if (taxableIncome > lastLimit) {
-             for (let i = 1; i < rules.slabs.length; i++) {
-                const slab = rules.slabs[i];
-                const prevSlab = rules.slabs[i-1];
-
-                const slabRange = slab.limit - prevSlab.limit;
-
-                if (tempIncome > prevSlab.limit) {
-                    const taxableAmountInSlab = Math.min(tempIncome - prevSlab.limit, slabRange);
-                    // Wait, this logic is tricky if we don't handle the 'previous chunk' correctly.
-                    // Better approach: Calculate tax for each chunk.
-                }
-             }
-        }
-
         // Re-implementing robust slab logic:
-        tax = 0;
         if (taxableIncome > rules.basicExemptionLimit) {
             let previousLimit = rules.basicExemptionLimit;
 
