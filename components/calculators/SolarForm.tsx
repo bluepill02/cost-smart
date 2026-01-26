@@ -12,6 +12,7 @@ import PrintSolarReport from '@/components/calculators/PrintSolarReport';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import { useAIClassifier } from '@/lib/hooks/useAIClassifier';
 import { cn } from '@/lib/utils';
+import { calculateSolarSubsidy } from '@/lib/subsidy-engine';
 
 interface SolarData {
     city_name: string;
@@ -81,7 +82,7 @@ export default function SolarForm({ cityData }: { cityData: SolarData }) {
         }
     }, [usageTier, cityData.avg_electricity_cost_per_kwh]);
 
-    const { systemSize, savings20Year, paybackPeriod, chartData } = React.useMemo(() => {
+    const { systemSize, savings20Year, paybackPeriod, chartData, subsidyData } = React.useMemo(() => {
         // 1. Calculate Monthly Usage (kWh) = Bill / Cost per kWh
         const monthlyKwh = bill / cityData.avg_electricity_cost_per_kwh;
 
@@ -90,8 +91,10 @@ export default function SolarForm({ cityData }: { cityData: SolarData }) {
 
         // 3. System Cost = Size * Cost/kW
         const grossCost = requiredKw * cityData.solar_installation_cost_per_kw;
-        // Federal Tax Credit (USA 30%) or Subsidy (India ~20-40%). Simplified to 30% global avg for estimator.
-        const netCost = grossCost * 0.70;
+
+        // Calculate Subsidy
+        const subsidyData = calculateSolarSubsidy(requiredKw, cityData.country);
+        const netCost = grossCost - subsidyData.subsidyAmount;
 
         // 4. Annual Savings & Data Projection
         let cumulativeSavings = 0 - netCost; // Start negative (investment)
@@ -133,7 +136,8 @@ export default function SolarForm({ cityData }: { cityData: SolarData }) {
             systemSize: requiredKw,
             savings20Year: total20Year,
             paybackPeriod: calculatedBreakEvenYear || 0,
-            chartData: dataPoints
+            chartData: dataPoints,
+            subsidyData
         };
 
     }, [bill, cityData]);
@@ -210,6 +214,11 @@ export default function SolarForm({ cityData }: { cityData: SolarData }) {
                         <Sun className="w-8 h-8 text-amber-500 mb-3" />
                         <div className="text-sm text-slate-500 mb-1">Recommended System</div>
                         <div className="text-3xl font-bold text-slate-900">{systemSize.toFixed(1)} <span className="text-base font-normal text-slate-500">kW</span></div>
+                        {subsidyData?.subsidyAmount > 0 && (
+                            <div className="mt-2 text-xs bg-emerald-100 text-emerald-800 px-2 py-1 rounded-full font-medium">
+                                Eligible for {currencySymbol}{subsidyData.subsidyAmount.toLocaleString()} Subsidy
+                            </div>
+                        )}
                     </CardContent>
                 </Card>
 
@@ -280,6 +289,7 @@ export default function SolarForm({ cityData }: { cityData: SolarData }) {
             savings20Year={savings20Year}
             paybackPeriod={paybackPeriod}
             monthlyBill={bill}
+            subsidy={subsidyData}
         />
         </>
     );

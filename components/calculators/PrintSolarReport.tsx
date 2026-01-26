@@ -1,6 +1,7 @@
 import React from 'react';
 import {  Sun, BatteryCharging, DollarSign } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { SubsidyResult } from '@/lib/subsidy-engine';
 
 interface SolarData {
     city_name: string;
@@ -15,9 +16,10 @@ interface PrintSolarReportProps {
     savings20Year: number;
     paybackPeriod: number;
     monthlyBill: number;
+    subsidy?: SubsidyResult;
 }
 
-export default function PrintSolarReport({ cityData, systemSize, savings20Year, paybackPeriod, monthlyBill }: PrintSolarReportProps) {
+export default function PrintSolarReport({ cityData, systemSize, savings20Year, paybackPeriod, monthlyBill, subsidy }: PrintSolarReportProps) {
     const currency = cityData.country === 'India' ? '₹' : '$';
     const date = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 
@@ -77,6 +79,15 @@ export default function PrintSolarReport({ cityData, systemSize, savings20Year, 
                             <td className="py-2 text-slate-500">Location</td>
                             <td className="py-2 font-medium">{cityData.city_name}, {cityData.country}</td>
                         </tr>
+                        {subsidy && subsidy.subsidyAmount > 0 && (
+                            <tr className="py-2 bg-emerald-50/50">
+                                <td className="py-2 pl-2 text-emerald-800 font-medium">Govt. Subsidy Eligible</td>
+                                <td className="py-2 font-bold text-emerald-700">
+                                    {currency}{subsidy.subsidyAmount.toLocaleString()}
+                                    <span className="block text-[10px] font-normal text-emerald-600">{subsidy.schemeName}</span>
+                                </td>
+                            </tr>
+                        )}
                     </tbody>
                 </table>
             </div>
