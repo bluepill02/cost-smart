@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
 import { workerManager } from '../worker-manager';
 
 // Define the worker type for better type safety if extending later
@@ -59,7 +59,7 @@ export function useAIClassifier() {
         };
     }, []);
 
-    const classify = (text: string, labels: string[]) => {
+    const classify = useCallback((text: string, labels: string[]) => {
         const id = Math.random().toString(36).substring(7);
         requestIdRef.current = id;
         setLoading(true);
@@ -68,7 +68,7 @@ export function useAIClassifier() {
             labels,
             id
         });
-    };
+    }, []);
 
     return { ready, classify, result, loading };
 }
