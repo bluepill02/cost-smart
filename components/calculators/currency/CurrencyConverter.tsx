@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from 'next/dynamic';
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { ArrowRightLeft, TrendingUp, Info } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
@@ -27,6 +27,11 @@ export default function CurrencyConverter({ initialRates }: CurrencyConverterPro
     const [fromCurrency, setFromCurrency] = useState<string>('USD');
     const [toCurrency, setToCurrency] = useState<string>('EUR');
     const [rates, setRates] = useState<ExchangeRates>(initialRates);
+    // Cache for rates to avoid redundant fetches
+    const ratesCache = useRef<Record<string, ExchangeRates>>({
+        [initialRates.base]: initialRates
+    });
+
     const [history, setHistory] = useState<{ date: string, rate: number }[]>([]);
     const [loadingHistory, setLoadingHistory] = useState(false);
 
@@ -39,17 +44,29 @@ export default function CurrencyConverter({ initialRates }: CurrencyConverterPro
     useEffect(() => {
         if (fromCurrency === rates.base) return;
 
+        // Check cache first
+        if (ratesCache.current[fromCurrency]) {
+            setRates(ratesCache.current[fromCurrency]);
+            return;
+        }
+
+        let active = true;
+
         async function updateBase() {
             // We fetch client-side here for interactivity
             try {
                 const res = await fetch(`https://api.frankfurter.app/latest?from=${fromCurrency}`);
                 const data = await res.json();
-                setRates(data);
+                if (active) {
+                    setRates(data);
+                    ratesCache.current[fromCurrency] = data;
+                }
             } catch (err) {
                 console.error("Failed to update base rate", err);
             }
         }
         updateBase();
+        return () => { active = false; };
     }, [fromCurrency, rates.base]);
 
     // Fetch history for the chart
