@@ -10,6 +10,7 @@ import { Slider } from '@/components/ui/slider';
 import { Button } from '@/components/ui/button';
 import { saveHistoryItem } from '@/lib/history-manager';
 import { formatCurrency } from '@/lib/formatters';
+import SmartInsight from '@/components/calculators/SmartInsight';
 
 // Lazy load Recharts components
 const PieChart = dynamic(() => import('recharts').then(mod => mod.PieChart), { ssr: false });
@@ -38,6 +39,7 @@ export default function LoanCalculator({
     const [rate, setRate] = useState<number>(defaultRate);
     const [years, setYears] = useState<number>(30);
     const [extraPayment, setExtraPayment] = useState<number>(0);
+    const [purpose, setPurpose] = useState('');
 
     const calculation = useMemo(() => {
         const r = rate / 100 / 12;
@@ -155,6 +157,23 @@ export default function LoanCalculator({
                                 />
                             </div>
                         </div>
+
+                        <div className="space-y-2">
+                            <Label htmlFor="purpose">Loan Purpose (Optional)</Label>
+                            <Input
+                                id="purpose"
+                                placeholder="e.g. Buying a new car, Home renovation..."
+                                value={purpose}
+                                onChange={(e) => setPurpose(e.target.value)}
+                            />
+                        </div>
+
+                        <SmartInsight
+                            type="loan"
+                            amount={principal}
+                            purpose={purpose}
+                            metrics={{ rate, term: years, emi: calculation.emi }}
+                        />
 
                         <div className="pt-4 border-t border-slate-100 space-y-3">
                             <div className="flex items-center justify-between">

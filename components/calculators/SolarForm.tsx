@@ -6,8 +6,9 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import ShareButton from '@/components/features/ShareButton';
-import { Sun, BatteryCharging, DollarSign, Loader2, Sparkles } from 'lucide-react';
+import { Sun, BatteryCharging, DollarSign, Loader2, Sparkles, Printer } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import PrintSolarReport from '@/components/calculators/PrintSolarReport';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 import { useAIClassifier } from '@/lib/hooks/useAIClassifier';
 import { cn } from '@/lib/utils';
@@ -138,7 +139,8 @@ export default function SolarForm({ cityData }: { cityData: SolarData }) {
     }, [bill, cityData]);
 
     return (
-        <div className="space-y-8">
+        <>
+        <div className="space-y-8 print:hidden">
             <div className="space-y-6">
 
                 {/* AI Estimator Input */}
@@ -254,15 +256,31 @@ export default function SolarForm({ cityData }: { cityData: SolarData }) {
                     Get My Verified Solar Quote
                 </Button>
 
-                <div className="flex justify-center">
+                <div className="flex justify-center gap-2">
                     <ShareButton
                         title="My Solar Savings"
                         text={`I found I can save ${currencySymbol}${savings20Year.toLocaleString(undefined, { maximumFractionDigits: 0 })} with solar in ${cityData.city_name}.`}
                         variant="ghost"
                         className="text-slate-500 hover:text-emerald-600"
                     />
+                    <Button
+                        variant="ghost"
+                        className="text-slate-500 hover:text-emerald-600"
+                        onClick={() => window.print()}
+                    >
+                        <Printer className="w-4 h-4 mr-2" /> Print Report
+                    </Button>
                 </div>
             </div>
         </div>
+
+        <PrintSolarReport
+            cityData={cityData}
+            systemSize={systemSize}
+            savings20Year={savings20Year}
+            paybackPeriod={paybackPeriod}
+            monthlyBill={bill}
+        />
+        </>
     );
 }
