@@ -35,6 +35,8 @@ export default function LoanCalculator({
     defaultRate = 6.5,
     maxPrincipal = 1000000
 }: LoanCalculatorProps) {
+    // If currency is INR, assume different default if not provided, but parent component usually controls this.
+    // However, default props above are already US-centric ($250k, 6.5%).
     const [principal, setPrincipal] = useState<number>(defaultPrincipal);
     const [rate, setRate] = useState<number>(defaultRate);
     const [years, setYears] = useState<number>(30);

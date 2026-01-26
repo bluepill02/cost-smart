@@ -57,6 +57,7 @@ export default async function Home() {
       icon: <HomeIcon className="w-6 h-6 text-emerald-600" />,
       color: "bg-emerald-50 border-emerald-200",
       items: [
+        { name: "Global Salary (PPP)", href: "/global-salary-converter", desc: "True salary worth" },
         { name: "Solar ROI", href: "/solar-roi", desc: "Solar savings & payback" },
         { name: "Home Loan EMI", href: "/home-loan-calculator", desc: "Mortgage planning" },
         { name: "Rent vs Buy", href: "/rent-vs-buy-calculator", desc: "Ownership decision" },
@@ -201,24 +202,24 @@ export default async function Home() {
                 </Card>
               </Link>
 
-              {/* Income Tax Card */}
-              <Link href="/in/income-tax-calculator" className="group">
+              {/* Global Salary Card */}
+              <Link href="/global-salary-converter" className="group">
                 <Card className="h-full border-slate-200 shadow-sm hover:shadow-xl hover:border-indigo-200 transition-all duration-300 relative overflow-hidden">
                   <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
-                     <Calculator size={120} className="text-indigo-500" />
+                     <ArrowRightLeft size={120} className="text-indigo-500" />
                   </div>
                   <CardHeader className="pb-4 relative z-10">
                     <div className="h-12 w-12 bg-indigo-100 text-indigo-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-inner">
-                      <Calculator size={24} />
+                      <ArrowRightLeft size={24} />
                     </div>
-                    <CardTitle className="text-2xl">Income Tax India</CardTitle>
+                    <CardTitle className="text-2xl">True Salary (PPP)</CardTitle>
                     <CardDescription className="text-base">
-                       New vs Old Regime comparison for FY 2024-25.
+                       Compare your real purchasing power across countries.
                     </CardDescription>
                   </CardHeader>
                   <CardContent className="relative z-10">
                     <div className="flex items-center text-indigo-600 font-bold group-hover:translate-x-1 transition-transform">
-                      Check Liability <ArrowRight size={18} className="ml-2" />
+                      Check Worth <ArrowRight size={18} className="ml-2" />
                     </div>
                   </CardContent>
                 </Card>
