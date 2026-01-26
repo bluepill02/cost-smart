@@ -1,0 +1,50 @@
+
+> cost-smart@0.1.0 dev
+> next dev
+
+   ▲ Next.js 16.0.10 (Turbopack)
+   - Local:         http://localhost:3000
+   - Network:       http://192.168.0.2:3000
+
+ ✓ Starting...
+Attention: Next.js now collects completely anonymous telemetry regarding usage.
+This information is used to shape Next.js' roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://nextjs.org/telemetry
+
+ ✓ Ready in 1371ms
+ ○ Compiling /in/ppf-calculator ...
+ GET /in/ppf-calculator 200 in 6.0s (compile: 5.2s, render: 856ms)
+ GET / 200 in 2.8s (compile: 1492ms, render: 1290ms)
+ GET / 200 in 320ms (compile: 5ms, render: 315ms)
+ GET /in/stamp-duty-calculator 200 in 919ms (compile: 557ms, render: 362ms)
+ GET /in/emi-calculator 200 in 1296ms (compile: 1119ms, render: 176ms)
+ GET /in/property-tax-calculator 200 in 909ms (compile: 704ms, render: 205ms)
+ GET /in/electricity-bill-calculator 200 in 908ms (compile: 585ms, render: 323ms)
+ GET /in/sip-calculator 200 in 1475ms (compile: 1163ms, render: 312ms)
+ GET /in/ppf-calculator 200 in 229ms (compile: 5ms, render: 224ms)
+ GET /in/fd-calculator 200 in 873ms (compile: 719ms, render: 154ms)
+ GET /retirement-calculator 200 in 762ms (compile: 512ms, render: 250ms)
+ GET /emergency-fund-calculator 200 in 767ms (compile: 598ms, render: 169ms)
+ GET /debt-payoff-calculator 200 in 1330ms (compile: 1079ms, render: 252ms)
+ GET /in/salary-calculator 200 in 846ms (compile: 432ms, render: 414ms)
+ GET /in/income-tax-calculator 200 in 865ms (compile: 516ms, render: 349ms)
+ GET /in/gst-calculator 200 in 568ms (compile: 439ms, render: 129ms)
+ GET /home-loan-calculator 200 in 1012ms (compile: 598ms, render: 414ms)
+ GET /in/stamp-duty-calculator 200 in 107ms (compile: 3ms, render: 104ms)
+ GET /rent-vs-buy-calculator 200 in 1030ms (compile: 807ms, render: 223ms)
+ GET /in/property-tax-calculator 200 in 155ms (compile: 3ms, render: 152ms)
+ GET /in/electricity-bill-calculator 200 in 178ms (compile: 3ms, render: 175ms)
+ GET /in/water-bill-calculator 200 in 524ms (compile: 407ms, render: 117ms)
+ GET /in/lpg-subsidy-calculator 200 in 691ms (compile: 433ms, render: 258ms)
+ GET /freelance-rate-calculator 200 in 758ms (compile: 410ms, render: 348ms)
+ GET /business-loan-calculator 200 in 690ms (compile: 433ms, render: 257ms)
+ GET /in/gst-input-credit-calculator 200 in 814ms (compile: 446ms, render: 368ms)
+ GET /profit-margin-calculator 200 in 777ms (compile: 506ms, render: 271ms)
+ GET /break-even-calculator 200 in 629ms (compile: 377ms, render: 252ms)
+ GET /invoice-generator 200 in 617ms (compile: 461ms, render: 156ms)
+ GET /import-duty 200 in 1063ms (compile: 585ms, render: 478ms)
+ GET /currency 200 in 1105ms (compile: 687ms, render: 419ms)
+ GET /shipping-cost-calculator 200 in 973ms (compile: 491ms, render: 481ms)
+ GET /in/tds-calculator 200 in 955ms (compile: 595ms, render: 361ms)
+[?25h
