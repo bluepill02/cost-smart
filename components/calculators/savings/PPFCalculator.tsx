@@ -25,7 +25,7 @@ const Legend = dynamic(() => import('recharts').then(mod => mod.Legend), { ssr: 
 
 export default function PPFCalculator() {
     const [investment, setInvestment] = useState<number>(150000); // Max 1.5L
-    const [rate] = useState<number>(RBI_DATA.ppfInterestRate || 7.1); // Use centralized data
+    const [rate, setRate] = useState<number>(RBI_DATA.ppfInterestRate || 7.1); // Use centralized data
     const [period] = useState<number>(15); // Fixed 15 years
 
     // Validation
@@ -108,10 +108,17 @@ export default function PPFCalculator() {
                     </div>
 
                     <div className="grid grid-cols-2 gap-4">
-                        <div className="space-y-2 opacity-75">
-                            <Label>Interest Rate</Label>
-                            <div className="p-2 bg-slate-100 rounded border font-mono font-bold">{rate}%</div>
-                            <p className="text-[10px] text-slate-400">Fixed by Govt.</p>
+                        <div className="space-y-2">
+                            <Label htmlFor="rate">Interest Rate (%)</Label>
+                            <Input
+                                id="rate"
+                                type="number"
+                                value={rate}
+                                onChange={(e) => setRate(Number(e.target.value))}
+                                className="font-mono font-bold"
+                                step="0.1"
+                            />
+                            <p className="text-[10px] text-slate-400">Current Govt Rate: {RBI_DATA.ppfInterestRate}%</p>
                         </div>
                         <div className="space-y-2 opacity-75">
                             <Label>Duration</Label>
