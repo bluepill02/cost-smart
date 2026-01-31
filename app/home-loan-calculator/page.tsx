@@ -4,8 +4,9 @@ import AdContainer from '@/components/ads/AdContainer';
 import JsonLd from '@/components/seo/JsonLd';
 import { getCalculatorSchema } from '@/lib/seo-utils';
 import Link from 'next/link';
-import { MapPin } from 'lucide-react';
+import { MapPin, Globe } from 'lucide-react';
 import { INDIAN_CITIES } from '@/lib/pseo-data/cities';
+import { US_CITIES } from '@/lib/pseo-data/us-cities';
 
 export const metadata: Metadata = {
   title: 'Home Loan EMI Calculator | CostSmart',
@@ -23,7 +24,10 @@ export default function Page() {
   );
 
   // Sort cities for the list
-  const cities = [...INDIAN_CITIES].sort((a, b) => a.name.localeCompare(b.name));
+  const indianCities = [...INDIAN_CITIES].sort((a, b) => a.name.localeCompare(b.name));
+  // Use US Cities from solar data as proxy for major cities, though this page is generic loan
+  // In a real scenario, we'd have a separate 'US_MORTGAGE_CITIES' list, but reusing US_CITIES works for "Major Cities"
+  const usCities = [...US_CITIES].sort((a, b) => a.city_name.localeCompare(b.city_name));
 
   return (
     <div className="container mx-auto px-4 py-12 max-w-5xl">
@@ -59,21 +63,42 @@ export default function Page() {
 
       {/* Internal Linking for pSEO Pages */}
       <section className="mt-16 pt-12 border-t border-slate-200">
-        <h2 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
-            <MapPin className="text-emerald-500" />
-            Calculate EMI by City
-        </h2>
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3">
-            {cities.map(city => (
-                <Link
-                    key={city.slug}
-                    href={`/home-loan-calculator/${city.slug}`}
-                    className="text-sm text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 px-3 py-2 rounded transition-colors truncate border border-transparent hover:border-emerald-100"
-                    title={`Home Loan in ${city.name}`}
-                >
-                    {city.name}
-                </Link>
-            ))}
+        <div className="mb-8">
+            <h2 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                <Globe className="text-emerald-500" />
+                Popular US Locations
+            </h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3">
+                {usCities.map(city => (
+                    <div
+                        key={city.slug}
+                        className="text-sm text-slate-600 px-3 py-2 rounded border border-slate-100 bg-slate-50 cursor-default"
+                        title={`Home Loan in ${city.city_name}`}
+                    >
+                        {city.city_name}
+                    </div>
+                ))}
+            </div>
+            <p className="text-xs text-slate-400 mt-2">* City-specific landing pages coming soon for US locations.</p>
+        </div>
+
+        <div>
+            <h2 className="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                <MapPin className="text-emerald-500" />
+                Calculate EMI by City (India)
+            </h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3">
+                {indianCities.map(city => (
+                    <Link
+                        key={city.slug}
+                        href={`/home-loan-calculator/${city.slug}`}
+                        className="text-sm text-slate-600 hover:text-emerald-600 hover:bg-emerald-50 px-3 py-2 rounded transition-colors truncate border border-transparent hover:border-emerald-100"
+                        title={`Home Loan in ${city.name}`}
+                    >
+                        {city.name}
+                    </Link>
+                ))}
+            </div>
         </div>
       </section>
     </div>

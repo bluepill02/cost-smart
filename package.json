@@ -30,7 +30,8 @@
     "react-intersection-observer": "^10.0.2",
     "recharts": "^3.5.1",
     "schema-dts": "^1.1.5",
-    "tailwind-merge": "^3.4.0"
+    "tailwind-merge": "^3.4.0",
+    "yahoo-finance2": "^3.13.0"
   },
   "devDependencies": {
     "@playwright/test": "^1.57.0",

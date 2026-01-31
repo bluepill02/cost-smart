@@ -8,13 +8,15 @@ import { Card, CardContent } from '@/components/ui/card';
 
 import { getCityData, SolarData } from '@/lib/solar-data';
 import { INDIAN_CITIES } from '@/lib/pseo-data/cities';
+import { US_CITIES } from '@/lib/pseo-data/us-cities';
 
 // --- Static Params Generation ---
 export async function generateStaticParams() {
-    // Generate params for all 50 cities
-    return INDIAN_CITIES.map((city) => ({
-        city: city.slug,
-    }));
+    // Generate params for all Indian and US cities
+    // We prioritize US cities for static generation ordering if it impacts sitemap, though list is merged.
+    const usParams = US_CITIES.map((city) => ({ city: city.slug }));
+    const indianParams = INDIAN_CITIES.map((city) => ({ city: city.slug }));
+    return [...usParams, ...indianParams];
 }
 
 // --- Dynamic Metadata Generation ---

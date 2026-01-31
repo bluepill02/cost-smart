@@ -41,6 +41,18 @@ export function saveHistoryItem(item: Omit<HistoryItem, 'id' | 'date'>) {
     }
 }
 
+export function deleteHistoryItem(id: string) {
+    if (typeof window === 'undefined') return;
+    try {
+        const current = getHistory();
+        const updated = current.filter(item => item.id !== id);
+        window.localStorage.setItem(HISTORY_KEY, JSON.stringify(updated));
+        window.dispatchEvent(new Event('history-updated'));
+    } catch (err) {
+        console.error("Failed to delete history item", err);
+    }
+}
+
 export function clearHistory() {
     if (typeof window === 'undefined') return;
     window.localStorage.removeItem(HISTORY_KEY);
