@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import MarketTicker from '@/components/features/MarketTicker';
+// import MarketTicker from '@/components/features/MarketTicker';
 import DashboardHistory from '@/components/features/DashboardHistory';
 import { LayoutDashboard } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
@@ -24,9 +24,11 @@ export default function DashboardPage() {
                     </div>
                 </div>
 
+                {/* Temporarily disabled until yahoo-finance2 package is installed
                 <Suspense fallback={<div className="h-24 bg-slate-100 rounded-lg animate-pulse mb-8" />}>
                     <MarketTicker />
                 </Suspense>
+                */}
 
                 <DashboardHistory />
             </div>
