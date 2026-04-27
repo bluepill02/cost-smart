@@ -37,6 +37,18 @@ export default function RootLayout({
         </noscript>
         {/* End Google Tag Manager (noscript) */}
 
+        <Navbar />
+        <main className="flex-1">
+          {children}
+        </main>
+
+        {/* Global Bottom Ad - Safety Net */}
+        <div className="container mx-auto px-4 py-8">
+           <AdContainer slotId="1475703853" />
+        </div>
+
+        <Footer />
+
         {/* Google Tag Manager */}
         <Script id="google-tag-manager" strategy="afterInteractive">
           {`
@@ -77,18 +89,6 @@ export default function RootLayout({
           data-cfasync="false"
           strategy="lazyOnload"
         />
-
-        <Navbar />
-        <main className="flex-1">
-          {children}
-        </main>
-
-        {/* Global Bottom Ad - Safety Net */}
-        <div className="container mx-auto px-4 py-8">
-           <AdContainer slotId="1475703853" />
-        </div>
-
-        <Footer />
       </body>
     </html>
   );
