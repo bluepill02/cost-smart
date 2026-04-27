@@ -16,6 +16,9 @@ jobs:
   deploy:
     name: ${{ github.event_name == 'push' && 'Production Deploy' || 'Preview Deploy' }}
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
 
     steps:
       - name: Checkout repository
@@ -48,7 +51,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Install Vercel CLI
-        run: pnpm add -g vercel@latest
+        run: npm install -g vercel@latest
 
       - name: Pull Vercel environment & project settings
         run: vercel pull --yes --environment=${{ github.event_name == 'push' && 'production' || 'preview' }} --token=${{ secrets.VERCEL_TOKEN }}
@@ -81,7 +84,7 @@ jobs:
             const botComment = comments.find(c =>
               c.user.type === 'Bot' && c.body.includes('🚀 Vercel Preview Deployment')
             );
-            const body = `🚀 **Vercel Preview Deployment**\n\n| Name | Link |\n|------|------|\n| 🔍 Preview | ${deployUrl} |\n| 🔨 Commit | ${context.sha.substring(0, 7)} |`;
+            const body = `🚀 **Vercel Preview Deployment**\n\n| Name | Link |\n|------|------|\n| 🔍 Preview | ${deployUrl} |\n| 🔨 Commit | [${context.sha.substring(0, 7)}](${context.payload.repository.html_url}/commit/${context.sha}) |`;
             if (botComment) {
               await github.rest.issues.updateComment({
                 owner: context.repo.owner,
