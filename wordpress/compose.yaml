@@ -1,0 +1,83 @@
+services:
+  db:
+    image: mysql:8.4
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ${WORDPRESS_DB_NAME:-wordpress}
+      MYSQL_USER: ${WORDPRESS_DB_USER:-wordpress}
+      MYSQL_PASSWORD: ${WORDPRESS_DB_PASSWORD:-wordpress}
+      MYSQL_ROOT_PASSWORD: ${WORDPRESS_DB_ROOT_PASSWORD:-wordpress-root}
+    healthcheck:
+      test: ["CMD-SHELL", "mysqladmin ping -h localhost -u root -p$${MYSQL_ROOT_PASSWORD} --silent"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    volumes:
+      - db_data:/var/lib/mysql
+
+  wordpress:
+    image: wordpress:php8.3-apache
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "${WORDPRESS_PORT:-8080}:80"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME:-wordpress}
+      WORDPRESS_DB_USER: ${WORDPRESS_DB_USER:-wordpress}
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD:-wordpress}
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_ENVIRONMENT_TYPE', 'local');
+        define('DISALLOW_FILE_EDIT', true);
+    volumes:
+      - wp_data:/var/www/html
+      - ./costsmart-theme:/var/www/html/wp-content/themes/costsmart:ro
+
+  wpcli:
+    image: wordpress:cli-php8.3
+    depends_on:
+      db:
+        condition: service_healthy
+      wordpress:
+        condition: service_started
+    environment:
+      WORDPRESS_PORT: ${WORDPRESS_PORT:-8080}
+      WORDPRESS_URL: ${WORDPRESS_URL:-http://localhost:8080}
+      WORDPRESS_TITLE: ${WORDPRESS_TITLE:-CostSmart}
+      WORDPRESS_ADMIN_USER: ${WORDPRESS_ADMIN_USER:-admin}
+      WORDPRESS_ADMIN_PASSWORD: ${WORDPRESS_ADMIN_PASSWORD:-change-me-now}
+      WORDPRESS_ADMIN_EMAIL: ${WORDPRESS_ADMIN_EMAIL:-admin@example.com}
+    volumes:
+      - wp_data:/var/www/html
+      - ./costsmart-theme:/var/www/html/wp-content/themes/costsmart:ro
+    entrypoint: ["sh", "-lc"]
+    command: |
+      set -eu
+      echo "Waiting for WordPress files..."
+      until [ -f /var/www/html/wp-config.php ]; do sleep 2; done
+      echo "Waiting for database..."
+      until wp db check --path=/var/www/html --allow-root >/dev/null 2>&1; do sleep 2; done
+      if ! wp core is-installed --path=/var/www/html --allow-root >/dev/null 2>&1; then
+        wp core install \
+          --path=/var/www/html \
+          --url="$${WORDPRESS_URL}" \
+          --title="$${WORDPRESS_TITLE}" \
+          --admin_user="$${WORDPRESS_ADMIN_USER}" \
+          --admin_password="$${WORDPRESS_ADMIN_PASSWORD}" \
+          --admin_email="$${WORDPRESS_ADMIN_EMAIL}" \
+          --skip-email \
+          --allow-root
+      fi
+      wp theme activate costsmart --path=/var/www/html --allow-root
+      wp rewrite structure '/%postname%/' --path=/var/www/html --allow-root
+      wp rewrite flush --hard --path=/var/www/html --allow-root
+      wp option update blogdescription 'Financial calculators for the modern economy.' --path=/var/www/html --allow-root
+      echo "WordPress is ready at $${WORDPRESS_URL}"
+      echo "Admin URL: $${WORDPRESS_URL}/wp-admin/"
+      echo "Admin user: $${WORDPRESS_ADMIN_USER}"
+
+volumes:
+  db_data:
+  wp_data:

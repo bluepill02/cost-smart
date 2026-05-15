@@ -1,37 +1,58 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CostSmart WordPress Application
+
+This is a WordPress application project for the converted CostSmart site. The repository keeps the original Next.js source, plus a WordPress theme/content manifest and a Wasmer-ready PHP entry point that renders the migrated WordPress content.
 
 ## Getting Started
 
-First, run the development server:
+You can run the development server:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+php -S localhost:8080 -t app app/router.php
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+For the simplest root-page check, this also works:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+php -S localhost:8080 -t app
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open <http://127.0.0.1:8080> with your browser to see your WordPress app preview.
 
-## Learn More
+Local admin URL preview:
 
-To learn more about Next.js, take a look at the following resources:
+```text
+http://127.0.0.1:8080/wp-admin/
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+> Note: the Wasmer/PHP entry point renders the migrated WordPress content manifest without needing a local database. For a fully editable WordPress dashboard, deploy the `wordpress/costsmart-theme` theme into a persistent WordPress installation.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Run with Wasmer
 
-## Deploy on Vercel
+You can also run the WordPress example using Wasmer (check out the install guide):
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+wasmer run . --net
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# cost-smart
+Open <http://127.0.0.1:8080> with your browser to see your WordPress app.
+
+## Deploy on Wasmer Edge
+
+The easiest way to deploy your WordPress app is to use Wasmer Edge.
+
+Live example: <https://wordpress-wasmer-examples.wasmer.app/>
+
+Deploy to Wasmer Edge:
+
+```bash
+wasmer deploy
+```
+
+The app configuration lives in `app.yaml`, and the Wasmer PHP package configuration lives in `wasmer.toml`.
+
+## WordPress theme and content
+
+- `wordpress/costsmart-theme` contains the installable CostSmart WordPress theme.
+- `wordpress/costsmart-theme/inc/content-manifest.php` contains the generated migrated content for all App Router pages.
+- `scripts/generate-wordpress-manifest.py` regenerates the manifest from `app/**/page.tsx`.
+- `wordpress/compose.yaml` can still be used for local MySQL-backed WordPress testing with Docker.
