@@ -1,0 +1,20 @@
+[package]
+name = "costsmart-wordpress"
+version = "0.1.0"
+description = "CostSmart WordPress content package for Wasmer Edge"
+entrypoint = "run"
+
+[dependencies]
+"php/php" = "=8.3.4"
+
+[fs]
+"/app" = "app"
+"/wordpress" = "wordpress"
+
+[[command]]
+name = "run"
+module = "php/php:php"
+runner = "wasi"
+
+[command.annotations.wasi]
+main-args = ["-t", "/app", "-S", "localhost:8080", "/app/router.php"]

@@ -1,0 +1,13 @@
+kind: wasmer.io/App.v0
+name: costsmart-wordpress
+package: .
+description: CostSmart WordPress application converted from the Next.js site.
+debug: false
+scaling:
+  mode: single_concurrency
+capabilities:
+  instaboot:
+    requests:
+      - path: /
+      - path: /in/emi-calculator/
+      - path: /wp-admin/
