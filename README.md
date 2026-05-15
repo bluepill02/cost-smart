@@ -28,11 +28,22 @@ http://127.0.0.1:8080/wp-admin/
 
 ## Run with Wasmer
 
-You can also run the WordPress example using Wasmer (check out the install guide):
+You can also run the WordPress example using Wasmer.
+
+If the `wasmer` command is not available yet, install it first:
+
+```bash
+curl https://get.wasmer.io -sSfL | sh
+wasmer --version
+```
+
+Then run:
 
 ```bash
 wasmer run . --net
 ```
+
+If you prefer not to install Wasmer locally, keep using the PHP preview command above (`php -S ...`) or the Docker flow under `wordpress/`.
 
 Open <http://127.0.0.1:8080> with your browser to see your WordPress app.
 

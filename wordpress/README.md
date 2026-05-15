@@ -23,10 +23,19 @@ This directory contains a WordPress theme that converts the Next.js CostSmart si
 This repository now includes a Wasmer-ready PHP entry point at `app/index.php`, a router at `app/router.php`, `wasmer.toml`, and `app.yaml`. From the repository root you can run:
 
 ```bash
+curl https://get.wasmer.io -sSfL | sh
+wasmer --version
+```
+
+Then run:
+
+```bash
 php -S localhost:8080 -t app app/router.php
 wasmer run . --net
 wasmer deploy
 ```
+
+If `wasmer` is unavailable in your environment, you can still use `php -S localhost:8080 -t app app/router.php` for the DB-free preview or Docker for a full local WordPress stack.
 
 The local/admin preview URL is `http://127.0.0.1:8080/wp-admin/`. The Wasmer entry point renders the generated WordPress content manifest without requiring a local database; use the theme in this directory for a full database-backed WordPress dashboard.
 
