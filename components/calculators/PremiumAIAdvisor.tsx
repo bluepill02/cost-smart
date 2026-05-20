@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Button } from '@/components/ui/button';
 import { useCalculatorInsights } from '@/lib/use-calculator-features';
 import AdContainer from '@/components/ads/AdContainer';
+import { trackEvent } from '@/lib/gtag';
 
 interface PremiumAIAdvisorProps {
   calculatorType: 'loan-calculator' | 'investment-calculator' | 'tax-calculator' | 'salary-calculator';
@@ -28,26 +29,33 @@ export default function PremiumAIAdvisor({
 
   const handleGenerate = async () => {
     if (credits <= 0 && !unlocked) {
-      // Prompt upgrade / ad unlock
+      trackEvent({ action: 'generate_premium_report_blocked', category: 'PremiumAI', label: calculatorType });
       return;
     }
     
+    trackEvent({ action: 'generate_premium_report_start', category: 'PremiumAI', label: calculatorType });
     const data = await getInsights(values, result);
     if (data) {
       if (credits > 0) {
         setCredits(prev => prev - 1);
+        trackEvent({ action: 'deduct_credit', category: 'PremiumAI', label: calculatorType });
       }
       setUnlocked(true);
+      trackEvent({ action: 'generate_premium_report_success', category: 'PremiumAI', label: calculatorType });
+    } else {
+      trackEvent({ action: 'generate_premium_report_failed', category: 'PremiumAI', label: calculatorType });
     }
   };
 
   const handleAdUnlock = () => {
+    trackEvent({ action: 'click_sponsored_link_recharge', category: 'PremiumAI', label: calculatorType });
     // Simulate ad click/unlock behavior that triggers monetization
     setLoadingSimulated(true);
     setTimeout(() => {
       setLoadingSimulated(false);
       setCredits(1);
       setUnlocked(false);
+      trackEvent({ action: 'sponsored_link_recharge_success', category: 'PremiumAI', label: calculatorType });
     }, 1500);
   };
 
@@ -176,7 +184,10 @@ export default function PremiumAIAdvisor({
                 <Button
                   variant="ghost"
                   size="sm"
-                  onClick={() => setUnlocked(false)}
+                  onClick={() => {
+                    setUnlocked(false);
+                    trackEvent({ action: 'reset_scenario', category: 'PremiumAI', label: calculatorType });
+                  }}
                   className="text-xs text-indigo-600 hover:text-indigo-700 font-semibold"
                 >
                   <RefreshCw className="w-3 h-3 mr-1" /> Reset Scenario

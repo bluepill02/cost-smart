@@ -7,6 +7,7 @@ import Script from "next/script";
 import AdContainer from '@/components/ads/AdContainer';
 import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import CookieConsent from "@/components/ui/CookieConsent";
+import GoogleAnalyticsTracker from "@/components/analytics/GoogleAnalytics";
 
 // Using Inter as the primary font with optimized loading
 const inter = Inter({
@@ -88,6 +89,7 @@ export default function RootLayout({
         </noscript>
 
         <Navbar />
+        <GoogleAnalyticsTracker />
 
         {/* Above-the-fold Ad Placement (High Viewability) */}
         <div className="w-full bg-white border-b border-slate-200 py-2 lg:sticky lg:top-16 z-40">
