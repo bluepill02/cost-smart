@@ -9,7 +9,6 @@ interface InsightRequest {
 export async function POST(request: NextRequest) {
   try {
     const body: InsightRequest = await request.json();
-
     const { calculatorType, values, result } = body;
 
     if (!calculatorType || !values || !result) {
@@ -19,12 +18,91 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Generate insights based on calculator type
-    const insights = generateInsights(calculatorType, values, result);
+    const endpoint = process.env.AZURE_OPENAI_ENDPOINT;
+    const apiKey = process.env.AZURE_OPENAI_KEY;
+
+    let insights: Record<string, string> = {};
+    let isRealAI = false;
+
+    if (endpoint && apiKey) {
+      try {
+        const prompt = `You are a premium, certified financial planner and technical tax consultant.
+Analyze the following user data from a ${calculatorType} calculator:
+
+INPUT PARAMETERS:
+${JSON.stringify(values, null, 2)}
+
+CALCULATED METRICS:
+${JSON.stringify(result, null, 2)}
+
+Generate a premium, detailed financial advisory audit. You MUST return a JSON object with exactly the following three keys:
+1. "diagnosis": A detailed strategic diagnosis of this scenario (e.g. debt-to-income load, portfolio yield projections, or interest drag). Discuss whether this is highly optimal or requires attention.
+2. "optimization": A concrete, mathematical scenario showing how a minor adjustment (e.g., prepaying 10% extra, choosing a higher-yield instrument, or optimizing deductions) produces massive compounding savings or wealth gains. Use exact numbers based on the input.
+3. "actionableTips": Practical, next-step recommendations, including specific tax-planning opportunities (e.g., Section 80C, 24b deductions, or long-term tax harvesting) and structural options to maximize cash flow.
+
+Format the output strictly as a JSON object, e.g.:
+{
+  "diagnosis": "...",
+  "optimization": "...",
+  "actionableTips": "..."
+}
+Do not return any pre-text or post-text outside the JSON object.`;
+
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'api-key': apiKey,
+          },
+          body: JSON.stringify({
+            messages: [
+              {
+                role: 'system',
+                content: 'You are an expert financial consultant. You speak in a professional, authoritative, and helpful tone. Always output valid JSON.',
+              },
+              {
+                role: 'user',
+                content: prompt,
+              },
+            ],
+            temperature: 0.7,
+            max_tokens: 800,
+          }),
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          const responseText = data.choices?.[0]?.message?.content || '';
+
+          // Attempt to parse JSON response
+          try {
+            // Clean markdown blocks if present
+            const cleanText = responseText.replace(/```json/g, '').replace(/```/g, '').trim();
+            const parsed = JSON.parse(cleanText);
+            if (parsed.diagnosis && parsed.optimization && parsed.actionableTips) {
+              insights = parsed;
+              isRealAI = true;
+            }
+          } catch (parseErr) {
+            console.error('Failed to parse Azure OpenAI JSON response. Raw text:', responseText, parseErr);
+          }
+        } else {
+          const errText = await response.text();
+          console.error('Azure OpenAI API returned status:', response.status, errText);
+        }
+      } catch (apiErr) {
+        console.error('Failed to call Azure OpenAI API:', apiErr);
+      }
+    }
+
+    // Fallback to local rule-based system if Azure OpenAI failed or was unconfigured
+    if (!isRealAI) {
+      insights = generateFallbackInsights(calculatorType, values, result);
+    }
 
     // Track analytics event
     const analytics = {
-      event: 'premium_insight_generated',
+      event: isRealAI ? 'premium_ai_insights_generated' : 'fallback_insights_generated',
       calculatorType,
       timestamp: new Date().toISOString(),
     };
@@ -34,10 +112,11 @@ export async function POST(request: NextRequest) {
         success: true,
         insights,
         analytics,
+        isRealAI,
       },
       {
         headers: {
-          'Cache-Control': 'public, max-age=3600',
+          'Cache-Control': 'no-store', // Disable caching for dynamic personalized AI audits
           'Content-Type': 'application/json',
         },
       }
@@ -51,44 +130,50 @@ export async function POST(request: NextRequest) {
   }
 }
 
-function generateInsights(
+function generateFallbackInsights(
   calculatorType: string,
   values: Record<string, number | string>,
   result: any
 ): Record<string, string> {
-  const insights: Record<string, string> = {};
+  const insights: Record<string, string> = {
+    diagnosis: '',
+    optimization: '',
+    actionableTips: ''
+  };
 
   switch (calculatorType) {
-    case 'solar-roi':
-      insights.paybackPeriod = `Based on your input, your solar installation pays for itself in approximately ${Math.round(result.paybackYears || 5)} years.`;
-      insights.savings = `You'll save an estimated ₹${Math.round(result.totalSavings || 0).toLocaleString('en-IN')} over 25 years.`;
-      insights.recommendation = result.roi > 15
-        ? 'Excellent ROI! Solar installation is highly recommended for your location.'
-        : 'Consider other renewable options or optimize your installation size.';
-      break;
-
+    case 'loan-calculator':
     case 'emi-calculator':
-      insights.monthlyPayment = `Your monthly EMI is ₹${Math.round(result.emi || 0).toLocaleString('en-IN')}.`;
-      insights.totalCost = `Total interest paid over the loan tenure: ₹${Math.round(result.totalInterest || 0).toLocaleString('en-IN')}.`;
-      insights.prepaymentTip = `Prepaying just ₹${Math.round((result.emi || 0) * 0.25).toLocaleString('en-IN')} extra monthly could save ₹${Math.round((result.totalInterest || 0) * 0.2).toLocaleString('en-IN')} in interest.`;
+    case 'home-loan': {
+      const emi = Number(result.emi) || 0;
+      const totalInterest = Number(result.totalInterest || result.totalInterestWithPrepayment) || 0;
+      insights.diagnosis = `Strategic Diagnosis: Your interest drain is significant, representing a substantial portion of the total loan repayment. Secure borrowing at competitive interest rates is crucial.`;
+      insights.optimization = `Compounding Optimization: Adding an extra payment of just 10% of your EMI monthly directly attacks the principal balance, compressing your tenure and saving lakhs in compounding interest charges.`;
+      insights.actionableTips = `Actionable Steps: Explore refinancing options if market rates have dropped. Utilize statutory home loan tax deductions (e.g., Section 24(b) for interest and 80C for principal in India) to subsidize your borrowing costs.`;
       break;
+    }
 
-    case 'investment-calculator':
-      insights.returns = `Expected returns: ₹${Math.round(result.maturityAmount || 0).toLocaleString('en-IN')}.`;
-      insights.comparison = `This investment shows ${result.cagr > 12 ? 'strong' : 'moderate'} growth potential.`;
-      insights.recommendation = result.cagr > 12
-        ? 'Consider diversifying across multiple instruments for better risk management.'
-        : 'This is a conservative investment. Explore higher-return options for retirement planning.';
+    case 'investment-calculator': {
+      const maturity = Number(result.maturityAmount) || 0;
+      insights.diagnosis = `Strategic Diagnosis: This scenario demonstrates the remarkable power of wealth accumulation. The long-term compounding rate is the single most important factor in your terminal net worth.`;
+      insights.optimization = `Compounding Optimization: Increasing your monthly contribution by just 10% each year (step-up) can dramatically multiply your end wealth by up to 40% due to the compounding effect.`;
+      insights.actionableTips = `Actionable Steps: Maximize high-yield asset options (e.g., equity index funds or growth funds) to beat inflation. Conduct periodic portfolio rebalancing to lock in gains and mitigate risk.`;
       break;
+    }
 
     case 'tax-calculator':
-      insights.taxLiability = `Your estimated tax liability: ₹${Math.round(result.taxAmount || 0).toLocaleString('en-IN')}.`;
-      insights.effectiveRate = `Effective tax rate: ${((result.effectiveRate || 0) * 100).toFixed(2)}%.`;
-      insights.optimizationTip = `You can potentially save ₹${Math.round((result.taxAmount || 0) * 0.15).toLocaleString('en-IN')} by maximizing Section 80C deductions.`;
+    case 'salary-calculator': {
+      const tax = Number(result.taxAmount) || 0;
+      insights.diagnosis = `Strategic Diagnosis: Your effective tax rate indicates a significant portion of income goes toward taxation. Optimizing legal deductions is highly recommended.`;
+      insights.optimization = `Compounding Optimization: Maximizing tax-sheltered investment accounts (such as PPF, NPS, or 401k/IRA) allows you to re-invest tax savings, yielding double benefits.`;
+      insights.actionableTips = `Actionable Steps: Declare investment proofs early to avoid excessive TDS. Plan your investments across diversified tax-exempt instruments to achieve zero-tax capital gains.`;
       break;
+    }
 
     default:
-      insights.general = 'Result calculated successfully. Consider consulting a financial advisor for personalized recommendations.';
+      insights.diagnosis = 'Strategic Diagnosis: Calculation complete. A healthy debt-to-equity ratio and consistent savings are foundational to long-term wealth stability.';
+      insights.optimization = 'Compounding Optimization: Even minor reductions in cost of capital or increases in asset yield compound into major wealth disparities over a 10-20 year window.';
+      insights.actionableTips = 'Actionable Steps: Plan structured tax-deductible contributions and periodically review borrowing rates to minimize interest leaks.';
   }
 
   return insights;

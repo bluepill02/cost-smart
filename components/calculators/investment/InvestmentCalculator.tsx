@@ -11,6 +11,7 @@ import { Slider } from '@/components/ui/slider';
 import { Button } from '@/components/ui/button';
 import { saveHistoryItem } from '@/lib/history-manager';
 import { formatCurrency } from '@/lib/formatters';
+import PremiumAIAdvisor from '@/components/calculators/PremiumAIAdvisor';
 
 // Lazy load Recharts
 const AreaChart = dynamic(() => import('recharts').then(mod => mod.AreaChart), { ssr: false });
@@ -277,6 +278,19 @@ export default function InvestmentCalculator({
                         </ResponsiveContainer>
                     </CardContent>
                 </Card>
+
+                {/* Premium AI Advisor with Monetized Placements */}
+                <PremiumAIAdvisor
+                    calculatorType="investment-calculator"
+                    values={{ monthly, initial, rate, years }}
+                    result={{
+                        totalValue: result.totalValue,
+                        totalGrowth: result.totalGrowth,
+                        totalInvested: result.totalInvested
+                    }}
+                    currency={currency}
+                    locale={locale}
+                />
             </div>
         </div>
 

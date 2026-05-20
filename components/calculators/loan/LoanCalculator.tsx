@@ -12,6 +12,7 @@ import { Button } from '@/components/ui/button';
 import { saveHistoryItem } from '@/lib/history-manager';
 import { formatCurrency } from '@/lib/formatters';
 import SmartInsight from '@/components/calculators/SmartInsight';
+import PremiumAIAdvisor from '@/components/calculators/PremiumAIAdvisor';
 
 // Lazy load Recharts components
 const PieChart = dynamic(() => import('recharts').then(mod => mod.PieChart), { ssr: false });
@@ -298,6 +299,21 @@ export default function LoanCalculator({
                         </ResponsiveContainer>
                     </CardContent>
                 </Card>
+
+                {/* Premium AI Advisor with Monetized Placements */}
+                <PremiumAIAdvisor
+                    calculatorType="loan-calculator"
+                    values={{ principal, rate, years, extraPayment, purpose }}
+                    result={{
+                        emi: calculation.emi,
+                        totalInterest: calculation.totalInterestWithExtra,
+                        totalPayment: calculation.totalPaymentWithExtra,
+                        savings: calculation.savings,
+                        timeSavedMonths: calculation.timeSavedMonths
+                    }}
+                    currency={currency}
+                    locale={locale}
+                />
 
             </div>
         </div>

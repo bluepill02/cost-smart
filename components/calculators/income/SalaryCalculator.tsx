@@ -9,6 +9,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { saveHistoryItem } from '@/lib/history-manager';
 import { formatCurrency } from '@/lib/formatters';
+import PremiumAIAdvisor from '@/components/calculators/PremiumAIAdvisor';
 
 interface SalaryCalculatorProps {
     currency?: string;
@@ -203,6 +204,20 @@ export default function SalaryCalculator({
                             </div>
                         </CardContent>
                     </Card>
+
+                    {/* Premium AI Advisor with Monetized Placements */}
+                    <PremiumAIAdvisor
+                        calculatorType="salary-calculator"
+                        values={mode === 'India' ? { ctc, basicPercent } : { annualGross, taxRate, deductions }}
+                        result={{
+                            netPay: result.net,
+                            taxPay: result.tax,
+                            deductionsPay: result.ded,
+                            annualNet: result.annualNet
+                        }}
+                        currency={currency}
+                        locale={locale}
+                    />
                 </div>
             </div>
         </div>
