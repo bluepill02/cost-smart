@@ -123,3 +123,65 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* ── CostSmart Design System ── */
+:root {
+  --cs-navy: #0A0F1E;
+  --cs-navy-2: #0D1426;
+  --cs-teal: #00D4AA;
+  --cs-teal-dim: rgba(0, 212, 170, 0.15);
+  --font-display: var(--font-sora, system-ui);
+  --font-body: var(--font-dm-sans, system-ui);
+}
+
+/* Sora for all headings */
+h1, h2, h3 {
+  font-family: var(--font-display);
+}
+
+/* Keyframe: staggered page entry */
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Keyframe: subtle glow pulse for teal accents */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 212, 170, 0); }
+  50%       { box-shadow: 0 0 20px 4px rgba(0, 212, 170, 0.15); }
+}
+
+/* Keyframe: shimmer for loading states */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Count-up animation helper */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(8px) scale(0.95); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Utility classes */
+.animate-fade-slide-up { animation: fadeSlideUp 0.5s ease-out both; }
+.animate-fade-slide-up-1 { animation: fadeSlideUp 0.5s 0.1s ease-out both; }
+.animate-fade-slide-up-2 { animation: fadeSlideUp 0.5s 0.2s ease-out both; }
+.animate-fade-slide-up-3 { animation: fadeSlideUp 0.5s 0.3s ease-out both; }
+.animate-count-up { animation: countUp 0.4s 0.2s ease-out both; }
+.animate-pulse-glow { animation: pulseGlow 2s ease-in-out infinite; }
+
+/* Glassmorphism base */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Smooth accent scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(0,212,170,0.3); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(0,212,170,0.5); }
+

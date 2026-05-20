@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Sora, DM_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
@@ -9,11 +9,20 @@ import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import CookieConsent from "@/components/ui/CookieConsent";
 import GoogleAnalyticsTracker from "@/components/analytics/GoogleAnalytics";
 
-// Using Inter as the primary font with optimized loading
-const inter = Inter({
+// DM Sans — refined body font with excellent legibility
+const dmSans = DM_Sans({
   subsets: ["latin"],
   display: 'swap',
+  variable: '--font-dm-sans',
   weight: ['400', '500', '600', '700'],
+});
+
+// Sora — geometric display font for headings
+const sora = Sora({
+  subsets: ["latin"],
+  display: 'swap',
+  variable: '--font-sora',
+  weight: ['600', '700', '800'],
 });
 
 export const metadata: Metadata = {
@@ -85,7 +94,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${inter.className} min-h-screen flex flex-col bg-slate-50 text-slate-900 antialiased`}>
+      <body className={`${dmSans.variable} ${sora.variable} ${dmSans.className} min-h-screen flex flex-col bg-slate-50 text-slate-900 antialiased`}>
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
@@ -99,14 +108,7 @@ export default function RootLayout({
         <Navbar />
         <GoogleAnalyticsTracker />
 
-        {/* Above-the-fold Ad Placement (High Viewability) */}
-        <div className="w-full bg-white border-b border-slate-200 py-2 lg:sticky lg:top-16 z-40">
-          <div className="container mx-auto px-4 flex justify-center">
-            <div className="w-full max-w-4xl">
-              <AdContainer slotId="1706594832" size="leaderboard" />
-            </div>
-          </div>
-        </div>
+        {/* No global sticky ad — ads placed contextually per page for better UX & CTR */}
 
         <main className="flex-1">
           {children}

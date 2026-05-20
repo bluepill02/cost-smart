@@ -56,12 +56,15 @@ export default function Navbar() {
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
 
         {/* Brand */}
-        <Link href="/" className="flex items-center gap-2 group flex-shrink-0">
-          <div className="bg-emerald-600 text-white p-1.5 rounded-lg group-hover:scale-105 transition-transform">
-            <Zap className="w-5 h-5" />
+        <Link href="/" className="flex items-center gap-2.5 group flex-shrink-0">
+          <div
+            className="w-8 h-8 rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform"
+            style={{ background: 'linear-gradient(135deg, #00D4AA 0%, #0891B2 100%)' }}
+          >
+            <Zap className="w-4 h-4 text-white" />
           </div>
-          <span className="text-xl font-bold text-slate-900 tracking-tight">
-            Cost<span className="text-emerald-600">Smart</span>
+          <span className="text-xl font-black text-slate-900 tracking-tight" style={{ fontFamily: 'var(--font-sora, sans-serif)' }}>
+            Cost<span style={{ color: '#00AA88' }}>Smart</span>
           </span>
         </Link>
 
