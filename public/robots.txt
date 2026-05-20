@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api
+Disallow: /*.json
+Disallow: /?*.json
+
+Sitemap: https://cost-smart-five.vercel.app/sitemap.xml
+
+# AdSense friendly crawling
+Allow: /ads.txt
+
+# Respect cache crawling
+User-agent: AdsBot-Google
+Disallow:
+
+# Allow Googlebot extensions
+User-agent: Googlebot
+Allow: /
+
+# Allow Bingbot
+User-agent: Bingbot
+Allow: /

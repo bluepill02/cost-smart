@@ -10,6 +10,7 @@ import { Slider } from '@/components/ui/slider';
 import { Switch } from "@/components/ui/switch";
 import { formatCurrency } from '@/lib/formatters';
 import dynamic from 'next/dynamic';
+import ResultsWithAds from '@/components/ads/ResultsWithAds';
 
 const AreaChart = dynamic(() => import('recharts').then(mod => mod.AreaChart), { ssr: false });
 const Area = dynamic(() => import('recharts').then(mod => mod.Area), { ssr: false });
@@ -254,12 +255,13 @@ export default function HomeLoanCalculator({
                 </Card>
             </div>
 
-            <div className="space-y-6">
-                <Card className="bg-slate-900 text-white border-none">
-                    <CardHeader>
-                        <CardTitle className="text-slate-200">Loan Summary</CardTitle>
-                    </CardHeader>
-                    <CardContent className="space-y-6">
+            <ResultsWithAds adSlotId="4057982103" calculatorName="Home Loan EMI">
+                <div className="space-y-6">
+                    <Card className="bg-slate-900 text-white border-none">
+                        <CardHeader>
+                            <CardTitle className="text-slate-200">Loan Summary</CardTitle>
+                        </CardHeader>
+                        <CardContent className="space-y-6">
                         <div>
                             <div className="text-slate-400 text-sm font-medium mb-1">Monthly EMI</div>
                             <div className="text-4xl font-bold text-emerald-400">
@@ -326,6 +328,7 @@ export default function HomeLoanCalculator({
                     </p>
                 </div>
             </div>
+            </ResultsWithAds>
         </div>
     );
 }

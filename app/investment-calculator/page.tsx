@@ -1,9 +1,10 @@
 import { Metadata } from 'next';
 import InvestmentCalculator from '@/components/calculators/investment/InvestmentCalculator';
 import AdContainer from '@/components/ads/AdContainer';
+import StickyAdSidebar from '@/components/ads/StickyAdSidebar';
 import { Badge } from '@/components/ui/badge';
 import { TrendingUp } from 'lucide-react';
-import JsonLd from '@/components/seo/JsonLd';
+import CalculatorSchemaInjector from '@/components/seo/CalculatorSchemaInjector';
 
 export const metadata: Metadata = {
     title: 'Investment Return Calculator | Compound Interest Growth',
@@ -14,18 +15,14 @@ export const metadata: Metadata = {
 };
 
 export default function InvestmentCalculatorPage() {
-    const jsonLd = {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "CostSmart Investment Calculator",
-        "applicationCategory": "FinanceApplication",
-        "operatingSystem": "Web",
-        "description": "Calculate investment growth and compound interest."
-    };
-
     return (
         <div className="container mx-auto px-4 py-12 max-w-5xl">
-            <JsonLd data={jsonLd} />
+            <CalculatorSchemaInjector
+                calculatorName="Investment Return Calculator"
+                calculatorDescription="Calculate how your investments grow over time with compound interest. Model monthly contributions and initial lumpsums."
+                urlPath="/investment-calculator"
+                calculatorType="investment"
+            />
             <div className="text-center mb-10 space-y-4">
                 <div className="flex justify-center">
                     <Badge variant="outline" className="bg-emerald-50 text-emerald-700 border-emerald-200 flex items-center gap-1">
@@ -55,7 +52,11 @@ export default function InvestmentCalculatorPage() {
                 </div>
 
                 <div className="space-y-6">
-                    <AdContainer size="rectangle" />
+                    {/* Standard rectangle ad on mobile/tablet, sticky skyscraper on desktop */}
+                    <div className="lg:hidden">
+                        <AdContainer size="rectangle" slotId="1475703853" />
+                    </div>
+                    <StickyAdSidebar slotId="5821640937" />
                 </div>
             </div>
         </div>

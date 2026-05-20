@@ -1,9 +1,10 @@
 import { Metadata } from 'next';
 import SalaryCalculator from '@/components/calculators/income/SalaryCalculator';
 import AdContainer from '@/components/ads/AdContainer';
+import StickyAdSidebar from '@/components/ads/StickyAdSidebar';
 import { Badge } from '@/components/ui/badge';
 import { Wallet } from 'lucide-react';
-import JsonLd from '@/components/seo/JsonLd';
+import CalculatorSchemaInjector from '@/components/seo/CalculatorSchemaInjector';
 
 export const metadata: Metadata = {
     title: 'Salary Calculator | Paycheck & Take Home Pay Estimator',
@@ -14,18 +15,14 @@ export const metadata: Metadata = {
 };
 
 export default function SalaryCalculatorPage() {
-    const jsonLd = {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "CostSmart Salary Calculator",
-        "applicationCategory": "FinanceApplication",
-        "operatingSystem": "Web",
-        "description": "Calculate net salary from gross income."
-    };
-
     return (
         <div className="container mx-auto px-4 py-12 max-w-5xl">
-            <JsonLd data={jsonLd} />
+            <CalculatorSchemaInjector
+                calculatorName="Salary Calculator"
+                calculatorDescription="Calculate your true take-home pay (net salary) after taxes and deductions. Plan your monthly budget with accuracy."
+                urlPath="/salary-calculator"
+                calculatorType="tax"
+            />
             <div className="text-center mb-10 space-y-4">
                  <div className="flex justify-center gap-2">
                      <Badge variant="outline" className="bg-emerald-50 text-emerald-700 border-emerald-200 flex items-center gap-1">
@@ -55,7 +52,11 @@ export default function SalaryCalculatorPage() {
                     </ul>
                 </div>
                 <div className="space-y-6">
-                    <AdContainer size="rectangle" />
+                    {/* Standard rectangle ad on mobile/tablet, sticky skyscraper on desktop */}
+                    <div className="lg:hidden">
+                        <AdContainer size="rectangle" slotId="1475703853" />
+                    </div>
+                    <StickyAdSidebar slotId="5821640937" />
                 </div>
             </div>
         </div>

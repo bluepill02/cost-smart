@@ -1,4 +1,7 @@
-import { WithContext, SoftwareApplication, FAQPage, BreadcrumbList } from 'schema-dts';
+import { WithContext, SoftwareApplication, FAQPage, BreadcrumbList, Article, NewsArticle } from 'schema-dts';
+
+// Canonical domain - single source of truth for all schema markup and metadata
+export const CANONICAL_DOMAIN = 'https://costsmart.app';
 
 export function getCalculatorSchema(
   name: string,
@@ -6,7 +9,7 @@ export function getCalculatorSchema(
   urlPath: string,
   category: string = 'FinanceApplication'
 ): WithContext<SoftwareApplication> {
-  const baseUrl = 'https://cost-smart-five.vercel.app';
+  const baseUrl = CANONICAL_DOMAIN;
 
   return {
     '@context': 'https://schema.org',
@@ -25,7 +28,74 @@ export function getCalculatorSchema(
       '@type': 'Organization',
       name: 'CostSmart',
       url: baseUrl,
+      logo: `${baseUrl}/favicon.ico`,
     },
+  };
+}
+
+export interface ArticleSchemaProps {
+  headline: string;
+  description: string;
+  urlPath: string;
+  datePublished?: string;
+  dateModified?: string;
+  authorName?: string;
+  image?: string;
+}
+
+export function getArticleSchema(props: ArticleSchemaProps): WithContext<Article> {
+  const baseUrl = CANONICAL_DOMAIN;
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: props.headline,
+    description: props.description,
+    image: props.image || `${baseUrl}/og-image.jpg`,
+    datePublished: props.datePublished || new Date().toISOString(),
+    dateModified: props.dateModified || new Date().toISOString(),
+    author: {
+      '@type': 'Organization',
+      name: props.authorName || 'CostSmart',
+      url: baseUrl,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'CostSmart',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${baseUrl}/favicon.ico`,
+      },
+    },
+    url: `${baseUrl}${props.urlPath}`,
+  };
+}
+
+export function getNewsArticleSchema(props: ArticleSchemaProps): WithContext<NewsArticle> {
+  const baseUrl = CANONICAL_DOMAIN;
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'NewsArticle',
+    headline: props.headline,
+    description: props.description,
+    image: props.image || `${baseUrl}/og-image.jpg`,
+    datePublished: props.datePublished || new Date().toISOString(),
+    dateModified: props.dateModified || new Date().toISOString(),
+    author: {
+      '@type': 'Organization',
+      name: props.authorName || 'CostSmart',
+      url: baseUrl,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'CostSmart',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${baseUrl}/favicon.ico`,
+      },
+    },
+    url: `${baseUrl}${props.urlPath}`,
   };
 }
 
@@ -55,8 +125,8 @@ export interface BreadcrumbItem {
 }
 
 export function getBreadcrumbSchema(items: BreadcrumbItem[]): WithContext<BreadcrumbList> {
-  const baseUrl = 'https://cost-smart-five.vercel.app';
-  
+  const baseUrl = CANONICAL_DOMAIN;
+
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',

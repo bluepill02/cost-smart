@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState, useMemo } from 'react';
-import { Wallet, Save } from 'lucide-react';
+import { Wallet, Save, Printer } from 'lucide-react';
+import AdContainer from '@/components/ads/AdContainer';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
@@ -108,7 +109,8 @@ export default function SalaryCalculator({
     };
 
     return (
-        <div className="grid lg:grid-cols-2 gap-8">
+        <>
+        <div className="grid lg:grid-cols-2 gap-8 print:hidden">
             <Card className="h-fit shadow-md border-slate-200">
                 <CardHeader>
                     <CardTitle className="flex items-center gap-2">
@@ -152,11 +154,19 @@ export default function SalaryCalculator({
             </Card>
 
              <div className="space-y-6">
-                 <div className="flex justify-end">
-                     <Button variant="outline" size="sm" onClick={handleSave} className={saved ? "border-emerald-500 text-emerald-600 bg-emerald-50" : ""}>
-                        {saved ? "Saved" : <><Save size={16} className="mr-2"/> Save Paycheck</>}
-                     </Button>
-                </div>
+                  <div className="flex justify-end gap-2">
+                      <Button variant="outline" size="sm" onClick={handleSave} className={saved ? "border-emerald-500 text-emerald-600 bg-emerald-50" : ""}>
+                         {saved ? "Saved" : <><Save size={16} className="mr-2"/> Save Paycheck</>}
+                      </Button>
+                      <Button
+                         variant="outline"
+                         size="sm"
+                         onClick={() => window.print()}
+                         className="border-slate-300 text-slate-700 bg-white hover:bg-slate-50"
+                      >
+                         <Printer size={16} className="mr-2" /> Print Paycheck
+                      </Button>
+                 </div>
 
                 <div className="grid gap-4">
                      <Card className="bg-slate-900 text-white border-none">
@@ -170,6 +180,11 @@ export default function SalaryCalculator({
                             </div>
                         </CardContent>
                     </Card>
+
+                    {/* Dynamically placed in-content ad slot */}
+                    <div className="my-2 print:hidden">
+                        <AdContainer slotId="4057982103" size="square" />
+                    </div>
 
                     <Card>
                         <CardHeader className="pb-2"><CardTitle className="text-base">Breakdown</CardTitle></CardHeader>
@@ -191,5 +206,87 @@ export default function SalaryCalculator({
                 </div>
             </div>
         </div>
+
+        {/* Print-friendly report layout */}
+        <div className="hidden print:block print:bg-white p-8 max-w-[210mm] mx-auto text-slate-900 font-sans">
+             <div className="flex justify-between items-start border-b-2 border-slate-900 pb-6 mb-8">
+                 <div>
+                     <h1 className="text-3xl font-bold text-slate-900">Take-Home Salary Report</h1>
+                     <p className="text-slate-500 mt-1">CostSmart Calculator Hub</p>
+                 </div>
+                 <div className="text-right">
+                     <div className="text-2xl font-bold text-emerald-600">CostSmart</div>
+                     <p className="text-sm text-slate-400 mt-1">{new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                 </div>
+             </div>
+
+             <div className="mb-8">
+                 <h2 className="text-lg font-bold text-slate-800 mb-4 border-l-4 border-emerald-500 pl-3">Executive Summary</h2>
+                 <div className="grid grid-cols-3 gap-6">
+                     <div className="bg-slate-50 p-4 rounded border border-slate-100">
+                         <div className="text-xs text-slate-500 mb-1">Mode Mode</div>
+                         <div className="text-xl font-bold text-slate-900">{mode} Paycheck</div>
+                     </div>
+                     <div className="bg-slate-50 p-4 rounded border border-slate-100">
+                         <div className="text-xs text-slate-500 mb-1">Gross Annual Income</div>
+                         <div className="text-xl font-bold text-slate-900">
+                             {mode === 'India' ? formatCurrency(ctc, currency, locale) : formatCurrency(annualGross, currency, locale)}
+                         </div>
+                     </div>
+                     <div className="bg-emerald-50 p-4 rounded border border-emerald-100">
+                         <div className="text-xs text-emerald-800 mb-1">Monthly In-Hand Net</div>
+                         <div className="text-xl font-bold text-emerald-700">{formatCurrency(result.net, currency, locale)}</div>
+                     </div>
+                 </div>
+             </div>
+
+             <div className="mb-8">
+                 <h2 className="text-lg font-bold text-slate-800 mb-4 border-l-4 border-blue-500 pl-3">Detailed Deductions & Taxes</h2>
+                 <table className="w-full text-sm text-left border-collapse">
+                     <thead>
+                         <tr className="border-b border-slate-200 bg-slate-50">
+                             <th className="py-2 px-3 font-semibold text-slate-600">Item</th>
+                             <th className="py-2 px-3 font-semibold text-slate-600 text-right">Monthly Value</th>
+                             <th className="py-2 px-3 font-semibold text-slate-600 text-right">Annual Value</th>
+                         </tr>
+                     </thead>
+                     <tbody className="divide-y divide-slate-100">
+                         <tr>
+                             <td className="py-3 px-3 text-slate-500">Gross Paycheck</td>
+                             <td className="py-3 px-3 font-medium text-right">{formatCurrency(result.monthlyGross, currency, locale)}</td>
+                             <td className="py-3 px-3 font-medium text-right">{formatCurrency(result.monthlyGross * 12, currency, locale)}</td>
+                         </tr>
+                         <tr className="text-red-600 bg-red-50/10">
+                             <td className="py-3 px-3 font-medium">Income Tax / TDS</td>
+                             <td className="py-3 px-3 font-bold text-right">-{formatCurrency(result.tax, currency, locale)}</td>
+                             <td className="py-3 px-3 font-bold text-right">-{formatCurrency(result.tax * 12, currency, locale)}</td>
+                         </tr>
+                         <tr className="text-amber-600 bg-amber-50/10">
+                             <td className="py-3 px-3 font-medium">Social Security / PF / PT</td>
+                             <td className="py-3 px-3 font-bold text-right">-{formatCurrency(result.ded, currency, locale)}</td>
+                             <td className="py-3 px-3 font-bold text-right">-{formatCurrency(result.ded * 12, currency, locale)}</td>
+                         </tr>
+                         <tr className="bg-emerald-50/40 font-bold">
+                             <td className="py-3 px-3 text-emerald-800">Net Take-Home Pay</td>
+                             <td className="py-3 px-3 text-emerald-700 text-right">{formatCurrency(result.net, currency, locale)}</td>
+                             <td className="py-3 px-3 text-emerald-700 text-right">{formatCurrency(result.annualNet, currency, locale)}</td>
+                         </tr>
+                     </tbody>
+                 </table>
+             </div>
+
+             <div className="bg-slate-50 p-6 rounded-lg border border-slate-200 text-sm text-slate-600 mb-8">
+                 <h3 className="font-bold text-slate-800 mb-2">Smart Insights</h3>
+                 <p className="leading-relaxed">
+                     Your effective tax and deduction rate is <strong>{(((result.monthlyGross - result.net) / result.monthlyGross) * 100).toFixed(0)}%</strong>. This means you retain <strong>{((result.net / result.monthlyGross) * 100).toFixed(0)}%</strong> of your gross monthly paycheck as disposable take-home capital. Plan your monthly fixed budget, emergency savings (ideally 3-6 months of net take-home salary), and wealth investment goals based on this net disposable figure rather than your gross CTC/Salary.
+                 </p>
+             </div>
+
+             <div className="mt-12 pt-6 border-t border-slate-200 text-center text-xs text-slate-400">
+                 <p>Generated by CostSmart Salary & Take-Home Pay Calculator. Estimates are calculated based on basic standard taxation rules.</p>
+                 <p className="mt-1">Visit https://costsmart.app for live updates.</p>
+             </div>
+        </div>
+        </>
     );
 }

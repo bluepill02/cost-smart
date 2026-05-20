@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import HomeLoanCalculator from '@/components/calculators/loan/HomeLoanCalculator';
 import AdContainer from '@/components/ads/AdContainer';
 import JsonLd from '@/components/seo/JsonLd';
-import { getCalculatorSchema } from '@/lib/seo-utils';
+import { getCalculatorSchema, getFAQSchema, getDefaultFAQs, CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import Link from 'next/link';
 import { MapPin, Globe } from 'lucide-react';
 import { INDIAN_CITIES } from '@/lib/pseo-data/cities';
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: 'Home Loan EMI Calculator | CostSmart',
   description: 'Calculate your Home Loan EMI, total interest payable, and amortization schedule with our advanced calculator.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/home-loan-calculator',
+    canonical: `${CANONICAL_DOMAIN}/home-loan-calculator`,
   },
 };
 
@@ -23,6 +23,9 @@ export default function Page() {
     '/home-loan-calculator'
   );
 
+  // Get FAQ schema for loan calculators
+  const faqSchema = getFAQSchema(getDefaultFAQs('loan'));
+
   // Sort cities for the list
   const indianCities = [...INDIAN_CITIES].sort((a, b) => a.name.localeCompare(b.name));
   // Use US Cities from solar data as proxy for major cities, though this page is generic loan
@@ -32,6 +35,7 @@ export default function Page() {
   return (
     <div className="container mx-auto px-4 py-12 max-w-5xl">
       <JsonLd data={jsonLd} />
+      <JsonLd data={faqSchema} />
       <div className="mb-8 text-center">
         <h1 className="text-4xl font-bold text-slate-900 mb-4">Home Loan EMI Calculator</h1>
         <p className="text-xl text-slate-600 max-w-2xl mx-auto">Plan your dream home with our precise EMI planner. Supports pre-payment and tenure adjustment.</p>
