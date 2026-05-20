@@ -2,9 +2,13 @@ import { Metadata } from 'next';
 import { getCalculatorSchema } from '@/lib/seo-utils';
 import FDCalculator from '@/components/calculators/savings/FDCalculator';
 import AdContainer from '@/components/ads/AdContainer';
+import AfterResultAd from '@/components/ads/AfterResultAd';
 import { Badge } from '@/components/ui/badge';
 import { Archive, IndianRupee } from 'lucide-react';
 import JsonLd from '@/components/seo/JsonLd';
+import Breadcrumbs from '@/components/features/Breadcrumbs';
+import ShareResultButton from '@/components/features/ShareResultButton';
+import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
     title: 'Fixed Deposit Calculator | FD Interest Rates India',
@@ -30,6 +34,10 @@ export default function FDCalculatorPage() {
     return (
         <div className="container mx-auto px-4 py-12 max-w-5xl">
             <JsonLd data={jsonLd} />
+            <Breadcrumbs items={[
+                { label: 'India Calculators', href: '/in' },
+                { label: 'FD Calculator' },
+            ]} />
             <div className="text-center mb-10 space-y-4">
                  <div className="flex justify-center gap-2">
                     <Badge variant="outline" className="bg-emerald-50 text-emerald-700 border-emerald-200 flex items-center gap-1">
@@ -49,6 +57,13 @@ export default function FDCalculatorPage() {
 
             <FDCalculator currency="INR" locale="en-IN" compoundingFrequency="quarterly" defaultPrincipal={100000} />
 
+            <AfterResultAd slotId="1475703853" />
+
+            {/* Share row */}
+            <div className="flex items-center gap-3 flex-wrap mt-2 mb-2">
+                <ShareResultButton title="FD Calculator Result" text="See my Fixed Deposit maturity calculation on CostSmart" />
+            </div>
+
             <div className="mt-16 grid md:grid-cols-[2fr_1fr] gap-8">
                 <div className="prose max-w-none text-slate-600 bg-white p-8 rounded-2xl border border-slate-100 shadow-sm">
                     <h2 className="text-2xl font-bold text-slate-900">Understanding FD Compounding</h2>
@@ -62,6 +77,7 @@ export default function FDCalculatorPage() {
                 </div>
                 <div className="space-y-6">
                     <AdContainer size="rectangle" />
+                    <RelatedCalculators category="investment" currentHref="/in/fd-calculator" />
                 </div>
             </div>
         </div>

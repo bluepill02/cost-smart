@@ -136,7 +136,7 @@ const PARTNER_OFFERS = [
     icon: TrendingUp,
     color: 'from-teal-500/10 to-emerald-500/10',
     accent: 'text-teal-400 border-teal-500/30',
-    href: '#',
+    href: 'https://groww.in/?ref=costsmart',
   },
   {
     category: 'Loans',
@@ -147,7 +147,7 @@ const PARTNER_OFFERS = [
     icon: Building,
     color: 'from-blue-500/10 to-indigo-500/10',
     accent: 'text-blue-400 border-blue-500/30',
-    href: '#',
+    href: 'https://www.bankbazaar.com/home-loan.html?utm_source=costsmart',
   },
   {
     category: 'Savings',
@@ -158,7 +158,7 @@ const PARTNER_OFFERS = [
     icon: PiggyBank,
     color: 'from-violet-500/10 to-purple-500/10',
     accent: 'text-violet-400 border-violet-500/30',
-    href: '#',
+    href: 'https://www.paisabazaar.com/fixed-deposit/?utm_source=costsmart',
   },
   {
     category: 'Insurance',
@@ -169,7 +169,7 @@ const PARTNER_OFFERS = [
     icon: Shield,
     color: 'from-orange-500/10 to-red-500/10',
     accent: 'text-orange-400 border-orange-500/30',
-    href: '#',
+    href: 'https://www.policybazaar.com/health-insurance/?utm_source=costsmart',
   },
 ];
 

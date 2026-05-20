@@ -1,12 +1,16 @@
 import { Metadata } from 'next';
 import HomeLoanCalculator from '@/components/calculators/loan/HomeLoanCalculator';
 import AdContainer from '@/components/ads/AdContainer';
+import AfterResultAd from '@/components/ads/AfterResultAd';
 import JsonLd from '@/components/seo/JsonLd';
 import { getCalculatorSchema, getFAQSchema, getDefaultFAQs, CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import Link from 'next/link';
 import { MapPin, Globe } from 'lucide-react';
 import { INDIAN_CITIES } from '@/lib/pseo-data/cities';
 import { US_CITIES } from '@/lib/pseo-data/us-cities';
+import Breadcrumbs from '@/components/features/Breadcrumbs';
+import ShareResultButton from '@/components/features/ShareResultButton';
+import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'Home Loan EMI Calculator | CostSmart',
@@ -36,12 +40,23 @@ export default function Page() {
     <div className="container mx-auto px-4 py-12 max-w-5xl">
       <JsonLd data={jsonLd} />
       <JsonLd data={faqSchema} />
+      <Breadcrumbs items={[
+        { label: 'Calculators', href: '/calculators' },
+        { label: 'Home Loan Calculator' },
+      ]} />
       <div className="mb-8 text-center">
         <h1 className="text-4xl font-bold text-slate-900 mb-4">Home Loan EMI Calculator</h1>
         <p className="text-xl text-slate-600 max-w-2xl mx-auto">Plan your dream home with our precise EMI planner. Supports pre-payment and tenure adjustment.</p>
       </div>
 
       <HomeLoanCalculator />
+
+      <AfterResultAd slotId="1475703853" />
+
+      {/* Share row */}
+      <div className="flex items-center gap-3 flex-wrap mt-2 mb-6">
+        <ShareResultButton title="Home Loan EMI Result" text="See my home loan EMI and amortization breakdown on CostSmart" />
+      </div>
 
       <div className="mt-16 grid md:grid-cols-[2fr_1fr] gap-8">
         <div className="prose prose-slate lg:prose-lg">
@@ -62,6 +77,7 @@ export default function Page() {
         </div>
         <div className="space-y-6">
              <AdContainer size="rectangle" />
+             <RelatedCalculators category="loan" currentHref="/home-loan-calculator" />
         </div>
       </div>
 

@@ -7,6 +7,9 @@ import StickyAdSidebar from '@/components/ads/StickyAdSidebar';
 import { Badge } from '@/components/ui/badge';
 import { ShieldCheck, IndianRupee } from 'lucide-react';
 import JsonLd from '@/components/seo/JsonLd';
+import Breadcrumbs from '@/components/features/Breadcrumbs';
+import ShareResultButton from '@/components/features/ShareResultButton';
+import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
     title: 'EMI Calculator India | Home, Car & Personal Loan EMI',
@@ -32,6 +35,10 @@ export default function IndianEMICalculatorPage() {
     return (
         <div className="container mx-auto px-4 py-12 max-w-5xl">
             <JsonLd data={jsonLd} />
+            <Breadcrumbs items={[
+                { label: 'India Calculators', href: '/in' },
+                { label: 'EMI Calculator' },
+            ]} />
             <div className="text-center mb-10 space-y-4">
                 <div className="flex justify-center gap-2">
                     <Badge variant="outline" className="bg-emerald-50 text-emerald-700 border-emerald-200 flex items-center gap-1">
@@ -60,6 +67,11 @@ export default function IndianEMICalculatorPage() {
             {/* High-viewability ad — shown right after user sees their EMI result */}
             <AfterResultAd slotId="1475703853" />
 
+            {/* Share row */}
+            <div className="flex items-center gap-3 flex-wrap mt-2 mb-2">
+                <ShareResultButton title="EMI Calculator Result" text="See my loan EMI calculation on CostSmart" />
+            </div>
+
             <div className="mt-8 grid md:grid-cols-[2fr_1fr] gap-8">
                 <div className="prose max-w-none text-slate-600 bg-white p-8 rounded-2xl border border-slate-100 shadow-sm">
                     <h2 className="text-2xl font-bold text-slate-900">How EMI Works in India</h2>
@@ -84,6 +96,7 @@ export default function IndianEMICalculatorPage() {
                         <AdContainer size="rectangle" slotId="1475703853" />
                     </div>
                     <StickyAdSidebar slotId="5821640937" />
+                    <RelatedCalculators category="loan" currentHref="/in/emi-calculator" />
                 </div>
             </div>
         </div>

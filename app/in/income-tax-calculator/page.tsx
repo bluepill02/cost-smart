@@ -1,10 +1,14 @@
 import { Metadata } from 'next';
 import IndiaTaxCalculator from '@/components/calculators/tax/IndiaTaxCalculator';
 import AdContainer from '@/components/ads/AdContainer';
+import AfterResultAd from '@/components/ads/AfterResultAd';
 import { Badge } from '@/components/ui/badge';
 import { IndianRupee } from 'lucide-react';
 import { getCalculatorSchema } from '@/lib/seo-utils';
 import JsonLd from '@/components/seo/JsonLd';
+import Breadcrumbs from '@/components/features/Breadcrumbs';
+import ShareResultButton from '@/components/features/ShareResultButton';
+import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
     title: 'Income Tax Calculator FY 2024-25 | New vs Old Regime',
@@ -24,6 +28,10 @@ export default function TaxCalculatorPage() {
     return (
         <div className="container mx-auto px-4 py-12 max-w-5xl">
             <JsonLd data={jsonLd} />
+            <Breadcrumbs items={[
+                { label: 'India Calculators', href: '/in' },
+                { label: 'Income Tax Calculator' },
+            ]} />
             <div className="text-center mb-10 space-y-4">
                  <div className="flex justify-center gap-2">
                      <Badge variant="outline" className="bg-orange-50 text-orange-700 border-orange-200 flex items-center gap-1">
@@ -40,6 +48,13 @@ export default function TaxCalculatorPage() {
 
             <IndiaTaxCalculator />
 
+            <AfterResultAd slotId="1475703853" />
+
+            {/* Share row */}
+            <div className="flex items-center gap-3 flex-wrap mt-2 mb-2">
+                <ShareResultButton title="Income Tax Calculator Result" text="See my income tax calculation (New vs Old Regime) on CostSmart" />
+            </div>
+
             <div className="mt-16 grid md:grid-cols-[2fr_1fr] gap-8">
                 <div className="prose max-w-none text-slate-600 bg-white p-8 rounded-2xl border border-slate-100 shadow-sm">
                     <h2 className="text-2xl font-bold text-slate-900">New vs Old Regime: Key Changes</h2>
@@ -54,6 +69,7 @@ export default function TaxCalculatorPage() {
                 </div>
                 <div className="space-y-6">
                     <AdContainer size="rectangle" />
+                    <RelatedCalculators category="india-finance" currentHref="/in/income-tax-calculator" />
                 </div>
             </div>
         </div>

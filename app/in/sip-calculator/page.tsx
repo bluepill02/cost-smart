@@ -6,6 +6,10 @@ import AfterResultAd from '@/components/ads/AfterResultAd';
 import { Badge } from '@/components/ui/badge';
 import { TrendingUp, IndianRupee } from 'lucide-react';
 import JsonLd from '@/components/seo/JsonLd';
+import Breadcrumbs from '@/components/features/Breadcrumbs';
+import ShareResultButton from '@/components/features/ShareResultButton';
+import RelatedCalculators from '@/components/features/RelatedCalculators';
+import EmailResultsButton from '@/components/features/EmailResultsButton';
 
 export const metadata: Metadata = {
     title: 'SIP Calculator | Mutual Fund Returns Estimator India',
@@ -31,6 +35,10 @@ export default function SIPCalculatorPage() {
     return (
         <div className="container mx-auto px-4 py-12 max-w-5xl">
             <JsonLd data={jsonLd} />
+            <Breadcrumbs items={[
+                { label: 'India Calculators', href: '/in' },
+                { label: 'SIP Calculator' },
+            ]} />
             <div className="text-center mb-10 space-y-4">
                 <div className="flex justify-center gap-2">
                     <Badge variant="outline" className="bg-emerald-50 text-emerald-700 border-emerald-200 flex items-center gap-1">
@@ -60,6 +68,15 @@ export default function SIPCalculatorPage() {
             {/* High-viewability ad — shown right after user sees their result */}
             <AfterResultAd slotId="1475703853" />
 
+            {/* Share & email row */}
+            <div className="flex items-center gap-3 flex-wrap mt-2 mb-2">
+                <ShareResultButton title="SIP Calculator Result" text="Check what my monthly SIP investment will grow to on CostSmart" />
+                <EmailResultsButton
+                    calculatorName="SIP Calculator"
+                    resultSummary="SIP calculation result from CostSmart — see your corpus estimate and wealth growth over time."
+                />
+            </div>
+
             <div className="mt-8 grid md:grid-cols-[2fr_1fr] gap-8">
                 <div className="prose max-w-none text-slate-600 bg-white p-8 rounded-2xl border border-slate-100 shadow-sm">
                     <h2 className="text-2xl font-bold text-slate-900">Why SIPs Work</h2>
@@ -76,6 +93,7 @@ export default function SIPCalculatorPage() {
 
                 <div className="space-y-6">
                     <AdContainer size="rectangle" />
+                    <RelatedCalculators category="investment" currentHref="/in/sip-calculator" />
                 </div>
             </div>
         </div>
