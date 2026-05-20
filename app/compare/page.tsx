@@ -6,8 +6,8 @@ import { ArrowRight, TrendingUp, Calculator, Zap } from 'lucide-react';
 import AdContainer from '@/components/ads/AdContainer';
 
 export const metadata: Metadata = {
-  title: 'Financial Comparisons - Make Smarter Money Decisions | CostSmart',
-  description: 'Compare financial options side-by-side: FD vs Mutual Funds, PPF vs FD, Solar vs Wind, Rent vs Buy. Data-driven analysis to help you choose the best option for your goals.',
+  title: 'Financial Comparisons | CostSmart',
+  description: 'Compare FD vs Mutual Funds, PPF vs FD, Solar vs Wind, Rent vs Buy. Data-driven India-focused analysis.',
   alternates: {
     canonical: 'https://cost-smart-five.vercel.app/compare',
   },

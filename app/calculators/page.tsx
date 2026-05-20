@@ -12,7 +12,13 @@ export const metadata: Metadata = {
   title: 'All Financial Calculators - Free Online Tools | CostSmart',
   description:
     'Browse all 30+ free financial calculators: EMI, SIP, income tax, salary, solar ROI, loan, FD, GST, profit margin, and more. No signup required.',
-  alternates: { canonical: `${CANONICAL_DOMAIN}/calculators` },
+  openGraph: {
+    title: 'All Free Financial Calculators | CostSmart',
+    description: 'Browse all 35+ free financial calculators: EMI, SIP, income tax, salary, PPF, FD, GST, retirement, property, solar ROI, and more — all India-focused.',
+    url: 'https://cost-smart-five.vercel.app/calculators',
+    type: 'website',
+  },
+  alternates: { canonical: `https://cost-smart-five.vercel.app/calculators` },
   keywords: [
     'financial calculators india',
     'free calculator online',

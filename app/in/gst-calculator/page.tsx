@@ -5,7 +5,7 @@ import { getCalculatorSchema } from '@/lib/seo-utils';
 import JsonLd from '@/components/seo/JsonLd';
 
 export const metadata: Metadata = {
-  title: 'GST Calculator India | Inclusive vs Exclusive GST Calculation (2025)',
+  title: 'GST Calculator India | Inclusive & Exclusive 2025',
   description: 'Calculate GST amount, pre-tax value, and total cost instantly. Supports 5%, 12%, 18%, 28% tax slabs. Differentiate between Inclusive and Exclusive GST.',
   alternates: {
     canonical: '/in/gst-calculator',

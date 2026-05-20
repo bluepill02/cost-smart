@@ -9,7 +9,13 @@ import JsonLd from '@/components/seo/JsonLd';
 export const metadata: Metadata = {
     title: 'Fixed Deposit Calculator | FD Interest Rates India',
     description: 'Calculate maturity amount and interest earned on Fixed Deposits (FD) in India. Supports quarterly, monthly, and annual compounding.',
-    alternates: {
+    openGraph: {
+    title: 'FD Calculator India | Fixed Deposit Returns',
+    description: 'Calculate fixed deposit maturity and interest for all major Indian banks. Supports monthly, quarterly, and annual compounding with TDS deduction.',
+    url: 'https://cost-smart-five.vercel.app/in/fd-calculator',
+    type: 'website',
+  },
+  alternates: {
         canonical: 'https://cost-smart-five.vercel.app/in/fd-calculator',
     }
 };

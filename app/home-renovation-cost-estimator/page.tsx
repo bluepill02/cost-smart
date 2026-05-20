@@ -5,7 +5,7 @@ import RelatedTools from '@/components/calculators/RelatedTools';
 import AdContainer from '@/components/ads/AdContainer';
 
 export const metadata: Metadata = {
-  title: 'Home Renovation Cost Estimator India | Painting, Flooring, Plumbing Rates',
+  title: 'Home Renovation Cost Estimator India | CostSmart',
   description: 'Calculate the estimated cost of renovating your home in India. Get detailed pricing for painting, flooring, plumbing, electrical, and full home makeovers.',
   alternates: {
     canonical: 'https://cost-smart-five.vercel.app/home-renovation-cost-estimator',

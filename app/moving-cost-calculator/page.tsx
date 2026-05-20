@@ -7,8 +7,8 @@ import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import RelatedTools from '@/components/layouts/RelatedTools';
 
 export const metadata: Metadata = {
-  title: 'Moving Cost Calculator | Relocation & Packers Movers Estimate | CostSmart',
-  description: 'Calculate your home or office relocation costs including packers and movers charges, transportation, packing, labor, and insurance. Get instant moving estimates for local, intercity, and interstate moves.',
+  title: 'Moving Cost Calculator | Packers & Movers Cost | CostSmart',
+  description: 'Calculate home or office moving costs — packers & movers, transport, packing, and insurance. Instant estimates for local and interstate moves in India.',
   keywords: ['moving cost calculator', 'packers movers cost', 'relocation estimate', 'shifting cost calculator', 'home shifting charges', 'moving expenses India'],
   alternates: {
     canonical: 'https://cost-smart-five.vercel.app/moving-cost-calculator',

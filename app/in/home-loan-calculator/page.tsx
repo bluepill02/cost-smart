@@ -1,8 +1,12 @@
+import { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 
-// /in/home-loan-calculator → redirect to /home-loan-calculator (the canonical page)
-// The dynamic [city] route handles /in/home-loan-calculator/[city] already.
-// This index page was 404ing - fix by redirecting to the main calculator.
+export const metadata: Metadata = {
+  title: 'Home Loan EMI Calculator India | CostSmart',
+  description: 'Calculate home loan EMI for Indian banks. Get amortization schedule, total interest, and city-wise rates for Mumbai, Delhi, Bangalore and more.',
+  alternates: { canonical: 'https://cost-smart-five.vercel.app/home-loan-calculator' },
+};
+
 export default function InHomeLoanRedirect() {
   redirect('/home-loan-calculator');
 }

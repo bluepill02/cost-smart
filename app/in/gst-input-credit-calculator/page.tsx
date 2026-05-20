@@ -5,7 +5,7 @@ import { getCalculatorSchema } from '@/lib/seo-utils';
 
 export const metadata: Metadata = {
   title: 'GST Input Credit Calculator | CostSmart',
-  description: 'Calculate Net GST Payable after Input Tax Credit adjustment.',
+  description: 'Calculate net GST payable after claiming Input Tax Credit (ITC). Enter GST collected on sales and GST paid on purchases to find your exact tax liability.',
   alternates: {
     canonical: 'https://cost-smart-five.vercel.app/in/gst-input-credit-calculator',
   },

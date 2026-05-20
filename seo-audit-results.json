@@ -1,0 +1,3011 @@
+{
+  "summary": {
+    "totalPages": 138,
+    "titleMissing": 0,
+    "titleTooLong": 2,
+    "titleTooShort": 12,
+    "descMissing": 2,
+    "descTooLong": 1,
+    "descTooShort": 51,
+    "canonicalMissing": 1,
+    "ogUrlMismatch": 0,
+    "ogTitleMissing": 127,
+    "ogDescMissing": 0,
+    "multipleH1": 0,
+    "noH1": 64,
+    "schemaMissing": 20,
+    "duplicateTitles": 0,
+    "duplicateDescs": 1
+  },
+  "pages": [
+    {
+      "url": "/in/home-loan-calculator/[city]",
+      "file": "app/in/home-loan-calculator/[city]/page.tsx",
+      "title": "City Not Found",
+      "titleLen": 14,
+      "desc": null,
+      "descLen": 0,
+      "canonical": "/in/home-loan-calculator/${citySlug}",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "WARN",
+          "type": "TITLE_TOO_SHORT",
+          "msg": "Title is only 14 chars (min 30): \"City Not Found\""
+        },
+        {
+          "severity": "ERROR",
+          "type": "DESC_MISSING",
+          "msg": "No meta description found"
+        }
+      ]
+    },
+    {
+      "url": "/in/salary-calculator/[city]",
+      "file": "app/in/salary-calculator/[city]/page.tsx",
+      "title": "City Not Found",
+      "titleLen": 14,
+      "desc": null,
+      "descLen": 0,
+      "canonical": "/in/salary-calculator/${citySlug}",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "WARN",
+          "type": "TITLE_TOO_SHORT",
+          "msg": "Title is only 14 chars (min 30): \"City Not Found\""
+        },
+        {
+          "severity": "ERROR",
+          "type": "DESC_MISSING",
+          "msg": "No meta description found"
+        }
+      ]
+    },
+    {
+      "url": "/dashboard",
+      "file": "app/dashboard/page.tsx",
+      "title": "My Finance Hub - CostSmart",
+      "titleLen": 26,
+      "desc": "Track your saved scenarios and view real-time market data.",
+      "descLen": 58,
+      "canonical": "https://cost-smart-five.vercel.app/dashboard",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "WARN",
+          "type": "TITLE_TOO_SHORT",
+          "msg": "Title is only 26 chars (min 30): \"My Finance Hub - CostSmart\""
+        },
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 58 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "INFO",
+          "type": "SCHEMA_MISSING",
+          "msg": "No structured data (JSON-LD) found"
+        }
+      ]
+    },
+    {
+      "url": "/",
+      "file": "app/page.tsx",
+      "title": "CostSmart - Free Financial Calculators | Loans, Taxes, Investments & More",
+      "titleLen": 73,
+      "desc": "Free online financial calculators for loans, EMI, SIP, taxes, solar ROI, salary, and 30+ more tools....",
+      "descLen": 145,
+      "canonical": null,
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "WARN",
+          "type": "TITLE_TOO_LONG",
+          "msg": "Title is 73 chars (max 60): \"CostSmart - Free Financial Calculators | Loans, Taxes, Investments & More\""
+        },
+        {
+          "severity": "WARN",
+          "type": "CANONICAL_MISSING",
+          "msg": "No canonical URL in metadata"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "INFO",
+          "type": "SCHEMA_MISSING",
+          "msg": "No structured data (JSON-LD) found"
+        }
+      ]
+    },
+    {
+      "url": "/blog/how-to-use-emi-calculator",
+      "file": "app/blog/how-to-use-emi-calculator/page.tsx",
+      "title": "How to use the EMI Calculator | CostSmart Guide",
+      "titleLen": 47,
+      "desc": "Step-by-step guide on how to use the EMI Calculator to calculate Loan EMI. Accurate, fast, and free ...",
+      "descLen": 112,
+      "canonical": "https://cost-smart-five.vercel.app/blog/how-to-use-emi-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 112 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/how-to-use-gst-calculator",
+      "file": "app/blog/how-to-use-gst-calculator/page.tsx",
+      "title": "How to use the GST Calculator | CostSmart Guide",
+      "titleLen": 47,
+      "desc": "Step-by-step guide on how to use the GST Calculator to calculate GST Amount. Accurate, fast, and fre...",
+      "descLen": 114,
+      "canonical": "https://cost-smart-five.vercel.app/blog/how-to-use-gst-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 114 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/how-to-use-ppf-calculator",
+      "file": "app/blog/how-to-use-ppf-calculator/page.tsx",
+      "title": "How to use the PPF Calculator | CostSmart Guide",
+      "titleLen": 47,
+      "desc": "Step-by-step guide on how to use the PPF Calculator to calculate PPF Maturity. Accurate, fast, and f...",
+      "descLen": 116,
+      "canonical": "https://cost-smart-five.vercel.app/blog/how-to-use-ppf-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 116 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/how-to-use-sip-calculator",
+      "file": "app/blog/how-to-use-sip-calculator/page.tsx",
+      "title": "How to use the SIP Calculator | CostSmart Guide",
+      "titleLen": 47,
+      "desc": "Step-by-step guide on how to use the SIP Calculator to calculate SIP Returns. Accurate, fast, and fr...",
+      "descLen": 115,
+      "canonical": "https://cost-smart-five.vercel.app/blog/how-to-use-sip-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 115 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/how-to-use-tds-calculator",
+      "file": "app/blog/how-to-use-tds-calculator/page.tsx",
+      "title": "How to use the TDS Calculator | CostSmart Guide",
+      "titleLen": 47,
+      "desc": "Step-by-step guide on how to use the TDS Calculator to calculate TDS Deduction. Accurate, fast, and ...",
+      "descLen": 117,
+      "canonical": "https://cost-smart-five.vercel.app/blog/how-to-use-tds-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 117 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/ultimate-guide-break-even-point",
+      "file": "app/blog/ultimate-guide-break-even-point/page.tsx",
+      "title": "Ultimate Guide to Break-Even Point Calculation | CostSmart",
+      "titleLen": 58,
+      "desc": "Everything you need to know about Break-Even Point. Formulas, examples, and expert tips for accurate...",
+      "descLen": 113,
+      "canonical": "https://cost-smart-five.vercel.app/blog/ultimate-guide-break-even-point",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 113 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/ultimate-guide-business-loan-emi",
+      "file": "app/blog/ultimate-guide-business-loan-emi/page.tsx",
+      "title": "Ultimate Guide to Business Loan EMI Calculation | CostSmart",
+      "titleLen": 59,
+      "desc": "Everything you need to know about Business Loan EMI. Formulas, examples, and expert tips for accurat...",
+      "descLen": 114,
+      "canonical": "https://cost-smart-five.vercel.app/blog/ultimate-guide-business-loan-emi",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 114 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/ultimate-guide-currency-exchange",
+      "file": "app/blog/ultimate-guide-currency-exchange/page.tsx",
+      "title": "Ultimate Guide to Currency Exchange Calculation | CostSmart",
+      "titleLen": 59,
+      "desc": "Everything you need to know about Currency Exchange. Formulas, examples, and expert tips for accurat...",
+      "descLen": 114,
+      "canonical": "https://cost-smart-five.vercel.app/blog/ultimate-guide-currency-exchange",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 114 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/ultimate-guide-debt-free-date",
+      "file": "app/blog/ultimate-guide-debt-free-date/page.tsx",
+      "title": "Ultimate Guide to Debt Free Date Calculation | CostSmart",
+      "titleLen": 56,
+      "desc": "Everything you need to know about Debt Free Date. Formulas, examples, and expert tips for accurate c...",
+      "descLen": 111,
+      "canonical": "https://cost-smart-five.vercel.app/blog/ultimate-guide-debt-free-date",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 111 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/ultimate-guide-electricity-bill",
+      "file": "app/blog/ultimate-guide-electricity-bill/page.tsx",
+      "title": "Ultimate Guide to Electricity Bill Calculation | CostSmart",
+      "titleLen": 58,
+      "desc": "Everything you need to know about Electricity Bill. Formulas, examples, and expert tips for accurate...",
+      "descLen": 113,
+      "canonical": "https://cost-smart-five.vercel.app/blog/ultimate-guide-electricity-bill",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 113 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/ultimate-guide-emergency-fund",
+      "file": "app/blog/ultimate-guide-emergency-fund/page.tsx",
+      "title": "Ultimate Guide to Emergency Fund Calculation | CostSmart",
+      "titleLen": 56,
+      "desc": "Everything you need to know about Emergency Fund. Formulas, examples, and expert tips for accurate c...",
+      "descLen": 111,
+      "canonical": "https://cost-smart-five.vercel.app/blog/ultimate-guide-emergency-fund",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 111 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/ultimate-guide-fixed-deposit-interest",
+      "file": "app/blog/ultimate-guide-fixed-deposit-interest/page.tsx",
+      "title": "Fixed Deposit Interest Calculation Guide | CostSmart",
+      "titleLen": 52,
+      "desc": "Everything you need to know about Fixed Deposit Interest. Formulas, examples, and expert tips for ac...",
+      "descLen": 119,
+      "canonical": "https://cost-smart-five.vercel.app/blog/ultimate-guide-fixed-deposit-interest",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 119 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/ultimate-guide-freelance-hourly-rate",
+      "file": "app/blog/ultimate-guide-freelance-hourly-rate/page.tsx",
+      "title": "Freelance Hourly Rate Calculation Guide | CostSmart",
+      "titleLen": 51,
+      "desc": "Everything you need to know about Freelance Hourly Rate. Formulas, examples, and expert tips for acc...",
+      "descLen": 118,
+      "canonical": "https://cost-smart-five.vercel.app/blog/ultimate-guide-freelance-hourly-rate",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 118 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/ultimate-guide-gst-amount",
+      "file": "app/blog/ultimate-guide-gst-amount/page.tsx",
+      "title": "Ultimate Guide to GST Amount Calculation | CostSmart",
+      "titleLen": 52,
+      "desc": "Everything you need to know about GST Amount. Formulas, examples, and expert tips for accurate calcu...",
+      "descLen": 107,
+      "canonical": "https://cost-smart-five.vercel.app/blog/ultimate-guide-gst-amount",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 107 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/ultimate-guide-home-loan-emi",
+      "file": "app/blog/ultimate-guide-home-loan-emi/page.tsx",
+      "title": "Ultimate Guide to Home Loan EMI Calculation | CostSmart",
+      "titleLen": 55,
+      "desc": "Everything you need to know about Home Loan EMI. Formulas, examples, and expert tips for accurate ca...",
+      "descLen": 110,
+      "canonical": "https://cost-smart-five.vercel.app/blog/ultimate-guide-home-loan-emi",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 110 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/ultimate-guide-import-duty",
+      "file": "app/blog/ultimate-guide-import-duty/page.tsx",
+      "title": "Ultimate Guide to Import Duty Calculation | CostSmart",
+      "titleLen": 53,
+      "desc": "Everything you need to know about Import Duty. Formulas, examples, and expert tips for accurate calc...",
+      "descLen": 108,
+      "canonical": "https://cost-smart-five.vercel.app/blog/ultimate-guide-import-duty",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 108 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/ultimate-guide-in-hand-salary",
+      "file": "app/blog/ultimate-guide-in-hand-salary/page.tsx",
+      "title": "Ultimate Guide to In-Hand Salary Calculation | CostSmart",
+      "titleLen": 56,
+      "desc": "Everything you need to know about In-Hand Salary. Formulas, examples, and expert tips for accurate c...",
+      "descLen": 111,
+      "canonical": "https://cost-smart-five.vercel.app/blog/ultimate-guide-in-hand-salary",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 111 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/ultimate-guide-income-tax-liability",
+      "file": "app/blog/ultimate-guide-income-tax-liability/page.tsx",
+      "title": "Income Tax Liability Calculation Guide | CostSmart",
+      "titleLen": 50,
+      "desc": "Everything you need to know about Income Tax Liability. Formulas, examples, and expert tips for accu...",
+      "descLen": 117,
+      "canonical": "https://cost-smart-five.vercel.app/blog/ultimate-guide-income-tax-liability",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 117 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/ultimate-guide-loan-emi",
+      "file": "app/blog/ultimate-guide-loan-emi/page.tsx",
+      "title": "Ultimate Guide to Loan EMI Calculation | CostSmart",
+      "titleLen": 50,
+      "desc": "Everything you need to know about Loan EMI. Formulas, examples, and expert tips for accurate calcula...",
+      "descLen": 105,
+      "canonical": "https://cost-smart-five.vercel.app/blog/ultimate-guide-loan-emi",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 105 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/ultimate-guide-lpg-subsidy",
+      "file": "app/blog/ultimate-guide-lpg-subsidy/page.tsx",
+      "title": "Ultimate Guide to LPG Subsidy Calculation | CostSmart",
+      "titleLen": 53,
+      "desc": "Everything you need to know about LPG Subsidy. Formulas, examples, and expert tips for accurate calc...",
+      "descLen": 108,
+      "canonical": "https://cost-smart-five.vercel.app/blog/ultimate-guide-lpg-subsidy",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 108 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/ultimate-guide-net-gst-payable",
+      "file": "app/blog/ultimate-guide-net-gst-payable/page.tsx",
+      "title": "Ultimate Guide to Net GST Payable Calculation | CostSmart",
+      "titleLen": 57,
+      "desc": "Everything you need to know about Net GST Payable. Formulas, examples, and expert tips for accurate ...",
+      "descLen": 112,
+      "canonical": "https://cost-smart-five.vercel.app/blog/ultimate-guide-net-gst-payable",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 112 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/ultimate-guide-ppf-maturity",
+      "file": "app/blog/ultimate-guide-ppf-maturity/page.tsx",
+      "title": "Ultimate Guide to PPF Maturity Calculation | CostSmart",
+      "titleLen": 54,
+      "desc": "Everything you need to know about PPF Maturity. Formulas, examples, and expert tips for accurate cal...",
+      "descLen": 109,
+      "canonical": "https://cost-smart-five.vercel.app/blog/ultimate-guide-ppf-maturity",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 109 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/ultimate-guide-professional-invoice",
+      "file": "app/blog/ultimate-guide-professional-invoice/page.tsx",
+      "title": "Professional Invoice Creation Guide | CostSmart",
+      "titleLen": 47,
+      "desc": "Everything you need to know about Professional Invoice. Formulas, examples, and expert tips for accu...",
+      "descLen": 117,
+      "canonical": "https://cost-smart-five.vercel.app/blog/ultimate-guide-professional-invoice",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 117 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/ultimate-guide-profit-margin",
+      "file": "app/blog/ultimate-guide-profit-margin/page.tsx",
+      "title": "Ultimate Guide to Profit Margin Calculation | CostSmart",
+      "titleLen": 55,
+      "desc": "Everything you need to know about Profit Margin. Formulas, examples, and expert tips for accurate ca...",
+      "descLen": 110,
+      "canonical": "https://cost-smart-five.vercel.app/blog/ultimate-guide-profit-margin",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 110 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/ultimate-guide-property-tax",
+      "file": "app/blog/ultimate-guide-property-tax/page.tsx",
+      "title": "Ultimate Guide to Property Tax Calculation | CostSmart",
+      "titleLen": 54,
+      "desc": "Everything you need to know about Property Tax. Formulas, examples, and expert tips for accurate cal...",
+      "descLen": 109,
+      "canonical": "https://cost-smart-five.vercel.app/blog/ultimate-guide-property-tax",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 109 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/ultimate-guide-rent-vs-buy-decision",
+      "file": "app/blog/ultimate-guide-rent-vs-buy-decision/page.tsx",
+      "title": "Rent vs Buy Decision Guide India | CostSmart",
+      "titleLen": 44,
+      "desc": "Everything you need to know about Rent vs Buy Decision. Formulas, examples, and expert tips for accu...",
+      "descLen": 117,
+      "canonical": "https://cost-smart-five.vercel.app/blog/ultimate-guide-rent-vs-buy-decision",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 117 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/ultimate-guide-retirement-corpus",
+      "file": "app/blog/ultimate-guide-retirement-corpus/page.tsx",
+      "title": "Ultimate Guide to Retirement Corpus Calculation | CostSmart",
+      "titleLen": 59,
+      "desc": "Everything you need to know about Retirement Corpus. Formulas, examples, and expert tips for accurat...",
+      "descLen": 114,
+      "canonical": "https://cost-smart-five.vercel.app/blog/ultimate-guide-retirement-corpus",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 114 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/ultimate-guide-sip-returns",
+      "file": "app/blog/ultimate-guide-sip-returns/page.tsx",
+      "title": "Ultimate Guide to SIP Returns Calculation | CostSmart",
+      "titleLen": 53,
+      "desc": "Everything you need to know about SIP Returns. Formulas, examples, and expert tips for accurate calc...",
+      "descLen": 108,
+      "canonical": "https://cost-smart-five.vercel.app/blog/ultimate-guide-sip-returns",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 108 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/ultimate-guide-solar-savings",
+      "file": "app/blog/ultimate-guide-solar-savings/page.tsx",
+      "title": "Ultimate Guide to Solar Savings Calculation | CostSmart",
+      "titleLen": 55,
+      "desc": "Everything you need to know about Solar Savings. Formulas, examples, and expert tips for accurate ca...",
+      "descLen": 110,
+      "canonical": "https://cost-smart-five.vercel.app/blog/ultimate-guide-solar-savings",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 110 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/ultimate-guide-tds-deduction",
+      "file": "app/blog/ultimate-guide-tds-deduction/page.tsx",
+      "title": "Ultimate Guide to TDS Deduction Calculation | CostSmart",
+      "titleLen": 55,
+      "desc": "Everything you need to know about TDS Deduction. Formulas, examples, and expert tips for accurate ca...",
+      "descLen": 110,
+      "canonical": "https://cost-smart-five.vercel.app/blog/ultimate-guide-tds-deduction",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 110 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/ultimate-guide-volumetric-weight",
+      "file": "app/blog/ultimate-guide-volumetric-weight/page.tsx",
+      "title": "Ultimate Guide to Volumetric Weight Calculation | CostSmart",
+      "titleLen": 59,
+      "desc": "Everything you need to know about Volumetric Weight. Formulas, examples, and expert tips for accurat...",
+      "descLen": 114,
+      "canonical": "https://cost-smart-five.vercel.app/blog/ultimate-guide-volumetric-weight",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 114 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/ultimate-guide-water-bill",
+      "file": "app/blog/ultimate-guide-water-bill/page.tsx",
+      "title": "Ultimate Guide to Water Bill Calculation | CostSmart",
+      "titleLen": 52,
+      "desc": "Everything you need to know about Water Bill. Formulas, examples, and expert tips for accurate calcu...",
+      "descLen": 107,
+      "canonical": "https://cost-smart-five.vercel.app/blog/ultimate-guide-water-bill",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 107 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/cookies",
+      "file": "app/cookies/page.tsx",
+      "title": "Cookie Policy | CostSmart",
+      "titleLen": 25,
+      "desc": "Cookie Policy for CostSmart.",
+      "descLen": 28,
+      "canonical": "https://cost-smart-five.vercel.app/cookies",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "WARN",
+          "type": "TITLE_TOO_SHORT",
+          "msg": "Title is only 25 chars (min 30): \"Cookie Policy | CostSmart\""
+        },
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 28 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/home-loan-calculator/[city]",
+      "file": "app/home-loan-calculator/[city]/page.tsx",
+      "title": "City Not Found",
+      "titleLen": 14,
+      "desc": "Calculate your Home Loan EMI for properties in ${city.name}. Check eligibility, interest rates, and ...",
+      "descLen": 153,
+      "canonical": "https://cost-smart-five.vercel.app/home-loan-calculator/${cityParam}",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "WARN",
+          "type": "TITLE_TOO_SHORT",
+          "msg": "Title is only 14 chars (min 30): \"City Not Found\""
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "INFO",
+          "type": "SCHEMA_MISSING",
+          "msg": "No structured data (JSON-LD) found"
+        }
+      ]
+    },
+    {
+      "url": "/in/stamp-duty-calculator/[state]",
+      "file": "app/in/stamp-duty-calculator/[state]/page.tsx",
+      "title": "State Not Found",
+      "titleLen": 15,
+      "desc": "Calculate stamp duty and registration charges for property in ${stateData.state}. Current Rate: ${st...",
+      "descLen": 149,
+      "canonical": "https://cost-smart-five.vercel.app/in/stamp-duty-calculator/${stateParam}",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "WARN",
+          "type": "TITLE_TOO_SHORT",
+          "msg": "Title is only 15 chars (min 30): \"State Not Found\""
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "INFO",
+          "type": "SCHEMA_MISSING",
+          "msg": "No structured data (JSON-LD) found"
+        }
+      ]
+    },
+    {
+      "url": "/inflation",
+      "file": "app/inflation/page.tsx",
+      "title": "Inflation Calculator (CPI) | US Dollar Value 1913-2024",
+      "titleLen": 54,
+      "desc": "Calculate the value of the US Dollar over time. See how much purchasing power has changed using offi...",
+      "descLen": 118,
+      "canonical": "https://cost-smart-five.vercel.app/inflation",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 118 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "INFO",
+          "type": "SCHEMA_MISSING",
+          "msg": "No structured data (JSON-LD) found"
+        }
+      ]
+    },
+    {
+      "url": "/invoice-generator",
+      "file": "app/invoice-generator/page.tsx",
+      "title": "Invoice Generator | CostSmart",
+      "titleLen": 29,
+      "desc": "Create professional PDF invoices instantly for free.",
+      "descLen": 52,
+      "canonical": "https://cost-smart-five.vercel.app/invoice-generator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "WARN",
+          "type": "TITLE_TOO_SHORT",
+          "msg": "Title is only 29 chars (min 30): \"Invoice Generator | CostSmart\""
+        },
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 52 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/privacy",
+      "file": "app/privacy/page.tsx",
+      "title": "Privacy Policy | CostSmart",
+      "titleLen": 26,
+      "desc": "Privacy Policy for CostSmart.",
+      "descLen": 29,
+      "canonical": "https://cost-smart-five.vercel.app/privacy",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "WARN",
+          "type": "TITLE_TOO_SHORT",
+          "msg": "Title is only 26 chars (min 30): \"Privacy Policy | CostSmart\""
+        },
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 29 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/solar-roi/budget/[amount]",
+      "file": "app/solar-roi/budget/[amount]/page.tsx",
+      "title": "Solar System for ₹${parseInt(amount).toLocaleString()} Budget - ROI & Capacity",
+      "titleLen": 78,
+      "desc": "What kind of solar system can you get for ₹${parseInt(amount).toLocaleString()}? Check capacity, gen...",
+      "descLen": 121,
+      "canonical": "https://cost-smart-five.vercel.app/solar-roi/budget/${amount}",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "WARN",
+          "type": "TITLE_TOO_LONG",
+          "msg": "Title is 78 chars (max 60): \"Solar System for ₹${parseInt(amount).toLocaleString()} Budget - ROI & Capacity\""
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "INFO",
+          "type": "SCHEMA_MISSING",
+          "msg": "No structured data (JSON-LD) found"
+        }
+      ]
+    },
+    {
+      "url": "/solar-roi/roof/[size]",
+      "file": "app/solar-roi/roof/[size]/page.tsx",
+      "title": "Solar ROI for ${size} sq ft Roof - Calculation & Cost",
+      "titleLen": 53,
+      "desc": "How much solar power can a ${size} sq ft roof generate? Calculate installation cost, number of panel...",
+      "descLen": 115,
+      "canonical": "https://cost-smart-five.vercel.app/solar-roi/roof/${size}",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 115 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "INFO",
+          "type": "SCHEMA_MISSING",
+          "msg": "No structured data (JSON-LD) found"
+        }
+      ]
+    },
+    {
+      "url": "/solar-roi/vs/[alternative]",
+      "file": "app/solar-roi/vs/[alternative]/page.tsx",
+      "title": "Solar vs ${altName} - Which is Cheaper? | Cost Comparison",
+      "titleLen": 57,
+      "desc": "Compare Solar Energy against ${altName}. Analysis of ROI, initial cost, environmental impact, and lo...",
+      "descLen": 116,
+      "canonical": "https://cost-smart-five.vercel.app/solar-roi/vs/${alternative}",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 116 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "INFO",
+          "type": "SCHEMA_MISSING",
+          "msg": "No structured data (JSON-LD) found"
+        }
+      ]
+    },
+    {
+      "url": "/solar-roi/[city]",
+      "file": "app/solar-roi/[city]/page.tsx",
+      "title": "City Not Found",
+      "titleLen": 14,
+      "desc": "Solar ROI for ${city.city_name}: ${city.avg_daily_sunlight_hours}h sun, ${city.avg_electricity_cost_...",
+      "descLen": 164,
+      "canonical": "https://cost-smart-five.vercel.app/solar-roi/${cityParam}",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "WARN",
+          "type": "TITLE_TOO_SHORT",
+          "msg": "Title is only 14 chars (min 30): \"City Not Found\""
+        },
+        {
+          "severity": "WARN",
+          "type": "DESC_TOO_LONG",
+          "msg": "Description is 164 chars (max 160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/solar-roi/[city]/[roof-size]",
+      "file": "app/solar-roi/[city]/[roof-size]/page.tsx",
+      "title": "Page Not Found",
+      "titleLen": 14,
+      "desc": "How much can you save with a ${size} sq ft solar installation in ${city.city_name}? Calculate genera...",
+      "descLen": 143,
+      "canonical": "https://cost-smart-five.vercel.app/solar-roi/${cityParam}/${size}",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "WARN",
+          "type": "TITLE_TOO_SHORT",
+          "msg": "Title is only 14 chars (min 30): \"Page Not Found\""
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "INFO",
+          "type": "SCHEMA_MISSING",
+          "msg": "No structured data (JSON-LD) found"
+        }
+      ]
+    },
+    {
+      "url": "/terms",
+      "file": "app/terms/page.tsx",
+      "title": "Terms of Service | CostSmart",
+      "titleLen": 28,
+      "desc": "Terms of Service for CostSmart.",
+      "descLen": 31,
+      "canonical": "https://cost-smart-five.vercel.app/terms",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "WARN",
+          "type": "TITLE_TOO_SHORT",
+          "msg": "Title is only 28 chars (min 30): \"Terms of Service | CostSmart\""
+        },
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 31 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/blog/emergency-fund-importance",
+      "file": "app/blog/emergency-fund-importance/page.tsx",
+      "title": "Why You Need an Emergency Fund (Before Investing)",
+      "titleLen": 49,
+      "desc": "An emergency fund is your financial seatbelt. Learn why you need it, how much to save, and where to ...",
+      "descLen": 115,
+      "canonical": "https://cost-smart-five.vercel.app/blog/emergency-fund-importance",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 115 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/blog/gst-inclusive-vs-exclusive",
+      "file": "app/blog/gst-inclusive-vs-exclusive/page.tsx",
+      "title": "GST Inclusive vs Exclusive: How to Calculate Correctly?",
+      "titleLen": 55,
+      "desc": "Confused by GST calculations? Learn the difference between Inclusive and Exclusive GST with simple f...",
+      "descLen": 121,
+      "canonical": "/blog/gst-inclusive-vs-exclusive",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/home-loan-prepayment-benefits",
+      "file": "app/blog/home-loan-prepayment-benefits/page.tsx",
+      "title": "How Home Loan Prepayment Saves You Lakhs",
+      "titleLen": 40,
+      "desc": "Learn how prepayments save lakhs in home loan interest and cut tenure by years. Worked examples and ...",
+      "descLen": 143,
+      "canonical": "/blog/home-loan-prepayment-benefits",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/how-to-use-break-even-calculator",
+      "file": "app/blog/how-to-use-break-even-calculator/page.tsx",
+      "title": "How to use the Break-Even Calculator | CostSmart Guide",
+      "titleLen": 54,
+      "desc": "Step-by-step guide on how to use the Break-Even Calculator to calculate Break-Even Point. Accurate, ...",
+      "descLen": 127,
+      "canonical": "https://cost-smart-five.vercel.app/blog/how-to-use-break-even-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/how-to-use-business-loan-calculator",
+      "file": "app/blog/how-to-use-business-loan-calculator/page.tsx",
+      "title": "How to use the Business Loan Calculator | CostSmart Guide",
+      "titleLen": 57,
+      "desc": "Step-by-step guide on how to use the Business Loan Calculator to calculate Business Loan EMI. Accura...",
+      "descLen": 131,
+      "canonical": "https://cost-smart-five.vercel.app/blog/how-to-use-business-loan-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/how-to-use-currency-converter",
+      "file": "app/blog/how-to-use-currency-converter/page.tsx",
+      "title": "How to use the Currency Converter | CostSmart Guide",
+      "titleLen": 51,
+      "desc": "Step-by-step guide on how to use the Currency Converter to calculate Currency Exchange. Accurate, fa...",
+      "descLen": 125,
+      "canonical": "https://cost-smart-five.vercel.app/blog/how-to-use-currency-converter",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/how-to-use-debt-payoff-calculator",
+      "file": "app/blog/how-to-use-debt-payoff-calculator/page.tsx",
+      "title": "How to use the Debt Payoff Calculator | CostSmart Guide",
+      "titleLen": 55,
+      "desc": "Step-by-step guide on how to use the Debt Payoff Calculator to calculate Debt Free Date. Accurate, f...",
+      "descLen": 126,
+      "canonical": "https://cost-smart-five.vercel.app/blog/how-to-use-debt-payoff-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/how-to-use-electricity-bill-calculator",
+      "file": "app/blog/how-to-use-electricity-bill-calculator/page.tsx",
+      "title": "How to use the Electricity Bill Calculator | CostSmart Guide",
+      "titleLen": 60,
+      "desc": "Step-by-step guide on how to use the Electricity Bill Calculator to calculate Electricity Bill. Accu...",
+      "descLen": 133,
+      "canonical": "https://cost-smart-five.vercel.app/blog/how-to-use-electricity-bill-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/how-to-use-emergency-fund-calculator",
+      "file": "app/blog/how-to-use-emergency-fund-calculator/page.tsx",
+      "title": "How to use the Emergency Fund Calculator | CostSmart Guide",
+      "titleLen": 58,
+      "desc": "Step-by-step guide on how to use the Emergency Fund Calculator to calculate Emergency Fund. Accurate...",
+      "descLen": 129,
+      "canonical": "https://cost-smart-five.vercel.app/blog/how-to-use-emergency-fund-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/how-to-use-fd-calculator",
+      "file": "app/blog/how-to-use-fd-calculator/page.tsx",
+      "title": "How to use the FD Calculator | CostSmart Guide",
+      "titleLen": 46,
+      "desc": "Step-by-step guide on how to use the FD Calculator to calculate Fixed Deposit Interest. Accurate, fa...",
+      "descLen": 125,
+      "canonical": "https://cost-smart-five.vercel.app/blog/how-to-use-fd-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/how-to-use-freelance-rate-calculator",
+      "file": "app/blog/how-to-use-freelance-rate-calculator/page.tsx",
+      "title": "How to use the Freelance Rate Calculator | CostSmart Guide",
+      "titleLen": 58,
+      "desc": "Step-by-step guide on how to use the Freelance Rate Calculator to calculate Freelance Hourly Rate. A...",
+      "descLen": 136,
+      "canonical": "https://cost-smart-five.vercel.app/blog/how-to-use-freelance-rate-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/how-to-use-gst-input-credit-calculator",
+      "file": "app/blog/how-to-use-gst-input-credit-calculator/page.tsx",
+      "title": "How to use the GST Input Credit Calculator | CostSmart Guide",
+      "titleLen": 60,
+      "desc": "Step-by-step guide on how to use the GST Input Credit Calculator to calculate Net GST Payable. Accur...",
+      "descLen": 132,
+      "canonical": "https://cost-smart-five.vercel.app/blog/how-to-use-gst-input-credit-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/how-to-use-home-loan-calculator",
+      "file": "app/blog/how-to-use-home-loan-calculator/page.tsx",
+      "title": "How to use the Home Loan Calculator | CostSmart Guide",
+      "titleLen": 53,
+      "desc": "Step-by-step guide on how to use the Home Loan Calculator to calculate Home Loan EMI. Accurate, fast...",
+      "descLen": 123,
+      "canonical": "https://cost-smart-five.vercel.app/blog/how-to-use-home-loan-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/how-to-use-home-renovation-cost-estimator",
+      "file": "app/blog/how-to-use-home-renovation-cost-estimator/page.tsx",
+      "title": "How to Use the Home Renovation Cost Estimator | CostSmart",
+      "titleLen": 57,
+      "desc": "Step-by-step guide to using the CostSmart Home Renovation Cost Estimator. Estimate painting, floorin...",
+      "descLen": 155,
+      "canonical": "https://cost-smart-five.vercel.app/blog/how-to-use-home-renovation-cost-estimator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/how-to-use-import-duty-calculator",
+      "file": "app/blog/how-to-use-import-duty-calculator/page.tsx",
+      "title": "How to use the Import Duty Calculator | CostSmart Guide",
+      "titleLen": 55,
+      "desc": "Step-by-step guide on how to use the Import Duty Calculator to calculate Import Duty. Accurate, fast...",
+      "descLen": 123,
+      "canonical": "https://cost-smart-five.vercel.app/blog/how-to-use-import-duty-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/how-to-use-income-tax-calculator",
+      "file": "app/blog/how-to-use-income-tax-calculator/page.tsx",
+      "title": "How to use the Income Tax Calculator | CostSmart Guide",
+      "titleLen": 54,
+      "desc": "Step-by-step guide on how to use the Income Tax Calculator to calculate Income Tax Liability. Accura...",
+      "descLen": 131,
+      "canonical": "https://cost-smart-five.vercel.app/blog/how-to-use-income-tax-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/how-to-use-invoice-generator",
+      "file": "app/blog/how-to-use-invoice-generator/page.tsx",
+      "title": "How to use the Invoice Generator | CostSmart Guide",
+      "titleLen": 50,
+      "desc": "Step-by-step guide on how to use the Invoice Generator to calculate Professional Invoice. Accurate, ...",
+      "descLen": 127,
+      "canonical": "https://cost-smart-five.vercel.app/blog/how-to-use-invoice-generator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/how-to-use-lpg-subsidy-calculator",
+      "file": "app/blog/how-to-use-lpg-subsidy-calculator/page.tsx",
+      "title": "How to use the LPG Subsidy Calculator | CostSmart Guide",
+      "titleLen": 55,
+      "desc": "Step-by-step guide on how to use the LPG Subsidy Calculator to calculate LPG Subsidy. Accurate, fast...",
+      "descLen": 123,
+      "canonical": "https://cost-smart-five.vercel.app/blog/how-to-use-lpg-subsidy-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/how-to-use-profit-margin-calculator",
+      "file": "app/blog/how-to-use-profit-margin-calculator/page.tsx",
+      "title": "How to use the Profit Margin Calculator | CostSmart Guide",
+      "titleLen": 57,
+      "desc": "Step-by-step guide on how to use the Profit Margin Calculator to calculate Profit Margin. Accurate, ...",
+      "descLen": 127,
+      "canonical": "https://cost-smart-five.vercel.app/blog/how-to-use-profit-margin-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/how-to-use-property-registration-cost-calculator",
+      "file": "app/blog/how-to-use-property-registration-cost-calculator/page.tsx",
+      "title": "Property Registration Cost Calculator Guide | CostSmart",
+      "titleLen": 55,
+      "desc": "Step-by-step guide to using CostSmart Property Registration Calculator. Calculate stamp duty and reg...",
+      "descLen": 127,
+      "canonical": "https://cost-smart-five.vercel.app/blog/how-to-use-property-registration-cost-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/how-to-use-property-tax-calculator",
+      "file": "app/blog/how-to-use-property-tax-calculator/page.tsx",
+      "title": "How to use the Property Tax Calculator | CostSmart Guide",
+      "titleLen": 56,
+      "desc": "Step-by-step guide on how to use the Property Tax Calculator to calculate Property Tax. Accurate, fa...",
+      "descLen": 125,
+      "canonical": "https://cost-smart-five.vercel.app/blog/how-to-use-property-tax-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/how-to-use-rent-vs-buy-calculator",
+      "file": "app/blog/how-to-use-rent-vs-buy-calculator/page.tsx",
+      "title": "How to use the Rent vs Buy Calculator | CostSmart Guide",
+      "titleLen": 55,
+      "desc": "Step-by-step guide on how to use the Rent vs Buy Calculator to calculate Rent vs Buy Decision. Accur...",
+      "descLen": 132,
+      "canonical": "https://cost-smart-five.vercel.app/blog/how-to-use-rent-vs-buy-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/how-to-use-retirement-calculator",
+      "file": "app/blog/how-to-use-retirement-calculator/page.tsx",
+      "title": "How to use the Retirement Calculator | CostSmart Guide",
+      "titleLen": 54,
+      "desc": "Step-by-step guide on how to use the Retirement Calculator to calculate Retirement Corpus. Accurate,...",
+      "descLen": 128,
+      "canonical": "https://cost-smart-five.vercel.app/blog/how-to-use-retirement-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/how-to-use-salary-calculator",
+      "file": "app/blog/how-to-use-salary-calculator/page.tsx",
+      "title": "How to use the Salary Calculator | CostSmart Guide",
+      "titleLen": 50,
+      "desc": "Step-by-step guide on how to use the Salary Calculator to calculate In-Hand Salary. Accurate, fast, ...",
+      "descLen": 121,
+      "canonical": "https://cost-smart-five.vercel.app/blog/how-to-use-salary-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/how-to-use-shipping-cost-calculator",
+      "file": "app/blog/how-to-use-shipping-cost-calculator/page.tsx",
+      "title": "How to use the Shipping Cost Calculator | CostSmart Guide",
+      "titleLen": 57,
+      "desc": "Step-by-step guide on how to use the Shipping Cost Calculator to calculate Volumetric Weight. Accura...",
+      "descLen": 131,
+      "canonical": "https://cost-smart-five.vercel.app/blog/how-to-use-shipping-cost-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/how-to-use-solar-roi-calculator",
+      "file": "app/blog/how-to-use-solar-roi-calculator/page.tsx",
+      "title": "How to use the Solar ROI Calculator | CostSmart Guide",
+      "titleLen": 53,
+      "desc": "Step-by-step guide on how to use the Solar ROI Calculator to calculate Solar Savings. Accurate, fast...",
+      "descLen": 123,
+      "canonical": "https://cost-smart-five.vercel.app/blog/how-to-use-solar-roi-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/how-to-use-stamp-duty-calculator",
+      "file": "app/blog/how-to-use-stamp-duty-calculator/page.tsx",
+      "title": "How to use the Stamp Duty Calculator | CostSmart Guide",
+      "titleLen": 54,
+      "desc": "Step-by-step guide on how to use the Stamp Duty Calculator to calculate Property Registration Cost. ...",
+      "descLen": 137,
+      "canonical": "https://cost-smart-five.vercel.app/blog/how-to-use-stamp-duty-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/how-to-use-water-bill-calculator",
+      "file": "app/blog/how-to-use-water-bill-calculator/page.tsx",
+      "title": "How to use the Water Bill Calculator | CostSmart Guide",
+      "titleLen": 54,
+      "desc": "Step-by-step guide on how to use the Water Bill Calculator to calculate Water Bill. Accurate, fast, ...",
+      "descLen": 121,
+      "canonical": "https://cost-smart-five.vercel.app/blog/how-to-use-water-bill-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/rent-vs-buy-math",
+      "file": "app/blog/rent-vs-buy-math/page.tsx",
+      "title": "Rent vs Buy: The Mathematical Truth (No Emotions)",
+      "titleLen": 49,
+      "desc": "Is buying always better? We break down the Opportunity Cost method to calculate the true financial w...",
+      "descLen": 133,
+      "canonical": "/blog/rent-vs-buy-math",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/ultimate-guide-home-renovation-cost",
+      "file": "app/blog/ultimate-guide-home-renovation-cost/page.tsx",
+      "title": "Home Renovation Costs India 2025 Guide | CostSmart",
+      "titleLen": 50,
+      "desc": "Complete guide to home renovation costs in India 2025. Get per sq ft rates for painting, flooring, e...",
+      "descLen": 155,
+      "canonical": "https://cost-smart-five.vercel.app/blog/ultimate-guide-home-renovation-cost",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/ultimate-guide-property-registration-charges",
+      "file": "app/blog/ultimate-guide-property-registration-charges/page.tsx",
+      "title": "Property Registration Charges in India 2025 | CostSmart",
+      "titleLen": 55,
+      "desc": "State-wise stamp duty and registration charges in India 2025. Learn rates for Maharashtra, Karnataka...",
+      "descLen": 156,
+      "canonical": "https://cost-smart-five.vercel.app/blog/ultimate-guide-property-registration-charges",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/blog/ultimate-guide-property-registration-cost",
+      "file": "app/blog/ultimate-guide-property-registration-cost/page.tsx",
+      "title": "Property Registration Cost Guide India | CostSmart",
+      "titleLen": 50,
+      "desc": "Everything you need to know about Property Registration Cost. Formulas, examples, and expert tips fo...",
+      "descLen": 123,
+      "canonical": "https://cost-smart-five.vercel.app/blog/ultimate-guide-property-registration-cost",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        }
+      ]
+    },
+    {
+      "url": "/break-even-calculator",
+      "file": "app/break-even-calculator/page.tsx",
+      "title": "Break-Even Calculator | CostSmart",
+      "titleLen": 33,
+      "desc": "Find your break-even point in units and revenue.",
+      "descLen": 48,
+      "canonical": "https://cost-smart-five.vercel.app/break-even-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 48 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/business-loan-calculator",
+      "file": "app/business-loan-calculator/page.tsx",
+      "title": "Business Loan Calculator | CostSmart",
+      "titleLen": 36,
+      "desc": "Calculate business loan EMI and check eligibility.",
+      "descLen": 50,
+      "canonical": "https://cost-smart-five.vercel.app/business-loan-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 50 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/compare",
+      "file": "app/compare/page.tsx",
+      "title": "Financial Comparisons | CostSmart",
+      "titleLen": 33,
+      "desc": "Compare FD vs Mutual Funds, PPF vs FD, Solar vs Wind, Rent vs Buy. Data-driven India-focused analysi...",
+      "descLen": 102,
+      "canonical": "https://cost-smart-five.vercel.app/compare",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 102 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/dashboard/all-taxes",
+      "file": "app/dashboard/all-taxes/page.tsx",
+      "title": "All Taxes Dashboard | Income Tax, GST, TDS Calculator India",
+      "titleLen": 59,
+      "desc": "Complete India Tax Dashboard. Calculate Income Tax (New vs Old), GST, and TDS in one place. Updated ...",
+      "descLen": 115,
+      "canonical": "https://cost-smart-five.vercel.app/dashboard/all-taxes",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 115 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/fd-calculator",
+      "file": "app/fd-calculator/page.tsx",
+      "title": "CD Calculator | Certificate of Deposit Interest",
+      "titleLen": 47,
+      "desc": "Calculate returns on Certificates of Deposit (CD) and Term Deposits. Compare annual yields and see y...",
+      "descLen": 115,
+      "canonical": "https://cost-smart-five.vercel.app/fd-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 115 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/freelance-rate-calculator",
+      "file": "app/freelance-rate-calculator/page.tsx",
+      "title": "Freelance Rate Calculator | CostSmart",
+      "titleLen": 37,
+      "desc": "Calculate your ideal hourly rate as a freelancer.",
+      "descLen": 49,
+      "canonical": "https://cost-smart-five.vercel.app/freelance-rate-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 49 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/global-salary-converter",
+      "file": "app/global-salary-converter/page.tsx",
+      "title": "Global Salary Converter - Purchasing Power Parity (PPP)",
+      "titleLen": 55,
+      "desc": "Calculate the true value of your salary in different countries based on Purchasing Power Parity (PPP...",
+      "descLen": 142,
+      "canonical": "https://cost-smart-five.vercel.app/global-salary-converter",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "INFO",
+          "type": "SCHEMA_MISSING",
+          "msg": "No structured data (JSON-LD) found"
+        }
+      ]
+    },
+    {
+      "url": "/home-renovation-cost-estimator",
+      "file": "app/home-renovation-cost-estimator/page.tsx",
+      "title": "Home Renovation Cost Estimator India | CostSmart",
+      "titleLen": 48,
+      "desc": "Calculate the estimated cost of renovating your home in India. Get detailed pricing for painting, fl...",
+      "descLen": 154,
+      "canonical": "https://cost-smart-five.vercel.app/home-renovation-cost-estimator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "INFO",
+          "type": "SCHEMA_MISSING",
+          "msg": "No structured data (JSON-LD) found"
+        }
+      ]
+    },
+    {
+      "url": "/import-duty",
+      "file": "app/import-duty/page.tsx",
+      "title": "Import Duty & Landed Cost Calculator | CostSmart",
+      "titleLen": 48,
+      "desc": "Estimate import duties, VAT, and total landed cost for shipments to USA, India, UK, and Canada. Avoi...",
+      "descLen": 120,
+      "canonical": "https://cost-smart-five.vercel.app/import-duty",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "INFO",
+          "type": "SCHEMA_MISSING",
+          "msg": "No structured data (JSON-LD) found"
+        }
+      ]
+    },
+    {
+      "url": "/in/home-loan-calculator",
+      "file": "app/in/home-loan-calculator/page.tsx",
+      "title": "Home Loan EMI Calculator India | CostSmart",
+      "titleLen": 42,
+      "desc": "Calculate home loan EMI for Indian banks. Get amortization schedule, total interest, and city-wise r...",
+      "descLen": 143,
+      "canonical": "https://cost-smart-five.vercel.app/home-loan-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "INFO",
+          "type": "SCHEMA_MISSING",
+          "msg": "No structured data (JSON-LD) found"
+        }
+      ]
+    },
+    {
+      "url": "/in/property-registration-cost-calculator",
+      "file": "app/in/property-registration-cost-calculator/page.tsx",
+      "title": "Property Registration Calculator India 2025 | CostSmart",
+      "titleLen": 55,
+      "desc": "Calculate property registration charges and stamp duty for Maharashtra, Karnataka, Tamil Nadu, UP, a...",
+      "descLen": 152,
+      "canonical": "https://cost-smart-five.vercel.app/in/property-registration-cost-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "INFO",
+          "type": "SCHEMA_MISSING",
+          "msg": "No structured data (JSON-LD) found"
+        }
+      ]
+    },
+    {
+      "url": "/in/rent-vs-buy-calculator",
+      "file": "app/in/rent-vs-buy-calculator/page.tsx",
+      "title": "Rent vs Buy Calculator India | CostSmart",
+      "titleLen": 40,
+      "desc": "Calculate whether renting or buying a home is better for you. Compare 20-year NPV, opportunity cost,...",
+      "descLen": 150,
+      "canonical": "https://cost-smart-five.vercel.app/rent-vs-buy-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "INFO",
+          "type": "SCHEMA_MISSING",
+          "msg": "No structured data (JSON-LD) found"
+        }
+      ]
+    },
+    {
+      "url": "/in/stamp-duty-calculator",
+      "file": "app/in/stamp-duty-calculator/page.tsx",
+      "title": "Stamp Duty Calculator India 2025 | State-wise Rates",
+      "titleLen": 51,
+      "desc": "Calculate Stamp Duty and Registration Charges for property in India. Updated rates for Maharashtra, ...",
+      "descLen": 132,
+      "canonical": "https://cost-smart-five.vercel.app/in/stamp-duty-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "WARN",
+          "type": "DESC_DUPLICATE",
+          "msg": "Duplicate description also used by: /in"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/in/tds-calculator",
+      "file": "app/in/tds-calculator/page.tsx",
+      "title": "TDS Calculator | CostSmart",
+      "titleLen": 26,
+      "desc": "Calculate TDS deduction rates for salary, contractors, professionals, rent, and interest. Know exact...",
+      "descLen": 155,
+      "canonical": "https://cost-smart-five.vercel.app/in/tds-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "WARN",
+          "type": "TITLE_TOO_SHORT",
+          "msg": "Title is only 26 chars (min 30): \"TDS Calculator | CostSmart\""
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/investment-calculator",
+      "file": "app/investment-calculator/page.tsx",
+      "title": "Investment Return Calculator | Compound Interest Growth",
+      "titleLen": 55,
+      "desc": "Calculate how your investments grow over time with compound interest. Model monthly contributions an...",
+      "descLen": 119,
+      "canonical": "https://cost-smart-five.vercel.app/investment-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 119 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/profit-margin-calculator",
+      "file": "app/profit-margin-calculator/page.tsx",
+      "title": "Profit Margin Calculator | CostSmart",
+      "titleLen": 36,
+      "desc": "Calculate Gross Margin, Markup, and Net Profit.",
+      "descLen": 47,
+      "canonical": "https://cost-smart-five.vercel.app/profit-margin-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 47 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/salary-calculator",
+      "file": "app/salary-calculator/page.tsx",
+      "title": "Salary Calculator | Paycheck & Take Home Pay Estimator",
+      "titleLen": 54,
+      "desc": "Calculate your true take-home pay (net salary) after taxes and deductions. Plan your monthly budget ...",
+      "descLen": 114,
+      "canonical": "https://cost-smart-five.vercel.app/salary-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 114 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/shipping-cost-calculator",
+      "file": "app/shipping-cost-calculator/page.tsx",
+      "title": "Shipping Cost Calculator | CostSmart",
+      "titleLen": 36,
+      "desc": "Calculate volumetric weight and estimated shipping costs.",
+      "descLen": 57,
+      "canonical": "https://cost-smart-five.vercel.app/shipping-cost-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "DESC_TOO_SHORT",
+          "msg": "Description is 57 chars (optimal 120-160)"
+        },
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/solar-roi",
+      "file": "app/solar-roi/page.tsx",
+      "title": "Select Your City - Solar ROI Calculator",
+      "titleLen": 39,
+      "desc": "Find your city to calculate accurate solar savings. Get payback period, panel capacity, and 20-year ...",
+      "descLen": 156,
+      "canonical": "https://cost-smart-five.vercel.app/solar-roi",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "INFO",
+          "type": "SCHEMA_MISSING",
+          "msg": "No structured data (JSON-LD) found"
+        }
+      ]
+    },
+    {
+      "url": "/tools/ai-advisor",
+      "file": "app/tools/ai-advisor/page.tsx",
+      "title": "Free AI Financial Advisor | CostSmart",
+      "titleLen": 37,
+      "desc": "Get free AI-powered financial advice on investments, loans, taxes, retirement planning, and budgetin...",
+      "descLen": 158,
+      "canonical": "/tools/ai-advisor",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "WARN",
+          "type": "H1_MISSING",
+          "msg": "No <h1> tag found on page"
+        },
+        {
+          "severity": "INFO",
+          "type": "SCHEMA_MISSING",
+          "msg": "No structured data (JSON-LD) found"
+        }
+      ]
+    },
+    {
+      "url": "/tools",
+      "file": "app/tools/page.tsx",
+      "title": "Free AI Financial Tools | CostSmart",
+      "titleLen": 35,
+      "desc": "Advanced AI-powered financial tools: budget analyzer and smart financial advisor. Get personalized i...",
+      "descLen": 137,
+      "canonical": "${CANONICAL_DOMAIN}/tools",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        },
+        {
+          "severity": "INFO",
+          "type": "SCHEMA_MISSING",
+          "msg": "No structured data (JSON-LD) found"
+        }
+      ]
+    },
+    {
+      "url": "/about",
+      "file": "app/about/page.tsx",
+      "title": "About CostSmart | Smart Financial Tools for 2025",
+      "titleLen": 48,
+      "desc": "CostSmart builds free, high-precision financial calculators to help you make smarter money decisions...",
+      "descLen": 122,
+      "canonical": "https://cost-smart-five.vercel.app/about",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/blog/ctc-vs-in-hand",
+      "file": "app/blog/ctc-vs-in-hand/page.tsx",
+      "title": "CTC vs In-Hand Salary: Why is it Different?",
+      "titleLen": 43,
+      "desc": "Offered 10 LPA but only 60k per month? Full breakdown of CTC vs in-hand salary — PF, gratuity, HRA, ...",
+      "descLen": 156,
+      "canonical": "https://cost-smart-five.vercel.app/blog/ctc-vs-in-hand",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/blog/fd-vs-mutual-funds",
+      "file": "app/blog/fd-vs-mutual-funds/page.tsx",
+      "title": "FD vs Mutual Funds: Where Should You Invest?",
+      "titleLen": 44,
+      "desc": "A comprehensive comparison between Fixed Deposits (FD) and Mutual Funds. Understand risk, returns, t...",
+      "descLen": 123,
+      "canonical": "https://cost-smart-five.vercel.app/blog/fd-vs-mutual-funds",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/blog/new-vs-old-tax-regime",
+      "file": "app/blog/new-vs-old-tax-regime/page.tsx",
+      "title": "New vs Old Tax Regime FY 2024-25: Which is Better?",
+      "titleLen": 50,
+      "desc": "Confusion about the new tax slabs? We explain the difference between Old and New Regime and help you...",
+      "descLen": 122,
+      "canonical": "https://cost-smart-five.vercel.app/blog/new-vs-old-tax-regime",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/blog/ppf-guide",
+      "file": "app/blog/ppf-guide/page.tsx",
+      "title": "Complete Guide to PPF (Public Provident Fund)",
+      "titleLen": 45,
+      "desc": "Understand PPF rules, interest rates, tax benefits, and withdrawal limits. Why PPF is the safest lon...",
+      "descLen": 127,
+      "canonical": "https://cost-smart-five.vercel.app/blog/ppf-guide",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/blog/retirement-corpus-guide",
+      "file": "app/blog/retirement-corpus-guide/page.tsx",
+      "title": "How Much Money Do You Need to Retire?",
+      "titleLen": 37,
+      "desc": "Stop guessing your retirement number. Learn how to calculate your inflation-adjusted corpus requirem...",
+      "descLen": 158,
+      "canonical": "https://cost-smart-five.vercel.app/blog/retirement-corpus-guide",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/blog/sip-vs-lumpsum",
+      "file": "app/blog/sip-vs-lumpsum/page.tsx",
+      "title": "SIP vs Lumpsum: Which is Better for You?",
+      "titleLen": 40,
+      "desc": "Compare Systematic Investment Plans (SIP) with Lumpsum investing. Understand the pros and cons of ea...",
+      "descLen": 129,
+      "canonical": "https://cost-smart-five.vercel.app/blog/sip-vs-lumpsum",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/blog/snowball-vs-avalanche",
+      "file": "app/blog/snowball-vs-avalanche/page.tsx",
+      "title": "Snowball vs Avalanche: Which Debt Strategy is Best?",
+      "titleLen": 51,
+      "desc": "Compare Dave Ramsey\\'s Snowball method with the mathematical Avalanche method. Find out which one wi...",
+      "descLen": 136,
+      "canonical": "https://cost-smart-five.vercel.app/blog/snowball-vs-avalanche",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/calculators",
+      "file": "app/calculators/page.tsx",
+      "title": "All Financial Calculators - Free Online Tools | CostSmart",
+      "titleLen": 57,
+      "desc": "Browse all 30+ free financial calculators: EMI, SIP, income tax, salary, solar ROI, loan, FD, GST, p...",
+      "descLen": 143,
+      "canonical": "https://cost-smart-five.vercel.app/calculators",
+      "ogUrl": "https://cost-smart-five.vercel.app/calculators",
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "SCHEMA_MISSING",
+          "msg": "No structured data (JSON-LD) found"
+        }
+      ]
+    },
+    {
+      "url": "/compare/emi-vs-sip",
+      "file": "app/compare/emi-vs-sip/page.tsx",
+      "title": "EMI vs SIP Calculator | Pay Loan or Invest? | CostSmart",
+      "titleLen": 55,
+      "desc": "Should you pay EMI or start a SIP? Compare the cost of debt vs the power of compounding with our adv...",
+      "descLen": 122,
+      "canonical": "https://cost-smart-five.vercel.app/compare/emi-vs-sip",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/compare/fd-vs-mutual-fund",
+      "file": "app/compare/fd-vs-mutual-fund/page.tsx",
+      "title": "FD vs Mutual Fund Calculator — India 2026 | CostSmart",
+      "titleLen": 53,
+      "desc": "Compare Fixed Deposit and Mutual Fund returns. Analyze risk, liquidity, tax implications, and return...",
+      "descLen": 153,
+      "canonical": "https://cost-smart-five.vercel.app/compare/fd-vs-mutual-fund",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/compare/ppf-vs-fd",
+      "file": "app/compare/ppf-vs-fd/page.tsx",
+      "title": "PPF vs FD Calculator — Long-term Savings 2026 | CostSmart",
+      "titleLen": 57,
+      "desc": "Compare PPF vs FD — interest rates, tax benefits, liquidity, lock-in, and returns. Find which saving...",
+      "descLen": 127,
+      "canonical": "https://cost-smart-five.vercel.app/compare/ppf-vs-fd",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/compare/rent-vs-buy-vs-invest",
+      "file": "app/compare/rent-vs-buy-vs-invest/page.tsx",
+      "title": "Rent vs Buy vs Invest Calculator — India 2026 | CostSmart",
+      "titleLen": 57,
+      "desc": "Compare renting, buying, or investing in SIP/FD. Analyze costs, wealth creation, and ROI over 10–30 ...",
+      "descLen": 134,
+      "canonical": "https://cost-smart-five.vercel.app/compare/rent-vs-buy-vs-invest",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/compare/solar-vs-wind",
+      "file": "app/compare/solar-vs-wind/page.tsx",
+      "title": "Solar vs Wind Energy Calculator — India 2026 | CostSmart",
+      "titleLen": 56,
+      "desc": "Compare Solar and Wind energy for home/business. Analyze installation costs, ROI, payback period, ef...",
+      "descLen": 158,
+      "canonical": "https://cost-smart-five.vercel.app/compare/solar-vs-wind",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/currency",
+      "file": "app/currency/page.tsx",
+      "title": "Live Currency Converter & Exchange Rates | CostSmart",
+      "titleLen": 52,
+      "desc": "Convert money instantly with real-time exchange rates. View 30-day trends for USD, EUR, GBP, INR, an...",
+      "descLen": 124,
+      "canonical": "https://cost-smart-five.vercel.app/currency",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/debt-payoff-calculator",
+      "file": "app/debt-payoff-calculator/page.tsx",
+      "title": "Debt Payoff Calculator | Snowball vs Avalanche Method",
+      "titleLen": 53,
+      "desc": "Create a plan to get out of debt faster. Compare Debt Snowball vs Debt Avalanche strategies to see w...",
+      "descLen": 130,
+      "canonical": "https://cost-smart-five.vercel.app/debt-payoff-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/emergency-fund-calculator",
+      "file": "app/emergency-fund-calculator/page.tsx",
+      "title": "Emergency Fund Calculator | Financial Safety Net",
+      "titleLen": 48,
+      "desc": "Calculate the right size for your emergency fund. Protect yourself from job loss, medical emergencie...",
+      "descLen": 126,
+      "canonical": "https://cost-smart-five.vercel.app/emergency-fund-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/home-loan-calculator",
+      "file": "app/home-loan-calculator/page.tsx",
+      "title": "Home Loan EMI Calculator | CostSmart",
+      "titleLen": 36,
+      "desc": "Calculate home loan EMI, total interest payable, and full amortization schedule. Supports all loan t...",
+      "descLen": 149,
+      "canonical": "${CANONICAL_DOMAIN}/home-loan-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/in/electricity-bill-calculator",
+      "file": "app/in/electricity-bill-calculator/page.tsx",
+      "title": "Electricity Bill Calculator | CostSmart",
+      "titleLen": 39,
+      "desc": "Estimate your monthly electricity bill using state-wise slab rates. Add appliances, get per-unit cos...",
+      "descLen": 157,
+      "canonical": "https://cost-smart-five.vercel.app/in/electricity-bill-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/in/gst-calculator",
+      "file": "app/in/gst-calculator/page.tsx",
+      "title": "GST Calculator India | Inclusive & Exclusive 2025",
+      "titleLen": 49,
+      "desc": "Calculate GST amount, pre-tax value, and total cost instantly. Supports 5%, 12%, 18%, 28% tax slabs....",
+      "descLen": 151,
+      "canonical": "/in/gst-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/in/gst-input-credit-calculator",
+      "file": "app/in/gst-input-credit-calculator/page.tsx",
+      "title": "GST Input Credit Calculator | CostSmart",
+      "titleLen": 39,
+      "desc": "Calculate net GST payable after claiming Input Tax Credit (ITC). Enter GST collected on sales and GS...",
+      "descLen": 153,
+      "canonical": "https://cost-smart-five.vercel.app/in/gst-input-credit-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/in/income-tax-calculator",
+      "file": "app/in/income-tax-calculator/page.tsx",
+      "title": "Income Tax Calculator FY 2024-25 | New vs Old Regime",
+      "titleLen": 52,
+      "desc": "Calculate income tax for FY 2024-25 under New Regime vs Old Regime. Includes 80C, HRA, NPS deduction...",
+      "descLen": 155,
+      "canonical": "https://cost-smart-five.vercel.app/in/income-tax-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/in/lpg-subsidy-calculator",
+      "file": "app/in/lpg-subsidy-calculator/page.tsx",
+      "title": "LPG Subsidy Calculator | CostSmart",
+      "titleLen": 34,
+      "desc": "Calculate your annual LPG subsidy savings. Enter cylinder count and subsidy rate to know your total ...",
+      "descLen": 155,
+      "canonical": "https://cost-smart-five.vercel.app/in/lpg-subsidy-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/in",
+      "file": "app/in/page.tsx",
+      "title": "Stamp Duty Calculator India | Property Registration Charges",
+      "titleLen": 59,
+      "desc": "Calculate Stamp Duty and Registration Charges for property in India. Updated rates for Maharashtra, ...",
+      "descLen": 132,
+      "canonical": "https://cost-smart-five.vercel.app/in/stamp-duty-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/in/property-tax-calculator",
+      "file": "app/in/property-tax-calculator/page.tsx",
+      "title": "Property Tax Calculator | CostSmart",
+      "titleLen": 35,
+      "desc": "Estimate municipal property tax for your home or commercial property. Covers major Indian cities wit...",
+      "descLen": 159,
+      "canonical": "https://cost-smart-five.vercel.app/in/property-tax-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/in/water-bill-calculator",
+      "file": "app/in/water-bill-calculator/page.tsx",
+      "title": "Water Bill Calculator | CostSmart",
+      "titleLen": 33,
+      "desc": "Calculate your monthly water bill based on usage in kilolitres. Covers slab rates for major Indian c...",
+      "descLen": 154,
+      "canonical": "https://cost-smart-five.vercel.app/in/water-bill-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/loan-calculator",
+      "file": "app/loan-calculator/page.tsx",
+      "title": "True Cost Loan Calculator | Mortgage & EMI Estimator",
+      "titleLen": 52,
+      "desc": "Calculate your monthly payments and see how much interest you really pay. Use our Extra Payment tool...",
+      "descLen": 130,
+      "canonical": "https://cost-smart-five.vercel.app/loan-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/moving-cost-calculator",
+      "file": "app/moving-cost-calculator/page.tsx",
+      "title": "Moving Cost Calculator | Packers & Movers Cost | CostSmart",
+      "titleLen": 58,
+      "desc": "Calculate home or office moving costs — packers & movers, transport, packing, and insurance. Instant...",
+      "descLen": 151,
+      "canonical": "https://cost-smart-five.vercel.app/moving-cost-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/rent-vs-buy-calculator",
+      "file": "app/rent-vs-buy-calculator/page.tsx",
+      "title": "Rent vs Buy Calculator | Real Estate Decision Tool",
+      "titleLen": 50,
+      "desc": "Should you rent or buy? Compare the long-term financial impact of buying a home vs renting and inves...",
+      "descLen": 143,
+      "canonical": "/rent-vs-buy-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/retirement-calculator",
+      "file": "app/retirement-calculator/page.tsx",
+      "title": "Retirement Planner | Inflation Adjusted Calculator",
+      "titleLen": 50,
+      "desc": "Calculate how much money you need to retire comfortably. accounts for inflation, life expectancy, an...",
+      "descLen": 121,
+      "canonical": "https://cost-smart-five.vercel.app/retirement-calculator",
+      "ogUrl": null,
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "OG_MISSING",
+          "msg": "No openGraph metadata block"
+        }
+      ]
+    },
+    {
+      "url": "/tools/budget-analyzer",
+      "file": "app/tools/budget-analyzer/page.tsx",
+      "title": "AI Budget Analyzer — Expense Tracking | CostSmart",
+      "titleLen": 49,
+      "desc": "Upload your bank statement and get AI-powered insights on spending patterns, budget optimization, an...",
+      "descLen": 158,
+      "canonical": "https://cost-smart-five.vercel.app/tools/budget-analyzer",
+      "ogUrl": "https://cost-smart-five.vercel.app/tools/budget-analyzer",
+      "issues": [
+        {
+          "severity": "INFO",
+          "type": "SCHEMA_MISSING",
+          "msg": "No structured data (JSON-LD) found"
+        }
+      ]
+    }
+  ]
+}

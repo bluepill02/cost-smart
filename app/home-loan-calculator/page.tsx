@@ -10,7 +10,7 @@ import { US_CITIES } from '@/lib/pseo-data/us-cities';
 
 export const metadata: Metadata = {
   title: 'Home Loan EMI Calculator | CostSmart',
-  description: 'Calculate your Home Loan EMI, total interest payable, and amortization schedule with our advanced calculator.',
+  description: 'Calculate home loan EMI, total interest payable, and full amortization schedule. Supports all loan types with prepayment simulation for Indian banks.',
   alternates: {
     canonical: `${CANONICAL_DOMAIN}/home-loan-calculator`,
   },

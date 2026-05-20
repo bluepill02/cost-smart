@@ -5,7 +5,7 @@ import { getCalculatorSchema } from '@/lib/seo-utils';
 
 export const metadata: Metadata = {
   title: 'LPG Subsidy Calculator | CostSmart',
-  description: 'Calculate annual savings from LPG subsidies.',
+  description: 'Calculate your annual LPG subsidy savings. Enter cylinder count and subsidy rate to know your total yearly benefit under PMUY and other government schemes.',
   alternates: {
     canonical: 'https://cost-smart-five.vercel.app/in/lpg-subsidy-calculator',
   },

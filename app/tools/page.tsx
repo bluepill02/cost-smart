@@ -5,7 +5,7 @@ import AdContainer from '@/components/ads/AdContainer';
 import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 
 export const metadata: Metadata = {
-  title: 'AI Financial Tools - Budget Analyzer & Smart Advisor | CostSmart',
+  title: 'Free AI Financial Tools | CostSmart',
   description:
     'Advanced AI-powered financial tools: budget analyzer and smart financial advisor. Get personalized insights on your spending and savings.',
   alternates: { canonical: `${CANONICAL_DOMAIN}/tools` },

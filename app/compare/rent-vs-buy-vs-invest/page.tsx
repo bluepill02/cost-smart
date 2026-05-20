@@ -8,8 +8,8 @@ import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { FAQSection } from '@/components/ui/FAQSection';
 
 export const metadata: Metadata = {
-  title: 'Rent vs Buy vs Invest Calculator - Best Property Decision in India 2026',
-  description: 'Compare renting, buying home with loan, or investing in SIP/FD. Analyze total costs, wealth creation, flexibility, and ROI over 10/20/30 years to make the smartest choice.',
+  title: 'Rent vs Buy vs Invest Calculator — India 2026 | CostSmart',
+  description: 'Compare renting, buying, or investing in SIP/FD. Analyze costs, wealth creation, and ROI over 10–30 years for Indian property markets.',
   alternates: {
     canonical: 'https://cost-smart-five.vercel.app/compare/rent-vs-buy-vs-invest',
   },

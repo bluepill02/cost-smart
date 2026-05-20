@@ -10,7 +10,13 @@ import JsonLd from '@/components/seo/JsonLd';
 export const metadata: Metadata = {
     title: 'SIP Calculator | Mutual Fund Returns Estimator India',
     description: 'Calculate returns on your Systematic Investment Plan (SIP). See how your monthly mutual fund investments grow over 5, 10, or 20 years.',
-    alternates: {
+    openGraph: {
+    title: 'SIP Calculator | Mutual Fund Returns Estimator India',
+    description: 'Calculate SIP returns with compound interest over 5-30 years. Compare monthly vs lumpsum investing, see wealth growth charts, and plan your mutual fund goals.',
+    url: 'https://cost-smart-five.vercel.app/in/sip-calculator',
+    type: 'website',
+  },
+  alternates: {
         canonical: 'https://cost-smart-five.vercel.app/in/sip-calculator',
     }
 };

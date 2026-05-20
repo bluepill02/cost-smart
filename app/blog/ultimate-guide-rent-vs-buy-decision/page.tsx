@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
-  title: 'Ultimate Guide to Rent vs Buy Decision Calculation | CostSmart',
+  title: 'Rent vs Buy Decision Guide India | CostSmart',
   description: 'Everything you need to know about Rent vs Buy Decision. Formulas, examples, and expert tips for accurate calculation.',
   alternates: {
     canonical: 'https://cost-smart-five.vercel.app/blog/ultimate-guide-rent-vs-buy-decision',

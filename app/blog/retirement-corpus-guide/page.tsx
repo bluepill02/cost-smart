@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 
 export const metadata: Metadata = {
     title: 'How Much Money Do You Need to Retire?',
-    description: 'Stop guessing your retirement number. Learn how to calculate your inflation-adjusted corpus requirement.',
+    description: 'Stop guessing your retirement number. Learn how to calculate your inflation-adjusted corpus requirement and how much to save each month to retire comfortably.',
     alternates: {
         canonical: 'https://cost-smart-five.vercel.app/blog/retirement-corpus-guide',
     }

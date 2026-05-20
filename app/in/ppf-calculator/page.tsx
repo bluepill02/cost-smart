@@ -9,7 +9,13 @@ import JsonLd from '@/components/seo/JsonLd';
 export const metadata: Metadata = {
     title: 'PPF Calculator | Public Provident Fund Interest & Maturity',
     description: 'Calculate your Public Provident Fund (PPF) maturity amount and interest earned. Tax-free returns with government security.',
-    alternates: {
+    openGraph: {
+    title: 'PPF Calculator India | Maturity & Interest',
+    description: 'Calculate PPF maturity amount, year-wise interest, and partial withdrawal schedule. Based on current 7.1% interest rate. Great for tax-free wealth building.',
+    url: 'https://cost-smart-five.vercel.app/in/ppf-calculator',
+    type: 'website',
+  },
+  alternates: {
         canonical: 'https://cost-smart-five.vercel.app/in/ppf-calculator',
     }
 };

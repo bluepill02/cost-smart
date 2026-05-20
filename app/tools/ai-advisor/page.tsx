@@ -3,7 +3,7 @@ import AIFinancialAdvisorChat from '@/components/features/AIFinancialAdvisorChat
 import AdContainer from '@/components/ads/AdContainer';
 
 export const metadata: Metadata = {
-  title: 'AI Financial Advisor - Free Personalized Financial Guidance | CostSmart',
+  title: 'Free AI Financial Advisor | CostSmart',
   description: 'Get free AI-powered financial advice on investments, loans, taxes, retirement planning, and budgeting. Context-aware recommendations with voice input support.',
   openGraph: {
     title: 'AI Financial Advisor - Free Financial Guidance',

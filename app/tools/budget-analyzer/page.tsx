@@ -3,13 +3,14 @@ import BudgetAnalyzer from '@/components/features/BudgetAnalyzer';
 import AdContainer from '@/components/ads/AdContainer';
 
 export const metadata: Metadata = {
-  title: 'Smart Budget Analyzer - AI-Powered Expense Tracking | CostSmart',
+    alternates: { canonical: 'https://cost-smart-five.vercel.app/tools/budget-analyzer' },
+  title: 'AI Budget Analyzer — Expense Tracking | CostSmart',
   description: 'Upload your bank statement and get AI-powered insights on spending patterns, budget optimization, and personalized savings recommendations. Free CSV analyzer.',
   keywords: 'budget analyzer, expense tracker, spending analysis, AI categorization, personal finance, savings optimizer, bank statement analyzer',
   openGraph: {
     title: 'Smart Budget Analyzer - AI-Powered Expense Tracking',
     description: 'Upload bank statement, analyze spending patterns, get AI recommendations',
-    url: '/tools/budget-analyzer',
+    url: 'https://cost-smart-five.vercel.app/tools/budget-analyzer',
     type: 'website',
   },
 };

@@ -17,7 +17,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "CostSmart - Free Financial Calculators | EMI, SIP, Tax, Loan & More",
+  title: "CostSmart | Free Financial Calculators — EMI, SIP & Tax",
   metadataBase: new URL(CANONICAL_DOMAIN),
   description: "30+ free financial calculators: EMI, SIP, income tax, home loan, FD, PPF, solar ROI, GST, salary and more. Make smarter money decisions with CostSmart.",
   keywords: [
@@ -27,6 +27,9 @@ export const metadata: Metadata = {
   ],
   icons: {
     icon: '/favicon.ico',
+  },
+  alternates: {
+    canonical: 'https://cost-smart-five.vercel.app',
   },
   openGraph: {
     type: 'website',

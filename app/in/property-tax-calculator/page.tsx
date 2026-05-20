@@ -5,7 +5,7 @@ import { getCalculatorSchema } from '@/lib/seo-utils';
 
 export const metadata: Metadata = {
   title: 'Property Tax Calculator | CostSmart',
-  description: 'Estimate municipal property tax based on annual value and rates.',
+  description: 'Estimate municipal property tax for your home or commercial property. Covers major Indian cities with rates based on annual value, location, and property type.',
   alternates: {
     canonical: 'https://cost-smart-five.vercel.app/in/property-tax-calculator',
   },

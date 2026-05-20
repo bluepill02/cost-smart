@@ -5,7 +5,7 @@ import RelatedTools from '@/components/calculators/RelatedTools';
 import AdContainer from '@/components/ads/AdContainer';
 
 export const metadata: Metadata = {
-  title: 'Property Registration Charges Calculator India | State-wise Fees 2025',
+  title: 'Property Registration Calculator India 2025 | CostSmart',
   description: 'Calculate property registration charges and stamp duty for Maharashtra, Karnataka, Tamil Nadu, UP, and other Indian states. Accurate 2025 fee structure.',
   alternates: {
     canonical: 'https://cost-smart-five.vercel.app/in/property-registration-cost-calculator',

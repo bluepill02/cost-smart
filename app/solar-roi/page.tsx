@@ -9,7 +9,7 @@ import AdContainer from '@/components/ads/AdContainer';
 
 export const metadata: Metadata = {
     title: 'Select Your City - Solar ROI Calculator',
-    description: 'Find your city to calculate accurate solar savings. Calculate payback periods, tax credits, and 20-year savings.',
+    description: 'Find your city to calculate accurate solar savings. Get payback period, panel capacity, and 20-year savings based on local irradiance and electricity rates.',
     alternates: {
         canonical: 'https://cost-smart-five.vercel.app/solar-roi',
     }

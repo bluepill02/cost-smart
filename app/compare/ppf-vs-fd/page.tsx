@@ -9,8 +9,8 @@ import { FAQSection } from '@/components/ui/FAQSection';
 import { RBIDataBadge } from '@/components/ui/DataFreshnessBadge';
 
 export const metadata: Metadata = {
-  title: 'PPF vs FD Calculator - Which is Better for Long-term Savings in 2026?',
-  description: 'Compare Public Provident Fund (PPF) and Fixed Deposit (FD). Analyze interest rates, tax benefits, liquidity, lock-in, and returns to choose the best savings option.',
+  title: 'PPF vs FD Calculator — Long-term Savings 2026 | CostSmart',
+  description: 'Compare PPF vs FD — interest rates, tax benefits, liquidity, lock-in, and returns. Find which savings option is better for you.',
   alternates: {
     canonical: 'https://cost-smart-five.vercel.app/compare/ppf-vs-fd',
   },

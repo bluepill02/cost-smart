@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
-  title: 'Ultimate Guide to Income Tax Liability Calculation | CostSmart',
+  title: 'Income Tax Liability Calculation Guide | CostSmart',
   description: 'Everything you need to know about Income Tax Liability. Formulas, examples, and expert tips for accurate calculation.',
   alternates: {
     canonical: 'https://cost-smart-five.vercel.app/blog/ultimate-guide-income-tax-liability',

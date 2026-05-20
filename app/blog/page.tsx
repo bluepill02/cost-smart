@@ -4,7 +4,7 @@ import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import { ArrowRight, BookOpen, TrendingUp, Home, Receipt, Briefcase, Calculator } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'Financial Blog | CostSmart — Money Tips, Guides & Calculator Walkthroughs',
+  title: 'Financial Blog | CostSmart — Money, Tax & Investment Guides',
   description:
     'Free guides on SIP vs Lumpsum, EMI, income tax, rent vs buy, debt payoff, and more. Written by financial experts to help you make smarter money decisions.',
   alternates: { canonical: `${CANONICAL_DOMAIN}/blog` },

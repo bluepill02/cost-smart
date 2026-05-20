@@ -1,7 +1,12 @@
+import { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 
-// /in/rent-vs-buy-calculator → redirect to /rent-vs-buy-calculator (the canonical page)
-// This URL was linked from /compare/rent-vs-buy-vs-invest and was 404ing.
+export const metadata: Metadata = {
+  title: 'Rent vs Buy Calculator India | CostSmart',
+  description: 'Calculate whether renting or buying a home is better for you. Compare 20-year NPV, opportunity cost, and break-even point for Indian property markets.',
+  alternates: { canonical: 'https://cost-smart-five.vercel.app/rent-vs-buy-calculator' },
+};
+
 export default function InRentVsBuyRedirect() {
   redirect('/rent-vs-buy-calculator');
 }

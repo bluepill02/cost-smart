@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
-  title: 'Ultimate Guide to Freelance Hourly Rate Calculation | CostSmart',
+  title: 'Freelance Hourly Rate Calculation Guide | CostSmart',
   description: 'Everything you need to know about Freelance Hourly Rate. Formulas, examples, and expert tips for accurate calculation.',
   alternates: {
     canonical: 'https://cost-smart-five.vercel.app/blog/ultimate-guide-freelance-hourly-rate',

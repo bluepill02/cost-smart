@@ -7,8 +7,8 @@ import { getCalculatorSchema } from '@/lib/seo-utils';
 import JsonLd from '@/components/seo/JsonLd';
 
 export const metadata: Metadata = {
-    title: 'Income Tax Calculator FY 2024-25 (AY 25-26) | Old vs New Regime',
-    description: 'Calculate your Income Tax for FY 2024-25. Compare New Regime (default) vs Old Regime to find where you save more tax.',
+    title: 'Income Tax Calculator FY 2024-25 | New vs Old Regime',
+    description: 'Calculate income tax for FY 2024-25 under New Regime vs Old Regime. Includes 80C, HRA, NPS deductions and the ₹7L tax-free rebate. Updated for Budget 2024.',
     alternates: {
         canonical: 'https://cost-smart-five.vercel.app/in/income-tax-calculator',
     }

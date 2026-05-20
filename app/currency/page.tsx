@@ -35,9 +35,9 @@ export default async function CurrencyPage() {
         <div className="container mx-auto px-4 py-12 max-w-4xl">
             <JsonLd data={jsonLd} />
             <div className="text-center mb-10">
-                <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
+                <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
                     Currency <span className="text-emerald-600">Converter</span>
-                </h1>
+                </h2>
                 <p className="text-lg text-slate-600 max-w-2xl mx-auto">
                     Check live foreign exchange rates and analyze trends with our official ECB-backed data.
                 </p>

@@ -1,6 +1,13 @@
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'How to Use the Home Renovation Cost Estimator | CostSmart',
+  description: 'Step-by-step guide to using the CostSmart Home Renovation Cost Estimator. Estimate painting, flooring, plumbing, and civil work costs for your Indian home.',
+  alternates: { canonical: 'https://cost-smart-five.vercel.app/blog/how-to-use-home-renovation-cost-estimator' },
+};
+
 import React from 'react';
 import { BlogLayout } from '@/components/blog/BlogLayout';
-
 export default function Post() {
   return (
     <BlogLayout

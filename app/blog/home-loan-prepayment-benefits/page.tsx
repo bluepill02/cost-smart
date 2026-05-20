@@ -3,7 +3,7 @@ import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'How Home Loan Prepayment Saves You Lakhs',
-  description: 'Home loan interest can cost more than the principal itself. Learn how small prepayments can cut your tenure by years.',
+  description: 'Learn how prepayments save lakhs in home loan interest and cut tenure by years. Worked examples and strategy for Indian loans. tenure by years.',
   alternates: {
     canonical: '/blog/home-loan-prepayment-benefits',
   },

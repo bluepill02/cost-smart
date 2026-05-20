@@ -5,7 +5,7 @@ import { getCalculatorSchema } from '@/lib/seo-utils';
 
 export const metadata: Metadata = {
   title: 'TDS Calculator | CostSmart',
-  description: 'Calculate TDS deduction for contractors, professionals, and rent.',
+  description: 'Calculate TDS deduction rates for salary, contractors, professionals, rent, and interest. Know exactly how much is deducted at source under Income Tax Act.',
   alternates: {
     canonical: 'https://cost-smart-five.vercel.app/in/tds-calculator',
   },

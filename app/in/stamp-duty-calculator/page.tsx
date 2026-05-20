@@ -8,7 +8,7 @@ import { MapPin } from 'lucide-react';
 import { INDIAN_STATES_STAMP_DUTY } from '@/lib/pseo-data/stamp-duty';
 
 export const metadata: Metadata = {
-  title: 'Stamp Duty Calculator India | Property Registration Charges',
+  title: 'Stamp Duty Calculator India 2025 | State-wise Rates',
   description: 'Calculate Stamp Duty and Registration Charges for property in India. Updated rates for Maharashtra, Karnataka, Tamil Nadu, and more.',
   alternates: {
     canonical: 'https://cost-smart-five.vercel.app/in/stamp-duty-calculator',
