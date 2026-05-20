@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: 'CD Calculator | Certificate of Deposit Interest',
     description: 'Calculate returns on Certificates of Deposit (CD) and Term Deposits. Compare annual yields and see your money grow.',
     alternates: {
-        canonical: 'https://costsmart.app/fd-calculator',
+        canonical: 'https://cost-smart-five.vercel.app/fd-calculator',
     }
 };
 

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     title: 'How Much Money Do You Need to Retire?',
     description: 'Stop guessing your retirement number. Learn how to calculate your inflation-adjusted corpus requirement.',
     alternates: {
-        canonical: 'https://costsmart.app/blog/retirement-corpus-guide',
+        canonical: 'https://cost-smart-five.vercel.app/blog/retirement-corpus-guide',
     }
 };
 

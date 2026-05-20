@@ -1,7 +1,7 @@
 import { WithContext, SoftwareApplication, FAQPage, BreadcrumbList, Article, NewsArticle } from 'schema-dts';
 
 // Canonical domain - single source of truth for all schema markup and metadata
-export const CANONICAL_DOMAIN = 'https://costsmart.app';
+export const CANONICAL_DOMAIN = 'https://cost-smart-five.vercel.app';
 
 export function getCalculatorSchema(
   name: string,

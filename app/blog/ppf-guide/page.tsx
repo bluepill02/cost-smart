@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     title: 'Complete Guide to PPF (Public Provident Fund)',
     description: 'Understand PPF rules, interest rates, tax benefits, and withdrawal limits. Why PPF is the safest long-term investment in India.',
     alternates: {
-        canonical: 'https://costsmart.app/blog/ppf-guide',
+        canonical: 'https://cost-smart-five.vercel.app/blog/ppf-guide',
     }
 };
 

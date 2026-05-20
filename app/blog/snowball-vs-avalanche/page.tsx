@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     title: 'Snowball vs Avalanche: Which Debt Strategy is Best?',
     description: 'Compare Dave Ramsey\'s Snowball method with the mathematical Avalanche method. Find out which one will help you become debt-free faster.',
     alternates: {
-        canonical: 'https://costsmart.app/blog/snowball-vs-avalanche',
+        canonical: 'https://cost-smart-five.vercel.app/blog/snowball-vs-avalanche',
     }
 };
 

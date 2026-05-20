@@ -246,14 +246,42 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
   });
 
-  // Comparison pages (1 currently)
-  const comparisons = ['emi-vs-sip'];
+  // Hub pages
+  urls.push(
+    {
+      url: `${baseUrl}/calculators`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/compare`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/tools`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.75,
+    },
+  );
+
+  // Comparison pages (all 5)
+  const comparisons = [
+    'emi-vs-sip',
+    'fd-vs-mutual-fund',
+    'ppf-vs-fd',
+    'solar-vs-wind',
+    'rent-vs-buy-vs-invest',
+  ];
   comparisons.forEach((comp) => {
     urls.push({
       url: `${baseUrl}/compare/${comp}`,
       lastModified: now,
       changeFrequency: 'monthly',
-      priority: 0.7,
+      priority: 0.75,
     });
   });
 

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: 'Retirement Planner | Inflation Adjusted Calculator',
     description: 'Calculate how much money you need to retire comfortably. accounts for inflation, life expectancy, and investment returns.',
     alternates: {
-        canonical: 'https://costsmart.app/retirement-calculator',
+        canonical: 'https://cost-smart-five.vercel.app/retirement-calculator',
     }
 };
 

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: 'Income Tax Calculator FY 2024-25 (AY 25-26) | Old vs New Regime',
     description: 'Calculate your Income Tax for FY 2024-25. Compare New Regime (default) vs Old Regime to find where you save more tax.',
     alternates: {
-        canonical: 'https://costsmart.app/in/income-tax-calculator',
+        canonical: 'https://cost-smart-five.vercel.app/in/income-tax-calculator',
     }
 };
 

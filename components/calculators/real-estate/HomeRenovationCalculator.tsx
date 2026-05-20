@@ -202,7 +202,7 @@ export default function HomeRenovationCalculator() {
              <ShareButton
                 title="My Renovation Estimate"
                 text={`I estimated my home renovation cost to be ${formatCurrency(costs.total)} using CostSmart!`}
-                url="https://costsmart.app/home-renovation-cost-estimator"
+                url="https://cost-smart-five.vercel.app/home-renovation-cost-estimator"
              />
           </div>
         </div>

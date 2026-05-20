@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<{ size: str
         title: `Solar ROI for ${size} sq ft Roof - Calculation & Cost`,
         description: `How much solar power can a ${size} sq ft roof generate? Calculate installation cost, number of panels, and savings.`,
         alternates: {
-            canonical: `https://costsmart.app/solar-roi/roof/${size}`,
+            canonical: `https://cost-smart-five.vercel.app/solar-roi/roof/${size}`,
         }
     };
 }

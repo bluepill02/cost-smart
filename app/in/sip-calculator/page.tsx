@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import InvestmentCalculator from '@/components/calculators/investment/InvestmentCalculator';
 import AdContainer from '@/components/ads/AdContainer';
+import AfterResultAd from '@/components/ads/AfterResultAd';
 import { Badge } from '@/components/ui/badge';
 import { TrendingUp, IndianRupee } from 'lucide-react';
 import JsonLd from '@/components/seo/JsonLd';
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
     title: 'SIP Calculator | Mutual Fund Returns Estimator India',
     description: 'Calculate returns on your Systematic Investment Plan (SIP). See how your monthly mutual fund investments grow over 5, 10, or 20 years.',
     alternates: {
-        canonical: 'https://costsmart.app/in/sip-calculator',
+        canonical: 'https://cost-smart-five.vercel.app/in/sip-calculator',
     }
 };
 
@@ -49,10 +50,13 @@ export default function SIPCalculatorPage() {
                 mode="SIP"
                 defaultMonthly={5000}
                 defaultInitial={0}
-                defaultRate={12} // Equity MF average
+                defaultRate={12}
             />
 
-            <div className="mt-16 grid md:grid-cols-[2fr_1fr] gap-8">
+            {/* High-viewability ad — shown right after user sees their result */}
+            <AfterResultAd slotId="1475703853" />
+
+            <div className="mt-8 grid md:grid-cols-[2fr_1fr] gap-8">
                 <div className="prose max-w-none text-slate-600 bg-white p-8 rounded-2xl border border-slate-100 shadow-sm">
                     <h2 className="text-2xl font-bold text-slate-900">Why SIPs Work</h2>
                     <p>

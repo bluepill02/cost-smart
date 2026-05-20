@@ -137,7 +137,7 @@ export default function PropertyRegistrationCalculator() {
             <ShareButton
                title="Property Charges Estimate"
                text={`Registration charges in ${stateData.state} are approx ${formatCurrency(results.total)}.`}
-               url="https://costsmart.app/in/property-registration-cost-calculator"
+               url="https://cost-smart-five.vercel.app/in/property-registration-cost-calculator"
             />
           </div>
         </div>

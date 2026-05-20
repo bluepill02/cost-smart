@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: 'Salary Calculator India | CTC to In-Hand Salary (FY 24-25)',
     description: 'Convert your CTC to In-Hand (Net) Salary. Calculates PF, Professional Tax, and TDS deductions accurately for Indian employees.',
     alternates: {
-        canonical: 'https://costsmart.app/in/salary-calculator',
+        canonical: 'https://cost-smart-five.vercel.app/in/salary-calculator',
     }
 };
 

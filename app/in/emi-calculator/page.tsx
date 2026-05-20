@@ -1,6 +1,8 @@
 import { Metadata } from 'next';
 import LoanCalculator from '@/components/calculators/loan/LoanCalculator';
 import AdContainer from '@/components/ads/AdContainer';
+import AfterResultAd from '@/components/ads/AfterResultAd';
+import StickyAdSidebar from '@/components/ads/StickyAdSidebar';
 import { Badge } from '@/components/ui/badge';
 import { ShieldCheck, IndianRupee } from 'lucide-react';
 import JsonLd from '@/components/seo/JsonLd';
@@ -9,7 +11,7 @@ export const metadata: Metadata = {
     title: 'EMI Calculator India | Home, Car & Personal Loan EMI',
     description: 'Calculate your monthly EMI for Home Loans, Car Loans, and Personal Loans in India. Accurate results with principal vs interest breakdown.',
     alternates: {
-        canonical: 'https://costsmart.app/in/emi-calculator',
+        canonical: 'https://cost-smart-five.vercel.app/in/emi-calculator',
     }
 };
 
@@ -51,7 +53,10 @@ export default function IndianEMICalculatorPage() {
                 maxPrincipal={50000000}
             />
 
-            <div className="mt-16 grid md:grid-cols-[2fr_1fr] gap-8">
+            {/* High-viewability ad — shown right after user sees their EMI result */}
+            <AfterResultAd slotId="1475703853" />
+
+            <div className="mt-8 grid md:grid-cols-[2fr_1fr] gap-8">
                 <div className="prose max-w-none text-slate-600 bg-white p-8 rounded-2xl border border-slate-100 shadow-sm">
                     <h2 className="text-2xl font-bold text-slate-900">How EMI Works in India</h2>
                     <p>
@@ -71,7 +76,10 @@ export default function IndianEMICalculatorPage() {
                 </div>
 
                 <div className="space-y-6">
-                    <AdContainer size="rectangle" />
+                    <div className="lg:hidden">
+                        <AdContainer size="rectangle" slotId="1475703853" />
+                    </div>
+                    <StickyAdSidebar slotId="5821640937" />
                 </div>
             </div>
         </div>

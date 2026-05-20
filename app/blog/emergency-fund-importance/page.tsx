@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     title: 'Why You Need an Emergency Fund (Before Investing)',
     description: 'An emergency fund is your financial seatbelt. Learn why you need it, how much to save, and where to park this cash.',
     alternates: {
-        canonical: 'https://costsmart.app/blog/emergency-fund-importance',
+        canonical: 'https://cost-smart-five.vercel.app/blog/emergency-fund-importance',
     }
 };
 

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     title: 'About CostSmart | Smart Financial Tools for 2025',
     description: 'CostSmart builds free, high-precision financial calculators to help you make smarter money decisions in the viral economy.',
     alternates: {
-        canonical: 'https://costsmart.app/about',
+        canonical: 'https://cost-smart-five.vercel.app/about',
     }
 };
 

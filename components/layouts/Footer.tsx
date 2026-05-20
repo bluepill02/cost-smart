@@ -1,77 +1,96 @@
 "use client";
 
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
 
 export default function Footer() {
-    const currentYear = new Date().getFullYear();
-    const [showCookies, setShowCookies] = useState(false);
+  const currentYear = new Date().getFullYear();
 
-    useEffect(() => {
-        // Show banner after short delay if not accepted (mock logic for now, serves all users)
-        const timer = setTimeout(() => setShowCookies(true), 1000);
-        return () => clearTimeout(timer);
-    }, []);
+  return (
+    <footer className="bg-slate-900 text-slate-400 pt-14 pb-6 border-t border-slate-800">
+      <div className="container mx-auto px-4">
 
-    return (
-        <footer className="bg-slate-900 text-slate-400 py-12 border-t border-slate-800 relative">
-            <div className="container mx-auto px-4">
-                <div className="grid md:grid-cols-4 gap-8 mb-8">
+        {/* Main Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 mb-10">
 
-                    {/* Brand Col */}
-                    <div className="col-span-1 md:col-span-2">
-                        <h3 className="text-white text-lg font-bold mb-4">CostSmart</h3>
-                        <p className="text-sm max-w-xs leading-relaxed">
-                            Empowering smart financial decisions for homeowners and importers.
-                            Data-driven tools for the modern economy.
-                        </p>
-                    </div>
-
-                    {/* Links Col 1 */}
-                    <div>
-                        <h4 className="text-white font-medium mb-4">Tools</h4>
-                        <ul className="space-y-2 text-sm">
-                            <li><Link href="/solar-roi" className="hover:text-emerald-400">Solar Estimator</Link></li>
-                            <li><Link href="/import-duty" className="hover:text-emerald-400">Import Calculator</Link></li>
-                        </ul>
-                    </div>
-
-                    {/* Links Col 2 */}
-                    <div>
-                        <h4 className="text-white font-medium mb-4">Legal</h4>
-                        <ul className="space-y-2 text-sm">
-                            <li><Link href="/privacy" className="hover:text-emerald-400">Privacy Policy</Link></li>
-                            <li><Link href="/terms" className="hover:text-emerald-400">Terms of Service</Link></li>
-                            <li><Link href="/cookies" className="hover:text-emerald-400">Cookie Policy</Link></li>
-                            <li><a href="mailto:hello@costsmart.com" className="hover:text-emerald-400">Contact Us</a></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div className="border-t border-slate-800 pt-8 mt-8 text-xs text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p>© {currentYear} CostSmart Inc. All rights reserved.</p>
-
-                    {/* Legal Disclaimer */}
-                    <p className="opacity-60 max-w-2xl text-center md:text-right">
-                        <strong>Disclaimer:</strong> This website provides estimates for informational purposes only.
-                        CostSmart is not a financial advisor or customs broker.
-                        Consult with qualified professionals before making financial decisions.
-                    </p>
-                </div>
+          {/* Brand */}
+          <div className="col-span-2 md:col-span-1">
+            <h3 className="text-white text-lg font-bold mb-3">CostSmart</h3>
+            <p className="text-sm leading-relaxed mb-4">
+              Free financial calculators for loans, taxes, investments & more.
+              Trusted data, instant results.
+            </p>
+            <div className="flex flex-col gap-1 text-xs">
+              <a href="mailto:hello@cost-smart-five.vercel.app" className="hover:text-emerald-400 transition-colors">
+                📧 Contact Us
+              </a>
             </div>
+          </div>
 
-            {/* Cookie Banner Plugin */}
-            {showCookies && (
-                <div className="fixed bottom-0 left-0 right-0 bg-slate-900/95 border-t border-slate-700 p-4 text-xs text-center z-50 animate-in slide-in-from-bottom-5 fade-in duration-700" id="cookie-banner">
-                    We use cookies to improve your experience.
-                    <button
-                        onClick={() => setShowCookies(false)}
-                        className="underline text-emerald-400 ml-2 hover:text-emerald-300 transition-colors"
-                    >
-                        Accept
-                    </button>
-                </div>
-            )}
-        </footer>
-    );
+          {/* Personal Finance */}
+          <div>
+            <h4 className="text-white font-semibold mb-3 text-sm">Personal Finance</h4>
+            <ul className="space-y-1.5 text-sm">
+              <li><Link href="/loan-calculator" className="hover:text-emerald-400 transition-colors">Loan Calculator</Link></li>
+              <li><Link href="/emergency-fund-calculator" className="hover:text-emerald-400 transition-colors">Emergency Fund</Link></li>
+              <li><Link href="/debt-payoff-calculator" className="hover:text-emerald-400 transition-colors">Debt Payoff</Link></li>
+              <li><Link href="/retirement-calculator" className="hover:text-emerald-400 transition-colors">Retirement</Link></li>
+              <li><Link href="/investment-calculator" className="hover:text-emerald-400 transition-colors">Investment</Link></li>
+              <li><Link href="/inflation" className="hover:text-emerald-400 transition-colors">Inflation</Link></li>
+            </ul>
+          </div>
+
+          {/* India Calculators */}
+          <div>
+            <h4 className="text-white font-semibold mb-3 text-sm">India Calculators</h4>
+            <ul className="space-y-1.5 text-sm">
+              <li><Link href="/in/emi-calculator" className="hover:text-emerald-400 transition-colors">EMI Calculator</Link></li>
+              <li><Link href="/in/sip-calculator" className="hover:text-emerald-400 transition-colors">SIP Calculator</Link></li>
+              <li><Link href="/in/income-tax-calculator" className="hover:text-emerald-400 transition-colors">Income Tax</Link></li>
+              <li><Link href="/in/fd-calculator" className="hover:text-emerald-400 transition-colors">FD Calculator</Link></li>
+              <li><Link href="/in/ppf-calculator" className="hover:text-emerald-400 transition-colors">PPF Calculator</Link></li>
+              <li><Link href="/in/gst-calculator" className="hover:text-emerald-400 transition-colors">GST Calculator</Link></li>
+              <li><Link href="/in/salary-calculator" className="hover:text-emerald-400 transition-colors">Salary Calculator</Link></li>
+            </ul>
+          </div>
+
+          {/* Property & Business */}
+          <div>
+            <h4 className="text-white font-semibold mb-3 text-sm">Property & Business</h4>
+            <ul className="space-y-1.5 text-sm">
+              <li><Link href="/home-loan-calculator" className="hover:text-emerald-400 transition-colors">Home Loan EMI</Link></li>
+              <li><Link href="/rent-vs-buy-calculator" className="hover:text-emerald-400 transition-colors">Rent vs Buy</Link></li>
+              <li><Link href="/solar-roi" className="hover:text-emerald-400 transition-colors">Solar ROI</Link></li>
+              <li><Link href="/profit-margin-calculator" className="hover:text-emerald-400 transition-colors">Profit Margin</Link></li>
+              <li><Link href="/break-even-calculator" className="hover:text-emerald-400 transition-colors">Break-Even</Link></li>
+              <li><Link href="/import-duty" className="hover:text-emerald-400 transition-colors">Import Duty</Link></li>
+              <li><Link href="/currency" className="hover:text-emerald-400 transition-colors">Currency</Link></li>
+            </ul>
+          </div>
+
+          {/* Resources */}
+          <div>
+            <h4 className="text-white font-semibold mb-3 text-sm">Resources</h4>
+            <ul className="space-y-1.5 text-sm">
+              <li><Link href="/calculators" className="hover:text-emerald-400 transition-colors">All Calculators</Link></li>
+              <li><Link href="/compare" className="hover:text-emerald-400 transition-colors">Compare Tools</Link></li>
+              <li><Link href="/blog" className="hover:text-emerald-400 transition-colors">Financial Blog</Link></li>
+              <li><Link href="/about" className="hover:text-emerald-400 transition-colors">About Us</Link></li>
+              <li><Link href="/privacy" className="hover:text-emerald-400 transition-colors">Privacy Policy</Link></li>
+              <li><Link href="/terms" className="hover:text-emerald-400 transition-colors">Terms of Service</Link></li>
+              <li><Link href="/cookies" className="hover:text-emerald-400 transition-colors">Cookie Policy</Link></li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom bar */}
+        <div className="border-t border-slate-800 pt-6 text-xs flex flex-col md:flex-row justify-between items-center gap-4">
+          <p>© {currentYear} CostSmart. All rights reserved.</p>
+          <p className="opacity-50 max-w-2xl text-center">
+            <strong>Disclaimer:</strong> All calculators provide estimates for informational purposes only.
+            Not financial advice. Consult a qualified professional before making financial decisions.
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
 }

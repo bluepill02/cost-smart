@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     title: 'CTC vs In-Hand Salary: Why is it Different?',
     description: 'Offered 10 LPA but getting only 60k per month? Understand the difference between Cost to Company (CTC) and Net Salary.',
     alternates: {
-        canonical: 'https://costsmart.app/blog/ctc-vs-in-hand',
+        canonical: 'https://cost-smart-five.vercel.app/blog/ctc-vs-in-hand',
     }
 };
 

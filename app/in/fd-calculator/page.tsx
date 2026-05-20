@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: 'Fixed Deposit Calculator | FD Interest Rates India',
     description: 'Calculate maturity amount and interest earned on Fixed Deposits (FD) in India. Supports quarterly, monthly, and annual compounding.',
     alternates: {
-        canonical: 'https://costsmart.app/in/fd-calculator',
+        canonical: 'https://cost-smart-five.vercel.app/in/fd-calculator',
     }
 };
 

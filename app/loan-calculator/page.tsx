@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: 'True Cost Loan Calculator | Mortgage & EMI Estimator',
     description: 'Calculate your monthly payments and see how much interest you really pay. Use our Extra Payment tool to see how to save thousands.',
     alternates: {
-        canonical: 'https://costsmart.app/loan-calculator',
+        canonical: 'https://cost-smart-five.vercel.app/loan-calculator',
     }
 };
 

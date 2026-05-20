@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: 'Salary Calculator | Paycheck & Take Home Pay Estimator',
     description: 'Calculate your true take-home pay (net salary) after taxes and deductions. Plan your monthly budget with accuracy.',
     alternates: {
-        canonical: 'https://costsmart.app/salary-calculator',
+        canonical: 'https://cost-smart-five.vercel.app/salary-calculator',
     }
 };
 

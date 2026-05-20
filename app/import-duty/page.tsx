@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     title: 'Import Duty & Landed Cost Calculator | CostSmart',
     description: 'Estimate import duties, VAT, and total landed cost for shipments to USA, India, UK, and Canada. Avoid customs surprises.',
     alternates: {
-        canonical: 'https://costsmart.app/import-duty',
+        canonical: 'https://cost-smart-five.vercel.app/import-duty',
     }
 };
 

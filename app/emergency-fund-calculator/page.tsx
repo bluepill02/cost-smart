@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: 'Emergency Fund Calculator | Financial Safety Net',
     description: 'Calculate the right size for your emergency fund. Protect yourself from job loss, medical emergencies, or unexpected expenses.',
     alternates: {
-        canonical: 'https://costsmart.app/emergency-fund-calculator',
+        canonical: 'https://cost-smart-five.vercel.app/emergency-fund-calculator',
     }
 };
 

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: 'PPF Calculator | Public Provident Fund Interest & Maturity',
     description: 'Calculate your Public Provident Fund (PPF) maturity amount and interest earned. Tax-free returns with government security.',
     alternates: {
-        canonical: 'https://costsmart.app/in/ppf-calculator',
+        canonical: 'https://cost-smart-five.vercel.app/in/ppf-calculator',
     }
 };
 

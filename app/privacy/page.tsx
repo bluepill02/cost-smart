@@ -4,7 +4,7 @@ export const metadata: Metadata = {
     title: 'Privacy Policy | CostSmart',
     description: 'Privacy Policy for CostSmart.',
     alternates: {
-        canonical: 'https://costsmart.app/privacy',
+        canonical: 'https://cost-smart-five.vercel.app/privacy',
     }
 };
 

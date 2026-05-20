@@ -17,9 +17,14 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "CostSmart - Financial Calculators for the Modern Economy",
+  title: "CostSmart - Free Financial Calculators | EMI, SIP, Tax, Loan & More",
   metadataBase: new URL(CANONICAL_DOMAIN),
-  description: "Calculate Solar ROI, Import Duties, Loans, Taxes, and more with our precise, data-driven financial calculators.",
+  description: "30+ free financial calculators: EMI, SIP, income tax, home loan, FD, PPF, solar ROI, GST, salary and more. Make smarter money decisions with CostSmart.",
+  keywords: [
+    'financial calculator', 'EMI calculator', 'SIP calculator', 'income tax calculator',
+    'loan calculator', 'FD calculator', 'PPF calculator', 'GST calculator',
+    'salary calculator India', 'solar ROI calculator', 'free financial tools'
+  ],
   icons: {
     icon: '/favicon.ico',
   },
@@ -27,8 +32,8 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: CANONICAL_DOMAIN,
-    title: 'CostSmart - Financial Calculators',
-    description: 'Free financial calculators for SIP, loans, taxes, solar ROI, and more.',
+    title: 'CostSmart - Free Financial Calculators',
+    description: '30+ free financial calculators for SIP, EMI, loans, taxes, solar ROI, salary and more.',
     images: [
       {
         url: `${CANONICAL_DOMAIN}/og-image.png`,
@@ -40,8 +45,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'CostSmart - Financial Calculators',
-    description: 'Free financial calculators for SIP, loans, taxes, solar ROI, and more.',
+    title: 'CostSmart - Free Financial Calculators',
+    description: '30+ free financial calculators for SIP, EMI, loans, taxes, solar ROI, salary and more.',
     images: [`${CANONICAL_DOMAIN}/og-image.png`],
   },
 };

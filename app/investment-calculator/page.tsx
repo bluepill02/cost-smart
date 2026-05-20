@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: 'Investment Return Calculator | Compound Interest Growth',
     description: 'Calculate how your investments grow over time with compound interest. Model monthly contributions and initial lumpsums.',
     alternates: {
-        canonical: 'https://costsmart.app/investment-calculator',
+        canonical: 'https://cost-smart-five.vercel.app/investment-calculator',
     }
 };
 
