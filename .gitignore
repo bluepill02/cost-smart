@@ -35,6 +35,13 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
+# secrets and credentials
+*credentials*.json
+*credentials*.txt
+*.key
+*secret*
+azure*.txt
+
 # vercel
 .vercel
 
