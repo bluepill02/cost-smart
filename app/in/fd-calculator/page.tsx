@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { getCalculatorSchema } from '@/lib/seo-utils';
 import FDCalculator from '@/components/calculators/savings/FDCalculator';
 import AdContainer from '@/components/ads/AdContainer';
 import { Badge } from '@/components/ui/badge';
@@ -14,14 +15,11 @@ export const metadata: Metadata = {
 };
 
 export default function FDCalculatorPage() {
-    const jsonLd = {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "CostSmart FD Calculator",
-        "applicationCategory": "FinanceApplication",
-        "operatingSystem": "Web",
-        "description": "Calculate Fixed Deposit returns with quarterly compounding."
-    };
+    const jsonLd = getCalculatorSchema(
+        'CostSmart FD Calculator India',
+        'Calculate fixed deposit returns with compounding options for Indian banks.',
+        '/in/fd-calculator'
+    );
 
     return (
         <div className="container mx-auto px-4 py-12 max-w-5xl">

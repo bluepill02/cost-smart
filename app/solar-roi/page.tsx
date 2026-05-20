@@ -68,23 +68,46 @@ export default async function SolarLandingPage() {
                     </div>
                 </section>
 
-                {/* International / Other Regions (Collapsed or Secondary) */}
-                <section className="opacity-70 hover:opacity-100 transition-opacity">
-                    <h2 className="text-xl font-bold text-slate-600 mb-6 border-b border-slate-200 pb-2 flex items-center gap-2">
-                        <MapPin className="text-slate-400" /> International Locations
+                {/* India Cities - All Tiers */}
+                <section>
+                    <h2 className="text-xl font-bold text-slate-800 mb-6 border-b border-slate-200 pb-2 flex items-center gap-2">
+                        <MapPin className="text-orange-500" /> India — Solar by City
                     </h2>
-                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3">
-                        {tier1.map((city) => (
-                            <Link
-                                key={city.slug}
-                                href={`/solar-roi/${city.slug}`}
-                                className="bg-slate-50 hover:bg-white border border-slate-100 hover:border-emerald-200 rounded-md p-3 text-center transition-colors text-sm"
-                            >
-                                <div className="font-medium text-slate-700">{city.name}</div>
-                                <div className="text-xs text-slate-400">{city.state}, India</div>
-                            </Link>
-                        ))}
-                    </div>
+
+                    {tier1.length > 0 && (
+                        <>
+                            <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-3">Major Cities</h3>
+                            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 mb-6">
+                                {tier1.map((city) => (
+                                    <Link
+                                        key={city.slug}
+                                        href={`/solar-roi/${city.slug}`}
+                                        className="bg-white hover:bg-orange-50 border border-slate-200 hover:border-orange-300 rounded-md p-3 text-center transition-colors text-sm shadow-sm"
+                                    >
+                                        <div className="font-medium text-slate-700">{city.name}</div>
+                                        <div className="text-xs text-slate-400">{city.state}</div>
+                                    </Link>
+                                ))}
+                            </div>
+                        </>
+                    )}
+
+                    {tier2.length > 0 && (
+                        <>
+                            <h3 className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-3">Other Cities</h3>
+                            <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-8 gap-2">
+                                {tier2.map((city) => (
+                                    <Link
+                                        key={city.slug}
+                                        href={`/solar-roi/${city.slug}`}
+                                        className="bg-slate-50 hover:bg-orange-50 border border-slate-100 hover:border-orange-200 rounded px-2 py-1.5 text-center transition-colors"
+                                    >
+                                        <div className="text-xs font-medium text-slate-600">{city.name}</div>
+                                    </Link>
+                                ))}
+                            </div>
+                        </>
+                    )}
                 </section>
 
             </div>

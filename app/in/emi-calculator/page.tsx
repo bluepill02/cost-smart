@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { getCalculatorSchema } from '@/lib/seo-utils';
 import LoanCalculator from '@/components/calculators/loan/LoanCalculator';
 import AdContainer from '@/components/ads/AdContainer';
 import AfterResultAd from '@/components/ads/AfterResultAd';
@@ -16,14 +17,11 @@ export const metadata: Metadata = {
 };
 
 export default function IndianEMICalculatorPage() {
-    const jsonLd = {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "CostSmart EMI Calculator India",
-        "applicationCategory": "FinanceApplication",
-        "operatingSystem": "Web",
-        "description": "Calculate Equated Monthly Installment (EMI) for Indian loans."
-    };
+    const jsonLd = getCalculatorSchema(
+        'CostSmart EMI Calculator India',
+        'Calculate Equated Monthly Installment for home, car, and personal loans in India.',
+        '/in/emi-calculator'
+    );
 
     return (
         <div className="container mx-auto px-4 py-12 max-w-5xl">

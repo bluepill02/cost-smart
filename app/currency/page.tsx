@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { getCalculatorSchema } from '@/lib/seo-utils';
 import CurrencyConverter from '@/components/calculators/currency/CurrencyConverter';
 import { getLatestRates } from '@/lib/currency-api';
 import AdContainer from '@/components/ads/AdContainer';
@@ -15,19 +16,11 @@ export const metadata: Metadata = {
 export default async function CurrencyPage() {
     const rates = await getLatestRates('USD');
 
-    const jsonLd = {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "CostSmart Currency Converter",
-        "applicationCategory": "FinanceApplication",
-        "operatingSystem": "Web",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD"
-        },
-        "description": "Real-time currency exchange rates based on official ECB data."
-    };
+    const jsonLd = getCalculatorSchema(
+        'CostSmart Currency Converter',
+        'Live currency converter with 150+ currencies and real-time exchange rates.',
+        '/currency'
+    );
 
     if (!rates) {
         return (

@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 export default function PPFvsFDPage() {
   const comparisonSchema = {
     "@context": "https://schema.org",
-    "@type": "ComparisonTable",
+    "@type": "Table",
     "name": "PPF vs FD Comparison",
     "description": "Detailed comparison between Public Provident Fund and Fixed Deposit for long-term savings"
   };

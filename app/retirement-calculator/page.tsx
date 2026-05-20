@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { getCalculatorSchema } from '@/lib/seo-utils';
 import RetirementCalculator from '@/components/calculators/retirement/RetirementCalculator';
 import AdContainer from '@/components/ads/AdContainer';
 import { Badge } from '@/components/ui/badge';
@@ -14,14 +15,11 @@ export const metadata: Metadata = {
 };
 
 export default function RetirementCalculatorPage() {
-    const jsonLd = {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "CostSmart Retirement Calculator",
-        "applicationCategory": "FinanceApplication",
-        "operatingSystem": "Web",
-        "description": "Calculate retirement corpus with inflation adjustment."
-    };
+    const jsonLd = getCalculatorSchema(
+        'CostSmart Retirement Calculator',
+        'Calculate the retirement corpus you need to retire comfortably.',
+        '/retirement-calculator'
+    );
 
     return (
         <div className="container mx-auto px-4 py-12 max-w-5xl">

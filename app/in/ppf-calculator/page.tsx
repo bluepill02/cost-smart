@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { getCalculatorSchema } from '@/lib/seo-utils';
 import PPFCalculator from '@/components/calculators/savings/PPFCalculator';
 import AdContainer from '@/components/ads/AdContainer';
 import { Badge } from '@/components/ui/badge';
@@ -14,14 +15,11 @@ export const metadata: Metadata = {
 };
 
 export default function PPFCalculatorPage() {
-    const jsonLd = {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "CostSmart PPF Calculator",
-        "applicationCategory": "FinanceApplication",
-        "operatingSystem": "Web",
-        "description": "Calculate PPF returns and maturity value."
-    };
+    const jsonLd = getCalculatorSchema(
+        'CostSmart PPF Calculator India',
+        'Calculate PPF maturity amount after 15 years with partial withdrawal options.',
+        '/in/ppf-calculator'
+    );
 
     return (
         <div className="container mx-auto px-4 py-12 max-w-5xl">

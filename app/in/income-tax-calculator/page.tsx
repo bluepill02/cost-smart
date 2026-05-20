@@ -3,6 +3,7 @@ import IndiaTaxCalculator from '@/components/calculators/tax/IndiaTaxCalculator'
 import AdContainer from '@/components/ads/AdContainer';
 import { Badge } from '@/components/ui/badge';
 import { IndianRupee } from 'lucide-react';
+import { getCalculatorSchema } from '@/lib/seo-utils';
 import JsonLd from '@/components/seo/JsonLd';
 
 export const metadata: Metadata = {
@@ -14,14 +15,11 @@ export const metadata: Metadata = {
 };
 
 export default function TaxCalculatorPage() {
-    const jsonLd = {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "CostSmart Income Tax Calculator India",
-        "applicationCategory": "FinanceApplication",
-        "operatingSystem": "Web",
-        "description": "Calculate India Income Tax FY 2024-25."
-    };
+    const jsonLd = getCalculatorSchema(
+        'CostSmart Income Tax Calculator India',
+        'Calculate India Income Tax FY 2024-25 — New Regime vs Old Regime.',
+        '/in/income-tax-calculator'
+    );
 
     return (
         <div className="container mx-auto px-4 py-12 max-w-5xl">

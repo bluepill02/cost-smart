@@ -1,5 +1,13 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { BlogLayout } from '@/components/blog/BlogLayout';
+
+export const metadata: Metadata = {
+  title: 'Ultimate Guide to Property Registration Charges in India 2025 | CostSmart',
+  description: 'State-wise stamp duty and registration charges in India 2025. Learn rates for Maharashtra, Karnataka, Delhi, UP, and how to save with Section 80C deduction.',
+  alternates: { canonical: 'https://cost-smart-five.vercel.app/blog/ultimate-guide-property-registration-charges' },
+};
+
 
 export default function Post() {
   return (

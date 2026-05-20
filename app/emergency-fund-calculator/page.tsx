@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { getCalculatorSchema } from '@/lib/seo-utils';
 import EmergencyFundCalculator from '@/components/calculators/savings/EmergencyFundCalculator';
 import AdContainer from '@/components/ads/AdContainer';
 import { Badge } from '@/components/ui/badge';
@@ -14,14 +15,11 @@ export const metadata: Metadata = {
 };
 
 export default function EmergencyFundCalculatorPage() {
-    const jsonLd = {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "CostSmart Emergency Fund Calculator",
-        "applicationCategory": "FinanceApplication",
-        "operatingSystem": "Web",
-        "description": "Calculate emergency fund requirements."
-    };
+    const jsonLd = getCalculatorSchema(
+        'CostSmart Emergency Fund Calculator',
+        'Calculate how much emergency fund you need based on monthly expenses.',
+        '/emergency-fund-calculator'
+    );
 
     return (
         <div className="container mx-auto px-4 py-12 max-w-5xl">

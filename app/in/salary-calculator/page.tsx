@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { getCalculatorSchema } from '@/lib/seo-utils';
 import SalaryCalculator from '@/components/calculators/income/SalaryCalculator';
 import AdContainer from '@/components/ads/AdContainer';
 import { Badge } from '@/components/ui/badge';
@@ -14,14 +15,11 @@ export const metadata: Metadata = {
 };
 
 export default function IndianSalaryCalculatorPage() {
-    const jsonLd = {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "CostSmart Salary Calculator India",
-        "applicationCategory": "FinanceApplication",
-        "operatingSystem": "Web",
-        "description": "Calculate In-Hand salary from CTC in India."
-    };
+    const jsonLd = getCalculatorSchema(
+        'CostSmart Salary Calculator India',
+        'Calculate in-hand salary from CTC with all deductions for FY 2024-25.',
+        '/in/salary-calculator'
+    );
 
     return (
         <div className="container mx-auto px-4 py-12 max-w-5xl">

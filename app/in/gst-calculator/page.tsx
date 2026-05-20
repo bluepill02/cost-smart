@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import GSTCalculator from '@/components/calculators/tax/GSTCalculator';
+import { getCalculatorSchema } from '@/lib/seo-utils';
 import JsonLd from '@/components/seo/JsonLd';
 
 export const metadata: Metadata = {

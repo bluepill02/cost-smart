@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { getCalculatorSchema } from '@/lib/seo-utils';
 import DebtPayoffCalculator from '@/components/calculators/debt/DebtPayoffCalculator';
 import AdContainer from '@/components/ads/AdContainer';
 import { Badge } from '@/components/ui/badge';
@@ -14,14 +15,11 @@ export const metadata: Metadata = {
 };
 
 export default function DebtCalculatorPage() {
-    const jsonLd = {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "CostSmart Debt Payoff Calculator",
-        "applicationCategory": "FinanceApplication",
-        "operatingSystem": "Web",
-        "description": "Calculate debt payoff timeline using snowball or avalanche method."
-    };
+    const jsonLd = getCalculatorSchema(
+        'CostSmart Debt Payoff Calculator',
+        'Calculate your debt-free date using snowball or avalanche method.',
+        '/debt-payoff-calculator'
+    );
 
     return (
         <div className="container mx-auto px-4 py-12 max-w-6xl">

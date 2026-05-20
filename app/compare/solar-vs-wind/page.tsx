@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export default function SolarVsWindPage() {
   const comparisonSchema = {
     "@context": "https://schema.org",
-    "@type": "ComparisonTable",
+    "@type": "Table",
     "name": "Solar Energy vs Wind Energy Comparison",
     "description": "Detailed comparison between Solar and Wind power systems for residential and commercial use in India"
   };

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export default function FDvsMutualFundPage() {
   const comparisonSchema = {
     "@context": "https://schema.org",
-    "@type": "ComparisonTable",
+    "@type": "Table",
     "name": "FD vs Mutual Fund Comparison",
     "description": "Detailed comparison between Fixed Deposits and Mutual Funds"
   };

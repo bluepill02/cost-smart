@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export default function RentVsBuyVsInvestPage() {
   const comparisonSchema = {
     "@context": "https://schema.org",
-    "@type": "ComparisonTable",
+    "@type": "Table",
     "name": "Rent vs Buy vs Invest Comparison",
     "description": "Three-way comparison between renting, buying property with home loan, and investing rent savings in mutual funds/SIP"
   };
