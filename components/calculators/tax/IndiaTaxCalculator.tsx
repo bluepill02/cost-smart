@@ -39,9 +39,10 @@ export default function IndiaTaxCalculator() {
         let tax = 0;
 
         // Calculate Tax based on Slabs
-        // Note: Logic for New Regime Slabs 2024 (Budget update: 3-7L 5%, 7-10L 10%, etc)
-        // The slab structure in `tax-data.ts` assumes limits are absolute points (3L, 7L, 10L).
-        // Calculation needs to be delta based.
+        // FY 2025-26 New Regime (Budget 2025): 0-4L: 0%, 4-8L: 5%, 8-12L: 10%,
+        //   12-16L: 15%, 16-20L: 20%, 20-24L: 25%, >24L: 30%.
+        // Old Regime: 0-2.5L: 0%, 2.5-5L: 5%, 5-10L: 20%, >10L: 30%.
+        // Slabs in tax-data.ts store cumulative upper limits; calculation is delta-based below.
 
         // Re-implementing robust slab logic:
         if (taxableIncome > rules.basicExemptionLimit) {
@@ -62,9 +63,9 @@ export default function IndiaTaxCalculator() {
             }
         }
 
-        // Rebate 87A
-        // New Regime: Tax free if taxable income <= 7L. Rebate up to 25k.
-        // Old Regime: Tax free if taxable income <= 5L. Rebate up to 12.5k.
+        // Section 87A Rebate
+        // New Regime (FY25-26): Full rebate if taxable income ≤ ₹12,00,000 (Budget 2025 raised from ₹7L).
+        // Old Regime: Full rebate if taxable income ≤ ₹5,00,000 (max rebate ₹12,500).
         let rebate = 0;
         if (taxableIncome <= rules.rebate87ALimit) {
             rebate = tax; // Full tax rebated

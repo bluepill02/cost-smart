@@ -47,31 +47,34 @@ export default function SalaryCalculator({
                 annualNet: net * 12
             };
         } else {
-            // India Logic
-            // CTC = Gross (Cost to Company)
-            // Components: Basic, HRA, Special Allowances
-            // Deductions: PF (Employee), PT, TDS (Approx based on New Regime)
+            // India mode: CTC → In-Hand calculation
+            // Tax slabs: FY 2025-26 New Regime (Budget 2025)
+            // 0–4L: 0%, 4–8L: 5%, 8–12L: 10%, 12–16L: 15%, 16–20L: 20%, 20–24L: 25%, >24L: 30%
+            // Standard Deduction: ₹75,000
+            // 87A Rebate: full rebate if taxable income ≤ ₹12,00,000 (max ₹60,000)
 
             const monthlyCTC = ctc / 12;
             const basic = monthlyCTC * (basicPercent / 100);
             const pf = basic * (pfRate / 100);
             const pt = professionalTax;
 
-            // Simplified TDS Calculation (New Regime Average for estimation)
-            // Use the effective tax rate from previous calculator logic or a rough estimate
-            // 0-3L: 0, 3-7L: 5%, 7-10L: 10%, 10-12L: 15%, 12-15L: 20%, >15L: 30%
-            // Let's calculate annual tax roughly
+            const taxable = Math.max(0, ctc - 75000); // Standard deduction
             let annualTax = 0;
-            const taxable = Math.max(0, ctc - 75000); // Std Ded
-            if (taxable > 700000) {
-                 if (taxable > 300000) annualTax += Math.min(400000, taxable - 300000) * 0.05;
-                 if (taxable > 700000) annualTax += Math.min(300000, taxable - 700000) * 0.10;
-                 if (taxable > 1000000) annualTax += Math.min(200000, taxable - 1000000) * 0.15;
-                 if (taxable > 1200000) annualTax += Math.min(300000, taxable - 1200000) * 0.20;
-                 if (taxable > 1500000) annualTax += (taxable - 1500000) * 0.30;
-            }
-            // Cess
-            annualTax += annualTax * 0.04;
+
+            // Calculate tax as per FY25-26 slabs
+            if (taxable > 400000)  annualTax += Math.min(400000, taxable - 400000)  * 0.05;  // 4–8L
+            if (taxable > 800000)  annualTax += Math.min(400000, taxable - 800000)  * 0.10;  // 8–12L
+            if (taxable > 1200000) annualTax += Math.min(400000, taxable - 1200000) * 0.15;  // 12–16L
+            if (taxable > 1600000) annualTax += Math.min(400000, taxable - 1600000) * 0.20;  // 16–20L
+            if (taxable > 2000000) annualTax += Math.min(400000, taxable - 2000000) * 0.25;  // 20–24L
+            if (taxable > 2400000) annualTax += (taxable - 2400000) * 0.30;                   // >24L
+
+            // Section 87A rebate: zero tax if taxable income ≤ ₹12,00,000
+            if (taxable <= 1200000) annualTax = 0;
+
+            // 4% Health & Education Cess (on tax after rebate)
+            annualTax = annualTax * 1.04;
+
             const monthlyTDS = annualTax / 12;
 
             const totalDeductions = pf + pt + monthlyTDS;

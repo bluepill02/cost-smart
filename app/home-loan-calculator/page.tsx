@@ -49,7 +49,13 @@ export default function Page() {
         <p className="text-xl text-slate-600 max-w-2xl mx-auto">Plan your dream home with our precise EMI planner. Supports pre-payment and tenure adjustment.</p>
       </div>
 
-      <HomeLoanCalculator />
+      <HomeLoanCalculator
+        defaultAmount={5000000}
+        defaultRate={8.75}
+        defaultTenure={20}
+        currency="INR"
+        locale="en-IN"
+      />
 
       <AfterResultAd slotId="1475703853" />
 

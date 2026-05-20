@@ -28,15 +28,18 @@ export default function RetirementCalculator({
     currency = 'USD',
     locale = 'en-US'
 }: RetirementCalculatorProps) {
-    const [currentAge, setCurrentAge] = useState<number>(30);
-    const [retirementAge, setRetirementAge] = useState<number>(60);
-    const [monthlyExpense, setMonthlyExpense] = useState<number>(currency === 'USD' ? 4000 : 50000);
+    const [currentAge, setCurrentAge] = useState<number>(35);
+    const [retirementAge, setRetirementAge] = useState<number>(65);  // US Social Security full retirement age
+    const [monthlyExpense, setMonthlyExpense] = useState<number>(currency === 'USD' ? 5000 : 50000);
     const [currentSavings, setCurrentSavings] = useState<number>(currency === 'USD' ? 50000 : 1000000);
-    const [monthlySavings, setMonthlySavings] = useState<number>(currency === 'USD' ? 1000 : 20000);
-    const [inflation, setInflation] = useState<number>(6);
-    const [returnRate, setReturnRate] = useState<number>(10); // Pre-retirement
-    const [postRetirementRate] = useState<number>(8); // Conservative
-    const [lifeExpectancy] = useState<number>(85);
+    const [monthlySavings, setMonthlySavings] = useState<number>(currency === 'USD' ? 1500 : 20000);
+    // US: Fed long-run target 2%, realistic avg ~3-4%. India: ~6%.
+    const [inflation, setInflation] = useState<number>(currency === 'USD' ? 3.5 : 6);
+    // Pre-retirement: diversified equity/index fund avg. US S&P500 ≈ 10%, diversified ≈ 9%
+    const [returnRate, setReturnRate] = useState<number>(currency === 'USD' ? 9 : 12);
+    // Post-retirement: conservative (bonds/balanced). 4-6% for US, 7-8% for India.
+    const [postRetirementRate] = useState<number>(currency === 'USD' ? 5 : 7);
+    const [lifeExpectancy] = useState<number>(currency === 'USD' ? 85 : 80);
 
     const result = useMemo(() => {
         const yearsToRetire = retirementAge - currentAge;

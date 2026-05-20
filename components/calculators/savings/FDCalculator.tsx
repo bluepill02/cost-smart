@@ -34,7 +34,9 @@ export default function FDCalculator({
     compoundingFrequency = 'quarterly'
 }: FDCalculatorProps) {
     const [principal, setPrincipal] = useState<number>(defaultPrincipal);
-    const [rate, setRate] = useState<number>(6.5);
+    // US CD/HYSA rates fell to ~4.5-5.5% after Fed cuts (2024-2026).
+    // India FD rates: 7.0-7.25% (major banks, May 2026).
+    const [rate, setRate] = useState<number>(currency === 'INR' ? 7.25 : 5.0);
     const [years, setYears] = useState<number>(5);
 
     const result = useMemo(() => {
@@ -86,7 +88,11 @@ export default function FDCalculator({
                         Fixed Deposit Details
                     </CardTitle>
                     <CardDescription>
-                        {compoundingFrequency === 'quarterly' ? 'Interest compounded quarterly (Standard).' : 'Calculate your returns.'}
+                        {currency === 'INR'
+                            ? compoundingFrequency === 'quarterly'
+                                ? 'Interest compounded quarterly (RBI standard for bank FDs).'
+                                : 'Calculate your Fixed Deposit returns.'
+                            : 'Calculate CD / High-Yield Savings returns. Interest compounded quarterly.'}
                     </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">

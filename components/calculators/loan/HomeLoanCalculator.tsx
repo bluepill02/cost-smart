@@ -24,12 +24,16 @@ interface HomeLoanCalculatorProps {
     defaultAmount?: number;
     defaultRate?: number;
     defaultTenure?: number;
+    currency?: string;
+    locale?: string;
 }
 
 export default function HomeLoanCalculator({
-    defaultAmount = 5000000,
-    defaultRate = 8.5,
-    defaultTenure = 20
+    defaultAmount = 400000,       // $400k — US median home price 2025
+    defaultRate = 7.0,            // US 30-yr fixed avg May 2026
+    defaultTenure = 30,           // Standard US mortgage term
+    currency = 'USD',
+    locale = 'en-US',
 }: HomeLoanCalculatorProps) {
     const [loanAmount, setLoanAmount] = useState<number>(defaultAmount);
     const [interestRate, setInterestRate] = useState<number>(defaultRate);
@@ -123,7 +127,7 @@ export default function HomeLoanCalculator({
                     <CardContent className="space-y-6">
                         <div className="space-y-4">
                             <div className="space-y-2">
-                                <Label htmlFor="amount">Loan Amount ({formatCurrency(loanAmount, 'INR')})</Label>
+                                <Label htmlFor="amount">Loan Amount ({formatCurrency(loanAmount, currency, locale)})</Label>
                                 <Input
                                     id="amount"
                                     type="number"
@@ -132,9 +136,9 @@ export default function HomeLoanCalculator({
                                 />
                                 <Slider
                                     value={[loanAmount]}
-                                    min={100000}
-                                    max={20000000}
-                                    step={100000}
+                                    min={currency === 'INR' ? 100000 : 50000}
+                                    max={currency === 'INR' ? 20000000 : 2000000}
+                                    step={currency === 'INR' ? 100000 : 10000}
                                     onValueChange={(v) => setLoanAmount(v[0])}
                                 />
                             </div>
@@ -222,14 +226,18 @@ export default function HomeLoanCalculator({
                                 <CartesianGrid strokeDasharray="3 3" vertical={false} />
                                 <XAxis dataKey="year" tickLine={false} axisLine={false} tick={{fontSize: 12}} />
                                 <YAxis
-                                    tickFormatter={(v) => `${v/100000}L`}
+                                    tickFormatter={(v) =>
+                                        currency === 'INR'
+                                            ? `${(v / 100000).toFixed(0)}L`
+                                            : `$${(v / 1000).toFixed(0)}k`
+                                    }
                                     tickLine={false}
                                     axisLine={false}
                                     tick={{fontSize: 12}}
                                 />
                                 <Tooltip
                                     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                                    formatter={(value: any) => formatCurrency(value, 'INR')}
+                                formatter={(value: any) => formatCurrency(value, currency, locale)}
                                     labelFormatter={(label) => `Year ${label}`}
                                 />
                                 <Area
@@ -265,7 +273,7 @@ export default function HomeLoanCalculator({
                         <div>
                             <div className="text-slate-400 text-sm font-medium mb-1">Monthly EMI</div>
                             <div className="text-4xl font-bold text-emerald-400">
-                                {formatCurrency(result.emi, 'INR')}
+                                {formatCurrency(result.emi, currency, locale)}
                             </div>
                         </div>
 
@@ -273,13 +281,13 @@ export default function HomeLoanCalculator({
                             <div className="flex justify-between items-center">
                                 <span className="text-slate-400">Total Interest</span>
                                 <span className="font-semibold text-lg text-red-300">
-                                    {formatCurrency(enablePrepayment ? result.totalInterestWithPrepayment : result.totalInterest, 'INR')}
+                                    {formatCurrency(enablePrepayment ? result.totalInterestWithPrepayment : result.totalInterest, currency, locale)}
                                 </span>
                             </div>
                              <div className="flex justify-between items-center">
                                 <span className="text-slate-400">Total Payable</span>
                                 <span className="font-semibold text-lg">
-                                    {formatCurrency(loanAmount + (enablePrepayment ? result.totalInterestWithPrepayment : result.totalInterest), 'INR')}
+                                    {formatCurrency(loanAmount + (enablePrepayment ? result.totalInterestWithPrepayment : result.totalInterest), currency, locale)}
                                 </span>
                             </div>
                         </div>
@@ -293,7 +301,7 @@ export default function HomeLoanCalculator({
                                     <div>
                                         <div className="text-slate-400">Interest Saved</div>
                                         <div className="font-bold text-white text-lg">
-                                            {formatCurrency(result.savedInterest, 'INR')}
+                                            {formatCurrency(result.savedInterest, currency, locale)}
                                         </div>
                                     </div>
                                     <div>
@@ -316,13 +324,13 @@ export default function HomeLoanCalculator({
                     <p className="text-sm text-blue-800">
                         {enablePrepayment ? (
                             <span>
-                                Great job! Paying just <strong>{formatCurrency(prepaymentAmount, 'INR')}</strong> extra per month saves you
-                                <strong> {formatCurrency(result.savedInterest, 'INR')}</strong> and helps you become debt-free
+                                Great job! Paying just <strong>{formatCurrency(prepaymentAmount, currency, locale)}</strong> extra per month saves you
+                                <strong> {formatCurrency(result.savedInterest, currency, locale)}</strong> and helps you become debt-free
                                 <strong> {Math.floor(result.savedMonths / 12)} years</strong> earlier.
                             </span>
                         ) : (
                             <span>
-                                Try enabling <strong>Prepayment</strong>. Even a small extra payment of ₹5,000/month can reduce your tenure by years and save lakhs in interest.
+                                Try enabling <strong>Prepayment</strong>. Even a small extra payment of {currency === 'INR' ? '₹5,000' : '$200'}/month can reduce your tenure by years and save {currency === 'INR' ? 'lakhs' : 'thousands'} in interest.
                             </span>
                         )}
                     </p>

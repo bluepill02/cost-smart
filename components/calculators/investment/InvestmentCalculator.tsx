@@ -34,9 +34,9 @@ interface InvestmentCalculatorProps {
 
 export default function InvestmentCalculator({
     defaultMonthly = 500,
-    defaultInitial = 1000,
-    defaultRate = 12,
-    defaultYears = 10,
+    defaultInitial = 5000,        // More realistic seed capital
+    defaultRate = 10,             // S&P 500 long-run avg ≈ 10-10.5% nominal
+    defaultYears = 20,            // Longer horizon = more meaningful compounding
     currency = 'USD',
     locale = 'en-US',
     mode = 'Combined'
@@ -69,10 +69,12 @@ export default function InvestmentCalculator({
         // Generate Chart Data (Yearly points)
         const data = [];
         for (let i = 0; i <= years; i++) {
-             // Calculate value at year i
              const months = i * 12;
              const valInitial = initial * Math.pow(1 + r, months);
-             const valMonthly = monthly * ((Math.pow(1 + r, months) - 1) / r) * (1 + r);
+             // Guard against r = 0 (avoid NaN from division by zero)
+             const valMonthly = r === 0
+                 ? monthly * months
+                 : monthly * ((Math.pow(1 + r, months) - 1) / r) * (1 + r);
              const total = i === 0 ? initial : (valInitial + valMonthly);
              const invested = initial + (monthly * months);
 
@@ -80,7 +82,7 @@ export default function InvestmentCalculator({
                  year: `Year ${i}`,
                  invested: Math.round(invested),
                  value: Math.round(total),
-                 growth: Math.round(total - invested)
+                 growth: Math.round(Math.max(0, total - invested))
              });
         }
 
