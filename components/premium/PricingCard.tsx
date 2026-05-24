@@ -1,5 +1,13 @@
+'use client';
+
 import { Check } from 'lucide-react';
 import Link from 'next/link';
+import dynamic from 'next/dynamic';
+
+const PayPalCheckoutButton = dynamic(
+  () => import('@/components/premium/PayPalCheckoutButton'),
+  { ssr: false, loading: () => <div className="w-full h-[50px] animate-pulse bg-slate-100 rounded-xl" /> }
+);
 
 interface PricingCardProps {
   planName: string;
@@ -60,14 +68,8 @@ export default function PricingCard({
       </ul>
 
       {paypalButton ? (
-        <div id="paypal-button-container" className="w-full min-h-[50px]">
-          {/* PayPal Smart Buttons will render here via the PayPal JS SDK on the pricing page */}
-          <Link
-            href="/pricing#checkout"
-            className="block w-full text-center px-6 py-3 rounded-xl font-semibold text-white transition-colors bg-[#0070ba] hover:bg-[#005ea6]"
-          >
-            Pay with PayPal
-          </Link>
+        <div className="w-full min-h-[50px]">
+          <PayPalCheckoutButton />
         </div>
       ) : (
         <Link

@@ -1,5 +1,4 @@
 import { Metadata } from 'next';
-import Script from 'next/script';
 import PricingCard from '@/components/premium/PricingCard';
 import { PREMIUM_CONFIG } from '@/lib/premium-config';
 import { Sparkles, ShieldCheck, CreditCard, HelpCircle } from 'lucide-react';
@@ -47,22 +46,9 @@ const FAQ_ITEMS = [
 
 export default function PricingPage() {
   const { free, proMonthly } = PREMIUM_CONFIG.plans;
-  const paypalClientId = PREMIUM_CONFIG.paypal.clientId;
 
   return (
     <div className="min-h-screen">
-      {/*
-        PayPal JS SDK - loads only when NEXT_PUBLIC_PAYPAL_CLIENT_ID env var is set.
-        Set this variable in your .env.local or hosting provider.
-        See: https://developer.paypal.com/docs/checkout/standard/integrate/
-      */}
-      {paypalClientId && (
-        <Script
-          src={`https://www.paypal.com/sdk/js?client-id=${paypalClientId}&currency=USD`}
-          strategy="lazyOnload"
-        />
-      )}
-
       {/* Hero Section */}
       <section
         className="py-16 md:py-24 text-center"
