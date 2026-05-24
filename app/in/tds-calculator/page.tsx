@@ -1,13 +1,21 @@
 import { Metadata } from 'next';
 import TDSCalculator from '@/components/calculators/business/TDSCalculator';
 import JsonLd from '@/components/seo/JsonLd';
-import { getCalculatorSchema } from '@/lib/seo-utils';
+import { getCalculatorSchema, CANONICAL_DOMAIN } from '@/lib/seo-utils';
+import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'TDS Calculator | CostSmart',
   description: 'Calculate TDS deduction rates for salary, contractors, professionals, rent, and interest. Know exactly how much is deducted at source under Income Tax Act.',
   alternates: {
     canonical: 'https://cost-smart-five.vercel.app/in/tds-calculator',
+  },
+  openGraph: {
+    title: 'TDS Calculator | CostSmart',
+    description: 'Calculate TDS deduction rates for salary, contractors, professionals, rent, and interest. Know exactly how much is deducted at source under Income Tax Act.',
+    url: `${CANONICAL_DOMAIN}/in/tds-calculator`,
+    type: 'website',
+    images: [{ url: `${CANONICAL_DOMAIN}/og-image.png`, width: 1200, height: 630, alt: 'TDS Calculator' }],
   },
 };
 
@@ -40,6 +48,8 @@ export default function Page() {
             Accuracy saves money and helps in better planning.
         </p>
       </article>
+
+      <RelatedCalculators category="business" currentHref="/in/tds-calculator" />
     </div>
   );
 }

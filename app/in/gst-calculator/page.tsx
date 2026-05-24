@@ -1,8 +1,9 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import GSTCalculator from '@/components/calculators/tax/GSTCalculator';
-import { getCalculatorSchema } from '@/lib/seo-utils';
+import { getCalculatorSchema, CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import JsonLd from '@/components/seo/JsonLd';
+import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'GST Calculator India | Inclusive & Exclusive 2025',
@@ -11,6 +12,13 @@ export const metadata: Metadata = {
     canonical: '/in/gst-calculator',
   },
   keywords: 'gst calculator, gst inclusive calculator, gst exclusive calculator, india gst rates, gst calculation formula',
+  openGraph: {
+    title: 'GST Calculator India | Inclusive & Exclusive 2025',
+    description: 'Calculate GST amount, pre-tax value, and total cost instantly. Supports 5%, 12%, 18%, 28% tax slabs. Differentiate between Inclusive and Exclusive GST.',
+    url: `${CANONICAL_DOMAIN}/in/gst-calculator`,
+    type: 'website',
+    images: [{ url: `${CANONICAL_DOMAIN}/og-image.png`, width: 1200, height: 630, alt: 'GST Calculator India' }],
+  },
 };
 
 export default function GSTPage() {
@@ -18,6 +26,7 @@ export default function GSTPage() {
     <div className="max-w-4xl mx-auto px-4 py-8">
       <JsonLd
         data={{
+          "@context": "https://schema.org",
           "@type": "SoftwareApplication",
           name: "GST Calculator India",
           applicationCategory: "FinanceApplication",
@@ -59,6 +68,8 @@ export default function GSTPage() {
             <li><strong>28%:</strong> Luxury goods (Cars, tobacco, cement)</li>
         </ul>
       </div>
+
+      <RelatedCalculators category="business" currentHref="/in/gst-calculator" />
     </div>
   );
 }

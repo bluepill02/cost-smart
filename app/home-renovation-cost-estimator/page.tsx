@@ -3,6 +3,7 @@ import { Metadata } from 'next';
 import HomeRenovationCalculator from '@/components/calculators/real-estate/HomeRenovationCalculator';
 import RelatedTools from '@/components/calculators/RelatedTools';
 import AdContainer from '@/components/ads/AdContainer';
+import AmazonRecommendations from '@/components/affiliate/AmazonRecommendations';
 
 export const metadata: Metadata = {
   title: 'Home Renovation Cost Estimator India | CostSmart',
@@ -31,6 +32,10 @@ export default function HomeRenovationPage() {
 
         <div className="mt-12 max-w-4xl mx-auto">
           <RelatedTools currentTool="loan" />
+        </div>
+
+        <div className="max-w-4xl mx-auto">
+          <AmazonRecommendations calculatorSlug="home-renovation" />
         </div>
       </div>
     </div>

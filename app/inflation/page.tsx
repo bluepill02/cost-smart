@@ -3,6 +3,7 @@ import InflationCalculator from '@/components/calculators/inflation/InflationCal
 import AdContainer from '@/components/ads/AdContainer';
 import { Badge } from '@/components/ui/badge';
 import { TrendingUp } from 'lucide-react';
+import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
     title: 'Inflation Calculator (CPI) | US Dollar Value 1913-2024',
@@ -49,6 +50,8 @@ export default function InflationPage() {
                     <AdContainer size="rectangle" />
                 </div>
             </div>
+
+            <RelatedCalculators category="investment" currentHref="/inflation" />
         </div>
     );
 }

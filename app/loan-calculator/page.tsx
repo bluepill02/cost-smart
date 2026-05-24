@@ -5,13 +5,22 @@ import StickyAdSidebar from '@/components/ads/StickyAdSidebar';
 import { Badge } from '@/components/ui/badge';
 import { ShieldCheck } from 'lucide-react';
 import CalculatorSchemaInjector from '@/components/seo/CalculatorSchemaInjector';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
+import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
     title: 'True Cost Loan Calculator | Mortgage & EMI Estimator',
     description: 'Calculate your monthly payments and see how much interest you really pay. Use our Extra Payment tool to see how to save thousands.',
     alternates: {
         canonical: 'https://cost-smart-five.vercel.app/loan-calculator',
-    }
+    },
+    openGraph: {
+        title: 'True Cost Loan Calculator | Mortgage & EMI Estimator',
+        description: 'Calculate your monthly payments and see how much interest you really pay. Use our Extra Payment tool to see how to save thousands.',
+        url: `${CANONICAL_DOMAIN}/loan-calculator`,
+        type: 'website',
+        images: [{ url: `${CANONICAL_DOMAIN}/og-image.png`, width: 1200, height: 630, alt: 'Loan Calculator' }],
+    },
 };
 
 export default function LoanCalculatorPage() {
@@ -67,6 +76,8 @@ export default function LoanCalculatorPage() {
                     <StickyAdSidebar slotId="5821640937" />
                 </div>
             </div>
+
+            <RelatedCalculators category="loan" currentHref="/loan-calculator" />
         </div>
     );
 }

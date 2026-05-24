@@ -11,6 +11,8 @@ import { US_CITIES } from '@/lib/pseo-data/us-cities';
 import Breadcrumbs from '@/components/features/Breadcrumbs';
 import ShareResultButton from '@/components/features/ShareResultButton';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
+import AmazonRecommendations from '@/components/affiliate/AmazonRecommendations';
+import PremiumBanner from '@/components/premium/PremiumBanner';
 
 export const metadata: Metadata = {
   title: 'Home Loan EMI Calculator | CostSmart',
@@ -86,6 +88,10 @@ export default function Page() {
              <RelatedCalculators category="loan" currentHref="/home-loan-calculator" />
         </div>
       </div>
+
+      <AmazonRecommendations calculatorSlug="home-loan" />
+
+      <PremiumBanner />
 
       {/* Internal Linking for pSEO Pages */}
       <section className="mt-16 pt-12 border-t border-slate-200">

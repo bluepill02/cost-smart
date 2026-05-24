@@ -1,13 +1,21 @@
 import { Metadata } from 'next';
 import ElectricityBillCalculator from '@/components/calculators/real-estate/ElectricityBillCalculator';
 import JsonLd from '@/components/seo/JsonLd';
-import { getCalculatorSchema } from '@/lib/seo-utils';
+import { getCalculatorSchema, CANONICAL_DOMAIN } from '@/lib/seo-utils';
+import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'Electricity Bill Calculator | CostSmart',
   description: 'Estimate your monthly electricity bill using state-wise slab rates. Add appliances, get per-unit cost, and see how to reduce your power consumption in India.',
   alternates: {
     canonical: 'https://cost-smart-five.vercel.app/in/electricity-bill-calculator',
+  },
+  openGraph: {
+    title: 'Electricity Bill Calculator | CostSmart',
+    description: 'Estimate your monthly electricity bill using state-wise slab rates. Add appliances, get per-unit cost, and see how to reduce your power consumption in India.',
+    url: `${CANONICAL_DOMAIN}/in/electricity-bill-calculator`,
+    type: 'website',
+    images: [{ url: `${CANONICAL_DOMAIN}/og-image.png`, width: 1200, height: 630, alt: 'Electricity Bill Calculator' }],
   },
 };
 
@@ -40,6 +48,8 @@ export default function Page() {
             Accuracy saves money and helps in better planning.
         </p>
       </article>
+
+      <RelatedCalculators category="utility" currentHref="/in/electricity-bill-calculator" />
     </div>
   );
 }

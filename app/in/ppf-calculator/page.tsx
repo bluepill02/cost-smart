@@ -5,6 +5,7 @@ import AdContainer from '@/components/ads/AdContainer';
 import { Badge } from '@/components/ui/badge';
 import { Landmark, IndianRupee } from 'lucide-react';
 import JsonLd from '@/components/seo/JsonLd';
+import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
     title: 'PPF Calculator | Public Provident Fund Interest & Maturity',
@@ -64,6 +65,8 @@ export default function PPFCalculatorPage() {
                     <AdContainer size="rectangle" />
                 </div>
             </div>
+
+            <RelatedCalculators category="investment" currentHref="/in/ppf-calculator" />
         </div>
     );
 }

@@ -5,6 +5,7 @@ import AdContainer from '@/components/ads/AdContainer';
 import { Badge } from '@/components/ui/badge';
 import { IndianRupee } from 'lucide-react';
 import JsonLd from '@/components/seo/JsonLd';
+import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
     title: 'Salary Calculator India | CTC to In-Hand Salary (FY 24-25)',
@@ -60,6 +61,8 @@ export default function IndianSalaryCalculatorPage() {
                     <AdContainer size="rectangle" />
                 </div>
             </div>
+
+            <RelatedCalculators category="india-finance" currentHref="/in/salary-calculator" />
         </div>
     );
 }

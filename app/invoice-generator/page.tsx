@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import InvoiceGenerator from '@/components/calculators/business/InvoiceGenerator';
 import JsonLd from '@/components/seo/JsonLd';
 import { getCalculatorSchema } from '@/lib/seo-utils';
+import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'Invoice Generator | CostSmart',
@@ -40,6 +41,8 @@ export default function Page() {
             Accuracy saves money and helps in better planning.
         </p>
       </article>
+
+      <RelatedCalculators category="business" currentHref="/invoice-generator" />
     </div>
   );
 }

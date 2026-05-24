@@ -1,13 +1,21 @@
 import { Metadata } from 'next';
 import LPGSubsidyCalculator from '@/components/calculators/real-estate/LPGSubsidyCalculator';
 import JsonLd from '@/components/seo/JsonLd';
-import { getCalculatorSchema } from '@/lib/seo-utils';
+import { getCalculatorSchema, CANONICAL_DOMAIN } from '@/lib/seo-utils';
+import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'LPG Subsidy Calculator | CostSmart',
   description: 'Calculate your annual LPG subsidy savings. Enter cylinder count and subsidy rate to know your total yearly benefit under PMUY and other government schemes.',
   alternates: {
     canonical: 'https://cost-smart-five.vercel.app/in/lpg-subsidy-calculator',
+  },
+  openGraph: {
+    title: 'LPG Subsidy Calculator | CostSmart',
+    description: 'Calculate your annual LPG subsidy savings. Enter cylinder count and subsidy rate to know your total yearly benefit under PMUY and other government schemes.',
+    url: `${CANONICAL_DOMAIN}/in/lpg-subsidy-calculator`,
+    type: 'website',
+    images: [{ url: `${CANONICAL_DOMAIN}/og-image.png`, width: 1200, height: 630, alt: 'LPG Subsidy Calculator' }],
   },
 };
 
@@ -40,6 +48,8 @@ export default function Page() {
             Accuracy saves money and helps in better planning.
         </p>
       </article>
+
+      <RelatedCalculators category="utility" currentHref="/in/lpg-subsidy-calculator" />
     </div>
   );
 }

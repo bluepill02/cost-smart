@@ -2,6 +2,8 @@ import { Metadata } from 'next';
 import BusinessLoanCalculator from '@/components/calculators/business/BusinessLoanCalculator';
 import JsonLd from '@/components/seo/JsonLd';
 import { getCalculatorSchema } from '@/lib/seo-utils';
+import RelatedCalculators from '@/components/features/RelatedCalculators';
+import AmazonRecommendations from '@/components/affiliate/AmazonRecommendations';
 
 export const metadata: Metadata = {
   title: 'Business Loan Calculator | CostSmart',
@@ -40,6 +42,10 @@ export default function Page() {
             Accuracy saves money and helps in better planning.
         </p>
       </article>
+
+      <AmazonRecommendations calculatorSlug="business-loan" />
+
+      <RelatedCalculators category="business" currentHref="/business-loan-calculator" />
     </div>
   );
 }

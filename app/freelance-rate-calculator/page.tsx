@@ -2,6 +2,9 @@ import { Metadata } from 'next';
 import FreelanceRateCalculator from '@/components/calculators/business/FreelanceRateCalculator';
 import JsonLd from '@/components/seo/JsonLd';
 import { getCalculatorSchema } from '@/lib/seo-utils';
+import AmazonRecommendations from '@/components/affiliate/AmazonRecommendations';
+import PremiumBanner from '@/components/premium/PremiumBanner';
+import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'Freelance Rate Calculator | CostSmart',
@@ -40,6 +43,12 @@ export default function Page() {
             Accuracy saves money and helps in better planning.
         </p>
       </article>
+
+      <AmazonRecommendations calculatorSlug="freelance-rate" />
+
+      <RelatedCalculators category="business" currentHref="/freelance-rate-calculator" />
+
+      <PremiumBanner />
     </div>
   );
 }

@@ -1,13 +1,22 @@
 import { Metadata } from 'next';
 import BreakEvenCalculator from '@/components/calculators/business/BreakEvenCalculator';
 import JsonLd from '@/components/seo/JsonLd';
-import { getCalculatorSchema } from '@/lib/seo-utils';
+import { getCalculatorSchema, CANONICAL_DOMAIN } from '@/lib/seo-utils';
+import AmazonRecommendations from '@/components/affiliate/AmazonRecommendations';
+import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'Break-Even Calculator | CostSmart',
   description: 'Find your break-even point in units and revenue.',
   alternates: {
     canonical: 'https://cost-smart-five.vercel.app/break-even-calculator',
+  },
+  openGraph: {
+    title: 'Break-Even Calculator | CostSmart',
+    description: 'Find your break-even point in units and revenue.',
+    url: `${CANONICAL_DOMAIN}/break-even-calculator`,
+    type: 'website',
+    images: [{ url: `${CANONICAL_DOMAIN}/og-image.png`, width: 1200, height: 630, alt: 'Break-Even Calculator' }],
   },
 };
 
@@ -40,6 +49,10 @@ export default function Page() {
             Accuracy saves money and helps in better planning.
         </p>
       </article>
+
+      <AmazonRecommendations calculatorSlug="break-even" />
+
+      <RelatedCalculators category="business" currentHref="/break-even-calculator" />
     </div>
   );
 }
