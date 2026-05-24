@@ -7,6 +7,7 @@ import Script from "next/script";
 import AdContainer from '@/components/ads/AdContainer';
 import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import CookieConsent from "@/components/ui/CookieConsent";
+import BotpressLoader from "@/components/ui/BotpressLoader";
 import GoogleAnalyticsTracker from "@/components/analytics/GoogleAnalytics";
 
 // DM Sans — refined body font with excellent legibility
@@ -123,6 +124,7 @@ export default function RootLayout({
 
         <Footer />
         <CookieConsent />
+        <BotpressLoader botConfigUrl={process.env.NEXT_PUBLIC_BOTPRESS_BOT_URL} />
 
         {/* Google Tag Manager */}
         <Script id="google-tag-manager" strategy="afterInteractive">
@@ -158,6 +160,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
           strategy="afterInteractive"
         />
+
       </body>
     </html>
   );

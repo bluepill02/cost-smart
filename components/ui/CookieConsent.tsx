@@ -4,6 +4,12 @@ import React, { useState, useEffect } from 'react';
 import { Shield, X, Check, Settings } from 'lucide-react';
 import { Button } from './button';
 
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
 export default function CookieConsent() {
   const [showBanner, setShowBanner] = useState(false);
   const [showDetails, setShowDetails] = useState(false);
@@ -23,21 +29,24 @@ export default function CookieConsent() {
   const handleAcceptAll = () => {
     localStorage.setItem('costsmart-cookie-consent', 'accepted');
     // Set Google Consent Mode v2 if defined
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('consent', 'update', {
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('consent', 'update', {
         'ad_storage': 'granted',
         'analytics_storage': 'granted',
         'ad_user_data': 'granted',
         'ad_personalization': 'granted'
       });
     }
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new Event('costsmart-consent-accepted'));
+    }
     setShowBanner(false);
   };
 
   const handleRejectAll = () => {
     localStorage.setItem('costsmart-cookie-consent', 'rejected');
-    if (typeof window !== 'undefined' && (window as any).gtag) {
-      (window as any).gtag('consent', 'update', {
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('consent', 'update', {
         'ad_storage': 'denied',
         'analytics_storage': 'denied',
         'ad_user_data': 'denied',
@@ -88,6 +97,10 @@ export default function CookieConsent() {
                 </div>
                 <div className="flex justify-between items-center text-xs">
                   <div className="font-semibold text-slate-700 dark:text-slate-300">Ad Personalization (Google AdSense)</div>
+                  <span className="text-[10px] bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 px-2 py-0.5 rounded-full font-medium">Standard</span>
+                </div>
+                <div className="flex justify-between items-center text-xs">
+                  <div className="font-semibold text-slate-700 dark:text-slate-300">Customer Assistant (Botpress)</div>
                   <span className="text-[10px] bg-emerald-50 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 px-2 py-0.5 rounded-full font-medium">Standard</span>
                 </div>
               </div>
