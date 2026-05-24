@@ -158,6 +158,16 @@ export default function RootLayout({
           crossOrigin="anonymous"
           strategy="afterInteractive"
         />
+
+        {/* Botpress Customer Assistant */}
+        <Script
+          src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"
+          strategy="afterInteractive"
+        />
+        <Script
+          src="https://files.bpcontent.cloud/2026/05/24/17/20260524173419-HHZM6DI5.js"
+          strategy="lazyOnload"
+        />
       </body>
     </html>
   );
