@@ -38,9 +38,10 @@ export const PREMIUM_CONFIG = {
     },
   },
   paypal: {
-    // Replace with your actual PayPal client ID
-    clientId: 'YOUR_PAYPAL_CLIENT_ID',
-    // PayPal hosted button URL - replace with your actual button ID
+    // Set the NEXT_PUBLIC_PAYPAL_CLIENT_ID environment variable with your PayPal client ID.
+    // See: https://developer.paypal.com/docs/checkout/standard/integrate/
+    clientId: (process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID || '') as string,
+    // PayPal hosted button URL - replace YOUR_BUTTON_ID with your actual button ID
     hostedButtonUrl: 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YOUR_BUTTON_ID',
   },
 } as const;

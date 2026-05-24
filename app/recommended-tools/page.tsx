@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { getProductsByCategory } from "@/lib/affiliate-data";
-import { ShoppingCart } from "lucide-react";
+import AmazonProductCard from "@/components/affiliate/AmazonProductCard";
 
 export const metadata: Metadata = {
   title: "Recommended Tools & Resources | CostSmart",
@@ -38,28 +38,7 @@ export default function RecommendedToolsPage() {
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {productsByCategory[category].map((product) => (
-              <div
-                key={product.title}
-                className="rounded-2xl border border-slate-200 bg-white p-5 flex flex-col justify-between hover:shadow-md transition-shadow"
-              >
-                <div className="mb-4">
-                  <h3 className="font-semibold text-slate-900 text-sm leading-snug mb-1">
-                    {product.title}
-                  </h3>
-                  <p className="text-xs text-slate-500 leading-relaxed">
-                    {product.description}
-                  </p>
-                </div>
-                <a
-                  href={product.amazonUrl}
-                  target="_blank"
-                  rel="noopener noreferrer sponsored nofollow"
-                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-emerald-600 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-700 transition-colors"
-                >
-                  <ShoppingCart className="w-4 h-4" />
-                  View on Amazon
-                </a>
-              </div>
+              <AmazonProductCard key={product.title} product={product} />
             ))}
           </div>
         </section>

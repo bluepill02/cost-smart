@@ -38,18 +38,21 @@ const FAQ_ITEMS = [
 
 export default function PricingPage() {
   const { free, proMonthly } = PREMIUM_CONFIG.plans;
+  const paypalClientId = PREMIUM_CONFIG.paypal.clientId;
 
   return (
     <div className="min-h-screen">
       {/*
-        PayPal JS SDK - Replace YOUR_PAYPAL_CLIENT_ID with your actual PayPal client ID.
+        PayPal JS SDK - loads only when NEXT_PUBLIC_PAYPAL_CLIENT_ID env var is set.
+        Set this variable in your .env.local or hosting provider.
         See: https://developer.paypal.com/docs/checkout/standard/integrate/
       */}
-      <Script
-        src={`https://www.paypal.com/sdk/js?client-id=${PREMIUM_CONFIG.paypal.clientId}&currency=USD`}
-        strategy="lazyOnload"
-        data-paypal-client-id="YOUR_PAYPAL_CLIENT_ID"
-      />
+      {paypalClientId && (
+        <Script
+          src={`https://www.paypal.com/sdk/js?client-id=${paypalClientId}&currency=USD`}
+          strategy="lazyOnload"
+        />
+      )}
 
       {/* Hero Section */}
       <section

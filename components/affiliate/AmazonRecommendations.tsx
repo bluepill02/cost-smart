@@ -1,5 +1,6 @@
 "use client";
 
+import { useMemo } from "react";
 import { useInView } from "react-intersection-observer";
 import { getRecommendations } from "@/lib/affiliate-data";
 import AmazonProductCard from "./AmazonProductCard";
@@ -10,7 +11,7 @@ interface AmazonRecommendationsProps {
 
 export default function AmazonRecommendations({ calculatorSlug }: AmazonRecommendationsProps) {
   const { ref, inView } = useInView({ triggerOnce: true, rootMargin: "200px" });
-  const products = getRecommendations(calculatorSlug);
+  const products = useMemo(() => getRecommendations(calculatorSlug), [calculatorSlug]);
 
   if (products.length === 0) return null;
 

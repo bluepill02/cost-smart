@@ -1,5 +1,3 @@
-"use client";
-
 import { ShoppingCart } from "lucide-react";
 import type { AffiliateProduct } from "@/lib/affiliate-data";
 
