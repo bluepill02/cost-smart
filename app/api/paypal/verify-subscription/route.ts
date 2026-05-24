@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { isValidSubscriptionId, verifySubscription } from '@/lib/paypal';
 
 export async function POST(request: NextRequest) {
   try {
@@ -24,75 +25,36 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const clientId = process.env.PAYPAL_CLIENT_ID;
-    const clientSecret = process.env.PAYPAL_CLIENT_SECRET;
-
-    if (!clientId || !clientSecret) {
+    // Validate subscription ID format before making external API call
+    if (!isValidSubscriptionId(subscriptionId)) {
       return NextResponse.json(
-        { error: 'PayPal credentials not configured' },
-        { status: 500 }
+        { error: 'Invalid subscription ID format' },
+        { status: 400 }
       );
     }
 
-    // Get OAuth token from PayPal
-    const tokenResponse = await fetch(
-      'https://api-m.sandbox.paypal.com/v1/oauth2/token',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-          Authorization: `Basic ${Buffer.from(`${clientId}:${clientSecret}`).toString('base64')}`,
-        },
-        body: 'grant_type=client_credentials',
-      }
-    );
-
-    if (!tokenResponse.ok) {
-      console.error('PayPal token error:', tokenResponse.status);
-      return NextResponse.json(
-        { error: 'Failed to authenticate with PayPal' },
-        { status: 502 }
-      );
-    }
-
-    const tokenData = await tokenResponse.json();
-    const accessToken = tokenData.access_token;
-
-    // Get subscription details
-    const subscriptionResponse = await fetch(
-      `https://api-m.sandbox.paypal.com/v1/billing/subscriptions/${encodeURIComponent(subscriptionId)}`,
-      {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${accessToken}`,
-        },
-      }
-    );
-
-    if (!subscriptionResponse.ok) {
-      if (subscriptionResponse.status === 404) {
-        return NextResponse.json(
-          { error: 'Subscription not found' },
-          { status: 404 }
-        );
-      }
-      console.error('PayPal subscription error:', subscriptionResponse.status);
-      return NextResponse.json(
-        { error: 'Failed to verify subscription' },
-        { status: 502 }
-      );
-    }
-
-    const subscriptionData = await subscriptionResponse.json();
+    const result = await verifySubscription(subscriptionId);
 
     return NextResponse.json({
-      status: subscriptionData.status,
-      planId: subscriptionData.plan_id,
-      subscriberId: subscriptionData.subscriber?.payer_id || null,
+      status: result.status,
+      planId: result.planId,
+      subscriberId: result.subscriberId,
     });
   } catch (error) {
     console.error('Verify subscription error:', error);
+
+    const message = error instanceof Error ? error.message : 'Internal server error';
+
+    if (message === 'PayPal credentials not configured') {
+      return NextResponse.json({ error: message }, { status: 500 });
+    }
+    if (message === 'Subscription not found') {
+      return NextResponse.json({ error: message }, { status: 404 });
+    }
+    if (message.startsWith('PayPal token error:') || message.startsWith('PayPal subscription error:')) {
+      return NextResponse.json({ error: 'Failed to verify subscription' }, { status: 502 });
+    }
+
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

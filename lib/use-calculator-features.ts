@@ -8,6 +8,8 @@ declare global {
 
 interface UseCalculatorInsightsProps {
   calculatorType: string;
+  isPro?: boolean;
+  subscriptionId?: string | null;
 }
 
 interface InsightsResponse {
@@ -16,7 +18,7 @@ interface InsightsResponse {
   analytics: Record<string, any>;
 }
 
-export function useCalculatorInsights({ calculatorType }: UseCalculatorInsightsProps) {
+export function useCalculatorInsights({ calculatorType, isPro, subscriptionId }: UseCalculatorInsightsProps) {
   const [insights, setInsights] = useState<Record<string, string> | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -34,6 +36,8 @@ export function useCalculatorInsights({ calculatorType }: UseCalculatorInsightsP
             calculatorType,
             values,
             result,
+            isPro: !!isPro,
+            subscriptionId: subscriptionId || undefined,
           }),
         });
 
@@ -60,7 +64,7 @@ export function useCalculatorInsights({ calculatorType }: UseCalculatorInsightsP
         setLoading(false);
       }
     },
-    [calculatorType]
+    [calculatorType, isPro, subscriptionId]
   );
 
   return { insights, loading, error, getInsights };
