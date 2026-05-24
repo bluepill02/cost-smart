@@ -1,11 +1,5 @@
 import { useState, useCallback } from 'react';
 
-declare global {
-  interface Window {
-    gtag?: (...args: any[]) => void;
-  }
-}
-
 interface UseCalculatorInsightsProps {
   calculatorType: string;
   isPro?: boolean;

@@ -30,6 +30,7 @@ export default function CookiesPage() {
             <ul>
                 <li><strong>Strictly Necessary Cookies:</strong> These are essential for the website to function properly.</li>
                 <li><strong>Analytics Cookies:</strong> These help us understand how users interact with our website (e.g., Google Analytics).</li>
+                <li><strong>Functional Cookies / Local Storage:</strong> These enable optional features such as our Botpress customer assistant, which is loaded only after consent is accepted.</li>
             </ul>
 
             <h2>Managing Cookies</h2>
