@@ -1,11 +1,41 @@
 "use client";
 
 import { useState } from 'react';
-import { FileDown, Lock } from 'lucide-react';
+import { FileDown, Lock, Loader2 } from 'lucide-react';
 import Link from 'next/link';
+import { useProStatus } from '@/lib/hooks/useProStatus';
 
 export default function PDFExportButton() {
   const [showTooltip, setShowTooltip] = useState(false);
+  const { isPro, isLoading } = useProStatus();
+
+  if (isLoading) {
+    return (
+      <div className="relative inline-block">
+        <button
+          disabled
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-slate-200 text-sm font-medium text-slate-400 bg-white shadow-sm cursor-not-allowed"
+        >
+          <Loader2 className="w-4 h-4 animate-spin" />
+          Download PDF Report
+        </button>
+      </div>
+    );
+  }
+
+  if (isPro) {
+    return (
+      <div className="relative inline-block">
+        <a
+          href="/api/export"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg border border-emerald-200 text-sm font-medium text-emerald-700 hover:bg-emerald-50 hover:border-emerald-300 transition-colors bg-white shadow-sm"
+        >
+          <FileDown className="w-4 h-4" />
+          Download PDF Report
+        </a>
+      </div>
+    );
+  }
 
   return (
     <div className="relative inline-block">

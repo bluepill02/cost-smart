@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
 import Link from 'next/link';
+import { useProStatus } from '@/lib/hooks/useProStatus';
 
 interface AdContainerProps {
     slotId?: string;
@@ -18,6 +19,7 @@ declare global {
 }
 
 export default function AdContainer({ slotId, className = "", size = 'leaderboard' }: AdContainerProps) {
+    const { isPro, isLoading } = useProStatus();
     const { ref, inView } = useInView({
         triggerOnce: true,
         rootMargin: '200px',
@@ -48,6 +50,7 @@ export default function AdContainer({ slotId, className = "", size = 'leaderboar
     const activeSlotId = slotId || fallbackSlots[size] || '1475703853';
 
     useEffect(() => {
+        if (isPro) return;
         if (inView && activeSlotId && adState === 'loading') {
             try {
                 const checkAdBlock = () => {
@@ -72,7 +75,12 @@ export default function AdContainer({ slotId, className = "", size = 'leaderboar
                 setAdState('blocked');
             }
         }
-    }, [inView, activeSlotId, adState]);
+    }, [inView, activeSlotId, adState, isPro]);
+
+    // Hide ads for Pro users
+    if (isPro) {
+        return null;
+    }
 
     const AdFallback = () => (
         <div className="w-full h-full bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-200 rounded-lg flex flex-col items-center justify-center text-center p-4 relative overflow-hidden group hover:border-emerald-400 transition-colors cursor-pointer">

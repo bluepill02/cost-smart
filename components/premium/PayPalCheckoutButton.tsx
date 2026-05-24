@@ -3,6 +3,7 @@
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 import { useState } from "react";
 import { PREMIUM_CONFIG } from "@/lib/premium-config";
+import { useProStatus } from "@/lib/hooks/useProStatus";
 
 interface PayPalCheckoutButtonProps {
   planType?: "monthly" | "yearly";
@@ -11,6 +12,8 @@ interface PayPalCheckoutButtonProps {
 export default function PayPalCheckoutButton({ planType = "monthly" }: PayPalCheckoutButtonProps) {
   const [paid, setPaid] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [approvedSubId, setApprovedSubId] = useState<string | null>(null);
+  const { setSubscriptionId } = useProStatus();
   const clientId = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID;
 
   const planId = planType === "yearly"
@@ -30,6 +33,11 @@ export default function PayPalCheckoutButton({ planType = "monthly" }: PayPalChe
         <p className="text-xs text-emerald-600 mt-1">
           You will receive a confirmation email from PayPal shortly.
         </p>
+        {approvedSubId && (
+          <p className="text-xs text-slate-500 mt-2">
+            Subscription ID: {approvedSubId}
+          </p>
+        )}
       </div>
     );
   }
@@ -66,6 +74,10 @@ export default function PayPalCheckoutButton({ planType = "monthly" }: PayPalChe
         }}
         onApprove={async (data) => {
           console.log("Subscription approved:", data.subscriptionID);
+          if (data.subscriptionID) {
+            setSubscriptionId(data.subscriptionID);
+            setApprovedSubId(data.subscriptionID);
+          }
           setPaid(true);
         }}
         onError={(err) => {

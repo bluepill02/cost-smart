@@ -8,6 +8,7 @@ import AdContainer from '@/components/ads/AdContainer';
 import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import CookieConsent from "@/components/ui/CookieConsent";
 import GoogleAnalyticsTracker from "@/components/analytics/GoogleAnalytics";
+import Providers from "@/components/providers/Providers";
 
 // DM Sans — refined body font with excellent legibility
 const dmSans = DM_Sans({
@@ -105,6 +106,7 @@ export default function RootLayout({
           />
         </noscript>
 
+        <Providers>
         <Navbar />
         <GoogleAnalyticsTracker />
 
@@ -122,6 +124,7 @@ export default function RootLayout({
         </div>
 
         <Footer />
+        </Providers>
         <CookieConsent />
 
         {/* Google Tag Manager */}
