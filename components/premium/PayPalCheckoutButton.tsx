@@ -13,7 +13,7 @@ export default function PayPalCheckoutButton({ planType = "monthly" }: PayPalChe
   const [paid, setPaid] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [approvedSubId, setApprovedSubId] = useState<string | null>(null);
-  const { setSubscriptionId } = useProStatus();
+  const { setProEmail } = useProStatus();
   const clientId = process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID;
 
   const planId = planType === "yearly"
@@ -75,8 +75,21 @@ export default function PayPalCheckoutButton({ planType = "monthly" }: PayPalChe
         onApprove={async (data) => {
           console.log("Subscription approved:", data.subscriptionID);
           if (data.subscriptionID) {
-            setSubscriptionId(data.subscriptionID);
             setApprovedSubId(data.subscriptionID);
+            // Verify subscription with server to get email
+            try {
+              const res = await fetch('/api/paypal/verify-subscription', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ subscriptionId: data.subscriptionID }),
+              });
+              const result = await res.json();
+              if (result.email) {
+                setProEmail(result.email);
+              }
+            } catch {
+              // Verification will happen on next page load
+            }
           }
           setPaid(true);
         }}
