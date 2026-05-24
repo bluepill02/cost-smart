@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { getProductsByCategory } from "@/lib/affiliate-data";
 import AmazonProductCard from "@/components/affiliate/AmazonProductCard";
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 
 export const metadata: Metadata = {
   title: "Recommended Tools & Resources | CostSmart",
@@ -8,6 +9,13 @@ export const metadata: Metadata = {
     "Curated Amazon product recommendations for home buyers, investors, freelancers, and business owners. Tools, books, and resources to help you make smarter financial decisions.",
   alternates: {
     canonical: "https://cost-smart-five.vercel.app/recommended-tools",
+  },
+  openGraph: {
+    title: 'Recommended Tools & Resources | CostSmart',
+    description: 'Curated Amazon product recommendations for home buyers, investors, freelancers, and business owners. Tools, books, and resources to help you make smarter financial decisions.',
+    url: `${CANONICAL_DOMAIN}/recommended-tools`,
+    type: 'website',
+    images: [{ url: `${CANONICAL_DOMAIN}/og-image.png`, width: 1200, height: 630, alt: 'Recommended Tools & Resources' }],
   },
 };
 

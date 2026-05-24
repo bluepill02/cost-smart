@@ -1,13 +1,20 @@
 import { Metadata } from 'next';
 import GSTInputCreditCalculator from '@/components/calculators/business/GSTInputCreditCalculator';
 import JsonLd from '@/components/seo/JsonLd';
-import { getCalculatorSchema } from '@/lib/seo-utils';
+import { getCalculatorSchema, CANONICAL_DOMAIN } from '@/lib/seo-utils';
 
 export const metadata: Metadata = {
   title: 'GST Input Credit Calculator | CostSmart',
   description: 'Calculate net GST payable after claiming Input Tax Credit (ITC). Enter GST collected on sales and GST paid on purchases to find your exact tax liability.',
   alternates: {
     canonical: 'https://cost-smart-five.vercel.app/in/gst-input-credit-calculator',
+  },
+  openGraph: {
+    title: 'GST Input Credit Calculator | CostSmart',
+    description: 'Calculate net GST payable after claiming Input Tax Credit (ITC). Enter GST collected on sales and GST paid on purchases to find your exact tax liability.',
+    url: `${CANONICAL_DOMAIN}/in/gst-input-credit-calculator`,
+    type: 'website',
+    images: [{ url: `${CANONICAL_DOMAIN}/og-image.png`, width: 1200, height: 630, alt: 'GST Input Credit Calculator' }],
   },
 };
 

@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import ProfitMarginCalculator from '@/components/calculators/business/ProfitMarginCalculator';
 import JsonLd from '@/components/seo/JsonLd';
-import { getCalculatorSchema } from '@/lib/seo-utils';
+import { getCalculatorSchema, CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import AmazonRecommendations from '@/components/affiliate/AmazonRecommendations';
 
 export const metadata: Metadata = {
@@ -9,6 +9,13 @@ export const metadata: Metadata = {
   description: 'Calculate Gross Margin, Markup, and Net Profit.',
   alternates: {
     canonical: 'https://cost-smart-five.vercel.app/profit-margin-calculator',
+  },
+  openGraph: {
+    title: 'Profit Margin Calculator | CostSmart',
+    description: 'Calculate Gross Margin, Markup, and Net Profit.',
+    url: `${CANONICAL_DOMAIN}/profit-margin-calculator`,
+    type: 'website',
+    images: [{ url: `${CANONICAL_DOMAIN}/og-image.png`, width: 1200, height: 630, alt: 'Profit Margin Calculator' }],
   },
 };
 

@@ -1,13 +1,20 @@
 import { Metadata } from 'next';
 import PropertyTaxCalculator from '@/components/calculators/real-estate/PropertyTaxCalculator';
 import JsonLd from '@/components/seo/JsonLd';
-import { getCalculatorSchema } from '@/lib/seo-utils';
+import { getCalculatorSchema, CANONICAL_DOMAIN } from '@/lib/seo-utils';
 
 export const metadata: Metadata = {
   title: 'Property Tax Calculator | CostSmart',
   description: 'Estimate municipal property tax for your home or commercial property. Covers major Indian cities with rates based on annual value, location, and property type.',
   alternates: {
     canonical: 'https://cost-smart-five.vercel.app/in/property-tax-calculator',
+  },
+  openGraph: {
+    title: 'Property Tax Calculator | CostSmart',
+    description: 'Estimate municipal property tax for your home or commercial property. Covers major Indian cities with rates based on annual value, location, and property type.',
+    url: `${CANONICAL_DOMAIN}/in/property-tax-calculator`,
+    type: 'website',
+    images: [{ url: `${CANONICAL_DOMAIN}/og-image.png`, width: 1200, height: 630, alt: 'Property Tax Calculator' }],
   },
 };
 

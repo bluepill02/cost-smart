@@ -207,7 +207,7 @@ export default function ComparePage() {
               <p className="text-xs text-slate-600 mt-1">Mutual fund SIP</p>
             </Link>
             <Link 
-              href="/in/home-loan-calculator"
+              href="/home-loan-calculator"
               className="bg-white rounded-lg p-4 text-center hover:shadow-lg transition-shadow border border-slate-200"
             >
               <p className="font-semibold text-slate-900">Home Loan EMI</p>

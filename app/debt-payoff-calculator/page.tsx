@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { getCalculatorSchema } from '@/lib/seo-utils';
+import { getCalculatorSchema, CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import DebtPayoffCalculator from '@/components/calculators/debt/DebtPayoffCalculator';
 import AdContainer from '@/components/ads/AdContainer';
 import { Badge } from '@/components/ui/badge';
@@ -13,7 +13,14 @@ export const metadata: Metadata = {
     description: 'Create a plan to get out of debt faster. Compare Debt Snowball vs Debt Avalanche strategies to see which one saves you more money.',
     alternates: {
         canonical: 'https://cost-smart-five.vercel.app/debt-payoff-calculator',
-    }
+    },
+    openGraph: {
+        title: 'Debt Payoff Calculator | Snowball vs Avalanche Method',
+        description: 'Create a plan to get out of debt faster. Compare Debt Snowball vs Debt Avalanche strategies to see which one saves you more money.',
+        url: `${CANONICAL_DOMAIN}/debt-payoff-calculator`,
+        type: 'website',
+        images: [{ url: `${CANONICAL_DOMAIN}/og-image.png`, width: 1200, height: 630, alt: 'Debt Payoff Calculator' }],
+    },
 };
 
 export default function DebtCalculatorPage() {

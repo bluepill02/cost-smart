@@ -520,7 +520,7 @@ export default function RentVsBuyVsInvestPage() {
                   Use our advanced calculator to compare rent vs buy for your specific property and financial situation.
                 </p>
                 <Link 
-                  href="/in/rent-vs-buy-calculator"
+                  href="/rent-vs-buy-calculator"
                   className="inline-flex items-center bg-blue-600 text-white px-5 py-2.5 rounded-lg font-semibold hover:bg-blue-700 transition-colors text-sm"
                 >
                   Compare Now <ArrowRight className="ml-2 w-4 h-4" />
@@ -535,7 +535,7 @@ export default function RentVsBuyVsInvestPage() {
                   Get accurate EMI calculations with actual interest rates and tax benefits for your home purchase.
                 </p>
                 <Link 
-                  href="/in/home-loan-calculator"
+                  href="/home-loan-calculator"
                   className="inline-flex items-center bg-purple-600 text-white px-5 py-2.5 rounded-lg font-semibold hover:bg-purple-700 transition-colors text-sm"
                 >
                   Calculate EMI <ArrowRight className="ml-2 w-4 h-4" />

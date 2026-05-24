@@ -3,6 +3,7 @@ import Script from 'next/script';
 import PricingCard from '@/components/premium/PricingCard';
 import { PREMIUM_CONFIG } from '@/lib/premium-config';
 import { Sparkles, ShieldCheck, CreditCard, HelpCircle } from 'lucide-react';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 
 export const metadata: Metadata = {
   title: 'Pricing | CostSmart Pro - PDF Reports, Ad-Free, AI Advice',
@@ -10,6 +11,13 @@ export const metadata: Metadata = {
     'Upgrade to CostSmart Pro for $4.99/month. Get PDF report exports, ad-free experience, advanced AI financial advice, and priority support.',
   alternates: {
     canonical: 'https://cost-smart-five.vercel.app/pricing',
+  },
+  openGraph: {
+    title: 'Pricing | CostSmart Pro - PDF Reports, Ad-Free, AI Advice',
+    description: 'Upgrade to CostSmart Pro for $4.99/month. Get PDF report exports, ad-free experience, advanced AI financial advice, and priority support.',
+    url: `${CANONICAL_DOMAIN}/pricing`,
+    type: 'website',
+    images: [{ url: `${CANONICAL_DOMAIN}/og-image.png`, width: 1200, height: 630, alt: 'CostSmart Pro Pricing' }],
   },
 };
 

@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import StampDutyCalculator from '@/components/calculators/real-estate/StampDutyCalculator';
 import AdContainer from '@/components/ads/AdContainer';
 import JsonLd from '@/components/seo/JsonLd';
-import { getCalculatorSchema } from '@/lib/seo-utils';
+import { getCalculatorSchema, CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import Link from 'next/link';
 import { MapPin } from 'lucide-react';
 import { INDIAN_STATES_STAMP_DUTY } from '@/lib/pseo-data/stamp-duty';
@@ -12,6 +12,13 @@ export const metadata: Metadata = {
   description: 'Calculate Stamp Duty and Registration Charges for property in India. Updated rates for Maharashtra, Karnataka, Tamil Nadu, and more.',
   alternates: {
     canonical: 'https://cost-smart-five.vercel.app/in/stamp-duty-calculator',
+  },
+  openGraph: {
+    title: 'Stamp Duty Calculator India 2025 | State-wise Rates',
+    description: 'Calculate Stamp Duty and Registration Charges for property in India. Updated rates for Maharashtra, Karnataka, Tamil Nadu, and more.',
+    url: `${CANONICAL_DOMAIN}/in/stamp-duty-calculator`,
+    type: 'website',
+    images: [{ url: `${CANONICAL_DOMAIN}/og-image.png`, width: 1200, height: 630, alt: 'Stamp Duty Calculator' }],
   },
 };
 
