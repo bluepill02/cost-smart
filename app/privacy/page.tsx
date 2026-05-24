@@ -29,12 +29,12 @@ export default function PrivacyPage() {
 
             <h2>2. Cookies</h2>
             <p>
-                We use cookies to enhance your experience and analyze traffic. You can control cookie preferences through your browser settings.
+                We use cookies and local storage to enhance your experience, analyze traffic, and power optional services. You can control cookie preferences through our consent banner and your browser settings.
             </p>
 
             <h2>3. Third-Party Services</h2>
             <p>
-                We may use third-party advertising partners who may collect non-personal information to show you relevant ads.
+                We use third-party providers such as Google Analytics, Google AdSense, and Botpress (customer assistant). Botpress is only loaded after you accept optional cookies.
             </p>
 
             <h2>4. Contact Us</h2>
