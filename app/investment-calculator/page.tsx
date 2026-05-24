@@ -5,6 +5,7 @@ import StickyAdSidebar from '@/components/ads/StickyAdSidebar';
 import { Badge } from '@/components/ui/badge';
 import { TrendingUp } from 'lucide-react';
 import CalculatorSchemaInjector from '@/components/seo/CalculatorSchemaInjector';
+import AmazonRecommendations from '@/components/affiliate/AmazonRecommendations';
 
 export const metadata: Metadata = {
     title: 'Investment Return Calculator | Compound Interest Growth',
@@ -59,6 +60,8 @@ export default function InvestmentCalculatorPage() {
                     <StickyAdSidebar slotId="5821640937" />
                 </div>
             </div>
+
+            <AmazonRecommendations calculatorSlug="investment" />
         </div>
     );
 }

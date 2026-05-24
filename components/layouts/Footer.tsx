@@ -88,6 +88,7 @@ export default function Footer() {
           <p className="opacity-50 max-w-2xl text-center">
             <strong>Disclaimer:</strong> All calculators provide estimates for informational purposes only.
             Not financial advice. Consult a qualified professional before making financial decisions.
+            Some links on this site are affiliate links. We may earn a commission at no extra cost to you.
           </p>
         </div>
       </div>

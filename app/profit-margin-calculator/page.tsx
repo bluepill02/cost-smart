@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import ProfitMarginCalculator from '@/components/calculators/business/ProfitMarginCalculator';
 import JsonLd from '@/components/seo/JsonLd';
 import { getCalculatorSchema } from '@/lib/seo-utils';
+import AmazonRecommendations from '@/components/affiliate/AmazonRecommendations';
 
 export const metadata: Metadata = {
   title: 'Profit Margin Calculator | CostSmart',
@@ -40,6 +41,8 @@ export default function Page() {
             Accuracy saves money and helps in better planning.
         </p>
       </article>
+
+      <AmazonRecommendations calculatorSlug="profit-margin" />
     </div>
   );
 }

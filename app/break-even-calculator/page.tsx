@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import BreakEvenCalculator from '@/components/calculators/business/BreakEvenCalculator';
 import JsonLd from '@/components/seo/JsonLd';
 import { getCalculatorSchema } from '@/lib/seo-utils';
+import AmazonRecommendations from '@/components/affiliate/AmazonRecommendations';
 
 export const metadata: Metadata = {
   title: 'Break-Even Calculator | CostSmart',
@@ -40,6 +41,8 @@ export default function Page() {
             Accuracy saves money and helps in better planning.
         </p>
       </article>
+
+      <AmazonRecommendations calculatorSlug="break-even" />
     </div>
   );
 }
