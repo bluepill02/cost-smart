@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { TrendingUp } from 'lucide-react';
 import CalculatorSchemaInjector from '@/components/seo/CalculatorSchemaInjector';
 import AmazonRecommendations from '@/components/affiliate/AmazonRecommendations';
+import PremiumBanner from '@/components/premium/PremiumBanner';
 
 export const metadata: Metadata = {
     title: 'Investment Return Calculator | Compound Interest Growth',
@@ -62,6 +63,8 @@ export default function InvestmentCalculatorPage() {
             </div>
 
             <AmazonRecommendations calculatorSlug="investment" />
+
+            <PremiumBanner />
         </div>
     );
 }

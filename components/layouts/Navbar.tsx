@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
-import { Zap, Menu, X, ChevronDown } from 'lucide-react';
+import { Zap, Menu, X, ChevronDown, Sparkles } from 'lucide-react';
 
 const CALC_GROUPS = [
   {
@@ -128,6 +128,13 @@ export default function Navbar() {
             About
           </Link>
           <Link
+            href="/pricing"
+            className="flex items-center gap-1 text-sm font-medium text-amber-600 hover:text-amber-700 transition-colors px-3 py-2 rounded-lg hover:bg-amber-50"
+          >
+            <Sparkles className="w-3.5 h-3.5" />
+            Pro
+          </Link>
+          <Link
             href="/calculators"
             className="ml-2 bg-emerald-600 text-white text-sm font-semibold px-4 py-2 rounded-xl hover:bg-emerald-700 transition-colors"
           >
@@ -167,10 +174,11 @@ export default function Navbar() {
               </div>
             </div>
           ))}
-          <div className="border-t border-slate-100 pt-3 grid grid-cols-3 gap-2">
+          <div className="border-t border-slate-100 pt-3 grid grid-cols-4 gap-2">
             <Link href="/compare" onClick={() => setMobileOpen(false)} className="text-sm font-medium text-slate-600 hover:text-emerald-600 text-center py-2">Compare</Link>
             <Link href="/blog" onClick={() => setMobileOpen(false)} className="text-sm font-medium text-slate-600 hover:text-emerald-600 text-center py-2">Blog</Link>
             <Link href="/about" onClick={() => setMobileOpen(false)} className="text-sm font-medium text-slate-600 hover:text-emerald-600 text-center py-2">About</Link>
+            <Link href="/pricing" onClick={() => setMobileOpen(false)} className="text-sm font-medium text-amber-600 hover:text-amber-700 text-center py-2 flex items-center justify-center gap-1"><Sparkles className="w-3.5 h-3.5" />Pro</Link>
           </div>
           <Link
             href="/calculators"

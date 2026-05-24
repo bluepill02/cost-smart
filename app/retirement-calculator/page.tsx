@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { Palmtree } from 'lucide-react';
 import JsonLd from '@/components/seo/JsonLd';
 import AmazonRecommendations from '@/components/affiliate/AmazonRecommendations';
+import PremiumBanner from '@/components/premium/PremiumBanner';
 
 export const metadata: Metadata = {
     title: 'Retirement Planner | Inflation Adjusted Calculator',
@@ -60,6 +61,8 @@ export default function RetirementCalculatorPage() {
             </div>
 
             <AmazonRecommendations calculatorSlug="retirement" />
+
+            <PremiumBanner />
         </div>
     );
 }
