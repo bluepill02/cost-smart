@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import ElectricityBillCalculator from '@/components/calculators/real-estate/ElectricityBillCalculator';
 import JsonLd from '@/components/seo/JsonLd';
 import { getCalculatorSchema, CANONICAL_DOMAIN } from '@/lib/seo-utils';
+import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'Electricity Bill Calculator | CostSmart',
@@ -47,6 +48,8 @@ export default function Page() {
             Accuracy saves money and helps in better planning.
         </p>
       </article>
+
+      <RelatedCalculators category="utility" currentHref="/in/electricity-bill-calculator" />
     </div>
   );
 }

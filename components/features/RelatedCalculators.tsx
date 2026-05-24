@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRight, Calculator, TrendingUp, Home, Receipt, PiggyBank, Sun, Briefcase } from 'lucide-react';
+import { ArrowRight, Calculator, TrendingUp, Home, Receipt, PiggyBank, Sun, Briefcase, Droplets } from 'lucide-react';
 
 interface RelatedTool {
   name: string;
@@ -55,6 +55,14 @@ const CATEGORY_TOOLS: Record<string, RelatedTool[]> = {
     { name: 'Electricity Bill', href: '/in/electricity-bill-calculator', desc: 'Monthly bill estimate', icon: Calculator, color: 'text-yellow-600 bg-yellow-50' },
     { name: 'Investment Calculator', href: '/investment-calculator', desc: 'Long-term returns', icon: TrendingUp, color: 'text-emerald-600 bg-emerald-50' },
     { name: 'Import Duty', href: '/import-duty', desc: 'Panel import costs', icon: Receipt, color: 'text-blue-600 bg-blue-50' },
+  ],
+  'utility': [
+    { name: 'Electricity Bill', href: '/in/electricity-bill-calculator', desc: 'State-wise slab rates', icon: Calculator, color: 'text-yellow-600 bg-yellow-50' },
+    { name: 'Water Bill', href: '/in/water-bill-calculator', desc: 'Monthly water charges', icon: Droplets, color: 'text-blue-600 bg-blue-50' },
+    { name: 'LPG Subsidy', href: '/in/lpg-subsidy-calculator', desc: 'Annual LPG savings', icon: PiggyBank, color: 'text-orange-600 bg-orange-50' },
+    { name: 'Property Tax', href: '/in/property-tax-calculator', desc: 'Municipal tax estimate', icon: Receipt, color: 'text-violet-600 bg-violet-50' },
+    { name: 'Solar ROI', href: '/solar-roi', desc: 'Solar panel savings', icon: Sun, color: 'text-amber-600 bg-amber-50' },
+    { name: 'Home Renovation', href: '/home-renovation-cost-estimator', desc: 'Room-by-room costs', icon: Home, color: 'text-teal-600 bg-teal-50' },
   ],
 };
 

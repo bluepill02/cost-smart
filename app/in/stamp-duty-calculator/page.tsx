@@ -3,6 +3,7 @@ import StampDutyCalculator from '@/components/calculators/real-estate/StampDutyC
 import AdContainer from '@/components/ads/AdContainer';
 import JsonLd from '@/components/seo/JsonLd';
 import { getCalculatorSchema, CANONICAL_DOMAIN } from '@/lib/seo-utils';
+import RelatedCalculators from '@/components/features/RelatedCalculators';
 import Link from 'next/link';
 import { MapPin } from 'lucide-react';
 import { INDIAN_STATES_STAMP_DUTY } from '@/lib/pseo-data/stamp-duty';
@@ -77,6 +78,8 @@ export default function Page() {
             ))}
         </div>
       </section>
+
+      <RelatedCalculators category="property" currentHref="/in/stamp-duty-calculator" />
     </div>
   );
 }

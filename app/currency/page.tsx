@@ -4,6 +4,7 @@ import CurrencyConverter from '@/components/calculators/currency/CurrencyConvert
 import { getLatestRates } from '@/lib/currency-api';
 import AdContainer from '@/components/ads/AdContainer';
 import JsonLd from '@/components/seo/JsonLd';
+import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
     title: 'Live Currency Converter & Exchange Rates | CostSmart',
@@ -61,6 +62,8 @@ export default async function CurrencyPage() {
                     </div>
                 </div>
             </div>
+
+            <RelatedCalculators category="investment" currentHref="/currency" />
         </div>
     );
 }

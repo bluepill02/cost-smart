@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import ShippingCalculator from '@/components/calculators/business/ShippingCalculator';
 import JsonLd from '@/components/seo/JsonLd';
 import { getCalculatorSchema } from '@/lib/seo-utils';
+import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'Shipping Cost Calculator | CostSmart',
@@ -40,6 +41,8 @@ export default function Page() {
             Accuracy saves money and helps in better planning.
         </p>
       </article>
+
+      <RelatedCalculators category="business" currentHref="/shipping-cost-calculator" />
     </div>
   );
 }

@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import BusinessLoanCalculator from '@/components/calculators/business/BusinessLoanCalculator';
 import JsonLd from '@/components/seo/JsonLd';
 import { getCalculatorSchema } from '@/lib/seo-utils';
+import RelatedCalculators from '@/components/features/RelatedCalculators';
 import AmazonRecommendations from '@/components/affiliate/AmazonRecommendations';
 
 export const metadata: Metadata = {
@@ -43,6 +44,8 @@ export default function Page() {
       </article>
 
       <AmazonRecommendations calculatorSlug="business-loan" />
+
+      <RelatedCalculators category="business" currentHref="/business-loan-calculator" />
     </div>
   );
 }

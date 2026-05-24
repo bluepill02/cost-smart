@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import GSTCalculator from '@/components/calculators/tax/GSTCalculator';
 import { getCalculatorSchema, CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import JsonLd from '@/components/seo/JsonLd';
+import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'GST Calculator India | Inclusive & Exclusive 2025',
@@ -67,6 +68,8 @@ export default function GSTPage() {
             <li><strong>28%:</strong> Luxury goods (Cars, tobacco, cement)</li>
         </ul>
       </div>
+
+      <RelatedCalculators category="business" currentHref="/in/gst-calculator" />
     </div>
   );
 }

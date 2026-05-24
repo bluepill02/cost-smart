@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { getProductsByCategory } from "@/lib/affiliate-data";
 import AmazonProductCard from "@/components/affiliate/AmazonProductCard";
 import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
+import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: "Recommended Tools & Resources | CostSmart",
@@ -51,6 +52,8 @@ export default function RecommendedToolsPage() {
           </div>
         </section>
       ))}
+
+      <RelatedCalculators category="india-finance" title="Explore Our Calculators" />
     </div>
   );
 }

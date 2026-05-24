@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import GSTInputCreditCalculator from '@/components/calculators/business/GSTInputCreditCalculator';
 import JsonLd from '@/components/seo/JsonLd';
 import { getCalculatorSchema, CANONICAL_DOMAIN } from '@/lib/seo-utils';
+import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'GST Input Credit Calculator | CostSmart',
@@ -47,6 +48,8 @@ export default function Page() {
             Accuracy saves money and helps in better planning.
         </p>
       </article>
+
+      <RelatedCalculators category="business" currentHref="/in/gst-input-credit-calculator" />
     </div>
   );
 }

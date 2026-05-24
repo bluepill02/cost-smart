@@ -7,6 +7,7 @@ import { TrendingDown } from 'lucide-react';
 import JsonLd from '@/components/seo/JsonLd';
 import AmazonRecommendations from '@/components/affiliate/AmazonRecommendations';
 import PremiumBanner from '@/components/premium/PremiumBanner';
+import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
     title: 'Debt Payoff Calculator | Snowball vs Avalanche Method',
@@ -79,6 +80,8 @@ export default function DebtCalculatorPage() {
             </div>
 
             <AmazonRecommendations calculatorSlug="debt-payoff" />
+
+            <RelatedCalculators category="loan" currentHref="/debt-payoff-calculator" />
 
             <PremiumBanner />
         </div>

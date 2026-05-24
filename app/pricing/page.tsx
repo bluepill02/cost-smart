@@ -4,6 +4,7 @@ import PricingCard from '@/components/premium/PricingCard';
 import { PREMIUM_CONFIG } from '@/lib/premium-config';
 import { Sparkles, ShieldCheck, CreditCard, HelpCircle } from 'lucide-react';
 import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
+import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'Pricing | CostSmart Pro - PDF Reports, Ad-Free, AI Advice',
@@ -207,6 +208,11 @@ export default function PricingPage() {
             </div>
           ))}
         </div>
+      </section>
+
+      {/* Explore Calculators */}
+      <section className="container mx-auto px-4 max-w-3xl pb-16">
+        <RelatedCalculators category="india-finance" title="Explore Our Calculators" />
       </section>
     </div>
   );

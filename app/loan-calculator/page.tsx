@@ -6,6 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { ShieldCheck } from 'lucide-react';
 import CalculatorSchemaInjector from '@/components/seo/CalculatorSchemaInjector';
 import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
+import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
     title: 'True Cost Loan Calculator | Mortgage & EMI Estimator',
@@ -75,6 +76,8 @@ export default function LoanCalculatorPage() {
                     <StickyAdSidebar slotId="5821640937" />
                 </div>
             </div>
+
+            <RelatedCalculators category="loan" currentHref="/loan-calculator" />
         </div>
     );
 }

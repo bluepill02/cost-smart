@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import PropertyTaxCalculator from '@/components/calculators/real-estate/PropertyTaxCalculator';
 import JsonLd from '@/components/seo/JsonLd';
 import { getCalculatorSchema, CANONICAL_DOMAIN } from '@/lib/seo-utils';
+import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'Property Tax Calculator | CostSmart',
@@ -47,6 +48,8 @@ export default function Page() {
             Accuracy saves money and helps in better planning.
         </p>
       </article>
+
+      <RelatedCalculators category="property" currentHref="/in/property-tax-calculator" />
     </div>
   );
 }
