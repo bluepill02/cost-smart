@@ -18,6 +18,7 @@ interface PricingCardProps {
   ctaText?: string;
   ctaHref?: string;
   paypalButton?: boolean;
+  planType?: "monthly" | "yearly";
 }
 
 export default function PricingCard({
@@ -29,6 +30,7 @@ export default function PricingCard({
   ctaText = 'Get Started',
   ctaHref = '/calculators',
   paypalButton = false,
+  planType = "monthly",
 }: PricingCardProps) {
   return (
     <div
@@ -69,7 +71,7 @@ export default function PricingCard({
 
       {paypalButton ? (
         <div className="w-full min-h-[50px]">
-          <PayPalCheckoutButton />
+          <PayPalCheckoutButton planType={planType} />
         </div>
       ) : (
         <Link

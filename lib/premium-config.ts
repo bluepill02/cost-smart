@@ -4,6 +4,7 @@ export const PREMIUM_CONFIG = {
       name: 'Free',
       price: 0,
       interval: null,
+      planId: null,
       features: [
         'All 30+ calculators',
         'Basic calculation results',
@@ -16,6 +17,7 @@ export const PREMIUM_CONFIG = {
       name: 'Pro',
       price: 4.99,
       interval: 'month' as const,
+      planId: 'P-9D476140703510157NIJUZ7A',
       features: [
         'PDF report exports',
         'Ad-free experience',
@@ -30,6 +32,7 @@ export const PREMIUM_CONFIG = {
       name: 'Pro (Annual)',
       price: 29.99,
       interval: 'year' as const,
+      planId: 'P-7WP30407BV817674TNIJU2AQ',
       features: [
         'Everything in Pro Monthly',
         'Save 50% vs monthly',
@@ -41,8 +44,6 @@ export const PREMIUM_CONFIG = {
     // Set the NEXT_PUBLIC_PAYPAL_CLIENT_ID environment variable with your PayPal client ID.
     // See: https://developer.paypal.com/docs/checkout/standard/integrate/
     clientId: (process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID || '') as string,
-    // PayPal hosted button URL - replace YOUR_BUTTON_ID with your actual button ID
-    hostedButtonUrl: 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YOUR_BUTTON_ID',
   },
 } as const;
 

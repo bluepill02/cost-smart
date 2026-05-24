@@ -45,7 +45,7 @@ const FAQ_ITEMS = [
 ];
 
 export default function PricingPage() {
-  const { free, proMonthly } = PREMIUM_CONFIG.plans;
+  const { free, proMonthly, proYearly } = PREMIUM_CONFIG.plans;
 
   return (
     <div className="min-h-screen">
@@ -72,8 +72,8 @@ export default function PricingPage() {
       </section>
 
       {/* Pricing Cards */}
-      <section className="container mx-auto px-4 max-w-4xl -mt-8 relative z-10">
-        <div className="grid md:grid-cols-2 gap-6 md:gap-8">
+      <section className="container mx-auto px-4 max-w-5xl -mt-8 relative z-10">
+        <div className="grid md:grid-cols-3 gap-6 md:gap-8">
           <PricingCard
             planName={free.name}
             price={free.price}
@@ -89,16 +89,16 @@ export default function PricingPage() {
             features={proMonthly.features}
             highlighted
             paypalButton
+            planType="monthly"
           />
-        </div>
-
-        {/* Annual option */}
-        <div className="mt-8 text-center p-6 bg-slate-50 rounded-2xl border border-slate-200">
-          <p className="text-sm text-slate-600">
-            <span className="font-semibold text-slate-900">Save 50%</span> with annual billing at{' '}
-            <span className="font-bold text-emerald-600">${PREMIUM_CONFIG.plans.proYearly.price}/year</span>{' '}
-            (just $2.50/month)
-          </p>
+          <PricingCard
+            planName={proYearly.name}
+            price={proYearly.price}
+            interval={proYearly.interval}
+            features={proYearly.features}
+            paypalButton
+            planType="yearly"
+          />
         </div>
       </section>
 
