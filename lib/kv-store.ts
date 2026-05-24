@@ -13,14 +13,18 @@ const SUB_TTL_SECONDS = 24 * 60 * 60; // 24 hours
 
 /**
  * Store a subscription record keyed by subscriptionId (with 24hr TTL)
- * and an email lookup (persistent, no TTL).
+ * and an email lookup (with same 24hr TTL so both expire together).
  */
 export async function storeSubscription(record: SubscriptionRecord): Promise<void> {
   const subKey = `sub:${record.subscriptionId}`;
-  const emailKey = `email:${record.email.toLowerCase()}`;
 
   await kv.set(subKey, record, { ex: SUB_TTL_SECONDS });
-  await kv.set(emailKey, record.subscriptionId);
+
+  // Only write the email pointer if a non-empty email is provided
+  if (record.email) {
+    const emailKey = `email:${record.email.toLowerCase()}`;
+    await kv.set(emailKey, record.subscriptionId, { ex: SUB_TTL_SECONDS });
+  }
 }
 
 /**
@@ -49,10 +53,13 @@ export async function getSubscriptionById(subscriptionId: string): Promise<Subsc
 
 /**
  * Update the status of a subscription record.
+ * If no prior record exists (e.g. TTL expired) and an email is provided,
+ * creates a minimal record so cancellation/suspension status is persisted.
  */
 export async function updateSubscriptionStatus(
   subscriptionId: string,
-  status: string
+  status: string,
+  email?: string
 ): Promise<void> {
   const existing = await getSubscriptionById(subscriptionId);
 
@@ -64,5 +71,17 @@ export async function updateSubscriptionStatus(
     };
     const subKey = `sub:${subscriptionId}`;
     await kv.set(subKey, updated, { ex: SUB_TTL_SECONDS });
+  } else if (email) {
+    // Create minimal record for cancellation/suspension tracking
+    // so the email pointer correctly resolves to a non-active status.
+    const record: SubscriptionRecord = {
+      subscriptionId,
+      email,
+      status,
+      planId: '',
+      subscriberId: null,
+      verifiedAt: Date.now(),
+    };
+    await storeSubscription(record);
   }
 }

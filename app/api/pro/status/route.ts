@@ -1,7 +1,16 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getSubscriptionByEmail } from '@/lib/kv-store';
 
-// Simple in-memory rate limiter: 10 requests per minute per email
+// NOTE (accepted trade-off): This endpoint uses email as an unauthenticated
+// access key. Anyone who knows a subscriber's email can confirm Pro status on
+// their device. For a low-stakes $4.99/month calculator app, this is an
+// accepted product decision. If abuse becomes a problem, add an email
+// verification code for the recovery flow.
+
+// NOTE (accepted trade-off): This in-memory rate limiter resets on each
+// serverless cold start and is not shared across concurrent Vercel function
+// instances. The effective rate limit is per-instance, not global. If email
+// enumeration abuse becomes a problem, move the counter to Vercel KV.
 const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
 const RATE_LIMIT_MAX = 10;
 const RATE_LIMIT_WINDOW_MS = 60 * 1000; // 1 minute

@@ -114,7 +114,9 @@ export async function POST(request: NextRequest) {
         verifiedAt: Date.now(),
       });
     } else {
-      // For cancelled, suspended, expired - update status
+      // For cancelled, suspended, expired - update status.
+      // Pass subscriber email so a minimal record can be created if the
+      // original record's TTL already expired.
       const statusMap: Record<string, string> = {
         'BILLING.SUBSCRIPTION.CANCELLED': 'CANCELLED',
         'BILLING.SUBSCRIPTION.SUSPENDED': 'SUSPENDED',
@@ -122,7 +124,7 @@ export async function POST(request: NextRequest) {
       };
 
       const newStatus = statusMap[eventType] || 'INACTIVE';
-      await updateSubscriptionStatus(subscriptionId, newStatus);
+      await updateSubscriptionStatus(subscriptionId, newStatus, subscriberEmail || '');
     }
 
     return NextResponse.json({ status: 'ok' }, { status: 200 });
