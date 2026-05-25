@@ -141,9 +141,10 @@ function getIconComponent(icon: string) {
 }
 
 function ChatPanel({ onClose }: { onClose: () => void }) {
+  const idCounter = useRef(0);
   const [messages, setMessages] = useState<Message[]>([
     {
-      id: '1',
+      id: 'msg-0',
       role: 'assistant',
       content: "Hi! I'm your AI Financial Advisor. Ask me about loans, investments, taxes, savings, or budgeting!",
     },
@@ -159,7 +160,7 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
     if (!input.trim()) return;
 
     const userMessage: Message = {
-      id: Date.now().toString(),
+      id: 'msg-' + (++idCounter.current),
       role: 'user',
       content: input,
     };
@@ -171,7 +172,7 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
 
     setTimeout(() => {
       const assistantMessage: Message = {
-        id: (Date.now() + 1).toString(),
+        id: 'msg-' + (++idCounter.current),
         role: 'assistant',
         content,
         recommendations,
@@ -183,7 +184,7 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
   }, [input]);
 
   return (
-    <div className="fixed bottom-20 right-6 z-40 w-[380px] max-h-[520px] rounded-2xl shadow-2xl overflow-hidden flex flex-col bg-white sm:w-[380px] max-sm:inset-4 max-sm:bottom-4 max-sm:right-4 max-sm:w-auto max-sm:max-h-none max-sm:fixed">
+    <div className="fixed bottom-[7.5rem] right-6 z-50 w-[380px] max-h-[520px] rounded-2xl shadow-2xl overflow-hidden flex flex-col bg-white sm:w-[380px] max-sm:inset-4 max-sm:bottom-4 max-sm:right-4 max-sm:w-auto max-sm:max-h-none max-sm:fixed">
       {/* Header */}
       <div className="bg-gradient-to-r from-indigo-600 to-indigo-700 text-white px-4 py-3 flex items-center justify-between flex-shrink-0">
         <div className="flex items-center gap-2">
@@ -291,7 +292,7 @@ export default function FloatingChatWidget() {
       {/* Floating Button */}
       <button
         onClick={() => setIsOpen((prev) => !prev)}
-        className={`fixed bottom-6 right-6 z-40 w-14 h-14 rounded-full shadow-lg flex items-center justify-center transition-all duration-200 hover:scale-105 ${
+        className={`fixed bottom-24 right-6 z-50 w-14 h-14 rounded-full shadow-lg flex items-center justify-center transition-all duration-200 hover:scale-105 ${
           isOpen
             ? 'bg-indigo-700 hover:bg-indigo-800'
             : 'bg-indigo-600 hover:bg-indigo-700'

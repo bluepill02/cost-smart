@@ -135,7 +135,7 @@ export default function RootLayout({
 
         <Footer />
         <SoftAdBlockMessage />
-        <FloatingChatWidget />
+        {!process.env.NEXT_PUBLIC_BOTPRESS_BOT_URL && <FloatingChatWidget />}
         </Providers>
         <CookieConsent />
         <BotpressLoader botConfigUrl={process.env.NEXT_PUBLIC_BOTPRESS_BOT_URL} />

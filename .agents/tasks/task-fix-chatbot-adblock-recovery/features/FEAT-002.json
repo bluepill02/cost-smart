@@ -1,0 +1,22 @@
+{
+  "id": "FEAT-002",
+  "type": "fix",
+  "description": "Fix ad block recovery mechanism: render SoftAdBlockMessage in layout.tsx JSX and integrate AdBlockRecovery as a fallback in AdContainer when ads are blocked.",
+  "status": "completed",
+  "steps": [
+    "In app/layout.tsx, the SoftAdBlockMessage component is imported but never rendered in the JSX. Add <SoftAdBlockMessage /> to the body JSX, after <CookieConsent /> and before <BotpressLoader />. It should be a sibling of CookieConsent, outside the <Providers> wrapper since it uses its own hooks internally.",
+    "Verify the AdContainer component (components/ads/AdContainer.tsx) already shows AdBlockRecovery when ads are blocked (it does - it imports and renders AdBlockRecovery with forceVisible when adState === 'blocked'). No changes needed to AdContainer itself.",
+    "Run `npm run build` to verify no compilation errors."
+  ],
+  "acceptance_criteria": [
+    "SoftAdBlockMessage is rendered in the layout.tsx JSX tree (not just imported)",
+    "When ad blocking is detected, users see both: (a) the floating toast notification from SoftAdBlockMessage, and (b) the AdBlockRecovery content in place of blocked ads within AdContainer",
+    "`npm run build` passes without errors"
+  ],
+  "verification": [
+    "Run `npm run build` and confirm it passes",
+    "Grep app/layout.tsx to confirm <SoftAdBlockMessage is present in the return statement (not just as an import)"
+  ],
+  "blocked_reason": null,
+  "findings": "SoftAdBlockMessage was placed inside Providers (after Footer, before closing Providers tag) because it uses useProStatus() which requires ProStatusProvider context. Build passes successfully. Chart width warnings in build output are pre-existing and unrelated."
+}
