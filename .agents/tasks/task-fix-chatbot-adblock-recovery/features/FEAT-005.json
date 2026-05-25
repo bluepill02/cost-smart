@@ -1,0 +1,23 @@
+{
+  "id": "FEAT-005",
+  "type": "fix",
+  "description": "Address v2 review feedback: add comment explaining BotpressLoader retention, fix mobile chat panel positioning overlap with ad-block toast.",
+  "status": "in_progress",
+  "steps": [
+    "In app/layout.tsx, add a comment above BotpressLoader render explaining intentional retention: BotpressLoader activates when NEXT_PUBLIC_BOTPRESS_BOT_URL is set; FloatingChatWidget is the fallback.",
+    "In components/features/FloatingChatWidget.tsx, change max-sm:bottom-4 to max-sm:bottom-16 in the ChatPanel div className to avoid overlapping with SoftAdBlockMessage on mobile.",
+    "Run npm run build to verify no compilation errors."
+  ],
+  "acceptance_criteria": [
+    "Comment explaining BotpressLoader retention is present in layout.tsx",
+    "Chat panel uses max-sm:bottom-16 instead of max-sm:bottom-4",
+    "npm run build passes without errors"
+  ],
+  "verification": [
+    "Run npm run build and confirm it passes",
+    "Grep layout.tsx for the BotpressLoader comment",
+    "Grep FloatingChatWidget.tsx for max-sm:bottom-16"
+  ],
+  "blocked_reason": null,
+  "findings": null
+}
