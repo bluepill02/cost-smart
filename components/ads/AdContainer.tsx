@@ -4,6 +4,7 @@ import { useEffect, useState, useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
 import Link from 'next/link';
 import { useProStatus } from '@/lib/hooks/useProStatus';
+import AdBlockRecovery from '@/components/ads/AdBlockRecovery';
 
 interface AdContainerProps {
     slotId?: string;
@@ -82,23 +83,15 @@ export default function AdContainer({ slotId, className = "", size = 'leaderboar
         return null;
     }
 
-    const AdFallback = () => (
-        <div className="w-full h-full bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-200 rounded-lg flex flex-col items-center justify-center text-center p-4 relative overflow-hidden group hover:border-emerald-400 transition-colors cursor-pointer">
-             <Link href="/solar-roi" className="absolute inset-0 z-10">
-               <span className="sr-only">Check Solar Savings</span>
-             </Link>
-             <div className="text-sm font-semibold text-emerald-700 mb-1">
-                ☀️ Save Money with Solar
-             </div>
-             <div className="text-xs text-slate-600">
-                Calculate your savings in seconds.
-             </div>
-             <div className="mt-2 text-xs font-bold text-white bg-emerald-600 border border-emerald-700 px-3 py-1 rounded-full group-hover:bg-emerald-700 transition-colors">
-                Try Now
-             </div>
-             <div className="absolute top-0 right-0 -mt-2 -mr-2 w-12 h-12 bg-emerald-100 rounded-full blur-xl opacity-50"></div>
-         </div>
-    );
+    const sizeMap: Record<string, 'banner' | 'rectangle' | 'inline'> = {
+        'leaderboard': 'banner',
+        'rectangle': 'rectangle',
+        'inline': 'inline',
+        'vertical': 'rectangle',
+        'square': 'rectangle',
+    };
+
+    const recoverySize = sizeMap[size] || 'rectangle';
 
     return (
         <div
@@ -123,7 +116,7 @@ export default function AdContainer({ slotId, className = "", size = 'leaderboar
             </div>
 
             {adState === 'blocked' && (
-                <AdFallback />
+                <AdBlockRecovery size={recoverySize} />
             )}
         </div>
     );

@@ -9,6 +9,7 @@ import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import CookieConsent from "@/components/ui/CookieConsent";
 import GoogleAnalyticsTracker from "@/components/analytics/GoogleAnalytics";
 import Providers from "@/components/providers/Providers";
+import SoftAdBlockMessage from "@/components/ads/SoftAdBlockMessage";
 
 // DM Sans — refined body font with excellent legibility
 const dmSans = DM_Sans({
@@ -126,6 +127,7 @@ export default function RootLayout({
         <Footer />
         </Providers>
         <CookieConsent />
+        <SoftAdBlockMessage />
 
         {/* Google Tag Manager */}
         <Script id="google-tag-manager" strategy="afterInteractive">
