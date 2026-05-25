@@ -46,16 +46,16 @@ export default function BotpressLoader({ botConfigUrl }: BotpressLoaderProps) {
       });
     };
 
-    if (document.readyState === "complete") {
-      loadBotpress();
+    if (document.readyState === "loading") {
+      window.addEventListener("DOMContentLoaded", loadBotpress, { once: true });
     } else {
-      window.addEventListener("load", loadBotpress, { once: true });
+      loadBotpress();
     }
 
     window.addEventListener(CONSENT_ACCEPTED_EVENT, loadBotpress);
     return () => {
       window.removeEventListener(CONSENT_ACCEPTED_EVENT, loadBotpress);
-      window.removeEventListener("load", loadBotpress);
+      window.removeEventListener("DOMContentLoaded", loadBotpress);
     };
   }, [botConfigUrl]);
 
