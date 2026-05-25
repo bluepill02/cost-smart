@@ -171,7 +171,7 @@ export default function RootLayout({
         />
         <Script
           src="https://files.bpcontent.cloud/2026/05/24/17/20260524173419-HHZM6DI5.js"
-          strategy="lazyOnload"
+          strategy="afterInteractive"
         />
       </body>
     </html>
