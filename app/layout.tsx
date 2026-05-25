@@ -7,6 +7,7 @@ import Script from "next/script";
 import AdContainer from '@/components/ads/AdContainer';
 import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import CookieConsent from "@/components/ui/CookieConsent";
+import BotpressLoader from "@/components/ui/BotpressLoader";
 import GoogleAnalyticsTracker from "@/components/analytics/GoogleAnalytics";
 import Providers from "@/components/providers/Providers";
 
@@ -126,6 +127,7 @@ export default function RootLayout({
         <Footer />
         </Providers>
         <CookieConsent />
+        <BotpressLoader botConfigUrl={process.env.NEXT_PUBLIC_BOTPRESS_BOT_URL} />
 
         {/* Google Tag Manager */}
         <Script id="google-tag-manager" strategy="afterInteractive">
@@ -162,15 +164,6 @@ export default function RootLayout({
           strategy="afterInteractive"
         />
 
-        {/* Botpress Customer Assistant */}
-        <Script
-          src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"
-          strategy="afterInteractive"
-        />
-        <Script
-          src="https://files.bpcontent.cloud/2026/05/24/17/20260524173419-HHZM6DI5.js"
-          strategy="lazyOnload"
-        />
       </body>
     </html>
   );
