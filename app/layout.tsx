@@ -10,6 +10,7 @@ import CookieConsent from "@/components/ui/CookieConsent";
 import BotpressLoader from "@/components/ui/BotpressLoader";
 import GoogleAnalyticsTracker from "@/components/analytics/GoogleAnalytics";
 import Providers from "@/components/providers/Providers";
+import SoftAdBlockMessage from "@/components/ads/SoftAdBlockMessage";
 
 // DM Sans — refined body font with excellent legibility
 const dmSans = DM_Sans({
