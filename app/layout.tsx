@@ -133,6 +133,7 @@ export default function RootLayout({
         </div>
 
         <Footer />
+        <SoftAdBlockMessage />
         </Providers>
         <CookieConsent />
         <BotpressLoader botConfigUrl={process.env.NEXT_PUBLIC_BOTPRESS_BOT_URL} />
