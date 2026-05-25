@@ -77,6 +77,13 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="theme-color" content="#f8fafc" />
 
+        {/* AdSense - standard async tag (no data-nscript) */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4280161410958958"
+          crossOrigin="anonymous"
+        />
+
         {/* Organization Schema - Root level for brand recognition */}
         <Script
           id="organization-schema"
@@ -157,13 +164,6 @@ export default function RootLayout({
             });
           `}
         </Script>
-
-        {/* AdSense - Loaded after interactive for faster FCP */}
-        <Script
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4280161410958958"
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
 
       </body>
     </html>

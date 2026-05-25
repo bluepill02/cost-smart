@@ -9,19 +9,21 @@ import { Shield, Sparkles, ExternalLink } from 'lucide-react';
 interface AdBlockRecoveryProps {
   calculatorSlug?: string;
   size?: 'banner' | 'rectangle' | 'inline';
+  forceVisible?: boolean;
 }
 
-export default function AdBlockRecovery({ calculatorSlug, size = 'rectangle' }: AdBlockRecoveryProps) {
+export default function AdBlockRecovery({ calculatorSlug, size = 'rectangle', forceVisible }: AdBlockRecoveryProps) {
   const adBlocked = useAdBlockDetected();
   const { isPro } = useProStatus();
   const [variant, setVariant] = useState<'pro' | 'affiliate'>('pro');
+  const shouldShow = forceVisible ?? adBlocked;
 
   useEffect(() => {
     setVariant(Date.now() % 2 === 0 ? 'pro' : 'affiliate');
   }, []);
 
   // Don't show anything if ads aren't blocked or user is Pro
-  if (!adBlocked || isPro) return null;
+  if (!shouldShow || isPro) return null;
 
   if (variant === 'pro') {
     return (

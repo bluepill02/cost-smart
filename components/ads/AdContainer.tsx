@@ -116,7 +116,7 @@ export default function AdContainer({ slotId, className = "", size = 'leaderboar
             </div>
 
             {adState === 'blocked' && (
-                <AdBlockRecovery size={recoverySize} />
+                <AdBlockRecovery size={recoverySize} forceVisible />
             )}
         </div>
     );
