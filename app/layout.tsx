@@ -11,6 +11,7 @@ import BotpressLoader from "@/components/ui/BotpressLoader";
 import GoogleAnalyticsTracker from "@/components/analytics/GoogleAnalytics";
 import Providers from "@/components/providers/Providers";
 import SoftAdBlockMessage from "@/components/ads/SoftAdBlockMessage";
+import FloatingChatWidget from "@/components/features/FloatingChatWidget";
 
 // DM Sans — refined body font with excellent legibility
 const dmSans = DM_Sans({
@@ -133,8 +134,11 @@ export default function RootLayout({
         </div>
 
         <Footer />
+        <SoftAdBlockMessage />
+        {!process.env.NEXT_PUBLIC_BOTPRESS_BOT_URL && <FloatingChatWidget />}
         </Providers>
         <CookieConsent />
+        {/* BotpressLoader activates when NEXT_PUBLIC_BOTPRESS_BOT_URL is set; FloatingChatWidget is the fallback */}
         <BotpressLoader botConfigUrl={process.env.NEXT_PUBLIC_BOTPRESS_BOT_URL} />
 
         {/* Google Tag Manager */}

@@ -1,0 +1,28 @@
+{
+  "project_type": "Next.js 16 App Router with React 19, financial calculator site",
+  "language": "TypeScript / React",
+  "build_system": "npm with next build",
+  "test_framework": "Playwright for E2E tests",
+  "build_command": "npm run build",
+  "test_command": "npx playwright test",
+  "verification_instructions": "Run `npm run build` to verify the project compiles without errors. There are no unit tests, only Playwright E2E tests which require a running server.",
+  "snapshot_or_generated_files": null,
+  "setup_instructions": "npm install && npm run build",
+  "environment_constraints": "OPEN_INTERNET - full network access. No Docker needed. Node.js runtime available.",
+  "contribution_requirements": "Standard Next.js patterns. Components in components/ directory. App router pages in app/ directory.",
+  "key_patterns": "Client components use 'use client' directive. UI components follow shadcn/ui patterns in components/ui/. Ad-related components in components/ads/. Feature components in components/features/. Hooks in lib/hooks/. The root layout renders Navbar, main content, Footer, CookieConsent, and BotpressLoader. Fixed-position floating elements (CookieConsent, SoftAdBlockMessage) use z-50 and bottom positioning.",
+  "relevant_files": [
+    "app/layout.tsx",
+    "components/ads/SoftAdBlockMessage.tsx",
+    "components/ads/AdBlockRecovery.tsx",
+    "components/ads/AdContainer.tsx",
+    "components/ui/BotpressLoader.tsx",
+    "components/features/AIFinancialAdvisorChat.tsx",
+    "app/tools/ai-advisor/page.tsx",
+    "lib/hooks/useAdBlockDetector.ts",
+    "lib/hooks/useProStatus.ts",
+    "components/ui/CookieConsent.tsx",
+    "components/providers/Providers.tsx"
+  ],
+  "directory_structure": "app/ - Next.js App Router pages and API routes; components/ads/ - ad-related components; components/features/ - feature components like chat, dashboard; components/ui/ - reusable UI primitives (shadcn pattern); components/layouts/ - Navbar, Footer; components/providers/ - context providers; lib/hooks/ - custom React hooks; lib/ - utilities and data"
+}
