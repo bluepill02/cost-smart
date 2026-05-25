@@ -1,0 +1,27 @@
+{
+  "id": "FEAT-003",
+  "type": "feat",
+  "description": "Create a floating AI chat widget that makes the built-in AI Financial Advisor accessible from any page, replacing the non-functional Botpress chatbot (which requires an unconfigured external bot URL). The widget should be a floating button in the bottom-right corner that opens a compact chat panel, using the same pattern-matching logic from AIFinancialAdvisorChat.",
+  "status": "completed",
+  "steps": [
+    "Create a new component at components/features/FloatingChatWidget.tsx. This should be a 'use client' component that renders: (a) a floating circular button (bottom-right, z-40, positioned to not conflict with CookieConsent at z-50 or SoftAdBlockMessage at z-50) with a chat/message icon, and (b) when clicked, opens a compact chat panel (fixed position, roughly 380px wide x 500px tall on desktop, full-width on mobile). The chat panel should include: a header with title 'AI Financial Advisor' and close button, a scrollable message area, and an input area with send button. Reuse the same analyzeQuery and generateResponse logic from components/features/AIFinancialAdvisorChat.tsx (extract or duplicate the pattern-matching logic). Include recommendation links in responses. Style consistently with the site's design (emerald/indigo accents, rounded corners, shadow-xl).",
+    "In app/layout.tsx, import the new FloatingChatWidget and render it in the body JSX (after BotpressLoader or replacing it). The FloatingChatWidget should only show when the Botpress bot URL is NOT configured (i.e., act as the fallback chatbot). Since NEXT_PUBLIC_BOTPRESS_BOT_URL is empty, the FloatingChatWidget will always show in current configuration. Add it alongside the BotpressLoader - when Botpress has a valid URL it will load that; when not, the floating widget provides chat functionality.",
+    "Ensure the floating button does not visually overlap with SoftAdBlockMessage (which appears fixed bottom-4 right-4). Position the chat button at bottom-6 right-6 or use bottom-20 right-6 to leave room. If SoftAdBlockMessage is showing, the chat button should still be accessible.",
+    "Run `npm run build` to verify no compilation errors."
+  ],
+  "acceptance_criteria": [
+    "A floating chat button is visible on every page in the bottom-right area",
+    "Clicking the button opens a compact chat interface with the AI Financial Advisor",
+    "Users can type questions and receive pattern-matched financial advice with calculator recommendations",
+    "The chat panel can be closed by clicking a close button or clicking the floating button again",
+    "The widget does not conflict visually with CookieConsent or SoftAdBlockMessage",
+    "`npm run build` passes without errors"
+  ],
+  "verification": [
+    "Run `npm run build` and confirm it passes",
+    "Grep app/layout.tsx to confirm FloatingChatWidget is imported and rendered",
+    "Read components/features/FloatingChatWidget.tsx to confirm it has chat logic, UI, and proper positioning"
+  ],
+  "blocked_reason": null,
+  "findings": "Component created successfully. Uses a ChatPanel sub-component that only mounts when open. Pattern-matching logic duplicated from AIFinancialAdvisorChat. Build passes cleanly. Positioned at z-40 with indigo color to differentiate from z-50 SoftAdBlockMessage white toast."
+}
