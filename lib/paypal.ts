@@ -42,6 +42,7 @@ export interface SubscriptionDetails {
   status: string;
   planId: string;
   subscriberId: string | null;
+  subscriberEmail: string | null;
 }
 
 /**
@@ -77,5 +78,6 @@ export async function verifySubscription(
     status: subscriptionData.status,
     planId: subscriptionData.plan_id,
     subscriberId: subscriptionData.subscriber?.payer_id || null,
+    subscriberEmail: subscriptionData.subscriber?.email_address || null,
   };
 }

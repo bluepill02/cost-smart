@@ -4,6 +4,7 @@ import { PREMIUM_CONFIG } from '@/lib/premium-config';
 import { Sparkles, ShieldCheck, CreditCard, HelpCircle } from 'lucide-react';
 import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
+import ProRecovery from '@/components/premium/ProRecovery';
 
 export const metadata: Metadata = {
   title: 'Pricing | CostSmart Pro - PDF Reports, Ad-Free, AI Advice',
@@ -194,6 +195,11 @@ export default function PricingPage() {
             </div>
           ))}
         </div>
+      </section>
+
+      {/* Pro Recovery */}
+      <section className="container mx-auto px-4 max-w-3xl mt-8">
+        <ProRecovery />
       </section>
 
       {/* Explore Calculators */}

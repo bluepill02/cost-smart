@@ -5,7 +5,11 @@ import { createContext, useContext, useState, useEffect, useCallback, ReactNode 
 interface ProStatusContextValue {
   isPro: boolean;
   isLoading: boolean;
+  proEmail: string | null;
+  setProEmail: (email: string) => void;
+  /** @deprecated Use setProEmail instead */
   subscriptionId: string | null;
+  /** @deprecated Use setProEmail instead. Calls verify-subscription to resolve email. */
   setSubscriptionId: (id: string) => void;
   clearSubscription: () => void;
 }
@@ -13,12 +17,14 @@ interface ProStatusContextValue {
 const ProStatusContext = createContext<ProStatusContextValue>({
   isPro: false,
   isLoading: true,
+  proEmail: null,
+  setProEmail: () => {},
   subscriptionId: null,
   setSubscriptionId: () => {},
   clearSubscription: () => {},
 });
 
-const STORAGE_KEY = 'costsmart_subscription_id';
+const STORAGE_KEY = 'costsmart_pro_email';
 const SESSION_KEY = 'costsmart_pro_verified';
 const REVALIDATE_MS = 30 * 60 * 1000; // 30 minutes
 
@@ -28,16 +34,16 @@ interface CachedVerification {
 }
 
 export function ProStatusProvider({ children }: { children: ReactNode }) {
-  const [subscriptionId, setSubscriptionIdState] = useState<string | null>(null);
+  const [proEmail, setProEmailState] = useState<string | null>(null);
   const [isPro, setIsPro] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Load subscriptionId from localStorage on mount
+  // Load email from localStorage on mount
   useEffect(() => {
     try {
       const stored = localStorage.getItem(STORAGE_KEY);
       if (stored) {
-        setSubscriptionIdState(stored);
+        setProEmailState(stored);
       } else {
         setIsLoading(false);
       }
@@ -46,9 +52,9 @@ export function ProStatusProvider({ children }: { children: ReactNode }) {
     }
   }, []);
 
-  // Verify subscription when subscriptionId changes
+  // Verify subscription when proEmail changes
   useEffect(() => {
-    if (!subscriptionId) {
+    if (!proEmail) {
       setIsPro(false);
       setIsLoading(false);
       return;
@@ -70,16 +76,16 @@ export function ProStatusProvider({ children }: { children: ReactNode }) {
       // Ignore cache read errors
     }
 
-    // Verify with server
+    // Verify with server using email
     setIsLoading(true);
-    fetch('/api/paypal/verify-subscription', {
+    fetch('/api/pro/status', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ subscriptionId }),
+      body: JSON.stringify({ email: proEmail }),
     })
       .then((res) => res.json())
       .then((data) => {
-        const active = data.status === 'ACTIVE';
+        const active = data.isPro === true;
         setIsPro(active);
         // Cache result in sessionStorage
         try {
@@ -93,18 +99,18 @@ export function ProStatusProvider({ children }: { children: ReactNode }) {
         }
       })
       .catch(() => {
-        // On network error, don't revoke Pro status if previously verified
         setIsPro(false);
       })
       .finally(() => {
         setIsLoading(false);
       });
-  }, [subscriptionId]);
+  }, [proEmail]);
 
-  const setSubscriptionId = useCallback((id: string) => {
-    setSubscriptionIdState(id);
+  const setProEmail = useCallback((email: string) => {
+    const normalized = email.toLowerCase().trim();
+    setProEmailState(normalized);
     try {
-      localStorage.setItem(STORAGE_KEY, id);
+      localStorage.setItem(STORAGE_KEY, normalized);
       // Clear cached verification so it re-verifies
       sessionStorage.removeItem(SESSION_KEY);
     } catch {
@@ -112,8 +118,29 @@ export function ProStatusProvider({ children }: { children: ReactNode }) {
     }
   }, []);
 
+  /**
+   * @deprecated Use setProEmail. This calls verify-subscription to resolve the email.
+   */
+  const setSubscriptionId = useCallback((id: string) => {
+    // Call verify-subscription to get the email, then store it
+    fetch('/api/paypal/verify-subscription', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ subscriptionId: id }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.email) {
+          setProEmail(data.email);
+        }
+      })
+      .catch(() => {
+        // Fallback: store nothing if verification fails
+      });
+  }, [setProEmail]);
+
   const clearSubscription = useCallback(() => {
-    setSubscriptionIdState(null);
+    setProEmailState(null);
     setIsPro(false);
     try {
       localStorage.removeItem(STORAGE_KEY);
@@ -125,7 +152,15 @@ export function ProStatusProvider({ children }: { children: ReactNode }) {
 
   return (
     <ProStatusContext.Provider
-      value={{ isPro, isLoading, subscriptionId, setSubscriptionId, clearSubscription }}
+      value={{
+        isPro,
+        isLoading,
+        proEmail,
+        setProEmail,
+        subscriptionId: null,
+        setSubscriptionId,
+        clearSubscription,
+      }}
     >
       {children}
     </ProStatusContext.Provider>

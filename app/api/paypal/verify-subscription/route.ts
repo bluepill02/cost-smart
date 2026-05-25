@@ -1,5 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { isValidSubscriptionId, verifySubscription } from '@/lib/paypal';
+import {
+  getSubscriptionById,
+  getSubscriptionByEmail,
+  storeSubscription,
+} from '@/lib/kv-store';
+
+const CACHE_MAX_AGE_MS = 60 * 60 * 1000; // 1 hour
 
 export async function POST(request: NextRequest) {
   try {
@@ -16,7 +23,22 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json();
-    const { subscriptionId } = body;
+    const { subscriptionId, email } = body;
+
+    // Support email-based lookup
+    if (email && typeof email === 'string') {
+      const record = await getSubscriptionByEmail(email.toLowerCase().trim());
+      if (record && record.status === 'ACTIVE') {
+        return NextResponse.json({
+          status: record.status,
+          planId: record.planId,
+          subscriberId: record.subscriberId,
+          email: record.email,
+        });
+      }
+      // If no cached record by email, return not found
+      return NextResponse.json({ error: 'Subscription not found' }, { status: 404 });
+    }
 
     if (!subscriptionId || typeof subscriptionId !== 'string') {
       return NextResponse.json(
@@ -33,12 +55,36 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Check KV cache first
+    const cached = await getSubscriptionById(subscriptionId);
+    if (cached && (Date.now() - cached.verifiedAt) < CACHE_MAX_AGE_MS) {
+      return NextResponse.json({
+        status: cached.status,
+        planId: cached.planId,
+        subscriberId: cached.subscriberId,
+        email: cached.email,
+      });
+    }
+
+    // Cache miss or stale - verify with PayPal
     const result = await verifySubscription(subscriptionId);
+
+    // Store in KV for future lookups
+    const subscriberEmail = result.subscriberEmail || '';
+    await storeSubscription({
+      subscriptionId,
+      email: subscriberEmail,
+      status: result.status,
+      planId: result.planId,
+      subscriberId: result.subscriberId,
+      verifiedAt: Date.now(),
+    });
 
     return NextResponse.json({
       status: result.status,
       planId: result.planId,
       subscriberId: result.subscriberId,
+      email: subscriberEmail,
     });
   } catch (error) {
     console.error('Verify subscription error:', error);
