@@ -2,7 +2,7 @@
   "task_id": "task-fix-chatbot-adblock-recovery",
   "task_description": "Fix two non-functional features: (1) Ad block recovery mechanism - SoftAdBlockMessage is imported but never rendered in layout.tsx, and AdBlockRecovery is not integrated. (2) Chatbot - Botpress requires unconfigured external URL, so create a floating AI chat widget using the existing built-in AI Financial Advisor pattern-matching logic to provide chat functionality site-wide.",
   "status": "completed",
-  "feature_order": ["FEAT-001", "FEAT-002", "FEAT-003"],
+  "feature_order": ["FEAT-001", "FEAT-002", "FEAT-003", "FEAT-004"],
   "blocked_reason": null,
   "verification": {
     "build": "pass",

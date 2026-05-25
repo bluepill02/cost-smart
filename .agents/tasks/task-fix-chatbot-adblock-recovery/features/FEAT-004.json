@@ -2,7 +2,7 @@
   "id": "FEAT-004",
   "type": "fix",
   "description": "Address code review feedback: fix z-index/position overlap between chat widget and ad-block banner, conditionally render FloatingChatWidget when Botpress URL is not set, and replace Date.now() IDs with incrementing counter.",
-  "status": "in_progress",
+  "status": "completed",
   "steps": [
     "In FloatingChatWidget.tsx, move the chat button to bottom-24 right-6 z-50 so it sits above SoftAdBlockMessage. Set the chat panel to bottom-[7.5rem] right-6 z-50.",
     "In FloatingChatWidget.tsx ChatPanel component, add a useRef counter and replace Date.now() ID generation with incrementing counter using 'msg-' prefix.",
@@ -22,5 +22,5 @@
     "Grep layout.tsx for conditional render of FloatingChatWidget"
   ],
   "blocked_reason": null,
-  "findings": null
+  "findings": "All three fixes applied successfully. Build passes. Chat button moved to bottom-24 to sit above the ad-block banner. Panel uses bottom-[7.5rem]. Both at z-50. FloatingChatWidget conditionally rendered based on NEXT_PUBLIC_BOTPRESS_BOT_URL. Message IDs now use useRef counter with 'msg-' prefix."
 }
