@@ -184,7 +184,7 @@ function ChatPanel({ onClose }: { onClose: () => void }) {
   }, [input]);
 
   return (
-    <div className="fixed bottom-[7.5rem] right-6 z-50 w-[380px] max-h-[520px] rounded-2xl shadow-2xl overflow-hidden flex flex-col bg-white sm:w-[380px] max-sm:inset-4 max-sm:bottom-4 max-sm:right-4 max-sm:w-auto max-sm:max-h-none max-sm:fixed">
+    <div className="fixed bottom-[7.5rem] right-6 z-50 w-[380px] max-h-[520px] rounded-2xl shadow-2xl overflow-hidden flex flex-col bg-white sm:w-[380px] max-sm:inset-4 max-sm:bottom-16 max-sm:right-4 max-sm:w-auto max-sm:max-h-none max-sm:fixed">
       {/* Header */}
       <div className="bg-gradient-to-r from-indigo-600 to-indigo-700 text-white px-4 py-3 flex items-center justify-between flex-shrink-0">
         <div className="flex items-center gap-2">

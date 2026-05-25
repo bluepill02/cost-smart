@@ -138,6 +138,7 @@ export default function RootLayout({
         {!process.env.NEXT_PUBLIC_BOTPRESS_BOT_URL && <FloatingChatWidget />}
         </Providers>
         <CookieConsent />
+        {/* BotpressLoader activates when NEXT_PUBLIC_BOTPRESS_BOT_URL is set; FloatingChatWidget is the fallback */}
         <BotpressLoader botConfigUrl={process.env.NEXT_PUBLIC_BOTPRESS_BOT_URL} />
 
         {/* Google Tag Manager */}
