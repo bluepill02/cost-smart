@@ -5,6 +5,7 @@ import { Sparkles, Loader2, Lock, ShieldCheck, Gift, AlertCircle, RefreshCw } fr
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { useCalculatorInsights } from '@/lib/use-calculator-features';
+import { useProStatus } from '@/lib/hooks/useProStatus';
 import AdContainer from '@/components/ads/AdContainer';
 import { trackEvent } from '@/lib/gtag';
 
@@ -23,7 +24,8 @@ export default function PremiumAIAdvisor({
   currency = 'USD',
   locale = 'en-US'
 }: PremiumAIAdvisorProps) {
-  const { insights, loading, error, getInsights } = useCalculatorInsights({ calculatorType });
+  const { isPro: proStatus, subscriptionId } = useProStatus();
+  const { insights, loading, error, getInsights } = useCalculatorInsights({ calculatorType, isPro: proStatus, subscriptionId });
   const [unlocked, setUnlocked] = useState(false);
   const [credits, setCredits] = useState(1); // 1 free credit initially
 

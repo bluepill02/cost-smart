@@ -1,15 +1,32 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { isValidSubscriptionId, verifySubscription } from '@/lib/paypal';
 
 interface InsightRequest {
   calculatorType: string;
   values: Record<string, number | string>;
   result: number | Record<string, any>;
+  isPro?: boolean;
+  subscriptionId?: string;
 }
 
 export async function POST(request: NextRequest) {
   try {
     const body: InsightRequest = await request.json();
-    const { calculatorType, values, result } = body;
+    const { calculatorType, values, result, isPro, subscriptionId } = body;
+
+    // Server-side Pro verification: if isPro is claimed, verify it
+    let verifiedPro = false;
+    if (isPro && subscriptionId && typeof subscriptionId === 'string') {
+      if (isValidSubscriptionId(subscriptionId)) {
+        try {
+          const subDetails = await verifySubscription(subscriptionId);
+          verifiedPro = subDetails.status === 'ACTIVE';
+        } catch {
+          // Verification failed - fall back to non-Pro
+          verifiedPro = false;
+        }
+      }
+    }
 
     if (!calculatorType || !values || !result) {
       return NextResponse.json(
@@ -35,7 +52,7 @@ ${JSON.stringify(values, null, 2)}
 CALCULATED METRICS:
 ${JSON.stringify(result, null, 2)}
 
-Generate a premium, detailed financial advisory audit. You MUST return a JSON object with exactly the following three keys:
+${verifiedPro ? `Generate a comprehensive, premium-tier financial advisory audit with deep analysis, specific numerical scenarios, and multi-step optimization strategies. Include tax-planning specifics and actionable timelines.` : `Generate a premium, detailed financial advisory audit.`} You MUST return a JSON object with exactly the following three keys:
 1. "diagnosis": A detailed strategic diagnosis of this scenario (e.g. debt-to-income load, portfolio yield projections, or interest drag). Discuss whether this is highly optimal or requires attention.
 2. "optimization": A concrete, mathematical scenario showing how a minor adjustment (e.g., prepaying 10% extra, choosing a higher-yield instrument, or optimizing deductions) produces massive compounding savings or wealth gains. Use exact numbers based on the input.
 3. "actionableTips": Practical, next-step recommendations, including specific tax-planning opportunities (e.g., Section 80C, 24b deductions, or long-term tax harvesting) and structural options to maximize cash flow.
@@ -66,7 +83,7 @@ Do not return any pre-text or post-text outside the JSON object.`;
               },
             ],
             temperature: 0.7,
-            max_tokens: 800,
+            max_tokens: verifiedPro ? 1500 : 800,
           }),
         });
 
