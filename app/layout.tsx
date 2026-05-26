@@ -38,9 +38,7 @@ export const metadata: Metadata = {
     'loan calculator', 'FD calculator', 'PPF calculator', 'GST calculator',
     'salary calculator India', 'solar ROI calculator', 'free financial tools'
   ],
-  icons: {
-    icon: '/favicon.ico',
-  },
+
   alternates: {
     canonical: 'https://cost-smart-five.vercel.app',
   },
@@ -95,7 +93,7 @@ export default function RootLayout({
               '@type': 'Organization',
               name: 'CostSmart',
               url: CANONICAL_DOMAIN,
-              logo: `${CANONICAL_DOMAIN}/favicon.ico`,
+              logo: `${CANONICAL_DOMAIN}/icon.svg`,
               description: 'Financial calculators for modern financial planning',
               contactPoint: {
                 '@type': 'ContactPoint',
