@@ -2,7 +2,7 @@
   "id": "FEAT-002",
   "type": "feat",
   "description": "Create the /solar-roi/analyze page with address/geolocation input, API integration, results dashboard with free/pro tiers, and Google Maps attribution.",
-  "status": "pending",
+  "status": "in_progress",
   "steps": [
     "Create /projects/sandbox/cost-smart/app/solar-roi/analyze/page.tsx as the main page component (server component for metadata)",
     "Create /projects/sandbox/cost-smart/components/calculators/SolarAnalyzer.tsx as the client component ('use client') that contains: (a) An address input field with a 'Use My Location' button that uses navigator.geolocation.getCurrentPosition to get lat/lng, (b) An alternative manual lat/lng input mode, (c) Integration with Nominatim (OpenStreetMap) geocoding API for address-to-coordinates: fetch https://nominatim.openstreetmap.org/search?q={address}&format=json&limit=1 with appropriate User-Agent header, (d) A submit button that calls /api/solar/insights with the coordinates, (e) Loading state with skeleton/spinner while waiting for results, (f) Error handling for geolocation permission denied, API errors, rate limit exceeded (show upgrade CTA for 429)",
