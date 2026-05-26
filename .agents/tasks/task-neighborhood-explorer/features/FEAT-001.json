@@ -4,7 +4,7 @@
   "description": "Create server-side API routes for Neighborhood Explorer: /api/neighborhood/explore and /api/neighborhood/geocode. Add GOOGLE_MAPS_API_KEY to .env.local.",
   "status": "completed",
   "steps": [
-    "Add GOOGLE_MAPS_API_KEY=AIzaSyC1D9UDugepwhtlCW1C5pkQ_HtFoEzH_K0 to /projects/sandbox/cost-smart/.env.local (on a new line after the existing GOOGLE_SOLAR_API_KEY)",
+    "Add GOOGLE_MAPS_API_KEY=[API_KEY] to /projects/sandbox/cost-smart/.env.local (on a new line after the existing GOOGLE_SOLAR_API_KEY)",
     "Create app/api/neighborhood/explore/route.ts following the exact rate-limiting pattern from app/api/solar/insights/route.ts (in-memory Map, getClientIp, checkRateLimit, incrementRateLimit). Rate limits: FREE_LIMIT=2, PRO_LIMIT=30 per day.",
     "The /api/neighborhood/explore route accepts POST with { latitude, longitude, isPro, email }. Validate lat/lng same as solar route. Verify Pro status server-side using getSubscriptionByEmail from lib/kv-store.ts.",
     "Call Google Places API (New) Text Search endpoint to find nearby places in 5 categories: schools (within 2km), hospitals/clinics (within 3km), parks/recreation (within 2km), transit stations (within 1.5km), grocery/shopping (within 1.5km). Use the Text Search (New) endpoint: POST https://places.googleapis.com/v1/places:searchText with headers X-Goog-Api-Key and X-Goog-FieldMask.",

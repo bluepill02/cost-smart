@@ -439,14 +439,20 @@ export default function NeighborhoodExplorer() {
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <iframe
-                      src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&q=${latitude},${longitude}&zoom=14`}
-                      className="w-full aspect-video rounded-xl border-0"
-                      allowFullScreen
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                      title="Neighborhood Map"
-                    />
+                    {isPro ? (
+                      <iframe
+                        src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&q=${latitude},${longitude}&zoom=14`}
+                        className="w-full aspect-video rounded-xl border-0"
+                        allowFullScreen
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        title="Neighborhood Map"
+                      />
+                    ) : (
+                      <div className="w-full aspect-video rounded-xl bg-slate-200 flex items-center justify-center">
+                        <p className="text-sm text-slate-500">Map available for Pro users</p>
+                      </div>
+                    )}
                   </CardContent>
                 </Card>
 

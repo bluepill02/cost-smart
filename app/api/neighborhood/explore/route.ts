@@ -207,110 +207,126 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Call Google Places API (New) Text Search for each category
+    // Call Google Places API (New) Text Search for all categories in parallel
     const fieldMask =
       'places.id,places.displayName,places.formattedAddress,places.rating,places.userRatingCount,places.location';
 
     const categoryResults: CategoryResult[] = [];
     const scoreInputs: { places: PlaceResult[]; maxRadius: number }[] = [];
 
-    for (let i = 0; i < CATEGORIES.length; i++) {
-      const { query, radius } = CATEGORIES[i];
+    async function fetchCategoryPlaces(
+      categoryIndex: number
+    ): Promise<{
+      index: number;
+      processedPlaces: PlaceResult[];
+      radius: number;
+    }> {
+      const { query, radius } = CATEGORIES[categoryIndex];
       const textQuery = `${query} near ${latitude},${longitude}`;
 
-      try {
-        const placesResponse = await fetch(
-          'https://places.googleapis.com/v1/places:searchText',
-          {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              'X-Goog-Api-Key': apiKey,
-              'X-Goog-FieldMask': fieldMask,
-            },
-            body: JSON.stringify({
-              textQuery,
-              locationBias: {
-                circle: {
-                  center: { latitude, longitude },
-                  radius,
-                },
+      const placesResponse = await fetch(
+        'https://places.googleapis.com/v1/places:searchText',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'X-Goog-Api-Key': apiKey as string,
+            'X-Goog-FieldMask': fieldMask,
+          },
+          body: JSON.stringify({
+            textQuery,
+            locationBias: {
+              circle: {
+                center: { latitude, longitude },
+                radius,
               },
-            }),
-          }
+            },
+          }),
+        }
+      );
+
+      if (!placesResponse.ok) {
+        const errorText = await placesResponse.text();
+        console.error(
+          `Google Places API error for ${CATEGORY_NAMES[categoryIndex]}:`,
+          placesResponse.status,
+          errorText
         );
+        return { index: categoryIndex, processedPlaces: [], radius };
+      }
 
-        if (!placesResponse.ok) {
-          const errorText = await placesResponse.text();
-          console.error(
-            `Google Places API error for ${CATEGORY_NAMES[i]}:`,
-            placesResponse.status,
-            errorText
+      const placesData = await placesResponse.json();
+      const places = placesData.places || [];
+
+      const processedPlaces: PlaceResult[] = places
+        .map((place: { displayName?: { text?: string }; location?: { latitude?: number; longitude?: number }; rating?: number; userRatingCount?: number; formattedAddress?: string }) => {
+          const placeLat = place.location?.latitude ?? latitude;
+          const placeLng = place.location?.longitude ?? longitude;
+          const distance = calculateDistance(
+            latitude,
+            longitude,
+            placeLat,
+            placeLng
           );
-          // Continue with empty results for this category
-          categoryResults.push({ category: CATEGORY_NAMES[i], places: [] });
-          scoreInputs.push({ places: [], maxRadius: radius });
-          continue;
-        }
 
-        const placesData = await placesResponse.json();
-        const places = placesData.places || [];
+          return {
+            name: place.displayName?.text || 'Unknown',
+            distance: Math.round(distance),
+            rating: place.rating,
+            userRatingCount: place.userRatingCount,
+            formattedAddress: place.formattedAddress,
+          };
+        })
+        .sort((a: PlaceResult, b: PlaceResult) => a.distance - b.distance)
+        .slice(0, 5);
 
-        // Process places - calculate distance and limit results
-        const processedPlaces: PlaceResult[] = places
-          .map((place: { displayName?: { text?: string }; location?: { latitude?: number; longitude?: number }; rating?: number; userRatingCount?: number; formattedAddress?: string }) => {
-            const placeLat = place.location?.latitude ?? latitude;
-            const placeLng = place.location?.longitude ?? longitude;
-            const distance = calculateDistance(
-              latitude,
-              longitude,
-              placeLat,
-              placeLng
-            );
+      return { index: categoryIndex, processedPlaces, radius };
+    }
 
-            return {
-              name: place.displayName?.text || 'Unknown',
-              distance: Math.round(distance),
-              rating: place.rating,
-              userRatingCount: place.userRatingCount,
-              formattedAddress: place.formattedAddress,
-            };
-          })
-          .sort((a: PlaceResult, b: PlaceResult) => a.distance - b.distance)
-          .slice(0, 5);
+    const settled = await Promise.allSettled(
+      CATEGORIES.map((_, i) => fetchCategoryPlaces(i))
+    );
 
-        // Store full results for score calculation
-        scoreInputs.push({ places: processedPlaces, maxRadius: radius });
+    // Process settled results in order
+    for (let i = 0; i < CATEGORIES.length; i++) {
+      const result = settled[i];
 
-        // Apply tier-based filtering
-        if (verifiedPro) {
-          categoryResults.push({
-            category: CATEGORY_NAMES[i],
-            places: processedPlaces.map((p: PlaceResult) => ({
-              name: p.name,
-              distance: p.distance,
-              rating: p.rating,
-              userRatingCount: p.userRatingCount,
-              formattedAddress: p.formattedAddress,
-            })),
-          });
-        } else {
-          // Free tier: top 3 with name and distance only
-          categoryResults.push({
-            category: CATEGORY_NAMES[i],
-            places: processedPlaces.slice(0, 3).map((p: PlaceResult) => ({
-              name: p.name,
-              distance: p.distance,
-            })),
-          });
-        }
-      } catch (categoryError) {
+      if (result.status === 'rejected') {
         console.error(
           `Error fetching ${CATEGORY_NAMES[i]}:`,
-          categoryError
+          result.reason
         );
         categoryResults.push({ category: CATEGORY_NAMES[i], places: [] });
-        scoreInputs.push({ places: [], maxRadius: radius });
+        scoreInputs.push({ places: [], maxRadius: CATEGORIES[i].radius });
+        continue;
+      }
+
+      const { processedPlaces, radius } = result.value;
+
+      // Store full results for score calculation
+      scoreInputs.push({ places: processedPlaces, maxRadius: radius });
+
+      // Apply tier-based filtering
+      if (verifiedPro) {
+        categoryResults.push({
+          category: CATEGORY_NAMES[i],
+          places: processedPlaces.map((p: PlaceResult) => ({
+            name: p.name,
+            distance: p.distance,
+            rating: p.rating,
+            userRatingCount: p.userRatingCount,
+            formattedAddress: p.formattedAddress,
+          })),
+        });
+      } else {
+        // Free tier: top 3 with name and distance only
+        categoryResults.push({
+          category: CATEGORY_NAMES[i],
+          places: processedPlaces.slice(0, 3).map((p: PlaceResult) => ({
+            name: p.name,
+            distance: p.distance,
+          })),
+        });
       }
     }
 
