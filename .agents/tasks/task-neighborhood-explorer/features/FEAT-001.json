@@ -2,7 +2,7 @@
   "id": "FEAT-001",
   "type": "feat",
   "description": "Create server-side API routes for Neighborhood Explorer: /api/neighborhood/explore and /api/neighborhood/geocode. Add GOOGLE_MAPS_API_KEY to .env.local.",
-  "status": "in_progress",
+  "status": "completed",
   "steps": [
     "Add GOOGLE_MAPS_API_KEY=AIzaSyC1D9UDugepwhtlCW1C5pkQ_HtFoEzH_K0 to /projects/sandbox/cost-smart/.env.local (on a new line after the existing GOOGLE_SOLAR_API_KEY)",
     "Create app/api/neighborhood/explore/route.ts following the exact rate-limiting pattern from app/api/solar/insights/route.ts (in-memory Map, getClientIp, checkRateLimit, incrementRateLimit). Rate limits: FREE_LIMIT=2, PRO_LIMIT=30 per day.",
@@ -28,5 +28,5 @@
     "Run npm run build to confirm the build succeeds"
   ],
   "blocked_reason": null,
-  "findings": ""
+  "findings": "Both routes built and type-checked successfully. .env.local updated with GOOGLE_MAPS_API_KEY and NEXT_PUBLIC_GOOGLE_MAPS_API_KEY. The chart width/height warnings in build output are pre-existing from recharts components, not related to this feature."
 }
