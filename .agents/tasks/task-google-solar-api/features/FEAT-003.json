@@ -2,7 +2,7 @@
   "id": "FEAT-003",
   "type": "feat",
   "description": "Add 'Analyze Your Exact Rooftop' CTA buttons to existing solar ROI pages (/solar-roi and /solar-roi/[city]) linking to the new /solar-roi/analyze page.",
-  "status": "pending",
+  "status": "in_progress",
   "steps": [
     "Edit /projects/sandbox/cost-smart/app/solar-roi/page.tsx: Add a prominent CTA section below the existing 'View Example: Los Angeles' button and above the city grid. The CTA should include a brief description ('Get personalized solar data for your exact rooftop using Google Solar API') and a Link to /solar-roi/analyze. Style it with emerald/green theme consistent with the page. Use lucide-react Sun or Sparkles icon.",
     "Edit /projects/sandbox/cost-smart/app/solar-roi/[city]/page.tsx: Add an 'Analyze Your Exact Rooftop' CTA card in the right sidebar (inside the sticky div), below the 'Local Solar Stats' card. Also add one inline CTA after the calculator section. The CTA should say something like 'Want data for YOUR exact roof? Get personalized analysis from Google Solar API' with a Link button to /solar-roi/analyze. Use consistent styling with existing cards.",
