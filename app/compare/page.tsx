@@ -73,7 +73,7 @@ export default function ComparePage() {
 
   return (
     <div className="min-h-screen bg-slate-50 py-12">
-      <BreadcrumbSchema items={[{ label: 'Comparisons' }]} />
+      <BreadcrumbSchema items={[{ label: 'Comparisons' }]} currentPath="/compare" />
       <div className="container mx-auto px-4 max-w-6xl">
         <AdContainer size="leaderboard" className="mb-8" slotId="1475703853" />
 

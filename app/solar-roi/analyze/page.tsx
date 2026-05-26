@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 export default function SolarAnalyzePage() {
   return (
     <div className="container mx-auto px-4 py-12 bg-slate-50 min-h-screen">
-      <BreadcrumbSchema items={[{ label: 'Solar ROI', href: '/solar-roi' }, { label: 'Rooftop Analysis' }]} />
+      <BreadcrumbSchema items={[{ label: 'Solar ROI', href: '/solar-roi' }, { label: 'Rooftop Analysis' }]} currentPath="/solar-roi/analyze" />
       <AdContainer className="mb-8" slotId="1475703853" />
 
       <div className="text-center mb-10">

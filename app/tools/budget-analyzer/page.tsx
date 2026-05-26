@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: 'Upload your bank statement and get AI-powered insights on spending patterns, budget optimization, and personalized savings recommendations. Free CSV analyzer.',
   keywords: 'budget analyzer, expense tracker, spending analysis, AI categorization, personal finance, savings optimizer, bank statement analyzer',
   openGraph: {
-    title: 'Smart Budget Analyzer - AI-Powered Expense Tracking',
+    title: 'AI Budget Analyzer — Expense Tracking | CostSmart',
     description: 'Upload bank statement, analyze spending patterns, get AI recommendations',
     url: 'https://cost-smart-five.vercel.app/tools/budget-analyzer',
     type: 'website',
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 export default function BudgetAnalyzerPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
-      <BreadcrumbSchema items={[{ label: 'Tools', href: '/tools' }, { label: 'Budget Analyzer' }]} />
+      <BreadcrumbSchema items={[{ label: 'Tools', href: '/tools' }, { label: 'Budget Analyzer' }]} currentPath="/tools/budget-analyzer" />
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="text-center mb-8">

@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 export default function NeighborhoodExplorerPage() {
   return (
     <div className="container mx-auto px-4 py-12 bg-slate-50 min-h-screen">
-      <BreadcrumbSchema items={[{ label: 'Tools', href: '/tools' }, { label: 'Neighborhood Explorer' }]} />
+      <BreadcrumbSchema items={[{ label: 'Tools', href: '/tools' }, { label: 'Neighborhood Explorer' }]} currentPath="/neighborhood-explorer" />
       <AdContainer className="mb-8" slotId="1475703853" />
 
       <div className="text-center mb-10">

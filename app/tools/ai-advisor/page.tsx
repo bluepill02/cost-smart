@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Free AI Financial Advisor | CostSmart',
   description: 'Get free AI-powered financial advice on investments, loans, taxes, retirement planning, and budgeting. Context-aware recommendations with voice input support.',
   openGraph: {
-    title: 'AI Financial Advisor - Free Financial Guidance',
+    title: 'Free AI Financial Advisor | CostSmart',
     description: 'Chat with our AI financial advisor for personalized advice on investments, loans, taxes, and budget planning.',
     url: `${CANONICAL_DOMAIN}/tools/ai-advisor`,
     type: 'website',
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 export default function AIAdvisorPage() {
   return (
     <div>
-      <BreadcrumbSchema items={[{ label: 'Tools', href: '/tools' }, { label: 'AI Financial Advisor' }]} />
+      <BreadcrumbSchema items={[{ label: 'Tools', href: '/tools' }, { label: 'AI Financial Advisor' }]} currentPath="/tools/ai-advisor" />
       <AdContainer size="leaderboard" className="container mx-auto px-4 max-w-6xl mb-8 mt-4" />
       <AIFinancialAdvisorChat />
       <AdContainer size="leaderboard" className="container mx-auto px-4 max-w-6xl mt-8" />

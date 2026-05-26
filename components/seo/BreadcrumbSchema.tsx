@@ -8,10 +8,15 @@ interface BreadcrumbItem {
 
 interface BreadcrumbSchemaProps {
   items: BreadcrumbItem[];
+  currentPath?: string;
 }
 
-export default function BreadcrumbSchema({ items }: BreadcrumbSchemaProps) {
+export default function BreadcrumbSchema({ items, currentPath }: BreadcrumbSchemaProps) {
   const allItems = [{ label: 'Home', href: '/' }, ...items];
+
+  if (currentPath && allItems.length > 0) {
+    allItems[allItems.length - 1] = { ...allItems[allItems.length - 1], href: currentPath };
+  }
 
   const schema = {
     '@context': 'https://schema.org',
