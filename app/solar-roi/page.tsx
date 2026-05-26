@@ -1,11 +1,12 @@
 
 import Link from 'next/link';
 import { Metadata } from 'next';
-import { ArrowRight, MapPin, Globe } from 'lucide-react';
+import { ArrowRight, MapPin, Globe, Sparkles } from 'lucide-react';
 import { CitySearch } from '@/components/features/CitySearch';
 import { INDIAN_CITIES } from '@/lib/pseo-data/cities';
 import { US_CITIES } from '@/lib/pseo-data/us-cities';
 import AdContainer from '@/components/ads/AdContainer';
+import { Badge } from '@/components/ui/badge';
 
 export const metadata: Metadata = {
     title: 'Select Your City - Solar ROI Calculator',
@@ -44,6 +45,25 @@ export default async function SolarLandingPage() {
                     className="inline-flex items-center gap-2 bg-emerald-600 text-white px-8 py-3 rounded-full font-bold shadow-lg hover:bg-emerald-700 hover:shadow-xl hover:-translate-y-1 transition-all duration-200"
                 >
                     View Example: Los Angeles <ArrowRight size={20} />
+                </Link>
+            </div>
+
+            {/* CTA: Analyze Your Exact Rooftop */}
+            <div className="max-w-3xl mx-auto mb-16 bg-gradient-to-r from-emerald-50 to-emerald-100 border border-emerald-200 rounded-2xl p-8 text-center shadow-md">
+                <div className="flex items-center justify-center gap-2 mb-3">
+                    <Sparkles className="text-emerald-600" size={24} />
+                    <h2 className="text-2xl font-bold text-slate-900">Want Data for YOUR Exact Roof?</h2>
+                    <Badge className="bg-emerald-600 text-white">NEW</Badge>
+                </div>
+                <p className="text-slate-600 mb-6 max-w-xl mx-auto">
+                    Get personalized solar analysis for your exact rooftop using Google Solar API.
+                    Enter any address and see panel layout, energy output, and savings tailored to your home.
+                </p>
+                <Link
+                    href="/solar-roi/analyze"
+                    className="inline-flex items-center gap-2 bg-emerald-600 text-white px-8 py-3 rounded-full font-bold shadow-lg hover:bg-emerald-700 hover:shadow-xl hover:-translate-y-1 transition-all duration-200"
+                >
+                    Analyze Your Rooftop <ArrowRight size={20} />
                 </Link>
             </div>
 

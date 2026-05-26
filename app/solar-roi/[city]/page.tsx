@@ -1,10 +1,13 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
+import Link from 'next/link';
+import { Sparkles, ArrowRight } from 'lucide-react';
 import SolarForm from '@/components/calculators/SolarForm';
 import AdContainer from '@/components/ads/AdContainer';
 import RelatedTools from '@/components/layouts/RelatedTools';
 import { Card, CardContent } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 
 import { getCityData, SolarData } from '@/lib/solar-data';
 import { INDIAN_CITIES } from '@/lib/pseo-data/cities';
@@ -200,6 +203,24 @@ export default async function CitySolarPage({ params }: { params: Promise<{ city
                             <SolarForm cityData={city} />
                         </div>
 
+                        {/* CTA: Analyze Your Exact Rooftop (Inline) */}
+                        <div className="bg-gradient-to-r from-emerald-50 to-emerald-100 border border-emerald-200 rounded-2xl p-6">
+                            <div className="flex items-center gap-2 mb-2">
+                                <Sparkles className="text-emerald-600" size={20} />
+                                <h3 className="text-lg font-bold text-slate-900">Want Data for YOUR Exact Roof?</h3>
+                                <Badge className="bg-emerald-600 text-white">NEW</Badge>
+                            </div>
+                            <p className="text-slate-600 text-sm mb-4">
+                                Get personalized analysis for your exact rooftop using Google Solar API. See panel layout, energy output, and savings tailored to your address.
+                            </p>
+                            <Link
+                                href="/solar-roi/analyze"
+                                className="inline-flex items-center gap-2 bg-emerald-600 text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-emerald-700 transition-colors"
+                            >
+                                Analyze Your Rooftop <ArrowRight size={18} />
+                            </Link>
+                        </div>
+
                         {/* Ad Placeholder (Inline) - High CTR Location: Between Form and Content */}
                         <AdContainer size="inline" className="my-8" slotId="1475703853" />
 
@@ -225,6 +246,26 @@ export default async function CitySolarPage({ params }: { params: Promise<{ city
                                             <span className="font-medium">~{city.solar_installation_cost_per_kw}/kW</span>
                                         </li>
                                     </ul>
+                                </CardContent>
+                            </Card>
+
+                            {/* CTA: Analyze Your Exact Rooftop */}
+                            <Card className="border-emerald-200 bg-gradient-to-b from-emerald-50 to-white">
+                                <CardContent className="p-6">
+                                    <div className="flex items-center gap-2 mb-3">
+                                        <Sparkles className="text-emerald-600" size={18} />
+                                        <h3 className="font-bold text-slate-900">Analyze Your Exact Rooftop</h3>
+                                        <Badge className="bg-emerald-600 text-white">NEW</Badge>
+                                    </div>
+                                    <p className="text-sm text-slate-600 mb-4">
+                                        Get personalized solar data for your exact roof using Google Solar API.
+                                    </p>
+                                    <Link
+                                        href="/solar-roi/analyze"
+                                        className="inline-flex items-center gap-2 w-full justify-center bg-emerald-600 text-white px-4 py-2 rounded-lg font-semibold text-sm hover:bg-emerald-700 transition-colors"
+                                    >
+                                        Try It Free <ArrowRight size={16} />
+                                    </Link>
                                 </CardContent>
                             </Card>
 
