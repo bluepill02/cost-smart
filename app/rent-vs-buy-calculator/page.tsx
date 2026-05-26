@@ -5,6 +5,7 @@ import { getCalculatorSchema } from '@/lib/seo-utils';
 import JsonLd from '@/components/seo/JsonLd';
 import AmazonRecommendations from '@/components/affiliate/AmazonRecommendations';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
+import NeighborhoodCTA from '@/components/features/NeighborhoodCTA';
 
 export const metadata: Metadata = {
   title: 'Rent vs Buy Calculator | Real Estate Decision Tool',
@@ -71,6 +72,10 @@ export default function RentVsBuyPage() {
         <p>
             The calculator projects these two lines forward to see which one ends up higher.
         </p>
+      </div>
+
+      <div className="mt-12">
+        <NeighborhoodCTA />
       </div>
 
       <AmazonRecommendations calculatorSlug="rent-vs-buy" />

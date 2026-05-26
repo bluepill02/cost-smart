@@ -2,12 +2,13 @@ import React from 'react';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { Sparkles, ArrowRight } from 'lucide-react';
+import { Sparkles, ArrowRight, MapPin } from 'lucide-react';
 import SolarForm from '@/components/calculators/SolarForm';
 import AdContainer from '@/components/ads/AdContainer';
 import RelatedTools from '@/components/layouts/RelatedTools';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import NeighborhoodCTA from '@/components/features/NeighborhoodCTA';
 
 import { getCityData, SolarData } from '@/lib/solar-data';
 import { INDIAN_CITIES } from '@/lib/pseo-data/cities';
@@ -221,6 +222,8 @@ export default async function CitySolarPage({ params }: { params: Promise<{ city
                             </Link>
                         </div>
 
+                        <NeighborhoodCTA />
+
                         {/* Ad Placeholder (Inline) - High CTR Location: Between Form and Content */}
                         <AdContainer size="inline" className="my-8" slotId="1475703853" />
 
@@ -246,6 +249,20 @@ export default async function CitySolarPage({ params }: { params: Promise<{ city
                                             <span className="font-medium">~{city.solar_installation_cost_per_kw}/kW</span>
                                         </li>
                                     </ul>
+                                </CardContent>
+                            </Card>
+
+                            <Card>
+                                <CardContent className="p-4">
+                                    <h3 className="font-bold text-slate-900 mb-3">Location Map</h3>
+                                    <iframe
+                                        src={`https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&q=${encodeURIComponent(city.city_name)}`}
+                                        className="w-full aspect-video rounded-lg border-0"
+                                        allowFullScreen
+                                        loading="lazy"
+                                        referrerPolicy="no-referrer-when-downgrade"
+                                        title={`Map of ${city.city_name}`}
+                                    />
                                 </CardContent>
                             </Card>
 

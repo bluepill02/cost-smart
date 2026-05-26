@@ -1,0 +1,14 @@
+{
+  "task_id": "task-neighborhood-explorer",
+  "task_description": "Implement a Neighborhood Explorer freemium feature using Google Maps Platform APIs. Includes server-side API routes for place search and geocoding with rate limiting, a client component with freemium gating and embedded Google Map, a standalone page, CTAs on existing calculator pages, and Maps Embed on city pages.",
+  "status": "completed",
+  "feature_order": ["FEAT-001", "FEAT-002", "FEAT-003"],
+  "blocked_reason": null,
+  "verification": {
+    "build": "pass",
+    "tests": "pass",
+    "test_quality": "pass",
+    "docker_build": "skipped",
+    "summary": "npx tsc --noEmit passes cleanly. npm run build succeeds. Review fixes applied: parallelized Places API calls with Promise.allSettled, conditionally render Maps iframe only for Pro users, redacted API key from FEAT-001.json."
+  }
+}

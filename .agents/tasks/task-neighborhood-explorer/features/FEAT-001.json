@@ -1,0 +1,32 @@
+{
+  "id": "FEAT-001",
+  "type": "feat",
+  "description": "Create server-side API routes for Neighborhood Explorer: /api/neighborhood/explore and /api/neighborhood/geocode. Add GOOGLE_MAPS_API_KEY to .env.local.",
+  "status": "completed",
+  "steps": [
+    "Add GOOGLE_MAPS_API_KEY=[API_KEY] to /projects/sandbox/cost-smart/.env.local (on a new line after the existing GOOGLE_SOLAR_API_KEY)",
+    "Create app/api/neighborhood/explore/route.ts following the exact rate-limiting pattern from app/api/solar/insights/route.ts (in-memory Map, getClientIp, checkRateLimit, incrementRateLimit). Rate limits: FREE_LIMIT=2, PRO_LIMIT=30 per day.",
+    "The /api/neighborhood/explore route accepts POST with { latitude, longitude, isPro, email }. Validate lat/lng same as solar route. Verify Pro status server-side using getSubscriptionByEmail from lib/kv-store.ts.",
+    "Call Google Places API (New) Text Search endpoint to find nearby places in 5 categories: schools (within 2km), hospitals/clinics (within 3km), parks/recreation (within 2km), transit stations (within 1.5km), grocery/shopping (within 1.5km). Use the Text Search (New) endpoint: POST https://places.googleapis.com/v1/places:searchText with headers X-Goog-Api-Key and X-Goog-FieldMask.",
+    "For free tier response: return top 3 per category with name and approximate distance only. For Pro tier: return full list (up to 5 per category) with name, rating, userRatingCount, formattedAddress, and distance.",
+    "Calculate a 'Neighborhood Score' (0-100) based on: presence and proximity of amenities across all categories. Formula: each category contributes up to 20 points. Within each category, score based on count of results and their average distance (closer = higher score).",
+    "Create app/api/neighborhood/geocode/route.ts - accepts POST with { address, isPro, email }. Rate limit: 5/day free, 50/day Pro. Calls Google Geocoding API: GET https://maps.googleapis.com/maps/api/geocode/json?address=ENCODED_ADDRESS&key=API_KEY. Returns { latitude, longitude, formattedAddress }.",
+    "Both routes should return proper error responses (400 for validation, 429 for rate limit with Retry-After header, 500 for config errors, 502 for upstream failures). Only increment rate limit counter after successful upstream response."
+  ],
+  "acceptance_criteria": [
+    "app/api/neighborhood/explore/route.ts exists and exports POST handler",
+    "app/api/neighborhood/geocode/route.ts exists and exports POST handler",
+    ".env.local contains GOOGLE_MAPS_API_KEY",
+    "Rate limiting logic matches the pattern in app/api/solar/insights/route.ts",
+    "Pro verification uses getSubscriptionByEmail from lib/kv-store.ts",
+    "Free tier returns limited data (top 3 per category, names only), Pro tier returns full data",
+    "Neighborhood Score calculation is included in the explore response",
+    "npx tsc --noEmit passes without type errors"
+  ],
+  "verification": [
+    "Run npx tsc --noEmit to confirm no type errors",
+    "Run npm run build to confirm the build succeeds"
+  ],
+  "blocked_reason": null,
+  "findings": "Both routes built and type-checked successfully. .env.local updated with GOOGLE_MAPS_API_KEY and NEXT_PUBLIC_GOOGLE_MAPS_API_KEY. The chart width/height warnings in build output are pre-existing from recharts components, not related to this feature."
+}

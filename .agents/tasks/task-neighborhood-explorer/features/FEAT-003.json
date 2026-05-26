@@ -1,0 +1,27 @@
+{
+  "id": "FEAT-003",
+  "type": "feat",
+  "description": "Add 'Explore This Neighborhood' CTA widgets to existing calculator pages and add Google Maps Embed iframe to solar-roi city pages.",
+  "status": "completed",
+  "steps": [
+    "Create a reusable components/features/NeighborhoodCTA.tsx component - a compact card with: heading 'Know Your Neighborhood Before You Move', brief description, MapPin icon from lucide-react, a link/button pointing to /neighborhood-explorer, styled with emerald gradient similar to the CTA in app/solar-roi/[city]/page.tsx (the 'Want Data for YOUR Exact Roof?' CTA pattern). Include a Badge with text 'NEW'.",
+    "Add the NeighborhoodCTA component to app/rent-vs-buy-calculator/page.tsx - place it after the main calculator content (after the RentVsBuyCalculator component and the prose section, before any existing RelatedCalculators).",
+    "Add the NeighborhoodCTA component to app/home-loan-calculator/page.tsx - place it after the main HomeLoanCalculator component section.",
+    "Add the NeighborhoodCTA component to app/moving-cost-calculator/page.tsx - place it after the main MovingCostCalculator component section.",
+    "Add a Google Maps Embed iframe to app/solar-roi/[city]/page.tsx - in the sidebar (right column, within the sticky div), add a Card containing an iframe with src='https://www.google.com/maps/embed/v1/place?key=NEXT_PUBLIC_KEY&q=CITY_NAME'. Use the city.city_name from the city data. Place it after the existing 'Local Solar Stats' card. Wrap with appropriate heading like 'Location Map'."
+  ],
+  "acceptance_criteria": [
+    "components/features/NeighborhoodCTA.tsx exists as a reusable component",
+    "app/rent-vs-buy-calculator/page.tsx imports and renders NeighborhoodCTA",
+    "app/home-loan-calculator/page.tsx imports and renders NeighborhoodCTA",
+    "app/moving-cost-calculator/page.tsx imports and renders NeighborhoodCTA",
+    "app/solar-roi/[city]/page.tsx includes a Google Maps Embed iframe using the city name",
+    "npx tsc --noEmit passes without type errors"
+  ],
+  "verification": [
+    "Run npx tsc --noEmit to confirm no type errors",
+    "Run npm run build to confirm the build succeeds"
+  ],
+  "blocked_reason": null,
+  "findings": "All acceptance criteria met. NeighborhoodCTA component created at components/features/NeighborhoodCTA.tsx. Added to rent-vs-buy, home-loan, and moving-cost calculator pages. Google Maps embed added to solar-roi/[city] sidebar. NeighborhoodCTA also added inline in solar-roi/[city] left column. Both tsc --noEmit and npm run build pass cleanly."
+}

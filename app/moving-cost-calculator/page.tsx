@@ -5,6 +5,7 @@ import { getCalculatorSchema, getFAQSchema } from '@/lib/seo-utils';
 import FAQSection from '@/components/ui/FAQSection';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import RelatedTools from '@/components/layouts/RelatedTools';
+import NeighborhoodCTA from '@/components/features/NeighborhoodCTA';
 
 export const metadata: Metadata = {
   title: 'Moving Cost Calculator | Packers & Movers Cost | CostSmart',
@@ -96,6 +97,10 @@ export default function Page() {
       </article>
 
       <FAQSection faqs={movingFAQs} title="Frequently Asked Questions About Moving Costs" />
+
+      <div className="mt-12">
+        <NeighborhoodCTA />
+      </div>
 
       <RelatedTools currentTool="loan" />
     </div>
