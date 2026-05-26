@@ -1,0 +1,42 @@
+{
+  "project_type": "Next.js 16 App Router with shadcn/ui, freemium SaaS",
+  "language": "TypeScript",
+  "build_system": "npm with next build (Next.js 16.0.10)",
+  "test_framework": "Playwright for e2e tests (minimal usage)",
+  "build_command": "npm run build",
+  "test_command": "npx tsc --noEmit",
+  "verification_instructions": "Run `npx tsc --noEmit` for type checking and `npm run build` to verify the Next.js build succeeds",
+  "snapshot_or_generated_files": null,
+  "setup_instructions": "npm install in /projects/sandbox/cost-smart",
+  "environment_constraints": "OPEN_INTERNET - full network access available. Vercel KV used for Pro subscription verification. No Docker setup in project.",
+  "contribution_requirements": "Follow existing patterns: shadcn/ui components, Tailwind CSS, lucide-react icons, freemium gating with blur overlay + Lock icon + Upgrade CTA",
+  "key_patterns": {
+    "rate_limiting": "In-memory Map with daily reset, check before API call, increment after successful response. See app/api/solar/insights/route.ts",
+    "pro_verification": "Server-side email-based check via getSubscriptionByEmail() from lib/kv-store.ts",
+    "client_pro_status": "useProStatus() hook from lib/hooks/useProStatus.ts returns { isPro, isLoading, proEmail }",
+    "freemium_ui": "blur-sm + pointer-events-none on Pro content, absolute overlay with Lock icon + Upgrade CTA. See SolarAnalyzer.tsx",
+    "page_structure": "Metadata export, AdContainer placements, responsive container layout with max-w-4xl or max-w-5xl",
+    "api_routes": "Next.js route handlers at app/api/*/route.ts using NextRequest/NextResponse",
+    "geocoding": "Nominatim OpenStreetMap used in SolarAnalyzer for free geocoding",
+    "components_location": "components/features/ for feature components, components/calculators/ for calculator components",
+    "ads": "AdContainer component with slotId prop, placed at strategic locations",
+    "city_pages": "app/solar-roi/[city]/page.tsx uses generateStaticParams, US_CITIES and INDIAN_CITIES arrays"
+  },
+  "relevant_files": [
+    "app/api/solar/insights/route.ts",
+    "components/calculators/SolarAnalyzer.tsx",
+    "app/solar-roi/analyze/page.tsx",
+    "app/solar-roi/[city]/page.tsx",
+    "lib/contexts/ProStatusContext.tsx",
+    "lib/hooks/useProStatus.ts",
+    "lib/kv-store.ts",
+    "app/rent-vs-buy-calculator/page.tsx",
+    "app/home-loan-calculator/page.tsx",
+    "app/moving-cost-calculator/page.tsx",
+    "components/ads/AdContainer.tsx",
+    "components/premium/PremiumBanner.tsx",
+    "app/layout.tsx",
+    ".env.local"
+  ],
+  "directory_structure": "app/ - Next.js app router pages and API routes; components/ - UI (shadcn), features, calculators, ads, layouts, premium; lib/ - utilities, hooks, contexts, data files; lib/pseo-data/ - city data for pSEO pages"
+}

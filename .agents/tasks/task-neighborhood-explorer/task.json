@@ -1,0 +1,7 @@
+{
+  "task_id": "task-neighborhood-explorer",
+  "task_description": "Implement a Neighborhood Explorer freemium feature using Google Maps Platform APIs. Includes server-side API routes for place search and geocoding with rate limiting, a client component with freemium gating and embedded Google Map, a standalone page, CTAs on existing calculator pages, and Maps Embed on city pages.",
+  "status": "in_progress",
+  "feature_order": ["FEAT-001", "FEAT-002", "FEAT-003"],
+  "blocked_reason": null
+}

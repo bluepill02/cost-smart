@@ -1,0 +1,35 @@
+{
+  "id": "FEAT-002",
+  "type": "feat",
+  "description": "Create the NeighborhoodExplorer client component and the standalone /neighborhood-explorer page with full freemium UX, embedded Google Map, and SEO metadata.",
+  "status": "pending",
+  "steps": [
+    "Create components/features/NeighborhoodExplorer.tsx as a 'use client' component following the UX patterns from components/calculators/SolarAnalyzer.tsx.",
+    "The component should include: (1) Address input with a 'Find Location' button that first tries Nominatim geocoding (same pattern as SolarAnalyzer), then optionally falls back to /api/neighborhood/geocode for better accuracy. (2) 'Use My Location' button using browser Geolocation API (same as SolarAnalyzer). (3) Manual lat/lng input toggle (same as SolarAnalyzer).",
+    "Once location is set, component calls /api/neighborhood/explore with { latitude, longitude, isPro: isPro, email: proEmail } using useProStatus() hook.",
+    "Display results in categorized cards using shadcn Card component: Schools (GraduationCap icon), Hospitals (Hospital icon), Parks & Recreation (Trees icon), Transit & Connectivity (Train icon), Shopping & Groceries (ShoppingCart icon). Each card shows place name and approximate distance.",
+    "Display a 'Neighborhood Score' (0-100) prominently using a circular gauge or large number with color coding (0-40 red, 41-70 amber, 71-100 green).",
+    "Include a Google Maps Embed iframe showing the searched location. URL format: https://www.google.com/maps/embed/v1/place?key=${process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY}&q=LAT,LNG. Since the API key must be in the iframe URL client-side (that's how Embed works), add NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=AIzaSyC1D9UDugepwhtlCW1C5pkQ_HtFoEzH_K0 to .env.local.",
+    "Implement freemium gating: Free tier shows top 3 per category with names + distance. Pro section shows full results with ratings, review counts. Use the blur overlay pattern from SolarAnalyzer.tsx (blur-sm + pointer-events-none + absolute overlay with Lock icon + 'Upgrade to Pro' link to /pricing).",
+    "Add Google Maps attribution text at the bottom: 'Map data provided by Google Maps Platform'.",
+    "Create app/neighborhood-explorer/page.tsx as the standalone page. Include: (1) Metadata export targeting 'neighborhood analysis', 'area explorer', 'locality check before buying'. (2) AdContainer placements (top leaderboard, inline after results). (3) The NeighborhoodExplorer component. (4) SEO content section with h2 headings about neighborhood analysis. (5) Links to related tools: Rent vs Buy Calculator, Home Loan Calculator, Moving Cost Calculator.",
+    "Add a RelatedTools-style section or links at the bottom of the page pointing to /rent-vs-buy-calculator, /home-loan-calculator, /moving-cost-calculator."
+  ],
+  "acceptance_criteria": [
+    "components/features/NeighborhoodExplorer.tsx exists as a 'use client' component",
+    "app/neighborhood-explorer/page.tsx exists with proper metadata export",
+    "Component uses useProStatus() for freemium gating",
+    "Google Maps Embed iframe is included (using NEXT_PUBLIC_GOOGLE_MAPS_API_KEY)",
+    "Free tier shows limited results, Pro tier shows full results with blur overlay pattern",
+    "Neighborhood Score is displayed prominently",
+    "AdContainer is placed on the page",
+    "Page has links to related calculators",
+    "npx tsc --noEmit passes without type errors"
+  ],
+  "verification": [
+    "Run npx tsc --noEmit to confirm no type errors",
+    "Run npm run build to confirm the build succeeds"
+  ],
+  "blocked_reason": null,
+  "findings": ""
+}
