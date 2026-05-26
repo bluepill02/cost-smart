@@ -1,0 +1,7 @@
+{
+  "task_id": "task-google-solar-api",
+  "task_description": "Implement Google Solar API as a freemium feature: server-side API route with rate limiting, new /solar-roi/analyze page with results dashboard (free/pro tiers), and CTA integration on existing solar pages.",
+  "status": "in_progress",
+  "feature_order": ["FEAT-001", "FEAT-002", "FEAT-003"],
+  "blocked_reason": null
+}

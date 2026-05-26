@@ -1,0 +1,31 @@
+{
+  "id": "FEAT-002",
+  "type": "feat",
+  "description": "Create the /solar-roi/analyze page with address/geolocation input, API integration, results dashboard with free/pro tiers, and Google Maps attribution.",
+  "status": "pending",
+  "steps": [
+    "Create /projects/sandbox/cost-smart/app/solar-roi/analyze/page.tsx as the main page component (server component for metadata)",
+    "Create /projects/sandbox/cost-smart/components/calculators/SolarAnalyzer.tsx as the client component ('use client') that contains: (a) An address input field with a 'Use My Location' button that uses navigator.geolocation.getCurrentPosition to get lat/lng, (b) An alternative manual lat/lng input mode, (c) Integration with Nominatim (OpenStreetMap) geocoding API for address-to-coordinates: fetch https://nominatim.openstreetmap.org/search?q={address}&format=json&limit=1 with appropriate User-Agent header, (d) A submit button that calls /api/solar/insights with the coordinates, (e) Loading state with skeleton/spinner while waiting for results, (f) Error handling for geolocation permission denied, API errors, rate limit exceeded (show upgrade CTA for 429)",
+    "Build the results dashboard section in SolarAnalyzer.tsx showing: FREE TIER results (always visible): roof area estimate, recommended panel count, total capacity (kW), annual energy production (kWh), simple payback period, estimated monthly savings. PRO TIER results (gated behind useProStatus().isPro check, show blurred/locked for free users with upgrade CTA): full financial analysis (lease vs buy vs finance options from financialAnalyses), monthly production breakdown, all roof segment details, CO2 offset calculation (use 0.42 kg CO2/kWh as US average grid emission factor)",
+    "Use existing UI components: Card/CardContent from @/components/ui/card, Button from @/components/ui/button, Input from @/components/ui/input, Badge from @/components/ui/badge. Use lucide-react icons (Sun, MapPin, Zap, DollarSign, Lock, Leaf, TrendingUp). Follow the visual style of components/calculators/SolarForm.tsx.",
+    "Add Google Maps attribution at the bottom of results: 'Solar data provided by Google Solar API. (c) Google Maps' as required by policy",
+    "Track daily lookup count on the client side using localStorage (key: 'solar_lookups', value: { count: number, date: string }) and show remaining lookups to the user",
+    "The page metadata should have title 'Analyze Your Rooftop Solar Potential - CostSmart' and appropriate description and canonical URL"
+  ],
+  "acceptance_criteria": [
+    "Page /solar-roi/analyze renders with address input and 'Use My Location' button",
+    "Nominatim geocoding converts address text to lat/lng coordinates",
+    "Browser geolocation API is used when 'Use My Location' is clicked",
+    "Results dashboard shows panel count, capacity, annual production, payback period for free users",
+    "Pro-only sections (financial breakdown, all segments, CO2) are visually gated with a lock icon and upgrade CTA for non-pro users",
+    "Google Maps attribution text is displayed when results are shown",
+    "Rate limit feedback is shown when 429 is returned from API",
+    "Loading state is displayed while API request is in progress",
+    "The component uses useProStatus() hook to check pro status"
+  ],
+  "verification": [
+    "Run 'cd /projects/sandbox/cost-smart && pnpm build' and confirm it compiles without errors"
+  ],
+  "blocked_reason": null,
+  "findings": ""
+}
