@@ -2,7 +2,7 @@
   "id": "FEAT-003",
   "type": "feat",
   "description": "Add 'Explore This Neighborhood' CTA widgets to existing calculator pages and add Google Maps Embed iframe to solar-roi city pages.",
-  "status": "in_progress",
+  "status": "completed",
   "steps": [
     "Create a reusable components/features/NeighborhoodCTA.tsx component - a compact card with: heading 'Know Your Neighborhood Before You Move', brief description, MapPin icon from lucide-react, a link/button pointing to /neighborhood-explorer, styled with emerald gradient similar to the CTA in app/solar-roi/[city]/page.tsx (the 'Want Data for YOUR Exact Roof?' CTA pattern). Include a Badge with text 'NEW'.",
     "Add the NeighborhoodCTA component to app/rent-vs-buy-calculator/page.tsx - place it after the main calculator content (after the RentVsBuyCalculator component and the prose section, before any existing RelatedCalculators).",
@@ -23,5 +23,5 @@
     "Run npm run build to confirm the build succeeds"
   ],
   "blocked_reason": null,
-  "findings": ""
+  "findings": "All acceptance criteria met. NeighborhoodCTA component created at components/features/NeighborhoodCTA.tsx. Added to rent-vs-buy, home-loan, and moving-cost calculator pages. Google Maps embed added to solar-roi/[city] sidebar. NeighborhoodCTA also added inline in solar-roi/[city] left column. Both tsc --noEmit and npm run build pass cleanly."
 }
