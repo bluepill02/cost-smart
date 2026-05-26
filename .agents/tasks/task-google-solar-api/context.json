@@ -1,0 +1,29 @@
+{
+  "project_type": "Next.js 16 App Router site (financial calculators) with Tailwind CSS 4, shadcn/ui components, and recharts",
+  "language": "TypeScript",
+  "build_system": "pnpm with Next.js build. Package manager is pnpm (pnpm-lock.yaml present). No Dockerfile.",
+  "test_framework": "Playwright for e2e tests in /tests/ directory. Run with 'pnpm test' (playwright test).",
+  "build_command": "cd /projects/sandbox/cost-smart && pnpm build",
+  "test_command": "cd /projects/sandbox/cost-smart && pnpm test",
+  "verification_instructions": "Run 'pnpm build' and verify no TypeScript compilation errors. The build produces static and dynamic pages. Tests require a running dev server.",
+  "snapshot_or_generated_files": null,
+  "setup_instructions": "cd /projects/sandbox/cost-smart && pnpm install",
+  "environment_constraints": "OPEN_INTERNET - full network access available. Node.js 20+ required. Uses pnpm.",
+  "contribution_requirements": "Follow existing patterns: server-side env vars without NEXT_PUBLIC_ prefix, shadcn/ui components, Tailwind CSS classes, lucide-react icons.",
+  "key_patterns": "1) API routes use NextRequest/NextResponse in app/api/*/route.ts. 2) Pro status checked via useProStatus() hook from @/lib/hooks/useProStatus. 3) UI uses Card/CardContent/CardHeader from @/components/ui/card, Button from @/components/ui/button, Input from @/components/ui/input. 4) Pro verification on server uses PayPal subscription check. 5) Pages use async server components with generateMetadata. 6) Client components marked 'use client'. 7) Existing solar pages at /solar-roi/page.tsx (city selector) and /solar-roi/[city]/page.tsx (city calculator). 8) Existing SolarForm component at components/calculators/SolarForm.tsx uses recharts for charts.",
+  "relevant_files": [
+    "app/api/ai-insights/route.ts",
+    "app/solar-roi/page.tsx",
+    "app/solar-roi/[city]/page.tsx",
+    "components/calculators/SolarForm.tsx",
+    "lib/contexts/ProStatusContext.tsx",
+    "lib/hooks/useProStatus.ts",
+    "components/ui/card.tsx",
+    "components/ui/button.tsx",
+    "components/ui/input.tsx",
+    "components/providers/Providers.tsx",
+    ".env.example",
+    "next.config.ts"
+  ],
+  "directory_structure": "app/ - Next.js App Router pages and API routes. app/api/ - Server API routes. app/solar-roi/ - Existing solar ROI pages. components/ - React components organized by type (ui/, calculators/, premium/, ads/, layouts/, features/). lib/ - Utilities, hooks, contexts, data files. lib/hooks/ - Custom React hooks. lib/contexts/ - React contexts (ProStatusContext). tests/ - Playwright e2e tests. public/ - Static assets."
+}

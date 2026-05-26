@@ -1,0 +1,28 @@
+{
+  "id": "FEAT-001",
+  "type": "feat",
+  "description": "Create the server-side API route /api/solar/insights that proxies requests to Google Solar API buildingInsights endpoint with rate limiting, and set up the environment variable.",
+  "status": "in_progress",
+  "steps": [
+    "Create .env.local file at /projects/sandbox/cost-smart/.env.local with GOOGLE_SOLAR_API_KEY=AIzaSyC1D9UDugepwhtlCW1C5pkQ_HtFoEzH_K0",
+    "Add GOOGLE_SOLAR_API_KEY entry to /projects/sandbox/cost-smart/.env.example with a comment explaining it is for Google Solar API",
+    "Create /projects/sandbox/cost-smart/app/api/solar/insights/route.ts with a POST handler that: (a) accepts { latitude, longitude } in body, validates they are valid numbers, (b) implements rate limiting using in-memory Map keyed by IP address (from request headers x-forwarded-for or x-real-ip), allowing 3 requests/day for free users and 30/day for pro users, (c) checks pro status by accepting optional subscriptionId or email in the body and verifying via the existing paypal verification pattern in lib/paypal.ts, (d) calls https://solar.googleapis.com/v1/buildingInsights:findClosest?location.latitude={lat}&location.longitude={lng}&requiredQuality=HIGH&key={GOOGLE_SOLAR_API_KEY}, (e) returns a structured JSON response with the solar potential data, (f) handles errors gracefully returning appropriate HTTP status codes",
+    "The rate limit store should be a simple Map<string, { count: number, date: string }> that resets daily. This is acceptable for a single-instance deployment on Vercel (serverless functions reset naturally).",
+    "Follow the pattern in app/api/ai-insights/route.ts for request handling, Pro verification, and response format"
+  ],
+  "acceptance_criteria": [
+    "File app/api/solar/insights/route.ts exists and exports a POST handler",
+    "The API key is read from process.env.GOOGLE_SOLAR_API_KEY (server-side only, no NEXT_PUBLIC_ prefix)",
+    ".env.local contains the GOOGLE_SOLAR_API_KEY value",
+    "Rate limiting returns 429 status with a clear message when limit exceeded",
+    "Invalid latitude/longitude returns 400 status",
+    "The route calls the Google Solar API buildingInsights endpoint correctly",
+    "The response includes solar potential data (panel count, capacity, annual energy, financial analysis)",
+    "Pro users get higher rate limits (30/day vs 3/day)"
+  ],
+  "verification": [
+    "Run 'cd /projects/sandbox/cost-smart && pnpm build' and confirm it compiles without errors"
+  ],
+  "blocked_reason": null,
+  "findings": ""
+}
