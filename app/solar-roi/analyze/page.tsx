@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import AdContainer from '@/components/ads/AdContainer';
 import SolarAnalyzer from '@/components/calculators/SolarAnalyzer';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
 
 export const metadata: Metadata = {
   title: 'Analyze Your Rooftop Solar Potential | CostSmart',
@@ -20,6 +21,7 @@ export const metadata: Metadata = {
 export default function SolarAnalyzePage() {
   return (
     <div className="container mx-auto px-4 py-12 bg-slate-50 min-h-screen">
+      <BreadcrumbSchema items={[{ label: 'Solar ROI', href: '/solar-roi' }, { label: 'Rooftop Analysis' }]} />
       <AdContainer className="mb-8" slotId="1475703853" />
 
       <div className="text-center mb-10">

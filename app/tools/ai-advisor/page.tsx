@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import AIFinancialAdvisorChat from '@/components/features/AIFinancialAdvisorChat';
 import AdContainer from '@/components/ads/AdContainer';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
 
 export const metadata: Metadata = {
   title: 'Free AI Financial Advisor | CostSmart',
@@ -20,6 +21,7 @@ export const metadata: Metadata = {
 export default function AIAdvisorPage() {
   return (
     <div>
+      <BreadcrumbSchema items={[{ label: 'Tools', href: '/tools' }, { label: 'AI Financial Advisor' }]} />
       <AdContainer size="leaderboard" className="container mx-auto px-4 max-w-6xl mb-8 mt-4" />
       <AIFinancialAdvisorChat />
       <AdContainer size="leaderboard" className="container mx-auto px-4 max-w-6xl mt-8" />

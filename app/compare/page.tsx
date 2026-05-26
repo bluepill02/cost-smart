@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowRight, TrendingUp, Calculator, Zap } from 'lucide-react';
 import AdContainer from '@/components/ads/AdContainer';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
 
 export const metadata: Metadata = {
   title: 'Financial Comparisons | CostSmart',
@@ -72,6 +73,7 @@ export default function ComparePage() {
 
   return (
     <div className="min-h-screen bg-slate-50 py-12">
+      <BreadcrumbSchema items={[{ label: 'Comparisons' }]} />
       <div className="container mx-auto px-4 max-w-6xl">
         <AdContainer size="leaderboard" className="mb-8" slotId="1475703853" />
 

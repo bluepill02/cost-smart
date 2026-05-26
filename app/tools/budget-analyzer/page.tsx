@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import BudgetAnalyzer from '@/components/features/BudgetAnalyzer';
 import AdContainer from '@/components/ads/AdContainer';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
 
 export const metadata: Metadata = {
     alternates: { canonical: 'https://cost-smart-five.vercel.app/tools/budget-analyzer' },
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
 export default function BudgetAnalyzerPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
+      <BreadcrumbSchema items={[{ label: 'Tools', href: '/tools' }, { label: 'Budget Analyzer' }]} />
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="text-center mb-8">
