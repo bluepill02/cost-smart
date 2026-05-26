@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { getCalculatorSchema } from '@/lib/seo-utils';
+import { getCalculatorSchema, CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import RetirementCalculator from '@/components/calculators/retirement/RetirementCalculator';
 import AdContainer from '@/components/ads/AdContainer';
 import { Badge } from '@/components/ui/badge';
@@ -10,11 +10,17 @@ import PremiumBanner from '@/components/premium/PremiumBanner';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
-    title: 'Retirement Planner | Inflation Adjusted Calculator',
+    title: 'Retirement Planner | CostSmart',
     description: 'Calculate how much money you need to retire comfortably. accounts for inflation, life expectancy, and investment returns.',
     alternates: {
         canonical: 'https://cost-smart-five.vercel.app/retirement-calculator',
-    }
+    },
+    openGraph: {
+        title: 'Retirement Planner | CostSmart',
+        description: 'Calculate how much money you need to retire comfortably. accounts for inflation, life expectancy, and investment returns.',
+        url: `${CANONICAL_DOMAIN}/retirement-calculator`,
+        type: 'website',
+    },
 };
 
 export default function RetirementCalculatorPage() {

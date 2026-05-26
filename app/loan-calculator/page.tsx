@@ -9,13 +9,13 @@ import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
-    title: 'True Cost Loan Calculator | Mortgage & EMI Estimator',
+    title: 'Loan Calculator | Mortgage & EMI | CostSmart',
     description: 'Calculate your monthly payments and see how much interest you really pay. Use our Extra Payment tool to see how to save thousands.',
     alternates: {
         canonical: 'https://cost-smart-five.vercel.app/loan-calculator',
     },
     openGraph: {
-        title: 'True Cost Loan Calculator | Mortgage & EMI Estimator',
+        title: 'Loan Calculator | Mortgage & EMI | CostSmart',
         description: 'Calculate your monthly payments and see how much interest you really pay. Use our Extra Payment tool to see how to save thousands.',
         url: `${CANONICAL_DOMAIN}/loan-calculator`,
         type: 'website',

@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import AIFinancialAdvisorChat from '@/components/features/AIFinancialAdvisorChat';
 import AdContainer from '@/components/ads/AdContainer';
 
@@ -8,10 +9,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'AI Financial Advisor - Free Financial Guidance',
     description: 'Chat with our AI financial advisor for personalized advice on investments, loans, taxes, and budget planning.',
+    url: `${CANONICAL_DOMAIN}/tools/ai-advisor`,
     type: 'website',
   },
   alternates: {
-    canonical: '/tools/ai-advisor',
+    canonical: `${CANONICAL_DOMAIN}/tools/ai-advisor`,
   },
 };
 

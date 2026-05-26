@@ -6,7 +6,7 @@ import RelatedTools from '@/components/layouts/RelatedTools';
 
 export const metadata: Metadata = {
       alternates: { canonical: 'https://cost-smart-five.vercel.app/global-salary-converter' },
-  title: 'Global Salary Converter - Purchasing Power Parity (PPP)',
+  title: 'Global Salary Converter (PPP) | CostSmart',
     description: 'Calculate the true value of your salary in different countries based on Purchasing Power Parity (PPP). Compare cost of living adjusted income.',
 };
 

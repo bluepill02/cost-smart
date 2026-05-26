@@ -1,17 +1,17 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import RentVsBuyCalculator from '@/components/calculators/real-estate/RentVsBuyCalculator';
-import { getCalculatorSchema } from '@/lib/seo-utils';
+import { getCalculatorSchema, CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import JsonLd from '@/components/seo/JsonLd';
 import AmazonRecommendations from '@/components/affiliate/AmazonRecommendations';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
 import NeighborhoodCTA from '@/components/features/NeighborhoodCTA';
 
 export const metadata: Metadata = {
-  title: 'Rent vs Buy Calculator | Real Estate Decision Tool',
+  title: 'Rent vs Buy Calculator | CostSmart',
   description: 'Should you rent or buy? Compare the long-term financial impact of buying a home vs renting and investing the difference. Expert level analysis.',
   alternates: {
-    canonical: '/rent-vs-buy-calculator',
+    canonical: `${CANONICAL_DOMAIN}/rent-vs-buy-calculator`,
   },
   keywords: 'rent vs buy calculator, renting vs buying, real estate investment, property appreciation, opportunity cost',
 };

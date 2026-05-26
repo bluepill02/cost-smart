@@ -11,7 +11,7 @@ import ShareResultButton from '@/components/features/ShareResultButton';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
-    title: 'Fixed Deposit Calculator | FD Interest Rates India',
+    title: 'FD Calculator India | CostSmart',
     description: 'Calculate maturity amount and interest earned on Fixed Deposits (FD) in India. Supports quarterly, monthly, and annual compounding.',
     openGraph: {
     title: 'FD Calculator India | Fixed Deposit Returns',

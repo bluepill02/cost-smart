@@ -6,14 +6,14 @@ import JsonLd from '@/components/seo/JsonLd';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
-  title: 'GST Calculator India | Inclusive & Exclusive 2025',
+  title: 'GST Calculator India | CostSmart',
   description: 'Calculate GST amount, pre-tax value, and total cost instantly. Supports 5%, 12%, 18%, 28% tax slabs. Differentiate between Inclusive and Exclusive GST.',
   alternates: {
-    canonical: '/in/gst-calculator',
+    canonical: `${CANONICAL_DOMAIN}/in/gst-calculator`,
   },
   keywords: 'gst calculator, gst inclusive calculator, gst exclusive calculator, india gst rates, gst calculation formula',
   openGraph: {
-    title: 'GST Calculator India | Inclusive & Exclusive 2025',
+    title: 'GST Calculator India | CostSmart',
     description: 'Calculate GST amount, pre-tax value, and total cost instantly. Supports 5%, 12%, 18%, 28% tax slabs. Differentiate between Inclusive and Exclusive GST.',
     url: `${CANONICAL_DOMAIN}/in/gst-calculator`,
     type: 'website',

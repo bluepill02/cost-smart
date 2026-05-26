@@ -5,16 +5,23 @@ import StickyAdSidebar from '@/components/ads/StickyAdSidebar';
 import { Badge } from '@/components/ui/badge';
 import { TrendingUp } from 'lucide-react';
 import CalculatorSchemaInjector from '@/components/seo/CalculatorSchemaInjector';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import AmazonRecommendations from '@/components/affiliate/AmazonRecommendations';
 import PremiumBanner from '@/components/premium/PremiumBanner';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
-    title: 'Investment Return Calculator | Compound Interest Growth',
+    title: 'Investment Return Calculator | CostSmart',
     description: 'Calculate how your investments grow over time with compound interest. Model monthly contributions and initial lumpsums.',
     alternates: {
         canonical: 'https://cost-smart-five.vercel.app/investment-calculator',
-    }
+    },
+    openGraph: {
+        title: 'Investment Return Calculator | CostSmart',
+        description: 'Calculate how your investments grow over time with compound interest. Model monthly contributions and initial lumpsums.',
+        url: `${CANONICAL_DOMAIN}/investment-calculator`,
+        type: 'website',
+    },
 };
 
 export default function InvestmentCalculatorPage() {

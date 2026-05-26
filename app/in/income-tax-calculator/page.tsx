@@ -4,18 +4,24 @@ import AdContainer from '@/components/ads/AdContainer';
 import AfterResultAd from '@/components/ads/AfterResultAd';
 import { Badge } from '@/components/ui/badge';
 import { IndianRupee } from 'lucide-react';
-import { getCalculatorSchema } from '@/lib/seo-utils';
+import { getCalculatorSchema, CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import JsonLd from '@/components/seo/JsonLd';
 import Breadcrumbs from '@/components/features/Breadcrumbs';
 import ShareResultButton from '@/components/features/ShareResultButton';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
-    title: 'Income Tax Calculator FY 2024-25 | New vs Old Regime',
+    title: 'Income Tax Calculator FY 2024-25 | CostSmart',
     description: 'Calculate income tax for FY 2024-25 under New Regime vs Old Regime. Includes 80C, HRA, NPS deductions and the ₹7L tax-free rebate. Updated for Budget 2024.',
     alternates: {
         canonical: 'https://cost-smart-five.vercel.app/in/income-tax-calculator',
-    }
+    },
+    openGraph: {
+        title: 'Income Tax Calculator FY 2024-25 | CostSmart',
+        description: 'Calculate income tax for FY 2024-25 under New Regime vs Old Regime. Includes 80C, HRA, NPS deductions and the ₹7L tax-free rebate. Updated for Budget 2024.',
+        url: `${CANONICAL_DOMAIN}/in/income-tax-calculator`,
+        type: 'website',
+    },
 };
 
 export default function TaxCalculatorPage() {

@@ -8,7 +8,7 @@ import JsonLd from '@/components/seo/JsonLd';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
-    title: 'PPF Calculator | Public Provident Fund Interest & Maturity',
+    title: 'PPF Calculator India | CostSmart',
     description: 'Calculate your Public Provident Fund (PPF) maturity amount and interest earned. Tax-free returns with government security.',
     openGraph: {
     title: 'PPF Calculator India | Maturity & Interest',

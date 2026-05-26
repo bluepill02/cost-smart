@@ -12,7 +12,7 @@ import ShareResultButton from '@/components/features/ShareResultButton';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
-    title: 'EMI Calculator India | Home, Car & Personal Loan EMI',
+    title: 'EMI Calculator India | CostSmart',
     description: 'Calculate your monthly EMI for Home Loans, Car Loans, and Personal Loans in India. Accurate results with principal vs interest breakdown.',
     openGraph: {
     title: 'EMI Calculator India — Home, Car & Personal Loan',

@@ -12,10 +12,10 @@ import RelatedCalculators from '@/components/features/RelatedCalculators';
 import EmailResultsButton from '@/components/features/EmailResultsButton';
 
 export const metadata: Metadata = {
-    title: 'SIP Calculator | Mutual Fund Returns Estimator India',
+    title: 'SIP Calculator India | CostSmart',
     description: 'Calculate returns on your Systematic Investment Plan (SIP). See how your monthly mutual fund investments grow over 5, 10, or 20 years.',
     openGraph: {
-    title: 'SIP Calculator | Mutual Fund Returns Estimator India',
+    title: 'SIP Calculator India | CostSmart',
     description: 'Calculate SIP returns with compound interest over 5-30 years. Compare monthly vs lumpsum investing, see wealth growth charts, and plan your mutual fund goals.',
     url: 'https://cost-smart-five.vercel.app/in/sip-calculator',
     type: 'website',

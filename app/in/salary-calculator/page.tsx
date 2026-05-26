@@ -8,7 +8,7 @@ import JsonLd from '@/components/seo/JsonLd';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
-    title: 'Salary Calculator India | CTC to In-Hand Salary (FY 24-25)',
+    title: 'Salary Calculator India | CostSmart',
     description: 'Convert your CTC to In-Hand (Net) Salary. Calculates PF, Professional Tax, and TDS deductions accurately for Indian employees.',
     openGraph: {
     title: 'Salary Calculator India | CTC to In-Hand (FY 2024-25)',
