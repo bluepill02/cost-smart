@@ -1,14 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { isValidSubscriptionId, verifySubscription } from '@/lib/paypal';
+import { getSubscriptionByEmail } from '@/lib/kv-store';
 
 interface SolarInsightRequest {
   latitude: number;
   longitude: number;
   isPro?: boolean;
-  subscriptionId?: string;
+  email?: string;
 }
 
-// In-memory rate limit store: IP -> { count, date }
+// Note: This in-memory store is best-effort on serverless platforms.
+// The Google API key's per-key quota provides the real cost protection layer.
 const rateLimitStore = new Map<string, { count: number; date: string }>();
 
 const FREE_LIMIT = 3;
@@ -31,7 +32,7 @@ function checkRateLimit(ip: string, limit: number): { allowed: boolean; remainin
   const entry = rateLimitStore.get(ip);
 
   if (!entry || entry.date !== today) {
-    rateLimitStore.set(ip, { count: 1, date: today });
+    // New day or first request - check against limit without incrementing
     return { allowed: true, remaining: limit - 1 };
   }
 
@@ -39,15 +40,25 @@ function checkRateLimit(ip: string, limit: number): { allowed: boolean; remainin
     return { allowed: false, remaining: 0 };
   }
 
-  entry.count += 1;
-  rateLimitStore.set(ip, entry);
-  return { allowed: true, remaining: limit - entry.count };
+  return { allowed: true, remaining: limit - entry.count - 1 };
+}
+
+function incrementRateLimit(ip: string): void {
+  const today = new Date().toISOString().split('T')[0];
+  const entry = rateLimitStore.get(ip);
+
+  if (!entry || entry.date !== today) {
+    rateLimitStore.set(ip, { count: 1, date: today });
+  } else {
+    entry.count += 1;
+    rateLimitStore.set(ip, entry);
+  }
 }
 
 export async function POST(request: NextRequest) {
   try {
     const body: SolarInsightRequest = await request.json();
-    const { latitude, longitude, isPro, subscriptionId } = body;
+    const { latitude, longitude, isPro, email } = body;
 
     // Validate latitude and longitude
     if (
@@ -78,20 +89,19 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Server-side Pro verification
+    // Server-side Pro verification via email (same pattern as /api/pro/status)
     let verifiedPro = false;
-    if (isPro && subscriptionId && typeof subscriptionId === 'string') {
-      if (isValidSubscriptionId(subscriptionId)) {
-        try {
-          const subDetails = await verifySubscription(subscriptionId);
-          verifiedPro = subDetails.status === 'ACTIVE';
-        } catch {
-          verifiedPro = false;
-        }
+    if (isPro && email && typeof email === 'string') {
+      try {
+        const normalizedEmail = email.toLowerCase().trim();
+        const record = await getSubscriptionByEmail(normalizedEmail);
+        verifiedPro = record !== null && record.status === 'ACTIVE';
+      } catch {
+        verifiedPro = false;
       }
     }
 
-    // Rate limiting
+    // Rate limiting - check only, do not increment yet
     const clientIp = getClientIp(request);
     const limit = verifiedPro ? PRO_LIMIT : FREE_LIMIT;
     const { allowed, remaining } = checkRateLimit(clientIp, limit);
@@ -138,6 +148,7 @@ export async function POST(request: NextRequest) {
       console.error('Google Solar API error:', solarResponse.status, errorText);
 
       if (solarResponse.status === 404) {
+        // Do not increment rate limit on 404 - user should not burn a lookup
         return NextResponse.json(
           { error: 'No solar data available for this location' },
           { status: 404 }
@@ -149,6 +160,9 @@ export async function POST(request: NextRequest) {
         { status: 502 }
       );
     }
+
+    // Increment rate limit only after a successful upstream response
+    incrementRateLimit(clientIp);
 
     const solarData = await solarResponse.json();
 
