@@ -124,7 +124,7 @@ function incrementLookupCount(): void {
 }
 
 export default function SolarAnalyzer() {
-  const { isPro, isLoading: proLoading } = useProStatus();
+  const { isPro, isLoading: proLoading, proEmail } = useProStatus();
 
   const [address, setAddress] = useState('');
   const [latitude, setLatitude] = useState<number | null>(null);
@@ -216,7 +216,7 @@ export default function SolarAnalyzer() {
           latitude,
           longitude,
           isPro,
-          subscriptionId: null,
+          email: proEmail,
         }),
       });
 
@@ -249,7 +249,7 @@ export default function SolarAnalyzer() {
     } finally {
       setLoading(false);
     }
-  }, [latitude, longitude, isPro]);
+  }, [latitude, longitude, isPro, proEmail]);
 
   const hasCoordinates = latitude !== null && longitude !== null;
 
@@ -454,6 +454,11 @@ export default function SolarAnalyzer() {
               </CardContent>
             </Card>
           </div>
+
+          {/* Financial estimate disclaimer */}
+          <p className="text-xs text-slate-400 text-center px-4">
+            Estimates based on US average electricity rate ($0.13/kWh) and installation cost ($2.77/W). Actual values may vary by location.
+          </p>
 
           {/* Pro Tier Section */}
           <div className="relative">
