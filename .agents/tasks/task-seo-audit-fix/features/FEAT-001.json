@@ -1,0 +1,20 @@
+{
+  "id": "FEAT-001",
+  "type": "fix",
+  "description": "Update robots.ts to disallow /api/ and /_next/static paths, and update sitemap.ts to add missing pages (/neighborhood-explorer, /solar-roi/analyze). These are the foundational crawling/indexing files.",
+  "status": "completed",
+  "steps": [
+    "Edit app/robots.ts to add disallow rules for '/api/' and '/_next/static/' while keeping the existing allow '/' and disallow '/private/' rules. Keep the sitemap reference.",
+    "Edit app/sitemap.ts to add the /neighborhood-explorer page with priority 0.8 and changeFrequency 'monthly' in the static pages or additional pages section. Also add /solar-roi/analyze with priority 0.8."
+  ],
+  "acceptance_criteria": [
+    "robots.ts exports a function returning rules with disallow array including '/api/', '/_next/static/', and '/private/'",
+    "sitemap.ts includes entries for /neighborhood-explorer and /solar-roi/analyze URLs",
+    "npm run build succeeds without errors"
+  ],
+  "verification": [
+    "Run: cd /projects/sandbox/cost-smart && npm run build 2>&1 | tail -20"
+  ],
+  "blocked_reason": null,
+  "findings": "Build succeeded cleanly. robots.ts now disallows /api/, /_next/static/, /private/. sitemap.ts now includes /neighborhood-explorer and /solar-roi/analyze entries."
+}

@@ -1,11 +1,12 @@
 import { Metadata } from 'next';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'How Home Loan Prepayment Saves You Lakhs',
   description: 'Learn how prepayments save lakhs in home loan interest and cut tenure by years. Worked examples and strategy for Indian loans. tenure by years.',
   alternates: {
-    canonical: '/blog/home-loan-prepayment-benefits',
+    canonical: `${CANONICAL_DOMAIN}/blog/home-loan-prepayment-benefits`,
   },
 };
 

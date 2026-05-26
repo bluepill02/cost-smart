@@ -12,10 +12,10 @@ import ShareResultButton from '@/components/features/ShareResultButton';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
-    title: 'EMI Calculator India | Home, Car & Personal Loan EMI',
+    title: 'EMI Calculator India | CostSmart',
     description: 'Calculate your monthly EMI for Home Loans, Car Loans, and Personal Loans in India. Accurate results with principal vs interest breakdown.',
     openGraph: {
-    title: 'EMI Calculator India — Home, Car & Personal Loan',
+    title: 'EMI Calculator India | CostSmart',
     description: 'Calculate EMI for home, car, and personal loans in India. Get amortization schedule, total interest, and compare different loan tenures instantly.',
     url: 'https://cost-smart-five.vercel.app/in/emi-calculator',
     type: 'website',

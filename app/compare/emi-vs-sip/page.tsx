@@ -4,6 +4,7 @@ import AdContainer from '@/components/ads/AdContainer';
 import JsonLd from '@/components/seo/JsonLd';
 import { getCalculatorSchema } from '@/lib/seo-utils';
 import RelatedTools from '@/components/layouts/RelatedTools';
+import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
 
 export const metadata: Metadata = {
   title: 'EMI vs SIP Calculator | Pay Loan or Invest? | CostSmart',
@@ -22,6 +23,7 @@ export default function Page() {
 
   return (
     <div className="container mx-auto px-4 py-12 max-w-5xl">
+      <BreadcrumbSchema items={[{ label: 'Comparisons', href: '/compare' }, { label: 'EMI vs SIP' }]} currentPath="/compare/emi-vs-sip" />
       <JsonLd data={jsonLd} />
       <div className="mb-8 text-center">
         <div className="inline-flex items-center gap-2 bg-indigo-100 text-indigo-700 text-xs font-bold px-3 py-1 rounded-full mb-4 uppercase tracking-wide">
