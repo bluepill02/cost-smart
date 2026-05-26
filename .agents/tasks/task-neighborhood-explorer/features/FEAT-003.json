@@ -2,7 +2,7 @@
   "id": "FEAT-003",
   "type": "feat",
   "description": "Add 'Explore This Neighborhood' CTA widgets to existing calculator pages and add Google Maps Embed iframe to solar-roi city pages.",
-  "status": "pending",
+  "status": "in_progress",
   "steps": [
     "Create a reusable components/features/NeighborhoodCTA.tsx component - a compact card with: heading 'Know Your Neighborhood Before You Move', brief description, MapPin icon from lucide-react, a link/button pointing to /neighborhood-explorer, styled with emerald gradient similar to the CTA in app/solar-roi/[city]/page.tsx (the 'Want Data for YOUR Exact Roof?' CTA pattern). Include a Badge with text 'NEW'.",
     "Add the NeighborhoodCTA component to app/rent-vs-buy-calculator/page.tsx - place it after the main calculator content (after the RentVsBuyCalculator component and the prose section, before any existing RelatedCalculators).",
