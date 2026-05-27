@@ -2,7 +2,7 @@
   "id": "FEAT-003",
   "type": "feat",
   "description": "Create the landing page at /for/logistics - a conversion-oriented product page that sells the Landed Cost Report as a result, not a tool. Also add a homepage card linking to it.",
-  "status": "in_progress",
+  "status": "completed",
   "steps": [
     "Create directory app/for/logistics/",
     "Create app/for/logistics/page.tsx as a server component page with Metadata export. SEO metadata: title 'Landed Cost Calculator for US Importers | CostSmart', description targeting US small businesses importing goods. Canonical URL: CANONICAL_DOMAIN + '/for/logistics'.",
@@ -30,5 +30,5 @@
     "Run: cd /projects/sandbox/cost-smart && npm run build"
   ],
   "blocked_reason": null,
-  "findings": ""
+  "findings": "Build passes cleanly. Page is generated as static content at /for/logistics. Replaced 'Invoice Generator' entry in the Business & Trade homepage category with 'Landed Cost Report' linking to /for/logistics. All sections implemented: Hero, Problem Statement, How It Works, What's Included, Free vs Pro, Social Proof, Email Capture, Calculator (with LandedCostReport component), and Related Tools."
 }
