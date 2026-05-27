@@ -11,6 +11,7 @@ import BotpressLoader from "@/components/ui/BotpressLoader";
 import GoogleAnalyticsTracker from "@/components/analytics/GoogleAnalytics";
 import Providers from "@/components/providers/Providers";
 import SoftAdBlockMessage from "@/components/ads/SoftAdBlockMessage";
+import AdBlockWall from "@/components/ads/AdBlockWall";
 import FloatingChatWidget from "@/components/features/FloatingChatWidget";
 
 // DM Sans — refined body font with excellent legibility
@@ -133,6 +134,7 @@ export default function RootLayout({
 
         <Footer />
         <SoftAdBlockMessage />
+        <AdBlockWall />
         {!process.env.NEXT_PUBLIC_BOTPRESS_BOT_URL && <FloatingChatWidget />}
         </Providers>
         <CookieConsent />
