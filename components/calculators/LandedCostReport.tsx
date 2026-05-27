@@ -62,6 +62,7 @@ export default function LandedCostReport() {
 
   const [loading, setLoading] = useState(false);
   const [routeLoading, setRouteLoading] = useState(false);
+  const [routeError, setRouteError] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [report, setReport] = useState<ReportData | null>(null);
 
@@ -102,9 +103,11 @@ export default function LandedCostReport() {
     // Section 3: Domestic Route
     let routeData: RouteData | null = null;
     let lastMileCost = 0;
+    let routeFailed = false;
 
     if (originAddress.trim() && destinationAddress.trim()) {
       setRouteLoading(true);
+      setRouteError(false);
       try {
         const res = await fetch('/api/logistics/route-estimate', {
           method: 'POST',
@@ -125,17 +128,20 @@ export default function LandedCostReport() {
               durationText: json.data.durationText,
             };
             const distance = json.data.distanceMiles;
-            if (distance < 500) {
-              lastMileCost = 15 + (distance * 0.50);
-            } else {
-              lastMileCost = 50 + (distance * 0.30);
-            }
+            lastMileCost = 25 + (distance * 0.35);
+          } else {
+            routeFailed = true;
           }
+        } else {
+          routeFailed = true;
         }
       } catch {
-        // Route estimation failed silently - we still show other sections
+        routeFailed = true;
       } finally {
         setRouteLoading(false);
+        if (routeFailed) {
+          setRouteError(true);
+        }
       }
     }
 
@@ -373,6 +379,10 @@ export default function LandedCostReport() {
                   <div className="text-slate-600">Last-Mile Cost:</div>
                   <div className="font-medium text-emerald-600">${report.lastMileCost.toFixed(2)}</div>
                 </div>
+              ) : routeError ? (
+                <p className="text-sm text-amber-700 bg-amber-50 px-3 py-2 rounded-lg">
+                  Route estimate unavailable. Other cost sections are still shown below.
+                </p>
               ) : (
                 <p className="text-sm text-slate-500">
                   Enter both origin port/address and US destination address to see route details.
