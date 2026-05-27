@@ -1,0 +1,33 @@
+{
+  "id": "FEAT-001",
+  "type": "feat",
+  "description": "Create /for/homebuyers landing page following the same SaaS-style pattern as /for/logistics. This is a server component page targeting first-time home buyers in India and USA.",
+  "status": "completed",
+  "steps": [
+    "Create app/for/homebuyers/page.tsx following the exact section structure of app/for/logistics/page.tsx: Hero, Problem Statement, How It Works (3 steps), What's Included (6 tools grid), Free vs Pro comparison, Social Proof (persona testimonials for home buyers), EmailCaptureSection, Related Tools.",
+    "Hero section: Badge 'Complete Home Buying Toolkit - Free', H1 'Make Your Home Purchase Decision With Confidence', subhead 'The complete toolkit to know if you can afford it, if the neighborhood is right, and how much you will really pay.', CTA 'Start Your Analysis' linking to #tools anchor.",
+    "Problem statement: 'Buying a home is the biggest financial decision of your life. Most buyers only look at the sticker price and miss 40% of the real costs.'",
+    "How It Works: Step 1 'Enter your details' (house price, income, city), Step 2 'We analyze everything' (EMI, affordability, neighborhood), Step 3 'Get your affordability report'.",
+    "What's Included grid (6 items) with icons and links: Home Loan EMI Calculator (/home-loan-calculator), Rent vs Buy Analysis (/rent-vs-buy-calculator), Neighborhood Explorer (/neighborhood-explorer), Solar ROI for Your Roof (/solar-roi/analyze), Moving Cost Estimate (/moving-cost-calculator), Stamp Duty & Registration (/in/stamp-duty-calculator).",
+    "Free vs Pro comparison: Free tier gets basic EMI calc, 3 lookups/day, basic affordability check. Pro tier ($4.99/mo) gets unlimited calculations, PDF reports, full neighborhood score, solar analysis (30 lookups/day), ad-free.",
+    "Social proof: 3 testimonials from personas like 'Priya M. - First-time buyer, Bangalore', 'James R. - Relocating family, Austin', 'Anita S. - Upgrading from 2BHK, Mumbai'.",
+    "Import and use EmailCaptureSection component from @/components/features/EmailCaptureSection.",
+    "Related tools section linking to: Loan Calculator (/loan-calculator), Investment Calculator (/investment-calculator), Inflation Calculator (/inflation).",
+    "Export metadata with title 'Home Buying Calculator & Toolkit | CostSmart', description targeting SEO keywords 'home buying calculator', 'can I afford a house', 'first time home buyer tools'. Set canonical to CANONICAL_DOMAIN/for/homebuyers.",
+    "Add JsonLd structured data using getCalculatorSchema helper from @/lib/seo-utils."
+  ],
+  "acceptance_criteria": [
+    "File app/for/homebuyers/page.tsx exists and exports a default function component",
+    "Page exports metadata with title, description, and canonical URL",
+    "Page includes all sections: Hero, Problem, How It Works, What's Included, Free vs Pro, Social Proof, Email Capture, Related Tools",
+    "All 6 tool links point to existing calculator routes",
+    "Page follows the same visual/structural pattern as app/for/logistics/page.tsx",
+    "npx next build succeeds without errors on this page"
+  ],
+  "verification": [
+    "Run `npx next build` and confirm it completes without errors",
+    "Verify the file exists with correct structure: grep for key sections like 'Make Your Home Purchase Decision' in the output file"
+  ],
+  "blocked_reason": null,
+  "findings": "Page created successfully following the exact logistics page pattern. Build passes cleanly. The page is a static route (marked with circle in build output). Used unicode escape sequences for rupee symbol to avoid encoding issues."
+}
