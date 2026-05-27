@@ -56,15 +56,27 @@ export default function InvestmentCalculator({
       const i = searchParams.get('initial');
       const r = searchParams.get('rate');
       const y = searchParams.get('years');
-      if (m) setMonthly(parseFloat(m));
-      if (i) setInitial(parseFloat(i));
-      if (r) setRate(parseFloat(r));
-      if (y) setYears(parseInt(y, 10));
+      if (m) {
+        const v = parseFloat(m);
+        if (isFinite(v) && v >= 0 && v <= 10000000) setMonthly(v);
+      }
+      if (i) {
+        const v = parseFloat(i);
+        if (isFinite(v) && v >= 0 && v <= 100000000) setInitial(v);
+      }
+      if (r) {
+        const v = parseFloat(r);
+        if (isFinite(v) && v >= 0.1 && v <= 50) setRate(v);
+      }
+      if (y) {
+        const v = parseInt(y, 10);
+        if (isFinite(v) && v >= 1 && v <= 50) setYears(v);
+      }
     }, []);
 
     const handleShare = async () => {
       const url = buildShareableURL(
-        mode === 'SIP' ? '/in/sip-calculator' : '/investment-calculator',
+        window.location.pathname,
         { monthly, initial, rate, years }
       );
       try {

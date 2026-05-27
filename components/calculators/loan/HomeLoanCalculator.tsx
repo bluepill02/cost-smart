@@ -44,18 +44,27 @@ export default function HomeLoanCalculator({
     const searchParams = useSearchParams();
     const [shareState, setShareState] = useState<'idle' | 'copied'>('idle');
 
-    // Pre-fill from URL params on mount
+    // Pre-fill from URL params on mount (with validation)
     React.useEffect(() => {
       const amount = searchParams.get('amount');
       const rate = searchParams.get('rate');
       const tenure = searchParams.get('tenure');
-      if (amount) setLoanAmount(parseFloat(amount));
-      if (rate) setInterestRate(parseFloat(rate));
-      if (tenure) setTenureYears(parseInt(tenure, 10));
+      if (amount) {
+        const v = parseFloat(amount);
+        if (isFinite(v) && v >= 100 && v <= 100000000) setLoanAmount(v);
+      }
+      if (rate) {
+        const v = parseFloat(rate);
+        if (isFinite(v) && v >= 0.1 && v <= 30) setInterestRate(v);
+      }
+      if (tenure) {
+        const v = parseInt(tenure, 10);
+        if (isFinite(v) && v >= 1 && v <= 40) setTenureYears(v);
+      }
     }, []);
 
     const handleShare = async () => {
-      const url = buildShareableURL('/home-loan-calculator', {
+      const url = buildShareableURL(window.location.pathname, {
         amount: loanAmount,
         rate: interestRate,
         tenure: tenureYears,

@@ -279,21 +279,4 @@ export function buildShareableURL(basePath: string, params: Record<string, strin
   return url.toString();
 }
 
-/**
- * Read specific params from URLSearchParams, returning numbers where possible
- */
-export function readShareableParams(searchParams: URLSearchParams, keys: string[]): Record<string, number | null> {
-  const result: Record<string, number | null> = {};
-  for (const key of keys) {
-    const val = searchParams.get(key);
-    if (val !== null) {
-      const num = parseFloat(val);
-      result[key] = isNaN(num) ? null : num;
-    } else {
-      result[key] = null;
-    }
-  }
-  return result;
-}
-
 export default ShareableURLManager;

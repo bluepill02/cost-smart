@@ -55,14 +55,26 @@ export default function LoanCalculator({
       const r = searchParams.get('rate');
       const y = searchParams.get('years');
       const e = searchParams.get('extra');
-      if (p) setPrincipal(parseFloat(p));
-      if (r) setRate(parseFloat(r));
-      if (y) setYears(parseInt(y, 10));
-      if (e) setExtraPayment(parseFloat(e));
+      if (p) {
+        const v = parseFloat(p);
+        if (isFinite(v) && v >= 100 && v <= 100000000) setPrincipal(v);
+      }
+      if (r) {
+        const v = parseFloat(r);
+        if (isFinite(v) && v >= 0.1 && v <= 30) setRate(v);
+      }
+      if (y) {
+        const v = parseInt(y, 10);
+        if (isFinite(v) && v >= 1 && v <= 50) setYears(v);
+      }
+      if (e) {
+        const v = parseFloat(e);
+        if (isFinite(v) && v >= 0 && v <= 1000000) setExtraPayment(v);
+      }
     }, []);
 
     const handleShare = async () => {
-      const url = buildShareableURL('/loan-calculator', {
+      const url = buildShareableURL(window.location.pathname, {
         principal,
         rate,
         years,
