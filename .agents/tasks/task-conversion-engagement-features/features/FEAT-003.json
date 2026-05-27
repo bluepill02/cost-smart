@@ -2,7 +2,7 @@
   "id": "FEAT-003",
   "type": "feat",
   "description": "Implement shareable calculation URLs on Home Loan Calculator, SIP Calculator, and Loan Calculator. Encode inputs as human-readable URL search params and add a share button that copies the parameterized URL.",
-  "status": "in_progress",
+  "status": "completed",
   "steps": [
     "APPROACH CHANGE: The existing lib/shareable-url.ts uses base64 encoding (opaque URLs). The requirement is human-readable URL params like /home-loan-calculator?principal=5000000&rate=8.5&tenure=20. Create a new simpler utility alongside the existing one or add functions to it.",
     "Add helper functions to lib/shareable-url.ts: (1) `encodeParamsToURL(basePath: string, params: Record<string, string | number>): string` that builds a URL with readable query params, (2) `readParamsFromURL(searchParams: URLSearchParams, keys: string[]): Record<string, string | null>` that extracts params.",
@@ -25,5 +25,5 @@
     "Run `npx next build` and confirm it completes without errors"
   ],
   "blocked_reason": null,
-  "findings": ""
+  "findings": "Added Suspense boundaries to all pages using the modified calculators (not just the 3 primary ones but also home-loan-calculator/[city], in/home-loan-calculator/[city], in/emi-calculator, and investment-calculator pages). Build passes cleanly."
 }
