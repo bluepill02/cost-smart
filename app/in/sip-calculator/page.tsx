@@ -10,6 +10,7 @@ import Breadcrumbs from '@/components/features/Breadcrumbs';
 import ShareResultButton from '@/components/features/ShareResultButton';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
 import EmailResultsButton from '@/components/features/EmailResultsButton';
+import StickyUpgradeNudge from '@/components/premium/StickyUpgradeNudge';
 
 export const metadata: Metadata = {
     title: 'SIP Calculator India | CostSmart',
@@ -96,6 +97,7 @@ export default function SIPCalculatorPage() {
                     <RelatedCalculators category="investment" currentHref="/in/sip-calculator" />
                 </div>
             </div>
+            <StickyUpgradeNudge />
         </div>
     );
 }

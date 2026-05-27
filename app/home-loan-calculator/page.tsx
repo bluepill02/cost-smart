@@ -14,6 +14,7 @@ import RelatedCalculators from '@/components/features/RelatedCalculators';
 import AmazonRecommendations from '@/components/affiliate/AmazonRecommendations';
 import PremiumBanner from '@/components/premium/PremiumBanner';
 import NeighborhoodCTA from '@/components/features/NeighborhoodCTA';
+import StickyUpgradeNudge from '@/components/premium/StickyUpgradeNudge';
 
 export const metadata: Metadata = {
   title: 'Home Loan EMI Calculator | CostSmart',
@@ -138,6 +139,7 @@ export default function Page() {
             </div>
         </div>
       </section>
+      <StickyUpgradeNudge />
     </div>
   );
 }

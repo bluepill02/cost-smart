@@ -10,6 +10,7 @@ import JsonLd from '@/components/seo/JsonLd';
 import Breadcrumbs from '@/components/features/Breadcrumbs';
 import ShareResultButton from '@/components/features/ShareResultButton';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
+import StickyUpgradeNudge from '@/components/premium/StickyUpgradeNudge';
 
 export const metadata: Metadata = {
     title: 'EMI Calculator India | CostSmart',
@@ -99,6 +100,7 @@ export default function IndianEMICalculatorPage() {
                     <RelatedCalculators category="loan" currentHref="/in/emi-calculator" />
                 </div>
             </div>
+            <StickyUpgradeNudge />
         </div>
     );
 }

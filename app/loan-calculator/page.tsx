@@ -7,6 +7,7 @@ import { ShieldCheck } from 'lucide-react';
 import CalculatorSchemaInjector from '@/components/seo/CalculatorSchemaInjector';
 import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
+import StickyUpgradeNudge from '@/components/premium/StickyUpgradeNudge';
 
 export const metadata: Metadata = {
     title: 'Loan Calculator | Mortgage & EMI | CostSmart',
@@ -78,6 +79,7 @@ export default function LoanCalculatorPage() {
             </div>
 
             <RelatedCalculators category="loan" currentHref="/loan-calculator" />
+            <StickyUpgradeNudge />
         </div>
     );
 }

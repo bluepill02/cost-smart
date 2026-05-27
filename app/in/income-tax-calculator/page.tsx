@@ -9,6 +9,7 @@ import JsonLd from '@/components/seo/JsonLd';
 import Breadcrumbs from '@/components/features/Breadcrumbs';
 import ShareResultButton from '@/components/features/ShareResultButton';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
+import StickyUpgradeNudge from '@/components/premium/StickyUpgradeNudge';
 
 export const metadata: Metadata = {
     title: 'Income Tax Calculator FY 2024-25 | CostSmart',
@@ -78,6 +79,7 @@ export default function TaxCalculatorPage() {
                     <RelatedCalculators category="india-finance" currentHref="/in/income-tax-calculator" />
                 </div>
             </div>
+            <StickyUpgradeNudge />
         </div>
     );
 }
