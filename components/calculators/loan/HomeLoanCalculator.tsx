@@ -1,7 +1,9 @@
 "use client";
 
 import React, { useState, useMemo } from 'react';
-import { Calculator, ArrowRight, TrendingDown, Calendar, DollarSign } from 'lucide-react';
+import { useSearchParams } from 'next/navigation';
+import { Calculator, ArrowRight, TrendingDown, Calendar, DollarSign, Share2, Check as CheckIcon } from 'lucide-react';
+import { buildShareableURL } from '@/lib/shareable-url';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
@@ -38,6 +40,32 @@ export default function HomeLoanCalculator({
     const [loanAmount, setLoanAmount] = useState<number>(defaultAmount);
     const [interestRate, setInterestRate] = useState<number>(defaultRate);
     const [tenureYears, setTenureYears] = useState<number>(defaultTenure);
+
+    const searchParams = useSearchParams();
+    const [shareState, setShareState] = useState<'idle' | 'copied'>('idle');
+
+    // Pre-fill from URL params on mount
+    React.useEffect(() => {
+      const amount = searchParams.get('amount');
+      const rate = searchParams.get('rate');
+      const tenure = searchParams.get('tenure');
+      if (amount) setLoanAmount(parseFloat(amount));
+      if (rate) setInterestRate(parseFloat(rate));
+      if (tenure) setTenureYears(parseInt(tenure, 10));
+    }, []);
+
+    const handleShare = async () => {
+      const url = buildShareableURL('/home-loan-calculator', {
+        amount: loanAmount,
+        rate: interestRate,
+        tenure: tenureYears,
+      });
+      try {
+        await navigator.clipboard.writeText(url);
+        setShareState('copied');
+        setTimeout(() => setShareState('idle'), 2500);
+      } catch {}
+    };
 
     // Prepayment State
     const [enablePrepayment, setEnablePrepayment] = useState<boolean>(false);
@@ -336,6 +364,17 @@ export default function HomeLoanCalculator({
                     </p>
                 </div>
             </div>
+
+            <button
+              onClick={handleShare}
+              className="inline-flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-emerald-600 border border-slate-200 hover:border-emerald-300 rounded-xl px-3 py-1.5 transition-all hover:bg-emerald-50"
+            >
+              {shareState === 'copied' ? (
+                <><CheckIcon className="w-4 h-4 text-emerald-600" /><span className="text-emerald-600">Link Copied!</span></>
+              ) : (
+                <><Share2 className="w-4 h-4" />Share Calculation</>
+              )}
+            </button>
             </ResultsWithAds>
         </div>
     );

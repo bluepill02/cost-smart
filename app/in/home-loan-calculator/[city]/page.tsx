@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { Suspense } from 'react';
 import { notFound } from 'next/navigation';
 import { INDIAN_CITIES, CityData } from '@/lib/pseo-data/cities';
 import HomeLoanCalculator from '@/components/calculators/loan/HomeLoanCalculator';
@@ -187,11 +188,13 @@ export default async function CityHomeLoanPage({ params }: PageProps) {
               </div>
 
               {/* Calculator */}
+              <Suspense fallback={null}>
               <HomeLoanCalculator 
                 defaultAmount={Number(defaultLoanAmount)}
                 defaultRate={Number(defaultInterestRate)}
                 defaultTenure={20}
               />
+              </Suspense>
             </div>
 
             {/* Sidebar */}

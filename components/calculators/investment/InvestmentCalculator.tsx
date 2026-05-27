@@ -2,7 +2,9 @@
 
 import dynamic from 'next/dynamic';
 import React, { useState, useMemo } from 'react';
-import { TrendingUp, Save, Printer } from 'lucide-react';
+import { useSearchParams } from 'next/navigation';
+import { TrendingUp, Save, Printer, Share2, Check as CheckIcon } from 'lucide-react';
+import { buildShareableURL } from '@/lib/shareable-url';
 import AdContainer from '@/components/ads/AdContainer';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
@@ -45,6 +47,32 @@ export default function InvestmentCalculator({
     const [initial, setInitial] = useState<number>(defaultInitial);
     const [rate, setRate] = useState<number>(defaultRate);
     const [years, setYears] = useState<number>(defaultYears);
+
+    const searchParams = useSearchParams();
+    const [shareState, setShareState] = useState<'idle' | 'copied'>('idle');
+
+    React.useEffect(() => {
+      const m = searchParams.get('monthly');
+      const i = searchParams.get('initial');
+      const r = searchParams.get('rate');
+      const y = searchParams.get('years');
+      if (m) setMonthly(parseFloat(m));
+      if (i) setInitial(parseFloat(i));
+      if (r) setRate(parseFloat(r));
+      if (y) setYears(parseInt(y, 10));
+    }, []);
+
+    const handleShare = async () => {
+      const url = buildShareableURL(
+        mode === 'SIP' ? '/in/sip-calculator' : '/investment-calculator',
+        { monthly, initial, rate, years }
+      );
+      try {
+        await navigator.clipboard.writeText(url);
+        setShareState('copied');
+        setTimeout(() => setShareState('idle'), 2500);
+      } catch {}
+    };
 
     const result = useMemo(() => {
         const r = rate / 100 / 12;
@@ -202,6 +230,16 @@ export default function InvestmentCalculator({
                       >
                          <Printer size={16} className="mr-2" /> Print Plan
                       </Button>
+                      <button
+                        onClick={handleShare}
+                        className="inline-flex items-center gap-2 text-sm font-medium text-slate-500 hover:text-emerald-600 border border-slate-200 hover:border-emerald-300 rounded-xl px-3 py-1.5 transition-all hover:bg-emerald-50"
+                      >
+                        {shareState === 'copied' ? (
+                          <><CheckIcon className="w-4 h-4 text-emerald-600" /><span className="text-emerald-600">Link Copied!</span></>
+                        ) : (
+                          <><Share2 className="w-4 h-4" />Share Calculation</>
+                        )}
+                      </button>
                  </div>
 
                 <div className="grid grid-cols-2 gap-4">

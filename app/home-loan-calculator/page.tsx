@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { Suspense } from 'react';
 import HomeLoanCalculator from '@/components/calculators/loan/HomeLoanCalculator';
 import AdContainer from '@/components/ads/AdContainer';
 import AfterResultAd from '@/components/ads/AfterResultAd';
@@ -53,6 +54,7 @@ export default function Page() {
         <p className="text-xl text-slate-600 max-w-2xl mx-auto">Plan your dream home with our precise EMI planner. Supports pre-payment and tenure adjustment.</p>
       </div>
 
+      <Suspense fallback={null}>
       <HomeLoanCalculator
         defaultAmount={5000000}
         defaultRate={8.75}
@@ -60,6 +62,7 @@ export default function Page() {
         currency="INR"
         locale="en-IN"
       />
+      </Suspense>
 
       <AfterResultAd slotId="1475703853" />
 

@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { Suspense } from 'react';
 import { getCalculatorSchema } from '@/lib/seo-utils';
 import InvestmentCalculator from '@/components/calculators/investment/InvestmentCalculator';
 import AdContainer from '@/components/ads/AdContainer';
@@ -57,6 +58,7 @@ export default function SIPCalculatorPage() {
                 </p>
             </div>
 
+            <Suspense fallback={null}>
             <InvestmentCalculator
                 currency="INR"
                 locale="en-IN"
@@ -65,6 +67,7 @@ export default function SIPCalculatorPage() {
                 defaultInitial={0}
                 defaultRate={12}
             />
+            </Suspense>
 
             {/* High-viewability ad — shown right after user sees their result */}
             <AfterResultAd slotId="1475703853" />

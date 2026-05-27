@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { Suspense } from 'react';
 import { getCalculatorSchema } from '@/lib/seo-utils';
 import LoanCalculator from '@/components/calculators/loan/LoanCalculator';
 import AdContainer from '@/components/ads/AdContainer';
@@ -57,6 +58,7 @@ export default function IndianEMICalculatorPage() {
                 </p>
             </div>
 
+            <Suspense fallback={null}>
             <LoanCalculator
                 currency="INR"
                 locale="en-IN"
@@ -64,6 +66,7 @@ export default function IndianEMICalculatorPage() {
                 defaultRate={8.5}
                 maxPrincipal={50000000}
             />
+            </Suspense>
 
             {/* High-viewability ad — shown right after user sees their EMI result */}
             <AfterResultAd slotId="1475703853" />
