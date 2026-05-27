@@ -81,7 +81,7 @@ const CALCULATOR_CATEGORIES = [
       { name: 'Profit Margin', href: '/profit-margin-calculator', desc: 'Gross & net margins' },
       { name: 'Break-Even', href: '/break-even-calculator', desc: 'When do you profit?' },
       { name: 'Business Loan', href: '/business-loan-calculator', desc: 'EMI & total cost' },
-      { name: 'Invoice Generator', href: '/invoice-generator', desc: 'Professional invoices' },
+      { name: 'Landed Cost Report', href: '/for/logistics', desc: 'Total import cost to USA' },
     ],
   },
   {
