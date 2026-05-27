@@ -2,7 +2,7 @@
   "id": "FEAT-002",
   "type": "feat",
   "description": "Add a Pro Value Prop section to the homepage and create a StickyUpgradeNudge component for calculator pages. Both features promote the Pro subscription.",
-  "status": "in_progress",
+  "status": "completed",
   "steps": [
     "HOMEPAGE PRO SECTION: In app/page.tsx, add a new section between the Calculator Categories section (the bg-slate-50 section with 'Browse by Category') and the Affiliate Partners section (the bg-[#0A0F1E] section with 'Ready to Take Action?'). Insert a visually distinct Pro value prop section.",
     "The Pro section should have: bg-white with a subtle emerald gradient card, heading 'Do More With Pro', subheading 'Upgrade for detailed reports, unlimited lookups, and premium features'.",
@@ -27,5 +27,5 @@
     "Run `npx next build` and confirm it completes without errors"
   ],
   "blocked_reason": null,
-  "findings": ""
+  "findings": "All changes implemented successfully. Build passes cleanly. The StickyUpgradeNudge component does not need a 'show' prop -- it handles visibility internally via useProStatus() and sessionStorage. The homepage Pro section was placed between the calculator categories grid and the affiliate partners section. Chart width warnings in build output are pre-existing (recharts SSG rendering)."
 }
