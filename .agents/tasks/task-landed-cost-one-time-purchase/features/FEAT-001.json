@@ -26,5 +26,5 @@
     "Verify globals.css contains @media print rules"
   ],
   "blocked_reason": null,
-  "findings": "Build succeeded without errors. Used regular CSS @media print rules instead of Tailwind escaped class selectors to avoid CSS parsing issues with Turbopack. The print:hidden Tailwind utility class on the Print button works natively via Tailwind v4 print variant."
+  "findings": "Build succeeded without errors. Used regular CSS @media print rules instead of Tailwind escaped class selectors to avoid CSS parsing issues with Turbopack. The print:hidden Tailwind utility class on the Print button works natively via Tailwind v4 print variant. Post-review fix: scoped @media print button hiding to [data-report-section] button and .print\\:hidden instead of a global button selector, to avoid affecting printing on other pages."
 }
