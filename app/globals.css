@@ -185,3 +185,48 @@ h1, h2, h3 {
 ::-webkit-scrollbar-thumb { background: rgba(0,212,170,0.3); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: rgba(0,212,170,0.5); }
 
+/* Print styles for landed cost report */
+@media print {
+  nav,
+  header,
+  footer,
+  [data-sticky-nudge],
+  [data-chatbot] {
+    display: none !important;
+  }
+
+  .print\:hidden,
+  [data-report-section] button {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 12pt;
+  }
+
+  * {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: none !important;
+  }
+
+  .blur-sm {
+    filter: none !important;
+  }
+
+  [data-report-section] {
+    display: block !important;
+    visibility: visible !important;
+  }
+
+  .print-hidden {
+    display: none !important;
+  }
+
+  @page {
+    margin: 1.5cm;
+  }
+}
+

@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { Suspense } from 'react';
 import LoanCalculator from '@/components/calculators/loan/LoanCalculator';
 import AdContainer from '@/components/ads/AdContainer';
 import StickyAdSidebar from '@/components/ads/StickyAdSidebar';
@@ -7,6 +8,7 @@ import { ShieldCheck } from 'lucide-react';
 import CalculatorSchemaInjector from '@/components/seo/CalculatorSchemaInjector';
 import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
+import StickyUpgradeNudge from '@/components/premium/StickyUpgradeNudge';
 
 export const metadata: Metadata = {
     title: 'Loan Calculator | Mortgage & EMI | CostSmart',
@@ -47,7 +49,9 @@ export default function LoanCalculatorPage() {
                 </p>
             </div>
 
+            <Suspense fallback={null}>
             <LoanCalculator currency="USD" locale="en-US" />
+            </Suspense>
 
             <div className="mt-16 grid md:grid-cols-[2fr_1fr] gap-8">
                 <div className="prose max-w-none text-slate-600 bg-white p-8 rounded-2xl border border-slate-100 shadow-sm">
@@ -78,6 +82,7 @@ export default function LoanCalculatorPage() {
             </div>
 
             <RelatedCalculators category="loan" currentHref="/loan-calculator" />
+            <StickyUpgradeNudge />
         </div>
     );
 }

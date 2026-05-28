@@ -1,0 +1,31 @@
+{
+  "id": "FEAT-002",
+  "type": "feat",
+  "description": "Add a Pro Value Prop section to the homepage and create a StickyUpgradeNudge component for calculator pages. Both features promote the Pro subscription.",
+  "status": "completed",
+  "steps": [
+    "HOMEPAGE PRO SECTION: In app/page.tsx, add a new section between the Calculator Categories section (the bg-slate-50 section with 'Browse by Category') and the Affiliate Partners section (the bg-[#0A0F1E] section with 'Ready to Take Action?'). Insert a visually distinct Pro value prop section.",
+    "The Pro section should have: bg-white with a subtle emerald gradient card, heading 'Do More With Pro', subheading 'Upgrade for detailed reports, unlimited lookups, and premium features'.",
+    "Display a 2x3 grid of Pro features using icons from lucide-react: (1) PDF Report Export (FileText icon), (2) Unlimited Calculations (Calculator icon), (3) Rooftop Solar Analysis - 30 lookups/day (Sun icon), (4) Neighborhood Score - full details (MapPin icon), (5) Landed Cost Reports - unlimited (Ship icon), (6) Ad-Free Experience (ShieldOff icon).",
+    "Include price '$4.99/month' and a CTA button 'Upgrade Now' linking to /pricing. Use emerald accent colors consistent with the site design system.",
+    "STICKY UPGRADE NUDGE: Create components/premium/StickyUpgradeNudge.tsx as a 'use client' component.",
+    "The component shows as a thin sticky bar at the bottom of the viewport (fixed position, bottom-0, z-40).",
+    "It must only render when: (a) user is NOT Pro (use useProStatus() hook), (b) user has performed a calculation (accept a prop like `show: boolean` that the parent calculator controls), (c) not dismissed in current session (use sessionStorage key 'costsmart_nudge_dismissed').",
+    "Design: small shadow-lg, bg-white border-t border-emerald-100, flex layout with text 'Get a PDF report of this calculation + unlimited usage' and a CTA button 'Upgrade to Pro' with ArrowRight icon linking to /pricing. Include a dismiss X button.",
+    "Add StickyUpgradeNudge to these calculator pages by importing it: app/home-loan-calculator/page.tsx, app/rent-vs-buy-calculator/page.tsx, app/in/emi-calculator/page.tsx, app/in/sip-calculator/page.tsx, app/in/income-tax-calculator/page.tsx, app/retirement-calculator/page.tsx, app/loan-calculator/page.tsx. Since these are server component pages, wrap the StickyUpgradeNudge in a client component wrapper or pass show={true} as a static prop (the component itself handles Pro check and session dismissal internally - so pass show={true} always and let the component handle visibility logic)."
+  ],
+  "acceptance_criteria": [
+    "Homepage (app/page.tsx) contains a new 'Do More With Pro' section between calculator categories and partner offers",
+    "The Pro section shows 6 feature items in a grid with icons, pricing, and CTA to /pricing",
+    "components/premium/StickyUpgradeNudge.tsx exists as a 'use client' component",
+    "StickyUpgradeNudge uses useProStatus() to hide for Pro users",
+    "StickyUpgradeNudge is dismissible via sessionStorage",
+    "StickyUpgradeNudge is imported into at least 7 calculator page files",
+    "npx next build succeeds without errors"
+  ],
+  "verification": [
+    "Run `npx next build` and confirm it completes without errors"
+  ],
+  "blocked_reason": null,
+  "findings": "All changes implemented successfully. Build passes cleanly. The StickyUpgradeNudge component does not need a 'show' prop -- it handles visibility internally via useProStatus() and sessionStorage. The homepage Pro section was placed between the calculator categories grid and the affiliate partners section. Chart width warnings in build output are pre-existing (recharts SSG rendering)."
+}

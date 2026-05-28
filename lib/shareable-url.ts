@@ -265,4 +265,18 @@ export function useShareableURL() {
 // React import for the hook
 import React from 'react';
 
+/**
+ * Build a full URL with human-readable query parameters
+ */
+export function buildShareableURL(basePath: string, params: Record<string, string | number | boolean>): string {
+  const baseURL = typeof window !== 'undefined' ? window.location.origin : '';
+  const url = new URL(basePath, baseURL);
+  Object.entries(params).forEach(([key, value]) => {
+    if (value !== undefined && value !== null && value !== '') {
+      url.searchParams.set(key, String(value));
+    }
+  });
+  return url.toString();
+}
+
 export default ShareableURLManager;

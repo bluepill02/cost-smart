@@ -1,0 +1,29 @@
+{
+  "id": "FEAT-003",
+  "type": "feat",
+  "description": "Implement shareable calculation URLs on Home Loan Calculator, SIP Calculator, and Loan Calculator. Encode inputs as human-readable URL search params and add a share button that copies the parameterized URL.",
+  "status": "completed",
+  "steps": [
+    "APPROACH CHANGE: The existing lib/shareable-url.ts uses base64 encoding (opaque URLs). The requirement is human-readable URL params like /home-loan-calculator?principal=5000000&rate=8.5&tenure=20. Create a new simpler utility alongside the existing one or add functions to it.",
+    "Add helper functions to lib/shareable-url.ts: (1) `encodeParamsToURL(basePath: string, params: Record<string, string | number>): string` that builds a URL with readable query params, (2) `readParamsFromURL(searchParams: URLSearchParams, keys: string[]): Record<string, string | null>` that extracts params.",
+    "MODIFY components/calculators/loan/HomeLoanCalculator.tsx: (a) Accept an optional `initialParams` prop of type `{amount?: number, rate?: number, tenure?: number}`. (b) Use URL searchParams (via useSearchParams from next/navigation) to read ?amount=&rate=&tenure= on mount and pre-fill calculator if present. (c) After calculation, show a 'Share' button (using Share2 icon) that copies the URL with current inputs as query params to clipboard. Show a toast/copied indicator.",
+    "MODIFY components/calculators/loan/LoanCalculator.tsx: (a) Use useSearchParams to read ?principal=&rate=&years=&extra= on mount and pre-fill. (b) Add Share button after results that builds URL with current params and copies to clipboard.",
+    "MODIFY components/calculators/investment/InvestmentCalculator.tsx: (a) Use useSearchParams to read ?monthly=&initial=&rate=&years= on mount and pre-fill. (b) Add Share button after results that builds URL with current params and copies to clipboard.",
+    "Each calculator's Share button should: use navigator.clipboard.writeText, show a brief 'Copied!' state for 2.5 seconds, and display as a small inline button near the results area.",
+    "Wrap each calculator component that uses useSearchParams in a Suspense boundary in its page.tsx, since useSearchParams requires Suspense in Next.js App Router. Add `import { Suspense } from 'react'` in the page files and wrap the calculator component."
+  ],
+  "acceptance_criteria": [
+    "lib/shareable-url.ts has new helper functions for human-readable URL param encoding",
+    "HomeLoanCalculator reads URL params (?amount, ?rate, ?tenure) on mount to pre-fill inputs",
+    "LoanCalculator reads URL params (?principal, ?rate, ?years, ?extra) on mount to pre-fill",
+    "InvestmentCalculator reads URL params (?monthly, ?initial, ?rate, ?years) on mount to pre-fill",
+    "Each calculator shows a Share button that copies the parameterized URL to clipboard",
+    "URLs are human-readable (not base64 encoded)",
+    "npx next build succeeds without errors"
+  ],
+  "verification": [
+    "Run `npx next build` and confirm it completes without errors"
+  ],
+  "blocked_reason": null,
+  "findings": "Added Suspense boundaries to all pages using the modified calculators (not just the 3 primary ones but also home-loan-calculator/[city], in/home-loan-calculator/[city], in/emi-calculator, and investment-calculator pages). Build passes cleanly."
+}

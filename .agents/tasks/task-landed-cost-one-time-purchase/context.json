@@ -1,0 +1,25 @@
+{
+  "project_type": "Next.js 16 App Router SPA with Tailwind CSS v4, Radix UI components, PayPal integration",
+  "language": "TypeScript / React 19",
+  "build_system": "npm with next build",
+  "test_framework": "Playwright for e2e tests (tests/ directory)",
+  "build_command": "cd /projects/sandbox/cost-smart && npm run build",
+  "test_command": "cd /projects/sandbox/cost-smart && npx playwright test --reporter=list",
+  "verification_instructions": "1. Run npm run build to ensure no compile errors. 2. Check that the new PayPalOneTimeButton component renders without errors. 3. Verify LandedCostReport shows the one-time purchase flow when user is not Pro.",
+  "snapshot_or_generated_files": null,
+  "setup_instructions": "cd /projects/sandbox/cost-smart && npm install",
+  "environment_constraints": "OPEN_INTERNET mode - full network access. Node.js available. No Docker needed.",
+  "contribution_requirements": "Standard Next.js App Router conventions. Client components marked with 'use client'. Tailwind for styling.",
+  "key_patterns": "- Client components use 'use client' directive. - PayPal integration uses @paypal/react-paypal-js with PayPalScriptProvider wrapping PayPalButtons. - Pro status checked via useProStatus() hook from lib/contexts/ProStatusContext. - Premium components live in components/premium/. - Calculators live in components/calculators/. - CSS uses Tailwind v4 with @import 'tailwindcss' in globals.css. - UI primitives from @/components/ui/ (Card, Button, Input, Label, Select).",
+  "relevant_files": [
+    "components/premium/PayPalCheckoutButton.tsx",
+    "components/calculators/LandedCostReport.tsx",
+    "app/for/logistics/page.tsx",
+    "app/globals.css",
+    "lib/premium-config.ts",
+    "lib/contexts/ProStatusContext.tsx",
+    "lib/paypal.ts",
+    "lib/hooks/useProStatus.ts"
+  ],
+  "directory_structure": "app/ - Next.js App Router pages and layouts. components/ - React components (calculators/, premium/, ui/, features/, seo/). lib/ - Utilities, hooks, contexts, configs. tests/ - Playwright e2e tests. public/ - Static assets."
+}

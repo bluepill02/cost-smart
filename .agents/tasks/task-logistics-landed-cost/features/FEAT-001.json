@@ -1,0 +1,25 @@
+{
+  "id": "FEAT-001",
+  "type": "feat",
+  "description": "Create the Google Routes API endpoint at /api/logistics/route-estimate with rate limiting following the same pattern as /api/solar/insights/route.ts. Update .env.example with GOOGLE_MAPS_API_KEY reference.",
+  "status": "in_progress",
+  "steps": [
+    "Create the directory app/api/logistics/route-estimate/",
+    "Create app/api/logistics/route-estimate/route.ts implementing a POST handler that: (1) accepts JSON body with origin and destination strings, (2) validates both fields are non-empty strings, (3) implements rate limiting using the same in-memory Map pattern from app/api/solar/insights/route.ts (3/day free, 30/day pro), (4) verifies Pro status server-side via email using getSubscriptionByEmail from @/lib/kv-store, (5) calls the Google Routes API v2 endpoint POST https://routes.googleapis.com/directions/v2:computeRoutes with headers X-Goog-Api-Key using process.env.GOOGLE_MAPS_API_KEY and X-Goog-FieldMask: routes.duration,routes.distanceMeters,routes.legs.duration,routes.legs.distanceMeters, body: { origin: { address: origin }, destination: { address: destination }, travelMode: 'DRIVE' }, (6) returns structured response with distanceMeters, distanceMiles (converted), duration, and routeSummary, plus rateLimit info, (7) only increments rate limit counter on successful upstream response (not on 4xx errors)",
+    "Add GOOGLE_MAPS_API_KEY entry to .env.example with a comment explaining it needs Routes, Geocoding, Places APIs enabled"
+  ],
+  "acceptance_criteria": [
+    "File app/api/logistics/route-estimate/route.ts exists and exports a POST function",
+    "The route validates origin and destination are non-empty strings",
+    "The route calls Google Routes API v2 computeRoutes endpoint with correct headers and body",
+    "Rate limiting: 3 requests/day for free users, 30/day for verified Pro users",
+    "Response includes distanceMeters, distanceMiles, durationSeconds, durationText, and rateLimit fields",
+    ".env.example includes GOOGLE_MAPS_API_KEY entry",
+    "npm run build succeeds without errors"
+  ],
+  "verification": [
+    "Run: cd /projects/sandbox/cost-smart && npm run build"
+  ],
+  "blocked_reason": null,
+  "findings": ""
+}

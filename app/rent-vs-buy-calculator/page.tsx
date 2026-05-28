@@ -6,6 +6,7 @@ import JsonLd from '@/components/seo/JsonLd';
 import AmazonRecommendations from '@/components/affiliate/AmazonRecommendations';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
 import NeighborhoodCTA from '@/components/features/NeighborhoodCTA';
+import StickyUpgradeNudge from '@/components/premium/StickyUpgradeNudge';
 
 export const metadata: Metadata = {
   title: 'Rent vs Buy Calculator | CostSmart',
@@ -81,6 +82,7 @@ export default function RentVsBuyPage() {
       <AmazonRecommendations calculatorSlug="rent-vs-buy" />
 
       <RelatedCalculators category="property" currentHref="/rent-vs-buy-calculator" />
+      <StickyUpgradeNudge />
     </div>
   );
 }

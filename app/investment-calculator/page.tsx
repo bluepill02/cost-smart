@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { Suspense } from 'react';
 import InvestmentCalculator from '@/components/calculators/investment/InvestmentCalculator';
 import AdContainer from '@/components/ads/AdContainer';
 import StickyAdSidebar from '@/components/ads/StickyAdSidebar';
@@ -47,7 +48,9 @@ export default function InvestmentCalculatorPage() {
                 </p>
             </div>
 
+            <Suspense fallback={null}>
             <InvestmentCalculator currency="USD" locale="en-US" />
+            </Suspense>
 
             <div className="mt-16 grid md:grid-cols-[2fr_1fr] gap-8">
                 <div className="prose max-w-none text-slate-600 bg-white p-8 rounded-2xl border border-slate-100 shadow-sm">

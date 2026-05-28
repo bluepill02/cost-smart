@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { Suspense } from 'react';
 import { getCalculatorSchema } from '@/lib/seo-utils';
 import InvestmentCalculator from '@/components/calculators/investment/InvestmentCalculator';
 import AdContainer from '@/components/ads/AdContainer';
@@ -10,6 +11,7 @@ import Breadcrumbs from '@/components/features/Breadcrumbs';
 import ShareResultButton from '@/components/features/ShareResultButton';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
 import EmailResultsButton from '@/components/features/EmailResultsButton';
+import StickyUpgradeNudge from '@/components/premium/StickyUpgradeNudge';
 
 export const metadata: Metadata = {
     title: 'SIP Calculator India | CostSmart',
@@ -56,6 +58,7 @@ export default function SIPCalculatorPage() {
                 </p>
             </div>
 
+            <Suspense fallback={null}>
             <InvestmentCalculator
                 currency="INR"
                 locale="en-IN"
@@ -64,6 +67,7 @@ export default function SIPCalculatorPage() {
                 defaultInitial={0}
                 defaultRate={12}
             />
+            </Suspense>
 
             {/* High-viewability ad — shown right after user sees their result */}
             <AfterResultAd slotId="1475703853" />
@@ -96,6 +100,7 @@ export default function SIPCalculatorPage() {
                     <RelatedCalculators category="investment" currentHref="/in/sip-calculator" />
                 </div>
             </div>
+            <StickyUpgradeNudge />
         </div>
     );
 }

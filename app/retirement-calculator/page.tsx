@@ -8,6 +8,7 @@ import JsonLd from '@/components/seo/JsonLd';
 import AmazonRecommendations from '@/components/affiliate/AmazonRecommendations';
 import PremiumBanner from '@/components/premium/PremiumBanner';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
+import StickyUpgradeNudge from '@/components/premium/StickyUpgradeNudge';
 
 export const metadata: Metadata = {
     title: 'Retirement Planner | CostSmart',
@@ -72,6 +73,7 @@ export default function RetirementCalculatorPage() {
             <RelatedCalculators category="investment" currentHref="/retirement-calculator" />
 
             <PremiumBanner />
+            <StickyUpgradeNudge />
         </div>
     );
 }

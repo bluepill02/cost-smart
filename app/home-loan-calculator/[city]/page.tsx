@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import HomeLoanCalculator from '@/components/calculators/loan/HomeLoanCalculator';
@@ -51,7 +51,9 @@ export default async function CityHomeLoanPage({ params }: { params: Promise<{ c
                 </div>
 
                 <div className="bg-white p-6 rounded-2xl shadow-xl border border-slate-200">
+                    <Suspense fallback={null}>
                     <HomeLoanCalculator defaultAmount={defaultLoanAmount} />
+                    </Suspense>
                 </div>
 
                 <div className="mt-12 prose max-w-none text-slate-600">

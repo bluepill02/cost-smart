@@ -4,6 +4,7 @@ import {
   Calculator, TrendingUp, Home, Briefcase, Sun, DollarSign,
   ArrowRight, Star, Shield, Zap, Users, BarChart3, Receipt,
   CreditCard, PiggyBank, Building, Globe, FileText, CheckCircle,
+  Ship, ShieldOff, MapPin,
 } from 'lucide-react';
 import AdContainer from '@/components/ads/AdContainer';
 import HeroSearch from '@/components/features/HeroSearch';
@@ -82,6 +83,7 @@ const CALCULATOR_CATEGORIES = [
       { name: 'Break-Even', href: '/break-even-calculator', desc: 'When do you profit?' },
       { name: 'Business Loan', href: '/business-loan-calculator', desc: 'EMI & total cost' },
       { name: 'Invoice Generator', href: '/invoice-generator', desc: 'Professional invoices' },
+      { name: 'Landed Cost Report', href: '/for/logistics', desc: 'Total import cost to USA' },
     ],
   },
   {
@@ -349,6 +351,45 @@ export default function HomePage() {
                 </div>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════ */}
+      {/* PRO VALUE PROP SECTION                       */}
+      {/* ══════════════════════════════════════════════ */}
+      <section className="bg-white py-16 px-4">
+        <div className="max-w-5xl mx-auto text-center">
+          <h2 className="text-2xl font-black text-slate-900 mb-2 tracking-tight">Do More With Pro</h2>
+          <p className="text-slate-500 text-sm mb-8">Upgrade for detailed reports, unlimited lookups, and premium features</p>
+
+          <div className="border-2 border-emerald-200 rounded-2xl p-8 bg-gradient-to-br from-emerald-50/50 to-white">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 mb-8">
+              {[
+                { icon: FileText, label: 'PDF Report Export' },
+                { icon: Calculator, label: 'Unlimited Calculations' },
+                { icon: Sun, label: 'Rooftop Solar Analysis', sublabel: '30 lookups/day' },
+                { icon: MapPin, label: 'Neighborhood Score', sublabel: 'Full details' },
+                { icon: Ship, label: 'Landed Cost Reports', sublabel: 'Unlimited' },
+                { icon: ShieldOff, label: 'Ad-Free Experience' },
+              ].map(({ icon: Icon, label, sublabel }) => (
+                <div key={label} className="flex flex-col items-center gap-2 text-center">
+                  <div className="w-10 h-10 bg-emerald-100 rounded-xl flex items-center justify-center">
+                    <Icon className="w-5 h-5 text-emerald-600" />
+                  </div>
+                  <div className="text-sm font-semibold text-slate-800">{label}</div>
+                  {sublabel && <div className="text-xs text-slate-500">{sublabel}</div>}
+                </div>
+              ))}
+            </div>
+
+            <div className="text-2xl font-black text-emerald-600 mb-4">$4.99/month</div>
+            <Link
+              href="/pricing"
+              className="inline-flex items-center gap-2 bg-emerald-600 text-white rounded-full px-8 py-3 font-bold hover:bg-emerald-700 transition-colors"
+            >
+              Upgrade Now <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </section>
