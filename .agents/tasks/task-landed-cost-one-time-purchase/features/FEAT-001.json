@@ -1,0 +1,30 @@
+{
+  "id": "FEAT-001",
+  "type": "feat",
+  "description": "Create PayPalOneTimeButton component and integrate the pay-per-report ($7) flow into LandedCostReport, replacing the subscription-only Pro gate with a one-time purchase option. Add print-as-PDF styles.",
+  "status": "in_progress",
+  "steps": [
+    "Create components/premium/PayPalOneTimeButton.tsx - a new PayPal button component that uses intent:'capture' and createOrder (not createSubscription). It should accept props: amount (string, default '7.00'), description (string), onPaymentComplete callback, and optional onError callback. Wrap PayPalButtons with PayPalScriptProvider using NEXT_PUBLIC_PAYPAL_CLIENT_ID env var. On onApprove, call actions.order.capture() and invoke the onPaymentComplete callback with the order details.",
+    "Modify components/calculators/LandedCostReport.tsx to add a pay-per-report flow: (a) Add a state variable 'reportUnlocked' (boolean, default false). (b) On component mount, check localStorage for a key 'costsmart_report_purchase' - if present and JSON-parsed object has a 'timestamp' within last 24 hours, set reportUnlocked=true. (c) Replace the existing Pro-gated section (the blurred overlay with Lock icon and 'Upgrade to Pro' link) with a new conditional: if isPro OR reportUnlocked, show the detailed report sections directly (no blur). If not, show a 'Get Full Report' purchase section instead of the blurred overlay. (d) The purchase section should show: a list of what's included (line-item breakdown, duty classification, route details, print-as-PDF), the price '$7 one-time', and render the PayPalOneTimeButton. (e) On successful payment (onPaymentComplete callback), set reportUnlocked=true and save to localStorage key 'costsmart_report_purchase' as JSON: {orderId, timestamp: Date.now()}. (f) Add a 'Print as PDF' button (visible when report is unlocked or user is Pro) that calls window.print().",
+    "Update the 'Free vs Pro' section in app/for/logistics/page.tsx: Add a third option or modify the Pro card to mention the $7 one-time report purchase option alongside the subscription. Add text like 'Or get a single report for $7' below the Pro subscription CTA.",
+    "Add @media print styles to app/globals.css: hide nav, footer, header, buttons, and any non-report content. Show only the report output section. Remove blur/overlay. Ensure the printed report looks clean with proper margins."
+  ],
+  "acceptance_criteria": [
+    "PayPalOneTimeButton.tsx exists in components/premium/ and exports a working component that uses PayPal Orders API (intent: capture, createOrder pattern)",
+    "LandedCostReport.tsx shows the detailed report without blur when reportUnlocked is true OR isPro is true",
+    "LandedCostReport.tsx shows a purchase section with PayPalOneTimeButton when user is not Pro and report is not unlocked",
+    "localStorage is used to persist purchase state with 24-hour expiry check",
+    "A 'Print as PDF' button is present in the unlocked report section",
+    "Print styles in globals.css hide navigation and non-report elements when printing",
+    "The logistics landing page mentions the $7 one-time option",
+    "npm run build succeeds without TypeScript or lint errors"
+  ],
+  "verification": [
+    "Run 'cd /projects/sandbox/cost-smart && npm run build' and confirm it succeeds with exit code 0",
+    "Verify PayPalOneTimeButton.tsx file exists and contains createOrder with amount '7.00'",
+    "Verify LandedCostReport.tsx contains reportUnlocked state and localStorage logic",
+    "Verify globals.css contains @media print rules"
+  ],
+  "blocked_reason": null,
+  "findings": ""
+}

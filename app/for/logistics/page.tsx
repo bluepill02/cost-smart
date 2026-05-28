@@ -286,6 +286,9 @@ export default function LogisticsLandingPage() {
               >
                 Upgrade to Pro <ArrowRight className="w-4 h-4" />
               </Link>
+              <p className="mt-3 text-center text-xs text-slate-500">
+                Or get a single report for $7 - no subscription needed
+              </p>
             </div>
           </div>
         </div>

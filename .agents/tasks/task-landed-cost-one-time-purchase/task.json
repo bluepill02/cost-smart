@@ -1,0 +1,7 @@
+{
+  "task_id": "task-landed-cost-one-time-purchase",
+  "task_description": "Build a standalone pay-per-report ($7 one-time) purchase product for the Landed Cost Calculator using existing PayPal integration. Replace the subscription-only Pro gate with a one-time payment option. Include print-as-PDF functionality.",
+  "status": "in_progress",
+  "feature_order": ["FEAT-001"],
+  "blocked_reason": null
+}

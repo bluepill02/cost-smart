@@ -1,14 +1,14 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useProStatus } from '@/lib/hooks/useProStatus';
-import { Lock, Loader2, Package, Ship, Truck, DollarSign } from 'lucide-react';
-import Link from 'next/link';
+import { Loader2, Package, Ship, Truck, DollarSign, Printer, CheckCircle } from 'lucide-react';
+import PayPalOneTimeButton from '@/components/premium/PayPalOneTimeButton';
 
 type Category = 'Electronics' | 'Clothing' | 'Auto Parts' | 'Beauty' | 'Toys' | 'Furniture' | 'Footwear' | 'Sports Equipment';
 
@@ -47,8 +47,26 @@ interface ReportData {
   productValue: number;
 }
 
+const REPORT_PURCHASE_KEY = 'costsmart_report_purchase';
+const TWENTY_FOUR_HOURS = 24 * 60 * 60 * 1000;
+
 export default function LandedCostReport() {
   const { isPro, isLoading: proLoading, proEmail } = useProStatus();
+  const [reportUnlocked, setReportUnlocked] = useState(false);
+
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem(REPORT_PURCHASE_KEY);
+      if (stored) {
+        const parsed = JSON.parse(stored);
+        if (parsed.timestamp && Date.now() - parsed.timestamp < TWENTY_FOUR_HOURS) {
+          setReportUnlocked(true);
+        }
+      }
+    } catch {
+      // ignore parse errors
+    }
+  }, []);
 
   const [originCountry, setOriginCountry] = useState('');
   const [originAddress, setOriginAddress] = useState('');
@@ -437,119 +455,147 @@ export default function LandedCostReport() {
             </CardContent>
           </Card>
 
-          {/* Pro Section - Blurred for non-Pro */}
-          <div className="relative">
-            {!isPro && (
-              <div className="absolute inset-0 z-10 bg-white/70 backdrop-blur-sm rounded-2xl flex flex-col items-center justify-center gap-3">
-                <Lock className="w-10 h-10 text-slate-400" />
-                <p className="text-lg font-semibold text-slate-700">Pro Feature</p>
-                <p className="text-sm text-slate-500 text-center max-w-md">
-                  Unlock detailed line-item breakdown, PDF export, route map, and historical comparison.
-                </p>
-                <Link href="/pricing">
-                  <Button className="bg-emerald-600 hover:bg-emerald-700 text-white mt-2">
-                    Upgrade to Pro
-                  </Button>
-                </Link>
+          {/* Pro Section - Detailed Report or Purchase CTA */}
+          {(isPro || reportUnlocked) ? (
+            <div className="space-y-6" data-report-section>
+              {/* Print as PDF Button */}
+              <div className="flex justify-end print:hidden">
+                <Button
+                  onClick={() => window.print()}
+                  variant="outline"
+                  className="border-emerald-200 text-emerald-700 hover:bg-emerald-50 gap-2"
+                >
+                  <Printer className="w-4 h-4" />
+                  Print as PDF
+                </Button>
               </div>
-            )}
 
-            <div className={!isPro ? 'blur-sm pointer-events-none select-none' : ''}>
-              <div className="space-y-6">
-                {/* Detailed Breakdown Table */}
-                <Card className="border-slate-200 rounded-2xl shadow-sm">
-                  <CardHeader>
-                    <CardTitle className="text-lg text-slate-900">Detailed Line-Item Breakdown</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="overflow-x-auto">
-                      <table className="w-full text-sm">
-                        <thead>
-                          <tr className="border-b border-slate-200">
-                            <th className="text-left py-2 text-slate-600 font-medium">Item</th>
-                            <th className="text-right py-2 text-slate-600 font-medium">Rate/Unit</th>
-                            <th className="text-right py-2 text-slate-600 font-medium">Amount</th>
-                          </tr>
-                        </thead>
-                        <tbody className="divide-y divide-slate-100">
+              {/* Detailed Breakdown Table */}
+              <Card className="border-slate-200 rounded-2xl shadow-sm">
+                <CardHeader>
+                  <CardTitle className="text-lg text-slate-900">Detailed Line-Item Breakdown</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-sm">
+                      <thead>
+                        <tr className="border-b border-slate-200">
+                          <th className="text-left py-2 text-slate-600 font-medium">Item</th>
+                          <th className="text-right py-2 text-slate-600 font-medium">Rate/Unit</th>
+                          <th className="text-right py-2 text-slate-600 font-medium">Amount</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-slate-100">
+                        <tr>
+                          <td className="py-2 text-slate-700">Product Value</td>
+                          <td className="py-2 text-right text-slate-500">-</td>
+                          <td className="py-2 text-right font-medium">${report.productValue.toFixed(2)}</td>
+                        </tr>
+                        <tr>
+                          <td className="py-2 text-slate-700">Import Duty</td>
+                          <td className="py-2 text-right text-slate-500">{(report.dutyRate * 100).toFixed(1)}%</td>
+                          <td className="py-2 text-right font-medium">${report.dutyAmount.toFixed(2)}</td>
+                        </tr>
+                        <tr>
+                          <td className="py-2 text-slate-700">Merchandise Processing Fee</td>
+                          <td className="py-2 text-right text-slate-500">0.3464%</td>
+                          <td className="py-2 text-right font-medium">${report.mpfFees.toFixed(2)}</td>
+                        </tr>
+                        <tr>
+                          <td className="py-2 text-slate-700">Harbor/Handling Fees</td>
+                          <td className="py-2 text-right text-slate-500">0.5%</td>
+                          <td className="py-2 text-right font-medium">${report.taxAmount.toFixed(2)}</td>
+                        </tr>
+                        <tr>
+                          <td className="py-2 text-slate-700">Air Freight ({report.weightType})</td>
+                          <td className="py-2 text-right text-slate-500">$8.50/kg x {report.chargeableWeight.toFixed(2)} kg</td>
+                          <td className="py-2 text-right font-medium">${report.freightCost.toFixed(2)}</td>
+                        </tr>
+                        {report.lastMileCost > 0 && (
                           <tr>
-                            <td className="py-2 text-slate-700">Product Value</td>
-                            <td className="py-2 text-right text-slate-500">-</td>
-                            <td className="py-2 text-right font-medium">${report.productValue.toFixed(2)}</td>
+                            <td className="py-2 text-slate-700">Last-Mile Delivery</td>
+                            <td className="py-2 text-right text-slate-500">{report.route ? `${report.route.distanceMiles.toFixed(0)} mi` : '-'}</td>
+                            <td className="py-2 text-right font-medium">${report.lastMileCost.toFixed(2)}</td>
                           </tr>
-                          <tr>
-                            <td className="py-2 text-slate-700">Import Duty</td>
-                            <td className="py-2 text-right text-slate-500">{(report.dutyRate * 100).toFixed(1)}%</td>
-                            <td className="py-2 text-right font-medium">${report.dutyAmount.toFixed(2)}</td>
-                          </tr>
-                          <tr>
-                            <td className="py-2 text-slate-700">Merchandise Processing Fee</td>
-                            <td className="py-2 text-right text-slate-500">0.3464%</td>
-                            <td className="py-2 text-right font-medium">${report.mpfFees.toFixed(2)}</td>
-                          </tr>
-                          <tr>
-                            <td className="py-2 text-slate-700">Harbor/Handling Fees</td>
-                            <td className="py-2 text-right text-slate-500">0.5%</td>
-                            <td className="py-2 text-right font-medium">${report.taxAmount.toFixed(2)}</td>
-                          </tr>
-                          <tr>
-                            <td className="py-2 text-slate-700">Air Freight ({report.weightType})</td>
-                            <td className="py-2 text-right text-slate-500">$8.50/kg x {report.chargeableWeight.toFixed(2)} kg</td>
-                            <td className="py-2 text-right font-medium">${report.freightCost.toFixed(2)}</td>
-                          </tr>
-                          {report.lastMileCost > 0 && (
-                            <tr>
-                              <td className="py-2 text-slate-700">Last-Mile Delivery</td>
-                              <td className="py-2 text-right text-slate-500">{report.route ? `${report.route.distanceMiles.toFixed(0)} mi` : '-'}</td>
-                              <td className="py-2 text-right font-medium">${report.lastMileCost.toFixed(2)}</td>
-                            </tr>
-                          )}
-                          <tr className="border-t-2 border-slate-300">
-                            <td className="py-2 font-bold text-slate-900">Grand Total</td>
-                            <td className="py-2"></td>
-                            <td className="py-2 text-right font-bold text-lg text-emerald-700">${report.grandTotal.toFixed(2)}</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </CardContent>
-                </Card>
+                        )}
+                        <tr className="border-t-2 border-slate-300">
+                          <td className="py-2 font-bold text-slate-900">Grand Total</td>
+                          <td className="py-2"></td>
+                          <td className="py-2 text-right font-bold text-lg text-emerald-700">${report.grandTotal.toFixed(2)}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </CardContent>
+              </Card>
 
-                {/* Export PDF Placeholder */}
-                <Card className="border-slate-200 rounded-2xl shadow-sm">
-                  <CardContent className="flex items-center justify-center p-6">
-                    <Button variant="outline" className="border-emerald-200 text-emerald-700 hover:bg-emerald-50">
-                      Export as PDF
-                    </Button>
-                  </CardContent>
-                </Card>
+              {/* Route Map Placeholder */}
+              <Card className="border-slate-200 rounded-2xl shadow-sm">
+                <CardHeader>
+                  <CardTitle className="text-lg text-slate-900">Route Map</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="h-48 bg-slate-100 rounded-xl flex items-center justify-center text-slate-400 text-sm">
+                    Interactive route map coming soon
+                  </div>
+                </CardContent>
+              </Card>
 
-                {/* Route Map Placeholder */}
-                <Card className="border-slate-200 rounded-2xl shadow-sm">
-                  <CardHeader>
-                    <CardTitle className="text-lg text-slate-900">Route Map</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="h-48 bg-slate-100 rounded-xl flex items-center justify-center text-slate-400 text-sm">
-                      Interactive route map coming soon
-                    </div>
-                  </CardContent>
-                </Card>
-
-                {/* Historical Comparison Placeholder */}
-                <Card className="border-slate-200 rounded-2xl shadow-sm">
-                  <CardHeader>
-                    <CardTitle className="text-lg text-slate-900">Historical Comparison</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="h-48 bg-slate-100 rounded-xl flex items-center justify-center text-slate-400 text-sm">
-                      Historical cost comparison chart coming soon
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
+              {/* Historical Comparison Placeholder */}
+              <Card className="border-slate-200 rounded-2xl shadow-sm">
+                <CardHeader>
+                  <CardTitle className="text-lg text-slate-900">Historical Comparison</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="h-48 bg-slate-100 rounded-xl flex items-center justify-center text-slate-400 text-sm">
+                    Historical cost comparison chart coming soon
+                  </div>
+                </CardContent>
+              </Card>
             </div>
-          </div>
+          ) : (
+            <Card className="border-emerald-200 rounded-2xl shadow-md bg-gradient-to-br from-emerald-50/50 to-white">
+              <CardHeader>
+                <CardTitle className="text-lg text-slate-900 text-center">
+                  Get the Full Detailed Report
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <p className="text-sm text-slate-600 text-center">
+                  Unlock the complete breakdown for this shipment:
+                </p>
+                <ul className="space-y-2 max-w-sm mx-auto">
+                  {[
+                    'Detailed line-item breakdown table',
+                    'Duty classification details',
+                    'Route details and map',
+                    'Print as PDF / export',
+                  ].map((item) => (
+                    <li key={item} className="flex items-center gap-2 text-sm text-slate-700">
+                      <CheckCircle className="w-4 h-4 text-emerald-500 flex-shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <div className="text-center">
+                  <p className="text-2xl font-bold text-slate-900 mb-1">$7</p>
+                  <p className="text-xs text-slate-500 mb-4">One-time payment - access for 24 hours</p>
+                </div>
+                <div className="max-w-sm mx-auto">
+                  <PayPalOneTimeButton
+                    amount="7.00"
+                    description="CostSmart Landed Cost Report"
+                    onPaymentComplete={(orderDetails) => {
+                      const orderId = (orderDetails as { id?: string }).id || 'unknown';
+                      const purchaseData = { orderId, timestamp: Date.now() };
+                      localStorage.setItem(REPORT_PURCHASE_KEY, JSON.stringify(purchaseData));
+                      setReportUnlocked(true);
+                    }}
+                  />
+                </div>
+              </CardContent>
+            </Card>
+          )}
         </div>
       )}
     </div>
