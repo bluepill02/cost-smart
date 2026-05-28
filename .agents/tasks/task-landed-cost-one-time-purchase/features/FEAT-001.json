@@ -2,7 +2,7 @@
   "id": "FEAT-001",
   "type": "feat",
   "description": "Create PayPalOneTimeButton component and integrate the pay-per-report ($7) flow into LandedCostReport, replacing the subscription-only Pro gate with a one-time purchase option. Add print-as-PDF styles.",
-  "status": "in_progress",
+  "status": "completed",
   "steps": [
     "Create components/premium/PayPalOneTimeButton.tsx - a new PayPal button component that uses intent:'capture' and createOrder (not createSubscription). It should accept props: amount (string, default '7.00'), description (string), onPaymentComplete callback, and optional onError callback. Wrap PayPalButtons with PayPalScriptProvider using NEXT_PUBLIC_PAYPAL_CLIENT_ID env var. On onApprove, call actions.order.capture() and invoke the onPaymentComplete callback with the order details.",
     "Modify components/calculators/LandedCostReport.tsx to add a pay-per-report flow: (a) Add a state variable 'reportUnlocked' (boolean, default false). (b) On component mount, check localStorage for a key 'costsmart_report_purchase' - if present and JSON-parsed object has a 'timestamp' within last 24 hours, set reportUnlocked=true. (c) Replace the existing Pro-gated section (the blurred overlay with Lock icon and 'Upgrade to Pro' link) with a new conditional: if isPro OR reportUnlocked, show the detailed report sections directly (no blur). If not, show a 'Get Full Report' purchase section instead of the blurred overlay. (d) The purchase section should show: a list of what's included (line-item breakdown, duty classification, route details, print-as-PDF), the price '$7 one-time', and render the PayPalOneTimeButton. (e) On successful payment (onPaymentComplete callback), set reportUnlocked=true and save to localStorage key 'costsmart_report_purchase' as JSON: {orderId, timestamp: Date.now()}. (f) Add a 'Print as PDF' button (visible when report is unlocked or user is Pro) that calls window.print().",
@@ -26,5 +26,5 @@
     "Verify globals.css contains @media print rules"
   ],
   "blocked_reason": null,
-  "findings": ""
+  "findings": "Build succeeded without errors. Used regular CSS @media print rules instead of Tailwind escaped class selectors to avoid CSS parsing issues with Turbopack. The print:hidden Tailwind utility class on the Print button works natively via Tailwind v4 print variant."
 }
