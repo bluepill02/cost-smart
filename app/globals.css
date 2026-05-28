@@ -190,9 +190,13 @@ h1, h2, h3 {
   nav,
   header,
   footer,
-  button,
   [data-sticky-nudge],
   [data-chatbot] {
+    display: none !important;
+  }
+
+  .print\:hidden,
+  [data-report-section] button {
     display: none !important;
   }
 
