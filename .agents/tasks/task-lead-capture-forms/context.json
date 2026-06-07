@@ -1,0 +1,26 @@
+{
+  "project_type": "Next.js 16 App Router with TypeScript, Tailwind CSS v4",
+  "language": "TypeScript/React",
+  "build_system": "Next.js (npm scripts)",
+  "test_framework": "Playwright (e2e tests)",
+  "build_command": "npm run build",
+  "test_command": "npm test",
+  "verification_instructions": "Run 'npm run build' to confirm no TypeScript or build errors. Visually verify components render correctly.",
+  "snapshot_or_generated_files": null,
+  "setup_instructions": "npm install",
+  "environment_constraints": "Next.js 16 with React 19. Tailwind CSS v4. lucide-react for icons. 'use client' directive needed for interactive components.",
+  "contribution_requirements": "Follow existing component patterns - 'use client' for interactive, separate component files in components/ subdirectories",
+  "key_patterns": "Dark navy (#0A0F1E) + emerald/teal (#00D4AA) color scheme. Components use 'use client' directive for interactivity. Rounded-2xl cards with hover effects. Gradient text with bg-clip-text. Forms use standard HTML inputs with Tailwind classes. Layout imports components in app/layout.tsx for global placement.",
+  "relevant_files": [
+    "app/layout.tsx",
+    "app/page.tsx",
+    "app/blog/sip-vs-lumpsum/page.tsx",
+    "app/calculators/page.tsx",
+    "app/in/sip-calculator/page.tsx",
+    "components/features/EmailCaptureSection.tsx",
+    "components/features/FloatingChatWidget.tsx",
+    "components/layouts/Footer.tsx",
+    "components/layouts/Navbar.tsx"
+  ],
+  "directory_structure": "app/ - pages (App Router), components/ - organized by type (features, layouts, ui, ads, etc.), lib/ - utilities"
+}

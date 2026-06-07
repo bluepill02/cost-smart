@@ -12,6 +12,7 @@ import ShareResultButton from '@/components/features/ShareResultButton';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
 import EmailResultsButton from '@/components/features/EmailResultsButton';
 import StickyUpgradeNudge from '@/components/premium/StickyUpgradeNudge';
+import CalculatorResultGate from '@/components/lead-capture/CalculatorResultGate';
 
 export const metadata: Metadata = {
     title: 'SIP Calculator India | CostSmart',
@@ -71,6 +72,9 @@ export default function SIPCalculatorPage() {
 
             {/* High-viewability ad — shown right after user sees their result */}
             <AfterResultAd slotId="1475703853" />
+
+            {/* Lead capture — offer to email detailed report */}
+            <CalculatorResultGate />
 
             {/* Share & email row */}
             <div className="flex items-center gap-3 flex-wrap mt-2 mb-2">

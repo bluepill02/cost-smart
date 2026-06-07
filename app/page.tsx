@@ -9,6 +9,7 @@ import {
 import AdContainer from '@/components/ads/AdContainer';
 import HeroSearch from '@/components/features/HeroSearch';
 import MiniSIPWidget from '@/components/features/MiniSIPWidget';
+import NewsletterInlineForm from '@/components/lead-capture/NewsletterInlineForm';
 import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 
 export const metadata: Metadata = {
@@ -521,6 +522,11 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ══════════════════════════════════════════════ */}
+      {/* Newsletter Inline Form                       */}
+      {/* ══════════════════════════════════════════════ */}
+      <NewsletterInlineForm />
 
       {/* ══════════════════════════════════════════════ */}
       {/* Trust Section — Stats-based                  */}

@@ -1,0 +1,37 @@
+{
+  "id": "FEAT-001",
+  "type": "feat",
+  "description": "Create a comprehensive lead capture form system with 5 different form types, each placed at optimal locations across the website. Each form type has distinct HTML field IDs for CRM mapping in Apollo.",
+  "status": "in_progress",
+  "steps": [
+    "Create a new branch 'feat/lead-capture-forms' from current HEAD (feat/apollo-tracker)",
+    "Create components/lead-capture/NewsletterInlineForm.tsx - A beautiful inline newsletter signup form with gradient background, email + optional name fields. Uses form IDs: 'costsmart-newsletter-email', 'costsmart-newsletter-name'. Place after blog highlights section on homepage (app/page.tsx). Design: dark navy card with emerald accent, subtle glow effect.",
+    "Create components/lead-capture/ExitIntentPopup.tsx - A modal that triggers when user moves mouse toward browser top (exit intent detection). Offers a free 'Financial Planning Toolkit' PDF as lead magnet. Fields: 'costsmart-exit-email', 'costsmart-exit-name'. Design: clean white modal with emerald gradient header, overlay backdrop. Includes dismiss logic with localStorage to not re-show for 7 days.",
+    "Create components/lead-capture/FloatingBottomBar.tsx - A non-intrusive bottom bar that slides up after user scrolls 60% of the page. Offers 'weekly financial tips'. Field: 'costsmart-bottombar-email'. Design: slim bar with frosted glass effect, emerald CTA button. Includes close button and localStorage dismiss for session.",
+    "Create components/lead-capture/CalculatorResultGate.tsx - An inline CTA shown below calculator results, offering to email detailed calculation reports. Fields: 'costsmart-calcgate-email', 'costsmart-calcgate-name'. Design: bordered card matching the emerald/teal theme with a 'Get Full Report' value proposition.",
+    "Create components/lead-capture/BlogSidebarForm.tsx - A sticky sidebar widget for blog article pages offering 'Get Smart Money Insights' weekly digest. Field: 'costsmart-sidebar-email'. Design: compact card with soft gradient border, emerald accent.",
+    "Add ExitIntentPopup and FloatingBottomBar to app/layout.tsx (global, shown on all pages)",
+    "Add NewsletterInlineForm to app/page.tsx between the blog highlights section and the trust section",
+    "Add a CalculatorResultGate import note in a comment at the calculator page (app/in/sip-calculator/page.tsx) as an example placement, and actually add the component there below the AfterResultAd",
+    "Add BlogSidebarForm to one example blog post (app/blog/sip-vs-lumpsum/page.tsx) as a demonstration of blog integration",
+    "Create a reference document at LEAD_CAPTURE_FIELD_IDS.md in the project root listing all form types, their HTML field identifiers, form names, and placement locations for CRM mapping"
+  ],
+  "acceptance_criteria": [
+    "5 distinct lead capture form components exist in components/lead-capture/",
+    "Each form has unique, descriptive HTML id/name attributes on input fields for CRM field mapping",
+    "ExitIntentPopup detects exit intent (mouseout near top of viewport) and shows a modal",
+    "FloatingBottomBar appears after 60% scroll and can be dismissed",
+    "All forms submit data (console.log for now since no backend) and show success state",
+    "All components use 'use client' directive",
+    "All forms match the existing dark navy + emerald/teal design aesthetic",
+    "LEAD_CAPTURE_FIELD_IDS.md documents every form with its HTML identifiers",
+    "npm run build succeeds with no errors"
+  ],
+  "verification": [
+    "Run 'npm run build' and confirm it completes without errors",
+    "Verify all 5 components exist in components/lead-capture/",
+    "Verify LEAD_CAPTURE_FIELD_IDS.md exists and lists all form fields"
+  ],
+  "blocked_reason": null,
+  "findings": ""
+}
