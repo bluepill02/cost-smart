@@ -2,21 +2,31 @@
 
 import { useState, useEffect, useCallback, FormEvent } from 'react';
 import { X, Gift, CheckCircle, Mail, ArrowRight } from 'lucide-react';
+import { useLeadCaptureContext } from './LeadCaptureContext';
+import { isLeadAlreadyCaptured, markLeadCaptured } from './lead-capture-utils';
 
 export default function ExitIntentPopup() {
   const [visible, setVisible] = useState(false);
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [alreadyCaptured, setAlreadyCaptured] = useState(false);
+  const { setExitPopupVisible } = useLeadCaptureContext();
 
   const dismiss = useCallback(() => {
     setVisible(false);
+    setExitPopupVisible(false);
     try {
       localStorage.setItem('costsmart-exit-dismissed', String(Date.now()));
     } catch {}
-  }, []);
+  }, [setExitPopupVisible]);
 
   useEffect(() => {
+    if (isLeadAlreadyCaptured()) {
+      setAlreadyCaptured(true);
+      return;
+    }
+
     try {
       const dismissed = localStorage.getItem('costsmart-exit-dismissed');
       if (dismissed) {
@@ -32,19 +42,23 @@ export default function ExitIntentPopup() {
       if (e.clientY < 10 && !triggered) {
         triggered = true;
         setVisible(true);
+        setExitPopupVisible(true);
       }
     };
 
     document.addEventListener('mouseleave', handleMouseLeave);
     return () => document.removeEventListener('mouseleave', handleMouseLeave);
-  }, []);
+  }, [setExitPopupVisible]);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (!email) return;
     console.log('[CostSmart Exit Intent]', { name, email });
+    markLeadCaptured();
     setSubmitted(true);
   };
+
+  if (alreadyCaptured) return null;
 
   if (!visible) return null;
 

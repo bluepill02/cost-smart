@@ -21,12 +21,12 @@ export default function BlogPost() {
                 Investing in mutual funds is one of the best ways to create wealth. But the big question remains: Should you invest a small amount every month (SIP) or a large amount at once (Lumpsum)?
             </p>
 
-            <div className="my-8 bg-slate-50 p-6 rounded-xl border border-slate-200 not-prose flex items-center justify-between gap-4">
+            <div className="my-8 bg-slate-50 p-6 rounded-xl border border-slate-200 not-prose flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div>
                     <h3 className="text-lg font-bold mb-1">Calculate Your Returns</h3>
                     <p className="text-sm text-slate-600">Model both SIP and Lumpsum scenarios.</p>
                 </div>
-                 <div className="flex gap-2">
+                 <div className="flex gap-2 flex-shrink-0">
                      <Link href="/investment-calculator">
                         <Button>Growth Calc ($)</Button>
                     </Link>
@@ -59,7 +59,7 @@ export default function BlogPost() {
 
             <h2>Comparison Table</h2>
             <div className="not-prose overflow-x-auto">
-                <table className="min-w-full border-collapse border border-slate-200 text-sm">
+                <table className="w-full border-collapse border border-slate-200 text-sm">
                     <thead>
                         <tr className="bg-slate-100">
                             <th className="border p-3 text-left">Feature</th>

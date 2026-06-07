@@ -2,14 +2,23 @@
 
 import { useState, useEffect, FormEvent } from 'react';
 import { X, TrendingUp, CheckCircle, ArrowRight } from 'lucide-react';
+import { useLeadCaptureContext } from './LeadCaptureContext';
+import { isLeadAlreadyCaptured, markLeadCaptured } from './lead-capture-utils';
 
 export default function FloatingBottomBar() {
   const [visible, setVisible] = useState(false);
   const [dismissed, setDismissed] = useState(false);
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [alreadyCaptured, setAlreadyCaptured] = useState(false);
+  const { exitPopupVisible } = useLeadCaptureContext();
 
   useEffect(() => {
+    if (isLeadAlreadyCaptured()) {
+      setAlreadyCaptured(true);
+      return;
+    }
+
     try {
       const wasDismissed = sessionStorage.getItem('costsmart-bottombar-dismissed');
       if (wasDismissed) {
@@ -40,13 +49,14 @@ export default function FloatingBottomBar() {
     e.preventDefault();
     if (!email) return;
     console.log('[CostSmart Bottom Bar]', { email });
+    markLeadCaptured();
     setSubmitted(true);
     setTimeout(() => {
       handleDismiss();
     }, 2500);
   };
 
-  if (dismissed || !visible) return null;
+  if (alreadyCaptured || dismissed || !visible || exitPopupVisible) return null;
 
   return (
     <div

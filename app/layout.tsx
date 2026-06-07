@@ -15,6 +15,7 @@ import AdBlockWall from "@/components/ads/AdBlockWall";
 import FloatingChatWidget from "@/components/features/FloatingChatWidget";
 import ExitIntentPopup from "@/components/lead-capture/ExitIntentPopup";
 import FloatingBottomBar from "@/components/lead-capture/FloatingBottomBar";
+import { LeadCaptureProvider } from "@/components/lead-capture/LeadCaptureContext";
 
 // DM Sans — refined body font with excellent legibility
 const dmSans = DM_Sans({
@@ -143,8 +144,10 @@ export default function RootLayout({
         <SoftAdBlockMessage />
         <AdBlockWall />
         {!process.env.NEXT_PUBLIC_BOTPRESS_BOT_URL && <FloatingChatWidget />}
-        <ExitIntentPopup />
-        <FloatingBottomBar />
+        <LeadCaptureProvider>
+          <ExitIntentPopup />
+          <FloatingBottomBar />
+        </LeadCaptureProvider>
         </Providers>
         <CookieConsent />
         {/* BotpressLoader activates when NEXT_PUBLIC_BOTPRESS_BOT_URL is set; FloatingChatWidget is the fallback */}

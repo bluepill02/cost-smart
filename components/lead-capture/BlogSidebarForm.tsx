@@ -1,18 +1,29 @@
 'use client';
 
-import { useState, FormEvent } from 'react';
+import { useState, useEffect, FormEvent } from 'react';
 import { Mail, CheckCircle, Sparkles, ArrowRight } from 'lucide-react';
+import { isLeadAlreadyCaptured, markLeadCaptured } from './lead-capture-utils';
 
 export default function BlogSidebarForm() {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [alreadyCaptured, setAlreadyCaptured] = useState(false);
+
+  useEffect(() => {
+    if (isLeadAlreadyCaptured()) {
+      setAlreadyCaptured(true);
+    }
+  }, []);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (!email) return;
     console.log('[CostSmart Blog Sidebar]', { email });
+    markLeadCaptured();
     setSubmitted(true);
   };
+
+  if (alreadyCaptured) return null;
 
   if (submitted) {
     return (

@@ -1,19 +1,30 @@
 'use client';
 
-import { useState, FormEvent } from 'react';
+import { useState, useEffect, FormEvent } from 'react';
 import { Mail, CheckCircle, FileText, ArrowRight } from 'lucide-react';
+import { isLeadAlreadyCaptured, markLeadCaptured } from './lead-capture-utils';
 
 export default function CalculatorResultGate() {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [alreadyCaptured, setAlreadyCaptured] = useState(false);
+
+  useEffect(() => {
+    if (isLeadAlreadyCaptured()) {
+      setAlreadyCaptured(true);
+    }
+  }, []);
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (!email) return;
     console.log('[CostSmart Calculator Gate]', { name, email });
+    markLeadCaptured();
     setSubmitted(true);
   };
+
+  if (alreadyCaptured) return null;
 
   if (submitted) {
     return (
