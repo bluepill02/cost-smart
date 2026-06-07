@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { Bot, PieChart, ArrowRight, Zap, Shield } from 'lucide-react';
+import { Bot, PieChart, Camera, Languages, HeartPulse, ArrowRight, Zap, Shield } from 'lucide-react';
 import AdContainer from '@/components/ads/AdContainer';
 import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 
@@ -41,6 +41,51 @@ const TOOLS = [
       'Monthly budget recommendations',
     ],
     badge: 'Free',
+  },
+  {
+    title: 'Document Scanner',
+    href: '/tools/document-scanner',
+    icon: Camera,
+    color: 'purple',
+    headerBg: 'bg-gradient-to-r from-purple-500 to-indigo-600',
+    desc: 'Scan receipts, invoices, and bills with AI-powered OCR. Extract amounts, dates, vendor names, and line items from photos automatically.',
+    features: [
+      'Receipt & invoice OCR',
+      'Automatic amount extraction',
+      'GST & tax detail parsing',
+      'Export scanned data as CSV',
+    ],
+    badge: 'PRO',
+  },
+  {
+    title: 'Financial Translator',
+    href: '/tools/translator',
+    icon: Languages,
+    color: 'orange',
+    headerBg: 'bg-gradient-to-r from-orange-500 to-amber-600',
+    desc: 'Translate financial calculations, advice, and documents into 10+ Indian languages. Break the English barrier in financial literacy.',
+    features: [
+      'Hindi, Tamil, Telugu & 7 more languages',
+      'Financial terminology glossary',
+      'Auto-detect source language',
+      'Batch translation for Pro users',
+    ],
+    badge: 'Free + PRO',
+  },
+  {
+    title: 'Financial Health Analyzer',
+    href: '/tools/financial-health',
+    icon: HeartPulse,
+    color: 'rose',
+    headerBg: 'bg-gradient-to-r from-rose-500 to-pink-600',
+    desc: 'AI-powered behavioral finance insights. Analyze bank statements and financial documents for sentiment, stress indicators, and a personalized Financial Health Score (0-100).',
+    features: [
+      'Financial Health Score (0-100)',
+      'AI sentiment & stress detection',
+      'Key financial phrase extraction',
+      'Personalized recommendations',
+    ],
+    badge: 'PRO',
   },
 ];
 
@@ -109,7 +154,7 @@ export default function ToolsPage() {
         {/* Trust note */}
         <div className="flex items-center justify-center gap-2 text-sm text-slate-500 mt-4">
           <Shield className="w-4 h-4 text-emerald-500" />
-          All tools run in your browser — no data is stored or sent to servers.
+          All calculator tools run locally in your browser. AI-powered tools (Document Scanner, Translator, Financial Health) send data to our secure cloud services for processing.
         </div>
 
         {/* Bottom Ad */}

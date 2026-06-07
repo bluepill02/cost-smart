@@ -154,21 +154,28 @@ export default function PricingPage() {
                 ['Advanced Charts & Projections', false, true],
                 ['Custom Report Branding', false, true],
                 ['Email Report Delivery', false, true],
+                ['AI Receipt & Document Scanner', false, true],
+                ['Financial Health Analysis', 'Basic Score', 'Full Analysis'],
+                ['Multilingual Translation', '2 Languages', '10+ Languages'],
               ].map(([feature, free, pro]) => (
                 <tr key={feature as string} className="border-b border-slate-100">
                   <td className="py-3 px-4 text-slate-700">{feature as string}</td>
                   <td className="py-3 px-4 text-center">
-                    {free ? (
+                    {free === true ? (
                       <span className="text-emerald-500 font-bold">&#10003;</span>
-                    ) : (
+                    ) : free === false ? (
                       <span className="text-slate-300">&#8212;</span>
+                    ) : (
+                      <span className="text-slate-500 text-xs">{free as string}</span>
                     )}
                   </td>
                   <td className="py-3 px-4 text-center">
-                    {pro ? (
+                    {pro === true ? (
                       <span className="text-emerald-500 font-bold">&#10003;</span>
-                    ) : (
+                    ) : pro === false ? (
                       <span className="text-slate-300">&#8212;</span>
+                    ) : (
+                      <span className="text-emerald-600 text-xs font-medium">{pro as string}</span>
                     )}
                   </td>
                 </tr>

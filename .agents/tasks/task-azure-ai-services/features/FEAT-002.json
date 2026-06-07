@@ -1,0 +1,27 @@
+{
+  "id": "FEAT-002",
+  "type": "feat",
+  "description": "Build Azure AI-powered Multilingual Financial Translator - A feature that uses Azure Translator to translate financial documents, calculator results, and advice into 10+ Indian languages (Hindi, Tamil, Telugu, Bengali, Marathi, Gujarati, Kannada, Malayalam, Punjabi, Odia). Free users get basic translation of calculator results (limited to 2 languages). PRO users get unlimited language access, document translation, and financial terminology glossary. This solves the massive pain point of financial literacy being locked behind English comprehension in India where 80%+ people prefer regional languages.",
+  "status": "completed",
+  "steps": [
+    "Create the API route at app/api/azure/translate/route.ts that: (1) accepts text content and target language code, (2) calls Azure Translator using AZURE_AI_ENDPOINT and AZURE_AI_KEY environment variables with region centralindia, (3) supports batch translation of multiple text segments, (4) includes financial terminology dictionary hints for accurate domain-specific translation, (5) gates unlimited translation behind Pro (free: 2 languages - Hindi and Tamil only, max 500 chars; Pro: all languages, unlimited length, batch support). Use proper headers: Ocp-Apim-Subscription-Key, Ocp-Apim-Subscription-Region, Content-Type.",
+    "Create the API route at app/api/azure/detect-language/route.ts that calls Azure Translator's language detection endpoint (https://tlate.cognitiveservices.azure.com/translator/text/v3.0/detect) to auto-detect the language of pasted text (useful for users who paste financial documents in regional languages and want English translation).",
+    "Create the client component at components/features/FinancialTranslator.tsx that provides: (1) source text input area (or paste calculator results), (2) language selector dropdown with all supported Indian languages plus flags/icons, (3) auto-detect source language button, (4) translated output with copy button, (5) financial glossary section showing key terms translated (EMI, SIP, TDS, GST, etc.), (6) Pro gate: show lock icon on premium languages and character limit warning for free users. Style following existing component patterns with Card, CardContent from ui/card.",
+    "Create the tool page at app/tools/translator/page.tsx with proper metadata targeting 'financial calculator in Hindi', 'EMI calculator Tamil', etc. Include BreadcrumbSchema and AdContainer. Add a section explaining why financial literacy in regional languages matters.",
+    "Update app/tools/page.tsx to add the Financial Translator to the TOOLS array with icon Languages (from lucide-react), color 'orange', description highlighting 10+ Indian language support, and badge 'Free + PRO'.",
+    "Create a reusable TranslateButton component at components/features/TranslateButton.tsx - a small floating button that can be placed on any calculator page to translate results. It opens a modal/popover with language selection and shows translated text. This makes translation discoverable across the entire site."
+  ],
+  "acceptance_criteria": [
+    "API route at /api/azure/translate correctly calls Azure Translator and returns translated text",
+    "API route at /api/azure/detect-language correctly detects input language",
+    "Financial Translator component renders with language selection, text input/output, and glossary",
+    "Free users limited to Hindi/Tamil and 500 chars, Pro users get full access",
+    "TranslateButton component is reusable and can be placed on calculator pages",
+    "Tool page has proper SEO metadata with regional language keywords",
+    "Translator appears on the /tools page",
+    "pnpm build succeeds without errors"
+  ],
+  "verification": ["pnpm build"],
+  "blocked_reason": null,
+  "findings": "Build passes cleanly. Lint has pre-existing errors (411 errors across other files) but all FEAT-002 files pass lint with 0 errors. Used same API key and pattern as FEAT-001. TranslateButton component is a standalone floating button that accepts text prop."
+}

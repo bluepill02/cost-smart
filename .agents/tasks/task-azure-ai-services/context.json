@@ -1,0 +1,30 @@
+{
+  "project_type": "Next.js 16 App Router with TypeScript, Tailwind CSS 4, Radix UI",
+  "language": "TypeScript",
+  "build_system": "pnpm with Next.js built-in build",
+  "test_framework": "Playwright (e2e tests)",
+  "build_command": "pnpm build",
+  "test_command": "pnpm lint",
+  "verification_instructions": "Run pnpm build to confirm no TypeScript/compilation errors. Run pnpm lint for code quality.",
+  "snapshot_or_generated_files": null,
+  "setup_instructions": "pnpm install",
+  "environment_constraints": "OPEN_INTERNET - full access. Azure AI Services endpoint: https://tlate.cognitiveservices.azure.com/ with multi-service key. Services available: Translator, Text Analytics, Computer Vision (OCR), Speech, Language Understanding.",
+  "contribution_requirements": "Follow existing patterns: API routes in app/api/, components in components/features/, tool pages in app/tools/, use existing UI components from components/ui/. Pro features gate behind subscription verification using lib/paypal.ts verifySubscription pattern.",
+  "key_patterns": "API routes use NextRequest/NextResponse. Pro verification pattern: check subscriptionId via verifySubscription(). Components use 'use client' directive. Styling: Tailwind CSS with card/button components from components/ui/. Lucide icons. CANONICAL_DOMAIN from lib/seo-utils. AdContainer placement. BreadcrumbSchema for SEO. Tools page lists tools in TOOLS array.",
+  "relevant_files": [
+    "app/api/ai-insights/route.ts",
+    "app/tools/page.tsx",
+    "app/tools/ai-advisor/page.tsx",
+    "app/tools/budget-analyzer/page.tsx",
+    "components/features/AIFinancialAdvisorChat.tsx",
+    "components/features/BudgetAnalyzer.tsx",
+    "lib/premium-config.ts",
+    "lib/paypal.ts",
+    "app/pricing/page.tsx",
+    "components/premium/PremiumBanner.tsx",
+    "app/layout.tsx",
+    "next.config.ts",
+    ".env.example"
+  ],
+  "directory_structure": "app/ - pages and API routes, components/ - reusable components (features/, premium/, ui/, ads/, layouts/), lib/ - utilities and config, types/ - TypeScript types"
+}

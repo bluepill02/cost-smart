@@ -1,0 +1,22 @@
+{
+  "id": "FEAT-004",
+  "type": "feat",
+  "description": "Update Premium Config and Pricing Page to showcase new Azure AI features, and add environment variables. Make the new AI-powered features visible as key PRO differentiators on the pricing page. Update premium-config.ts with new feature bullets, update the pricing page feature comparison table, update the PremiumBanner component, and update .env.example with Azure credentials.",
+  "status": "completed",
+  "steps": [
+    "Update .env.example to add AZURE_AI_ENDPOINT and AZURE_AI_KEY variables with descriptions explaining they power the Document Scanner, Translator, Financial Health Analyzer, and Voice features.",
+    "Update lib/premium-config.ts to add new PRO features to the proMonthly features array: 'AI Document Scanner (Receipt OCR)', 'Financial Health Score & Analysis', '10+ Indian Language Translation', 'Voice-Powered Calculator Input'. Keep existing features.",
+    "Update the feature comparison table in app/pricing/page.tsx to add new rows for the Azure AI features: 'AI Receipt & Document Scanner' (free: no, pro: yes), 'Financial Health Analysis' (free: basic score, pro: full analysis), 'Multilingual Translation' (free: 2 languages, pro: 10+ languages), showing the clear value difference between free and pro tiers.",
+    "Update components/premium/PremiumBanner.tsx to mention the new AI features - add a 'Scan Receipts with AI' or 'AI Document Intelligence' pill alongside existing feature mentions to make the banner more compelling."
+  ],
+  "acceptance_criteria": [
+    ".env.example contains AZURE_AI_ENDPOINT and AZURE_AI_KEY entries",
+    "premium-config.ts proMonthly features array includes new AI feature names",
+    "Pricing page feature comparison table has rows for new AI features",
+    "PremiumBanner mentions at least one new AI feature",
+    "pnpm build succeeds without errors"
+  ],
+  "verification": ["pnpm build"],
+  "blocked_reason": null,
+  "findings": "All changes applied successfully. Used ScanLine icon from lucide-react for the new PremiumBanner pill. Updated pricing table to support string values (not just boolean) for free/pro columns to show 'Basic Score' vs 'Full Analysis' and '2 Languages' vs '10+ Languages'. Build passes cleanly."
+}
