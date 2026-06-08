@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Home Loan EMI Calculator India | CostSmart',
     description: 'Calculate home loan EMI for Indian banks. Get amortization schedule, total interest, and city-wise rates for Mumbai, Delhi, Bangalore and more.',
-    url: `${CANONICAL_DOMAIN}/in/home-loan-calculator`,
+    url: `${CANONICAL_DOMAIN}/home-loan-calculator`,
     type: 'website',
   },
 };

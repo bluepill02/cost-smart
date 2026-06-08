@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 export default function BlogPost() {
     return (
         <article>
-            <JsonLd data={getArticleSchema({ headline: 'CTC vs In-Hand Salary: Why is it Different?', description: 'Offered 10 LPA but only 60k per month? Full breakdown of CTC vs in-hand salary — PF, gratuity, HRA, and all deductions explained for FY 2024-25.', urlPath: '/blog/ctc-vs-in-hand' })} />
+            <JsonLd data={getArticleSchema({ headline: 'CTC vs In-Hand Salary: Why is it Different?', description: 'Offered 10 LPA but only 60k per month? Full breakdown of CTC vs in-hand salary — PF, gratuity, HRA, and all deductions explained for FY 2024-25.', urlPath: '/blog/ctc-vs-in-hand', datePublished: '2025-01-10T10:00:00+05:30', dateModified: '2025-01-10T10:00:00+05:30' })} />
             <h1>CTC vs In-Hand Salary: The Reality Check</h1>
             <p className="lead">
                 You get a job offer of ₹12 LPA. You expect ₹1 Lakh per month. Then the first paycheck arrives, and it is ₹78,000. What happened?

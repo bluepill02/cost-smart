@@ -6,6 +6,7 @@ import {
   BarChart3, Shield,
 } from 'lucide-react';
 import AdContainer from '@/components/ads/AdContainer';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 
 
 export const metadata: Metadata = {
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'All Free Financial Calculators | CostSmart',
     description: 'Browse all 35+ free financial calculators: EMI, SIP, income tax, salary, PPF, FD, GST, retirement, property, solar ROI, and more — all India-focused.',
-    url: '/calculators',
+    url: `${CANONICAL_DOMAIN}/calculators`,
     type: 'website',
   },
   alternates: { canonical: `/calculators` },

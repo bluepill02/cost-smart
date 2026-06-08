@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 export default function BlogPost() {
     return (
         <div className="container mx-auto px-4 py-12 max-w-6xl">
-            <JsonLd data={getArticleSchema({ headline: 'SIP vs Lumpsum: Which is Better for You?', description: 'Compare Systematic Investment Plans (SIP) with Lumpsum investing. Understand the pros and cons of each strategy for mutual funds.', urlPath: '/blog/sip-vs-lumpsum' })} />
+            <JsonLd data={getArticleSchema({ headline: 'SIP vs Lumpsum: Which is Better for You?', description: 'Compare Systematic Investment Plans (SIP) with Lumpsum investing. Understand the pros and cons of each strategy for mutual funds.', urlPath: '/blog/sip-vs-lumpsum', datePublished: '2025-01-03T10:00:00+05:30', dateModified: '2025-01-03T10:00:00+05:30' })} />
             <div className="grid lg:grid-cols-[1fr_280px] gap-8">
                 <article>
             <h1>SIP vs Lumpsum: Which Strategy Wins?</h1>

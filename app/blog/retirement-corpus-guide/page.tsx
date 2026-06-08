@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 export default function BlogPost() {
     return (
         <article>
-            <JsonLd data={getArticleSchema({ headline: 'How Much Money Do You Need to Retire?', description: 'Stop guessing your retirement number. Learn how to calculate your inflation-adjusted corpus requirement and how much to save each month to retire comfortably.', urlPath: '/blog/retirement-corpus-guide' })} />
+            <JsonLd data={getArticleSchema({ headline: 'How Much Money Do You Need to Retire?', description: 'Stop guessing your retirement number. Learn how to calculate your inflation-adjusted corpus requirement and how much to save each month to retire comfortably.', urlPath: '/blog/retirement-corpus-guide', datePublished: '2025-01-18T10:00:00+05:30', dateModified: '2025-01-18T10:00:00+05:30' })} />
             <h1>How Much Money Do You Need to Retire?</h1>
             <p className="lead">
                 The biggest financial mistake people make is underestimating inflation. A million dollars today won&apos;t be worth a million dollars in 20 years.

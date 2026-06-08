@@ -11,6 +11,7 @@ import Breadcrumbs from '@/components/features/Breadcrumbs';
 import ShareResultButton from '@/components/features/ShareResultButton';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
 import StickyUpgradeNudge from '@/components/premium/StickyUpgradeNudge';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 
 export const metadata: Metadata = {
     title: 'EMI Calculator India | CostSmart',
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
     openGraph: {
     title: 'EMI Calculator India | CostSmart',
     description: 'Calculate EMI for home, car, and personal loans in India. Get amortization schedule, total interest, and compare different loan tenures instantly.',
-    url: '/in/emi-calculator',
+    url: `${CANONICAL_DOMAIN}/in/emi-calculator`,
     type: 'website',
   },
   alternates: {

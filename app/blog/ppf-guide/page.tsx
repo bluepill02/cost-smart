@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 export default function BlogPost() {
     return (
         <article>
-            <JsonLd data={getArticleSchema({ headline: 'Complete Guide to PPF (Public Provident Fund)', description: 'Understand PPF rules, interest rates, tax benefits, and withdrawal limits. Why PPF is the safest long-term investment in India.', urlPath: '/blog/ppf-guide' })} />
+            <JsonLd data={getArticleSchema({ headline: 'Complete Guide to PPF (Public Provident Fund)', description: 'Understand PPF rules, interest rates, tax benefits, and withdrawal limits. Why PPF is the safest long-term investment in India.', urlPath: '/blog/ppf-guide', datePublished: '2025-01-15T10:00:00+05:30', dateModified: '2025-01-15T10:00:00+05:30' })} />
             <h1>Complete Guide to Public Provident Fund (PPF)</h1>
             <p className="lead">
                 In a volatile financial world, the Public Provident Fund (PPF) stands as a fortress of safety. Backed by the Government of India, it offers guaranteed returns that are completely tax-free.

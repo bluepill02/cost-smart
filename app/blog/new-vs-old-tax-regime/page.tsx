@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 export default function BlogPost() {
     return (
         <article>
-            <JsonLd data={getArticleSchema({ headline: 'New vs Old Tax Regime FY 2024-25: Which is Better?', description: 'Confusion about the new tax slabs? We explain the difference between Old and New Regime and help you choose the right one.', urlPath: '/blog/new-vs-old-tax-regime' })} />
+            <JsonLd data={getArticleSchema({ headline: 'New vs Old Tax Regime FY 2024-25: Which is Better?', description: 'Confusion about the new tax slabs? We explain the difference between Old and New Regime and help you choose the right one.', urlPath: '/blog/new-vs-old-tax-regime', datePublished: '2025-01-05T10:00:00+05:30', dateModified: '2025-01-05T10:00:00+05:30' })} />
             <h1>New vs Old Tax Regime (FY 2024-25): The Final Verdict</h1>
             <p className="lead">
                 Budget 2024 made the New Regime the default tax option. But is it actually better for you? The answer depends on your investments.

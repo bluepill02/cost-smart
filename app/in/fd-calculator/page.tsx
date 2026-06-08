@@ -8,6 +8,7 @@ import CalculatorSchemaInjector from '@/components/seo/CalculatorSchemaInjector'
 import Breadcrumbs from '@/components/features/Breadcrumbs';
 import ShareResultButton from '@/components/features/ShareResultButton';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 
 export const metadata: Metadata = {
     title: 'FD Calculator India | CostSmart',
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
     openGraph: {
     title: 'FD Calculator India | Fixed Deposit Returns',
     description: 'Calculate fixed deposit maturity and interest for all major Indian banks. Supports monthly, quarterly, and annual compounding with TDS deduction.',
-    url: '/in/fd-calculator',
+    url: `${CANONICAL_DOMAIN}/in/fd-calculator`,
     type: 'website',
   },
   alternates: {

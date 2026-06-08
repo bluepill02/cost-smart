@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 export default function BlogPost() {
     return (
         <article>
-            <JsonLd data={getArticleSchema({ headline: 'FD vs Mutual Funds: Where Should You Invest?', description: 'A comprehensive comparison between Fixed Deposits (FD) and Mutual Funds. Understand risk, returns, taxation, and liquidity.', urlPath: '/blog/fd-vs-mutual-funds' })} />
+            <JsonLd data={getArticleSchema({ headline: 'FD vs Mutual Funds: Where Should You Invest?', description: 'A comprehensive comparison between Fixed Deposits (FD) and Mutual Funds. Understand risk, returns, taxation, and liquidity.', urlPath: '/blog/fd-vs-mutual-funds', datePublished: '2025-01-12T10:00:00+05:30', dateModified: '2025-01-12T10:00:00+05:30' })} />
             <h1>Fixed Deposit vs Mutual Funds: The Ultimate Showdown</h1>
             <p className="lead">
                 The classic dilemma for Indian investors: Safety of FD or High Returns of Mutual Funds? The answer depends on your goals and risk appetite.

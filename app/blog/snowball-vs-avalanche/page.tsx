@@ -21,7 +21,7 @@ export const metadata: Metadata = {
 export default function BlogPost() {
     return (
         <article>
-            <JsonLd data={getArticleSchema({ headline: 'Snowball vs Avalanche: Which Debt Strategy is Best?', description: 'Compare Dave Ramsey\'s Snowball method with the mathematical Avalanche method. Find out which one will help you become debt-free faster.', urlPath: '/blog/snowball-vs-avalanche' })} />
+            <JsonLd data={getArticleSchema({ headline: 'Snowball vs Avalanche: Which Debt Strategy is Best?', description: 'Compare Dave Ramsey\'s Snowball method with the mathematical Avalanche method. Find out which one will help you become debt-free faster.', urlPath: '/blog/snowball-vs-avalanche', datePublished: '2025-01-20T10:00:00+05:30', dateModified: '2025-01-20T10:00:00+05:30' })} />
             <h1>Debt Snowball vs Avalanche: The Ultimate Showdown</h1>
             <p className="lead">
                 Getting out of debt is 20% math and 80% behavior. The strategy you choose depends on what motivates you more: logic or emotion.

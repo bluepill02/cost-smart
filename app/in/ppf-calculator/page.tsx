@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { Landmark, IndianRupee } from 'lucide-react';
 import CalculatorSchemaInjector from '@/components/seo/CalculatorSchemaInjector';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 
 export const metadata: Metadata = {
     title: 'PPF Calculator India | CostSmart',
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
     openGraph: {
     title: 'PPF Calculator India | Maturity & Interest',
     description: 'Calculate PPF maturity amount, year-wise interest, and partial withdrawal schedule. Based on current 7.1% interest rate. Great for tax-free wealth building.',
-    url: '/in/ppf-calculator',
+    url: `${CANONICAL_DOMAIN}/in/ppf-calculator`,
     type: 'website',
   },
   alternates: {

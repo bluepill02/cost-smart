@@ -12,6 +12,7 @@ import RelatedCalculators from '@/components/features/RelatedCalculators';
 import EmailResultsButton from '@/components/features/EmailResultsButton';
 import StickyUpgradeNudge from '@/components/premium/StickyUpgradeNudge';
 import CalculatorResultGate from '@/components/lead-capture/CalculatorResultGate';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 
 export const metadata: Metadata = {
     title: 'SIP Calculator India | CostSmart',
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
     openGraph: {
     title: 'SIP Calculator India | CostSmart',
     description: 'Calculate SIP returns with compound interest over 5-30 years. Compare monthly vs lumpsum investing, see wealth growth charts, and plan your mutual fund goals.',
-    url: '/in/sip-calculator',
+    url: `${CANONICAL_DOMAIN}/in/sip-calculator`,
     type: 'website',
   },
   alternates: {

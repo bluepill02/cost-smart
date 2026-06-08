@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import BudgetAnalyzer from '@/components/features/BudgetAnalyzer';
 import AdContainer from '@/components/ads/AdContainer';
 import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 
 export const metadata: Metadata = {
     alternates: { canonical: '/tools/budget-analyzer' },
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'AI Budget Analyzer — Expense Tracking | CostSmart',
     description: 'Upload bank statement, analyze spending patterns, get AI recommendations',
-    url: '/tools/budget-analyzer',
+    url: `${CANONICAL_DOMAIN}/tools/budget-analyzer`,
     type: 'website',
   },
 };
