@@ -5,6 +5,7 @@ interface LeadCaptureData {
   name?: string;
   formSource: string;
   pageUrl?: string;
+  referrer?: string;
   utmParams?: {
     utm_source?: string;
     utm_medium?: string;
@@ -49,6 +50,7 @@ export function submitLeadCapture(data: LeadCaptureData): void {
       name: data.name,
       formSource: data.formSource,
       pageUrl: data.pageUrl || (typeof window !== 'undefined' ? window.location.href : ''),
+      referrer: data.referrer || (typeof document !== 'undefined' ? document.referrer : ''),
       timestamp: new Date().toISOString(),
       utmParams: data.utmParams || getUtmParams(),
       calculatorContext: data.calculatorContext,
