@@ -2,7 +2,7 @@
   "id": "FEAT-003",
   "type": "fix",
   "description": "Address all 5 issues from the semantic review: fix relative OG URLs, add explicit publication dates to blog posts, fix scripts/update_sitemap.ts to import CANONICAL_DOMAIN, fix redirect page OG URL, and fix misleading JSDoc comment.",
-  "status": "in_progress",
+  "status": "completed",
   "steps": [
     "1. Fix 7 relative OG URLs to use absolute URLs with CANONICAL_DOMAIN: app/in/fd-calculator, app/in/emi-calculator, app/in/ppf-calculator, app/in/salary-calculator, app/in/sip-calculator, app/calculators, app/tools/budget-analyzer",
     "2. Add explicit publication dates (Jan 2025 timeframe) to the 8 editorial blog posts that call getArticleSchema()",
@@ -23,5 +23,5 @@
     "Run: grep -rn \"url: '/\" app/ --include='*.tsx' -- should find no relative OG URLs"
   ],
   "blocked_reason": null,
-  "findings": null
+  "findings": "All 5 review issues fixed. Build passes. 7 relative OG URLs converted to absolute with CANONICAL_DOMAIN. 8 blog posts now have explicit datePublished values in Jan 2025 timeframe. scripts/update_sitemap.ts now emits import of CANONICAL_DOMAIN. Redirect page OG URL now points to canonical target /home-loan-calculator. CalculatorSchemaInjector JSDoc no longer mentions head section."
 }
