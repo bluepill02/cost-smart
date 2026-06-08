@@ -1,7 +1,7 @@
 "use client";
 
 import Link from 'next/link';
-import { FileText, ShieldOff, BrainCircuit, Sparkles } from 'lucide-react';
+import { FileText, ShieldOff, BrainCircuit, Sparkles, ScanLine } from 'lucide-react';
 
 export default function PremiumBanner() {
   return (
@@ -35,6 +35,10 @@ export default function PremiumBanner() {
               <span className="flex items-center gap-1.5">
                 <BrainCircuit className="w-4 h-4 text-emerald-400" />
                 Advanced AI Advice
+              </span>
+              <span className="flex items-center gap-1.5">
+                <ScanLine className="w-4 h-4 text-emerald-400" />
+                AI Document Intelligence
               </span>
             </div>
           </div>

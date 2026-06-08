@@ -26,6 +26,10 @@ export const PREMIUM_CONFIG = {
         'Advanced charts & projections',
         'Custom report branding',
         'Email report delivery',
+        'AI Document Scanner (Receipt OCR)',
+        'Financial Health Score & Analysis',
+        '10+ Indian Language Translation',
+        'Voice-Powered Calculator Input',
       ],
     },
     proYearly: {

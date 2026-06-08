@@ -1,0 +1,25 @@
+{
+  "id": "FEAT-001",
+  "type": "feat",
+  "description": "Build Azure AI-powered Document Scanner (Receipt/Invoice OCR) - A PRO feature that lets users photograph or upload receipts, invoices, bills, and financial documents. Uses Azure Computer Vision OCR to extract amounts, dates, vendor names, and line items. Automatically categorizes expenses and feeds data into budget tracking. This solves the pain point of manual expense entry and lost receipts.",
+  "status": "completed",
+  "steps": [
+    "Create the API route at app/api/azure/document-scan/route.ts that: (1) accepts image uploads (base64 or multipart), (2) calls Azure Computer Vision OCR endpoint using AZURE_AI_ENDPOINT and AZURE_AI_KEY environment variables, (3) polls for results, (4) extracts financial data (amounts, dates, vendor, GST numbers, line items) using regex and heuristics on the OCR text, (5) gates the full extraction behind Pro subscription verification using the pattern from app/api/ai-insights/route.ts (free users get basic total amount only, Pro users get full itemized breakdown with categorization). Include proper error handling and rate limiting.",
+    "Create the API route at app/api/azure/document-analyze/route.ts that uses Azure Text Analytics (https://tlate.cognitiveservices.azure.com/text/analytics/v3.1/keyPhrases and /sentiment) to analyze extracted text from scanned documents - extracts key financial entities, categorizes the document type (receipt, invoice, bill, salary slip, tax document), and provides smart summaries. This is called after OCR extraction to add intelligence layer.",
+    "Create the client component at components/features/DocumentScanner.tsx that provides: (1) drag-and-drop file upload area with camera capture option (using input type=file accept=image/*;capture=camera), (2) image preview with crop guidance, (3) loading state with progress animation while OCR processes, (4) results display showing extracted data in a clean table format with vendor name, date, total amount, GST, line items, (5) export extracted data as CSV, (6) Pro badge/gate showing blurred results for free users with upgrade CTA. Follow the component patterns from components/features/BudgetAnalyzer.tsx for styling.",
+    "Create the tool page at app/tools/document-scanner/page.tsx with proper metadata, BreadcrumbSchema, AdContainer placements following the pattern from app/tools/budget-analyzer/page.tsx. Include SEO metadata targeting keywords like 'receipt scanner', 'invoice OCR', 'expense tracker from photos'.",
+    "Update app/tools/page.tsx to add the Document Scanner to the TOOLS array with icon Camera (from lucide-react), color 'purple', appropriate description and features list, and badge 'PRO' to indicate it requires subscription."
+  ],
+  "acceptance_criteria": [
+    "API route at /api/azure/document-scan correctly calls Azure Computer Vision OCR and returns extracted text",
+    "API route at /api/azure/document-analyze correctly calls Azure Text Analytics and returns key phrases and sentiment",
+    "Document Scanner component renders with file upload, camera capture, and displays extracted financial data",
+    "Free users see limited results (total amount only), Pro users see full itemized breakdown",
+    "Tool page has proper SEO metadata and breadcrumbs",
+    "Document Scanner appears on the /tools page",
+    "pnpm build succeeds without errors"
+  ],
+  "verification": ["pnpm build"],
+  "blocked_reason": null,
+  "findings": "Build passes successfully. Lint warnings (not errors) for img elements in DocumentScanner.tsx - acceptable since base64 data URLs cannot be optimized by next/image. All pre-existing lint errors remain unchanged."
+}

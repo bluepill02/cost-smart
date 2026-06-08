@@ -1,0 +1,24 @@
+{
+  "id": "FEAT-003",
+  "type": "feat",
+  "description": "Build Azure AI-powered Financial Document Sentiment and Health Analyzer - A PRO feature that analyzes bank statements, investment portfolios, and financial documents to provide sentiment analysis (spending confidence vs anxiety patterns), key financial entity extraction, and a 'Financial Health Score'. Uses Azure Text Analytics for sentiment analysis, key phrase extraction, and entity recognition. This creates a unique selling point: understanding not just numbers but the emotional and behavioral patterns in financial decisions.",
+  "status": "completed",
+  "steps": [
+    "Create the API route at app/api/azure/financial-health/route.ts that: (1) accepts text content from bank statements or financial descriptions, (2) calls Azure Text Analytics sentiment endpoint at https://tlate.cognitiveservices.azure.com/text/analytics/v3.1/sentiment with the API key, (3) calls key phrases endpoint at /text/analytics/v3.1/keyPhrases to extract financial entities, (4) computes a Financial Health Score (0-100) based on sentiment distribution, spending patterns, and key phrase analysis (e.g., frequent 'overdue', 'penalty', 'insufficient' = low score; 'savings', 'investment', 'profit' = high score), (5) generates actionable recommendations based on the score. Free users see only the overall score; Pro users get detailed breakdown with specific recommendations.",
+    "Create the client component at components/features/FinancialHealthAnalyzer.tsx that provides: (1) text area for pasting bank statement descriptions or financial notes, (2) option to type financial goals/concerns in natural language, (3) animated circular health score gauge (0-100) with color coding (red/yellow/green), (4) sentiment breakdown chart showing positive/neutral/negative distribution, (5) key phrases cloud showing important financial terms detected, (6) personalized recommendations section, (7) Pro gate: free users see score only, Pro users get full analysis. Use Recharts for the sentiment chart (already a dependency).",
+    "Create the tool page at app/tools/financial-health/page.tsx with proper metadata, BreadcrumbSchema, and AdContainer. Target keywords like 'financial health check', 'money health score', 'spending analysis AI'.",
+    "Update app/tools/page.tsx to add the Financial Health Analyzer to the TOOLS array with icon HeartPulse (from lucide-react), color 'rose', description emphasizing AI-powered behavioral finance insights, and badge 'PRO'."
+  ],
+  "acceptance_criteria": [
+    "API route at /api/azure/financial-health correctly calls Azure Text Analytics sentiment and key phrases endpoints",
+    "Financial Health Score is computed (0-100) based on sentiment and key phrase analysis",
+    "Component renders with text input, animated score gauge, sentiment chart, and recommendations",
+    "Free users see score only, Pro users see full breakdown",
+    "Tool page has proper SEO metadata",
+    "Financial Health Analyzer appears on the /tools page",
+    "pnpm build succeeds without errors"
+  ],
+  "verification": ["pnpm build"],
+  "blocked_reason": null,
+  "findings": "Build passes. Recharts Tooltip formatter must not explicitly type the `value` parameter as `number` because the library types it as `number | undefined`. Used untyped arrow function parameter instead."
+}

@@ -1,0 +1,14 @@
+{
+  "task_id": "task-azure-ai-services",
+  "task_description": "Integrate Azure AI multi-service features (Computer Vision OCR, Translator, Text Analytics) to create unique financial tools that boost PRO plan value. Build: Document Scanner for receipts/invoices, Multilingual Financial Translator for Indian languages, Financial Health Analyzer with sentiment scoring, and update pricing/premium pages to showcase new features.",
+  "status": "completed",
+  "feature_order": ["FEAT-001", "FEAT-002", "FEAT-003", "FEAT-004"],
+  "blocked_reason": null,
+  "verification": {
+    "build": "pass",
+    "tests": "pass",
+    "test_quality": "skipped",
+    "docker_build": "skipped",
+    "summary": "pnpm build succeeds with 0 errors. All 5 new tool pages render (/tools/document-scanner, /tools/translator, /tools/financial-health). pnpm lint shows 0 new errors from our code (only pre-existing lint issues in other files). All API routes properly call Azure services with correct endpoints and headers. Code review issues addressed: hardcoded API key replaced with env vars, rate limiting added, privacy claim fixed, OCR timeout reduced, image size validation added, subscription reading fixed."
+  }
+}
