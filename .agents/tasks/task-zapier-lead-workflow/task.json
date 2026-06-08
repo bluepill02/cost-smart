@@ -1,0 +1,7 @@
+{
+  "task_id": "task-zapier-lead-workflow",
+  "task_description": "Create an automated Zapier-integrated workflow for lead capture, engagement, and conversion using existing lead-capture forms. Includes: API webhook endpoint with lead scoring, form integration, and comprehensive Zapier automation documentation.",
+  "status": "in_progress",
+  "feature_order": ["FEAT-001", "FEAT-002", "FEAT-003"],
+  "blocked_reason": null
+}

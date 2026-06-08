@@ -1,0 +1,25 @@
+{
+  "id": "FEAT-003",
+  "type": "docs",
+  "description": "Create comprehensive documentation for the Zapier automation workflow, including recommended Zap configurations for welcome emails, lead scoring/tagging, CRM sync, and re-engagement sequences. This documentation provides the creative workflow strategy that makes the integration actionable.",
+  "status": "pending",
+  "steps": [
+    "Create docs/ZAPIER_WORKFLOW_GUIDE.md with the following sections: (1) Overview explaining the architecture (forms -> API route -> Zapier webhook -> automations). (2) Setup Instructions: how to create a Zapier Catch Hook, get the webhook URL, set it as ZAPIER_WEBHOOK_URL env var in Vercel. (3) Webhook Payload Schema: document the exact JSON shape sent to Zapier with field descriptions. (4) Recommended Zap #1 - Welcome Email Drip: Trigger: Catch Hook. Filter by lead_segment. Action: send personalized welcome email via Gmail/Mailchimp/SendGrid based on segment. For calculator_power_user: send detailed report follow-up. For content_reader: send weekly digest intro. For newsletter_subscriber: send welcome + top 5 articles. For exit_intent_capture: send the promised Financial Planning Toolkit PDF. (5) Recommended Zap #2 - Lead Scoring and Tagging: Trigger: Catch Hook. Use Zapier Filter to route by lead_score ranges (80-100: hot lead, 50-79: warm lead, 0-49: nurture). Action: Add to Google Sheets or CRM with appropriate tags. High-score leads get instant Slack notification to sales. (6) Recommended Zap #3 - CRM Sync (HubSpot/Apollo): Trigger: Catch Hook. Action: Create/update contact in CRM. Map form_source to contact source field, lead_score to lead rating, page_url to first touch URL, utm_params to attribution fields. (7) Recommended Zap #4 - Re-engagement for Calculator Users: Trigger: Catch Hook filtered where lead_segment = calculator_power_user. Action: Wait 3 days (Delay step), then send follow-up email with 'Did you know you can also try our [related calculator]?' Include link back to site. (8) Recommended Zap #5 - Engagement Sequence: Multi-step Zap using Paths. Path A (lead_score >= 70): immediate personal outreach email. Path B (lead_score 40-69): add to 5-email nurture sequence. Path C (lead_score < 40): add to monthly newsletter only. (9) Free Tier Optimization Tips: How to maximize Zapier's free tier (5 Zaps, 100 tasks/month). Suggest combining Zaps using Paths/Filters. Recommend which 2-3 Zaps to prioritize if on free tier. (10) Testing section: how to test with curl, what to look for in Zapier task history.",
+    "Update the project README.md or create a brief mention at the end linking to the Zapier workflow guide.",
+    "Update LEAD_CAPTURE_FIELD_IDS.md Integration Notes section to reference the new /api/lead-capture endpoint and the Zapier integration, replacing the 'no backend endpoint yet' note."
+  ],
+  "acceptance_criteria": [
+    "docs/ZAPIER_WORKFLOW_GUIDE.md exists with all 5 recommended Zap configurations documented",
+    "The guide includes the webhook payload schema with all fields documented",
+    "The guide includes free tier optimization tips",
+    "The guide includes testing instructions with curl examples",
+    "LEAD_CAPTURE_FIELD_IDS.md is updated to reference the new API endpoint",
+    "pnpm build succeeds without errors"
+  ],
+  "verification": [
+    "Run pnpm build and confirm no errors (docs don't affect build but ensures no accidental breakage)",
+    "Verify docs/ZAPIER_WORKFLOW_GUIDE.md is comprehensive and well-structured"
+  ],
+  "blocked_reason": null,
+  "findings": ""
+}

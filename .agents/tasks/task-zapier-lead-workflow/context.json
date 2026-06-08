@@ -1,0 +1,27 @@
+{
+  "project_type": "Next.js 16.2.6 app with React 19, TypeScript, Tailwind CSS 4",
+  "language": "TypeScript",
+  "build_system": "pnpm with next build",
+  "test_framework": "Playwright for e2e tests in tests/ directory",
+  "build_command": "pnpm build",
+  "test_command": "pnpm lint",
+  "verification_instructions": "Run pnpm build to verify no TypeScript/build errors. Run pnpm lint to check for linting issues.",
+  "snapshot_or_generated_files": null,
+  "setup_instructions": "pnpm install",
+  "environment_constraints": "OPEN_INTERNET - full network access available. Zapier webhook URL configured via env var ZAPIER_WEBHOOK_URL.",
+  "contribution_requirements": "Follow existing patterns in components/lead-capture/ and app/api/ directories. Use 'use client' directive for client components. API routes use NextRequest/NextResponse from next/server.",
+  "key_patterns": "API routes follow Next.js App Router pattern (app/api/*/route.ts). Lead capture forms use client-side React with useState/useEffect. Forms use markLeadCaptured() and isLeadAlreadyCaptured() from lead-capture-utils.ts. Existing email-results API route shows the pattern for server-side POST endpoints. Path alias @/* maps to project root.",
+  "relevant_files": [
+    "components/lead-capture/NewsletterInlineForm.tsx",
+    "components/lead-capture/ExitIntentPopup.tsx",
+    "components/lead-capture/FloatingBottomBar.tsx",
+    "components/lead-capture/CalculatorResultGate.tsx",
+    "components/lead-capture/BlogSidebarForm.tsx",
+    "components/lead-capture/lead-capture-utils.ts",
+    "components/lead-capture/LeadCaptureContext.tsx",
+    "app/api/email-results/route.ts",
+    ".env.example",
+    "LEAD_CAPTURE_FIELD_IDS.md"
+  ],
+  "directory_structure": "app/ - Next.js App Router pages and API routes. components/ - React components including lead-capture/. lib/ - utility modules. tests/ - Playwright e2e tests. public/ - static assets."
+}
