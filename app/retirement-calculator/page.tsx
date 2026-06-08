@@ -1,23 +1,23 @@
 import { Metadata } from 'next';
-import { getCalculatorSchema, CANONICAL_DOMAIN } from '@/lib/seo-utils';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import RetirementCalculator from '@/components/calculators/retirement/RetirementCalculator';
 import AdContainer from '@/components/ads/AdContainer';
 import { Badge } from '@/components/ui/badge';
 import { Palmtree } from 'lucide-react';
-import JsonLd from '@/components/seo/JsonLd';
+import CalculatorSchemaInjector from '@/components/seo/CalculatorSchemaInjector';
 import AmazonRecommendations from '@/components/affiliate/AmazonRecommendations';
 import PremiumBanner from '@/components/premium/PremiumBanner';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
 import StickyUpgradeNudge from '@/components/premium/StickyUpgradeNudge';
 
 export const metadata: Metadata = {
-    title: 'Retirement Planner | CostSmart',
+    title: 'Retirement Calculator | CostSmart',
     description: 'Calculate how much money you need to retire comfortably. accounts for inflation, life expectancy, and investment returns.',
     alternates: {
         canonical: '/retirement-calculator',
     },
     openGraph: {
-        title: 'Retirement Planner | CostSmart',
+        title: 'Retirement Calculator | CostSmart',
         description: 'Calculate how much money you need to retire comfortably. accounts for inflation, life expectancy, and investment returns.',
         url: `${CANONICAL_DOMAIN}/retirement-calculator`,
         type: 'website',
@@ -25,15 +25,9 @@ export const metadata: Metadata = {
 };
 
 export default function RetirementCalculatorPage() {
-    const jsonLd = getCalculatorSchema(
-        'CostSmart Retirement Calculator',
-        'Calculate the retirement corpus you need to retire comfortably.',
-        '/retirement-calculator'
-    );
-
     return (
         <div className="container mx-auto px-4 py-12 max-w-5xl">
-            <JsonLd data={jsonLd} />
+            <CalculatorSchemaInjector calculatorName="CostSmart Retirement Calculator" calculatorDescription="Calculate the retirement corpus you need to retire comfortably." urlPath="/retirement-calculator" calculatorType="investment" />
             <div className="text-center mb-10 space-y-4">
                  <div className="flex justify-center gap-2">
                     <Badge variant="outline" className="bg-emerald-50 text-emerald-700 border-emerald-200 flex items-center gap-1">
@@ -41,7 +35,7 @@ export default function RetirementCalculatorPage() {
                     </Badge>
                 </div>
                 <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
-                    Retirement <span className="text-emerald-600">Planner</span>
+                    Retirement <span className="text-emerald-600">Calculator</span>
                 </h1>
                 <p className="text-lg text-slate-600 max-w-2xl mx-auto">
                     Retirement is not an age, it is a financial number. Find out yours today.

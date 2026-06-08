@@ -1,18 +1,27 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { getArticleSchema, CANONICAL_DOMAIN } from '@/lib/seo-utils';
+import JsonLd from '@/components/seo/JsonLd';
 
 export const metadata: Metadata = {
     title: 'New vs Old Tax Regime FY 2024-25: Which is Better?',
     description: 'Confusion about the new tax slabs? We explain the difference between Old and New Regime and help you choose the right one.',
     alternates: {
         canonical: '/blog/new-vs-old-tax-regime',
-    }
+    },
+    openGraph: {
+        title: 'New vs Old Tax Regime FY 2024-25: Which is Better?',
+        description: 'Confusion about the new tax slabs? We explain the difference between Old and New Regime and help you choose the right one.',
+        url: `${CANONICAL_DOMAIN}/blog/new-vs-old-tax-regime`,
+        type: 'article',
+    },
 };
 
 export default function BlogPost() {
     return (
         <article>
+            <JsonLd data={getArticleSchema({ headline: 'New vs Old Tax Regime FY 2024-25: Which is Better?', description: 'Confusion about the new tax slabs? We explain the difference between Old and New Regime and help you choose the right one.', urlPath: '/blog/new-vs-old-tax-regime' })} />
             <h1>New vs Old Tax Regime (FY 2024-25): The Final Verdict</h1>
             <p className="lead">
                 Budget 2024 made the New Regime the default tax option. But is it actually better for you? The answer depends on your investments.

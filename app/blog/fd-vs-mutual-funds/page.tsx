@@ -1,18 +1,27 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { getArticleSchema, CANONICAL_DOMAIN } from '@/lib/seo-utils';
+import JsonLd from '@/components/seo/JsonLd';
 
 export const metadata: Metadata = {
     title: 'FD vs Mutual Funds: Where Should You Invest?',
     description: 'A comprehensive comparison between Fixed Deposits (FD) and Mutual Funds. Understand risk, returns, taxation, and liquidity.',
     alternates: {
         canonical: '/blog/fd-vs-mutual-funds',
-    }
+    },
+    openGraph: {
+        title: 'FD vs Mutual Funds: Where Should You Invest?',
+        description: 'A comprehensive comparison between Fixed Deposits (FD) and Mutual Funds. Understand risk, returns, taxation, and liquidity.',
+        url: `${CANONICAL_DOMAIN}/blog/fd-vs-mutual-funds`,
+        type: 'article',
+    },
 };
 
 export default function BlogPost() {
     return (
         <article>
+            <JsonLd data={getArticleSchema({ headline: 'FD vs Mutual Funds: Where Should You Invest?', description: 'A comprehensive comparison between Fixed Deposits (FD) and Mutual Funds. Understand risk, returns, taxation, and liquidity.', urlPath: '/blog/fd-vs-mutual-funds' })} />
             <h1>Fixed Deposit vs Mutual Funds: The Ultimate Showdown</h1>
             <p className="lead">
                 The classic dilemma for Indian investors: Safety of FD or High Returns of Mutual Funds? The answer depends on your goals and risk appetite.

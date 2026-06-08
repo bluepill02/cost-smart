@@ -1,13 +1,12 @@
 import { Metadata } from 'next';
 import { Suspense } from 'react';
-import { getCalculatorSchema } from '@/lib/seo-utils';
 import LoanCalculator from '@/components/calculators/loan/LoanCalculator';
 import AdContainer from '@/components/ads/AdContainer';
 import AfterResultAd from '@/components/ads/AfterResultAd';
 import StickyAdSidebar from '@/components/ads/StickyAdSidebar';
 import { Badge } from '@/components/ui/badge';
 import { ShieldCheck, IndianRupee } from 'lucide-react';
-import JsonLd from '@/components/seo/JsonLd';
+import CalculatorSchemaInjector from '@/components/seo/CalculatorSchemaInjector';
 import Breadcrumbs from '@/components/features/Breadcrumbs';
 import ShareResultButton from '@/components/features/ShareResultButton';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
@@ -28,15 +27,9 @@ export const metadata: Metadata = {
 };
 
 export default function IndianEMICalculatorPage() {
-    const jsonLd = getCalculatorSchema(
-        'CostSmart EMI Calculator India',
-        'Calculate Equated Monthly Installment for home, car, and personal loans in India.',
-        '/in/emi-calculator'
-    );
-
     return (
         <div className="container mx-auto px-4 py-12 max-w-5xl">
-            <JsonLd data={jsonLd} />
+            <CalculatorSchemaInjector calculatorName="CostSmart EMI Calculator India" calculatorDescription="Calculate Equated Monthly Installment for home, car, and personal loans in India." urlPath="/in/emi-calculator" calculatorType="loan" />
             <Breadcrumbs items={[
                 { label: 'India Calculators', href: '/in' },
                 { label: 'EMI Calculator' },

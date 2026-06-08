@@ -1,9 +1,9 @@
 import { Metadata } from 'next';
-import { getCalculatorSchema } from '@/lib/seo-utils';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import CurrencyConverter from '@/components/calculators/currency/CurrencyConverter';
 import { getLatestRates } from '@/lib/currency-api';
 import AdContainer from '@/components/ads/AdContainer';
-import JsonLd from '@/components/seo/JsonLd';
+import CalculatorSchemaInjector from '@/components/seo/CalculatorSchemaInjector';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
@@ -11,17 +11,17 @@ export const metadata: Metadata = {
     description: 'Convert money instantly with real-time exchange rates. View 30-day trends for USD, EUR, GBP, INR, and 30+ global currencies.',
     alternates: {
         canonical: '/currency',
-    }
+    },
+    openGraph: {
+        title: 'Live Currency Converter & Exchange Rates | CostSmart',
+        description: 'Convert money instantly with real-time exchange rates. View 30-day trends for USD, EUR, GBP, INR, and 30+ global currencies.',
+        url: `${CANONICAL_DOMAIN}/currency`,
+        type: 'website',
+    },
 };
 
 export default async function CurrencyPage() {
     const rates = await getLatestRates('USD');
-
-    const jsonLd = getCalculatorSchema(
-        'CostSmart Currency Converter',
-        'Live currency converter with 150+ currencies and real-time exchange rates.',
-        '/currency'
-    );
 
     if (!rates) {
         return (
@@ -34,7 +34,7 @@ export default async function CurrencyPage() {
 
     return (
         <div className="container mx-auto px-4 py-12 max-w-4xl">
-            <JsonLd data={jsonLd} />
+            <CalculatorSchemaInjector calculatorName="CostSmart Currency Converter" calculatorDescription="Live currency converter with 150+ currencies and real-time exchange rates." urlPath="/currency" calculatorType="general" />
             <div className="text-center mb-10">
                 <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
                     Currency <span className="text-emerald-600">Converter</span>

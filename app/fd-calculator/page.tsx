@@ -1,29 +1,29 @@
 import { Metadata } from 'next';
-import { getCalculatorSchema } from '@/lib/seo-utils';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import FDCalculator from '@/components/calculators/savings/FDCalculator';
 import AdContainer from '@/components/ads/AdContainer';
 import { Badge } from '@/components/ui/badge';
 import { Archive } from 'lucide-react';
-import JsonLd from '@/components/seo/JsonLd';
+import CalculatorSchemaInjector from '@/components/seo/CalculatorSchemaInjector';
 
 export const metadata: Metadata = {
     title: 'CD Calculator | Certificate of Deposit Interest',
     description: 'Calculate returns on Certificates of Deposit (CD) and Term Deposits. Compare annual yields and see your money grow.',
     alternates: {
         canonical: '/fd-calculator',
-    }
+    },
+    openGraph: {
+        title: 'CD Calculator | Certificate of Deposit Interest',
+        description: 'Calculate returns on Certificates of Deposit (CD) and Term Deposits. Compare annual yields and see your money grow.',
+        url: `${CANONICAL_DOMAIN}/fd-calculator`,
+        type: 'website',
+    },
 };
 
 export default function GlobalFDCalculatorPage() {
-    const jsonLd = getCalculatorSchema(
-        'CostSmart FD Calculator',
-        'Calculate fixed deposit maturity amount and interest earned.',
-        '/fd-calculator'
-    );
-
     return (
         <div className="container mx-auto px-4 py-12 max-w-5xl">
-            <JsonLd data={jsonLd} />
+            <CalculatorSchemaInjector calculatorName="CostSmart FD Calculator" calculatorDescription="Calculate fixed deposit maturity amount and interest earned." urlPath="/fd-calculator" calculatorType="investment" />
             <div className="text-center mb-10 space-y-4">
                  <div className="flex justify-center gap-2">
                     <Badge variant="outline" className="bg-emerald-50 text-emerald-700 border-emerald-200 flex items-center gap-1">

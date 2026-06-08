@@ -4,8 +4,8 @@ import AdContainer from '@/components/ads/AdContainer';
 import AfterResultAd from '@/components/ads/AfterResultAd';
 import { Badge } from '@/components/ui/badge';
 import { IndianRupee } from 'lucide-react';
-import { getCalculatorSchema, CANONICAL_DOMAIN } from '@/lib/seo-utils';
-import JsonLd from '@/components/seo/JsonLd';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
+import CalculatorSchemaInjector from '@/components/seo/CalculatorSchemaInjector';
 import Breadcrumbs from '@/components/features/Breadcrumbs';
 import ShareResultButton from '@/components/features/ShareResultButton';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
@@ -26,15 +26,9 @@ export const metadata: Metadata = {
 };
 
 export default function TaxCalculatorPage() {
-    const jsonLd = getCalculatorSchema(
-        'CostSmart Income Tax Calculator India',
-        'Calculate India Income Tax FY 2024-25 — New Regime vs Old Regime.',
-        '/in/income-tax-calculator'
-    );
-
     return (
         <div className="container mx-auto px-4 py-12 max-w-5xl">
-            <JsonLd data={jsonLd} />
+            <CalculatorSchemaInjector calculatorName="CostSmart Income Tax Calculator India" calculatorDescription="Calculate India Income Tax FY 2024-25 — New Regime vs Old Regime." urlPath="/in/income-tax-calculator" calculatorType="tax" />
             <Breadcrumbs items={[
                 { label: 'India Calculators', href: '/in' },
                 { label: 'Income Tax Calculator' },

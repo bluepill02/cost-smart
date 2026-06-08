@@ -7,13 +7,21 @@ import { INDIAN_CITIES } from '@/lib/pseo-data/cities';
 import { US_CITIES } from '@/lib/pseo-data/us-cities';
 import AdContainer from '@/components/ads/AdContainer';
 import { Badge } from '@/components/ui/badge';
+import CalculatorSchemaInjector from '@/components/seo/CalculatorSchemaInjector';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 
 export const metadata: Metadata = {
     title: 'Select Your City - Solar ROI Calculator',
     description: 'Find your city to calculate accurate solar savings. Get payback period, panel capacity, and 20-year savings based on local irradiance and electricity rates.',
     alternates: {
         canonical: '/solar-roi',
-    }
+    },
+    openGraph: {
+        title: 'Select Your City - Solar ROI Calculator',
+        description: 'Find your city to calculate accurate solar savings. Get payback period, panel capacity, and 20-year savings based on local irradiance and electricity rates.',
+        url: `${CANONICAL_DOMAIN}/solar-roi`,
+        type: 'website',
+    },
 };
 
 export default async function SolarLandingPage() {
@@ -28,6 +36,7 @@ export default async function SolarLandingPage() {
 
     return (
         <div className="container mx-auto px-4 py-12 bg-slate-50 min-h-screen">
+            <CalculatorSchemaInjector calculatorName="Solar ROI Calculator" calculatorDescription="Calculate solar savings, payback period, and 20-year ROI based on local irradiance and electricity rates." urlPath="/solar-roi" calculatorType="solar" />
             <AdContainer className="mb-12" slotId="1475703853" />
 
             <div className="text-center mb-12">

@@ -1,10 +1,9 @@
 import { Metadata } from 'next';
-import { getCalculatorSchema } from '@/lib/seo-utils';
 import SalaryCalculator from '@/components/calculators/income/SalaryCalculator';
 import AdContainer from '@/components/ads/AdContainer';
 import { Badge } from '@/components/ui/badge';
 import { IndianRupee } from 'lucide-react';
-import JsonLd from '@/components/seo/JsonLd';
+import CalculatorSchemaInjector from '@/components/seo/CalculatorSchemaInjector';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
@@ -22,15 +21,9 @@ export const metadata: Metadata = {
 };
 
 export default function IndianSalaryCalculatorPage() {
-    const jsonLd = getCalculatorSchema(
-        'CostSmart Salary Calculator India',
-        'Calculate in-hand salary from CTC with all deductions for FY 2024-25.',
-        '/in/salary-calculator'
-    );
-
     return (
         <div className="container mx-auto px-4 py-12 max-w-5xl">
-            <JsonLd data={jsonLd} />
+            <CalculatorSchemaInjector calculatorName="CostSmart Salary Calculator India" calculatorDescription="Calculate in-hand salary from CTC with all deductions for FY 2024-25." urlPath="/in/salary-calculator" calculatorType="tax" />
             <div className="text-center mb-10 space-y-4">
                  <div className="flex justify-center gap-2">
                      <Badge variant="outline" className="bg-orange-50 text-orange-700 border-orange-200 flex items-center gap-1">
@@ -38,7 +31,7 @@ export default function IndianSalaryCalculatorPage() {
                     </Badge>
                 </div>
                 <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
-                    CTC to <span className="text-emerald-600">In-Hand Salary</span>
+                    Salary <span className="text-emerald-600">Calculator</span> India
                 </h1>
                 <p className="text-lg text-slate-600 max-w-2xl mx-auto">
                     Don&apos;t get fooled by the CTC number. Calculate exactly how much money will hit your bank account every month.

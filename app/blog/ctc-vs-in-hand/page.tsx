@@ -1,18 +1,27 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { getArticleSchema, CANONICAL_DOMAIN } from '@/lib/seo-utils';
+import JsonLd from '@/components/seo/JsonLd';
 
 export const metadata: Metadata = {
     title: 'CTC vs In-Hand Salary: Why is it Different?',
     description: 'Offered 10 LPA but only 60k per month? Full breakdown of CTC vs in-hand salary — PF, gratuity, HRA, and all deductions explained for FY 2024-25. Net Salary.',
     alternates: {
         canonical: '/blog/ctc-vs-in-hand',
-    }
+    },
+    openGraph: {
+        title: 'CTC vs In-Hand Salary: Why is it Different?',
+        description: 'Offered 10 LPA but only 60k per month? Full breakdown of CTC vs in-hand salary — PF, gratuity, HRA, and all deductions explained for FY 2024-25. Net Salary.',
+        url: `${CANONICAL_DOMAIN}/blog/ctc-vs-in-hand`,
+        type: 'article',
+    },
 };
 
 export default function BlogPost() {
     return (
         <article>
+            <JsonLd data={getArticleSchema({ headline: 'CTC vs In-Hand Salary: Why is it Different?', description: 'Offered 10 LPA but only 60k per month? Full breakdown of CTC vs in-hand salary — PF, gratuity, HRA, and all deductions explained for FY 2024-25.', urlPath: '/blog/ctc-vs-in-hand' })} />
             <h1>CTC vs In-Hand Salary: The Reality Check</h1>
             <p className="lead">
                 You get a job offer of ₹12 LPA. You expect ₹1 Lakh per month. Then the first paycheck arrives, and it is ₹78,000. What happened?

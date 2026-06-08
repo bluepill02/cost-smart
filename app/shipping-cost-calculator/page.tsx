@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import ShippingCalculator from '@/components/calculators/business/ShippingCalculator';
-import JsonLd from '@/components/seo/JsonLd';
-import { getCalculatorSchema } from '@/lib/seo-utils';
+import CalculatorSchemaInjector from '@/components/seo/CalculatorSchemaInjector';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
@@ -10,18 +10,18 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/shipping-cost-calculator',
   },
+  openGraph: {
+    title: 'Shipping Cost Calculator | CostSmart',
+    description: 'Calculate volumetric weight and estimated shipping costs.',
+    url: `${CANONICAL_DOMAIN}/shipping-cost-calculator`,
+    type: 'website',
+  },
 };
 
 export default function Page() {
-  const jsonLd = getCalculatorSchema(
-    'Shipping Cost Calculator',
-    'Calculate volumetric weight and estimated shipping costs.',
-    '/shipping-cost-calculator'
-  );
-
   return (
     <div className="container mx-auto px-4 py-12 max-w-4xl">
-      <JsonLd data={jsonLd} />
+      <CalculatorSchemaInjector calculatorName="Shipping Cost Calculator" calculatorDescription="Calculate volumetric weight and estimated shipping costs." urlPath="/shipping-cost-calculator" calculatorType="business" />
       <div className="mb-8 text-center">
         <h1 className="text-4xl font-bold text-slate-900 mb-4">Shipping Cost Calculator</h1>
         <p className="text-xl text-slate-600 max-w-2xl mx-auto">Calculate volumetric weight and estimated shipping costs.</p>

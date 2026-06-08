@@ -1,12 +1,11 @@
 import { Metadata } from 'next';
 import { Suspense } from 'react';
-import { getCalculatorSchema } from '@/lib/seo-utils';
 import InvestmentCalculator from '@/components/calculators/investment/InvestmentCalculator';
 import AdContainer from '@/components/ads/AdContainer';
 import AfterResultAd from '@/components/ads/AfterResultAd';
 import { Badge } from '@/components/ui/badge';
 import { TrendingUp, IndianRupee } from 'lucide-react';
-import JsonLd from '@/components/seo/JsonLd';
+import CalculatorSchemaInjector from '@/components/seo/CalculatorSchemaInjector';
 import Breadcrumbs from '@/components/features/Breadcrumbs';
 import ShareResultButton from '@/components/features/ShareResultButton';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
@@ -29,15 +28,9 @@ export const metadata: Metadata = {
 };
 
 export default function SIPCalculatorPage() {
-    const jsonLd = getCalculatorSchema(
-        'CostSmart SIP Calculator India',
-        'Calculate mutual fund SIP returns over 5, 10, or 20 years.',
-        '/in/sip-calculator'
-    );
-
     return (
         <div className="container mx-auto px-4 py-12 max-w-5xl">
-            <JsonLd data={jsonLd} />
+            <CalculatorSchemaInjector calculatorName="CostSmart SIP Calculator India" calculatorDescription="Calculate mutual fund SIP returns over 5, 10, or 20 years." urlPath="/in/sip-calculator" calculatorType="investment" />
             <Breadcrumbs items={[
                 { label: 'India Calculators', href: '/in' },
                 { label: 'SIP Calculator' },

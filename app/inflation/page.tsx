@@ -3,6 +3,8 @@ import InflationCalculator from '@/components/calculators/inflation/InflationCal
 import AdContainer from '@/components/ads/AdContainer';
 import { Badge } from '@/components/ui/badge';
 import { TrendingUp } from 'lucide-react';
+import CalculatorSchemaInjector from '@/components/seo/CalculatorSchemaInjector';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
@@ -10,12 +12,19 @@ export const metadata: Metadata = {
     description: 'Calculate the value of the US Dollar over time. See how much purchasing power has changed using official BLS CPI data.',
     alternates: {
         canonical: '/inflation',
-    }
+    },
+    openGraph: {
+        title: 'Inflation Calculator (CPI) | CostSmart',
+        description: 'Calculate the value of the US Dollar over time. See how much purchasing power has changed using official BLS CPI data.',
+        url: `${CANONICAL_DOMAIN}/inflation`,
+        type: 'website',
+    },
 };
 
 export default function InflationPage() {
     return (
         <div className="container mx-auto px-4 py-12 max-w-5xl">
+            <CalculatorSchemaInjector calculatorName="Inflation Calculator" calculatorDescription="Calculate the value of money over time using official CPI data." urlPath="/inflation" calculatorType="general" />
             <div className="text-center mb-10 space-y-4">
                  <div className="flex justify-center">
                     <Badge variant="outline" className="bg-amber-50 text-amber-700 border-amber-200 flex items-center gap-1">

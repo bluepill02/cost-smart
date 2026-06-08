@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import GSTInputCreditCalculator from '@/components/calculators/business/GSTInputCreditCalculator';
-import JsonLd from '@/components/seo/JsonLd';
-import { getCalculatorSchema, CANONICAL_DOMAIN } from '@/lib/seo-utils';
+import CalculatorSchemaInjector from '@/components/seo/CalculatorSchemaInjector';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
@@ -20,15 +20,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  const jsonLd = getCalculatorSchema(
-    'GST Input Credit Calculator',
-    'Calculate Net GST Payable after Input Tax Credit adjustment.',
-    '/in/gst-input-credit-calculator'
-  );
-
   return (
     <div className="container mx-auto px-4 py-12 max-w-4xl">
-      <JsonLd data={jsonLd} />
+      <CalculatorSchemaInjector calculatorName="GST Input Credit Calculator" calculatorDescription="Calculate Net GST Payable after Input Tax Credit adjustment." urlPath="/in/gst-input-credit-calculator" calculatorType="tax" />
       <div className="mb-8 text-center">
         <h1 className="text-4xl font-bold text-slate-900 mb-4">GST Input Credit Calculator</h1>
         <p className="text-xl text-slate-600 max-w-2xl mx-auto">Calculate Net GST Payable after Input Tax Credit adjustment.</p>

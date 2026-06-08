@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
 import MovingCostCalculator from '@/components/calculators/real-estate/MovingCostCalculator';
 import JsonLd from '@/components/seo/JsonLd';
-import { getCalculatorSchema, getFAQSchema } from '@/lib/seo-utils';
+import { CANONICAL_DOMAIN, getFAQSchema } from '@/lib/seo-utils';
+import CalculatorSchemaInjector from '@/components/seo/CalculatorSchemaInjector';
 import FAQSection from '@/components/ui/FAQSection';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import RelatedTools from '@/components/layouts/RelatedTools';
@@ -13,6 +14,12 @@ export const metadata: Metadata = {
   keywords: ['moving cost calculator', 'packers movers cost', 'relocation estimate', 'shifting cost calculator', 'home shifting charges', 'moving expenses India'],
   alternates: {
     canonical: '/moving-cost-calculator',
+  },
+  openGraph: {
+    title: 'Moving Cost Calculator | Packers & Movers Cost | CostSmart',
+    description: 'Calculate home or office moving costs — packers & movers, transport, packing, and insurance. Instant estimates for local and interstate moves in India.',
+    url: `${CANONICAL_DOMAIN}/moving-cost-calculator`,
+    type: 'website',
   },
 };
 
@@ -36,12 +43,6 @@ const movingFAQs = [
 ];
 
 export default function Page() {
-  const jsonLd = getCalculatorSchema(
-    'Moving Cost Calculator',
-    'Calculate home or office relocation costs including packers and movers charges, transportation, packing materials, labor, and transit insurance for local, intercity, and interstate moves in India.',
-    '/moving-cost-calculator'
-  );
-
   const faqSchema = getFAQSchema(movingFAQs);
 
   const breadcrumbItems = [
@@ -52,7 +53,7 @@ export default function Page() {
 
   return (
     <div className="container mx-auto px-4 py-12 max-w-4xl">
-      <JsonLd data={jsonLd} />
+      <CalculatorSchemaInjector calculatorName="Moving Cost Calculator" calculatorDescription="Calculate home or office relocation costs including packers and movers charges, transportation, packing materials, labor, and transit insurance for local, intercity, and interstate moves in India." urlPath="/moving-cost-calculator" calculatorType="general" />
       <JsonLd data={faqSchema} />
 
       <Breadcrumbs items={breadcrumbItems} />

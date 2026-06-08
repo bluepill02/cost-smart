@@ -1,11 +1,10 @@
 import { Metadata } from 'next';
-import { getCalculatorSchema } from '@/lib/seo-utils';
 import FDCalculator from '@/components/calculators/savings/FDCalculator';
 import AdContainer from '@/components/ads/AdContainer';
 import AfterResultAd from '@/components/ads/AfterResultAd';
 import { Badge } from '@/components/ui/badge';
 import { Archive, IndianRupee } from 'lucide-react';
-import JsonLd from '@/components/seo/JsonLd';
+import CalculatorSchemaInjector from '@/components/seo/CalculatorSchemaInjector';
 import Breadcrumbs from '@/components/features/Breadcrumbs';
 import ShareResultButton from '@/components/features/ShareResultButton';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
@@ -25,15 +24,9 @@ export const metadata: Metadata = {
 };
 
 export default function FDCalculatorPage() {
-    const jsonLd = getCalculatorSchema(
-        'CostSmart FD Calculator India',
-        'Calculate fixed deposit returns with compounding options for Indian banks.',
-        '/in/fd-calculator'
-    );
-
     return (
         <div className="container mx-auto px-4 py-12 max-w-5xl">
-            <JsonLd data={jsonLd} />
+            <CalculatorSchemaInjector calculatorName="CostSmart FD Calculator India" calculatorDescription="Calculate fixed deposit returns with compounding options for Indian banks." urlPath="/in/fd-calculator" calculatorType="investment" />
             <Breadcrumbs items={[
                 { label: 'India Calculators', href: '/in' },
                 { label: 'FD Calculator' },

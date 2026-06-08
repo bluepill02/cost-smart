@@ -1,18 +1,27 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { getArticleSchema, CANONICAL_DOMAIN } from '@/lib/seo-utils';
+import JsonLd from '@/components/seo/JsonLd';
 
 export const metadata: Metadata = {
     title: 'How Much Money Do You Need to Retire?',
     description: 'Stop guessing your retirement number. Learn how to calculate your inflation-adjusted corpus requirement and how much to save each month to retire comfortably.',
     alternates: {
         canonical: '/blog/retirement-corpus-guide',
-    }
+    },
+    openGraph: {
+        title: 'How Much Money Do You Need to Retire?',
+        description: 'Stop guessing your retirement number. Learn how to calculate your inflation-adjusted corpus requirement and how much to save each month to retire comfortably.',
+        url: `${CANONICAL_DOMAIN}/blog/retirement-corpus-guide`,
+        type: 'article',
+    },
 };
 
 export default function BlogPost() {
     return (
         <article>
+            <JsonLd data={getArticleSchema({ headline: 'How Much Money Do You Need to Retire?', description: 'Stop guessing your retirement number. Learn how to calculate your inflation-adjusted corpus requirement and how much to save each month to retire comfortably.', urlPath: '/blog/retirement-corpus-guide' })} />
             <h1>How Much Money Do You Need to Retire?</h1>
             <p className="lead">
                 The biggest financial mistake people make is underestimating inflation. A million dollars today won&apos;t be worth a million dollars in 20 years.

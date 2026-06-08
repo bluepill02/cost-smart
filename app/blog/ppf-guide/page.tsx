@@ -1,18 +1,27 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { getArticleSchema, CANONICAL_DOMAIN } from '@/lib/seo-utils';
+import JsonLd from '@/components/seo/JsonLd';
 
 export const metadata: Metadata = {
     title: 'Complete Guide to PPF (Public Provident Fund)',
     description: 'Understand PPF rules, interest rates, tax benefits, and withdrawal limits. Why PPF is the safest long-term investment in India.',
     alternates: {
         canonical: '/blog/ppf-guide',
-    }
+    },
+    openGraph: {
+        title: 'Complete Guide to PPF (Public Provident Fund)',
+        description: 'Understand PPF rules, interest rates, tax benefits, and withdrawal limits. Why PPF is the safest long-term investment in India.',
+        url: `${CANONICAL_DOMAIN}/blog/ppf-guide`,
+        type: 'article',
+    },
 };
 
 export default function BlogPost() {
     return (
         <article>
+            <JsonLd data={getArticleSchema({ headline: 'Complete Guide to PPF (Public Provident Fund)', description: 'Understand PPF rules, interest rates, tax benefits, and withdrawal limits. Why PPF is the safest long-term investment in India.', urlPath: '/blog/ppf-guide' })} />
             <h1>Complete Guide to Public Provident Fund (PPF)</h1>
             <p className="lead">
                 In a volatile financial world, the Public Provident Fund (PPF) stands as a fortress of safety. Backed by the Government of India, it offers guaranteed returns that are completely tax-free.

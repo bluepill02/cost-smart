@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import InvoiceGenerator from '@/components/calculators/business/InvoiceGenerator';
-import JsonLd from '@/components/seo/JsonLd';
-import { getCalculatorSchema } from '@/lib/seo-utils';
+import CalculatorSchemaInjector from '@/components/seo/CalculatorSchemaInjector';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
@@ -10,18 +10,18 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/invoice-generator',
   },
+  openGraph: {
+    title: 'Invoice Generator | CostSmart',
+    description: 'Create professional PDF invoices instantly for free.',
+    url: `${CANONICAL_DOMAIN}/invoice-generator`,
+    type: 'website',
+  },
 };
 
 export default function Page() {
-  const jsonLd = getCalculatorSchema(
-    'Invoice Generator',
-    'Create professional PDF invoices instantly for free.',
-    '/invoice-generator'
-  );
-
   return (
     <div className="container mx-auto px-4 py-12 max-w-4xl">
-      <JsonLd data={jsonLd} />
+      <CalculatorSchemaInjector calculatorName="Invoice Generator" calculatorDescription="Create professional PDF invoices instantly for free." urlPath="/invoice-generator" calculatorType="business" />
       <div className="mb-8 text-center">
         <h1 className="text-4xl font-bold text-slate-900 mb-4">Invoice Generator</h1>
         <p className="text-xl text-slate-600 max-w-2xl mx-auto">Create professional PDF invoices instantly for free.</p>
