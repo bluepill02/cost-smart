@@ -1,0 +1,7 @@
+{
+  "task_id": "task-comprehensive-seo-fix",
+  "task_description": "Comprehensive SEO fix across the CostSmart Next.js project: replace staging domain with production domain, add JSON-LD schema to homepage, expand CalculatorSchemaInjector to all calculator pages, add OG tags to 127+ pages missing them, add schema to editorial blog posts, and fix keyword targeting on Retirement and Salary calculators.",
+  "status": "in_progress",
+  "feature_order": ["FEAT-001", "FEAT-002"],
+  "blocked_reason": null
+}
