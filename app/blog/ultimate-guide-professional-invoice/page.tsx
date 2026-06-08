@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Professional Invoice Creation Guide | CostSmart',
   description: 'Everything you need to know about Professional Invoice. Formulas, examples, and expert tips for accurate calculation.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/blog/ultimate-guide-professional-invoice',
+    canonical: '/blog/ultimate-guide-professional-invoice',
   },
 };
 

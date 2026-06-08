@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: 'Business Loan Calculator | CostSmart',
   description: 'Calculate business loan EMI and check eligibility.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/business-loan-calculator',
+    canonical: '/business-loan-calculator',
   },
 };
 

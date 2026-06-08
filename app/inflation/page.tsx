@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: 'Inflation Calculator (CPI) | CostSmart',
     description: 'Calculate the value of the US Dollar over time. See how much purchasing power has changed using official BLS CPI data.',
     alternates: {
-        canonical: 'https://cost-smart-five.vercel.app/inflation',
+        canonical: '/inflation',
     }
 };
 

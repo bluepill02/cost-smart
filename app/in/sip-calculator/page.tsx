@@ -20,11 +20,11 @@ export const metadata: Metadata = {
     openGraph: {
     title: 'SIP Calculator India | CostSmart',
     description: 'Calculate SIP returns with compound interest over 5-30 years. Compare monthly vs lumpsum investing, see wealth growth charts, and plan your mutual fund goals.',
-    url: 'https://cost-smart-five.vercel.app/in/sip-calculator',
+    url: '/in/sip-calculator',
     type: 'website',
   },
   alternates: {
-        canonical: 'https://cost-smart-five.vercel.app/in/sip-calculator',
+        canonical: '/in/sip-calculator',
     }
 };
 

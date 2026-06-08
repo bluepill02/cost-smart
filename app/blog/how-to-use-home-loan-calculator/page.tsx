@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'How to use the Home Loan Calculator | CostSmart Guide',
   description: 'Step-by-step guide on how to use the Home Loan Calculator to calculate Home Loan EMI. Accurate, fast, and free online tool.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/blog/how-to-use-home-loan-calculator',
+    canonical: '/blog/how-to-use-home-loan-calculator',
   },
 };
 

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: 'Solar vs Wind Energy Calculator — India 2026 | CostSmart',
   description: 'Compare Solar and Wind energy for home/business. Analyze installation costs, ROI, payback period, efficiency, maintenance, and suitability for Indian climate.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/compare/solar-vs-wind',
+    canonical: '/compare/solar-vs-wind',
   },
 };
 

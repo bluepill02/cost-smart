@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'How to use the Electricity Bill Calculator | CostSmart Guide',
   description: 'Step-by-step guide on how to use the Electricity Bill Calculator to calculate Electricity Bill. Accurate, fast, and free online tool.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/blog/how-to-use-electricity-bill-calculator',
+    canonical: '/blog/how-to-use-electricity-bill-calculator',
   },
 };
 

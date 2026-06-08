@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: { params: Promise<{ state: st
         title: `Stamp Duty Calculator ${stateData.state} (2025) - Calculate Registration Charges`,
         description: `Calculate stamp duty and registration charges for property in ${stateData.state}. Current Rate: ${stateData.stampDutyRate}%. ${stateData.description}`,
         alternates: {
-            canonical: `https://cost-smart-five.vercel.app/in/stamp-duty-calculator/${stateParam}`,
+            canonical: `/in/stamp-duty-calculator/${stateParam}`,
         }
     };
 }

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: 'Live Currency Converter & Exchange Rates | CostSmart',
     description: 'Convert money instantly with real-time exchange rates. View 30-day trends for USD, EUR, GBP, INR, and 30+ global currencies.',
     alternates: {
-        canonical: 'https://cost-smart-five.vercel.app/currency',
+        canonical: '/currency',
     }
 };
 

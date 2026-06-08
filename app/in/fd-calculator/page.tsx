@@ -16,11 +16,11 @@ export const metadata: Metadata = {
     openGraph: {
     title: 'FD Calculator India | Fixed Deposit Returns',
     description: 'Calculate fixed deposit maturity and interest for all major Indian banks. Supports monthly, quarterly, and annual compounding with TDS deduction.',
-    url: 'https://cost-smart-five.vercel.app/in/fd-calculator',
+    url: '/in/fd-calculator',
     type: 'website',
   },
   alternates: {
-        canonical: 'https://cost-smart-five.vercel.app/in/fd-calculator',
+        canonical: '/in/fd-calculator',
     }
 };
 

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: 'Break-Even Calculator | CostSmart',
   description: 'Find your break-even point in units and revenue.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/break-even-calculator',
+    canonical: '/break-even-calculator',
   },
   openGraph: {
     title: 'Break-Even Calculator | CostSmart',

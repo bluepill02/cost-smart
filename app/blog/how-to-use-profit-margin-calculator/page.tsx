@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'How to use the Profit Margin Calculator | CostSmart Guide',
   description: 'Step-by-step guide on how to use the Profit Margin Calculator to calculate Profit Margin. Accurate, fast, and free online tool.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/blog/how-to-use-profit-margin-calculator',
+    canonical: '/blog/how-to-use-profit-margin-calculator',
   },
 };
 

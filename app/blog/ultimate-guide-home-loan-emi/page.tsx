@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Ultimate Guide to Home Loan EMI Calculation | CostSmart',
   description: 'Everything you need to know about Home Loan EMI. Formulas, examples, and expert tips for accurate calculation.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/blog/ultimate-guide-home-loan-emi',
+    canonical: '/blog/ultimate-guide-home-loan-emi',
   },
 };
 

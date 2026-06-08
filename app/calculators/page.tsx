@@ -15,10 +15,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'All Free Financial Calculators | CostSmart',
     description: 'Browse all 35+ free financial calculators: EMI, SIP, income tax, salary, PPF, FD, GST, retirement, property, solar ROI, and more — all India-focused.',
-    url: 'https://cost-smart-five.vercel.app/calculators',
+    url: '/calculators',
     type: 'website',
   },
-  alternates: { canonical: `https://cost-smart-five.vercel.app/calculators` },
+  alternates: { canonical: `/calculators` },
   keywords: [
     'financial calculators india',
     'free calculator online',

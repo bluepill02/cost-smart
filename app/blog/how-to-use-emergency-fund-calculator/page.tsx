@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'How to use the Emergency Fund Calculator | CostSmart Guide',
   description: 'Step-by-step guide on how to use the Emergency Fund Calculator to calculate Emergency Fund. Accurate, fast, and free online tool.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/blog/how-to-use-emergency-fund-calculator',
+    canonical: '/blog/how-to-use-emergency-fund-calculator',
   },
 };
 

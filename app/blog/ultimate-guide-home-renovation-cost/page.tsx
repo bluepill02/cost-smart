@@ -4,7 +4,7 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Home Renovation Costs India 2025 Guide | CostSmart',
   description: 'Complete guide to home renovation costs in India 2025. Get per sq ft rates for painting, flooring, electrical, plumbing, modular kitchen, and hidden costs.',
-  alternates: { canonical: 'https://cost-smart-five.vercel.app/blog/ultimate-guide-home-renovation-cost' },
+  alternates: { canonical: '/blog/ultimate-guide-home-renovation-cost' },
 };
 
 import React from 'react';

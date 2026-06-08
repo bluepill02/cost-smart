@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: 'Stamp Duty Calculator India 2025 | State-wise Rates',
   description: 'Calculate Stamp Duty and Registration Charges for property in India. Updated rates for Maharashtra, Karnataka, Tamil Nadu, and more.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/in/stamp-duty-calculator',
+    canonical: '/in/stamp-duty-calculator',
   },
   openGraph: {
     title: 'Stamp Duty Calculator India 2025 | State-wise Rates',

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: 'Debt Payoff Calculator | CostSmart',
     description: 'Create a plan to get out of debt faster. Compare Debt Snowball vs Debt Avalanche strategies to see which one saves you more money.',
     alternates: {
-        canonical: 'https://cost-smart-five.vercel.app/debt-payoff-calculator',
+        canonical: '/debt-payoff-calculator',
     },
     openGraph: {
         title: 'Debt Payoff Calculator | CostSmart',

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'How to use the TDS Calculator | CostSmart Guide',
   description: 'Step-by-step guide on how to use the TDS Calculator to calculate TDS Deduction. Accurate, fast, and free online tool.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/blog/how-to-use-tds-calculator',
+    canonical: '/blog/how-to-use-tds-calculator',
   },
 };
 

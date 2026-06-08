@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     title: 'SIP vs Lumpsum: Which is Better for You?',
     description: 'Compare Systematic Investment Plans (SIP) with Lumpsum investing. Understand the pros and cons of each strategy for mutual funds.',
     alternates: {
-        canonical: 'https://cost-smart-five.vercel.app/blog/sip-vs-lumpsum',
+        canonical: '/blog/sip-vs-lumpsum',
     }
 };
 

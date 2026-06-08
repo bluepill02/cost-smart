@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: 'Financial Comparisons | CostSmart',
   description: 'Compare FD vs Mutual Funds, PPF vs FD, Solar vs Wind, Rent vs Buy. Data-driven India-focused analysis.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/compare',
+    canonical: '/compare',
   },
 };
 

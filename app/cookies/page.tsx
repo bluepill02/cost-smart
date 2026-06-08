@@ -4,7 +4,7 @@ export const metadata: Metadata = {
     title: 'Cookie Policy | CostSmart',
     description: 'Cookie Policy for CostSmart.',
     alternates: {
-        canonical: 'https://cost-smart-five.vercel.app/cookies',
+        canonical: '/cookies',
     }
 };
 

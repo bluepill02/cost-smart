@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     title: 'FD vs Mutual Funds: Where Should You Invest?',
     description: 'A comprehensive comparison between Fixed Deposits (FD) and Mutual Funds. Understand risk, returns, taxation, and liquidity.',
     alternates: {
-        canonical: 'https://cost-smart-five.vercel.app/blog/fd-vs-mutual-funds',
+        canonical: '/blog/fd-vs-mutual-funds',
     }
 };
 

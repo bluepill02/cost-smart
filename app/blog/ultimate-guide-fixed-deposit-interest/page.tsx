@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Fixed Deposit Interest Calculation Guide | CostSmart',
   description: 'Everything you need to know about Fixed Deposit Interest. Formulas, examples, and expert tips for accurate calculation.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/blog/ultimate-guide-fixed-deposit-interest',
+    canonical: '/blog/ultimate-guide-fixed-deposit-interest',
   },
 };
 

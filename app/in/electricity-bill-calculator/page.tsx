@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Electricity Bill Calculator | CostSmart',
   description: 'Estimate your monthly electricity bill using state-wise slab rates. Add appliances, get per-unit cost, and see how to reduce your power consumption in India.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/in/electricity-bill-calculator',
+    canonical: '/in/electricity-bill-calculator',
   },
   openGraph: {
     title: 'Electricity Bill Calculator | CostSmart',

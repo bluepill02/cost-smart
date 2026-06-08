@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: 'Explore any neighborhood before buying or renting. Check nearby schools, hospitals, parks, transit, and shopping. Get a neighborhood score for any location.',
   keywords: ['neighborhood analysis', 'area explorer', 'locality check', 'neighborhood score', 'nearby amenities', 'places near me'],
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/neighborhood-explorer',
+    canonical: '/neighborhood-explorer',
   },
   openGraph: {
     title: 'Neighborhood Explorer | Area Analysis Tool | CostSmart',

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Ultimate Guide to Profit Margin Calculation | CostSmart',
   description: 'Everything you need to know about Profit Margin. Formulas, examples, and expert tips for accurate calculation.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/blog/ultimate-guide-profit-margin',
+    canonical: '/blog/ultimate-guide-profit-margin',
   },
 };
 

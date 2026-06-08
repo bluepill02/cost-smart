@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'TDS Calculator | CostSmart',
   description: 'Calculate TDS deduction rates for salary, contractors, professionals, rent, and interest. Know exactly how much is deducted at source under Income Tax Act.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/in/tds-calculator',
+    canonical: '/in/tds-calculator',
   },
   openGraph: {
     title: 'TDS Calculator | CostSmart',

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Water Bill Calculator | CostSmart',
   description: 'Calculate your monthly water bill based on usage in kilolitres. Covers slab rates for major Indian cities including Mumbai, Delhi, Chennai, and Bangalore.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/in/water-bill-calculator',
+    canonical: '/in/water-bill-calculator',
   },
   openGraph: {
     title: 'Water Bill Calculator | CostSmart',

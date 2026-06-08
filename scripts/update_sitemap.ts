@@ -35,7 +35,7 @@ function generateSitemap() {
   const content = `import { MetadataRoute } from 'next';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://cost-smart-five.vercel.app';
+  const baseUrl = 'https://costsmart.co';
 
   return [
     {

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { isValidSubscriptionId, verifySubscription } from '@/lib/paypal';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import {
   getSubscriptionById,
   getSubscriptionByEmail,
@@ -14,7 +15,7 @@ export async function POST(request: NextRequest) {
     const origin = request.headers.get('origin') || request.headers.get('referer') || '';
     const allowedOrigins = [
       'http://localhost:3000',
-      'https://cost-smart-five.vercel.app',
+      CANONICAL_DOMAIN,
       'https://costsmart.vercel.app',
     ];
     const isAllowed = allowedOrigins.some((allowed) => origin.startsWith(allowed));

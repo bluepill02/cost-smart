@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: 'Profit Margin Calculator | CostSmart',
   description: 'Calculate Gross Margin, Markup, and Net Profit.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/profit-margin-calculator',
+    canonical: '/profit-margin-calculator',
   },
   openGraph: {
     title: 'Profit Margin Calculator | CostSmart',

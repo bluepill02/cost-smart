@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     title: 'Retirement Planner | CostSmart',
     description: 'Calculate how much money you need to retire comfortably. accounts for inflation, life expectancy, and investment returns.',
     alternates: {
-        canonical: 'https://cost-smart-five.vercel.app/retirement-calculator',
+        canonical: '/retirement-calculator',
     },
     openGraph: {
         title: 'Retirement Planner | CostSmart',

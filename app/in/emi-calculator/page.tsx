@@ -19,11 +19,11 @@ export const metadata: Metadata = {
     openGraph: {
     title: 'EMI Calculator India | CostSmart',
     description: 'Calculate EMI for home, car, and personal loans in India. Get amortization schedule, total interest, and compare different loan tenures instantly.',
-    url: 'https://cost-smart-five.vercel.app/in/emi-calculator',
+    url: '/in/emi-calculator',
     type: 'website',
   },
   alternates: {
-        canonical: 'https://cost-smart-five.vercel.app/in/emi-calculator',
+        canonical: '/in/emi-calculator',
     }
 };
 

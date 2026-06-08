@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ alternati
         title: `Solar vs ${altName} - Which is Cheaper? | Cost Comparison`,
         description: `Compare Solar Energy against ${altName}. Analysis of ROI, initial cost, environmental impact, and long-term savings.`,
         alternates: {
-            canonical: `https://cost-smart-five.vercel.app/solar-roi/vs/${alternative}`,
+            canonical: `/solar-roi/vs/${alternative}`,
         }
     };
 }

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: 'Freelance Rate Calculator | CostSmart',
   description: 'Calculate your ideal hourly rate as a freelancer.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/freelance-rate-calculator',
+    canonical: '/freelance-rate-calculator',
   },
 };
 

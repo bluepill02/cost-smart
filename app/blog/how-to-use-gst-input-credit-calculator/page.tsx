@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'How to use the GST Input Credit Calculator | CostSmart Guide',
   description: 'Step-by-step guide on how to use the GST Input Credit Calculator to calculate Net GST Payable. Accurate, fast, and free online tool.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/blog/how-to-use-gst-input-credit-calculator',
+    canonical: '/blog/how-to-use-gst-input-credit-calculator',
   },
 };
 

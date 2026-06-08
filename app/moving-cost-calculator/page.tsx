@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   description: 'Calculate home or office moving costs — packers & movers, transport, packing, and insurance. Instant estimates for local and interstate moves in India.',
   keywords: ['moving cost calculator', 'packers movers cost', 'relocation estimate', 'shifting cost calculator', 'home shifting charges', 'moving expenses India'],
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/moving-cost-calculator',
+    canonical: '/moving-cost-calculator',
   },
 };
 

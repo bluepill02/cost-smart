@@ -36,7 +36,7 @@ test.describe('SEO & Structural Audit', () => {
       // Let's verify if it's there.
       await expect(canonical).toHaveCount(1);
       const href = await canonical.getAttribute('href');
-      expect(href).toContain(path === '/' ? 'cost-smart-five.vercel.app' : path.substring(1));
+      expect(href).toContain(path === '/' ? 'costsmart.co' : path.substring(1));
     });
 
     test(`Check H1 structure for ${path}`, async ({ page }) => {

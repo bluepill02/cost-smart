@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: 'Income Tax Calculator FY 2024-25 | CostSmart',
     description: 'Calculate income tax for FY 2024-25 under New Regime vs Old Regime. Includes 80C, HRA, NPS deductions and the ₹7L tax-free rebate. Updated for Budget 2024.',
     alternates: {
-        canonical: 'https://cost-smart-five.vercel.app/in/income-tax-calculator',
+        canonical: '/in/income-tax-calculator',
     },
     openGraph: {
         title: 'Income Tax Calculator FY 2024-25 | CostSmart',

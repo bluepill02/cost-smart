@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: 'EMI vs SIP Calculator | Pay Loan or Invest? | CostSmart',
   description: 'Should you pay EMI or start a SIP? Compare the cost of debt vs the power of compounding with our advanced comparison tool.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/compare/emi-vs-sip',
+    canonical: '/compare/emi-vs-sip',
   },
 };
 

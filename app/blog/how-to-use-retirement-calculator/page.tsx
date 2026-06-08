@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'How to use the Retirement Calculator | CostSmart Guide',
   description: 'Step-by-step guide on how to use the Retirement Calculator to calculate Retirement Corpus. Accurate, fast, and free online tool.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/blog/how-to-use-retirement-calculator',
+    canonical: '/blog/how-to-use-retirement-calculator',
   },
 };
 

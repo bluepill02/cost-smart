@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Shipping Cost Calculator | CostSmart',
   description: 'Calculate volumetric weight and estimated shipping costs.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/shipping-cost-calculator',
+    canonical: '/shipping-cost-calculator',
   },
 };
 

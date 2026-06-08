@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: 'PPF vs FD Calculator — Long-term Savings 2026 | CostSmart',
   description: 'Compare PPF vs FD — interest rates, tax benefits, liquidity, lock-in, and returns. Find which savings option is better for you.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/compare/ppf-vs-fd',
+    canonical: '/compare/ppf-vs-fd',
   },
 };
 

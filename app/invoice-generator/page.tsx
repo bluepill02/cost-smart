@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Invoice Generator | CostSmart',
   description: 'Create professional PDF invoices instantly for free.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/invoice-generator',
+    canonical: '/invoice-generator',
   },
 };
 

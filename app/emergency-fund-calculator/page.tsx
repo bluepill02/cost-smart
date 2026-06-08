@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: 'Emergency Fund Calculator | CostSmart',
     description: 'Calculate the right size for your emergency fund. Protect yourself from job loss, medical emergencies, or unexpected expenses.',
     alternates: {
-        canonical: 'https://cost-smart-five.vercel.app/emergency-fund-calculator',
+        canonical: '/emergency-fund-calculator',
     }
 };
 

@@ -13,11 +13,11 @@ export const metadata: Metadata = {
     openGraph: {
     title: 'Salary Calculator India | CTC to In-Hand (FY 2024-25)',
     description: 'Convert CTC to in-hand salary instantly. Calculates PF, professional tax, HRA exemption, income tax, and all deductions for FY 2024-25.',
-    url: 'https://cost-smart-five.vercel.app/in/salary-calculator',
+    url: '/in/salary-calculator',
     type: 'website',
   },
   alternates: {
-        canonical: 'https://cost-smart-five.vercel.app/in/salary-calculator',
+        canonical: '/in/salary-calculator',
     }
 };
 

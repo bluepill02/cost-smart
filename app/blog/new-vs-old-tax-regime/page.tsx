@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     title: 'New vs Old Tax Regime FY 2024-25: Which is Better?',
     description: 'Confusion about the new tax slabs? We explain the difference between Old and New Regime and help you choose the right one.',
     alternates: {
-        canonical: 'https://cost-smart-five.vercel.app/blog/new-vs-old-tax-regime',
+        canonical: '/blog/new-vs-old-tax-regime',
     }
 };
 
