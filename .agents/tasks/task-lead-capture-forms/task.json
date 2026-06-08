@@ -1,0 +1,7 @@
+{
+  "task_id": "task-lead-capture-forms",
+  "task_description": "Add beautiful, clever lead capture forms of different types at suitable places across the website and document the HTML Field identifiers for CRM mapping",
+  "status": "in_progress",
+  "feature_order": ["FEAT-001"],
+  "blocked_reason": null
+}

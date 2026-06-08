@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import BlogSidebarForm from '@/components/lead-capture/BlogSidebarForm';
 
 export const metadata: Metadata = {
     title: 'SIP vs Lumpsum: Which is Better for You?',
@@ -12,18 +13,20 @@ export const metadata: Metadata = {
 
 export default function BlogPost() {
     return (
-        <article>
+        <div className="container mx-auto px-4 py-12 max-w-6xl">
+            <div className="grid lg:grid-cols-[1fr_280px] gap-8">
+                <article>
             <h1>SIP vs Lumpsum: Which Strategy Wins?</h1>
             <p className="lead">
                 Investing in mutual funds is one of the best ways to create wealth. But the big question remains: Should you invest a small amount every month (SIP) or a large amount at once (Lumpsum)?
             </p>
 
-            <div className="my-8 bg-slate-50 p-6 rounded-xl border border-slate-200 not-prose flex items-center justify-between gap-4">
+            <div className="my-8 bg-slate-50 p-6 rounded-xl border border-slate-200 not-prose flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                 <div>
                     <h3 className="text-lg font-bold mb-1">Calculate Your Returns</h3>
                     <p className="text-sm text-slate-600">Model both SIP and Lumpsum scenarios.</p>
                 </div>
-                 <div className="flex gap-2">
+                 <div className="flex gap-2 flex-shrink-0">
                      <Link href="/investment-calculator">
                         <Button>Growth Calc ($)</Button>
                     </Link>
@@ -56,7 +59,7 @@ export default function BlogPost() {
 
             <h2>Comparison Table</h2>
             <div className="not-prose overflow-x-auto">
-                <table className="min-w-full border-collapse border border-slate-200 text-sm">
+                <table className="w-full border-collapse border border-slate-200 text-sm">
                     <thead>
                         <tr className="bg-slate-100">
                             <th className="border p-3 text-left">Feature</th>
@@ -90,5 +93,12 @@ export default function BlogPost() {
                 If you have a large sum of money sitting idle, invest it via **Lumpsum**, but consider doing it in tranches (STP) if you fear a market crash.
             </p>
         </article>
+
+                {/* Sidebar with lead capture form */}
+                <aside className="hidden lg:block">
+                    <BlogSidebarForm />
+                </aside>
+            </div>
+        </div>
     );
 }

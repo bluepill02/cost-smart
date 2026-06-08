@@ -13,6 +13,9 @@ import Providers from "@/components/providers/Providers";
 import SoftAdBlockMessage from "@/components/ads/SoftAdBlockMessage";
 import AdBlockWall from "@/components/ads/AdBlockWall";
 import FloatingChatWidget from "@/components/features/FloatingChatWidget";
+import ExitIntentPopup from "@/components/lead-capture/ExitIntentPopup";
+import FloatingBottomBar from "@/components/lead-capture/FloatingBottomBar";
+import { LeadCaptureProvider } from "@/components/lead-capture/LeadCaptureContext";
 
 // DM Sans — refined body font with excellent legibility
 const dmSans = DM_Sans({
@@ -103,6 +106,11 @@ export default function RootLayout({
             }),
           }}
         />
+
+        {/* Apollo.io Website Tracker */}
+        <Script id="apollo-tracker" strategy="afterInteractive">
+          {`function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,o.onload=function(){window.trackingFunctions.onLoad({appId:"69578e180e012c0019664915"})},document.head.appendChild(o)}initApollo();`}
+        </Script>
       </head>
       <body className={`${dmSans.variable} ${sora.variable} ${dmSans.className} min-h-screen flex flex-col bg-slate-50 text-slate-900 antialiased`}>
         {/* Google Tag Manager (noscript) */}
@@ -136,6 +144,10 @@ export default function RootLayout({
         <SoftAdBlockMessage />
         <AdBlockWall />
         {!process.env.NEXT_PUBLIC_BOTPRESS_BOT_URL && <FloatingChatWidget />}
+        <LeadCaptureProvider>
+          <ExitIntentPopup />
+          <FloatingBottomBar />
+        </LeadCaptureProvider>
         </Providers>
         <CookieConsent />
         {/* BotpressLoader activates when NEXT_PUBLIC_BOTPRESS_BOT_URL is set; FloatingChatWidget is the fallback */}
