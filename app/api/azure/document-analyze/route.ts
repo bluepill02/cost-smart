@@ -35,7 +35,7 @@ function classifyDocumentType(text: string, keyPhrases: string[]): string {
 }
 
 function generateSummary(text: string, keyPhrases: string[], docType: string): string {
-  const amountMatch = text.match(/(?:total|amount|due)[:\s]*[₹$]?\s*([\d,]+\.?\d*)/i);
+  const amountMatch = text.match(/(?:total|amount|due)[\s:]*(?:[₹$][\s:]*)?([\d,]+(?:\.\d*)?)/i);
   const amount = amountMatch ? amountMatch[1] : null;
   const vendorLines = text.split('\n').filter(l => l.trim()).slice(0, 3);
   const vendor = vendorLines[0] || 'Unknown';
