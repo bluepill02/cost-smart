@@ -9,6 +9,6 @@
     "tests": "skipped",
     "test_quality": "pass",
     "docker_build": "skipped",
-    "summary": "npx next build passes cleanly. All 151 staging URL occurrences replaced (0 remaining). Homepage has WebSite + SoftwareApplication JSON-LD. 74 pages now use CalculatorSchemaInjector (up from 3). Editorial blog posts have Article schema + OG tags. Retirement/Salary keyword fixes confirmed in H1 and metadata. No type errors."
+    "summary": "npx next build passes cleanly. All staging URL occurrences replaced (0 remaining). Homepage has WebSite + SoftwareApplication JSON-LD. 74 pages use CalculatorSchemaInjector (up from 3). Editorial blog posts have Article schema + OG tags with explicit dates. Retirement/Salary keyword fixes confirmed. Review issues (relative OG URLs, blog dates, sitemap script, redirect page, JSDoc) all addressed. 158 files changed, 744 insertions, 445 deletions."
   }
 }
