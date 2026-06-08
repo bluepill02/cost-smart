@@ -1,6 +1,8 @@
 # Zapier Workflow Guide - CostSmart Lead Capture
 
-A comprehensive guide for setting up Zapier automations that turn CostSmart lead captures into engagement, nurturing, and conversions.
+A comprehensive guide for the automated Zapier Zap workflow that turns CostSmart lead captures into engagement, nurturing, and conversions.
+
+> **STATUS: LIVE** — This workflow has been set up and tested via Zapier MCP. All infrastructure (Mailchimp tags, Google Sheets tracker, Zapier Skill) is provisioned and verified.
 
 ---
 
@@ -41,13 +43,22 @@ POST /api/lead-capture
 Fire-and-forget POST to Zapier Catch Hook
     |
     v
-Zapier triggers downstream automations
+AUTOMATED ZAP (4-step pipeline):
     |
-    +-- CRM (HubSpot, Apollo, Pipedrive)
-    +-- Email sequences (Mailchimp, ConvertKit, Brevo)
-    +-- Notifications (Slack, Teams, Discord)
-    +-- Tracking (Google Sheets, Airtable)
-    +-- Re-engagement campaigns
+    ├── STEP 1: Google Sheets → Log lead to CostSmart Lead Tracker
+    |            (Spreadsheet: 1xG8F1mwFCfF_YXFk5_ky_O9MeS_F9CHWZkQ_9bcm-dg)
+    |
+    ├── STEP 2: Mailchimp → Add/Update Subscriber
+    |            (Audience: 20b157c32a, tag by tier)
+    |
+    ├── STEP 3: Mailchimp → Tag by Lead Tier
+    |            Hot → CostSmart-Hot-Lead (ID: 1943433)
+    |            Warm → CostSmart-Warm-Lead (ID: 1943434)
+    |            Cool → CostSmart-Newsletter (ID: 1943435)
+    |            Cold → CostSmart-Cold-Lead (ID: 1943436)
+    |
+    └── STEP 4: Gmail → Personalized Welcome Email
+                 (Tier-specific content, CTA, related calculators)
 ```
 
 ### Key Design Decisions
@@ -56,6 +67,23 @@ Zapier triggers downstream automations
 - **Pre-scored leads**: The API computes lead scores server-side before sending, so Zapier receives fully enriched data ready for routing.
 - **Source-aware**: Each form type produces a distinct `form_source` identifier, enabling form-specific automations.
 - **UTM-enriched**: Campaign attribution data flows through to Zapier for full-funnel tracking.
+- **Mailchimp over MailerLite**: Mailchimp offers better free tier limits (500 contacts, 1000 emails/month, built-in automation triggers on tags) compared to MailerLite's restrictions.
+
+### Live Infrastructure (Provisioned via Zapier MCP)
+
+| Asset | Service | ID / Reference |
+|-------|---------|----------------|
+| Lead Tracker Spreadsheet | Google Sheets | `1xG8F1mwFCfF_YXFk5_ky_O9MeS_F9CHWZkQ_9bcm-dg` |
+| Audience | Mailchimp | `20b157c32a` (B. P Miller) |
+| Tag: Hot Leads | Mailchimp | `CostSmart-Hot-Lead` (ID: 1943433) |
+| Tag: Warm Leads | Mailchimp | `CostSmart-Warm-Lead` (ID: 1943434) |
+| Tag: Newsletter | Mailchimp | `CostSmart-Newsletter` (ID: 1943435) |
+| Tag: Cold Leads | Mailchimp | `CostSmart-Cold-Lead` (ID: 1943436) |
+| Reusable Skill | Zapier MCP | `costsmart-lead-capture` |
+| MailerLite Hot Leads | MailerLite (backup) | Group ID: 189716386762720319 |
+| MailerLite Warm Leads | MailerLite (backup) | Group ID: 189716389354800198 |
+| MailerLite Newsletter | MailerLite (backup) | Group ID: 189716403061786415 |
+| MailerLite Cold Leads | MailerLite (backup) | Group ID: 189716394243261737 |
 
 ---
 
