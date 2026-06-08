@@ -1,9 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { isValidSubscriptionId, verifySubscription } from '@/lib/paypal';
+import { DefaultAzureCredential } from '@azure/identity';
+import { AIProjectClient } from '@azure/ai-projects';
 
 const FREE_MESSAGE_LIMIT = 5;
-const FREE_MAX_TOKENS = 400;
-const PRO_MAX_TOKENS = 1000;
+
+const endpoint = "https://costsmart021.services.ai.azure.com/api/projects/proj-default";
+const agentName = "costsmart";
+const agentVersion = "3";
 
 interface ChatMessage {
   role: 'user' | 'assistant' | 'system';
@@ -15,25 +19,6 @@ interface AdvisorRequest {
   isPro?: boolean;
   subscriptionId?: string;
 }
-
-const SYSTEM_PROMPT = `You are an expert AI Financial Advisor specializing in Indian personal finance. You provide clear, actionable advice on:
-- EMI calculations and loan planning (home loans, personal loans, car loans)
-- SIP and mutual fund investments
-- Tax planning (Section 80C, 80D, 24b, HRA, NPS)
-- Retirement planning and corpus building
-- Fixed deposits, PPF, and savings instruments
-- Budgeting and expense management
-- Insurance planning
-- Solar panel ROI and green investments
-
-Guidelines:
-- Use Indian Rupee (₹) and Indian financial terminology
-- Reference Indian tax laws and investment instruments
-- Be concise but comprehensive
-- Provide specific numbers and calculations when possible
-- Suggest relevant calculators when appropriate (EMI calculator, SIP calculator, tax calculator, etc.)
-- If unsure, say so rather than guessing
-- Format responses with bullet points and bold text for readability using markdown`;
 
 export async function POST(request: NextRequest) {
   try {
@@ -74,53 +59,47 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const endpoint = process.env.AZURE_OPENAI_ENDPOINT;
-    const apiKey = process.env.AZURE_OPENAI_KEY;
-
     let content = '';
     let isRealAI = false;
 
-    if (endpoint && apiKey) {
-      try {
-        const maxTokens = verifiedPro ? PRO_MAX_TOKENS : FREE_MAX_TOKENS;
+    try {
+      // Create AI Project client using DefaultAzureCredential
+      const projectClient = new AIProjectClient(endpoint, new DefaultAzureCredential());
+      const openAIClient = projectClient.getOpenAIClient();
 
-        // Build messages array with system prompt
-        const apiMessages: ChatMessage[] = [
-          { role: 'system', content: SYSTEM_PROMPT },
-          ...messages.map(m => ({ role: m.role, content: m.content })),
-        ];
+      // Build conversation items from chat history
+      // For free users, limit context to last 6 messages to save tokens
+      const relevantMessages = verifiedPro
+        ? messages
+        : messages.slice(-6);
 
-        // For free users, limit conversation context to last 6 messages to save tokens
-        const contextMessages = verifiedPro
-          ? apiMessages
-          : [apiMessages[0], ...apiMessages.slice(-6)];
+      const conversationItems = relevantMessages.map(m => ({
+        type: "message" as const,
+        role: m.role as "user" | "assistant",
+        content: m.content,
+      }));
 
-        const response = await fetch(endpoint, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'api-key': apiKey,
-          },
-          body: JSON.stringify({
-            messages: contextMessages,
-            temperature: 0.7,
-            max_tokens: maxTokens,
-          }),
-        });
+      // Create conversation with the chat history
+      const conversation = await openAIClient.conversations.create({
+        items: conversationItems,
+      });
 
-        if (response.ok) {
-          const data = await response.json();
-          content = data.choices?.[0]?.message?.content || '';
-          if (content) {
-            isRealAI = true;
-          }
-        } else {
-          const errText = await response.text();
-          console.error('Azure OpenAI API error:', response.status, errText);
-        }
-      } catch (apiErr) {
-        console.error('Failed to call Azure OpenAI API:', apiErr);
+      // Generate response using the agent
+      const response = await openAIClient.responses.create(
+        {
+          conversation: conversation.id,
+        },
+        {
+          body: { agent: { name: agentName, version: agentVersion, type: "agent_reference" } },
+        },
+      );
+
+      content = response.output_text || '';
+      if (content) {
+        isRealAI = true;
       }
+    } catch (apiErr) {
+      console.error('Failed to call Azure AI Projects SDK:', apiErr);
     }
 
     // Fallback to rule-based response if Azure is unavailable
