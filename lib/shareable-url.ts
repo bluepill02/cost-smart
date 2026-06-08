@@ -13,8 +13,8 @@
 
 export interface ShareableData {
   calculator: string;
-  inputs: Record<string, any>;
-  results?: Record<string, any>;
+  inputs: Record<string, unknown>;
+  results?: Record<string, unknown>;
   timestamp?: number;
 }
 
@@ -66,8 +66,8 @@ export class ShareableURLManager {
    */
   static generateShareableURL(
     calculator: string,
-    inputs: Record<string, any>,
-    results?: Record<string, any>,
+    inputs: Record<string, unknown>,
+    results?: Record<string, unknown>,
     baseURL: string = typeof window !== 'undefined' ? window.location.origin : ''
   ): string {
     const data: ShareableData = {
@@ -241,8 +241,8 @@ export function useShareableURL() {
 
   const createShareURL = (
     calculator: string,
-    inputs: Record<string, any>,
-    results?: Record<string, any>
+    inputs: Record<string, unknown>,
+    results?: Record<string, unknown>
   ): string => {
     return ShareableURLManager.generateShareableURL(calculator, inputs, results);
   };

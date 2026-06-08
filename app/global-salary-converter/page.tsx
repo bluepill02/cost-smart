@@ -36,7 +36,7 @@ export default function GlobalSalaryPage() {
                             Prices for rent, food, and healthcare vary wildly between countries.
                         </p>
                         <p>
-                            <strong>Purchasing Power Parity (PPP)</strong> solves this by comparing the cost of a standard "basket of goods"
+                            <strong>Purchasing Power Parity (PPP)</strong> solves this by comparing the cost of a standard &quot;basket of goods&quot;
                             in different countries. This tool uses World Bank PPP data to give you a realistic salary comparison.
                         </p>
                     </div>

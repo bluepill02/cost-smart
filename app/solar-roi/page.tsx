@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { Metadata } from 'next';
 import { ArrowRight, MapPin, Globe, Sparkles } from 'lucide-react';
-import { CitySearch } from '@/components/features/CitySearch';
+
 import { INDIAN_CITIES } from '@/lib/pseo-data/cities';
 import { US_CITIES } from '@/lib/pseo-data/us-cities';
 import AdContainer from '@/components/ads/AdContainer';

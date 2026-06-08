@@ -72,6 +72,7 @@ export default function InvestmentCalculator({
         const v = parseInt(y, 10);
         if (isFinite(v) && v >= 1 && v <= 50) setYears(v);
       }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const handleShare = async () => {

@@ -217,8 +217,8 @@ export default function FDvsMutualFundPage() {
                   <ul className="space-y-2 text-slate-700">
                     <li>✓ You need guaranteed returns with zero risk</li>
                     <li>✓ Your investment horizon is 1-3 years</li>
-                    <li>✓ You're saving for a specific short-term goal</li>
-                    <li>✓ You're close to retirement (50+ years)</li>
+                    <li>✓ You&apos;re saving for a specific short-term goal</li>
+                    <li>✓ You&apos;re close to retirement (50+ years)</li>
                     <li>✓ You cannot afford any capital loss</li>
                     <li>✓ You want simple, predictable returns</li>
                   </ul>
@@ -230,7 +230,7 @@ export default function FDvsMutualFundPage() {
                     <li>✓ Your goal is 5+ years away</li>
                     <li>✓ You want to beat inflation significantly</li>
                     <li>✓ You can tolerate short-term volatility</li>
-                    <li>✓ You're building retirement corpus (20-40 years)</li>
+                    <li>✓ You&apos;re building retirement corpus (20-40 years)</li>
                     <li>✓ You want tax-efficient returns</li>
                     <li>✓ You understand equity market cycles</li>
                   </ul>
@@ -243,7 +243,7 @@ export default function FDvsMutualFundPage() {
                   <div>
                     <p className="font-semibold text-amber-900 mb-2">Best Strategy: Diversify!</p>
                     <p className="text-slate-700">
-                      Don't choose one vs the other. Allocate based on goals:
+                      Don&apos;t choose one vs the other. Allocate based on goals:
                       <strong> Emergency Fund → FD</strong> (3-6 months expenses),
                       <strong> Retirement → Equity MF</strong> (long-term), 
                       <strong> House Down Payment (3 years) → Debt MF or FD</strong>

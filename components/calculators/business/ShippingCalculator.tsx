@@ -52,7 +52,7 @@ export default function ShippingCalculator() {
             totalCost,
             isVolumetric: totalVolWeight > totalActualWeight
         };
-    }, [length, width, height, actualWeight, quantity, ratePerKg, provider, currentProvider]);
+    }, [length, width, height, actualWeight, quantity, ratePerKg, currentProvider]);
 
     return (
         <div className="grid lg:grid-cols-[1.5fr_1fr] gap-8">

@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import {
   Home, Calculator, MapPin, Sun, Truck, FileText,
-  DollarSign, Check, ArrowRight, Zap, Shield, TrendingUp,
+  DollarSign, Check, ArrowRight, Zap,
 } from 'lucide-react';
 import EmailCaptureSection from '@/components/features/EmailCaptureSection';
 import JsonLd from '@/components/seo/JsonLd';

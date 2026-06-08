@@ -71,6 +71,7 @@ export default function LoanCalculator({
         const v = parseFloat(e);
         if (isFinite(v) && v >= 0 && v <= 1000000) setExtraPayment(v);
       }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const handleShare = async () => {

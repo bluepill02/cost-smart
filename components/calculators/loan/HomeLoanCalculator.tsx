@@ -2,12 +2,12 @@
 
 import React, { useState, useMemo } from 'react';
 import { useSearchParams } from 'next/navigation';
-import { Calculator, ArrowRight, TrendingDown, Calendar, DollarSign, Share2, Check as CheckIcon } from 'lucide-react';
+import { Calculator, ArrowRight, TrendingDown, Share2, Check as CheckIcon } from 'lucide-react';
 import { buildShareableURL } from '@/lib/shareable-url';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
+
 import { Slider } from '@/components/ui/slider';
 import { Switch } from "@/components/ui/switch";
 import { formatCurrency } from '@/lib/formatters';
@@ -61,6 +61,7 @@ export default function HomeLoanCalculator({
         const v = parseInt(tenure, 10);
         if (isFinite(v) && v >= 1 && v <= 40) setTenureYears(v);
       }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     const handleShare = async () => {

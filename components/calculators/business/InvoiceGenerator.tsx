@@ -1,13 +1,13 @@
 "use client";
 
 import React, { useState, useMemo } from 'react';
-import { Plus, Trash2, Download, Printer, FileText } from 'lucide-react';
+import { Plus, Trash2, Printer, FileText } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
-import { formatCurrency } from '@/lib/formatters';
+
 
 interface InvoiceItem {
     id: string;
@@ -102,7 +102,7 @@ export default function InvoiceGenerator() {
                                 <Label>Line Items</Label>
                                 <Button variant="outline" size="sm" onClick={addItem}><Plus size={14} className="mr-1"/> Add Item</Button>
                             </div>
-                            {items.map((item, index) => (
+                            {items.map((item) => (
                                 <div key={item.id} className="flex gap-2 items-start">
                                     <Label htmlFor={`desc-${item.id}`} className="sr-only">Description</Label>
                                     <Input

@@ -61,7 +61,7 @@ export default async function StateStampDutyPage({ params }: { params: Promise<{
                         <div className="mt-12 prose max-w-none text-slate-600">
                             <h2>Property Registration in {stateData.state}</h2>
                             <p>
-                                The current stamp duty rate in {stateData.state} is approximately <strong>{stateData.stampDutyRate}%</strong> of the property's market value.
+                                The current stamp duty rate in {stateData.state} is approximately <strong>{stateData.stampDutyRate}%</strong> of the property&apos;s market value.
                                 {stateData.description}
                             </p>
 
@@ -70,7 +70,7 @@ export default async function StateStampDutyPage({ params }: { params: Promise<{
                                 <li><strong>Stamp Duty:</strong> {stateData.stampDutyRate}%</li>
                                 <li><strong>Registration Fee:</strong> {stateData.registrationRate}%</li>
                                 {stateData.femaleConcession > 0 && (
-                                    <li><strong>Women's Concession:</strong> {stateData.femaleConcession}% rebate available.</li>
+                                    <li><strong>Women&apos;s Concession:</strong> {stateData.femaleConcession}% rebate available.</li>
                                 )}
                             </ul>
                         </div>

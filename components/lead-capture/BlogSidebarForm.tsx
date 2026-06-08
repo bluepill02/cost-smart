@@ -3,6 +3,7 @@
 import { useState, useEffect, FormEvent } from 'react';
 import { Mail, CheckCircle, Sparkles, ArrowRight } from 'lucide-react';
 import { isLeadAlreadyCaptured, markLeadCaptured } from './lead-capture-utils';
+import { submitLeadCapture } from '@/lib/lead-capture-api';
 
 export default function BlogSidebarForm() {
   const [email, setEmail] = useState('');
@@ -11,6 +12,7 @@ export default function BlogSidebarForm() {
 
   useEffect(() => {
     if (isLeadAlreadyCaptured()) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setAlreadyCaptured(true);
     }
   }, []);
@@ -20,6 +22,7 @@ export default function BlogSidebarForm() {
     if (!email) return;
     console.log('[CostSmart Blog Sidebar]', { email });
     markLeadCaptured();
+    submitLeadCapture({ email, formSource: 'costsmart-blog-sidebar-form', pageUrl: window.location.href });
     setSubmitted(true);
   };
 

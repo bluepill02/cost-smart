@@ -32,7 +32,7 @@ async function loadDataIfNeeded() {
         let fileContents = '[]';
         try {
             fileContents = await fs.readFile(filePath, 'utf8');
-        } catch (e) {
+        } catch {
             console.warn('code_block.json not found, using pSEO data only');
         }
         const legacyData: SolarData[] = JSON.parse(fileContents);

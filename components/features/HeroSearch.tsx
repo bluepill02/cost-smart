@@ -75,7 +75,9 @@ export default function HeroSearch() {
           placeholder="Search: SIP, home loan, income tax, GST..."
           className="flex-1 bg-transparent text-white placeholder-white/35 text-[15px] outline-none"
           aria-label="Search calculators"
+          role="combobox"
           aria-autocomplete="list"
+          aria-controls="hero-search-results"
           aria-expanded={focused && results.length > 0}
         />
         {query && (
@@ -89,7 +91,7 @@ export default function HeroSearch() {
       </div>
 
       {focused && results.length > 0 && (
-        <div className="absolute top-full left-0 right-0 mt-2 bg-[#0D1426]/98 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden shadow-2xl z-50" role="listbox">
+        <div className="absolute top-full left-0 right-0 mt-2 bg-[#0D1426]/98 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden shadow-2xl z-50" role="listbox" id="hero-search-results">
           {results.map((tool, i) => (
             <button
               key={tool.href}

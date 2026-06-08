@@ -1,6 +1,6 @@
 import React from 'react';
-import {  Sun, BatteryCharging, DollarSign } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { Sun, BatteryCharging } from 'lucide-react';
+
 import { SubsidyResult } from '@/lib/subsidy-engine';
 
 interface SolarData {

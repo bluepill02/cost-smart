@@ -9,7 +9,7 @@ interface UseCalculatorInsightsProps {
 interface InsightsResponse {
   success: boolean;
   insights: Record<string, string>;
-  analytics: Record<string, any>;
+  analytics: Record<string, unknown>;
 }
 
 export function useCalculatorInsights({ calculatorType, isPro, subscriptionId }: UseCalculatorInsightsProps) {
@@ -18,7 +18,7 @@ export function useCalculatorInsights({ calculatorType, isPro, subscriptionId }:
   const [error, setError] = useState<string | null>(null);
 
   const getInsights = useCallback(
-    async (values: Record<string, number | string>, result: any) => {
+    async (values: Record<string, number | string>, result: unknown) => {
       setLoading(true);
       setError(null);
 
@@ -68,9 +68,9 @@ interface ExportResponse {
   success: boolean;
   export: {
     csv: string;
-    json: Record<string, any>;
+    json: Record<string, unknown>;
   };
-  analytics: Record<string, any>;
+  analytics: Record<string, unknown>;
 }
 
 export function useCalculatorExport() {
@@ -78,7 +78,7 @@ export function useCalculatorExport() {
   const [error, setError] = useState<string | null>(null);
 
   const exportResults = useCallback(
-    async (calculatorType: string, title: string, values: Record<string, any>, result: Record<string, any>) => {
+    async (calculatorType: string, title: string, values: Record<string, unknown>, result: Record<string, unknown>) => {
       setLoading(true);
       setError(null);
 

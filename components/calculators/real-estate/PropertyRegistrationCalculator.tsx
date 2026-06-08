@@ -5,7 +5,7 @@ import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/com
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Button } from '@/components/ui/button';
+
 import { formatCurrency } from '@/lib/formatters';
 import { INDIAN_STATES_STAMP_DUTY } from '@/lib/pseo-data/stamp-duty';
 import ShareButton from '@/components/features/ShareButton';
@@ -23,7 +23,7 @@ export default function PropertyRegistrationCalculator() {
 
   const results = useMemo(() => {
     let stampRate = stateData.stampDutyRate;
-    let regRate = stateData.registrationRate;
+    const regRate = stateData.registrationRate;
 
     // Apply gender concessions if any
     if (gender === 'female') {
@@ -79,7 +79,7 @@ export default function PropertyRegistrationCalculator() {
 
           <div className="space-y-2">
             <Label htmlFor="gender">Owner Gender</Label>
-            <Select value={gender} onValueChange={(val: any) => setGender(val)}>
+            <Select value={gender} onValueChange={(val: string) => setGender(val as 'male' | 'female' | 'joint')}>
               <SelectTrigger id="gender">
                 <SelectValue />
               </SelectTrigger>

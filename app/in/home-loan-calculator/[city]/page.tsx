@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 import { Suspense } from 'react';
 import { notFound } from 'next/navigation';
 import { INDIAN_CITIES, CityData } from '@/lib/pseo-data/cities';
@@ -81,7 +82,8 @@ export default async function CityHomeLoanPage({ params }: PageProps) {
   };
 
   // City-specific market insights
-  const getMarketInsights = (tier: 1 | 2 | 3, cityName: string, state: string) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const getMarketInsights = (tier: 1 | 2 | 3, _cityName: string, _state: string) => {
     const insights = {
       1: {
         avgPrice: '₹8-15 crores',
@@ -118,11 +120,11 @@ export default async function CityHomeLoanPage({ params }: PageProps) {
             {/* Breadcrumb */}
             <nav className="text-sm mb-4 text-blue-100">
               <ol className="flex items-center space-x-2">
-                <li><a href="/" className="hover:text-white">Home</a></li>
+                <li><Link href="/" className="hover:text-white">Home</Link></li>
                 <li>›</li>
-                <li><a href="/home-loan-calculator" className="hover:text-white">Home Loan Calculator</a></li>
+                <li><Link href="/home-loan-calculator" className="hover:text-white">Home Loan Calculator</Link></li>
                 <li>›</li>
-                <li><a href="/in" className="hover:text-white">India</a></li>
+                <li><Link href="/in" className="hover:text-white">India</Link></li>
                 <li>›</li>
                 <li className="text-white font-medium">{cityData.name}</li>
               </ol>

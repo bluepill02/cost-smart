@@ -4,7 +4,7 @@ interface ExportRequest {
   calculatorType: string;
   title: string;
   values: Record<string, number | string>;
-  result: Record<string, any>;
+  result: Record<string, unknown>;
 }
 
 export async function POST(request: NextRequest) {
@@ -64,7 +64,7 @@ export async function POST(request: NextRequest) {
   }
 }
 
-function generateCSV(title: string, values: Record<string, any>, result: Record<string, any>): string {
+function generateCSV(title: string, values: Record<string, unknown>, result: Record<string, unknown>): string {
   const lines: string[] = [];
 
   // Header

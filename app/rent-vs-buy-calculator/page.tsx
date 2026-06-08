@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import RentVsBuyCalculator from '@/components/calculators/real-estate/RentVsBuyCalculator';
-import { getCalculatorSchema, CANONICAL_DOMAIN } from '@/lib/seo-utils';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import JsonLd from '@/components/seo/JsonLd';
 import AmazonRecommendations from '@/components/affiliate/AmazonRecommendations';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
@@ -40,7 +40,7 @@ export default function RentVsBuyPage() {
           Rent vs Buy <span className="text-emerald-600">Calculator</span>
         </h1>
         <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-          The ultimate financial showdown. We use the "Opportunity Cost" method to mathematically determine if you should sign the lease or the deed.
+          The ultimate financial showdown. We use the &quot;Opportunity Cost&quot; method to mathematically determine if you should sign the lease or the deed.
         </p>
       </div>
 
@@ -49,7 +49,7 @@ export default function RentVsBuyPage() {
       <div className="mt-12 prose prose-slate max-w-none">
         <h2>The Math Behind Rent vs Buy</h2>
         <p>
-            It's not as simple as comparing "Monthly Rent" vs "Monthly EMI". To get the true picture, we track the <strong>Net Worth</strong> of two parallel universes over time:
+            It&apos;s not as simple as comparing &quot;Monthly Rent&quot; vs &quot;Monthly EMI&quot;. To get the true picture, we track the <strong>Net Worth</strong> of two parallel universes over time:
         </p>
 
         <h3>Universe A: You Buy</h3>

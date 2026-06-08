@@ -4,6 +4,7 @@ import { useState, useEffect, FormEvent } from 'react';
 import { X, TrendingUp, CheckCircle, ArrowRight } from 'lucide-react';
 import { useLeadCaptureContext } from './LeadCaptureContext';
 import { isLeadAlreadyCaptured, markLeadCaptured } from './lead-capture-utils';
+import { submitLeadCapture } from '@/lib/lead-capture-api';
 
 export default function FloatingBottomBar() {
   const [visible, setVisible] = useState(false);
@@ -15,6 +16,7 @@ export default function FloatingBottomBar() {
 
   useEffect(() => {
     if (isLeadAlreadyCaptured()) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setAlreadyCaptured(true);
       return;
     }
@@ -50,6 +52,7 @@ export default function FloatingBottomBar() {
     if (!email) return;
     console.log('[CostSmart Bottom Bar]', { email });
     markLeadCaptured();
+    submitLeadCapture({ email, formSource: 'costsmart-bottombar-form', pageUrl: window.location.href });
     setSubmitted(true);
     setTimeout(() => {
       handleDismiss();

@@ -15,6 +15,7 @@ export default function SoftAdBlockMessage() {
     // Only show once per session
     const shown = sessionStorage.getItem('costsmart_adblock_notice');
     if (!shown) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setDismissed(false);
       sessionStorage.setItem('costsmart_adblock_notice', '1');
     }

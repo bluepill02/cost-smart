@@ -17,7 +17,6 @@ interface ResultsWithAdsProps {
 export default function ResultsWithAds({
   children,
   adSlotId,
-  calculatorName = 'Calculator'
 }: ResultsWithAdsProps) {
   return (
     <div className="w-full space-y-6">

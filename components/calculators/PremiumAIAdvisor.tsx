@@ -12,7 +12,7 @@ import { trackEvent } from '@/lib/gtag';
 interface PremiumAIAdvisorProps {
   calculatorType: 'loan-calculator' | 'investment-calculator' | 'tax-calculator' | 'salary-calculator';
   values: Record<string, number | string>;
-  result: Record<string, any>;
+  result: Record<string, unknown>;
   currency?: string;
   locale?: string;
 }
@@ -21,8 +21,6 @@ export default function PremiumAIAdvisor({
   calculatorType,
   values,
   result,
-  currency = 'USD',
-  locale = 'en-US'
 }: PremiumAIAdvisorProps) {
   const { isPro: proStatus, subscriptionId } = useProStatus();
   const { insights, loading, error, getInsights } = useCalculatorInsights({ calculatorType, isPro: proStatus, subscriptionId });

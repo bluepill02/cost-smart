@@ -300,6 +300,7 @@ export default function DocumentScanner() {
               <p className="text-sm text-gray-600">{loadingStage}</p>
               {imagePreview && (
                 <div className="mt-6 max-w-xs mx-auto">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={imagePreview}
                     alt="Uploaded document"
@@ -324,6 +325,7 @@ export default function DocumentScanner() {
                   <CardTitle className="text-sm">Scanned Document</CardTitle>
                 </CardHeader>
                 <CardContent>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={imagePreview}
                     alt="Scanned document"

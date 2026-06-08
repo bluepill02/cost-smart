@@ -7,8 +7,8 @@ import ShareableURLManager from '@/lib/shareable-url';
 
 export interface ShareButtonProps {
   calculator: string;
-  inputs: Record<string, any>;
-  results?: Record<string, any>;
+  inputs: Record<string, unknown>;
+  results?: Record<string, unknown>;
   title?: string;
   message?: string;
   variant?: 'default' | 'outline' | 'ghost' | 'secondary' | 'destructive' | 'link';
@@ -198,6 +198,7 @@ export interface SharedCalculationBannerProps {
 }
 
 export function SharedCalculationBanner({
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   calculator,
   dataAge,
   isFresh = true,
@@ -210,7 +211,7 @@ export function SharedCalculationBanner({
         <Share2 className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
         <div className="flex-1">
           <p className="font-semibold text-blue-900 mb-1">
-            You're viewing a shared calculation
+            You&apos;re viewing a shared calculation
           </p>
           <p className="text-sm text-blue-700">
             {dataAge && `This calculation was shared ${dataAge}. `}

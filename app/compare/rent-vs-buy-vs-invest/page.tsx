@@ -26,11 +26,11 @@ export default function RentVsBuyVsInvestPage() {
   const faqs = [
     {
       question: "Is it better to rent or buy a house in India in 2026?",
-      answer: "Depends on your situation. Buy if you're settled in one city for 10+ years, have 20-30% down payment, and want stability. Rent if you're mobile (job changes), lack down payment, or can invest the difference in equity funds for 12-15% returns vs 5-7% real estate appreciation."
+      answer: "Depends on your situation. Buy if you&apos;re settled in one city for 10+ years, have 20-30% down payment, and want stability. Rent if you&apos;re mobile (job changes), lack down payment, or can invest the difference in equity funds for 12-15% returns vs 5-7% real estate appreciation."
     },
     {
       question: "What if I rent and invest the difference in SIP?",
-      answer: "This is often the smartest strategy! Rent a ₹80L property for ₹25K/month, invest your would-be EMI (₹65K) in equity SIP. After 20 years: Home = ₹2.4 Cr (₹80L principal + ₹60L interest paid). SIP = ₹5.2 Cr (₹1.56Cr invested, ₹3.64Cr gains @ 12%). You're ₹2.8Cr richer by renting + investing!"
+      answer: "This is often the smartest strategy! Rent a ₹80L property for ₹25K/month, invest your would-be EMI (₹65K) in equity SIP. After 20 years: Home = ₹2.4 Cr (₹80L principal + ₹60L interest paid). SIP = ₹5.2 Cr (₹1.56Cr invested, ₹3.64Cr gains @ 12%). You&apos;re ₹2.8Cr richer by renting + investing!"
     },
     {
       question: "When does buying make more sense than renting?",
@@ -42,7 +42,7 @@ export default function RentVsBuyVsInvestPage() {
     },
     {
       question: "Should young professionals (25-35) buy or rent?",
-      answer: "RENT and invest! Your 20s-30s are high income-growth years with job mobility. Renting gives flexibility to switch cities for better opportunities. Invest EMI-equivalent in equity SIP for 12-15% returns. Buy after 35 when you're settled. Missing out on 10 years of equity compounding costs you ₹1-2 Cr in wealth."
+      answer: "RENT and invest! Your 20s-30s are high income-growth years with job mobility. Renting gives flexibility to switch cities for better opportunities. Invest EMI-equivalent in equity SIP for 12-15% returns. Buy after 35 when you&apos;re settled. Missing out on 10 years of equity compounding costs you ₹1-2 Cr in wealth."
     }
   ];
 
@@ -281,12 +281,12 @@ export default function RentVsBuyVsInvestPage() {
                 <div className="border-l-4 border-blue-500 pl-4">
                   <h3 className="font-bold text-lg mb-2">Choose RENT if:</h3>
                   <ul className="space-y-2 text-slate-700 text-sm">
-                    <li>✓ You're under 30 years old</li>
+                    <li>✓ You&apos;re under 30 years old</li>
                     <li>✓ Job requires city changes every 2-4 years</li>
                     <li>✓ Saving for down payment (need mobility)</li>
                     <li>✓ Want minimal responsibility</li>
                     <li>✓ Prefer experiences over ownership</li>
-                    <li>✓ Don't have ₹15-20L saved</li>
+                    <li>✓ Don&apos;t have ₹15-20L saved</li>
                   </ul>
                 </div>
 
@@ -296,7 +296,7 @@ export default function RentVsBuyVsInvestPage() {
                     <li>✓ Settled in one city for 10+ years</li>
                     <li>✓ Have 25-30% down payment saved</li>
                     <li>✓ Stable income (2X EMI safety buffer)</li>
-                    <li>✓ Family needs (kids' schooling stability)</li>
+                    <li>✓ Family needs (kids&apos; schooling stability)</li>
                     <li>✓ Emotional value of ownership matters</li>
                     <li>✓ Property in high-growth area (Metro)</li>
                     <li>✓ Can afford maintenance (₹10K+/month)</li>
@@ -324,8 +324,8 @@ export default function RentVsBuyVsInvestPage() {
                     <p className="font-semibold text-amber-900 mb-2">The Winner: Rent + Invest (for Most People Under 35)</p>
                     <p className="text-slate-700">
                       <strong>If you invest the EMI-rent difference (₹40K/month) in equity SIP for 20 years at 12% returns, 
-                      you'll build ₹5.2 Cr vs ₹2.4 Cr home value.</strong> You can then buy 2 houses cash, or retire early. 
-                      Buy a home after 40 when you're settled and have ₹1 Cr+ corpus from SIP.
+                      you&apos;ll build ₹5.2 Cr vs ₹2.4 Cr home value.</strong> You can then buy 2 houses cash, or retire early. 
+                      Buy a home after 40 when you&apos;re settled and have ₹1 Cr+ corpus from SIP.
                     </p>
                   </div>
                 </div>
@@ -347,7 +347,7 @@ export default function RentVsBuyVsInvestPage() {
                       <h4 className="font-bold text-lg text-blue-900 mb-2">Renter Success Story: Rahul, 28, Software Engineer</h4>
                       <p className="text-slate-700 mb-2">
                         Switched jobs 3 times in 5 years (Bangalore → Pune → Hyderabad). Renting cost ₹20-30K/month. 
-                        If he'd bought in Bangalore (2021), he'd be stuck or selling at loss. Renting gave him career mobility 
+                        If he&apos;d bought in Bangalore (2021), he&apos;d be stuck or selling at loss. Renting gave him career mobility 
                         enabling ₹35L → ₹75L salary growth.
                       </p>
                       <p className="text-sm font-semibold text-blue-800">Outcome: Career growth &gt; Real estate appreciation</p>
@@ -399,16 +399,16 @@ export default function RentVsBuyVsInvestPage() {
             <CardContent>
               <div className="space-y-4">
                 <div className="border-l-4 border-red-400 pl-4 bg-red-50 p-4 rounded-r">
-                  <p className="font-bold text-red-900 mb-1">❌ Myth: "Rent is wasted money"</p>
+                  <p className="font-bold text-red-900 mb-1">❌ Myth: &quot;Rent is wasted money&quot;</p>
                   <p className="text-slate-700 text-sm">
-                    <strong>Reality:</strong> EMI interest (₹60L on ₹80L loan) is also "wasted". 
+                    <strong>Reality:</strong> EMI interest (₹60L on ₹80L loan) is also &quot;wasted&quot;. 
                     Add stamp duty (₹5.6L), maintenance (₹24L/20yr), property tax (₹4L). 
-                    Total "wasted" = ₹93.6L. Rent over 20 years = ₹97L. Almost same!
+                    Total &quot;wasted&quot; = ₹93.6L. Rent over 20 years = ₹97L. Almost same!
                   </p>
                 </div>
 
                 <div className="border-l-4 border-red-400 pl-4 bg-red-50 p-4 rounded-r">
-                  <p className="font-bold text-red-900 mb-1">❌ Myth: "Real estate always appreciates"</p>
+                  <p className="font-bold text-red-900 mb-1">❌ Myth: &quot;Real estate always appreciates&quot;</p>
                   <p className="text-slate-700 text-sm">
                     <strong>Reality:</strong> Avg Indian residential property: 5-7% growth (Metro). 
                     Tier-2/3 cities: 2-4%. Sensex/Nifty: 12-15% (40 years). SIP beats property in 9 out of 10 cases over 15+ years.
@@ -416,7 +416,7 @@ export default function RentVsBuyVsInvestPage() {
                 </div>
 
                 <div className="border-l-4 border-red-400 pl-4 bg-red-50 p-4 rounded-r">
-                  <p className="font-bold text-red-900 mb-1">❌ Myth: "I'll own an asset"</p>
+                  <p className="font-bold text-red-900 mb-1">❌ Myth: &quot;I&apos;ll own an asset&quot;</p>
                   <p className="text-slate-700 text-sm">
                     <strong>Reality:</strong> Bank owns your home for 20 years. You own ₹0 until last EMI. 
                     Meanwhile, SIP investor owns ₹1 Cr liquid assets in year 10 itself (can withdraw anytime).
@@ -424,7 +424,7 @@ export default function RentVsBuyVsInvestPage() {
                 </div>
 
                 <div className="border-l-4 border-red-400 pl-4 bg-red-50 p-4 rounded-r">
-                  <p className="font-bold text-red-900 mb-1">❌ Myth: "Rent keeps increasing"</p>
+                  <p className="font-bold text-red-900 mb-1">❌ Myth: &quot;Rent keeps increasing&quot;</p>
                   <p className="text-slate-700 text-sm">
                     <strong>Reality:</strong> EMI is fixed, but maintenance increases 10-15% yearly. 
                     Society charges, property tax, repair costs grow faster than rent. Total cost of ownership increases too.
@@ -503,8 +503,8 @@ export default function RentVsBuyVsInvestPage() {
                   <p className="font-semibold text-emerald-900 mb-2">Key Insight: The Power o Compound Interest</p>
                   <p className="text-slate-700 text-sm">
                     Equity SIP compounds at 12-15% vs real estate at 5-7%. Over 20+ years, this 7% difference creates 
-                    <strong> 3-5X more wealth</strong>. That's why Warren Buffett says: "The stock market is a device for 
-                    transferring money from the impatient to the patient."
+                    <strong> 3-5X more wealth</strong>. That&apos;s why Warren Buffett says: &quot;The stock market is a device for 
+                    transferring money from the impatient to the patient.&quot;
                   </p>
                 </div>
               </div>

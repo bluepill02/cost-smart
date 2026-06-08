@@ -2,6 +2,7 @@
 import fs from 'fs';
 import path from 'path';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const calcDir = path.join(process.cwd(), 'app');
 const componentsDir = path.join(process.cwd(), 'components/calculators');
 

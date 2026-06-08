@@ -3,6 +3,7 @@
 import { useState, useEffect, FormEvent } from 'react';
 import { Mail, Sparkles, CheckCircle, ArrowRight } from 'lucide-react';
 import { isLeadAlreadyCaptured, markLeadCaptured } from './lead-capture-utils';
+import { submitLeadCapture } from '@/lib/lead-capture-api';
 
 export default function NewsletterInlineForm() {
   const [email, setEmail] = useState('');
@@ -12,6 +13,7 @@ export default function NewsletterInlineForm() {
 
   useEffect(() => {
     if (isLeadAlreadyCaptured()) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setAlreadyCaptured(true);
     }
   }, []);
@@ -21,6 +23,7 @@ export default function NewsletterInlineForm() {
     if (!email) return;
     console.log('[CostSmart Newsletter]', { name, email });
     markLeadCaptured();
+    submitLeadCapture({ email, name, formSource: 'costsmart-newsletter-form', pageUrl: window.location.href });
     setSubmitted(true);
   };
 
