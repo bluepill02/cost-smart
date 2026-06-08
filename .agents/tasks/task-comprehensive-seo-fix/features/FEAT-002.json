@@ -2,7 +2,7 @@
   "id": "FEAT-002",
   "type": "feat",
   "description": "Add WebSite + SoftwareApplication JSON-LD schema to homepage, add OG tags to all pages missing them, add CalculatorSchemaInjector (with FAQPage schema) to all calculator pages that currently only have SoftwareApplication schema, add schema and OG tags to editorial blog posts, and fix keyword targeting issues on Retirement Calculator and Indian Salary Calculator.",
-  "status": "in_progress",
+  "status": "completed",
   "steps": [
     "1. HOMEPAGE SCHEMA: In app/page.tsx, add WebSite JSON-LD schema (with SearchAction for site search) and SoftwareApplication JSON-LD. Import JsonLd from components/seo/JsonLd and render two JsonLd components at the top of the HomePage component. Also add openGraph metadata to the existing metadata export.",
     "2. OG TAGS FOR CALCULATOR PAGES: Add openGraph property to metadata in all calculator pages that are missing it. Pages missing OG include: app/emergency-fund-calculator/page.tsx, app/fd-calculator/page.tsx, app/freelance-rate-calculator/page.tsx, app/home-loan-calculator/page.tsx, app/home-renovation-cost-estimator/page.tsx, app/import-duty/page.tsx, app/inflation/page.tsx, app/invoice-generator/page.tsx, app/moving-cost-calculator/page.tsx, app/neighborhood-explorer/page.tsx, app/rent-vs-buy-calculator/page.tsx, app/retirement-calculator/page.tsx, app/shipping-cost-calculator/page.tsx, app/solar-roi/page.tsx, app/in/property-registration-cost-calculator/page.tsx, app/in/rent-vs-buy-calculator/page.tsx, app/in/home-loan-calculator/page.tsx, app/business-loan-calculator/page.tsx, app/currency/page.tsx. Use the pattern: openGraph: { title: same-as-title, description: same-as-description, url: `${CANONICAL_DOMAIN}/path`, type: 'website' }",
@@ -27,5 +27,5 @@
     "Run: grep -rn 'openGraph' /projects/sandbox/cost-smart/app/blog/sip-vs-lumpsum/page.tsx -- should find OG tags"
   ],
   "blocked_reason": null,
-  "findings": ""
+  "findings": "All 6 steps completed successfully. Build passes. Note: rent-vs-buy-math, gst-inclusive-vs-exclusive, and home-loan-prepayment-benefits blog posts already use BlogLayout (which injects BlogPosting schema), so they were skipped from Step 4 editorial blog additions. 3 blog posts from the original list that use BlogLayout were correctly excluded. The remaining 8 editorial posts received Article schema + OG tags. All calculator pages now use CalculatorSchemaInjector with appropriate calculatorType categories. The moving-cost-calculator page keeps its custom FAQ schema via JsonLd (separate from CalculatorSchemaInjector FAQ) since it has page-specific moving FAQs in addition to the default general FAQs from CalculatorSchemaInjector."
 }
