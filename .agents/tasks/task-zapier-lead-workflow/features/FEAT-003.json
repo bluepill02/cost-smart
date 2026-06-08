@@ -2,7 +2,7 @@
   "id": "FEAT-003",
   "type": "fix",
   "description": "Fix ALL 522 lint errors and warnings across the entire codebase. Breakdown: 308 react/no-unescaped-entities (apostrophes/quotes in blog posts), 99 @typescript-eslint/no-unused-vars, 53 @next/next/no-html-link-for-pages (use Next.js Link), 30 @typescript-eslint/no-explicit-any, 4 @typescript-eslint/no-require-imports, 4 react-hooks/exhaustive-deps, 4 prefer-const, 2 no-var, 2 @next/next/no-img-element, 1 jsx-a11y/role-supports-aria-props.",
-  "status": "in_progress",
+  "status": "completed",
   "steps": [
     "Fix 308 react/no-unescaped-entities errors: Replace ' with &apos; and double quotes with &quot; in JSX text content across all blog pages in app/blog/",
     "Fix 53 @next/next/no-html-link-for-pages errors: Replace <a href='/...'> with <Link href='/...'> from next/link in all blog pages. Add Link import where needed.",
@@ -26,5 +26,5 @@
     "Run 'pnpm build' in /projects/sandbox/cost-smart and confirm it succeeds"
   ],
   "blocked_reason": null,
-  "findings": ""
+  "findings": "All 522+ lint errors/warnings fixed. Also fixed 15 additional react-hooks/set-state-in-effect errors from new eslint-plugin-react-hooks version. Changed Record<string, any> to Record<string, unknown> which required type assertions at a few call sites. Removed dead code (accumulated but never read variables in RentVsBuyCalculator). Build and lint both pass clean."
 }
