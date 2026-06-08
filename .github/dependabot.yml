@@ -1,0 +1,75 @@
+# To get started with Dependabot version updates, you'll need to specify which
+# package ecosystems to update and where the package manifests are located.
+# Please see the documentation for all configuration options:
+# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Asia/Kolkata"
+    labels:
+      - "dependencies"
+      - "npm"
+    commit-message:
+      prefix: "chore"
+      include: "scope"
+    open-pull-requests-limit: 10
+    groups:
+      # Group 1: Core Framework (React & Next.js)
+      react-and-next:
+        patterns:
+          - "react"
+          - "react-dom"
+          - "next"
+          - "eslint-config-next"
+          - "babel-plugin-react-compiler"
+          
+      # Group 2: UI Primitives
+      radix-ui:
+        patterns:
+          - "@radix-ui/*"
+          
+      # Group 3: Styling and Icons
+      styling-and-design:
+        patterns:
+          - "tailwindcss"
+          - "@tailwindcss/*"
+          - "clsx"
+          - "tailwind-merge"
+          - "tw-animate-css"
+          - "class-variance-authority"
+          - "lucide-react"
+          
+      # Group 4: End-to-End Testing
+      testing:
+        patterns:
+          - "@playwright/*"
+          
+      # Group 5: Catch-all for other minor/patch updates (e.g., yahoo-finance2, recharts)
+      other-minor-patch:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
+
+  # Maintain your CI/CD workflows securely
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Asia/Kolkata"
+    labels:
+      - "dependencies"
+      - "actions"
+    groups:
+      github-actions:
+        patterns:
+          - "*"
