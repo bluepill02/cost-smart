@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback, FormEvent } from 'react';
 import { X, Gift, CheckCircle, Mail, ArrowRight } from 'lucide-react';
 import { useLeadCaptureContext } from './LeadCaptureContext';
 import { isLeadAlreadyCaptured, markLeadCaptured } from './lead-capture-utils';
+import { submitLeadCapture } from '@/lib/lead-capture-api';
 
 export default function ExitIntentPopup() {
   const [visible, setVisible] = useState(false);
@@ -23,6 +24,7 @@ export default function ExitIntentPopup() {
 
   useEffect(() => {
     if (isLeadAlreadyCaptured()) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setAlreadyCaptured(true);
       return;
     }
@@ -55,6 +57,7 @@ export default function ExitIntentPopup() {
     if (!email) return;
     console.log('[CostSmart Exit Intent]', { name, email });
     markLeadCaptured();
+    submitLeadCapture({ email, name, formSource: 'costsmart-exit-intent-form', pageUrl: window.location.href });
     setSubmitted(true);
   };
 

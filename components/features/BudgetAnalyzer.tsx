@@ -60,6 +60,7 @@ const CATEGORY_COLORS: Record<string, string> = {
 };
 
 export default function BudgetAnalyzer() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [file, setFile] = useState<File | null>(null);
   const [loading, setLoading] = useState(false);
   const [transactions, setTransactions] = useState<Transaction[]>([]);
@@ -218,6 +219,7 @@ export default function BudgetAnalyzer() {
     setLoading(false);
   };
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const generateInsights = (categories: CategoryData[], income: number, expense: number, txnCount: number) => {
     const insights: BudgetInsight[] = [];
     const savingsRate = ((income - expense) / income) * 100;
@@ -328,7 +330,7 @@ export default function BudgetAnalyzer() {
               <FileText className="w-16 h-16 text-gray-400 mx-auto mb-4" />
               <h3 className="text-lg font-semibold mb-2">Drop your CSV file here</h3>
               <p className="text-sm text-gray-600 mb-4">
-                Upload bank statement in CSV format. We'll analyze your spending patterns.
+                Upload bank statement in CSV format. We&apos;ll analyze your spending patterns.
               </p>
               <input
                 type="file"

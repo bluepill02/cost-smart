@@ -1,8 +1,8 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 // import MarketTicker from '@/components/features/MarketTicker';
 import DashboardHistory from '@/components/features/DashboardHistory';
 import { LayoutDashboard } from 'lucide-react';
-import { Card, CardContent } from '@/components/ui/card';
+
 
 export const metadata = {
       alternates: { canonical: 'https://cost-smart-five.vercel.app/dashboard' },

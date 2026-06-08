@@ -24,6 +24,7 @@ export default function StampDutyCalculator({
 
     // Update state when props change (e.g. navigation between state pages)
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setStampDutyRate(defaultStampRate);
         setRegistrationRate(defaultRegRate);
     }, [defaultStampRate, defaultRegRate]);

@@ -1,11 +1,11 @@
 "use client";
 
 import React, { useState, useMemo } from 'react';
-import { Calculator, ArrowRight, Wallet, Percent, ShieldCheck, AlertCircle } from 'lucide-react';
+import { Wallet, AlertCircle } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
-import { Switch } from "@/components/ui/switch";
+
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { formatCurrency } from '@/lib/formatters';
 import { TAX_CONSTANTS_FY24_25 } from '@/lib/tax-data';
@@ -19,6 +19,7 @@ export default function IndiaTaxCalculator() {
     const [section80D, setSection80D] = useState<number>(0);
     const [hra, setHra] = useState<number>(0);
     const [lta, setLta] = useState<number>(0);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [otherDeductions, setOtherDeductions] = useState<number>(0);
 
     const result = useMemo(() => {

@@ -90,7 +90,7 @@ export default function BudgetAnalyzerPage() {
           </h3>
           <p className="text-sm text-green-800">
             All analysis happens directly in your browser. Your bank statement data never leaves your device.
-            We don't upload, store, or transmit any of your financial information to any server.
+            We don&apos;t upload, store, or transmit any of your financial information to any server.
           </p>
         </div>
 

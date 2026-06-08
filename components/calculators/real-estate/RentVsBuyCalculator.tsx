@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from 'react';
-import { Home, TrendingUp, DollarSign, ArrowRight, Building } from 'lucide-react';
+import { Home, ArrowRight, Building } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
@@ -66,17 +66,12 @@ export default function RentVsBuyCalculator() {
 
         // Simulation
         const data = [];
-        let buyNetWorth = downPayment; // Starts with equity (roughly, ignoring fees for simplicity)
         let rentNetWorth = downPayment; // Starts with cash invested
 
         let currentPropertyValue = propertyPrice;
         let currentLoanBalance = loanAmount;
         let currentRent = monthlyRent;
         let currentMaintenance = (propertyPrice * (maintenanceRate / 100)) / 12;
-
-        let totalRentPaid = 0;
-        let totalBuyPayments = 0; // EMI + Maint
-        let totalInterestPaid = 0;
 
         for (let m = 1; m <= years * 12; m++) {
             // BUY Scenario Update
@@ -85,11 +80,9 @@ export default function RentVsBuyCalculator() {
             const principal = emi - interest;
             currentLoanBalance -= principal;
             if (currentLoanBalance < 0) currentLoanBalance = 0;
-            totalInterestPaid += interest;
 
             // 2. Costs
             const monthlyBuyCost = emi + currentMaintenance;
-            totalBuyPayments += monthlyBuyCost;
 
             // 3. Appreciation (Monthly compounding for smoothness)
             currentPropertyValue *= (1 + (appreciationRate / 100 / 12));
@@ -98,7 +91,6 @@ export default function RentVsBuyCalculator() {
             // RENT Scenario Update
             // 1. Costs
             const monthlyRentCost = currentRent;
-            totalRentPaid += monthlyRentCost;
 
             // 2. Investment (Opportunity Cost)
             // The difference between (Buy Outflow) and (Rent Outflow) is invested/withdrawn
@@ -309,7 +301,7 @@ export default function RentVsBuyCalculator() {
                     <p className="text-sm text-slate-800">
                         {result.winner === 'buy' ? (
                             <span>
-                                Buying wins because property appreciation ({appreciationRate}%) and forced savings (equity buildup) outweigh the returns you'd get from investing the difference ({investmentReturn}%).
+                                Buying wins because property appreciation ({appreciationRate}%) and forced savings (equity buildup) outweigh the returns you&apos;d get from investing the difference ({investmentReturn}%).
                             </span>
                         ) : (
                             <span>

@@ -23,6 +23,7 @@ export default function DashboardHistory() {
     };
 
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setMounted(true);
         loadHistory();
 
@@ -58,7 +59,7 @@ export default function DashboardHistory() {
                         <h3 className="text-lg font-semibold text-slate-700">No Saved Scenarios Yet</h3>
                         <p className="text-slate-500 max-w-md mt-2 mb-6">
                             Use our calculators to plan your loans, investments, or solar savings.
-                            Click "Save Scenario" on any result to pin it here.
+                            Click &quot;Save Scenario&quot; on any result to pin it here.
                         </p>
                         <div className="flex gap-4">
                             <Link href="/home-loan-calculator">

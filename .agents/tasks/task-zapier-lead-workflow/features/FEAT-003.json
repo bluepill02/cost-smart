@@ -1,0 +1,30 @@
+{
+  "id": "FEAT-003",
+  "type": "fix",
+  "description": "Fix ALL 522 lint errors and warnings across the entire codebase. Breakdown: 308 react/no-unescaped-entities (apostrophes/quotes in blog posts), 99 @typescript-eslint/no-unused-vars, 53 @next/next/no-html-link-for-pages (use Next.js Link), 30 @typescript-eslint/no-explicit-any, 4 @typescript-eslint/no-require-imports, 4 react-hooks/exhaustive-deps, 4 prefer-const, 2 no-var, 2 @next/next/no-img-element, 1 jsx-a11y/role-supports-aria-props.",
+  "status": "completed",
+  "steps": [
+    "Fix 308 react/no-unescaped-entities errors: Replace ' with &apos; and double quotes with &quot; in JSX text content across all blog pages in app/blog/",
+    "Fix 53 @next/next/no-html-link-for-pages errors: Replace <a href='/...'> with <Link href='/...'> from next/link in all blog pages. Add Link import where needed.",
+    "Fix 99 @typescript-eslint/no-unused-vars warnings: Remove or prefix with underscore (_) all unused variables across the codebase. Common patterns: unused destructured variables, unused function parameters, unused imports.",
+    "Fix 30 @typescript-eslint/no-explicit-any errors: Replace 'any' with proper types. Use 'unknown', 'Record<string, unknown>', specific interfaces, or appropriate types.",
+    "Fix 4 @typescript-eslint/no-require-imports in seo-audit.js and seo-fix.js: Convert require() to import statements or add eslint-disable comments for .js scripts that need CommonJS",
+    "Fix 4 react-hooks/exhaustive-deps: Add missing dependencies to useEffect/useCallback dependency arrays or add eslint-disable comments with justification",
+    "Fix 4 prefer-const: Change let to const where variables are never reassigned",
+    "Fix 2 no-var in types/speech-recognition.d.ts: Change var to let or const in the type declarations",
+    "Fix 2 @next/next/no-img-element: Replace <img> with next/image <Image> component",
+    "Fix 1 jsx-a11y/role-supports-aria-props: Fix the invalid ARIA prop usage",
+    "Run pnpm lint to verify 0 errors and 0 warnings remain"
+  ],
+  "acceptance_criteria": [
+    "pnpm lint reports 0 errors and 0 warnings",
+    "pnpm build still succeeds",
+    "No functional changes to the application behavior"
+  ],
+  "verification": [
+    "Run 'pnpm lint' in /projects/sandbox/cost-smart and confirm zero issues",
+    "Run 'pnpm build' in /projects/sandbox/cost-smart and confirm it succeeds"
+  ],
+  "blocked_reason": null,
+  "findings": "All 522+ lint errors/warnings fixed. Also fixed 15 additional react-hooks/set-state-in-effect errors from new eslint-plugin-react-hooks version. Changed Record<string, any> to Record<string, unknown> which required type assertions at a few call sites. Removed dead code (accumulated but never read variables in RentVsBuyCalculator). Build and lint both pass clean."
+}

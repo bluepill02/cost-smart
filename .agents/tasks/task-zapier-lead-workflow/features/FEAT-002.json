@@ -1,0 +1,31 @@
+{
+  "id": "FEAT-002",
+  "type": "docs",
+  "description": "Create comprehensive ZAPIER_WORKFLOW_GUIDE.md documentation covering Catch Hook setup, recommended Zaps for lead engagement/conversion, creative automation ideas with personalized paths based on calculator usage, and the full integration architecture.",
+  "status": "completed",
+  "steps": [
+    "Create ZAPIER_WORKFLOW_GUIDE.md at the project root with the following sections:",
+    "Section 1 - Overview: explain the integration architecture (forms -> /api/lead-capture -> Zapier Catch Hook -> downstream automations)",
+    "Section 2 - Setup: step-by-step instructions for creating a Zapier Catch Hook trigger, getting the webhook URL, and configuring ZAPIER_WEBHOOK_URL env var in Vercel",
+    "Section 3 - Payload Reference: document all fields sent to Zapier (email, name, form_source, page_url, timestamp, utm_params, lead_score, lead_segment, lead_tier, engagement_path, calculator_context, referrer, user_agent, submitted_at)",
+    "Section 4 - Recommended Zaps: detail 6+ creative zap workflows: (1) Welcome email sequence with personalization based on form source, (2) Lead scoring/tagging in CRM (HubSpot/Apollo), (3) Hot lead instant notification to Slack/Teams, (4) Calculator-specific follow-up drip (different content for SIP vs EMI vs PPF calculator users), (5) Re-engagement campaign for cool/cold leads after 7 days, (6) Weekly lead digest summary to team, (7) UTM-based attribution tracking in Google Sheets",
+    "Section 5 - Creative Automation Ideas: personalized follow-ups based on calculator used (e.g., SIP users get mutual fund content, EMI users get loan comparison content), exit-intent captures get urgency-based re-engagement, time-based triggers (morning financial tips for newsletter subscribers), engagement scoring ladder (promote cool leads to warm based on email opens)",
+    "Section 6 - Lead Scoring Reference Table: explain the scoring model, tiers, segments, and how they map to automation actions",
+    "Section 7 - Free Tier Considerations: Zapier free/starter tier limits (100 tasks/month on free, 750 on starter), recommendations for task-efficient zap design (multi-step zaps count as 1 task per trigger), batch operations where possible",
+    "Section 8 - Testing: how to test the webhook locally (curl example), how to verify Zapier receives data, troubleshooting common issues"
+  ],
+  "acceptance_criteria": [
+    "ZAPIER_WORKFLOW_GUIDE.md exists at the project root",
+    "Document covers all 8 sections listed above",
+    "Includes at least 6 concrete Zap workflow examples with step-by-step configuration",
+    "Includes curl command for local testing",
+    "Includes a payload reference table with all fields",
+    "The file is well-formatted markdown that renders correctly"
+  ],
+  "verification": [
+    "Run 'pnpm build' in /projects/sandbox/cost-smart to confirm no regressions",
+    "Verify ZAPIER_WORKFLOW_GUIDE.md exists and has substantial content (at least 200 lines)"
+  ],
+  "blocked_reason": null,
+  "findings": "Document is 789 lines with all 8 sections. Build passes cleanly. Lint has 522 pre-existing errors (confirmed same count with git stash test) - none introduced by this change since .md files are not linted."
+}

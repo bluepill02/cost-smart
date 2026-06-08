@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import {
   Calculator, TrendingUp, Home, Briefcase, Sun, DollarSign,
   ArrowRight, Star, Shield, Zap, Users, BarChart3, Receipt,
-  CreditCard, PiggyBank, Building, Globe, FileText, CheckCircle,
+  PiggyBank, Building, Globe, FileText, CheckCircle,
   Ship, ShieldOff, MapPin,
 } from 'lucide-react';
 import AdContainer from '@/components/ads/AdContainer';

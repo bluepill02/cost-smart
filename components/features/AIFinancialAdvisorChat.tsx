@@ -470,7 +470,7 @@ export default function AIFinancialAdvisor() {
                 </Button>
               </div>
               <p className="text-xs text-gray-500 mt-2">
-                Tip: Try asking "How do I save for retirement?" or "Should I buy or rent?"
+                Tip: Try asking &quot;How do I save for retirement?&quot; or &quot;Should I buy or rent?&quot;
               </p>
             </div>
           </CardContent>

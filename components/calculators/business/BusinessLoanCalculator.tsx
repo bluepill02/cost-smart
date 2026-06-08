@@ -199,10 +199,10 @@ export default function BusinessLoanCalculator() {
                 <div className="bg-blue-50 p-4 rounded-xl border border-blue-100">
                     <h4 className="font-bold text-blue-900 flex items-center gap-2 mb-2">
                         <ArrowRight size={18}/>
-                        Lender's Perspective
+                        Lender&apos;s Perspective
                     </h4>
                     <p className="text-sm text-blue-800">
-                        Banks look at your <strong>DSCR (Debt Service Coverage Ratio)</strong>. Since we don't have your profit details, we used a turnover proxy.
+                        Banks look at your <strong>DSCR (Debt Service Coverage Ratio)</strong>. Since we don&apos;t have your profit details, we used a turnover proxy.
                         Ensure your Net Profit covers the EMI by at least <strong>1.5 times</strong>.
                     </p>
                 </div>

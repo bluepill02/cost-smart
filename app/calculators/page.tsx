@@ -1,12 +1,12 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import {
-  Calculator, TrendingUp, Home, Briefcase, Sun, DollarSign,
-  Receipt, CreditCard, PiggyBank, Building, ArrowRight, Zap,
-  BarChart3, Globe, Truck, FileText, Shield, Users, ShoppingCart,
+  Calculator, TrendingUp, Home, Briefcase, Sun,
+  Receipt, PiggyBank, ArrowRight, Zap,
+  BarChart3, Shield,
 } from 'lucide-react';
 import AdContainer from '@/components/ads/AdContainer';
-import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
+
 
 export const metadata: Metadata = {
   title: 'All Financial Calculators - Free Online Tools | CostSmart',
@@ -230,7 +230,7 @@ export default function AllCalculatorsPage() {
 
                 {/* Tools Grid */}
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-0 divide-y sm:divide-y-0 sm:divide-x divide-slate-100">
-                  {cat.tools.map((tool, toolIdx) => (
+                  {cat.tools.map((tool) => (
                     <Link
                       key={tool.href}
                       href={tool.href}

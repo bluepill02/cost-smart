@@ -56,7 +56,7 @@ function rewriteBlogContent() {
   files.forEach(dir => {
     const pagePath = path.join(blogDir, dir, 'page.tsx');
     if (fs.existsSync(pagePath)) {
-      let content = fs.readFileSync(pagePath, 'utf-8');
+      const content = fs.readFileSync(pagePath, 'utf-8');
 
       // Extract metadata to preserve it
       const metadataMatch = content.match(/export const metadata[\s\S]*?};/);

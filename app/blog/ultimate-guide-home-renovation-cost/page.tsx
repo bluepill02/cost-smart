@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Home Renovation Costs India 2025 Guide | CostSmart',
@@ -49,7 +50,7 @@ export default function Post() {
 
       <h3>2. Flooring Costs</h3>
       <p>
-        Flooring takes up a large chunk of the budget and defines the home's character.
+        Flooring takes up a large chunk of the budget and defines the home&apos;s character.
       </p>
       <ul>
         <li><strong>Vitrified Tiles:</strong> ₹60 - ₹120 per sq. ft. (Material + Labor)</li>
@@ -85,7 +86,7 @@ export default function Post() {
       </ul>
 
       <p>
-        Before you begin, use our <a href="/home-renovation-cost-estimator" className="text-emerald-600 hover:underline">Renovation Cost Calculator</a> to get a tailored estimate for your specific needs.
+        Before you begin, use our <Link href="/home-renovation-cost-estimator" className="text-emerald-600 hover:underline">Renovation Cost Calculator</Link> to get a tailored estimate for your specific needs.
       </p>
     </BlogLayout>
   );

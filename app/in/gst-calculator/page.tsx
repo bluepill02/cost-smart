@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import GSTCalculator from '@/components/calculators/tax/GSTCalculator';
-import { getCalculatorSchema, CANONICAL_DOMAIN } from '@/lib/seo-utils';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import JsonLd from '@/components/seo/JsonLd';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
 

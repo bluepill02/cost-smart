@@ -1,5 +1,6 @@
 import React from 'react';
 import { Metadata } from 'next';
+import Link from 'next/link';
 import { BlogLayout } from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
@@ -19,7 +20,7 @@ export default function Post() {
       author="CostSmart Team"
     >
       <p>
-        When buying a property, the "agreement value" is not the final price. The government demands its share
+        When buying a property, the &quot;agreement value&quot; is not the final price. The government demands its share
         in the form of Stamp Duty and Registration Charges. These can add 6-10% to your total cost—a massive amount
         that many first-time buyers fail to plan for.
       </p>
@@ -44,7 +45,7 @@ export default function Post() {
 
       <h3>3. Select Gender</h3>
       <p>
-        Many states promote women's property ownership by offering lower stamp duty rates.
+        Many states promote women&apos;s property ownership by offering lower stamp duty rates.
       </p>
       <ul>
         <li><strong>Maharashtra:</strong> 1% concession for women.</li>
@@ -52,7 +53,7 @@ export default function Post() {
         <li><strong>Punjab:</strong> 1% concession.</li>
       </ul>
       <p>
-        Select 'Female' or 'Joint' to see if you qualify for these savings.
+        Select &apos;Female&apos; or &apos;Joint&apos; to see if you qualify for these savings.
       </p>
 
       <h2>Understanding the Output</h2>
@@ -62,7 +63,7 @@ export default function Post() {
       </ul>
 
       <p>
-        Check your liability now: <a href="/in/property-registration-cost-calculator" className="text-emerald-600 hover:underline">Calculate Registration Charges</a>.
+        Check your liability now: <Link href="/in/property-registration-cost-calculator" className="text-emerald-600 hover:underline">Calculate Registration Charges</Link>.
       </p>
     </BlogLayout>
   );

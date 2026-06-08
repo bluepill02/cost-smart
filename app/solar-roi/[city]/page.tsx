@@ -2,7 +2,7 @@ import React from 'react';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { Sparkles, ArrowRight, MapPin } from 'lucide-react';
+import { Sparkles, ArrowRight } from 'lucide-react';
 import SolarForm from '@/components/calculators/SolarForm';
 import AdContainer from '@/components/ads/AdContainer';
 import RelatedTools from '@/components/layouts/RelatedTools';

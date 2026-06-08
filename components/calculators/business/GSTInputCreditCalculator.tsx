@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from 'react';
-import { Calculator, ArrowRight, Wallet, TrendingUp, TrendingDown } from 'lucide-react';
+import { ArrowRight, Wallet, TrendingUp, TrendingDown } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
@@ -106,7 +106,7 @@ export default function GSTInputCreditCalculator() {
                                     {formatCurrency(result.carryForwardBalance, 'INR')}
                                 </div>
                                 <div className="text-xs text-slate-500 mt-2">
-                                    You have excess credit. This will be added to next month's opening balance.
+                                    You have excess credit. This will be added to next month&apos;s opening balance.
                                 </div>
                             </div>
                         )}

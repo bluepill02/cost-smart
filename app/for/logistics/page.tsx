@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import {
   Package, Ship, Truck, DollarSign, MapPin, Shield,
-  Check, X, ArrowRight, Zap,
+  Check, ArrowRight, Zap,
 } from 'lucide-react';
 import LandedCostReport from '@/components/calculators/LandedCostReport';
 import EmailCaptureSection from '@/components/features/EmailCaptureSection';

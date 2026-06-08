@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
-import Link from 'next/link';
+
 import { useProStatus } from '@/lib/hooks/useProStatus';
 import AdBlockRecovery from '@/components/ads/AdBlockRecovery';
 
@@ -20,7 +20,7 @@ declare global {
 }
 
 export default function AdContainer({ slotId, className = "", size = 'leaderboard' }: AdContainerProps) {
-    const { isPro, isLoading } = useProStatus();
+    const { isPro } = useProStatus();
     const { ref, inView } = useInView({
         triggerOnce: true,
         rootMargin: '200px',
@@ -72,7 +72,8 @@ export default function AdContainer({ slotId, className = "", size = 'leaderboar
                 const timer = setTimeout(checkAdBlock, 500);
                 return () => clearTimeout(timer);
 
-            } catch (e) {
+            } catch {
+                // eslint-disable-next-line react-hooks/set-state-in-effect
                 setAdState('blocked');
             }
         }

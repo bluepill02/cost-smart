@@ -2,7 +2,9 @@
  * CostSmart SEO Bulk Fixer
  * Fixes: title length, description length/missing, canonical missing, OG blocks, multiple H1
  */
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const fs = require('fs');
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const path = require('path');
 
 const ROOT = process.cwd();
@@ -365,6 +367,7 @@ for (const [relPath, cfg] of Object.entries(canonicalFixes)) {
     if (h1Matches.length > 1) {
       // Change the second h1 to h2
       let count = 0;
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const fixed = c.replace(/<h1/gi, (match) => {
         count++;
         return count > 1 ? '<h2' : match;

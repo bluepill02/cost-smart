@@ -1,9 +1,10 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { INDIAN_CITIES, CityData } from '@/lib/pseo-data/cities';
 import SalaryCalculator from '@/components/calculators/income/SalaryCalculator';
 import AdContainer from '@/components/ads/AdContainer';
-import { MapPin, Briefcase, TrendingUp, Home } from 'lucide-react';
+import { MapPin, Briefcase, TrendingUp } from 'lucide-react';
 
 interface PageProps {
   params: Promise<{ city: string }>;
@@ -113,11 +114,11 @@ export default async function CitySalaryPage({ params }: PageProps) {
             {/* Breadcrumb */}
             <nav className="text-sm mb-4 text-emerald-100">
               <ol className="flex items-center space-x-2">
-                <li><a href="/" className="hover:text-white">Home</a></li>
+                <li><Link href="/" className="hover:text-white">Home</Link></li>
                 <li>›</li>
-                <li><a href="/salary-calculator" className="hover:text-white">Salary Calculator</a></li>
+                <li><Link href="/salary-calculator" className="hover:text-white">Salary Calculator</Link></li>
                 <li>›</li>
-                <li><a href="/in" className="hover:text-white">India</a></li>
+                <li><Link href="/in" className="hover:text-white">India</Link></li>
                 <li>›</li>
                 <li className="text-white font-medium">{cityData.name}</li>
               </ol>

@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Lightbulb, Loader2, Target, AlertTriangle, CheckCircle2 } from 'lucide-react';
+import { Lightbulb, Loader2, AlertTriangle, CheckCircle2 } from 'lucide-react';
 import { useAIClassifier } from '@/lib/hooks/useAIClassifier';
 import { cn } from '@/lib/utils';
 
@@ -27,7 +27,7 @@ const LOAN_CATEGORIES = [
     'Lifestyle/Luxury'
 ];
 
-export default function SmartInsight({ type, amount, purpose, metrics }: SmartInsightProps) {
+export default function SmartInsight({ type, purpose, metrics }: SmartInsightProps) {
     const { classify, result: category, loading } = useAIClassifier();
     const [advice, setAdvice] = useState<{ title: string; text: string; tone: 'neutral' | 'positive' | 'caution' } | null>(null);
 
@@ -113,6 +113,7 @@ export default function SmartInsight({ type, amount, purpose, metrics }: SmartIn
             }
         }
 
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setAdvice(newAdvice);
     }, [category, type, metrics]);
 

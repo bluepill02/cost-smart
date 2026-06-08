@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'How to Use the Home Renovation Cost Estimator | CostSmart',
@@ -74,7 +75,7 @@ export default function Post() {
       </p>
 
       <p>
-        Ready to start planning? <a href="/home-renovation-cost-estimator" className="text-emerald-600 hover:underline">Use the Calculator Now</a>.
+        Ready to start planning? <Link href="/home-renovation-cost-estimator" className="text-emerald-600 hover:underline">Use the Calculator Now</Link>.
       </p>
     </BlogLayout>
   );

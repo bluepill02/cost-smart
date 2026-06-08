@@ -1,5 +1,6 @@
 import React from 'react';
 import { Metadata } from 'next';
+import Link from 'next/link';
 import { BlogLayout } from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
@@ -54,7 +55,7 @@ export default function Post() {
 
       <h2>How to Save Money?</h2>
       <ol>
-        <li><strong>Register in a Woman's Name:</strong> As seen above, states like Delhi and Haryana offer significant discounts (up to 2%). On a ₹50 Lakh property, a 2% saving is ₹1 Lakh!</li>
+        <li><strong>Register in a Woman&apos;s Name:</strong> As seen above, states like Delhi and Haryana offer significant discounts (up to 2%). On a ₹50 Lakh property, a 2% saving is ₹1 Lakh!</li>
         <li><strong>Tax Benefits:</strong> Stamp duty and registration charges are eligible for tax deduction under <strong>Section 80C</strong> of the Income Tax Act, within the overall limit of ₹1.5 Lakhs.</li>
       </ol>
 
@@ -64,7 +65,7 @@ export default function Post() {
       </p>
 
       <p>
-        Always calculate these costs *before* finalizing your budget. Use our <a href="/in/property-registration-cost-calculator" className="text-emerald-600 hover:underline">Registration Fee Calculator</a> to get an exact figure.
+        Always calculate these costs *before* finalizing your budget. Use our <Link href="/in/property-registration-cost-calculator" className="text-emerald-600 hover:underline">Registration Fee Calculator</Link> to get an exact figure.
       </p>
     </BlogLayout>
   );

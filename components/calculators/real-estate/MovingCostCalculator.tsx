@@ -153,7 +153,7 @@ export default function MovingCostCalculator() {
         <div className="space-y-6">
           <div className="space-y-2">
             <Label>Move Type</Label>
-            <Tabs value={moveType} onValueChange={(val: any) => setMoveType(val)} className="w-full">
+            <Tabs value={moveType} onValueChange={(val: string) => setMoveType(val as 'local' | 'intercity' | 'interstate')} className="w-full">
               <TabsList className="grid w-full grid-cols-3">
                 <TabsTrigger value="local">
                   <Home className="w-4 h-4 mr-1" /> Local
@@ -191,7 +191,7 @@ export default function MovingCostCalculator() {
 
           <div className="space-y-2">
             <Label htmlFor="vehicle">Vehicle / Load Size</Label>
-            <Select value={vehicleType} onValueChange={(val: any) => setVehicleType(val)}>
+            <Select value={vehicleType} onValueChange={(val: string) => setVehicleType(val as keyof typeof VEHICLE_RATES)}>
               <SelectTrigger id="vehicle">
                 <SelectValue />
               </SelectTrigger>
@@ -207,7 +207,7 @@ export default function MovingCostCalculator() {
 
           <div className="space-y-2">
             <Label htmlFor="city-tier">Origin/Destination City Type</Label>
-            <Select value={cityTier} onValueChange={(val: any) => setCityTier(val)}>
+            <Select value={cityTier} onValueChange={(val: string) => setCityTier(val as keyof typeof CITY_TIER_MULTIPLIER)}>
               <SelectTrigger id="city-tier">
                 <SelectValue />
               </SelectTrigger>

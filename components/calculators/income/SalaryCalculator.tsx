@@ -55,7 +55,6 @@ export default function SalaryCalculator({
 
             const monthlyCTC = ctc / 12;
             const basic = monthlyCTC * (basicPercent / 100);
-            const pf = basic * (pfRate / 100);
             const pt = professionalTax;
 
             const taxable = Math.max(0, ctc - 75000); // Standard deduction
@@ -77,7 +76,6 @@ export default function SalaryCalculator({
 
             const monthlyTDS = annualTax / 12;
 
-            const totalDeductions = pf + pt + monthlyTDS;
             // const inHand = monthlyCTC - totalDeductions; // Ignoring Employer PF part of CTC for simplicity or assuming CTC includes it
 
             // Note: Usually CTC includes Employer PF. If so, Gross Salary = CTC - Employer PF.

@@ -16,7 +16,7 @@ function upgradeBlogContent() {
   files.forEach(dir => {
     const pagePath = path.join(blogDir, dir, 'page.tsx');
     if (fs.existsSync(pagePath)) {
-      let content = fs.readFileSync(pagePath, 'utf-8');
+      const content = fs.readFileSync(pagePath, 'utf-8');
 
       // Identify the calculator type from the slug (simplified)
       // e.g., 'how-to-use-ppf-calculator' -> 'ppf-calculator'

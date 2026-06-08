@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 interface AfterResultAdProps {
@@ -22,7 +22,6 @@ declare global {
  */
 export default function AfterResultAd({ slotId = '1475703853', className = '' }: AfterResultAdProps) {
   const { ref, inView } = useInView({ triggerOnce: true, rootMargin: '100px' });
-  const [pushed, setPushed] = useState(false);
   const initialized = useRef(false);
 
   useEffect(() => {
@@ -30,7 +29,6 @@ export default function AfterResultAd({ slotId = '1475703853', className = '' }:
       initialized.current = true;
       try {
         (window.adsbygoogle = window.adsbygoogle || []).push({});
-        setPushed(true);
       } catch {
         // adsbygoogle may not be loaded yet — silent fail
       }

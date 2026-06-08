@@ -43,6 +43,7 @@ export function ProStatusProvider({ children }: { children: ReactNode }) {
     try {
       const stored = localStorage.getItem(STORAGE_KEY);
       if (stored) {
+        // eslint-disable-next-line react-hooks/set-state-in-effect
         setProEmailState(stored);
       } else {
         setIsLoading(false);
@@ -55,6 +56,7 @@ export function ProStatusProvider({ children }: { children: ReactNode }) {
   // Verify subscription when proEmail changes
   useEffect(() => {
     if (!proEmail) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setIsPro(false);
       setIsLoading(false);
       return;

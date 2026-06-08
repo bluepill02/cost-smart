@@ -209,6 +209,7 @@ export async function POST(request: NextRequest) {
     const keyPhrases: string[] = keyPhrasesDoc.keyPhrases || [];
 
     // Identify positive and negative financial indicators
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const lowerPhrases = keyPhrases.map(p => p.toLowerCase());
     const positiveIndicators = keyPhrases.filter(p =>
       POSITIVE_PHRASES.some(pos => p.toLowerCase().includes(pos))

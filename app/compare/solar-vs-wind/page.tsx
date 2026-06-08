@@ -234,7 +234,7 @@ export default function SolarVsWindPage() {
                   <h3 className="font-bold text-lg mb-2">Choose Solar If:</h3>
                   <ul className="space-y-2 text-slate-700">
                     <li>✓ You have a rooftop or terrace</li>
-                    <li>✓ You're in any Indian city/town</li>
+                    <li>✓ You&apos;re in any Indian city/town</li>
                     <li>✓ You want residential/small business solution</li>
                     <li>✓ You need quick installation (1-3 days)</li>
                     <li>✓ You want government subsidy benefits</li>
@@ -246,9 +246,9 @@ export default function SolarVsWindPage() {
                 <div className="border-l-4 border-sky-500 pl-4">
                   <h3 className="font-bold text-lg mb-2">Choose Wind If:</h3>
                   <ul className="space-y-2 text-slate-700">
-                    <li>✓ You're in high-wind coastal/hilly area</li>
+                    <li>✓ You&apos;re in high-wind coastal/hilly area</li>
                     <li>✓ You have open land (1+ acre)</li>
-                    <li>✓ You're setting up large industrial project</li>
+                    <li>✓ You&apos;re setting up large industrial project</li>
                     <li>✓ Wind speed consistently &gt;6 m/s (13 mph)</li>
                     <li>✓ You can afford ₹20+ lakhs investment</li>
                     <li>✓ You have budget for ongoing maintenance</li>
@@ -263,7 +263,7 @@ export default function SolarVsWindPage() {
                   <div>
                     <p className="font-semibold text-amber-900 mb-2">For 95% of Indian Homes & Businesses: Solar Wins</p>
                     <p className="text-slate-700">
-                      Unless you're in specific wind zones (Tamil Nadu, Gujarat coastal, Rajasthan), 
+                      Unless you&apos;re in specific wind zones (Tamil Nadu, Gujarat coastal, Rajasthan), 
                       <strong> solar offers better ROI, faster payback, lower maintenance, and simpler installation</strong>. 
                       Wind is suitable for utility-scale projects in high-wind regions only.
                     </p>

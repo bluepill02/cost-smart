@@ -1,16 +1,16 @@
 "use client";
 
 import React, { useState, useMemo } from 'react';
-import { Card, CardHeader, CardTitle, CardContent, CardDescription, CardFooter } from '@/components/ui/card';
+import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Slider } from '@/components/ui/slider';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Checkbox } from '@/components/ui/checkbox';
 import { formatCurrency } from '@/lib/formatters';
-import { Printer, Share2, RefreshCw } from 'lucide-react';
+import { Printer } from 'lucide-react';
 import ShareButton from '@/components/features/ShareButton';
 
 // Rates based on 2024-25 Market Data (approximate per sq ft)
@@ -123,7 +123,7 @@ export default function HomeRenovationCalculator() {
 
           <div className="space-y-2">
             <Label htmlFor="city-tier">City Type</Label>
-            <Select value={cityTier} onValueChange={(val: any) => setCityTier(val)}>
+            <Select value={cityTier} onValueChange={(val: string) => setCityTier(val as keyof typeof CITY_TIER_MULTIPLIER)}>
               <SelectTrigger id="city-tier">
                 <SelectValue />
               </SelectTrigger>
@@ -137,7 +137,7 @@ export default function HomeRenovationCalculator() {
 
           <div className="space-y-2">
             <Label>Quality Level</Label>
-            <Tabs value={quality} onValueChange={(val: any) => setQuality(val)} className="w-full">
+            <Tabs value={quality} onValueChange={(val: string) => setQuality(val as 'basic' | 'standard' | 'premium')} className="w-full">
               <TabsList className="grid w-full grid-cols-3">
                 <TabsTrigger value="basic">Basic</TabsTrigger>
                 <TabsTrigger value="standard">Standard</TabsTrigger>

@@ -12,13 +12,14 @@ interface AdBlockRecoveryProps {
   forceVisible?: boolean;
 }
 
-export default function AdBlockRecovery({ calculatorSlug, size = 'rectangle', forceVisible }: AdBlockRecoveryProps) {
+export default function AdBlockRecovery({ size = 'rectangle', forceVisible }: AdBlockRecoveryProps) {
   const adBlocked = useAdBlockDetected();
   const { isPro } = useProStatus();
   const [variant, setVariant] = useState<'pro' | 'affiliate'>('pro');
   const shouldShow = forceVisible ?? adBlocked;
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setVariant(Date.now() % 2 === 0 ? 'pro' : 'affiliate');
   }, []);
 

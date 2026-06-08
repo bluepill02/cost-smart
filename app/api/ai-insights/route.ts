@@ -4,7 +4,7 @@ import { isValidSubscriptionId, verifySubscription } from '@/lib/paypal';
 interface InsightRequest {
   calculatorType: string;
   values: Record<string, number | string>;
-  result: number | Record<string, any>;
+  result: number | Record<string, unknown>;
   isPro?: boolean;
   subscriptionId?: string;
 }
@@ -114,7 +114,7 @@ Do not return any pre-text or post-text outside the JSON object.`;
 
     // Fallback to local rule-based system if Azure OpenAI failed or was unconfigured
     if (!isRealAI) {
-      insights = generateFallbackInsights(calculatorType, values, result);
+      insights = generateFallbackInsights(calculatorType, values, result as Record<string, unknown>);
     }
 
     // Track analytics event
@@ -150,7 +150,7 @@ Do not return any pre-text or post-text outside the JSON object.`;
 function generateFallbackInsights(
   calculatorType: string,
   values: Record<string, number | string>,
-  result: any
+  result: Record<string, unknown>
 ): Record<string, string> {
   const insights: Record<string, string> = {
     diagnosis: '',
@@ -162,7 +162,9 @@ function generateFallbackInsights(
     case 'loan-calculator':
     case 'emi-calculator':
     case 'home-loan': {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const emi = Number(result.emi) || 0;
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const totalInterest = Number(result.totalInterest || result.totalInterestWithPrepayment) || 0;
       insights.diagnosis = `Strategic Diagnosis: Your interest drain is significant, representing a substantial portion of the total loan repayment. Secure borrowing at competitive interest rates is crucial.`;
       insights.optimization = `Compounding Optimization: Adding an extra payment of just 10% of your EMI monthly directly attacks the principal balance, compressing your tenure and saving lakhs in compounding interest charges.`;
@@ -171,6 +173,7 @@ function generateFallbackInsights(
     }
 
     case 'investment-calculator': {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const maturity = Number(result.maturityAmount) || 0;
       insights.diagnosis = `Strategic Diagnosis: This scenario demonstrates the remarkable power of wealth accumulation. The long-term compounding rate is the single most important factor in your terminal net worth.`;
       insights.optimization = `Compounding Optimization: Increasing your monthly contribution by just 10% each year (step-up) can dramatically multiply your end wealth by up to 40% due to the compounding effect.`;
@@ -180,6 +183,7 @@ function generateFallbackInsights(
 
     case 'tax-calculator':
     case 'salary-calculator': {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const tax = Number(result.taxAmount) || 0;
       insights.diagnosis = `Strategic Diagnosis: Your effective tax rate indicates a significant portion of income goes toward taxation. Optimizing legal deductions is highly recommended.`;
       insights.optimization = `Compounding Optimization: Maximizing tax-sheltered investment accounts (such as PPF, NPS, or 401k/IRA) allows you to re-invest tax savings, yielding double benefits.`;

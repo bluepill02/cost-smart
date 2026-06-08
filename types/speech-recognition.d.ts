@@ -34,11 +34,13 @@ interface SpeechRecognitionAlternative {
   confidence: number;
 }
 
+// eslint-disable-next-line no-var
 declare var SpeechRecognition: {
   prototype: SpeechRecognition;
   new(): SpeechRecognition;
 };
 
+// eslint-disable-next-line no-var
 declare var webkitSpeechRecognition: {
   prototype: SpeechRecognition;
   new(): SpeechRecognition;

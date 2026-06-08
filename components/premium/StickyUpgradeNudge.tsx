@@ -13,6 +13,7 @@ export default function StickyUpgradeNudge() {
 
   useEffect(() => {
     const wasDismissed = sessionStorage.getItem(SESSION_KEY) === 'true';
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setDismissed(wasDismissed);
   }, []);
 

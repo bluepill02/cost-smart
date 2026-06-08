@@ -255,13 +255,13 @@ export default function PPFvsFDPage() {
                 <div className="border-l-4 border-emerald-500 pl-4">
                   <h3 className="font-bold text-lg mb-2">Choose PPF if:</h3>
                   <ul className="space-y-2 text-slate-700">
-                    <li>✓ You're in 20-30% tax bracket (maximize tax-free benefit)</li>
+                    <li>✓ You&apos;re in 20-30% tax bracket (maximize tax-free benefit)</li>
                     <li>✓ Your investment horizon is 10+ years</li>
-                    <li>✓ You're building retirement corpus</li>
+                    <li>✓ You&apos;re building retirement corpus</li>
                     <li>✓ You want guaranteed, tax-free, inflation-beating returns</li>
                     <li>✓ You need Section 80C deduction (up to ₹1.5L)</li>
-                    <li>✓ You don't need liquidity for 7 years</li>
-                    <li>✓ You're saving for child's higher education (15yr goal)</li>
+                    <li>✓ You don&apos;t need liquidity for 7 years</li>
+                    <li>✓ You&apos;re saving for child&apos;s higher education (15yr goal)</li>
                   </ul>
                 </div>
 
@@ -270,9 +270,9 @@ export default function PPFvsFDPage() {
                   <ul className="space-y-2 text-slate-700">
                     <li>✓ You need liquidity (emergency fund)</li>
                     <li>✓ Your goal is short-term (1-5 years)</li>
-                    <li>✓ You're in 0% or 5% tax bracket (minimal tax impact)</li>
+                    <li>✓ You&apos;re in 0% or 5% tax bracket (minimal tax impact)</li>
                     <li>✓ You want to invest &gt;₹1.5L per year</li>
-                    <li>✓ You're a senior citizen (higher FD rates 7.5-8%)</li>
+                    <li>✓ You&apos;re a senior citizen (higher FD rates 7.5-8%)</li>
                     <li>✓ You need predictable monthly income (interest payout)</li>
                     <li>✓ You prefer flexible tenure options</li>
                   </ul>

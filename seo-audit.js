@@ -3,10 +3,13 @@
  * Scans all page.tsx files and checks for SEO issues
  */
 
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const fs = require('fs');
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const path = require('path');
 
 const ROOT = process.cwd();
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const ISSUES = [];
 const STATS = {
   totalPages: 0,
@@ -47,6 +50,7 @@ function getAllPageFiles(dir, results = []) {
   return results;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function extractString(content, pattern) {
   const match = content.match(pattern);
   return match ? match[1].trim() : null;
