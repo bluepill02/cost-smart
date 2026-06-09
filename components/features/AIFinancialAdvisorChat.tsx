@@ -1,11 +1,12 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { MessageSquare, Mic, MicOff, Send, Sparkles, TrendingUp, Calculator, PiggyBank, Home, Bot, User } from 'lucide-react';
+import { MessageSquare, Mic, MicOff, Send, Sparkles, TrendingUp, Calculator, PiggyBank, Home, Bot, User, Loader2, Crown } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
+import { useProStatus } from '@/lib/hooks/useProStatus';
 import Link from 'next/link';
 
 interface Message {
@@ -32,7 +33,10 @@ interface FinancialContext {
   recentCalculators?: string[];
 }
 
+const FREE_MESSAGE_LIMIT = 5;
+
 export default function AIFinancialAdvisor() {
+  const { isPro, subscriptionId } = useProStatus();
   const [messages, setMessages] = useState<Message[]>([
     {
       id: '1',
@@ -42,8 +46,10 @@ export default function AIFinancialAdvisor() {
     },
   ]);
   const [input, setInput] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
   const [isListening, setIsListening] = useState(false);
   const [context, setContext] = useState<FinancialContext>({});
+  const [messageLimitReached, setMessageLimitReached] = useState(false);
   const recognitionRef = useRef<SpeechRecognition | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
@@ -114,206 +120,85 @@ export default function AIFinancialAdvisor() {
     return { intent, entities };
   };
 
-  const generateResponse = (query: string, { intent, entities }: { intent: string; entities: string[] }): {
-    content: string;
-    recommendations: Recommendation[];
-  } => {
-    let content = '';
-    const recommendations: Recommendation[] = [];
-
+  const getRecommendations = (intent: string): Recommendation[] => {
     switch (intent) {
       case 'home_loan':
-        content = `For home loan planning, consider these key factors:\n\n• **Down Payment**: Aim for 20% to get better rates (reduces EMI & total interest)\n• **Interest Rate**: Current rates: 8.5-9.5% p.a. (varies by lender & credit score)\n• **Tenure**: 15-20 years balances EMI affordability with total interest\n• **Tax Benefits**: Save up to ₹3.5L/year (₹1.5L principal + ₹2L interest)\n\nTip: Pre-payment can save lakhs in interest!${entities.length > 0 ? `\n\nBased on your mention of ${entities[0]}, ` : ' '}`;
-        recommendations.push(
-          {
-            title: 'Home Loan EMI Calculator',
-            description: 'Calculate EMI, total interest, and affordability',
-            link: '/home-loan-calculator',
-            icon: 'home',
-            category: 'Loans',
-          },
-          {
-            title: 'City-Specific EMI',
-            description: 'Get property prices for your city',
-            link: '/in',
-            icon: 'calculator',
-            category: 'Location-Based',
-          }
-        );
-        break;
-
+        return [
+          { title: 'Home Loan EMI Calculator', description: 'Calculate EMI, total interest, and affordability', link: '/home-loan-calculator', icon: 'home', category: 'Loans' },
+          { title: 'City-Specific EMI', description: 'Get property prices for your city', link: '/in', icon: 'calculator', category: 'Location-Based' },
+        ];
       case 'salary':
-        content = `Understanding CTC vs In-hand Salary:\n\n• **CTC (Cost to Company)**: Gross salary including all benefits\n• **In-hand**: What you actually receive (typically 70-80% of CTC)\n• **Deductions**: EPF (12%), Professional Tax (₹200/month), Income Tax\n• **Tax Planning**: Use Section 80C (₹1.5L), HRA, NPS (₹50K) to save taxes\n\nPro Tip: Old vs New tax regime - check which saves you more!`;
-        recommendations.push(
-          {
-            title: 'Salary Calculator',
-            description: 'Calculate in-hand from CTC with deductions',
-            link: '/salary-calculator',
-            icon: 'trending',
-            category: 'Income',
-          },
-          {
-            title: 'City Cost of Living',
-            description: 'Compare salaries across Indian cities',
-            link: '/in/salary-calculator/mumbai',
-            icon: 'calculator',
-            category: 'Location-Based',
-          }
-        );
-        break;
-
+        return [
+          { title: 'Salary Calculator', description: 'Calculate in-hand from CTC with deductions', link: '/salary-calculator', icon: 'trending', category: 'Income' },
+          { title: 'City Cost of Living', description: 'Compare salaries across Indian cities', link: '/in/salary-calculator/mumbai', icon: 'calculator', category: 'Location-Based' },
+        ];
       case 'investment':
-        content = `Smart Investment Strategy:\n\n• **Emergency Fund First**: 6 months expenses in liquid funds\n• **SIP in Equity**: ₹5K-10K/month can build ₹50L+ in 15 years (12% returns)\n• **Asset Allocation**: 60% equity, 30% debt, 10% gold (adjust by age)\n• **Diversification**: Don't put all eggs in one basket\n• **Start Early**: ₹5K/month at 25 > ₹15K/month at 35\n\n${context.riskTolerance ? `Based on your ${context.riskTolerance} risk profile, I recommend ${context.riskTolerance === 'high' ? 'aggressive equity funds' : context.riskTolerance === 'medium' ? 'balanced hybrid funds' : 'conservative debt funds'}.` : 'What\'s your risk tolerance? (low/medium/high)'}`;
-        recommendations.push(
-          {
-            title: 'SIP Calculator',
-            description: 'See how regular investments grow over time',
-            link: '/in/sip-calculator',
-            icon: 'trending',
-            category: 'Investments',
-          },
-          {
-            title: 'FD vs Mutual Funds',
-            description: 'Compare returns and pick wisely',
-            link: '/compare/fd-vs-mutual-fund',
-            icon: 'calculator',
-            category: 'Comparison',
-          }
-        );
-        break;
-
+        return [
+          { title: 'SIP Calculator', description: 'See how regular investments grow over time', link: '/in/sip-calculator', icon: 'trending', category: 'Investments' },
+          { title: 'FD vs Mutual Funds', description: 'Compare returns and pick wisely', link: '/compare/fd-vs-mutual-fund', icon: 'calculator', category: 'Comparison' },
+        ];
       case 'savings':
-        content = `Best Savings Options in 2026:\n\n**Safe & Guaranteed:**\n• **PPF**: 7.1% p.a., 15 years, EEE taxation (best for long-term)\n• **FD**: 6.5-7% p.a., flexible tenure, fully taxable\n• **NSC**: 7.7% p.a., 5 years, 80C benefit\n\n**Tax-Saving:**\n• **ELSS**: 12-15% expected, 3-year lock-in, equity exposure\n• **NPS**: Market-linked, extra ₹50K deduction\n\nRule of Thumb: Save 20-30% of monthly income!`;
-        recommendations.push(
-          {
-            title: 'FD Calculator',
-            description: 'Calculate fixed deposit returns',
-            link: '/fd-calculator',
-            icon: 'savings',
-            category: 'Savings',
-          },
-          {
-            title: 'PPF Calculator',
-            description: 'Long-term tax-free wealth building',
-            link: '/in/ppf-calculator',
-            icon: 'savings',
-            category: 'Savings',
-          },
-          {
-            title: 'PPF vs FD',
-            description: 'Which saves you more tax?',
-            link: '/compare/ppf-vs-fd',
-            icon: 'calculator',
-            category: 'Comparison',
-          }
-        );
-        break;
-
+        return [
+          { title: 'FD Calculator', description: 'Calculate fixed deposit returns', link: '/fd-calculator', icon: 'savings', category: 'Savings' },
+          { title: 'PPF Calculator', description: 'Long-term tax-free wealth building', link: '/in/ppf-calculator', icon: 'savings', category: 'Savings' },
+          { title: 'PPF vs FD', description: 'Which saves you more tax?', link: '/compare/ppf-vs-fd', icon: 'calculator', category: 'Comparison' },
+        ];
       case 'solar':
-        content = `Solar ROI for Indian Homes:\n\n• **Payback**: 3-5 years (with subsidy)\n• **Subsidy**: ₹18,000/kW (up to 3kW)\n• **Savings**: ₹20,000-50,000/year on electricity\n• **Lifespan**: 25 years (minimal maintenance)\n• **ROI**: 18-25% annually\n\nBest for: High electricity bills (>₹3,000/month)`;
-        recommendations.push(
-          {
-            title: 'Solar ROI Calculator',
-            description: 'Check your savings with solar panels',
-            link: '/solar-roi',
-            icon: 'trending',
-            category: 'Green Energy',
-          },
-          {
-            title: 'Solar vs Wind',
-            description: 'Which renewable energy is better?',
-            link: '/compare/solar-vs-wind',
-            icon: 'calculator',
-            category: 'Comparison',
-          }
-        );
-        break;
-
+        return [
+          { title: 'Solar ROI Calculator', description: 'Check your savings with solar panels', link: '/solar-roi', icon: 'trending', category: 'Green Energy' },
+        ];
       case 'retirement':
-        content = `Retirement Planning Essentials:\n\n• **Start Young**: ₹10K/month from 25 = ₹3+ Cr at 60\n• **Target**: 25-30x annual expenses (₹2-3 Cr for comfortable retirement)\n• **Invest Wisely**: Mix of equity (till 50) + debt (post-50)\n• **NPS**: Government-backed, extra tax benefit\n• **PPF**: Safe long-term option\n\nRule: Replace 70-80% of pre-retirement income!`;
-        recommendations.push(
-          {
-            title: 'Retirement Calculator',
-            description: 'How much do you need to retire?',
-            link: '/retirement-calculator',
-            icon: 'trending',
-            category: 'Retirement',
-          },
-          {
-            title: 'SIP Calculator',
-            description: 'Build retirement corpus with SIP',
-            link: '/in/sip-calculator',
-            icon: 'calculator',
-            category: 'Investments',
-          }
-        );
-        break;
-
+        return [
+          { title: 'Retirement Calculator', description: 'How much do you need to retire?', link: '/retirement-calculator', icon: 'trending', category: 'Retirement' },
+          { title: 'SIP Calculator', description: 'Build retirement corpus with SIP', link: '/in/sip-calculator', icon: 'calculator', category: 'Investments' },
+        ];
       case 'budget':
-        content = `Smart Budgeting (50/30/20 Rule):\n\n• **50% - Needs**: Rent, food, utilities, EMIs\n• **30% - Wants**: Dining, entertainment, shopping\n• **20% - Savings**: Investments, emergency fund\n\nTips:\n• Track expenses for 3 months to identify leaks\n• Automate savings (first expense, not last)\n• Cut subscriptions you don't use\n• Use cash/UPI for daily expenses (control spending)`;
-        recommendations.push(
-          {
-            title: 'Budget Analyzer',
-            description: 'Upload bank statement & get AI insights',
-            link: '/tools/budget-analyzer',
-            icon: 'calculator',
-            category: 'Budgeting',
-          },
-          {
-            title: 'Emergency Fund Calculator',
-            description: 'Are you prepared for emergencies?',
-            link: '/emergency-fund-calculator',
-            icon: 'savings',
-            category: 'Safety Net',
-          }
-        );
-        break;
-
+        return [
+          { title: 'Budget Analyzer', description: 'Upload bank statement & get AI insights', link: '/tools/budget-analyzer', icon: 'calculator', category: 'Budgeting' },
+          { title: 'Emergency Fund Calculator', description: 'Are you prepared for emergencies?', link: '/emergency-fund-calculator', icon: 'savings', category: 'Safety Net' },
+        ];
       case 'tax':
-        content = `Tax Saving Guide (FY 2025-26):\n\n**Section 80C** (₹1.5L):\n• EPF, PPF, ELSS, Life Insurance, Home Loan Principal\n\n**Other Deductions:**\n• 80D: ₹25K (health insurance) + ₹50K (parents)\n• 80CCD(1B): ₹50K (NPS)\n• 24(b): ₹2L (home loan interest)\n\n**Total Max Savings**: ~₹4L+ deductions = ₹1.2L tax saved (30% bracket)\n\nNew vs Old Regime: Compare both based on your deductions!`;
-        recommendations.push(
-          {
-            title: 'Income Tax Calculator',
-            description: 'Calculate tax liability & savings',
-            link: '/in/income-tax-calculator',
-            icon: 'calculator',
-            category: 'Tax',
-          },
-          {
-            title: 'TDS Calculator',
-            description: 'Check TDS on salary/investments',
-            link: '/in/tds-calculator',
-            icon: 'calculator',
-            category: 'Tax',
-          }
-        );
-        break;
-
+        return [
+          { title: 'Income Tax Calculator', description: 'Calculate tax liability & savings', link: '/in/income-tax-calculator', icon: 'calculator', category: 'Tax' },
+          { title: 'TDS Calculator', description: 'Check TDS on salary/investments', link: '/in/tds-calculator', icon: 'calculator', category: 'Tax' },
+        ];
+      case 'loan':
+        return [
+          { title: 'Home Loan EMI Calculator', description: 'Calculate EMI, total interest, and affordability', link: '/home-loan-calculator', icon: 'home', category: 'Loans' },
+        ];
       default:
-        content = `I can help you with:\n\n• Home Loans & EMI planning\n• Salary calculations (CTC to in-hand)\n• Investment strategies (SIP, FD, PPF)\n• Tax saving tips\n• Solar panel ROI\n• Retirement planning\n• Budget management\n\nWhat would you like to explore?`;
-        recommendations.push(
-          {
-            title: 'All Calculators',
-            description: 'Browse 30+ financial tools',
-            link: '/dashboard',
-            icon: 'calculator',
-            category: 'Tools',
-          },
-          {
-            title: 'Compare Options',
-            description: 'FD vs MF, PPF vs FD, Rent vs Buy',
-            link: '/compare',
-            icon: 'trending',
-            category: 'Comparisons',
-          }
-        );
+        return [
+          { title: 'All Calculators', description: 'Browse 30+ financial tools', link: '/dashboard', icon: 'calculator', category: 'Tools' },
+          { title: 'Compare Options', description: 'FD vs MF, PPF vs FD, Rent vs Buy', link: '/compare', icon: 'trending', category: 'Comparisons' },
+        ];
     }
-
-    return { content, recommendations };
   };
 
-  const handleSend = () => {
-    if (!input.trim()) return;
+  const generateFallbackResponse = (query: string, analysis: { intent: string; entities: string[] }): string => {
+    switch (analysis.intent) {
+      case 'home_loan':
+        return `For home loan planning, consider these key factors:\n\n• **Down Payment**: Aim for 20% to get better rates (reduces EMI & total interest)\n• **Interest Rate**: Current rates: 8.5-9.5% p.a. (varies by lender & credit score)\n• **Tenure**: 15-20 years balances EMI affordability with total interest\n• **Tax Benefits**: Save up to ₹3.5L/year (₹1.5L principal + ₹2L interest)\n\nTip: Pre-payment can save lakhs in interest!${analysis.entities.length > 0 ? `\n\nBased on your mention of ${analysis.entities[0]}, I can help calculate specifics.` : ''}`;
+      case 'salary':
+        return `Understanding CTC vs In-hand Salary:\n\n• **CTC (Cost to Company)**: Gross salary including all benefits\n• **In-hand**: What you actually receive (typically 70-80% of CTC)\n• **Deductions**: EPF (12%), Professional Tax (₹200/month), Income Tax\n• **Tax Planning**: Use Section 80C (₹1.5L), HRA, NPS (₹50K) to save taxes\n\nPro Tip: Old vs New tax regime - check which saves you more!`;
+      case 'investment':
+        return `Smart Investment Strategy:\n\n• **Emergency Fund First**: 6 months expenses in liquid funds\n• **SIP in Equity**: ₹5K-10K/month can build ₹50L+ in 15 years (12% returns)\n• **Asset Allocation**: 60% equity, 30% debt, 10% gold (adjust by age)\n• **Diversification**: Don't put all eggs in one basket\n• **Start Early**: ₹5K/month at 25 > ₹15K/month at 35`;
+      case 'savings':
+        return `Best Savings Options in 2026:\n\n**Safe & Guaranteed:**\n• **PPF**: 7.1% p.a., 15 years, EEE taxation (best for long-term)\n• **FD**: 6.5-7% p.a., flexible tenure, fully taxable\n• **NSC**: 7.7% p.a., 5 years, 80C benefit\n\n**Tax-Saving:**\n• **ELSS**: 12-15% expected, 3-year lock-in, equity exposure\n• **NPS**: Market-linked, extra ₹50K deduction\n\nRule of Thumb: Save 20-30% of monthly income!`;
+      case 'solar':
+        return `Solar ROI for Indian Homes:\n\n• **Payback**: 3-5 years (with subsidy)\n• **Subsidy**: ₹18,000/kW (up to 3kW)\n• **Savings**: ₹20,000-50,000/year on electricity\n• **Lifespan**: 25 years (minimal maintenance)\n• **ROI**: 18-25% annually\n\nBest for: High electricity bills (>₹3,000/month)`;
+      case 'retirement':
+        return `Retirement Planning Essentials:\n\n• **Start Young**: ₹10K/month from 25 = ₹3+ Cr at 60\n• **Target**: 25-30x annual expenses (₹2-3 Cr for comfortable retirement)\n• **Invest Wisely**: Mix of equity (till 50) + debt (post-50)\n• **NPS**: Government-backed, extra tax benefit\n• **PPF**: Safe long-term option\n\nRule: Replace 70-80% of pre-retirement income!`;
+      case 'budget':
+        return `Smart Budgeting (50/30/20 Rule):\n\n• **50% - Needs**: Rent, food, utilities, EMIs\n• **30% - Wants**: Dining, entertainment, shopping\n• **20% - Savings**: Investments, emergency fund\n\nTips:\n• Track expenses for 3 months to identify leaks\n• Automate savings (first expense, not last)\n• Cut subscriptions you don't use`;
+      case 'tax':
+        return `Tax Saving Guide (FY 2025-26):\n\n**Section 80C** (₹1.5L):\n• EPF, PPF, ELSS, Life Insurance, Home Loan Principal\n\n**Other Deductions:**\n• 80D: ₹25K (health insurance) + ₹50K (parents)\n• 80CCD(1B): ₹50K (NPS)\n• 24(b): ₹2L (home loan interest)\n\n**Total Max Savings**: ~₹4L+ deductions = ₹1.2L tax saved (30% bracket)`;
+      default:
+        return `I can help you with:\n\n• Home Loans & EMI planning\n• Salary calculations (CTC to in-hand)\n• Investment strategies (SIP, FD, PPF)\n• Tax saving tips\n• Solar panel ROI\n• Retirement planning\n• Budget management\n\nWhat would you like to explore?`;
+    }
+  };
+
+  const handleSend = async () => {
+    if (!input.trim() || isLoading) return;
 
     const userMessage: Message = {
       id: Date.now().toString(),
@@ -323,10 +208,11 @@ export default function AIFinancialAdvisor() {
     };
 
     setMessages((prev) => [...prev, userMessage]);
+    setInput('');
 
-    // Analyze query
+    // Analyze query for recommendations (keep client-side)
     const analysis = analyzeQuery(input);
-    const { content, recommendations } = generateResponse(input, analysis);
+    const recommendations = getRecommendations(analysis.intent);
 
     // Update context
     const newContext = { ...context };
@@ -335,20 +221,81 @@ export default function AIFinancialAdvisor() {
       setContext(newContext);
     }
 
-    // AI response
-    setTimeout(() => {
+    setIsLoading(true);
+
+    try {
+      // Build chat history for API
+      const chatHistory = [...messages, userMessage]
+        .filter(m => m.role === 'user' || m.role === 'assistant')
+        .map(m => ({ role: m.role, content: m.content }));
+
+      const response = await fetch('/api/azure/ai-advisor', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          messages: chatHistory,
+          isPro,
+          subscriptionId,
+        }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+
+        const assistantMessage: Message = {
+          id: (Date.now() + 1).toString(),
+          role: 'assistant',
+          content: data.content,
+          recommendations,
+          timestamp: new Date(),
+        };
+        setMessages((prev) => [...prev, assistantMessage]);
+
+        // Check if limit is approaching
+        if (!isPro && data.messageLimit && data.messagesUsed >= data.messageLimit) {
+          setMessageLimitReached(true);
+        }
+      } else if (response.status === 403) {
+        // Free tier limit reached - fall back to local response with upgrade banner
+        setMessageLimitReached(true);
+        const fallbackContent = generateFallbackResponse(input, analysis);
+        const assistantMessage: Message = {
+          id: (Date.now() + 1).toString(),
+          role: 'assistant',
+          content: fallbackContent,
+          recommendations,
+          timestamp: new Date(),
+        };
+        setMessages((prev) => [...prev, assistantMessage]);
+      } else {
+        // API error - fall back to local response
+        const fallbackContent = generateFallbackResponse(input, analysis);
+        const assistantMessage: Message = {
+          id: (Date.now() + 1).toString(),
+          role: 'assistant',
+          content: fallbackContent,
+          recommendations,
+          timestamp: new Date(),
+        };
+        setMessages((prev) => [...prev, assistantMessage]);
+      }
+    } catch {
+      // Network error - fall back to local response
+      const fallbackContent = generateFallbackResponse(input, analysis);
       const assistantMessage: Message = {
         id: (Date.now() + 1).toString(),
         role: 'assistant',
-        content,
+        content: fallbackContent,
         recommendations,
         timestamp: new Date(),
       };
       setMessages((prev) => [...prev, assistantMessage]);
-    }, 500);
-
-    setInput('');
+    } finally {
+      setIsLoading(false);
+    }
   };
+
+  const userMessageCount = messages.filter(m => m.role === 'user').length;
 
   const getIconComponent = (icon: string) => {
     switch (icon) {
@@ -371,7 +318,40 @@ export default function AIFinancialAdvisor() {
           </div>
           <h1 className="text-4xl font-bold mb-2">Financial Advisor AI</h1>
           <p className="text-gray-600">Get personalized financial advice powered by artificial intelligence</p>
+          {!isPro && (
+            <p className="text-xs text-gray-500 mt-2">
+              Free: {FREE_MESSAGE_LIMIT - userMessageCount > 0 ? FREE_MESSAGE_LIMIT - userMessageCount : 0} AI messages remaining | <Link href="/pricing" className="text-indigo-600 underline">Upgrade to Pro</Link> for unlimited
+            </p>
+          )}
+          {isPro && (
+            <div className="inline-flex items-center gap-1 mt-2 px-2 py-1 rounded-full bg-amber-100 text-amber-700 text-xs">
+              <Crown className="w-3 h-3" />
+              <span>Pro - Unlimited AI Messages</span>
+            </div>
+          )}
         </div>
+
+        {/* Message Limit Banner */}
+        {messageLimitReached && !isPro && (
+          <div className="mb-4 p-4 bg-amber-50 border border-amber-200 rounded-lg flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <Crown className="w-5 h-5 text-amber-600" />
+              <div>
+                <p className="text-sm font-medium text-amber-800">
+                  You&apos;ve used {userMessageCount}/{FREE_MESSAGE_LIMIT} free AI messages
+                </p>
+                <p className="text-xs text-amber-600">
+                  Upgrade to Pro for unlimited AI advisor access with longer, more detailed responses.
+                </p>
+              </div>
+            </div>
+            <Link href="/pricing">
+              <Button size="sm" className="bg-amber-600 hover:bg-amber-700 text-white">
+                Upgrade
+              </Button>
+            </Link>
+          </div>
+        )}
 
         {/* Chat Interface */}
         <Card className="shadow-xl">
@@ -379,6 +359,7 @@ export default function AIFinancialAdvisor() {
             <CardTitle className="flex items-center gap-2">
               <MessageSquare className="w-6 h-6" />
               Chat with AI Advisor
+              {isPro && <Badge className="bg-amber-500 text-white text-xs ml-2">PRO</Badge>}
             </CardTitle>
           </CardHeader>
           <CardContent className="p-0">
@@ -442,6 +423,19 @@ export default function AIFinancialAdvisor() {
                   )}
                 </div>
               ))}
+              {isLoading && (
+                <div className="flex gap-3 justify-start">
+                  <div className="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center flex-shrink-0">
+                    <Bot className="w-5 h-5 text-white" />
+                  </div>
+                  <div className="bg-white border border-gray-200 rounded-2xl px-4 py-3">
+                    <div className="flex items-center gap-2 text-sm text-gray-500">
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      <span>Thinking...</span>
+                    </div>
+                  </div>
+                </div>
+              )}
               <div ref={messagesEndRef} />
             </div>
 
@@ -463,9 +457,9 @@ export default function AIFinancialAdvisor() {
                   onKeyDown={(e) => e.key === 'Enter' && handleSend()}
                   placeholder={isListening ? 'Listening...' : 'Ask me anything about finances...'}
                   className="flex-1"
-                  disabled={isListening}
+                  disabled={isListening || isLoading}
                 />
-                <Button onClick={handleSend} disabled={!input.trim() || isListening} className="flex-shrink-0">
+                <Button onClick={handleSend} disabled={!input.trim() || isListening || isLoading} className="flex-shrink-0">
                   <Send className="w-4 h-4" />
                 </Button>
               </div>

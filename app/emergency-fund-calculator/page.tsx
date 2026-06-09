@@ -1,30 +1,30 @@
 import { Metadata } from 'next';
-import { getCalculatorSchema } from '@/lib/seo-utils';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import EmergencyFundCalculator from '@/components/calculators/savings/EmergencyFundCalculator';
 import AdContainer from '@/components/ads/AdContainer';
 import { Badge } from '@/components/ui/badge';
 import { ShieldAlert } from 'lucide-react';
-import JsonLd from '@/components/seo/JsonLd';
+import CalculatorSchemaInjector from '@/components/seo/CalculatorSchemaInjector';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
     title: 'Emergency Fund Calculator | CostSmart',
     description: 'Calculate the right size for your emergency fund. Protect yourself from job loss, medical emergencies, or unexpected expenses.',
     alternates: {
-        canonical: 'https://cost-smart-five.vercel.app/emergency-fund-calculator',
-    }
+        canonical: '/emergency-fund-calculator',
+    },
+    openGraph: {
+        title: 'Emergency Fund Calculator | CostSmart',
+        description: 'Calculate the right size for your emergency fund. Protect yourself from job loss, medical emergencies, or unexpected expenses.',
+        url: `${CANONICAL_DOMAIN}/emergency-fund-calculator`,
+        type: 'website',
+    },
 };
 
 export default function EmergencyFundCalculatorPage() {
-    const jsonLd = getCalculatorSchema(
-        'CostSmart Emergency Fund Calculator',
-        'Calculate how much emergency fund you need based on monthly expenses.',
-        '/emergency-fund-calculator'
-    );
-
     return (
         <div className="container mx-auto px-4 py-12 max-w-5xl">
-            <JsonLd data={jsonLd} />
+            <CalculatorSchemaInjector calculatorName="CostSmart Emergency Fund Calculator" calculatorDescription="Calculate how much emergency fund you need based on monthly expenses." urlPath="/emergency-fund-calculator" calculatorType="investment" />
             <div className="text-center mb-10 space-y-4">
                  <div className="flex justify-center gap-2">
                     <Badge variant="outline" className="bg-emerald-50 text-emerald-700 border-emerald-200 flex items-center gap-1">

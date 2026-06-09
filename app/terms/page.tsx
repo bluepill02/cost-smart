@@ -4,7 +4,7 @@ export const metadata: Metadata = {
     title: 'Terms of Service | CostSmart',
     description: 'Terms of Service for CostSmart.',
     alternates: {
-        canonical: 'https://cost-smart-five.vercel.app/terms',
+        canonical: '/terms',
     }
 };
 

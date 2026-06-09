@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'Analyze Your Rooftop Solar Potential | CostSmart',
   description: 'Get a detailed analysis of your rooftop solar potential using Google Solar API data. See panel count, capacity, annual production, savings, and financial breakdown.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/solar-roi/analyze',
+    canonical: '/solar-roi/analyze',
   },
   openGraph: {
     title: 'Analyze Your Rooftop Solar Potential | CostSmart',

@@ -1,14 +1,14 @@
 import { Metadata } from 'next';
 import ElectricityBillCalculator from '@/components/calculators/real-estate/ElectricityBillCalculator';
-import JsonLd from '@/components/seo/JsonLd';
-import { getCalculatorSchema, CANONICAL_DOMAIN } from '@/lib/seo-utils';
+import CalculatorSchemaInjector from '@/components/seo/CalculatorSchemaInjector';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'Electricity Bill Calculator | CostSmart',
   description: 'Estimate your monthly electricity bill using state-wise slab rates. Add appliances, get per-unit cost, and see how to reduce your power consumption in India.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/in/electricity-bill-calculator',
+    canonical: '/in/electricity-bill-calculator',
   },
   openGraph: {
     title: 'Electricity Bill Calculator | CostSmart',
@@ -20,15 +20,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  const jsonLd = getCalculatorSchema(
-    'Electricity Bill Calculator',
-    'Estimate your monthly electricity bill based on consumption.',
-    '/in/electricity-bill-calculator'
-  );
-
   return (
     <div className="container mx-auto px-4 py-12 max-w-4xl">
-      <JsonLd data={jsonLd} />
+      <CalculatorSchemaInjector calculatorName="Electricity Bill Calculator" calculatorDescription="Estimate your monthly electricity bill based on consumption." urlPath="/in/electricity-bill-calculator" calculatorType="general" />
       <div className="mb-8 text-center">
         <h1 className="text-4xl font-bold text-slate-900 mb-4">Electricity Bill Calculator</h1>
         <p className="text-xl text-slate-600 max-w-2xl mx-auto">Estimate your monthly electricity bill based on consumption.</p>

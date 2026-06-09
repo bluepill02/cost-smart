@@ -2,7 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 import GSTCalculator from '@/components/calculators/tax/GSTCalculator';
 import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
-import JsonLd from '@/components/seo/JsonLd';
+import CalculatorSchemaInjector from '@/components/seo/CalculatorSchemaInjector';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
@@ -24,20 +24,7 @@ export const metadata: Metadata = {
 export default function GSTPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
-      <JsonLd
-        data={{
-          "@context": "https://schema.org",
-          "@type": "SoftwareApplication",
-          name: "GST Calculator India",
-          applicationCategory: "FinanceApplication",
-          operatingSystem: "Web",
-          offers: {
-            "@type": "Offer",
-            price: "0",
-            priceCurrency: "INR",
-          },
-        }}
-      />
+      <CalculatorSchemaInjector calculatorName="GST Calculator India" calculatorDescription="Calculate GST amount, pre-tax value, and total cost instantly." urlPath="/in/gst-calculator" calculatorType="tax" />
 
       <div className="mb-8 text-center">
         <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">

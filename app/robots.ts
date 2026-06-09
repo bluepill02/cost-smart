@@ -1,14 +1,13 @@
 import { MetadataRoute } from 'next';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 
 export default function robots(): MetadataRoute.Robots {
-    const baseUrl = 'https://cost-smart-five.vercel.app';
-
     return {
         rules: {
             userAgent: '*',
             allow: '/',
             disallow: ['/api/', '/_next/static/', '/private/'],
         },
-        sitemap: `${baseUrl}/sitemap.xml`,
+        sitemap: `${CANONICAL_DOMAIN}/sitemap.xml`,
     };
 }

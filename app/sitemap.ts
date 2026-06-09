@@ -1,9 +1,10 @@
 import { MetadataRoute } from 'next';
 import { INDIAN_CITIES } from '@/lib/pseo-data/cities';
 import { INDIAN_STATES_STAMP_DUTY } from '@/lib/pseo-data/stamp-duty';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = 'https://cost-smart-five.vercel.app';
+  const baseUrl = CANONICAL_DOMAIN;
   const now = new Date();
   
   const urls: MetadataRoute.Sitemap = [];

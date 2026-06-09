@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'How to use the Shipping Cost Calculator | CostSmart Guide',
   description: 'Step-by-step guide on how to use the Shipping Cost Calculator to calculate Volumetric Weight. Accurate, fast, and free online tool.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/blog/how-to-use-shipping-cost-calculator',
+    canonical: '/blog/how-to-use-shipping-cost-calculator',
   },
 };
 

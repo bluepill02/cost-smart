@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 
 export async function POST(req: NextRequest) {
   try {
@@ -35,7 +36,7 @@ export async function POST(req: NextRequest) {
       <p>${resultSummary.replace(/\n/g, '<br />')}</p>
     </div>
     <p style="color:#64748b;font-size:13px;">Want to recalculate or try different inputs?</p>
-    <a class="cta" href="https://cost-smart-five.vercel.app">Open CostSmart →</a>
+    <a class="cta" href="${CANONICAL_DOMAIN}">Open CostSmart →</a>
     <div class="footer">
       <p>You received this because you requested it on CostSmart.<br />
       CostSmart provides free financial calculators. Not financial advice.</p>

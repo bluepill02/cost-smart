@@ -1,14 +1,14 @@
 import { Metadata } from 'next';
 import PropertyTaxCalculator from '@/components/calculators/real-estate/PropertyTaxCalculator';
-import JsonLd from '@/components/seo/JsonLd';
-import { getCalculatorSchema, CANONICAL_DOMAIN } from '@/lib/seo-utils';
+import CalculatorSchemaInjector from '@/components/seo/CalculatorSchemaInjector';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'Property Tax Calculator | CostSmart',
   description: 'Estimate municipal property tax for your home or commercial property. Covers major Indian cities with rates based on annual value, location, and property type.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/in/property-tax-calculator',
+    canonical: '/in/property-tax-calculator',
   },
   openGraph: {
     title: 'Property Tax Calculator | CostSmart',
@@ -20,15 +20,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  const jsonLd = getCalculatorSchema(
-    'Property Tax Calculator',
-    'Estimate municipal property tax based on annual value and rates.',
-    '/in/property-tax-calculator'
-  );
-
   return (
     <div className="container mx-auto px-4 py-12 max-w-4xl">
-      <JsonLd data={jsonLd} />
+      <CalculatorSchemaInjector calculatorName="Property Tax Calculator" calculatorDescription="Estimate municipal property tax based on annual value and rates." urlPath="/in/property-tax-calculator" calculatorType="property" />
       <div className="mb-8 text-center">
         <h1 className="text-4xl font-bold text-slate-900 mb-4">Property Tax Calculator</h1>
         <p className="text-xl text-slate-600 max-w-2xl mx-auto">Estimate municipal property tax based on annual value and rates.</p>

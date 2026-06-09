@@ -5,7 +5,7 @@ import { LayoutDashboard } from 'lucide-react';
 
 
 export const metadata = {
-      alternates: { canonical: 'https://cost-smart-five.vercel.app/dashboard' },
+      alternates: { canonical: '/dashboard' },
   title: 'My Finance Hub - CostSmart',
     description: 'Track your saved scenarios and view real-time market data.',
 };

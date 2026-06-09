@@ -3,8 +3,8 @@ import { Suspense } from 'react';
 import HomeLoanCalculator from '@/components/calculators/loan/HomeLoanCalculator';
 import AdContainer from '@/components/ads/AdContainer';
 import AfterResultAd from '@/components/ads/AfterResultAd';
-import JsonLd from '@/components/seo/JsonLd';
-import { getCalculatorSchema, getFAQSchema, getDefaultFAQs, CANONICAL_DOMAIN } from '@/lib/seo-utils';
+import CalculatorSchemaInjector from '@/components/seo/CalculatorSchemaInjector';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import Link from 'next/link';
 import { MapPin, Globe } from 'lucide-react';
 import { INDIAN_CITIES } from '@/lib/pseo-data/cities';
@@ -23,28 +23,22 @@ export const metadata: Metadata = {
   alternates: {
     canonical: `${CANONICAL_DOMAIN}/home-loan-calculator`,
   },
+  openGraph: {
+    title: 'Home Loan EMI Calculator | CostSmart',
+    description: 'Calculate home loan EMI, total interest payable, and full amortization schedule. Supports all loan types with prepayment simulation for Indian banks.',
+    url: `${CANONICAL_DOMAIN}/home-loan-calculator`,
+    type: 'website',
+  },
 };
 
 export default function Page() {
-  const jsonLd = getCalculatorSchema(
-    'Home Loan EMI Calculator',
-    'Calculate your Home Loan EMI, total interest payable, and amortization schedule.',
-    '/home-loan-calculator'
-  );
-
-  // Get FAQ schema for loan calculators
-  const faqSchema = getFAQSchema(getDefaultFAQs('loan'));
-
   // Sort cities for the list
   const indianCities = [...INDIAN_CITIES].sort((a, b) => a.name.localeCompare(b.name));
-  // Use US Cities from solar data as proxy for major cities, though this page is generic loan
-  // In a real scenario, we'd have a separate 'US_MORTGAGE_CITIES' list, but reusing US_CITIES works for "Major Cities"
   const usCities = [...US_CITIES].sort((a, b) => a.city_name.localeCompare(b.city_name));
 
   return (
     <div className="container mx-auto px-4 py-12 max-w-5xl">
-      <JsonLd data={jsonLd} />
-      <JsonLd data={faqSchema} />
+      <CalculatorSchemaInjector calculatorName="Home Loan EMI Calculator" calculatorDescription="Calculate your Home Loan EMI, total interest payable, and amortization schedule." urlPath="/home-loan-calculator" calculatorType="loan" />
       <Breadcrumbs items={[
         { label: 'Calculators', href: '/calculators' },
         { label: 'Home Loan Calculator' },

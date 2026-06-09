@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     title: 'Loan Calculator | Mortgage & EMI | CostSmart',
     description: 'Calculate your monthly payments and see how much interest you really pay. Use our Extra Payment tool to see how to save thousands.',
     alternates: {
-        canonical: 'https://cost-smart-five.vercel.app/loan-calculator',
+        canonical: '/loan-calculator',
     },
     openGraph: {
         title: 'Loan Calculator | Mortgage & EMI | CostSmart',

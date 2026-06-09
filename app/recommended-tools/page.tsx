@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description:
     "Curated Amazon product recommendations for home buyers, investors, freelancers, and business owners. Tools, books, and resources to help you make smarter financial decisions.",
   alternates: {
-    canonical: "https://cost-smart-five.vercel.app/recommended-tools",
+    canonical: "/recommended-tools",
   },
   openGraph: {
     title: 'Recommended Tools & Resources | CostSmart',

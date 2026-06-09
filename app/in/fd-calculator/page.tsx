@@ -1,14 +1,14 @@
 import { Metadata } from 'next';
-import { getCalculatorSchema } from '@/lib/seo-utils';
 import FDCalculator from '@/components/calculators/savings/FDCalculator';
 import AdContainer from '@/components/ads/AdContainer';
 import AfterResultAd from '@/components/ads/AfterResultAd';
 import { Badge } from '@/components/ui/badge';
 import { Archive, IndianRupee } from 'lucide-react';
-import JsonLd from '@/components/seo/JsonLd';
+import CalculatorSchemaInjector from '@/components/seo/CalculatorSchemaInjector';
 import Breadcrumbs from '@/components/features/Breadcrumbs';
 import ShareResultButton from '@/components/features/ShareResultButton';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 
 export const metadata: Metadata = {
     title: 'FD Calculator India | CostSmart',
@@ -16,24 +16,18 @@ export const metadata: Metadata = {
     openGraph: {
     title: 'FD Calculator India | Fixed Deposit Returns',
     description: 'Calculate fixed deposit maturity and interest for all major Indian banks. Supports monthly, quarterly, and annual compounding with TDS deduction.',
-    url: 'https://cost-smart-five.vercel.app/in/fd-calculator',
+    url: `${CANONICAL_DOMAIN}/in/fd-calculator`,
     type: 'website',
   },
   alternates: {
-        canonical: 'https://cost-smart-five.vercel.app/in/fd-calculator',
+        canonical: '/in/fd-calculator',
     }
 };
 
 export default function FDCalculatorPage() {
-    const jsonLd = getCalculatorSchema(
-        'CostSmart FD Calculator India',
-        'Calculate fixed deposit returns with compounding options for Indian banks.',
-        '/in/fd-calculator'
-    );
-
     return (
         <div className="container mx-auto px-4 py-12 max-w-5xl">
-            <JsonLd data={jsonLd} />
+            <CalculatorSchemaInjector calculatorName="CostSmart FD Calculator India" calculatorDescription="Calculate fixed deposit returns with compounding options for Indian banks." urlPath="/in/fd-calculator" calculatorType="investment" />
             <Breadcrumbs items={[
                 { label: 'India Calculators', href: '/in' },
                 { label: 'FD Calculator' },

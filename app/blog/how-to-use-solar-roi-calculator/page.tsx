@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'How to use the Solar ROI Calculator | CostSmart Guide',
   description: 'Step-by-step guide on how to use the Solar ROI Calculator to calculate Solar Savings. Accurate, fast, and free online tool.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/blog/how-to-use-solar-roi-calculator',
+    canonical: '/blog/how-to-use-solar-roi-calculator',
   },
 };
 

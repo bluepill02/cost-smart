@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   title: 'FD vs Mutual Fund Calculator — India 2026 | CostSmart',
   description: 'Compare Fixed Deposit and Mutual Fund returns. Analyze risk, liquidity, tax implications, and returns to make the right investment choice for your goals.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/compare/fd-vs-mutual-fund',
+    canonical: '/compare/fd-vs-mutual-fund',
   },
 };
 

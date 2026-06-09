@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Ultimate Guide to TDS Deduction Calculation | CostSmart',
   description: 'Everything you need to know about TDS Deduction. Formulas, examples, and expert tips for accurate calculation.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/blog/ultimate-guide-tds-deduction',
+    canonical: '/blog/ultimate-guide-tds-deduction',
   },
 };
 

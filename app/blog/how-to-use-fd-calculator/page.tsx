@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'How to use the FD Calculator | CostSmart Guide',
   description: 'Step-by-step guide on how to use the FD Calculator to calculate Fixed Deposit Interest. Accurate, fast, and free online tool.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/blog/how-to-use-fd-calculator',
+    canonical: '/blog/how-to-use-fd-calculator',
   },
 };
 

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Ultimate Guide to Emergency Fund Calculation | CostSmart',
   description: 'Everything you need to know about Emergency Fund. Formulas, examples, and expert tips for accurate calculation.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/blog/ultimate-guide-emergency-fund',
+    canonical: '/blog/ultimate-guide-emergency-fund',
   },
 };
 

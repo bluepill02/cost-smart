@@ -1,18 +1,27 @@
 import { Metadata } from 'next';
 import ImportForm from '@/components/calculators/ImportForm';
 import AdContainer from '@/components/ads/AdContainer';
+import CalculatorSchemaInjector from '@/components/seo/CalculatorSchemaInjector';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 
 export const metadata: Metadata = {
     title: 'Import Duty & Landed Cost Calculator | CostSmart',
     description: 'Estimate import duties, VAT, and total landed cost for shipments to USA, India, UK, and Canada. Avoid customs surprises.',
     alternates: {
-        canonical: 'https://cost-smart-five.vercel.app/import-duty',
-    }
+        canonical: '/import-duty',
+    },
+    openGraph: {
+        title: 'Import Duty & Landed Cost Calculator | CostSmart',
+        description: 'Estimate import duties, VAT, and total landed cost for shipments to USA, India, UK, and Canada. Avoid customs surprises.',
+        url: `${CANONICAL_DOMAIN}/import-duty`,
+        type: 'website',
+    },
 };
 
 export default function ImportDutyPage() {
     return (
         <div className="container mx-auto px-4 py-12 max-w-5xl">
+            <CalculatorSchemaInjector calculatorName="Import Duty Calculator" calculatorDescription="Estimate import duties, VAT, and total landed cost for international shipments." urlPath="/import-duty" calculatorType="business" />
             <AdContainer className="mb-12" slotId="1475703853" />
 
             {/* Header */}

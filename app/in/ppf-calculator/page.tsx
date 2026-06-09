@@ -1,11 +1,11 @@
 import { Metadata } from 'next';
-import { getCalculatorSchema } from '@/lib/seo-utils';
 import PPFCalculator from '@/components/calculators/savings/PPFCalculator';
 import AdContainer from '@/components/ads/AdContainer';
 import { Badge } from '@/components/ui/badge';
 import { Landmark, IndianRupee } from 'lucide-react';
-import JsonLd from '@/components/seo/JsonLd';
+import CalculatorSchemaInjector from '@/components/seo/CalculatorSchemaInjector';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 
 export const metadata: Metadata = {
     title: 'PPF Calculator India | CostSmart',
@@ -13,24 +13,18 @@ export const metadata: Metadata = {
     openGraph: {
     title: 'PPF Calculator India | Maturity & Interest',
     description: 'Calculate PPF maturity amount, year-wise interest, and partial withdrawal schedule. Based on current 7.1% interest rate. Great for tax-free wealth building.',
-    url: 'https://cost-smart-five.vercel.app/in/ppf-calculator',
+    url: `${CANONICAL_DOMAIN}/in/ppf-calculator`,
     type: 'website',
   },
   alternates: {
-        canonical: 'https://cost-smart-five.vercel.app/in/ppf-calculator',
+        canonical: '/in/ppf-calculator',
     }
 };
 
 export default function PPFCalculatorPage() {
-    const jsonLd = getCalculatorSchema(
-        'CostSmart PPF Calculator India',
-        'Calculate PPF maturity amount after 15 years with partial withdrawal options.',
-        '/in/ppf-calculator'
-    );
-
     return (
         <div className="container mx-auto px-4 py-12 max-w-5xl">
-            <JsonLd data={jsonLd} />
+            <CalculatorSchemaInjector calculatorName="CostSmart PPF Calculator India" calculatorDescription="Calculate PPF maturity amount after 15 years with partial withdrawal options." urlPath="/in/ppf-calculator" calculatorType="investment" />
             <div className="text-center mb-10 space-y-4">
                 <div className="flex justify-center gap-2">
                     <Badge variant="outline" className="bg-emerald-50 text-emerald-700 border-emerald-200 flex items-center gap-1">

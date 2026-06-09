@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Ultimate Guide to Debt Free Date Calculation | CostSmart',
   description: 'Everything you need to know about Debt Free Date. Formulas, examples, and expert tips for accurate calculation.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/blog/ultimate-guide-debt-free-date',
+    canonical: '/blog/ultimate-guide-debt-free-date',
   },
 };
 

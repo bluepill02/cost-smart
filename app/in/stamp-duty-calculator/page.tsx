@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 import StampDutyCalculator from '@/components/calculators/real-estate/StampDutyCalculator';
 import AdContainer from '@/components/ads/AdContainer';
-import JsonLd from '@/components/seo/JsonLd';
-import { getCalculatorSchema, CANONICAL_DOMAIN } from '@/lib/seo-utils';
+import CalculatorSchemaInjector from '@/components/seo/CalculatorSchemaInjector';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
 import Link from 'next/link';
 import { MapPin } from 'lucide-react';
@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: 'Stamp Duty Calculator India 2025 | State-wise Rates',
   description: 'Calculate Stamp Duty and Registration Charges for property in India. Updated rates for Maharashtra, Karnataka, Tamil Nadu, and more.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/in/stamp-duty-calculator',
+    canonical: '/in/stamp-duty-calculator',
   },
   openGraph: {
     title: 'Stamp Duty Calculator India 2025 | State-wise Rates',
@@ -24,15 +24,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  const jsonLd = getCalculatorSchema(
-    'Stamp Duty Calculator',
-    'Calculate Stamp Duty and Registration Charges for property registration in India.',
-    '/in/stamp-duty-calculator'
-  );
-
   return (
     <div className="container mx-auto px-4 py-12 max-w-5xl">
-      <JsonLd data={jsonLd} />
+      <CalculatorSchemaInjector calculatorName="Stamp Duty Calculator" calculatorDescription="Calculate Stamp Duty and Registration Charges for property registration in India." urlPath="/in/stamp-duty-calculator" calculatorType="property" />
       <div className="mb-8 text-center">
         <h1 className="text-4xl font-bold text-slate-900 mb-4">Stamp Duty Calculator</h1>
         <p className="text-xl text-slate-600 max-w-2xl mx-auto">Calculate the government fees for buying a property. Accurate rates for all major Indian states.</p>

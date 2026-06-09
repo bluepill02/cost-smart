@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Ultimate Guide to Break-Even Point Calculation | CostSmart',
   description: 'Everything you need to know about Break-Even Point. Formulas, examples, and expert tips for accurate calculation.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/blog/ultimate-guide-break-even-point',
+    canonical: '/blog/ultimate-guide-break-even-point',
   },
 };
 

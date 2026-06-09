@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'How to use the EMI Calculator | CostSmart Guide',
   description: 'Step-by-step guide on how to use the EMI Calculator to calculate Loan EMI. Accurate, fast, and free online tool.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/blog/how-to-use-emi-calculator',
+    canonical: '/blog/how-to-use-emi-calculator',
   },
 };
 

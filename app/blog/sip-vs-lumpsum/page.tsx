@@ -2,18 +2,27 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import BlogSidebarForm from '@/components/lead-capture/BlogSidebarForm';
+import { getArticleSchema, CANONICAL_DOMAIN } from '@/lib/seo-utils';
+import JsonLd from '@/components/seo/JsonLd';
 
 export const metadata: Metadata = {
     title: 'SIP vs Lumpsum: Which is Better for You?',
     description: 'Compare Systematic Investment Plans (SIP) with Lumpsum investing. Understand the pros and cons of each strategy for mutual funds.',
     alternates: {
-        canonical: 'https://cost-smart-five.vercel.app/blog/sip-vs-lumpsum',
-    }
+        canonical: '/blog/sip-vs-lumpsum',
+    },
+    openGraph: {
+        title: 'SIP vs Lumpsum: Which is Better for You?',
+        description: 'Compare Systematic Investment Plans (SIP) with Lumpsum investing. Understand the pros and cons of each strategy for mutual funds.',
+        url: `${CANONICAL_DOMAIN}/blog/sip-vs-lumpsum`,
+        type: 'article',
+    },
 };
 
 export default function BlogPost() {
     return (
         <div className="container mx-auto px-4 py-12 max-w-6xl">
+            <JsonLd data={getArticleSchema({ headline: 'SIP vs Lumpsum: Which is Better for You?', description: 'Compare Systematic Investment Plans (SIP) with Lumpsum investing. Understand the pros and cons of each strategy for mutual funds.', urlPath: '/blog/sip-vs-lumpsum', datePublished: '2025-01-03T10:00:00+05:30', dateModified: '2025-01-03T10:00:00+05:30' })} />
             <div className="grid lg:grid-cols-[1fr_280px] gap-8">
                 <article>
             <h1>SIP vs Lumpsum: Which Strategy Wins?</h1>

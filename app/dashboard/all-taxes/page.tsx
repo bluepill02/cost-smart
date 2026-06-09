@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: 'All Taxes Dashboard | Income Tax, GST, TDS Calculator India',
   description: 'Complete India Tax Dashboard. Calculate Income Tax (New vs Old), GST, and TDS in one place. Updated for FY 2024-25.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/dashboard/all-taxes',
+    canonical: '/dashboard/all-taxes',
   },
 };
 

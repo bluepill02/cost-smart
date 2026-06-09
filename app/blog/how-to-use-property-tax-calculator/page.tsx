@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'How to use the Property Tax Calculator | CostSmart Guide',
   description: 'Step-by-step guide on how to use the Property Tax Calculator to calculate Property Tax. Accurate, fast, and free online tool.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/blog/how-to-use-property-tax-calculator',
+    canonical: '/blog/how-to-use-property-tax-calculator',
   },
 };
 

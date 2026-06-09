@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'How to use the Freelance Rate Calculator | CostSmart Guide',
   description: 'Step-by-step guide on how to use the Freelance Rate Calculator to calculate Freelance Hourly Rate. Accurate, fast, and free online tool.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/blog/how-to-use-freelance-rate-calculator',
+    canonical: '/blog/how-to-use-freelance-rate-calculator',
   },
 };
 

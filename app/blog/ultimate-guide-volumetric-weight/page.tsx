@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Ultimate Guide to Volumetric Weight Calculation | CostSmart',
   description: 'Everything you need to know about Volumetric Weight. Formulas, examples, and expert tips for accurate calculation.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/blog/ultimate-guide-volumetric-weight',
+    canonical: '/blog/ultimate-guide-volumetric-weight',
   },
 };
 

@@ -1,18 +1,27 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { getArticleSchema, CANONICAL_DOMAIN } from '@/lib/seo-utils';
+import JsonLd from '@/components/seo/JsonLd';
 
 export const metadata: Metadata = {
     title: 'Snowball vs Avalanche: Which Debt Strategy is Best?',
     description: 'Compare Dave Ramsey\'s Snowball method with the mathematical Avalanche method. Find out which one will help you become debt-free faster.',
     alternates: {
-        canonical: 'https://cost-smart-five.vercel.app/blog/snowball-vs-avalanche',
-    }
+        canonical: '/blog/snowball-vs-avalanche',
+    },
+    openGraph: {
+        title: 'Snowball vs Avalanche: Which Debt Strategy is Best?',
+        description: 'Compare Dave Ramsey\'s Snowball method with the mathematical Avalanche method. Find out which one will help you become debt-free faster.',
+        url: `${CANONICAL_DOMAIN}/blog/snowball-vs-avalanche`,
+        type: 'article',
+    },
 };
 
 export default function BlogPost() {
     return (
         <article>
+            <JsonLd data={getArticleSchema({ headline: 'Snowball vs Avalanche: Which Debt Strategy is Best?', description: 'Compare Dave Ramsey\'s Snowball method with the mathematical Avalanche method. Find out which one will help you become debt-free faster.', urlPath: '/blog/snowball-vs-avalanche', datePublished: '2025-01-20T10:00:00+05:30', dateModified: '2025-01-20T10:00:00+05:30' })} />
             <h1>Debt Snowball vs Avalanche: The Ultimate Showdown</h1>
             <p className="lead">
                 Getting out of debt is 20% math and 80% behavior. The strategy you choose depends on what motivates you more: logic or emotion.

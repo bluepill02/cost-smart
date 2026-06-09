@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Ultimate Guide to Net GST Payable Calculation | CostSmart',
   description: 'Everything you need to know about Net GST Payable. Formulas, examples, and expert tips for accurate calculation.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/blog/ultimate-guide-net-gst-payable',
+    canonical: '/blog/ultimate-guide-net-gst-payable',
   },
 };
 

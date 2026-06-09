@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: { params: Promise<{ city: str
         title: `Solar ROI for ${size} sq ft Roof in ${city.city_name} - Detailed Report`,
         description: `How much can you save with a ${size} sq ft solar installation in ${city.city_name}? Calculate generation, cost, and subsidies in ${city.state}.`,
         alternates: {
-            canonical: `https://cost-smart-five.vercel.app/solar-roi/${cityParam}/${size}`,
+            canonical: `/solar-roi/${cityParam}/${size}`,
         }
     };
 }

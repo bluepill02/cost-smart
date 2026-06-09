@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description:
     'Upgrade to CostSmart Pro for $4.99/month. Get PDF report exports, ad-free experience, advanced AI financial advice, and priority support.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/pricing',
+    canonical: '/pricing',
   },
   openGraph: {
     title: 'Pricing | CostSmart Pro - PDF Reports, Ad-Free, AI Advice',

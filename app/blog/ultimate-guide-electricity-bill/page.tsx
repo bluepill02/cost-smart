@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Ultimate Guide to Electricity Bill Calculation | CostSmart',
   description: 'Everything you need to know about Electricity Bill. Formulas, examples, and expert tips for accurate calculation.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/blog/ultimate-guide-electricity-bill',
+    canonical: '/blog/ultimate-guide-electricity-bill',
   },
 };
 
