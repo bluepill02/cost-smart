@@ -4,6 +4,7 @@ import { PREMIUM_CONFIG } from '@/lib/premium-config';
 import { Sparkles, ShieldCheck, CreditCard, HelpCircle } from 'lucide-react';
 import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
+import TestimonialsSection from '@/components/features/TestimonialsSection';
 import ProRecovery from '@/components/premium/ProRecovery';
 
 export const metadata: Metadata = {
@@ -184,6 +185,11 @@ export default function PricingPage() {
           </table>
         </div>
       </section>
+
+      {/* Testimonials / Social Proof */}
+      <div className="mt-16">
+        <TestimonialsSection />
+      </div>
 
       {/* FAQ Section */}
       <section className="container mx-auto px-4 max-w-3xl mt-16 pb-16">
