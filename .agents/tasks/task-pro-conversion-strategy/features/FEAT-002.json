@@ -2,7 +2,7 @@
   "id": "FEAT-002",
   "type": "feat",
   "description": "Create 'What You're Missing' Pro Analytics Preview section for the Dashboard, and add Pro feature flags to the Dashboard page. Shows free users a tantalizing preview of analytics insights (spending patterns, savings goals, category breakdown) they would get with Pro, using blurred/locked sections that trigger the upgrade modal.",
-  "status": "pending",
+  "status": "in_progress",
   "steps": [
     "Create components/premium/ProAnalyticsPreview.tsx - A dashboard section that shows a preview of Pro analytics features. Include 3-4 mock insight cards: 'Monthly Spending Trends' (with a blurred mini-chart using Recharts), 'Category Breakdown' (blurred pie chart), 'Savings Goal Tracker' (blurred progress bars), 'AI-Powered Insights' (blurred text insights). Each card uses ProFeatureWrapper from FEAT-001 with featureName='Advanced Analytics'. Style with Card components and the existing emerald color scheme.",
     "Create components/premium/ProInsightTeaser.tsx - A smaller teaser widget showing one specific insight like 'Based on your 12 calculations, Pro users save an average of 23% more' with a blurred details section and upgrade CTA. This uses realistic-looking but static mock data to create FOMO.",
