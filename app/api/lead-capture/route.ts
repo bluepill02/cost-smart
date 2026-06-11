@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { processLead } from '@/lib/mailchimp';
 
 interface LeadCaptureBody {
   email: string;
@@ -159,6 +160,22 @@ export async function POST(req: NextRequest) {
         '[lead-capture] ZAPIER_WEBHOOK_URL not set. Payload:',
         JSON.stringify(zapierPayload)
       );
+    }
+
+    // Direct Mailchimp integration (fire-and-forget alongside Zapier)
+    const mailchimpApiKey = process.env.MAILCHIMP_API_KEY;
+    if (mailchimpApiKey) {
+      processLead({
+        email: body.email,
+        name: body.name,
+        formSource: body.formSource,
+        pageUrl: body.pageUrl,
+        leadScore,
+        leadTier,
+        calculatorContext: body.calculatorContext,
+      }).catch((err) => {
+        console.error('[lead-capture] Mailchimp error:', err);
+      });
     }
 
     return NextResponse.json({ success: true, lead_score: leadScore });
