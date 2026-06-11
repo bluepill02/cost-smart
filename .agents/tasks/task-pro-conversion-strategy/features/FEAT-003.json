@@ -2,7 +2,7 @@
   "id": "FEAT-003",
   "type": "feat",
   "description": "Create comparison landing pages (Cost-Smart vs Excel, Cost-Smart vs YNAB) targeting users actively comparing solutions, and persona-targeted landing pages for Freelancers and Budget-Conscious users. These are SEO content pages that highlight Cost-Smart's advantages and funnel visitors toward Pro conversion.",
-  "status": "pending",
+  "status": "in_progress",
   "steps": [
     "Create app/compare/cost-smart-vs-excel/page.tsx - A detailed comparison page following the existing comparison page pattern (see app/compare/ppf-vs-fd/ for structure). Include: metadata with SEO title/description, a comparison table (features like ease of use, automation, templates, mobile access, collaboration, data security, cost), pros/cons of each, a verdict section recommending Cost-Smart Pro for anyone wanting more than basic tracking, and a CTA to /pricing. Use the existing Card components and styling.",
     "Create app/compare/cost-smart-vs-ynab/page.tsx - Similar comparison page for YNAB. Highlight: Cost-Smart's free tier vs YNAB's $14.99/month, simpler interface, India-focused features, calculator suite. Acknowledge YNAB's strengths (envelope budgeting, goal tracking) but position Cost-Smart Pro at $4.99/month as the affordable alternative with AI insights.",
