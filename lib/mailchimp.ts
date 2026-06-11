@@ -33,6 +33,13 @@ export interface LeadData {
 
 // --- Helpers ---
 
+export function maskEmailForLog(email: string): string {
+  const [local, domain] = email.split('@');
+  if (!domain) return '***';
+  const visible = local.slice(0, 2);
+  return `${visible}***@${domain}`;
+}
+
 export function getMailchimpConfig(): MailchimpConfig {
   const apiKey = process.env.MAILCHIMP_API_KEY || '';
   const audienceId = process.env.MAILCHIMP_AUDIENCE_ID || '';
@@ -60,6 +67,7 @@ export async function addOrUpdateSubscriber(
   options?: AddOrUpdateOptions
 ): Promise<void> {
   const { apiKey, baseUrl, audienceId } = getMailchimpConfig();
+  const masked = maskEmailForLog(email);
 
   if (!apiKey || !audienceId) {
     console.warn('[mailchimp] Missing MAILCHIMP_API_KEY or MAILCHIMP_AUDIENCE_ID');
@@ -87,10 +95,10 @@ export async function addOrUpdateSubscriber(
 
     if (!res.ok) {
       const error = await res.json().catch(() => ({}));
-      console.error('[mailchimp] addOrUpdateSubscriber failed:', res.status, error);
+      console.error('[mailchimp] addOrUpdateSubscriber failed for:', masked, res.status, error);
     }
   } catch (err) {
-    console.error('[mailchimp] addOrUpdateSubscriber network error:', err);
+    console.error('[mailchimp] addOrUpdateSubscriber network error for:', masked, err);
   }
 }
 
@@ -99,6 +107,7 @@ export async function applyTags(
   tagNames: string[]
 ): Promise<void> {
   const { apiKey, baseUrl, audienceId } = getMailchimpConfig();
+  const masked = maskEmailForLog(email);
 
   if (!apiKey || !audienceId) {
     console.warn('[mailchimp] Missing MAILCHIMP_API_KEY or MAILCHIMP_AUDIENCE_ID');
@@ -126,30 +135,31 @@ export async function applyTags(
 
     if (!res.ok) {
       const error = await res.json().catch(() => ({}));
-      console.error('[mailchimp] applyTags failed:', res.status, error);
+      console.error('[mailchimp] applyTags failed for:', masked, res.status, error);
     }
   } catch (err) {
-    console.error('[mailchimp] applyTags network error:', err);
+    console.error('[mailchimp] applyTags network error for:', masked, err);
   }
 }
 
 // --- High-Level Orchestrator ---
 
 export async function processLead(leadData: LeadData): Promise<void> {
+  const masked = maskEmailForLog(leadData.email);
   try {
     const { email, name, formSource, pageUrl, leadScore, leadTier, calculatorContext } = leadData;
 
     // Extract first name from full name
     const firstName = name ? name.trim().split(/\s+/)[0] : '';
 
-    // Build merge fields
+    // Build merge fields (PAGEURL has a 255-char limit in Mailchimp)
     const mergeFields: MergeFields = {
       FNAME: firstName,
       LEADSCORE: leadScore,
       LEADTIER: leadTier,
       FORMSRC: formSource,
       CALCNAME: calculatorContext?.calculatorName || '',
-      PAGEURL: pageUrl || '',
+      PAGEURL: (pageUrl || '').slice(0, 255),
     };
 
     // Determine tags based on lead tier
@@ -183,9 +193,9 @@ export async function processLead(leadData: LeadData): Promise<void> {
     // Apply tags
     await applyTags(email, tags);
 
-    console.log('[mailchimp] processLead complete for:', email, { leadTier, tags });
+    console.log('[mailchimp] processLead complete for:', masked, { leadTier, tags });
   } catch (err) {
     // Never throw to caller - log and continue
-    console.error('[mailchimp] processLead error:', err);
+    console.error('[mailchimp] processLead error for:', masked, err);
   }
 }

@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextRequest, NextResponse, after } from 'next/server';
 import { processLead } from '@/lib/mailchimp';
 
 interface LeadCaptureBody {
@@ -162,19 +162,19 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    // Direct Mailchimp integration (fire-and-forget alongside Zapier)
+    // Direct Mailchimp integration (runs after response via after())
     const mailchimpApiKey = process.env.MAILCHIMP_API_KEY;
     if (mailchimpApiKey) {
-      processLead({
-        email: body.email,
-        name: body.name,
-        formSource: body.formSource,
-        pageUrl: body.pageUrl,
-        leadScore,
-        leadTier,
-        calculatorContext: body.calculatorContext,
-      }).catch((err) => {
-        console.error('[lead-capture] Mailchimp error:', err);
+      after(async () => {
+        await processLead({
+          email: body.email,
+          name: body.name,
+          formSource: body.formSource,
+          pageUrl: body.pageUrl,
+          leadScore,
+          leadTier,
+          calculatorContext: body.calculatorContext,
+        });
       });
     }
 
