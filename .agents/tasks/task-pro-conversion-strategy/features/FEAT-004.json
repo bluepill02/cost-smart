@@ -1,0 +1,27 @@
+{
+  "id": "FEAT-004",
+  "type": "feat",
+  "description": "Create social proof / testimonials section component, a downloadable budget template resource page gated behind email capture, and update homepage messaging with the new brand slogan and value propositions from the marketing strategy.",
+  "status": "pending",
+  "steps": [
+    "Create components/features/TestimonialsSection.tsx - A social proof section with 3-4 testimonial cards. Each card has: avatar placeholder (initials in a colored circle), name, role/description (e.g., 'Freelance Designer', 'Recent Graduate'), star rating (5 stars), and a quote about how Cost-Smart helped them. Use realistic but fictional testimonials aligned with the two personas (Freelancer Fiona, Budget-Conscious Ben). Style with Card components and emerald accents. Include a subtle 'Join 10,000+ users managing their finances smarter' counter above the testimonials.",
+    "Create app/resources/budget-template/page.tsx - A landing page for a free downloadable 'Monthly Budget Template' PDF. Include: SEO metadata, a hero explaining the template's value, a preview image/mockup of the template, bullet points of what's included (income tracking, expense categories, savings goals, monthly review checklist), and an email-gated download form using the existing lead capture pattern from CalculatorResultGate.tsx. After email submission, show a download link (to /budget-template.pdf in public/) and add the user to the newsletter list.",
+    "Create public/budget-template.pdf - A simple PDF file (can be a placeholder text file with .pdf extension or we can create minimal content). Note: For now just create a placeholder file at this path.",
+    "Update the homepage app/page.tsx to include the TestimonialsSection component. Add it after the existing calculator categories grid and before the newsletter section. Also update the hero subtitle/description to incorporate the brand messaging: 'Stop wondering where your money goes. Start telling it where to go.'",
+    "Add the TestimonialsSection to the pricing page app/pricing/page.tsx before the FAQ section to add social proof at the point of purchase decision."
+  ],
+  "acceptance_criteria": [
+    "TestimonialsSection renders 3-4 testimonial cards with realistic content matching the freelancer and budget-conscious personas",
+    "Budget template page has email gate form and shows download link after submission",
+    "public/budget-template.pdf exists (placeholder is fine)",
+    "Homepage includes TestimonialsSection and updated brand messaging",
+    "Pricing page includes TestimonialsSection before FAQ",
+    "next build completes without errors"
+  ],
+  "verification": [
+    "Run npx next build from /projects/sandbox/cost-smart and confirm no errors",
+    "Verify TypeScript types are correct by checking build output for type errors"
+  ],
+  "blocked_reason": null,
+  "findings": ""
+}

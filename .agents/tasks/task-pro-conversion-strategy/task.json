@@ -1,0 +1,7 @@
+{
+  "task_id": "task-pro-conversion-strategy",
+  "task_description": "Implement the marketing strategy for driving Pro Plan conversions: Product-Led Growth components (upgrade gates, feature flagging, Pro analytics preview), SEO comparison pages and persona landing pages, social proof, and conversion-focused messaging updates.",
+  "status": "in_progress",
+  "feature_order": ["FEAT-001", "FEAT-002", "FEAT-003", "FEAT-004"],
+  "blocked_reason": null
+}
