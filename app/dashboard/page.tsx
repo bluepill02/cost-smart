@@ -1,6 +1,8 @@
 import React from 'react';
 // import MarketTicker from '@/components/features/MarketTicker';
 import DashboardHistory from '@/components/features/DashboardHistory';
+import ProAnalyticsPreview from '@/components/premium/ProAnalyticsPreview';
+import ProInsightTeaser from '@/components/premium/ProInsightTeaser';
 import { LayoutDashboard } from 'lucide-react';
 
 
@@ -32,6 +34,15 @@ export default function DashboardPage() {
                 */}
 
                 <DashboardHistory />
+
+                {/* Pro Analytics Section */}
+                <div className="mt-12 border-t border-slate-200 pt-10">
+                    <ProInsightTeaser />
+
+                    <div className="mt-10">
+                        <ProAnalyticsPreview />
+                    </div>
+                </div>
             </div>
         </div>
     );

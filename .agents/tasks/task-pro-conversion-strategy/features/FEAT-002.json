@@ -1,0 +1,26 @@
+{
+  "id": "FEAT-002",
+  "type": "feat",
+  "description": "Create 'What You're Missing' Pro Analytics Preview section for the Dashboard, and add Pro feature flags to the Dashboard page. Shows free users a tantalizing preview of analytics insights (spending patterns, savings goals, category breakdown) they would get with Pro, using blurred/locked sections that trigger the upgrade modal.",
+  "status": "completed",
+  "steps": [
+    "Create components/premium/ProAnalyticsPreview.tsx - A dashboard section that shows a preview of Pro analytics features. Include 3-4 mock insight cards: 'Monthly Spending Trends' (with a blurred mini-chart using Recharts), 'Category Breakdown' (blurred pie chart), 'Savings Goal Tracker' (blurred progress bars), 'AI-Powered Insights' (blurred text insights). Each card uses ProFeatureWrapper from FEAT-001 with featureName='Advanced Analytics'. Style with Card components and the existing emerald color scheme.",
+    "Create components/premium/ProInsightTeaser.tsx - A smaller teaser widget showing one specific insight like 'Based on your 12 calculations, Pro users save an average of 23% more' with a blurred details section and upgrade CTA. This uses realistic-looking but static mock data to create FOMO.",
+    "Update app/dashboard/page.tsx to include the ProAnalyticsPreview component below the existing DashboardHistory section. Import and render it for all users (the component internally handles Pro vs Free display via ProFeatureWrapper).",
+    "Add a 'Pro Features' section heading between DashboardHistory and ProAnalyticsPreview with text like 'Unlock Advanced Insights' and a subheading explaining what Pro analytics provides."
+  ],
+  "acceptance_criteria": [
+    "ProAnalyticsPreview renders 3-4 blurred insight cards for free users with Pro badges",
+    "Each blurred card opens UpgradeGateModal when clicked by free users",
+    "Pro users would see the cards without blur (though actual analytics data is mock/static for now)",
+    "ProInsightTeaser shows a compelling single-stat teaser with upgrade CTA",
+    "Dashboard page includes the new ProAnalyticsPreview section",
+    "next build completes without errors"
+  ],
+  "verification": [
+    "Run npx next build from /projects/sandbox/cost-smart and confirm no errors",
+    "Verify TypeScript types are correct by checking build output for type errors"
+  ],
+  "blocked_reason": null,
+  "findings": "Build passes cleanly. Chart width warnings during static generation are pre-existing (from other Recharts usages in the project, as noted in FEAT-001). ProAnalyticsPreview uses ResponsiveContainer which triggers these warnings during SSG but works fine at runtime. ProInsightTeaser and ProAnalyticsPreview both render correctly as client components imported into the server-rendered dashboard page."
+}

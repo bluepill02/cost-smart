@@ -1,0 +1,43 @@
+{
+  "project_type": "Next.js 16 React 19 TypeScript web application",
+  "language": "TypeScript",
+  "build_system": "pnpm with Next.js build",
+  "test_framework": "Playwright for e2e tests",
+  "build_command": "cd /projects/sandbox/cost-smart && npx next build",
+  "test_command": "No unit tests currently; build verification is the primary check",
+  "verification_instructions": "Run npx next build and confirm it succeeds without errors",
+  "snapshot_or_generated_files": null,
+  "setup_instructions": "cd /projects/sandbox/cost-smart && pnpm install",
+  "environment_constraints": "OPEN_INTERNET - full access to Mailchimp APIs. No Mailchimp SDK - use raw fetch(). The free plan does NOT support automations endpoint.",
+  "contribution_requirements": "Use raw fetch() for API calls (no SDKs). Follow existing pattern from app/api/email-results/route.ts. Use @/ path aliases.",
+  "key_patterns": "API routes use Next.js app router (app/api/*/route.ts). Lib modules export functions used by both client and server. Environment variables accessed via process.env. Fire-and-forget pattern for webhooks.",
+  "relevant_files": [
+    "app/api/lead-capture/route.ts",
+    "app/api/email-results/route.ts",
+    "lib/lead-capture-api.ts",
+    ".env.example"
+  ],
+  "directory_structure": "app/ - Next.js app router pages and API routes; lib/ - shared utilities and API clients; components/ - React components; public/ - static assets",
+  "mailchimp_config": {
+    "api_key": "e3b98d96bdf3a09e837d21a9388fb4e6-us6",
+    "data_center": "us6",
+    "base_url": "https://us6.api.mailchimp.com/3.0/",
+    "audience_id": "20b157c32a",
+    "current_name": "B. P Miller",
+    "target_name": "CostSmart",
+    "from_email": "msumangali1973@gmail.com",
+    "existing_tags": [
+      {"id": 1943433, "name": "CostSmart-Hot-Lead"},
+      {"id": 1943434, "name": "CostSmart-Warm-Lead"},
+      {"id": 1943435, "name": "CostSmart-Newsletter"},
+      {"id": 1943436, "name": "CostSmart-Cold-Lead"}
+    ],
+    "existing_merge_fields": ["FNAME", "LNAME", "ADDRESS", "PHONE", "BIRTHDAY", "COMPANY"],
+    "needed_merge_fields": ["LEADSCORE", "LEADTIER", "FORMSRC", "CALCNAME", "PAGEURL"],
+    "needed_tags": ["CostSmart-Budget-Download"],
+    "needed_templates": ["Welcome Email", "Calculator Results Follow-up", "Pro Upgrade Nudge", "Weekly Financial Tips Digest"],
+    "custom_templates": 0,
+    "campaigns": 0,
+    "automations": 0
+  }
+}

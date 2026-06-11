@@ -1,0 +1,35 @@
+{
+  "id": "FEAT-001",
+  "type": "chore",
+  "description": "Configure Mailchimp account via API: rename audience to CostSmart, update campaign_defaults from_name to CostSmart, add 5 CostSmart-specific merge fields (LEADSCORE, LEADTIER, FORMSRC, CALCNAME, PAGEURL), add missing CostSmart-Budget-Download tag, and create 4 branded HTML email templates.",
+  "status": "completed",
+  "steps": [
+    "Step 1: Rename audience from 'B. P Miller' to 'CostSmart' via PATCH https://us6.api.mailchimp.com/3.0/lists/20b157c32a with body {\"name\": \"CostSmart\", \"campaign_defaults\": {\"from_name\": \"CostSmart\", \"from_email\": \"msumangali1973@gmail.com\", \"subject\": \"\", \"language\": \"en\"}}",
+    "Step 2: Add merge field LEADSCORE (type: number) via POST https://us6.api.mailchimp.com/3.0/lists/20b157c32a/merge-fields with {\"tag\": \"LEADSCORE\", \"name\": \"Lead Score\", \"type\": \"number\", \"required\": false}",
+    "Step 3: Add merge field LEADTIER (type: text) via POST with {\"tag\": \"LEADTIER\", \"name\": \"Lead Tier\", \"type\": \"text\", \"required\": false}",
+    "Step 4: Add merge field FORMSRC (type: text) via POST with {\"tag\": \"FORMSRC\", \"name\": \"Form Source\", \"type\": \"text\", \"required\": false}",
+    "Step 5: Add merge field CALCNAME (type: text) via POST with {\"tag\": \"CALCNAME\", \"name\": \"Calculator Name\", \"type\": \"text\", \"required\": false}",
+    "Step 6: Add merge field PAGEURL (type: text, size 255) via POST with {\"tag\": \"PAGEURL\", \"name\": \"Page URL\", \"type\": \"text\", \"required\": false, \"options\": {\"size\": 255}}",
+    "Step 7: Create tag CostSmart-Budget-Download via POST https://us6.api.mailchimp.com/3.0/lists/20b157c32a/segments with {\"name\": \"CostSmart-Budget-Download\", \"static_segment\": []}",
+    "Step 8: Create HTML email template 'CostSmart Welcome' via POST https://us6.api.mailchimp.com/3.0/templates - Professional CostSmart-branded welcome email with emerald green (#059669) branding, personalized greeting using *|FNAME|*, tier-specific content mention, CTA to explore calculators",
+    "Step 9: Create HTML email template 'CostSmart Calculator Results Follow-up' via POST /templates - References the calculator they used (*|CALCNAME|*), offers tips for optimization, CTA to try other calculators",
+    "Step 10: Create HTML email template 'CostSmart Pro Upgrade Nudge' via POST /templates - Highlights Pro features (advanced analytics, PDF export, priority support), shows value proposition, CTA to /pricing page",
+    "Step 11: Create HTML email template 'CostSmart Weekly Financial Tips' via POST /templates - Digest format with 3-4 tip slots, clean design, links to blog/calculators, unsubscribe footer",
+    "Step 12: Verify all changes by querying the API to confirm: audience name is CostSmart, all 5 new merge fields exist, new tag exists, all 4 templates exist"
+  ],
+  "acceptance_criteria": [
+    "GET /lists/20b157c32a returns name='CostSmart' and campaign_defaults.from_name='CostSmart'",
+    "GET /lists/20b157c32a/merge-fields returns LEADSCORE, LEADTIER, FORMSRC, CALCNAME, PAGEURL in addition to existing fields",
+    "GET /lists/20b157c32a/segments returns CostSmart-Budget-Download tag",
+    "GET /templates?type=user returns 4 custom templates with CostSmart branding",
+    "All templates contain valid HTML with CostSmart green branding (#059669)"
+  ],
+  "verification": [
+    "curl -s -u 'anystring:e3b98d96bdf3a09e837d21a9388fb4e6-us6' 'https://us6.api.mailchimp.com/3.0/lists/20b157c32a' | python3 -c \"import sys,json; d=json.load(sys.stdin); assert d['name']=='CostSmart'; assert d['campaign_defaults']['from_name']=='CostSmart'; print('PASS: Audience configured')\"",
+    "curl -s -u 'anystring:e3b98d96bdf3a09e837d21a9388fb4e6-us6' 'https://us6.api.mailchimp.com/3.0/lists/20b157c32a/merge-fields' | python3 -c \"import sys,json; d=json.load(sys.stdin); tags=[f['tag'] for f in d['merge_fields']]; needed=['LEADSCORE','LEADTIER','FORMSRC','CALCNAME','PAGEURL']; assert all(t in tags for t in needed), f'Missing: {set(needed)-set(tags)}'; print('PASS: All merge fields exist')\"",
+    "curl -s -u 'anystring:e3b98d96bdf3a09e837d21a9388fb4e6-us6' 'https://us6.api.mailchimp.com/3.0/lists/20b157c32a/segments' | python3 -c \"import sys,json; d=json.load(sys.stdin); names=[s['name'] for s in d['segments']]; assert 'CostSmart-Budget-Download' in names; print('PASS: Budget-Download tag exists')\"",
+    "curl -s -u 'anystring:e3b98d96bdf3a09e837d21a9388fb4e6-us6' 'https://us6.api.mailchimp.com/3.0/templates?type=user' | python3 -c \"import sys,json; d=json.load(sys.stdin); assert d['total_items']>=4; print(f'PASS: {d[chr(116)+chr(111)+chr(116)+chr(97)+chr(108)+chr(95)+chr(105)+chr(116)+chr(101)+chr(109)+chr(115)]} templates found')\""
+  ],
+  "blocked_reason": null,
+  "findings": "All Mailchimp API configurations completed and verified: (1) Audience renamed from 'B. P Miller' to 'CostSmart' with campaign_defaults from_name updated to 'CostSmart'; (2) 5 merge fields added - LEADSCORE (number, id:7), LEADTIER (text, id:8), FORMSRC (text, id:9), CALCNAME (text, id:10), PAGEURL (text, id:11); (3) CostSmart-Budget-Download tag/segment created (id:1943448); (4) 4 branded HTML email templates created - CostSmart Welcome (id:10003190), CostSmart Calculator Results (id:10003191), CostSmart Pro Upgrade (id:10003192), CostSmart Weekly Tips (id:10003193). All templates use emerald green #059669 branding, responsive table-based layout, CostSmart logo styling, proper email HTML structure with DOCTYPE, and include *|FNAME|* personalization, *|UNSUB|*, *|UPDATE_PROFILE|* merge tags."
+}

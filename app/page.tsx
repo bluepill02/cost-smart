@@ -9,6 +9,7 @@ import {
 import AdContainer from '@/components/ads/AdContainer';
 import HeroSearch from '@/components/features/HeroSearch';
 import MiniSIPWidget from '@/components/features/MiniSIPWidget';
+import TestimonialsSection from '@/components/features/TestimonialsSection';
 import NewsletterInlineForm from '@/components/lead-capture/NewsletterInlineForm';
 import { CANONICAL_DOMAIN, getCalculatorSchema } from '@/lib/seo-utils';
 import JsonLd from '@/components/seo/JsonLd';
@@ -265,7 +266,8 @@ export default function HomePage() {
               </h1>
 
               <p className="text-lg text-white/55 max-w-lg mx-auto lg:mx-0 mb-8 leading-relaxed">
-                EMI, SIP, income tax, home loan, solar ROI, salary — every financial calculation
+                Stop wondering where your money goes. Start telling it where to go.
+                EMI, SIP, income tax, home loan, solar ROI — every financial calculation
                 you need. Free, instant, and privacy-first.
               </p>
 
@@ -386,6 +388,11 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ══════════════════════════════════════════════ */}
+      {/* Testimonials / Social Proof                  */}
+      {/* ══════════════════════════════════════════════ */}
+      <TestimonialsSection />
 
       {/* ══════════════════════════════════════════════ */}
       {/* PRO VALUE PROP SECTION                       */}
