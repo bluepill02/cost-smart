@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowRight, CheckCircle, XCircle, AlertCircle } from 'lucide-react';
 import AdContainer from '@/components/ads/AdContainer';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
+import { PREMIUM_CONFIG } from '@/lib/premium-config';
 
 export const metadata: Metadata = {
   title: 'Cost-Smart vs Excel Spreadsheets | Why Switch to a Dedicated Tool',
@@ -16,6 +17,9 @@ export const metadata: Metadata = {
 };
 
 export default function CostSmartVsExcelPage() {
+  const proMonthlyPrice = PREMIUM_CONFIG.plans.proMonthly.price;
+  const proYearlyPrice = PREMIUM_CONFIG.plans.proYearly.price;
+
   const comparisonSchema = {
     '@context': 'https://schema.org',
     '@type': 'Table',
@@ -77,7 +81,7 @@ export default function CostSmartVsExcelPage() {
                 </div>
                 <div>
                   <p className="text-sm text-slate-600">Price</p>
-                  <p className="font-semibold text-slate-900">Free (Pro at $4.99/month)</p>
+                  <p className="font-semibold text-slate-900">Free (Pro at ${proMonthlyPrice}/month)</p>
                 </div>
                 <div>
                   <p className="text-sm text-slate-600">Financial Formulas</p>
@@ -207,7 +211,7 @@ export default function CostSmartVsExcelPage() {
                     <tr>
                       <td className="p-4 font-semibold">Cost</td>
                       <td className="p-4 text-emerald-700">
-                        Free forever plan; Pro at $4.99/mo
+                        Free forever plan; Pro at ${proMonthlyPrice}/mo
                       </td>
                       <td className="p-4 text-slate-700">
                         $6.99 - $12.99/mo (Microsoft 365)
@@ -356,7 +360,7 @@ export default function CostSmartVsExcelPage() {
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
                     <span>
-                      <strong>Upgrade to Pro ($4.99/mo)</strong> for unlimited budgets, AI insights,
+                      <strong>Upgrade to Pro (${proMonthlyPrice}/mo)</strong> for unlimited budgets, AI insights,
                       data export, and ad-free experience
                     </span>
                   </li>

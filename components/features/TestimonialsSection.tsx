@@ -27,7 +27,7 @@ const TESTIMONIALS = [
     role: 'Recent Graduate',
     initials: 'AK',
     color: 'bg-violet-500',
-    rating: 5,
+    rating: 4,
     quote:
       "As a fresh grad on a tight budget, CostSmart's free tools were a lifesaver. I upgraded to Pro for the advanced reports and it's worth every rupee.",
   },
@@ -82,10 +82,14 @@ export default function TestimonialsSection() {
 
                 {/* Star Rating */}
                 <div className="flex items-center gap-0.5 mb-3">
-                  {Array.from({ length: testimonial.rating }).map((_, i) => (
+                  {Array.from({ length: 5 }).map((_, i) => (
                     <Star
                       key={i}
-                      className="w-4 h-4 text-emerald-500 fill-emerald-500"
+                      className={`w-4 h-4 ${
+                        i < testimonial.rating
+                          ? 'text-emerald-500 fill-emerald-500'
+                          : 'text-slate-300'
+                      }`}
                     />
                   ))}
                 </div>

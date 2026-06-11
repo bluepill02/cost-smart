@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ArrowRight, CheckCircle, XCircle, DollarSign } from 'lucide-react';
 import AdContainer from '@/components/ads/AdContainer';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
+import { PREMIUM_CONFIG } from '@/lib/premium-config';
 
 export const metadata: Metadata = {
   title: 'Cost-Smart vs YNAB | Affordable Alternative for Smart Budgeting',
@@ -16,6 +17,11 @@ export const metadata: Metadata = {
 };
 
 export default function CostSmartVsYNABPage() {
+  const proMonthlyPrice = PREMIUM_CONFIG.plans.proMonthly.price;
+  const proYearlyPrice = PREMIUM_CONFIG.plans.proYearly.price;
+  const ynabMonthlyPrice = 14.99;
+  const annualSavingsVsYnab = Math.round((ynabMonthlyPrice - proMonthlyPrice) * 12);
+
   const comparisonSchema = {
     '@context': 'https://schema.org',
     '@type': 'Table',
@@ -51,7 +57,7 @@ export default function CostSmartVsYNABPage() {
             </h1>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
               YNAB is a great budgeting tool, but at $14.99/month it is expensive for many users.
-              Cost-Smart Pro offers similar power at $4.99/month with India-focused features and a
+              Cost-Smart Pro offers similar power at ${proMonthlyPrice}/month with India-focused features and a
               generous free tier.
             </p>
           </div>
@@ -68,7 +74,7 @@ export default function CostSmartVsYNABPage() {
               <CardContent className="space-y-3">
                 <div>
                   <p className="text-4xl font-black text-emerald-600">
-                    $4.99<span className="text-base font-medium text-slate-500">/month</span>
+                    ${proMonthlyPrice}<span className="text-base font-medium text-slate-500">/month</span>
                   </p>
                   <p className="text-sm text-slate-600 mt-1">Plus a free forever plan</p>
                 </div>
@@ -78,7 +84,7 @@ export default function CostSmartVsYNABPage() {
                 </div>
                 <div>
                   <p className="text-sm text-slate-600">Annual Savings vs YNAB</p>
-                  <p className="font-semibold text-emerald-600">Save $120/year</p>
+                  <p className="font-semibold text-emerald-600">Save ${annualSavingsVsYnab}/year</p>
                 </div>
                 <div>
                   <p className="text-sm text-slate-600">Best For</p>
@@ -139,7 +145,7 @@ export default function CostSmartVsYNABPage() {
                   <tbody className="divide-y divide-slate-100">
                     <tr>
                       <td className="p-4 font-semibold">Price</td>
-                      <td className="p-4 text-emerald-700">Free / $4.99/mo Pro</td>
+                      <td className="p-4 text-emerald-700">Free / ${proMonthlyPrice}/mo Pro</td>
                       <td className="p-4 text-slate-700">$14.99/mo or $99/yr</td>
                     </tr>
                     <tr className="bg-slate-50">
@@ -218,7 +224,7 @@ export default function CostSmartVsYNABPage() {
                   <ul className="space-y-2 text-slate-700">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
-                      67% cheaper than YNAB ($4.99 vs $14.99/mo)
+                      67% cheaper than YNAB (${proMonthlyPrice} vs $14.99/mo)
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="w-4 h-4 text-green-500 mt-1 flex-shrink-0" />
@@ -327,7 +333,7 @@ export default function CostSmartVsYNABPage() {
               <p className="text-slate-700">
                 <strong>Cost-Smart is the better choice</strong> if you want an affordable
                 all-in-one financial tool that combines budgeting with 30+ calculators, AI
-                insights, and India-specific features. You save $120/year while getting tools YNAB
+                insights, and India-specific features. You save ${annualSavingsVsYnab}/year while getting tools YNAB
                 does not offer.
               </p>
               <div className="bg-white rounded-lg p-6 border border-emerald-200 mt-6">
@@ -343,7 +349,7 @@ export default function CostSmartVsYNABPage() {
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
-                    <span>Budget matters - $4.99/mo vs $14.99/mo is significant</span>
+                    <span>Budget matters - ${proMonthlyPrice}/mo vs $14.99/mo is significant</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-5 h-5 text-emerald-500 mt-0.5 flex-shrink-0" />
@@ -359,11 +365,11 @@ export default function CostSmartVsYNABPage() {
             <Card className="bg-gradient-to-br from-emerald-600 to-green-700 border-0">
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold mb-4 text-white">
-                  Save $120/Year with Cost-Smart Pro
+                  Save ${annualSavingsVsYnab}/Year with Cost-Smart Pro
                 </h3>
                 <p className="text-emerald-100 mb-6 max-w-2xl mx-auto">
                   Get powerful budgeting, 30+ calculators, AI insights, and data export for just
-                  $4.99/month. Or start with the free tier and upgrade when you are ready.
+                  ${proMonthlyPrice}/month. Or start with the free tier and upgrade when you are ready.
                 </p>
                 <Link
                   href="/pricing"
