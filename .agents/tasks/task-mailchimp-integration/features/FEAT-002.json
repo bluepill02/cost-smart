@@ -1,0 +1,28 @@
+{
+  "id": "FEAT-002",
+  "type": "feat",
+  "description": "Build a direct Mailchimp API integration module at lib/mailchimp.ts and wire it into the existing /api/lead-capture route as a complement to the Zapier fire-and-forget. Update .env.example with Mailchimp env vars.",
+  "status": "pending",
+  "steps": [
+    "Step 1: Create lib/mailchimp.ts with the following exported functions using raw fetch() (no SDK). Use pattern from app/api/email-results/route.ts for API call style. The module should: (a) Export helper to compute Mailchimp API base URL from the API key (extract data center from key suffix). (b) Export addOrUpdateSubscriber(email, mergeFields, tags) that uses PUT /lists/{list_id}/members/{subscriber_hash} (upsert pattern with MD5 hash of lowercase email). Merge fields should include LEADSCORE, LEADTIER, FORMSRC, CALCNAME, PAGEURL mapped from lead data. (c) Export applyTags(email, tags[]) that uses POST /lists/{list_id}/members/{subscriber_hash}/tags to add tags. Tag names should map from lead tiers: hot->CostSmart-Hot-Lead, warm->CostSmart-Warm-Lead, cold->CostSmart-Cold-Lead, newsletter->CostSmart-Newsletter, budget-download->CostSmart-Budget-Download. (d) Export a high-level processLead(leadData) function that orchestrates: compute subscriber hash, call addOrUpdateSubscriber with enriched merge fields, then call applyTags based on lead tier. (e) All functions should handle errors gracefully (log and continue, never throw to caller). (f) Use process.env.MAILCHIMP_API_KEY and process.env.MAILCHIMP_AUDIENCE_ID.",
+    "Step 2: Update app/api/lead-capture/route.ts to import and call processLead from lib/mailchimp.ts after the Zapier fire-and-forget block. Add it as a second fire-and-forget call (do not await, catch errors). This makes Mailchimp a direct integration alongside Zapier.",
+    "Step 3: Update .env.example to add MAILCHIMP_API_KEY and MAILCHIMP_AUDIENCE_ID entries with documentation comments explaining what they are and where to get them.",
+    "Step 4: Verify the build passes with npx next build"
+  ],
+  "acceptance_criteria": [
+    "lib/mailchimp.ts exists and exports addOrUpdateSubscriber, applyTags, and processLead functions",
+    "lib/mailchimp.ts uses raw fetch() with no external Mailchimp SDK dependencies",
+    "lib/mailchimp.ts reads MAILCHIMP_API_KEY and MAILCHIMP_AUDIENCE_ID from process.env",
+    "app/api/lead-capture/route.ts imports from lib/mailchimp and calls processLead in fire-and-forget pattern",
+    ".env.example contains MAILCHIMP_API_KEY and MAILCHIMP_AUDIENCE_ID entries",
+    "npx next build completes without TypeScript or compilation errors"
+  ],
+  "verification": [
+    "Run: cd /projects/sandbox/cost-smart && npx next build 2>&1 | tail -20 - confirm build succeeds",
+    "Verify lib/mailchimp.ts exists and contains processLead export",
+    "Verify app/api/lead-capture/route.ts imports from @/lib/mailchimp",
+    "Verify .env.example contains MAILCHIMP_API_KEY and MAILCHIMP_AUDIENCE_ID"
+  ],
+  "blocked_reason": null,
+  "findings": ""
+}
