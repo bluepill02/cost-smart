@@ -2,7 +2,7 @@
   "id": "FEAT-001",
   "type": "feat",
   "description": "Implement Upgrade Gate Modal and Pro Feature Badge system - the core Product-Led Growth conversion components. Create a reusable UpgradeGateModal that triggers when free users attempt Pro actions (PDF export, AI advice, etc.), and a ProBadge component that marks greyed-out Pro features with a 'PRO' badge that opens the upgrade modal on click.",
-  "status": "in_progress",
+  "status": "completed",
   "steps": [
     "Create components/premium/UpgradeGateModal.tsx - a modal dialog component that accepts a featureName prop, displays a compelling message about the Pro feature the user tried to access, shows the Pro price ($4.99/month), lists 3-4 key Pro benefits, and includes a CTA button linking to /pricing. Use the existing dark gradient styling pattern from PremiumBanner.tsx and Radix UI primitives. Should be dismissible. Track the attempted feature for analytics via window.gtag if available.",
     "Create components/premium/ProBadge.tsx - a small inline badge component that shows 'PRO' in emerald/teal styling. Props: featureName (string), onClick (optional callback). When clicked, it should open the UpgradeGateModal for that feature. Should use a visual lock icon (from Lucide) next to 'PRO' text.",
@@ -25,5 +25,5 @@
     "Verify TypeScript types are correct by checking build output for type errors"
   ],
   "blocked_reason": null,
-  "findings": ""
+  "findings": "Build passes cleanly (TypeScript + Next.js 16.2.6 with Turbopack). Node v22.22.3 at /opt/toolchains/.nvm/versions/node/v22.22.3/bin. npm install required before build. Chart width warnings in build output are pre-existing and unrelated. window.gtag types already declared in types/gtag.d.ts."
 }
