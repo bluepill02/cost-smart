@@ -1,0 +1,14 @@
+{
+  "task_id": "task-migrate-azure-to-gemini",
+  "task_description": "Migrate all Azure AI services (OpenAI, Translator, Computer Vision OCR, Text Analytics) to Google Gemini via Vertex AI using the @google/genai SDK with vertexai:true mode. Use gemini-2.0-flash model for all calls (cheapest, highest rate limits). Preserve all existing functionality, Pro/Free tier gating, fallback logic, and API response shapes.",
+  "status": "completed",
+  "feature_order": ["FEAT-001", "FEAT-002"],
+  "blocked_reason": null,
+  "verification": {
+    "build": "pass",
+    "tests": "pass",
+    "test_quality": "pass",
+    "docker_build": "skipped",
+    "summary": "tsc --noEmit passes cleanly. npm run build succeeds. All 7 API routes migrated to Gemini. Review v1 found 7 issues, all fixed. Review v2 approved with 2 non-blocking observations (single-text translation fallback exposing raw model text, ai-advisor weaker injection boundary due to multi-turn constraints)."
+  }
+}

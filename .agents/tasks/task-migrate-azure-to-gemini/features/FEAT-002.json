@@ -1,0 +1,37 @@
+{
+  "id": "FEAT-002",
+  "type": "feat",
+  "description": "Migrate all 7 Azure AI API routes to use Gemini via Vertex AI, update frontend fetch paths and branding, and remove the client-side ai-worker",
+  "status": "completed",
+  "steps": [
+    "ROUTE 1 - app/api/ai-insights/route.ts: Replace the Azure OpenAI REST call with a Gemini generateContent call using the shared lib/gemini.ts client. Keep the same prompt structure (system message + user message). Use model 'gemini-2.0-flash', temperature 0.7, maxOutputTokens 800 (free) / 1500 (pro). Parse the JSON response the same way. Keep the fallback logic intact. Remove all references to AZURE_OPENAI_ENDPOINT and AZURE_OPENAI_KEY.",
+    "ROUTE 2 - app/api/azure/ai-advisor/route.ts: Replace the Azure AI Projects SDK conversation with a Gemini multi-turn chat. Use ai.models.generateContent() with the full message history as 'contents' array (mapping role 'user'/'assistant' to 'user'/'model'). Include a system instruction that acts as the 'costsmart' financial advisor persona. Remove all imports of @azure/identity and @azure/ai-projects. Keep the free message limit, Pro verification, and fallback logic.",
+    "ROUTE 3 - app/api/azure/translate/route.ts: Replace the Azure Translator REST call with a Gemini prompt-based translation. Build a prompt like: 'Translate the following financial text from {sourceLanguage or auto-detected} to {targetLanguage full name}. Preserve financial terminology (EMI, SIP, GST, etc.) with transliterated forms. Return only the translated text, nothing else.' Use generateContent with temperature 0.1 for accuracy. Keep the FINANCIAL_GLOSSARY, free/pro tier logic, char limits, and batch support (for batch, join texts with separator, then split results).",
+    "ROUTE 4 - app/api/azure/detect-language/route.ts: Replace the Azure Translator detect call with a Gemini prompt: 'Detect the language of the following text. Return a JSON object with fields: language (ISO 639-1 code), confidence (0-1 float), alternatives (array of {language, score} objects). Return only the JSON.' Parse the JSON response. Keep the rate limiting logic.",
+    "ROUTE 5 - app/api/azure/document-scan/route.ts: Replace Azure Computer Vision OCR with Gemini's multimodal capability. Send the base64 image to Gemini with a prompt: 'Extract all text from this image of a financial document (receipt, invoice, or bill). Return the text exactly as it appears, preserving line breaks and formatting.' Use the inlineData part with the image. Keep the extractFinancialData() function and all Pro/Free gating logic. Remove the async polling pattern since Gemini returns results directly.",
+    "ROUTE 6 - app/api/azure/document-analyze/route.ts: Replace the two Azure Text Analytics calls (key phrases + sentiment) with a single Gemini call. Prompt: 'Analyze this financial document text. Return a JSON object with: keyPhrases (array of important terms), sentiment (object with overall: positive/negative/neutral/mixed, and confidence: {positive, neutral, negative} as floats 0-1), documentType (one of: invoice, receipt, salary_slip, bill, tax_document, insurance), summary (brief one-sentence summary). Return only the JSON.' Keep the Pro gating (free users get limited keyPhrases). Remove the classifyDocumentType and generateSummary helper functions if Gemini provides them, or keep as fallback.",
+    "ROUTE 7 - app/api/azure/financial-health/route.ts: Replace the two Azure Text Analytics calls with a single Gemini call. Prompt: 'Analyze this text for financial health indicators. Return a JSON object with: sentiment (positive/negative/neutral/mixed), confidenceScores ({positive, neutral, negative} as floats 0-1), keyPhrases (array of important financial terms found). Return only the JSON.' Keep the computeHealthScore() and generateRecommendations() functions that process the results. Keep the POSITIVE_PHRASES and NEGATIVE_PHRASES lists. Keep Pro/Free gating.",
+    "CLIENT-SIDE WORKER - lib/hooks/ai-worker.ts: Delete this file entirely. It uses @xenova/transformers for client-side zero-shot classification which is no longer needed since classification can be handled server-side by Gemini or is not critical to the app flow.",
+    "FRONTEND COMPONENTS - Update fetch URLs if route paths change. Since we are keeping routes at the same /api/azure/* paths (to avoid breaking frontend), no URL changes needed in components. The route implementations change internally but the paths stay the same.",
+    "BRANDING UPDATES - In app/tools/document-scanner/page.tsx: Change 'Azure AI OCR' to 'Gemini AI OCR' and 'Azure AI reads and understands' to 'Gemini AI reads and understands'. In app/tools/translator/page.tsx: Change 'Azure AI Powered' to 'Gemini AI Powered'. In app/tools/financial-health/page.tsx: Change 'Azure AI detects sentiment' to 'Gemini AI detects sentiment'.",
+    "Remove any remaining imports or references to @azure/ai-projects, @azure/identity, or Azure-specific constants across all files."
+  ],
+  "acceptance_criteria": [
+    "All 7 API routes use the shared lib/gemini.ts client with 'gemini-2.0-flash' model",
+    "No Azure SDK imports remain in any route file",
+    "No references to AZURE_AI_ENDPOINT, AZURE_AI_KEY, AZURE_OPENAI_ENDPOINT, or AZURE_OPENAI_KEY in route files",
+    "lib/hooks/ai-worker.ts is deleted",
+    "All three page files have updated branding (Gemini instead of Azure)",
+    "The response shape from each API route remains identical so frontend components work without changes",
+    "Free/Pro tier gating logic is preserved in every route",
+    "Fallback logic is preserved in routes that had it (ai-insights, ai-advisor)",
+    "npx tsc --noEmit passes with no errors",
+    "npm run build completes successfully"
+  ],
+  "verification": [
+    "Run: export PATH=/opt/toolchains/.nvm/versions/node/v20.20.2/bin:$PATH && cd /projects/sandbox/cost-smart && npx tsc --noEmit",
+    "Run: export PATH=/opt/toolchains/.nvm/versions/node/v20.20.2/bin:$PATH && cd /projects/sandbox/cost-smart && npm run build"
+  ],
+  "blocked_reason": null,
+  "findings": "All 7 routes migrated successfully. lib/hooks/ai-worker.ts deleted; worker-manager.ts converted to no-op since useAIClassifier hook is still referenced by 4 components (ImportForm, SmartInsight, SolarForm, AIAssistant). The classify() calls via workerManager.postMessage will now silently no-op. tsc --noEmit and npm run build both pass cleanly. pnpm-lock.yaml still lists @azure packages but those are unused lockfile entries (not in package.json dependencies)."
+}

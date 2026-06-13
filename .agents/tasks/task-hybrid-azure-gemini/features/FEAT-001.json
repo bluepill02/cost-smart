@@ -1,0 +1,35 @@
+{
+  "id": "FEAT-001",
+  "type": "feat",
+  "description": "Revert 5 Azure API routes from Gemini to Azure AI Services REST API, create Azure config helper, update .env.example and .env.local, and update UI branding. Keep ai-insights and ai-advisor on Gemini.",
+  "status": "completed",
+  "steps": [
+    "Create lib/azure-ai.ts with Azure AI Services configuration (endpoint, key, region from env vars) and helper functions for making authenticated REST calls to Azure Translator, Computer Vision, and Text Analytics APIs.",
+    "Rewrite app/api/azure/translate/route.ts to use Azure Translator REST API (POST {endpoint}/translator/text/v3.0/translate) with Ocp-Apim-Subscription-Key and Ocp-Apim-Subscription-Region headers. Keep all existing business logic (Pro gating, language restrictions, batch support, financial glossary).",
+    "Rewrite app/api/azure/detect-language/route.ts to use Azure Translator Detect endpoint (POST {endpoint}/translator/text/v3.0/detect) with proper auth headers. Keep rate limiting and validation logic.",
+    "Rewrite app/api/azure/document-scan/route.ts to use Azure Computer Vision Read API (POST {endpoint}/vision/v3.2/read/analyze) for OCR. This is an async API: submit image, poll for results. Keep all existing financial data extraction logic (extractFinancialData function) and Pro gating.",
+    "Rewrite app/api/azure/document-analyze/route.ts to use Azure Text Analytics (POST {endpoint}/text/analytics/v3.1/keyPhrases and /sentiment). Keep Pro gating, document classification, and summary generation logic.",
+    "Rewrite app/api/azure/financial-health/route.ts to use Azure Text Analytics (POST {endpoint}/text/analytics/v3.1/sentiment and /keyPhrases). Keep all scoring, indicators, and recommendations logic.",
+    "Update .env.example to add AZURE_AI_ENDPOINT, AZURE_AI_KEY, and AZURE_AI_REGION variables with comments.",
+    "Create .env.local with actual Azure credentials (key: [REDACTED], endpoint: https://aiservicescostsmart.cognitiveservices.azure.com/, region: uaenorth) and GOOGLE_CLOUD_PROJECT=[REDACTED], GOOGLE_CLOUD_LOCATION=us-central1.",
+    "Update app/tools/document-scanner/page.tsx: change 'Gemini AI OCR' to 'Azure AI OCR' and 'Gemini AI reads and understands' to 'Azure AI reads and understands'.",
+    "Update app/tools/financial-health/page.tsx: change 'Gemini AI detects sentiment' to 'Azure AI detects sentiment'.",
+    "Update app/tools/translator/page.tsx: change 'Gemini AI Powered' to 'Azure AI Powered'.",
+    "Ensure lib/gemini.ts remains unchanged (still used by ai-insights and ai-advisor routes)."
+  ],
+  "acceptance_criteria": [
+    "npm run build completes successfully with no TypeScript errors",
+    "lib/azure-ai.ts exports a working Azure AI configuration",
+    "Routes translate, detect-language, document-scan, document-analyze, financial-health use Azure REST APIs (no Gemini imports)",
+    "Routes ai-insights and ai-advisor still use Gemini (import from lib/gemini)",
+    ".env.local contains both Azure and GCP credentials",
+    ".env.example documents Azure variables",
+    "UI pages show Azure AI branding for document-scanner, financial-health, translator"
+  ],
+  "verification": [
+    "Run npm run build and confirm zero errors",
+    "Run npm run lint and confirm no errors"
+  ],
+  "blocked_reason": null,
+  "findings": "Build passes with no TypeScript errors. LANGUAGE_NAMES constant was removed from translate route since Azure Translator uses language codes directly (no prompt needed). Buffer had to be converted to Uint8Array for fetch body compatibility in Node 20 TypeScript. Pre-existing lint errors in scripts/generate-budget-pdf.js and compare pages are unrelated to this change."
+}

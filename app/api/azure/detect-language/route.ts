@@ -1,9 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-
-const AZURE_API_KEY = process.env.AZURE_AI_KEY || '';
-const AZURE_REGION = 'centralindia';
-const AZURE_ENDPOINT = process.env.AZURE_AI_ENDPOINT || '';
-const DETECT_ENDPOINT = `${AZURE_ENDPOINT}/translator/text/v3.0/detect`;
+import { azureDetectLanguage } from '@/lib/azure-ai';
 
 // NOTE (accepted trade-off): This in-memory rate limiter resets on each
 // serverless cold start and is not shared across concurrent Vercel function
@@ -61,36 +57,59 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const requestBody = [{ Text: text.slice(0, 1000) }];
+    // Call Azure Translator Detect REST API
+    let language = 'unknown';
+    let confidence = 0;
+    let alternatives: { language: string; score: number }[] = [];
+    let isRealAI = false;
 
-    const response = await fetch(`${DETECT_ENDPOINT}?api-version=3.0`, {
-      method: 'POST',
-      headers: {
-        'Ocp-Apim-Subscription-Key': AZURE_API_KEY,
-        'Ocp-Apim-Subscription-Region': AZURE_REGION,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(requestBody),
-    });
+    try {
+      const results = await azureDetectLanguage(text.slice(0, 1000));
 
-    if (!response.ok) {
-      const errText = await response.text();
-      console.error('Azure Detect API error:', response.status, errText);
-      return NextResponse.json(
-        { error: 'Language detection service unavailable. Please try again later.' },
-        { status: 502 }
-      );
+      if (!results || results.length === 0) {
+        return NextResponse.json(
+          { error: 'Language detection service unavailable. Please try again later.' },
+          { status: 502 }
+        );
+      }
+
+      const primary = results[0];
+      language = primary.language || 'unknown';
+      confidence = primary.score || 0;
+      alternatives = primary.alternatives || [];
+      isRealAI = true;
+    } catch (apiErr) {
+      console.error('Azure Translator Detect API error (using fallback):', apiErr);
+      // Simple heuristic-based language detection fallback
+      const lowerText = text.toLowerCase();
+      if (/[àâçéèêëîïôûùüÿœæ]/.test(text) || /\b(le|la|les|de|du|des|un|une|et|est|sont|dans|pour|avec|que|qui|ce|se|ne|pas|nous|vous|ils|elles)\b/.test(lowerText)) {
+        language = 'fr';
+        confidence = 0.7;
+      } else if (/[äöüß]/.test(text) || /\b(der|die|das|ein|eine|und|ist|sind|nicht|ich|du|er|sie|wir|ihr|haben|werden)\b/.test(lowerText)) {
+        language = 'de';
+        confidence = 0.7;
+      } else if (/[áéíóúñ¿¡]/.test(text) || /\b(el|la|los|las|un|una|de|del|en|es|son|que|por|para|con|se|no|su|al)\b/.test(lowerText)) {
+        language = 'es';
+        confidence = 0.7;
+      } else if (/[\u0900-\u097F]/.test(text)) {
+        language = 'hi';
+        confidence = 0.9;
+      } else if (/[\u0B80-\u0BFF]/.test(text)) {
+        language = 'ta';
+        confidence = 0.9;
+      } else {
+        language = 'en';
+        confidence = 0.5;
+      }
+      isRealAI = false;
     }
-
-    const result = await response.json();
-
-    const detection = result[0];
 
     return NextResponse.json({
       success: true,
-      language: detection?.language || 'unknown',
-      confidence: detection?.score || 0,
-      alternatives: detection?.alternatives || [],
+      isRealAI,
+      language,
+      confidence,
+      alternatives,
     });
   } catch (error) {
     console.error('Language detection error:', error);
