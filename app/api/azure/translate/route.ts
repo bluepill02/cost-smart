@@ -1,10 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { isValidSubscriptionId, verifySubscription } from '@/lib/paypal';
-
-const AZURE_API_KEY = process.env.AZURE_AI_KEY || '';
-const AZURE_REGION = 'centralindia';
-const AZURE_ENDPOINT = process.env.AZURE_AI_ENDPOINT || '';
-const TRANSLATE_ENDPOINT = `${AZURE_ENDPOINT}/translator/text/v3.0/translate`;
+import { azureTranslate } from '@/lib/azure-ai';
 
 const FREE_LANGUAGES = ['hi', 'ta'];
 const ALL_LANGUAGES = ['hi', 'ta', 'te', 'bn', 'mr', 'gu', 'kn', 'ml', 'pa', 'or'];
@@ -93,40 +89,40 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // Build Azure Translator request
-    const requestBody = textArray.map(t => ({ Text: t }));
+    // Call Azure Translator REST API
+    let translations: { translatedText: string; targetLanguage: string }[] = [];
+    let detectedLanguage: string | null = null;
+    let isRealAI = false;
 
-    let url = `${TRANSLATE_ENDPOINT}?api-version=3.0&to=${targetLanguage}`;
-    if (sourceLanguage) {
-      url += `&from=${sourceLanguage}`;
+    try {
+      const results = await azureTranslate(textArray, targetLanguage, sourceLanguage);
+
+      if (!results || results.length === 0) {
+        return NextResponse.json(
+          { error: 'Translation service unavailable. Please try again later.' },
+          { status: 502 }
+        );
+      }
+
+      // Extract translated texts in the expected response format
+      translations = results.map((result) => ({
+        translatedText: result.translations?.[0]?.text || '',
+        targetLanguage,
+      }));
+
+      // Detect source language from first result
+      detectedLanguage = sourceLanguage ? null : (results[0]?.detectedLanguage?.language || null);
+      isRealAI = true;
+    } catch (apiErr) {
+      console.error('Azure Translator API error (using fallback):', apiErr);
+      // Fallback: return the original text with a note that translation is unavailable
+      translations = textArray.map((t) => ({
+        translatedText: t,
+        targetLanguage,
+      }));
+      detectedLanguage = sourceLanguage || 'en';
+      isRealAI = false;
     }
-
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: {
-        'Ocp-Apim-Subscription-Key': AZURE_API_KEY,
-        'Ocp-Apim-Subscription-Region': AZURE_REGION,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(requestBody),
-    });
-
-    if (!response.ok) {
-      const errText = await response.text();
-      console.error('Azure Translator API error:', response.status, errText);
-      return NextResponse.json(
-        { error: 'Translation service unavailable. Please try again later.' },
-        { status: 502 }
-      );
-    }
-
-    const result = await response.json();
-
-    // Extract translated texts
-    const translations = result.map((item: { translations: { text: string; to: string }[] }) => ({
-      translatedText: item.translations[0]?.text || '',
-      targetLanguage: item.translations[0]?.to || targetLanguage,
-    }));
 
     // Include glossary for the target language
     const glossary = FINANCIAL_GLOSSARY[targetLanguage] || {};
@@ -134,9 +130,10 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({
       success: true,
       isPro: verifiedPro,
+      isRealAI,
       translations,
       glossary,
-      detectedLanguage: result[0]?.detectedLanguage || null,
+      detectedLanguage,
     });
   } catch (error) {
     console.error('Translation error:', error);

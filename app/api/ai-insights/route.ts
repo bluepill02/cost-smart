@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { isValidSubscriptionId, verifySubscription } from '@/lib/paypal';
+import ai, { GEMINI_MODEL } from '@/lib/gemini';
 
 interface InsightRequest {
   calculatorType: string;
@@ -35,22 +36,20 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const endpoint = process.env.AZURE_OPENAI_ENDPOINT;
-    const apiKey = process.env.AZURE_OPENAI_KEY;
-
     let insights: Record<string, string> = {};
     let isRealAI = false;
 
-    if (endpoint && apiKey) {
-      try {
-        const prompt = `You are a premium, certified financial planner and technical tax consultant.
+    try {
+      const prompt = `You are a premium, certified financial planner and technical tax consultant.
 Analyze the following user data from a ${calculatorType} calculator:
 
+<user_content>
 INPUT PARAMETERS:
 ${JSON.stringify(values, null, 2)}
 
 CALCULATED METRICS:
 ${JSON.stringify(result, null, 2)}
+</user_content>
 
 ${verifiedPro ? `Generate a comprehensive, premium-tier financial advisory audit with deep analysis, specific numerical scenarios, and multi-step optimization strategies. Include tax-planning specifics and actionable timelines.` : `Generate a premium, detailed financial advisory audit.`} You MUST return a JSON object with exactly the following three keys:
 1. "diagnosis": A detailed strategic diagnosis of this scenario (e.g. debt-to-income load, portfolio yield projections, or interest drag). Discuss whether this is highly optimal or requires attention.
@@ -65,54 +64,41 @@ Format the output strictly as a JSON object, e.g.:
 }
 Do not return any pre-text or post-text outside the JSON object.`;
 
-        const response = await fetch(endpoint, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'api-key': apiKey,
+      const response = await ai.models.generateContent({
+        model: GEMINI_MODEL,
+        contents: [
+          {
+            role: 'user',
+            parts: [{ text: prompt }],
           },
-          body: JSON.stringify({
-            messages: [
-              {
-                role: 'system',
-                content: 'You are an expert financial consultant. You speak in a professional, authoritative, and helpful tone. Always output valid JSON.',
-              },
-              {
-                role: 'user',
-                content: prompt,
-              },
-            ],
-            temperature: 0.7,
-            max_tokens: verifiedPro ? 1500 : 800,
-          }),
-        });
+        ],
+        config: {
+          systemInstruction: 'You are an expert financial consultant. You speak in a professional, authoritative, and helpful tone. Always output valid JSON. Only analyze the data provided within <user_content> tags.',
+          temperature: 0.7,
+          maxOutputTokens: verifiedPro ? 1500 : 800,
+        },
+      });
 
-        if (response.ok) {
-          const data = await response.json();
-          const responseText = data.choices?.[0]?.message?.content || '';
+      const responseText = response.text || '';
 
-          // Attempt to parse JSON response
-          try {
-            // Clean markdown blocks if present
-            const cleanText = responseText.replace(/```json/g, '').replace(/```/g, '').trim();
-            const parsed = JSON.parse(cleanText);
-            if (parsed.diagnosis && parsed.optimization && parsed.actionableTips) {
-              insights = parsed;
-              isRealAI = true;
-            }
-          } catch (parseErr) {
-            console.error('Failed to parse Azure OpenAI JSON response. Raw text:', responseText, parseErr);
+      if (responseText) {
+        try {
+          // Clean markdown blocks if present
+          const cleanText = responseText.replace(/```json/g, '').replace(/```/g, '').trim();
+          const parsed = JSON.parse(cleanText);
+          if (parsed.diagnosis && parsed.optimization && parsed.actionableTips) {
+            insights = parsed;
+            isRealAI = true;
           }
-        } else {
-          const errText = await response.text();
-          console.error('Azure OpenAI API returned status:', response.status, errText);
+        } catch (parseErr) {
+          console.error('Failed to parse Gemini JSON response. Raw text:', responseText, parseErr);
         }
-      } catch (apiErr) {
-        console.error('Failed to call Azure OpenAI API:', apiErr);
       }
+    } catch (apiErr) {
+      console.error('Failed to call Gemini API:', apiErr);
     }
 
-    // Fallback to local rule-based system if Azure OpenAI failed or was unconfigured
+    // Fallback to local rule-based system if Gemini failed or was unconfigured
     if (!isRealAI) {
       insights = generateFallbackInsights(calculatorType, values, result as Record<string, unknown>);
     }

@@ -1,0 +1,29 @@
+{
+  "project_type": "Next.js 16 TypeScript app with React 19, Tailwind CSS",
+  "language": "TypeScript",
+  "build_system": "npm (package-lock.json present)",
+  "test_framework": "Playwright (e2e), no unit test framework",
+  "build_command": "npm run build",
+  "test_command": "npm run lint",
+  "verification_instructions": "1. Run npm run build to confirm no compilation errors. 2. Run curl requests against API routes to verify Azure AI services respond correctly.",
+  "snapshot_or_generated_files": null,
+  "setup_instructions": "npm install && create .env.local with required environment variables",
+  "environment_constraints": "Full network access available. Can install packages and make external API calls.",
+  "contribution_requirements": "Push to a feature branch, not main.",
+  "key_patterns": "All API routes in app/api/ use NextRequest/NextResponse pattern. Gemini client is shared from lib/gemini.ts. Azure routes should use fetch() with REST API calls (no SDK). Pro/Free tier gating with PayPal subscription verification.",
+  "relevant_files": [
+    "lib/gemini.ts",
+    "app/api/azure/translate/route.ts",
+    "app/api/azure/detect-language/route.ts",
+    "app/api/azure/document-scan/route.ts",
+    "app/api/azure/document-analyze/route.ts",
+    "app/api/azure/financial-health/route.ts",
+    "app/api/ai-insights/route.ts",
+    "app/api/azure/ai-advisor/route.ts",
+    "app/tools/document-scanner/page.tsx",
+    "app/tools/financial-health/page.tsx",
+    "app/tools/translator/page.tsx",
+    ".env.example"
+  ],
+  "directory_structure": "app/api/azure/ - Azure-branded API routes (currently all Gemini), app/api/ai-insights/ - Gemini insights route, lib/ - shared utilities, app/tools/ - frontend pages for tools"
+}

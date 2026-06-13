@@ -1,9 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { isValidSubscriptionId, verifySubscription } from '@/lib/paypal';
-
-const AZURE_ENDPOINT_BASE = process.env.AZURE_AI_ENDPOINT || '';
-const AZURE_ENDPOINT = `${AZURE_ENDPOINT_BASE}/text/analytics/v3.1`;
-const AZURE_API_KEY = process.env.AZURE_AI_KEY || '';
+import { azureSentiment, azureKeyPhrases } from '@/lib/azure-ai';
 
 // Positive financial indicators that boost the health score
 const POSITIVE_PHRASES = [
@@ -149,68 +146,43 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    const requestBody = {
-      documents: [{ id: '1', language: 'en', text: text.trim() }],
-    };
+    let sentiment = 'neutral';
+    let confidenceScores: SentimentScores = { positive: 0, neutral: 1, negative: 0 };
+    let keyPhrases: string[] = [];
 
-    // Call sentiment analysis and key phrases in parallel
-    const [sentimentRes, keyPhrasesRes] = await Promise.all([
-      fetch(`${AZURE_ENDPOINT}/sentiment`, {
-        method: 'POST',
-        headers: {
-          'Ocp-Apim-Subscription-Key': AZURE_API_KEY,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(requestBody),
-      }),
-      fetch(`${AZURE_ENDPOINT}/keyPhrases`, {
-        method: 'POST',
-        headers: {
-          'Ocp-Apim-Subscription-Key': AZURE_API_KEY,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(requestBody),
-      }),
-    ]);
+    try {
+      const trimmedText = text.trim();
 
-    if (!sentimentRes.ok) {
-      const errText = await sentimentRes.text();
-      console.error('Azure Sentiment API error:', sentimentRes.status, errText);
-      return NextResponse.json(
-        { error: 'Sentiment analysis service unavailable. Please try again later.' },
-        { status: 502 }
-      );
+      // Call Azure Text Analytics: Sentiment and Key Phrases in parallel
+      const [sentimentResult, keyPhrasesResult] = await Promise.all([
+        azureSentiment(trimmedText),
+        azureKeyPhrases(trimmedText),
+      ]);
+
+      sentiment = sentimentResult.sentiment;
+      confidenceScores = sentimentResult.confidenceScores;
+      keyPhrases = keyPhrasesResult.keyPhrases;
+    } catch (apiErr) {
+      console.error('Azure Text Analytics financial health analysis error:', apiErr);
+      // Fallback to local keyword-based analysis instead of returning 502
+      const lowerText = text.toLowerCase();
+      const foundPositive = POSITIVE_PHRASES.filter(p => lowerText.includes(p));
+      const foundNegative = NEGATIVE_PHRASES.filter(p => lowerText.includes(p));
+      keyPhrases = [...foundPositive, ...foundNegative];
+
+      if (foundPositive.length > foundNegative.length) {
+        sentiment = 'positive';
+        confidenceScores = { positive: 0.7, neutral: 0.2, negative: 0.1 };
+      } else if (foundNegative.length > foundPositive.length) {
+        sentiment = 'negative';
+        confidenceScores = { positive: 0.1, neutral: 0.2, negative: 0.7 };
+      } else {
+        sentiment = 'neutral';
+        confidenceScores = { positive: 0.2, neutral: 0.6, negative: 0.2 };
+      }
     }
-
-    if (!keyPhrasesRes.ok) {
-      const errText = await keyPhrasesRes.text();
-      console.error('Azure Key Phrases API error:', keyPhrasesRes.status, errText);
-      return NextResponse.json(
-        { error: 'Key phrase extraction service unavailable. Please try again later.' },
-        { status: 502 }
-      );
-    }
-
-    const sentimentData = await sentimentRes.json();
-    const keyPhrasesData = await keyPhrasesRes.json();
-
-    const sentimentDoc = sentimentData.documents?.[0];
-    const keyPhrasesDoc = keyPhrasesData.documents?.[0];
-
-    if (!sentimentDoc || !keyPhrasesDoc) {
-      return NextResponse.json(
-        { error: 'Failed to analyze document. Please try different text.' },
-        { status: 422 }
-      );
-    }
-
-    const sentiment: string = sentimentDoc.sentiment;
-    const confidenceScores: SentimentScores = sentimentDoc.confidenceScores;
-    const keyPhrases: string[] = keyPhrasesDoc.keyPhrases || [];
 
     // Identify positive and negative financial indicators
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const lowerPhrases = keyPhrases.map(p => p.toLowerCase());
     const positiveIndicators = keyPhrases.filter(p =>
       POSITIVE_PHRASES.some(pos => p.toLowerCase().includes(pos))
     );

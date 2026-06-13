@@ -1,9 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { isValidSubscriptionId, verifySubscription } from '@/lib/paypal';
-
-const AZURE_ENDPOINT = process.env.AZURE_AI_ENDPOINT || '';
-const AZURE_TEXT_ANALYTICS_ENDPOINT = `${AZURE_ENDPOINT}/text/analytics/v3.1`;
-const AZURE_API_KEY = process.env.AZURE_AI_KEY || '';
+import { azureSentiment, azureKeyPhrases } from '@/lib/azure-ai';
 
 interface AnalyzeRequest {
   text: string;
@@ -83,51 +80,49 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // Call Azure Text Analytics - Key Phrases
-    const keyPhrasesResponse = await fetch(`${AZURE_TEXT_ANALYTICS_ENDPOINT}/keyPhrases`, {
-      method: 'POST',
-      headers: {
-        'Ocp-Apim-Subscription-Key': AZURE_API_KEY,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        documents: [{ id: '1', language: 'en', text: text.slice(0, 5000) }],
-      }),
-    });
-
     let keyPhrases: string[] = [];
-    if (keyPhrasesResponse.ok) {
-      const kpData = await keyPhrasesResponse.json();
-      keyPhrases = kpData.documents?.[0]?.keyPhrases || [];
-    }
-
-    // Call Azure Text Analytics - Sentiment
-    const sentimentResponse = await fetch(`${AZURE_TEXT_ANALYTICS_ENDPOINT}/sentiment`, {
-      method: 'POST',
-      headers: {
-        'Ocp-Apim-Subscription-Key': AZURE_API_KEY,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        documents: [{ id: '1', language: 'en', text: text.slice(0, 5000) }],
-      }),
-    });
-
     let sentiment = { overall: 'neutral', confidence: { positive: 0, neutral: 1, negative: 0 } };
-    if (sentimentResponse.ok) {
-      const sentData = await sentimentResponse.json();
-      const doc = sentData.documents?.[0];
-      if (doc) {
-        sentiment = {
-          overall: doc.sentiment || 'neutral',
-          confidence: doc.confidenceScores || { positive: 0, neutral: 1, negative: 0 },
-        };
-      }
+    let documentType = 'receipt';
+    let summary = '';
+
+    try {
+      // Call Azure Text Analytics: Key Phrases and Sentiment in parallel
+      const truncatedText = text.slice(0, 5000);
+
+      const [sentimentResult, keyPhrasesResult] = await Promise.all([
+        azureSentiment(truncatedText),
+        azureKeyPhrases(truncatedText),
+      ]);
+
+      // Map sentiment result
+      sentiment = {
+        overall: sentimentResult.sentiment,
+        confidence: sentimentResult.confidenceScores,
+      };
+
+      // Map key phrases result
+      keyPhrases = keyPhrasesResult.keyPhrases;
+
+      // Classify document type using extracted key phrases
+      documentType = classifyDocumentType(text, keyPhrases);
+
+      // Generate summary from extracted information
+      summary = generateSummary(text, keyPhrases, documentType);
+    } catch (apiErr) {
+      console.error('Azure Text Analytics document analysis error:', apiErr);
+      // Fall back to local classification and summary generation
+      keyPhrases = [];
+      documentType = classifyDocumentType(text, keyPhrases);
+      summary = generateSummary(text, keyPhrases, documentType);
     }
 
-    // Classify document type and generate summary
-    const documentType = classifyDocumentType(text, keyPhrases);
-    const summary = generateSummary(text, keyPhrases, documentType);
+    // If Azure did not provide summary or document type, use fallbacks
+    if (!documentType) {
+      documentType = classifyDocumentType(text, keyPhrases);
+    }
+    if (!summary) {
+      summary = generateSummary(text, keyPhrases, documentType);
+    }
 
     const analysis: DocumentAnalysis = {
       keyPhrases: verifiedPro ? keyPhrases : keyPhrases.slice(0, 3),

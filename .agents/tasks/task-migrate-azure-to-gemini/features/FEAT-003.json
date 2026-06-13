@@ -1,0 +1,32 @@
+{
+  "id": "FEAT-003",
+  "type": "fix",
+  "description": "Address 7 issues from the 2025-07-15 code review: prompt injection, hardcoded project ID, batch separator fragility, detectedLanguage null, console spam, no fallback on financial-health, and Odia glossary corruption",
+  "status": "completed",
+  "steps": [
+    "Fix prompt injection across routes by adding structured XML delimiters around user content and using systemInstruction where applicable",
+    "Remove hardcoded GCP project ID from lib/gemini.ts - fail explicitly if env var is missing",
+    "Fix batch translation separator fragility by using JSON array response for batch mode",
+    "Fix detectedLanguage always null - ask Gemini to detect and return source language",
+    "Fix console spam from WorkerManager - make postMessage a silent no-op",
+    "Add fallback on financial-health route when Gemini fails",
+    "Fix Odia glossary corruption - replace stray Devanagari character"
+  ],
+  "acceptance_criteria": [
+    "All routes use structured delimiters or systemInstruction to separate user content from instructions",
+    "lib/gemini.ts throws at startup if GOOGLE_CLOUD_PROJECT env var is not set",
+    "Batch translation uses JSON array response format instead of separator-based splitting",
+    "detectedLanguage field returns the detected language when sourceLanguage is not specified",
+    "WorkerManager.postMessage is a silent no-op with no console.warn",
+    "financial-health route falls back to local scoring when Gemini fails instead of returning 502",
+    "Odia glossary entry uses correct Odia script throughout",
+    "npx tsc --noEmit passes",
+    "npm run build passes"
+  ],
+  "verification": [
+    "Run: export PATH=/opt/toolchains/.nvm/versions/node/v20.20.2/bin:$PATH && cd /projects/sandbox/cost-smart && npx tsc --noEmit",
+    "Run: export PATH=/opt/toolchains/.nvm/versions/node/v20.20.2/bin:$PATH && cd /projects/sandbox/cost-smart && npm run build"
+  ],
+  "blocked_reason": null,
+  "findings": "All 7 issues resolved. Gemini client uses lazy initialization via Proxy so builds succeed without GOOGLE_CLOUD_PROJECT, but the first API call at runtime throws if env var is missing. Batch translation now uses structured JSON response. The financial-health fallback uses local keyword matching (POSITIVE_PHRASES/NEGATIVE_PHRASES lists) when Gemini is unavailable."
+}
