@@ -163,9 +163,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
   });
 
-  // Blog posts (68 articles)
+  // Blog posts (69 articles)
   const blogPosts = [
     'ctc-vs-in-hand',
+    'cash-buffer-that-still-wins',
     'emergency-fund-importance',
     'fd-vs-mutual-funds',
     'gst-inclusive-vs-exclusive',

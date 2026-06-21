@@ -18,6 +18,13 @@ export const metadata: Metadata = {
 
 const FEATURED = [
   {
+    slug: 'cash-buffer-that-still-wins',
+    title: 'The Cash Buffer That Still Wins',
+    desc: 'A witty, data-backed guide to building an emergency fund that survives inflation and bad timing.',
+    tag: 'Savings',
+    color: 'teal',
+  },
+  {
     slug: 'sip-vs-lumpsum',
     title: 'SIP vs Lumpsum: Which Strategy Wins?',
     desc: 'Compare Systematic Investment Plans vs one-time lumpsum investing for mutual funds.',
@@ -133,6 +140,7 @@ const CATEGORIES = [
 const tagColors: Record<string, string> = {
   emerald: 'bg-emerald-100 text-emerald-700',
   blue: 'bg-blue-100 text-blue-700',
+  teal: 'bg-teal-100 text-teal-700',
   purple: 'bg-purple-100 text-purple-700',
   orange: 'bg-orange-100 text-orange-700',
   cyan: 'bg-cyan-100 text-cyan-700',
