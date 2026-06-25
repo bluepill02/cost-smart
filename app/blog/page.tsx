@@ -18,6 +18,13 @@ export const metadata: Metadata = {
 
 const FEATURED = [
   {
+    slug: 'new-tax-regime-2026-salary-guide',
+    title: 'New Tax Regime 2026: Where Salaried Savers Should Park Cash',
+    desc: 'A current, source-backed guide to the 2026 salary-tax reset and the cash ladder that beats tax drag.',
+    tag: 'Tax',
+    color: 'emerald',
+  },
+  {
     slug: 'cash-buffer-that-still-wins',
     title: 'The Cash Buffer That Still Wins',
     desc: 'A witty, data-backed guide to building an emergency fund that survives inflation and bad timing.',
@@ -87,6 +94,7 @@ const CATEGORIES = [
     icon: Receipt,
     color: 'blue',
     posts: [
+      { slug: 'new-tax-regime-2026-salary-guide', title: 'New Tax Regime 2026: Where Salaried Savers Should Park Cash' },
       { slug: 'new-vs-old-tax-regime', title: 'New vs Old Tax Regime Explained' },
       { slug: 'ctc-vs-in-hand', title: 'CTC vs In-Hand Salary' },
       { slug: 'ultimate-guide-income-tax-liability', title: 'Ultimate Guide to Income Tax' },

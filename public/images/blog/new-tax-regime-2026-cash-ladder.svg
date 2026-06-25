@@ -1,0 +1,68 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of a salary slip, tax ladder, and cash buckets for the 2026 new regime">
+  <defs>
+    <linearGradient id="bg" x1="72" y1="48" x2="1128" y2="582" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0F172A"/>
+      <stop offset="1" stop-color="#0F766E"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#34D399"/>
+      <stop offset="1" stop-color="#22C55E"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#020617" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" rx="48" fill="url(#bg)"/>
+  <circle cx="1065" cy="92" r="128" fill="#14B8A6" fill-opacity="0.16"/>
+  <circle cx="1065" cy="92" r="74" fill="#A7F3D0" fill-opacity="0.14"/>
+  <circle cx="130" cy="540" r="160" fill="#22C55E" fill-opacity="0.10"/>
+
+  <g filter="url(#shadow)">
+    <rect x="76" y="72" width="1048" height="486" rx="36" fill="#F8FAFC" fill-opacity="0.08" stroke="#FFFFFF" stroke-opacity="0.16"/>
+  </g>
+
+  <text x="110" y="152" fill="#E2E8F0" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" letter-spacing="2">NEW TAX REGIME 2026</text>
+  <text x="110" y="206" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="56" font-weight="800">Cash should have a job.</text>
+  <text x="110" y="258" fill="#CBD5E1" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="500">Keep emergency money liquid, then let the tax code do the heavy lifting.</text>
+
+  <g transform="translate(110 310)">
+    <rect x="0" y="0" width="330" height="220" rx="28" fill="#0F172A" fill-opacity="0.5" stroke="#FFFFFF" stroke-opacity="0.14"/>
+    <rect x="24" y="28" width="116" height="164" rx="20" fill="#E2E8F0" fill-opacity="0.92"/>
+    <rect x="36" y="48" width="92" height="20" rx="10" fill="#94A3B8"/>
+    <rect x="36" y="82" width="92" height="18" rx="9" fill="#CBD5E1"/>
+    <rect x="36" y="114" width="68" height="18" rx="9" fill="#CBD5E1"/>
+    <rect x="36" y="146" width="80" height="18" rx="9" fill="#CBD5E1"/>
+    <rect x="156" y="28" width="150" height="164" rx="20" fill="#0F766E" fill-opacity="0.85"/>
+    <text x="176" y="62" fill="#D1FAE5" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">Tax-free line</text>
+    <text x="176" y="104" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="800">₹12L</text>
+    <text x="176" y="138" fill="#DBF7EE" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="500">₹12.75L for salary</text>
+    <text x="176" y="168" fill="#DBF7EE" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="500">with standard deduction</text>
+  </g>
+
+  <g transform="translate(500 308)">
+    <text x="0" y="-24" fill="#E2E8F0" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="700">Tax ladder</text>
+    <rect x="0" y="0" width="248" height="36" rx="18" fill="#1E293B"/>
+    <rect x="0" y="52" width="248" height="36" rx="18" fill="#1E293B"/>
+    <rect x="0" y="104" width="248" height="36" rx="18" fill="#1E293B"/>
+    <rect x="0" y="156" width="248" height="36" rx="18" fill="#1E293B"/>
+    <rect x="0" y="208" width="248" height="36" rx="18" fill="#1E293B"/>
+    <rect x="0" y="260" width="248" height="36" rx="18" fill="#1E293B"/>
+    <rect x="0" y="312" width="248" height="36" rx="18" fill="#1E293B"/>
+    <rect x="0" y="0" width="66" height="36" rx="18" fill="url(#accent)"/>
+    <rect x="0" y="52" width="82" height="36" rx="18" fill="url(#accent)"/>
+    <rect x="0" y="104" width="98" height="36" rx="18" fill="url(#accent)"/>
+    <rect x="0" y="156" width="114" height="36" rx="18" fill="url(#accent)"/>
+    <rect x="0" y="208" width="132" height="36" rx="18" fill="url(#accent)"/>
+    <rect x="0" y="260" width="150" height="36" rx="18" fill="url(#accent)"/>
+    <rect x="0" y="312" width="170" height="36" rx="18" fill="url(#accent)"/>
+    <text x="270" y="24" fill="#E2E8F0" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">0%</text>
+    <text x="270" y="76" fill="#E2E8F0" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">5%</text>
+    <text x="270" y="128" fill="#E2E8F0" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">10%</text>
+    <text x="270" y="180" fill="#E2E8F0" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">15%</text>
+    <text x="270" y="232" fill="#E2E8F0" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">20%</text>
+    <text x="270" y="284" fill="#E2E8F0" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">25%</text>
+    <text x="270" y="336" fill="#E2E8F0" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700">30%</text>
+  </g>
+
+  <text x="110" y="590" fill="#CBD5E1" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="500">Current official context: FY 2026-27 slabs, ₹75,000 standard deduction, and unchanged small-savings rates.</text>
+</svg>

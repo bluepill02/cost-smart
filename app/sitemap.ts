@@ -163,7 +163,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     });
   });
 
-  // Blog posts (69 articles)
+  // Blog posts (70 articles)
   const blogPosts = [
     'ctc-vs-in-hand',
     'cash-buffer-that-still-wins',
@@ -201,6 +201,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     'how-to-use-stamp-duty-calculator',
     'how-to-use-tds-calculator',
     'how-to-use-water-bill-calculator',
+    'new-tax-regime-2026-salary-guide',
     'new-vs-old-tax-regime',
     'ppf-guide',
     'rent-vs-buy-math',
