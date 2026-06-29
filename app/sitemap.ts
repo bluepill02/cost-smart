@@ -167,6 +167,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const blogPosts = [
     'ctc-vs-in-hand',
     'cash-buffer-that-still-wins',
+    'emergency-fund-rule-2026',
     'emergency-fund-importance',
     'fd-vs-mutual-funds',
     'gst-inclusive-vs-exclusive',

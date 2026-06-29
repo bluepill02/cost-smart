@@ -18,6 +18,13 @@ export const metadata: Metadata = {
 
 const FEATURED = [
   {
+    slug: 'emergency-fund-rule-2026',
+    title: 'The 2026 Emergency Fund Rule: How Many Months of Expenses You Really Need',
+    desc: 'A current, source-backed guide to sizing your cash buffer against inflation, job-market frictions, and safe-yield reality.',
+    tag: 'Savings',
+    color: 'teal',
+  },
+  {
     slug: 'new-tax-regime-2026-salary-guide',
     title: 'New Tax Regime 2026: Where Salaried Savers Should Park Cash',
     desc: 'A current, source-backed guide to the 2026 salary-tax reset and the cash ladder that beats tax drag.',
