@@ -72,7 +72,7 @@ const buildSteps = [
 export const metadata: Metadata = {
   title: 'The 2026 Emergency Fund Rule: How Many Months of Expenses You Really Need | CostSmart',
   description:
-    'A current, source-backed emergency-fund guide using May 2026 inflation, job-market data, and official small-savings rates to size the right cash buffer.',
+    'A current emergency-fund guide using May 2026 inflation, May 2026 labour-market data, and the latest Q2 FY 2026-27 small-savings rates to size the right cash buffer.',
   alternates: {
     canonical: `/blog/${ARTICLE_SLUG}`,
   },
@@ -97,12 +97,12 @@ export default function Post() {
   return (
     <BlogLayout
       title="The 2026 Emergency Fund Rule: How Many Months of Expenses You Really Need"
-      date="2026-06-29"
+      date="2026-07-02"
       readingTime="10 min read"
       author="CostSmart Team"
       category="Savings"
       slug={ARTICLE_SLUG}
-      description="A current emergency-fund guide using May 2026 inflation, labour market data, and official small-savings rates to size the right cash buffer."
+      description="A current emergency-fund guide using May 2026 inflation, labour-market data, and the latest Q2 FY 2026-27 small-savings rates to size the right cash buffer."
       relatedPosts={[
         {
           title: 'The Cash Buffer That Still Wins',
@@ -177,7 +177,7 @@ export default function Post() {
         Official small-savings data still makes a useful point: safe cash alternatives pay more than a basic savings account, but they are still not a substitute for liquidity.
       </p>
       <p>
-        The Department of Economic Affairs&apos; current small-savings page points to the latest unchanged memo, and the published rate table keeps <strong>savings deposits at 4%</strong>, <strong>1-year time deposits at 6.9%</strong>, <strong>PPF at 7.1%</strong>, <strong>NSC at 7.7%</strong>, and both <strong>SCSS</strong> and <strong>SSY</strong> at <strong>8.2%</strong>.
+        The Department of Economic Affairs&apos; current Q2 FY 2026-27 memo keeps <strong>savings deposits at 4%</strong>, <strong>1-year time deposits at 6.9%</strong>, <strong>PPF at 7.1%</strong>, <strong>NSC at 7.7%</strong>, and both <strong>SCSS</strong> and <strong>SSY</strong> at <strong>8.2%</strong>.
       </p>
 
       <figure className="not-prose my-8 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
@@ -364,12 +364,12 @@ export default function Post() {
       <div className="not-prose mt-10 rounded-3xl border border-slate-200 bg-slate-50 p-6">
         <p className="text-xs font-bold uppercase tracking-[0.22em] text-slate-500">Review date</p>
         <p className="mt-2 text-sm text-slate-600">
-          Reviewed on <strong>June 29, 2026</strong>. This article uses current official sources available on that date and is for general information only, not personal financial advice.
+          Reviewed on <strong>July 2, 2026</strong>. This article uses current official sources available on that date and is for general information only, not personal financial advice.
         </p>
       </div>
 
       <p className="text-sm text-slate-500">
-        Source note: current CPI and food inflation come from MoSPI&apos;s <a href="https://www.mospi.gov.in/themes/product/9-consumer-price-index-cpi" target="_blank" rel="noreferrer" className="font-medium text-emerald-700 hover:underline">CPI dashboard</a>; labour-market data comes from MoSPI&apos;s <a href="https://www.mospi.gov.in/themes/product/69-periodic-labour-force-survey-plfs" target="_blank" rel="noreferrer" className="font-medium text-emerald-700 hover:underline">PLFS page</a>; and the safe-rate ladder comes from the Department of Economic Affairs&apos; <a href="https://dea.gov.in/index.php/taxonomy/term/496" target="_blank" rel="noreferrer" className="font-medium text-emerald-700 hover:underline">Small Savings interest-rates page</a> and the latest unchanged memo linked there.
+        Source note: current CPI and food inflation come from MoSPI&apos;s <a href="https://www.mospi.gov.in/themes/product/9-consumer-price-index-cpi" target="_blank" rel="noreferrer" className="font-medium text-emerald-700 hover:underline">CPI dashboard</a>; labour-market data comes from MoSPI&apos;s <a href="https://www.mospi.gov.in/themes/product/69-periodic-labour-force-survey-plfs" target="_blank" rel="noreferrer" className="font-medium text-emerald-700 hover:underline">PLFS page</a>; and the safe-rate ladder comes from the Department of Economic Affairs&apos; <a href="https://dea.gov.in/files/budget_division_documents/Q2ROI.pdf" target="_blank" rel="noreferrer" className="font-medium text-emerald-700 hover:underline">Q2 FY 2026-27 small-savings memo</a>.
       </p>
     </BlogLayout>
   );
