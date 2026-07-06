@@ -18,6 +18,13 @@ export const metadata: Metadata = {
 
 const FEATURED = [
   {
+    slug: 'mortgage-rates-2026-guide',
+    title: '2026 Mortgage Rates Guide: Lock, Float, or Wait?',
+    desc: 'Are 2026 mortgage rates dropping? Discover the real numbers, historical comparisons, and proven strategies to handle today\'s 6.5%+ housing market.',
+    tag: 'Home & Property',
+    color: 'emerald',
+  },
+  {
     slug: 'emergency-fund-rule-2026',
     title: 'The 2026 Emergency Fund Rule: How Many Months of Expenses You Really Need',
     desc: 'A current, source-backed guide to sizing your cash buffer against inflation, job-market frictions, and safe-yield reality.',
@@ -48,7 +55,7 @@ const FEATURED = [
   {
     slug: 'new-vs-old-tax-regime',
     title: 'New vs Old Tax Regime: Full Comparison',
-    desc: 'Which income tax regime saves you more money in FY 2024-25?',
+    desc: 'Which income tax regime saves you more money in FY 2026-25?',
     tag: 'Tax',
     color: 'blue',
   },
