@@ -18,6 +18,13 @@ export const metadata: Metadata = {
 
 const FEATURED = [
   {
+    slug: 'mortgage-rates-2024-guide',
+    title: '2024 Mortgage Rates Guide: Lock, Float, or Wait?',
+    desc: 'Are 2024 mortgage rates dropping? Discover the real numbers, historical comparisons, and proven strategies to handle today\'s 6.5%+ housing market.',
+    tag: 'Home & Property',
+    color: 'emerald',
+  },
+  {
     slug: 'emergency-fund-rule-2026',
     title: 'The 2026 Emergency Fund Rule: How Many Months of Expenses You Really Need',
     desc: 'A current, source-backed guide to sizing your cash buffer against inflation, job-market frictions, and safe-yield reality.',
