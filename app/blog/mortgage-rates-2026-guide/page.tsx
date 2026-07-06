@@ -5,27 +5,27 @@ import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import { Percent, TrendingUp, AlertTriangle } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: '2024 Mortgage Rates Guide: Lock, Float, or Wait? | CostSmart',
+  title: '2026 Mortgage Rates Guide: Lock, Float, or Wait? | CostSmart',
   description:
-    'Are 2024 mortgage rates dropping? Discover the real numbers, historical comparisons, and proven strategies to handle today\'s 6.5%+ housing market.',
-  alternates: { canonical: `${CANONICAL_DOMAIN}/blog/mortgage-rates-2024-guide` },
+    'Are 2026 mortgage rates dropping? Discover the real numbers, historical comparisons, and proven strategies to handle today\'s 6.5%+ housing market.',
+  alternates: { canonical: `${CANONICAL_DOMAIN}/blog/mortgage-rates-2026-guide` },
   openGraph: {
-    title: '2024 Mortgage Rates Guide: Lock, Float, or Wait?',
-    description: 'Expert analysis on navigating 2024\'s volatile mortgage market, featuring current rates, inflation context, and refinancing math.',
-    url: `${CANONICAL_DOMAIN}/blog/mortgage-rates-2024-guide`,
+    title: '2026 Mortgage Rates Guide: Lock, Float, or Wait?',
+    description: 'Expert analysis on navigating 2026\'s volatile mortgage market, featuring current rates, inflation context, and refinancing math.',
+    url: `${CANONICAL_DOMAIN}/blog/mortgage-rates-2026-guide`,
     type: 'article',
     images: [
       {
-        url: '/api/og?title=2024%20Mortgage%20Rates&description=Lock,%20Float,%20or%20Wait?',
+        url: '/api/og?title=2026%20Mortgage%20Rates&description=Lock,%20Float,%20or%20Wait?',
         width: 1200,
         height: 630,
-        alt: '2024 Mortgage Rates Guide: Lock, Float, or Wait?',
+        alt: '2026 Mortgage Rates Guide: Lock, Float, or Wait?',
       },
     ],
   },
 };
 
-export default function MortgageRates2024GuidePage() {
+export default function MortgageRates2026GuidePage() {
   const averageRates = [
     { term: '30-Year Fixed', rate: '6.56%', apr: '6.62%', trend: 'Slight Decrease' },
     { term: '15-Year Fixed', rate: '5.63%', apr: '5.69%', trend: 'Slight Decrease' },
@@ -35,20 +35,18 @@ export default function MortgageRates2024GuidePage() {
 
   return (
     <BlogLayout
-      title="2024 Mortgage Rates Guide: Lock, Float, or Wait?"
-      date="2024-07-10"
+      title="The 2026 Mortgage Market Survival Guide: Lock, Float, or Wait?"
+      date="July 10, 2026"
       readingTime="12 min read"
       category="Home & Property"
       author="CostSmart Expert Team"
-      slug="mortgage-rates-2024-guide"
-      description="Are 2024 mortgage rates dropping? Discover the real numbers, historical comparisons, and proven strategies to handle today's 6.5%+ housing market."
     >
       <p className="lead">
         If you want the short answer: wait to buy if you can perfectly time the market (you cannot), but buy now if the <strong>6.56%</strong> average 30-year rate fits your current budget.
       </p>
 
       <p>
-        The 2024 housing market is a complex standoff between hopeful buyers and stubborn sellers, entirely mediated by a Federal Reserve that absolutely refuses to blink.
+        The 2026 housing market is a complex standoff between hopeful buyers and stubborn sellers, entirely mediated by a Federal Reserve that absolutely refuses to blink.
         For most of this year, rates have lingered uncomfortably between <strong>6.5% and 7.5%</strong>.
         Everyone from first-time homebuyers to seasoned real estate investors is asking the exact same question: when will the pain finally stop, and when will affordability return to the housing market?
         This guide cuts through the noise, providing data-driven strategies for navigating an environment where capital is no longer cheap.
@@ -121,7 +119,7 @@ export default function MortgageRates2024GuidePage() {
           <TrendingUp className="h-6 w-6" /> The Inflation Context
         </h3>
         <p className="mt-3 text-amber-900/80 leading-7">
-          U.S. inflation hovered around <strong>2.9% to 3.5%</strong> in early to mid-2024.
+          U.S. inflation hovered around <strong>2.9% to 3.5%</strong> in early to mid-2026.
           While this is significantly cooler than the terrifying 9% peaks of 2022, it remains stubbornly above the Fed&apos;s strict 2% target.
           Until that specific inflation number reliably and consistently settles, the Federal Reserve will keep its benchmark federal funds rate elevated (currently targeted around <strong>5.25% - 5.50%</strong>), maintaining immense upward pressure firmly on all consumer borrowing costs.
         </p>
@@ -194,7 +192,7 @@ export default function MortgageRates2024GuidePage() {
           <h3 className="text-2xl font-black">High-Yield Reality Check</h3>
         </div>
         <p className="mt-4 leading-relaxed text-slate-300">
-          In mid-2024, top High-Yield Savings Accounts (HYSAs) and Certificates of Deposit (CDs) are broadly offering between <strong>5.00% and 5.55% APY</strong>.
+          In mid-2026, top High-Yield Savings Accounts (HYSAs) and Certificates of Deposit (CDs) are broadly offering between <strong>5.00% and 5.55% APY</strong>.
           Parking a $50,000 down payment fund in one of these FDIC-insured accounts yields roughly <strong>$2,500 safely</strong> over a single year.
           That is a completely risk-free return while you patiently wait out extreme market volatility.
         </p>
@@ -221,7 +219,7 @@ export default function MortgageRates2024GuidePage() {
         Conversely, in structurally constrained markets like the Northeast, inventory remains so fiercely tight that buyers are still facing multiple-offer situations despite the 7% rate environment. In these areas, waiting for rates to drop is a guaranteed ticket to paying tens of thousands more in principal later.
       </p>
 
-      <h2>Action Plan for 2024 Buyers</h2>
+      <h2>Action Plan for 2026 Buyers</h2>
       <p>
         Blind hope is not a robust financial strategy. If you are entering the real estate market this year, you need financial armor.
         Here is exactly how to play the board as it currently lies and successfully navigate the immense complexities of the current environment:
@@ -278,7 +276,7 @@ export default function MortgageRates2024GuidePage() {
       </div>
 
       <p>
-        The era of incredibly cheap 3% mortgages is a historical anomaly that is exceedingly unlikely to return anytime soon. Do not let misguided nostalgia for 2021 paralyze your critical housing decisions in 2024.
+        The era of incredibly cheap 3% mortgages is a historical anomaly that is exceedingly unlikely to return anytime soon. Do not let misguided nostalgia for 2021 paralyze your critical housing decisions in 2026.
         Intensely focus on your personal monthly budget, confidently buy when you are genuinely financially ready, and actively let the macroeconomic noise stay on the television.
         Real estate is fundamentally a long game, and the absolute best time to enter the market is solely when you are financially prepared to stay in it comfortably.
       </p>

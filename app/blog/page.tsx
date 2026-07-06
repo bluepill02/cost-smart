@@ -18,9 +18,9 @@ export const metadata: Metadata = {
 
 const FEATURED = [
   {
-    slug: 'mortgage-rates-2024-guide',
-    title: '2024 Mortgage Rates Guide: Lock, Float, or Wait?',
-    desc: 'Are 2024 mortgage rates dropping? Discover the real numbers, historical comparisons, and proven strategies to handle today\'s 6.5%+ housing market.',
+    slug: 'mortgage-rates-2026-guide',
+    title: '2026 Mortgage Rates Guide: Lock, Float, or Wait?',
+    desc: 'Are 2026 mortgage rates dropping? Discover the real numbers, historical comparisons, and proven strategies to handle today\'s 6.5%+ housing market.',
     tag: 'Home & Property',
     color: 'emerald',
   },
@@ -55,7 +55,7 @@ const FEATURED = [
   {
     slug: 'new-vs-old-tax-regime',
     title: 'New vs Old Tax Regime: Full Comparison',
-    desc: 'Which income tax regime saves you more money in FY 2024-25?',
+    desc: 'Which income tax regime saves you more money in FY 2026-25?',
     tag: 'Tax',
     color: 'blue',
   },
