@@ -35,11 +35,13 @@ export default function MortgageRates2024GuidePage() {
 
   return (
     <BlogLayout
-      title="The 2024 Mortgage Market Survival Guide: Lock, Float, or Wait?"
-      date="July 10, 2024"
+      title="2024 Mortgage Rates Guide: Lock, Float, or Wait?"
+      date="2024-07-10"
       readingTime="12 min read"
       category="Home & Property"
       author="CostSmart Expert Team"
+      slug="mortgage-rates-2024-guide"
+      description="Are 2024 mortgage rates dropping? Discover the real numbers, historical comparisons, and proven strategies to handle today's 6.5%+ housing market."
     >
       <p className="lead">
         If you want the short answer: wait to buy if you can perfectly time the market (you cannot), but buy now if the <strong>6.56%</strong> average 30-year rate fits your current budget.
