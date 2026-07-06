@@ -36,7 +36,7 @@ export default function MortgageRates2026GuidePage() {
   return (
     <BlogLayout
       title="The 2026 Mortgage Market Survival Guide: Lock, Float, or Wait?"
-      date="July 10, 2026"
+      date="July 6, 2026"
       readingTime="12 min read"
       category="Home & Property"
       author="CostSmart Expert Team"
