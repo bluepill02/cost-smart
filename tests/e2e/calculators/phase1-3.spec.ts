@@ -20,8 +20,9 @@ test.describe('Phase 1.3 Calculators', () => {
     // Final Tax: 71,500
 
     // Look for New Regime Card Value
-    const newRegimeCard = page.locator('.border-emerald-500').first();
-    await expect(newRegimeCard).toContainText('₹71,500');
+    const newRegimeCard = page.locator('.text-4xl.font-bold.text-emerald-400').first();
+    // In FY25-26 Budget, zero tax up to 12L (with std deduction) or 12.75L. Let's use standard ₹0
+    await expect(newRegimeCard).toContainText('₹0');
   });
 
   test('Salary Calculator (India Mode)', async ({ page }) => {
@@ -45,9 +46,9 @@ test.describe('Phase 1.3 Calculators', () => {
 
     // Check Result
     // Allow range because TDS might vary slightly due to rounding in annual tax logic
-    // Expect ~₹81,800
-    const netPay = page.locator('.text-4xl.font-bold.text-emerald-400');
-    await expect(netPay).toContainText(/₹81,8/);
+    // Expect ~₹87,800 (since tax is now 0 on 12L)
+    const netPay = page.locator('.text-4xl.font-bold.text-emerald-400').first();
+    await expect(netPay).toContainText(/₹87,8/);
   });
 
   test('Debt Payoff Calculator', async ({ page }) => {
@@ -90,7 +91,7 @@ test.describe('Phase 1.3 Calculators', () => {
     await expect(resultCard).toContainText('avalanche', { ignoreCase: true });
 
     // Also check the Expert Tip
-    const expertTip = page.locator('.bg-blue-50'); // Expert tip container
+    const expertTip = page.locator('.bg-blue-50').first(); // Expert tip container
     await expect(expertTip).toContainText('Avalanche is mathematically superior');
   });
 

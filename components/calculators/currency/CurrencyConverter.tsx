@@ -55,7 +55,7 @@ export default function CurrencyConverter({ initialRates }: CurrencyConverterPro
         async function updateBase() {
             // We fetch client-side here for interactivity
             try {
-                const res = await fetch(`https://api.frankfurter.app/latest?from=${fromCurrency}`);
+                const res = await fetch(`https://api.frankfurter.dev/v1/latest?base=${fromCurrency}`);
                 const data = await res.json();
                 if (active) {
                     setRates(data);

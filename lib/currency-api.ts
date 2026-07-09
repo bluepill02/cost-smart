@@ -5,7 +5,7 @@ export interface ExchangeRates {
     rates: Record<string, number>;
 }
 
-const API_BASE = 'https://api.frankfurter.app';
+const API_BASE = 'https://api.frankfurter.dev/v1';
 
 export async function getLatestRates(base: string = 'USD'): Promise<ExchangeRates | null> {
     try {
@@ -36,9 +36,10 @@ export async function getHistoricalRates(
 
         // Format YYYY-MM-DD
         const startStr = startDate.toISOString().split('T')[0];
+        const endStr = endDate.toISOString().split('T')[0];
 
         const res = await fetch(
-            `${API_BASE}/${startStr}..?from=${base}&to=${target}`,
+            `${API_BASE}/${startStr}..${endStr}?from=${base}&to=${target}`,
             { next: { revalidate: 86400 } } // Cache history for 24h
         );
 

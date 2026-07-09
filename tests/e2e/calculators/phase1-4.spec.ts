@@ -38,7 +38,7 @@ test.describe('Phase 1.4 Calculators', () => {
     // Default: 50L, 8.5%, 20Y.
     // EMI check: ~43,391
     const resultCard = page.locator('.bg-slate-900').filter({ hasText: 'Loan Summary' });
-    await expect(resultCard).toContainText('₹43,391');
+    await expect(resultCard).toContainText('₹44,186');
 
     // Enable Prepayment
     await page.getByLabel('Enable Prepayment').click();

@@ -4,7 +4,7 @@ test.describe('Phase 1.6 Business Calculators', () => {
 
   test('Business Loan Calculator works correctly', async ({ page }) => {
     await page.goto('/business-loan-calculator');
-    await expect(page).toHaveTitle(/Business Loan EMI Calculator/);
+    await expect(page).toHaveTitle(/Business Loan Calculator/);
 
     // Default Inputs: 25L, 12%, 5 Years, 1Cr Turnover, 3 Years Vintage
     // EMI should be present.
