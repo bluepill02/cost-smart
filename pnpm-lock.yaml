@@ -12,8 +12,8 @@ importers:
         specifier: ^2.8.0
         version: 2.8.0
       '@paypal/react-paypal-js':
-        specifier: ^9.2.0
-        version: 9.2.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+        specifier: ^10.0.0
+        version: 10.0.0(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
       '@radix-ui/react-icons':
         specifier: ^1.3.2
         version: 1.3.2(react@19.2.7)
@@ -525,11 +525,11 @@ packages:
     resolution: {integrity: sha512-nn5ozdjYQpUCZlWGuxcJY/KpxkWQs4DcbMCmKojjyrYDEAGy4Ce19NN4v5MduafTwJlbKc99UA8YhSVqq9yPZA==}
     engines: {node: '>=12.4.0'}
 
-  '@paypal/paypal-js@9.7.0':
-    resolution: {integrity: sha512-eUQVZWTEhXhaPsYDmfUaOeV5zfeLUn7kCE7/BXm6uAtMhUoK0S7uPtUzosqfH1vZgjfUSyTzghDJtYxXyRRZig==}
+  '@paypal/paypal-js@10.0.0':
+    resolution: {integrity: sha512-IOAA8Ls7A5WXH8vV8Lbh+QTyVsQWbmqzCMvNFmGO/56D+7i5OMXhjzG2Qhz0WHSiVe+IutqJMWPX2dHJXA7Kgw==}
 
-  '@paypal/react-paypal-js@9.2.0':
-    resolution: {integrity: sha512-wckuxilT+fYYwg0TYbEbxkclYeJnhIlThpNtV9RLXQA6uBbt5xPIzGv9wt2ykQTLiNIqhXhw1Hlz5yxUeCteKQ==}
+  '@paypal/react-paypal-js@10.0.0':
+    resolution: {integrity: sha512-65ry+7rJE2sjwPGrW2pSPM8ye2pYxIFO/DpAd0QfkJ56FHc281paAHc5OTg/cZf88UUXkn7hltLDZ60CRfjIrQ==}
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18 || ^19
       react-dom: ^16.8.0 || ^17 || ^18 || ^19
@@ -3379,13 +3379,13 @@ snapshots:
 
   '@nolyfill/is-core-module@1.0.39': {}
 
-  '@paypal/paypal-js@9.7.0':
+  '@paypal/paypal-js@10.0.0':
     dependencies:
       promise-polyfill: 8.3.0
 
-  '@paypal/react-paypal-js@9.2.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7)':
+  '@paypal/react-paypal-js@10.0.0(react-dom@19.2.1(react@19.2.1))(react@19.2.1)':
     dependencies:
-      '@paypal/paypal-js': 9.7.0
+      '@paypal/paypal-js': 10.0.0
       '@paypal/sdk-constants': 1.0.158
       react: 19.2.7
       react-dom: 19.2.7(react@19.2.7)
