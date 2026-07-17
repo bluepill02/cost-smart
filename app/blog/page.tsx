@@ -18,6 +18,13 @@ export const metadata: Metadata = {
 
 const FEATURED = [
   {
+    slug: 'interest-rates-2026-strategy',
+    title: 'Where to Park Cash With 3.75% Rates in 2026',
+    desc: 'The Federal Reserve has paused the Fed Funds rate at 3.75% in July 2026. Here is exactly how to restructure your savings, investments, and debt.',
+    tag: 'Investing',
+    color: 'emerald',
+  },
+  {
     slug: 'mortgage-rates-2026-guide',
     title: '2026 Mortgage Rates Guide: Lock, Float, or Wait?',
     desc: 'Are 2026 mortgage rates dropping? Discover the real numbers, historical comparisons, and proven strategies to handle today\'s 6.5%+ housing market.',
@@ -67,6 +74,13 @@ const FEATURED = [
     color: 'purple',
   },
   {
+    slug: 'us-tcja-2026-sunset-tax-changes',
+    title: '2026 Tax Brackets: The TCJA Sunset & OBBBA Reality Check',
+    desc: 'The expected 2026 TCJA tax sunset was canceled by the One Big Beautiful Bill (OBBBA). See the new permanent tax brackets.',
+    tag: 'Tax',
+    color: 'blue',
+  },
+  {
     slug: 'snowball-vs-avalanche',
     title: 'Debt Snowball vs Avalanche: Best Method',
     desc: 'Two proven strategies to become debt-free faster.',
@@ -108,6 +122,7 @@ const CATEGORIES = [
     icon: Receipt,
     color: 'blue',
     posts: [
+      { slug: 'us-tcja-2026-sunset-tax-changes', title: '2026 Tax Brackets: TCJA Sunset & OBBBA' },
       { slug: 'new-tax-regime-2026-salary-guide', title: 'New Tax Regime 2026: Where Salaried Savers Should Park Cash' },
       { slug: 'new-vs-old-tax-regime', title: 'New vs Old Tax Regime Explained' },
       { slug: 'ctc-vs-in-hand', title: 'CTC vs In-Hand Salary' },
