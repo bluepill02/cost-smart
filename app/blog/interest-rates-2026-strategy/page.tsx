@@ -20,10 +20,11 @@ export default function InterestRates2026StrategyPage() {
     <BlogLayout
       title="Where to Park Cash With 3.75% Rates in 2026"
       description="The Federal Reserve has paused the Fed Funds rate at 3.75% in July 2026. Here is exactly how to restructure your savings, investments, and debt to navigate the current reality."
-      date="July 16, 2026"
+      date="2026-07-16"
       author="CostSmart Editorial Team"
       readingTime="10 min read"
       category="Investing"
+      slug="interest-rates-2026-strategy"
     >
       <p>
         The absolute best place to park your cash in 2026 is a dynamic blend of high-yield savings accounts for immediate liquidity and short-duration Treasury bills for locked-in yield, because the Federal Funds Rate is currently stuck at an unyielding 3.50% to 3.75%.
