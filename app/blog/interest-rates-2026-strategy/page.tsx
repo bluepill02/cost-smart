@@ -164,9 +164,12 @@ export default function InterestRates2026StrategyPage() {
       </p>
 
       <div className="my-8">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2075&auto=format&fit=crop"
           alt="A modern suburban home representing the gridlocked 2026 real estate market"
+          loading="lazy"
+          decoding="async"
           className="rounded-2xl shadow-md w-full h-auto object-cover max-h-[400px]"
         />
         <p className="text-sm text-center text-slate-500 mt-2">High mortgage rates and low inventory define the 2026 housing market gridlock.</p>
