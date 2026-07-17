@@ -5,7 +5,7 @@ test('Currency Converter Client-Side Caching', async ({ page }) => {
 
   // Monitor network requests
   page.on('request', request => {
-    if (request.url().includes('api.frankfurter.app/latest')) {
+    if (request.url().includes('api.frankfurter.dev/v1/latest')) {
       requests.push(request.url());
     }
   });
@@ -21,7 +21,7 @@ test('Currency Converter Client-Side Caching', async ({ page }) => {
 
   // Switch to EUR
   await page.locator('#from').click();
-  const eurResponsePromise = page.waitForResponse(resp => resp.url().includes('from=EUR'));
+  const eurResponsePromise = page.waitForResponse(resp => resp.url().includes('base=EUR'));
   await page.getByRole('option', { name: 'EUR', exact: true }).click();
   await eurResponsePromise;
 

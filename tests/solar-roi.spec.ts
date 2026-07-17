@@ -7,33 +7,18 @@ test('solar roi calculator flow', async ({ page }) => {
   // Expect title
   await expect(page).toHaveTitle(/Solar ROI/);
 
-  // Check if City Search input is visible
-  // Based on app/solar-roi/page.tsx, it uses <CitySearch>
-  const searchInput = page.getByPlaceholder('Search for your city...');
-  await expect(searchInput).toBeVisible();
-
-  // Type a city name
-  await searchInput.fill('Denver');
-
-  // Verify that the link for Denver appears
-  const cityLink = page.getByRole('link', { name: 'Denver USA' });
+  // The app/solar-roi/page.tsx no longer uses <CitySearch>, but lists cities directly
+  // Find Los Angeles in the US cities list
+  const cityLink = page.getByRole('link', { name: 'Los Angeles California' });
   await expect(cityLink).toBeVisible();
 
   // Navigate
   await Promise.all([
-    page.waitForURL(/\/solar-roi\/Denver/),
+    page.waitForURL(/\/solar-roi\/los-angeles/i),
     cityLink.click()
   ]);
 
   // Verify city page content
-  await expect(page.locator('h1')).toContainText('Denver');
-
-  // Verify that at least one "View Example" link exists (if featured city is present)
-  // The code in app/solar-roi/page.tsx shows a link to a featured city
-  const exampleLink = page.getByRole('link', { name: /View Example/i });
-  if (await exampleLink.isVisible()) {
-      await exampleLink.click();
-      // Should navigate to a city page
-      await expect(page).toHaveURL(/\/solar-roi\/.+/);
-  }
+  const heading = page.locator('h1').first();
+  await expect(heading).toContainText(/Los Angeles/i);
 });

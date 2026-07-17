@@ -6,7 +6,7 @@ test.describe('EMI Calculator (Global & India)', () => {
     await page.goto('/loan-calculator');
 
     // Check Title
-    await expect(page.locator('h1')).toContainText('True Cost Loan Calculator');
+    await expect(page.locator('h1').first()).toContainText('True Cost Loan Calculator');
 
     // Input Values: $100,000, 5%, 20 Years
     const principalInput = page.locator('input#principal');
@@ -33,7 +33,7 @@ test.describe('EMI Calculator (Global & India)', () => {
     await page.goto('/in/emi-calculator');
 
     // Check Title
-    await expect(page.locator('h1')).toContainText('Smart EMI Calculator');
+    await expect(page.locator('h1').first()).toContainText('Smart EMI Calculator');
 
     // Verify Indian Currency Symbol
     const principalLabel = page.locator('label[for="principal"]');
