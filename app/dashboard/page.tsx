@@ -1,11 +1,13 @@
 import React from 'react';
 // import MarketTicker from '@/components/features/MarketTicker';
 import DashboardHistory from '@/components/features/DashboardHistory';
+import ProAnalyticsPreview from '@/components/premium/ProAnalyticsPreview';
+import ProInsightTeaser from '@/components/premium/ProInsightTeaser';
 import { LayoutDashboard } from 'lucide-react';
 
 
 export const metadata = {
-      alternates: { canonical: 'https://cost-smart-five.vercel.app/dashboard' },
+      alternates: { canonical: '/dashboard' },
   title: 'My Finance Hub - CostSmart',
     description: 'Track your saved scenarios and view real-time market data.',
 };
@@ -32,6 +34,15 @@ export default function DashboardPage() {
                 */}
 
                 <DashboardHistory />
+
+                {/* Pro Analytics Section */}
+                <div className="mt-12 border-t border-slate-200 pt-10">
+                    <ProInsightTeaser />
+
+                    <div className="mt-10">
+                        <ProAnalyticsPreview />
+                    </div>
+                </div>
             </div>
         </div>
     );

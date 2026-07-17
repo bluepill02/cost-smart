@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'How to use the Invoice Generator | CostSmart Guide',
   description: 'Step-by-step guide on how to use the Invoice Generator to calculate Professional Invoice. Accurate, fast, and free online tool.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/blog/how-to-use-invoice-generator',
+    canonical: '/blog/how-to-use-invoice-generator',
   },
 };
 

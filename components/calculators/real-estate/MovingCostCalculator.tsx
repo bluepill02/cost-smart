@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from 'react';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
@@ -332,7 +333,7 @@ export default function MovingCostCalculator() {
             <ShareButton
               title="My Moving Cost Estimate"
               text={`I estimated my relocation cost to be ${formatCurrency(costs.total)} using CostSmart!`}
-              url="https://cost-smart-five.vercel.app/moving-cost-calculator"
+              url={`${CANONICAL_DOMAIN}/moving-cost-calculator`}
             />
           </div>
         </div>

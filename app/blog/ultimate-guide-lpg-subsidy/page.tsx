@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Ultimate Guide to LPG Subsidy Calculation | CostSmart',
   description: 'Everything you need to know about LPG Subsidy. Formulas, examples, and expert tips for accurate calculation.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/blog/ultimate-guide-lpg-subsidy',
+    canonical: '/blog/ultimate-guide-lpg-subsidy',
   },
 };
 

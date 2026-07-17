@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Ultimate Guide to Currency Exchange Calculation | CostSmart',
   description: 'Everything you need to know about Currency Exchange. Formulas, examples, and expert tips for accurate calculation.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/blog/ultimate-guide-currency-exchange',
+    canonical: '/blog/ultimate-guide-currency-exchange',
   },
 };
 

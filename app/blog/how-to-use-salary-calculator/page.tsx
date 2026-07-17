@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'How to use the Salary Calculator | CostSmart Guide',
   description: 'Step-by-step guide on how to use the Salary Calculator to calculate In-Hand Salary. Accurate, fast, and free online tool.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/blog/how-to-use-salary-calculator',
+    canonical: '/blog/how-to-use-salary-calculator',
   },
 };
 

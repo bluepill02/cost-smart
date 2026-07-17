@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import ProfitMarginCalculator from '@/components/calculators/business/ProfitMarginCalculator';
-import JsonLd from '@/components/seo/JsonLd';
-import { getCalculatorSchema, CANONICAL_DOMAIN } from '@/lib/seo-utils';
+import CalculatorSchemaInjector from '@/components/seo/CalculatorSchemaInjector';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import AmazonRecommendations from '@/components/affiliate/AmazonRecommendations';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
 
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: 'Profit Margin Calculator | CostSmart',
   description: 'Calculate Gross Margin, Markup, and Net Profit.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/profit-margin-calculator',
+    canonical: '/profit-margin-calculator',
   },
   openGraph: {
     title: 'Profit Margin Calculator | CostSmart',
@@ -21,15 +21,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  const jsonLd = getCalculatorSchema(
-    'Profit Margin Calculator',
-    'Calculate Gross Margin, Markup, and Net Profit.',
-    '/profit-margin-calculator'
-  );
-
   return (
     <div className="container mx-auto px-4 py-12 max-w-4xl">
-      <JsonLd data={jsonLd} />
+      <CalculatorSchemaInjector calculatorName="Profit Margin Calculator" calculatorDescription="Calculate Gross Margin, Markup, and Net Profit." urlPath="/profit-margin-calculator" calculatorType="business" />
       <div className="mb-8 text-center">
         <h1 className="text-4xl font-bold text-slate-900 mb-4">Profit Margin Calculator</h1>
         <p className="text-xl text-slate-600 max-w-2xl mx-auto">Calculate Gross Margin, Markup, and Net Profit.</p>

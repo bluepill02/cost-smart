@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<{ amount: s
         title: `Solar System for ₹${parseInt(amount).toLocaleString()} Budget - ROI & Capacity`,
         description: `What kind of solar system can you get for ₹${parseInt(amount).toLocaleString()}? Check capacity, generation, and savings.`,
         alternates: {
-            canonical: `https://cost-smart-five.vercel.app/solar-roi/budget/${amount}`,
+            canonical: `/solar-roi/budget/${amount}`,
         }
     };
 }

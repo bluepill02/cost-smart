@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: { params: Promise<{ city: str
         title: `Solar ROI Calculator for ${city.city_name} - Is it Worth it in 2025?`,
         description: `Solar ROI for ${city.city_name}: ${city.avg_daily_sunlight_hours}h sun, ${city.avg_electricity_cost_per_kwh}/kWh rate. Calculate payback period and 20-year savings.`,
         alternates: {
-            canonical: `https://cost-smart-five.vercel.app/solar-roi/${cityParam}`,
+            canonical: `/solar-roi/${cityParam}`,
         }
     };
 }

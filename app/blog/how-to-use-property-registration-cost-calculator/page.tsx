@@ -6,7 +6,7 @@ import { BlogLayout } from '@/components/blog/BlogLayout';
 export const metadata: Metadata = {
   title: 'Property Registration Cost Calculator Guide | CostSmart',
   description: 'Step-by-step guide to using CostSmart Property Registration Calculator. Calculate stamp duty and registration charges by state.',
-  alternates: { canonical: 'https://cost-smart-five.vercel.app/blog/how-to-use-property-registration-cost-calculator' },
+  alternates: { canonical: '/blog/how-to-use-property-registration-cost-calculator' },
 };
 
 

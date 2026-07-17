@@ -3,12 +3,20 @@ import { Metadata } from 'next';
 import PropertyRegistrationCalculator from '@/components/calculators/real-estate/PropertyRegistrationCalculator';
 import RelatedTools from '@/components/calculators/RelatedTools';
 import AdContainer from '@/components/ads/AdContainer';
+import CalculatorSchemaInjector from '@/components/seo/CalculatorSchemaInjector';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 
 export const metadata: Metadata = {
   title: 'Property Registration Calculator India 2025 | CostSmart',
   description: 'Calculate property registration charges and stamp duty for Maharashtra, Karnataka, Tamil Nadu, UP, and other Indian states. Accurate 2025 fee structure.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/in/property-registration-cost-calculator',
+    canonical: '/in/property-registration-cost-calculator',
+  },
+  openGraph: {
+    title: 'Property Registration Calculator India 2025 | CostSmart',
+    description: 'Calculate property registration charges and stamp duty for Maharashtra, Karnataka, Tamil Nadu, UP, and other Indian states. Accurate 2025 fee structure.',
+    url: `${CANONICAL_DOMAIN}/in/property-registration-cost-calculator`,
+    type: 'website',
   },
 };
 
@@ -16,6 +24,7 @@ export default function PropertyRegistrationPage() {
   return (
     <div className="min-h-screen bg-slate-50 py-12">
       <div className="container mx-auto px-4">
+        <CalculatorSchemaInjector calculatorName="Property Registration Calculator" calculatorDescription="Calculate property registration charges and stamp duty for Indian states." urlPath="/in/property-registration-cost-calculator" calculatorType="property" />
         <h1 className="text-4xl font-extrabold text-slate-900 mb-4 text-center">
           Property Registration Charges Calculator
         </h1>

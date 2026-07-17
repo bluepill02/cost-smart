@@ -44,7 +44,7 @@ export const metadata: Metadata = {
   ],
 
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app',
+    canonical: '/',
   },
   openGraph: {
     type: 'website',

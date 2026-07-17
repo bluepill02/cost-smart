@@ -1,0 +1,7 @@
+{
+  "task_id": "task-mailchimp-integration",
+  "task_description": "Configure Mailchimp account perfectly via API (audience rename, merge fields, tags, email templates) and build a direct API integration module in the codebase at lib/mailchimp.ts that processes leads directly to Mailchimp alongside the existing Zapier webhook.",
+  "status": "in_progress",
+  "feature_order": ["FEAT-001", "FEAT-002"],
+  "blocked_reason": null
+}

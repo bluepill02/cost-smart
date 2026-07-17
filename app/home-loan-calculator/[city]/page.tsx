@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: { params: Promise<{ city: str
         title: `Home Loan EMI Calculator ${city.name} - Current Rates 2025`,
         description: `Calculate your Home Loan EMI for properties in ${city.name}. Check eligibility, interest rates, and total payment breakdown for ${city.name} real estate.`,
         alternates: {
-            canonical: `https://cost-smart-five.vercel.app/home-loan-calculator/${cityParam}`,
+            canonical: `/home-loan-calculator/${cityParam}`,
         }
     };
 }

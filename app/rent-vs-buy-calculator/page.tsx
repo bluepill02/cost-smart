@@ -2,7 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 import RentVsBuyCalculator from '@/components/calculators/real-estate/RentVsBuyCalculator';
 import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
-import JsonLd from '@/components/seo/JsonLd';
+import CalculatorSchemaInjector from '@/components/seo/CalculatorSchemaInjector';
 import AmazonRecommendations from '@/components/affiliate/AmazonRecommendations';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
 import NeighborhoodCTA from '@/components/features/NeighborhoodCTA';
@@ -15,25 +15,18 @@ export const metadata: Metadata = {
     canonical: `${CANONICAL_DOMAIN}/rent-vs-buy-calculator`,
   },
   keywords: 'rent vs buy calculator, renting vs buying, real estate investment, property appreciation, opportunity cost',
+  openGraph: {
+    title: 'Rent vs Buy Calculator | CostSmart',
+    description: 'Should you rent or buy? Compare the long-term financial impact of buying a home vs renting and investing the difference. Expert level analysis.',
+    url: `${CANONICAL_DOMAIN}/rent-vs-buy-calculator`,
+    type: 'website',
+  },
 };
 
 export default function RentVsBuyPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
-      <JsonLd
-        data={{
-          "@context": "https://schema.org",
-          "@type": "SoftwareApplication",
-          name: "Rent vs Buy Calculator",
-          applicationCategory: "FinanceApplication",
-          operatingSystem: "Web",
-          offers: {
-            "@type": "Offer",
-            price: "0",
-            priceCurrency: "USD",
-          },
-        }}
-      />
+      <CalculatorSchemaInjector calculatorName="Rent vs Buy Calculator" calculatorDescription="Compare the long-term financial impact of buying a home vs renting and investing the difference." urlPath="/rent-vs-buy-calculator" calculatorType="property" />
 
       <div className="mb-8 text-center">
         <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">

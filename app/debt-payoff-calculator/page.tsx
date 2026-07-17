@@ -1,10 +1,10 @@
 import { Metadata } from 'next';
-import { getCalculatorSchema, CANONICAL_DOMAIN } from '@/lib/seo-utils';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import DebtPayoffCalculator from '@/components/calculators/debt/DebtPayoffCalculator';
 import AdContainer from '@/components/ads/AdContainer';
 import { Badge } from '@/components/ui/badge';
 import { TrendingDown } from 'lucide-react';
-import JsonLd from '@/components/seo/JsonLd';
+import CalculatorSchemaInjector from '@/components/seo/CalculatorSchemaInjector';
 import AmazonRecommendations from '@/components/affiliate/AmazonRecommendations';
 import PremiumBanner from '@/components/premium/PremiumBanner';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: 'Debt Payoff Calculator | CostSmart',
     description: 'Create a plan to get out of debt faster. Compare Debt Snowball vs Debt Avalanche strategies to see which one saves you more money.',
     alternates: {
-        canonical: 'https://cost-smart-five.vercel.app/debt-payoff-calculator',
+        canonical: '/debt-payoff-calculator',
     },
     openGraph: {
         title: 'Debt Payoff Calculator | CostSmart',
@@ -25,15 +25,9 @@ export const metadata: Metadata = {
 };
 
 export default function DebtCalculatorPage() {
-    const jsonLd = getCalculatorSchema(
-        'CostSmart Debt Payoff Calculator',
-        'Calculate your debt-free date using snowball or avalanche method.',
-        '/debt-payoff-calculator'
-    );
-
     return (
         <div className="container mx-auto px-4 py-12 max-w-6xl">
-            <JsonLd data={jsonLd} />
+            <CalculatorSchemaInjector calculatorName="CostSmart Debt Payoff Calculator" calculatorDescription="Calculate your debt-free date using snowball or avalanche method." urlPath="/debt-payoff-calculator" calculatorType="loan" />
             <div className="text-center mb-10 space-y-4">
                  <div className="flex justify-center gap-2">
                     <Badge variant="outline" className="bg-red-50 text-red-700 border-red-200 flex items-center gap-1">

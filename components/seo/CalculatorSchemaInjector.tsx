@@ -10,8 +10,9 @@ interface CalculatorSchemaInjectorProps {
 }
 
 /**
- * Injects SoftwareApplication + FAQPage schema for a calculator.
- * This component MUST be placed in the <head> section of calculator pages.
+ * Injects SoftwareApplication + FAQPage JSON-LD schema for a calculator page.
+ * Place this component at the top of the calculator page's return JSX.
+ * JSON-LD script tags are valid in both <head> and <body>.
  *
  * Usage:
  * <CalculatorSchemaInjector

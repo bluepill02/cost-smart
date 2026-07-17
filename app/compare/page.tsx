@@ -2,7 +2,7 @@ import React from 'react';
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowRight, TrendingUp, Calculator, Zap } from 'lucide-react';
+import { ArrowRight, TrendingUp, Calculator, Zap, FileText } from 'lucide-react';
 import AdContainer from '@/components/ads/AdContainer';
 import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
 
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: 'Financial Comparisons | CostSmart',
   description: 'Compare FD vs Mutual Funds, PPF vs FD, Solar vs Wind, Rent vs Buy. Data-driven India-focused analysis.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/compare',
+    canonical: '/compare',
   },
 };
 
@@ -47,6 +47,22 @@ export default function ComparePage() {
       icon: TrendingUp,
       color: 'purple',
       categories: ['Property', 'Wealth']
+    },
+    {
+      title: 'Cost-Smart vs Excel',
+      slug: 'cost-smart-vs-excel',
+      description: 'Why switch from spreadsheets to a dedicated financial tool? Compare setup time, automation, mobile access, and accuracy for everyday money decisions.',
+      icon: FileText,
+      color: 'emerald',
+      categories: ['Comparison', 'Productivity']
+    },
+    {
+      title: 'Cost-Smart vs YNAB',
+      slug: 'cost-smart-vs-ynab',
+      description: 'An affordable alternative to YNAB. Compare pricing, features, free tiers, and India-focused tools. Get similar budgeting power at $4.99/month vs $14.99/month.',
+      icon: TrendingUp,
+      color: 'blue',
+      categories: ['Comparison', 'Budgeting']
     }
   ];
 

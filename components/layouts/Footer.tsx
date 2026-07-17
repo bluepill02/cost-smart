@@ -20,7 +20,7 @@ export default function Footer() {
               Trusted data, instant results.
             </p>
             <div className="flex flex-col gap-1 text-xs">
-              <a href="mailto:hello@cost-smart-five.vercel.app" className="hover:text-emerald-400 transition-colors">
+              <a href="mailto:hello@costsmart.co" className="hover:text-emerald-400 transition-colors">
                 📧 Contact Us
               </a>
             </div>

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Property Registration Cost Guide India | CostSmart',
   description: 'Everything you need to know about Property Registration Cost. Formulas, examples, and expert tips for accurate calculation.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/blog/ultimate-guide-property-registration-cost',
+    canonical: '/blog/ultimate-guide-property-registration-cost',
   },
 };
 

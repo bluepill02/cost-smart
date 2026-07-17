@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Ultimate Guide to In-Hand Salary Calculation | CostSmart',
   description: 'Everything you need to know about In-Hand Salary. Formulas, examples, and expert tips for accurate calculation.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/blog/ultimate-guide-in-hand-salary',
+    canonical: '/blog/ultimate-guide-in-hand-salary',
   },
 };
 

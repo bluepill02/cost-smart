@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Ultimate Guide to Retirement Corpus Calculation | CostSmart',
   description: 'Everything you need to know about Retirement Corpus. Formulas, examples, and expert tips for accurate calculation.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/blog/ultimate-guide-retirement-corpus',
+    canonical: '/blog/ultimate-guide-retirement-corpus',
   },
 };
 

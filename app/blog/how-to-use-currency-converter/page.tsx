@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'How to use the Currency Converter | CostSmart Guide',
   description: 'Step-by-step guide on how to use the Currency Converter to calculate Currency Exchange. Accurate, fast, and free online tool.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/blog/how-to-use-currency-converter',
+    canonical: '/blog/how-to-use-currency-converter',
   },
 };
 

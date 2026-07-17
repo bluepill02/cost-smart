@@ -18,6 +18,41 @@ export const metadata: Metadata = {
 
 const FEATURED = [
   {
+    slug: 'interest-rates-2026-strategy',
+    title: 'Where to Park Cash With 3.75% Rates in 2026',
+    desc: 'The Federal Reserve has paused the Fed Funds rate at 3.75% in July 2026. Here is exactly how to restructure your savings, investments, and debt.',
+    tag: 'Investing',
+    color: 'emerald',
+  },
+  {
+    slug: 'mortgage-rates-2026-guide',
+    title: '2026 Mortgage Rates Guide: Lock, Float, or Wait?',
+    desc: 'Are 2026 mortgage rates dropping? Discover the real numbers, historical comparisons, and proven strategies to handle today\'s 6.5%+ housing market.',
+    tag: 'Home & Property',
+    color: 'emerald',
+  },
+  {
+    slug: 'emergency-fund-rule-2026',
+    title: 'The 2026 Emergency Fund Rule: How Many Months of Expenses You Really Need',
+    desc: 'A current, source-backed guide to sizing your cash buffer against inflation, job-market frictions, and safe-yield reality.',
+    tag: 'Savings',
+    color: 'teal',
+  },
+  {
+    slug: 'new-tax-regime-2026-salary-guide',
+    title: 'New Tax Regime 2026: Where Salaried Savers Should Park Cash',
+    desc: 'A current, source-backed guide to the 2026 salary-tax reset and the cash ladder that beats tax drag.',
+    tag: 'Tax',
+    color: 'emerald',
+  },
+  {
+    slug: 'cash-buffer-that-still-wins',
+    title: 'The Cash Buffer That Still Wins',
+    desc: 'A witty, data-backed guide to building an emergency fund that survives inflation and bad timing.',
+    tag: 'Savings',
+    color: 'teal',
+  },
+  {
     slug: 'sip-vs-lumpsum',
     title: 'SIP vs Lumpsum: Which Strategy Wins?',
     desc: 'Compare Systematic Investment Plans vs one-time lumpsum investing for mutual funds.',
@@ -27,7 +62,7 @@ const FEATURED = [
   {
     slug: 'new-vs-old-tax-regime',
     title: 'New vs Old Tax Regime: Full Comparison',
-    desc: 'Which income tax regime saves you more money in FY 2024-25?',
+    desc: 'Which income tax regime saves you more money in FY 2026-25?',
     tag: 'Tax',
     color: 'blue',
   },
@@ -80,6 +115,7 @@ const CATEGORIES = [
     icon: Receipt,
     color: 'blue',
     posts: [
+      { slug: 'new-tax-regime-2026-salary-guide', title: 'New Tax Regime 2026: Where Salaried Savers Should Park Cash' },
       { slug: 'new-vs-old-tax-regime', title: 'New vs Old Tax Regime Explained' },
       { slug: 'ctc-vs-in-hand', title: 'CTC vs In-Hand Salary' },
       { slug: 'ultimate-guide-income-tax-liability', title: 'Ultimate Guide to Income Tax' },
@@ -133,6 +169,7 @@ const CATEGORIES = [
 const tagColors: Record<string, string> = {
   emerald: 'bg-emerald-100 text-emerald-700',
   blue: 'bg-blue-100 text-blue-700',
+  teal: 'bg-teal-100 text-teal-700',
   purple: 'bg-purple-100 text-purple-700',
   orange: 'bg-orange-100 text-orange-700',
   cyan: 'bg-cyan-100 text-cyan-700',

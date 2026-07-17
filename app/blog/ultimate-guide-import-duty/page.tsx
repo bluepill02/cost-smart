@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Ultimate Guide to Import Duty Calculation | CostSmart',
   description: 'Everything you need to know about Import Duty. Formulas, examples, and expert tips for accurate calculation.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/blog/ultimate-guide-import-duty',
+    canonical: '/blog/ultimate-guide-import-duty',
   },
 };
 

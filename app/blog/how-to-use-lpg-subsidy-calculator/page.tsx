@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'How to use the LPG Subsidy Calculator | CostSmart Guide',
   description: 'Step-by-step guide on how to use the LPG Subsidy Calculator to calculate LPG Subsidy. Accurate, fast, and free online tool.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/blog/how-to-use-lpg-subsidy-calculator',
+    canonical: '/blog/how-to-use-lpg-subsidy-calculator',
   },
 };
 

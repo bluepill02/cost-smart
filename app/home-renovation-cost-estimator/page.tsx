@@ -4,12 +4,20 @@ import HomeRenovationCalculator from '@/components/calculators/real-estate/HomeR
 import RelatedTools from '@/components/calculators/RelatedTools';
 import AdContainer from '@/components/ads/AdContainer';
 import AmazonRecommendations from '@/components/affiliate/AmazonRecommendations';
+import CalculatorSchemaInjector from '@/components/seo/CalculatorSchemaInjector';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 
 export const metadata: Metadata = {
   title: 'Home Renovation Cost Estimator India | CostSmart',
   description: 'Calculate the estimated cost of renovating your home in India. Get detailed pricing for painting, flooring, plumbing, electrical, and full home makeovers.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/home-renovation-cost-estimator',
+    canonical: '/home-renovation-cost-estimator',
+  },
+  openGraph: {
+    title: 'Home Renovation Cost Estimator India | CostSmart',
+    description: 'Calculate the estimated cost of renovating your home in India. Get detailed pricing for painting, flooring, plumbing, electrical, and full home makeovers.',
+    url: `${CANONICAL_DOMAIN}/home-renovation-cost-estimator`,
+    type: 'website',
   },
 };
 
@@ -17,6 +25,7 @@ export default function HomeRenovationPage() {
   return (
     <div className="min-h-screen bg-slate-50 py-12">
       <div className="container mx-auto px-4">
+        <CalculatorSchemaInjector calculatorName="Home Renovation Cost Estimator" calculatorDescription="Calculate the estimated cost of renovating your home in India." urlPath="/home-renovation-cost-estimator" calculatorType="property" />
         <h1 className="text-4xl font-extrabold text-slate-900 mb-4 text-center">
           Home Renovation Cost Estimator
         </h1>

@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import BreakEvenCalculator from '@/components/calculators/business/BreakEvenCalculator';
-import JsonLd from '@/components/seo/JsonLd';
-import { getCalculatorSchema, CANONICAL_DOMAIN } from '@/lib/seo-utils';
+import CalculatorSchemaInjector from '@/components/seo/CalculatorSchemaInjector';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import AmazonRecommendations from '@/components/affiliate/AmazonRecommendations';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
 
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: 'Break-Even Calculator | CostSmart',
   description: 'Find your break-even point in units and revenue.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/break-even-calculator',
+    canonical: '/break-even-calculator',
   },
   openGraph: {
     title: 'Break-Even Calculator | CostSmart',
@@ -21,15 +21,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  const jsonLd = getCalculatorSchema(
-    'Break-Even Calculator',
-    'Find your break-even point in units and revenue.',
-    '/break-even-calculator'
-  );
-
   return (
     <div className="container mx-auto px-4 py-12 max-w-4xl">
-      <JsonLd data={jsonLd} />
+      <CalculatorSchemaInjector calculatorName="Break-Even Calculator" calculatorDescription="Find your break-even point in units and revenue." urlPath="/break-even-calculator" calculatorType="business" />
       <div className="mb-8 text-center">
         <h1 className="text-4xl font-bold text-slate-900 mb-4">Break-Even Calculator</h1>
         <p className="text-xl text-slate-600 max-w-2xl mx-auto">Find your break-even point in units and revenue.</p>

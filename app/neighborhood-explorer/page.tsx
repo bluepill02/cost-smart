@@ -4,13 +4,14 @@ import AdContainer from '@/components/ads/AdContainer';
 import NeighborhoodExplorer from '@/components/features/NeighborhoodExplorer';
 import Link from 'next/link';
 import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
+import CalculatorSchemaInjector from '@/components/seo/CalculatorSchemaInjector';
 
 export const metadata: Metadata = {
   title: 'Neighborhood Explorer | Area Analysis Tool | CostSmart',
   description: 'Explore any neighborhood before buying or renting. Check nearby schools, hospitals, parks, transit, and shopping. Get a neighborhood score for any location.',
   keywords: ['neighborhood analysis', 'area explorer', 'locality check', 'neighborhood score', 'nearby amenities', 'places near me'],
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/neighborhood-explorer',
+    canonical: '/neighborhood-explorer',
   },
   openGraph: {
     title: 'Neighborhood Explorer | Area Analysis Tool | CostSmart',
@@ -23,6 +24,7 @@ export const metadata: Metadata = {
 export default function NeighborhoodExplorerPage() {
   return (
     <div className="container mx-auto px-4 py-12 bg-slate-50 min-h-screen">
+      <CalculatorSchemaInjector calculatorName="Neighborhood Explorer" calculatorDescription="Explore any neighborhood before buying or renting. Check nearby schools, hospitals, parks, transit, and shopping." urlPath="/neighborhood-explorer" calculatorType="property" />
       <BreadcrumbSchema items={[{ label: 'Tools', href: '/tools' }, { label: 'Neighborhood Explorer' }]} currentPath="/neighborhood-explorer" />
       <AdContainer className="mb-8" slotId="1475703853" />
 

@@ -1,14 +1,14 @@
 import { Metadata } from 'next';
 import LPGSubsidyCalculator from '@/components/calculators/real-estate/LPGSubsidyCalculator';
-import JsonLd from '@/components/seo/JsonLd';
-import { getCalculatorSchema, CANONICAL_DOMAIN } from '@/lib/seo-utils';
+import CalculatorSchemaInjector from '@/components/seo/CalculatorSchemaInjector';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'LPG Subsidy Calculator | CostSmart',
   description: 'Calculate your annual LPG subsidy savings. Enter cylinder count and subsidy rate to know your total yearly benefit under PMUY and other government schemes.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/in/lpg-subsidy-calculator',
+    canonical: '/in/lpg-subsidy-calculator',
   },
   openGraph: {
     title: 'LPG Subsidy Calculator | CostSmart',
@@ -20,15 +20,9 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  const jsonLd = getCalculatorSchema(
-    'LPG Subsidy Calculator',
-    'Calculate annual savings from LPG subsidies.',
-    '/in/lpg-subsidy-calculator'
-  );
-
   return (
     <div className="container mx-auto px-4 py-12 max-w-4xl">
-      <JsonLd data={jsonLd} />
+      <CalculatorSchemaInjector calculatorName="LPG Subsidy Calculator" calculatorDescription="Calculate annual savings from LPG subsidies." urlPath="/in/lpg-subsidy-calculator" calculatorType="general" />
       <div className="mb-8 text-center">
         <h1 className="text-4xl font-bold text-slate-900 mb-4">LPG Subsidy Calculator</h1>
         <p className="text-xl text-slate-600 max-w-2xl mx-auto">Calculate annual savings from LPG subsidies.</p>

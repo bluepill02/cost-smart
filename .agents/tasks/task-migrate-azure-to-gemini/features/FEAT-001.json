@@ -1,0 +1,29 @@
+{
+  "id": "FEAT-001",
+  "type": "chore",
+  "description": "Install @google/genai SDK, remove Azure AI dependencies, create a shared Gemini client utility, and update environment configuration",
+  "status": "completed",
+  "steps": [
+    "Run: export PATH=/opt/toolchains/.nvm/versions/node/v20.20.2/bin:$PATH && cd /projects/sandbox/cost-smart && npm install",
+    "Install the Google GenAI SDK: npm install @google/genai",
+    "Remove Azure AI dependencies: npm uninstall @azure/ai-projects @azure/identity",
+    "Optionally remove @xenova/transformers: npm uninstall @xenova/transformers (since its client-side AI classification will be replaced with Gemini server-side call)",
+    "Create a shared Gemini client utility at lib/gemini.ts that exports a configured GoogleGenAI client instance. Use the @google/genai SDK with vertexai mode: `import { GoogleGenAI } from '@google/genai'; const ai = new GoogleGenAI({ vertexai: true, project: process.env.GOOGLE_CLOUD_PROJECT || 'project-9bb456e6-cd07-477c-a96', location: process.env.GOOGLE_CLOUD_LOCATION || 'us-central1' }); export default ai;` - Use model 'gemini-2.0-flash' as default for all calls (cheapest, highest rate limits, multimodal support).",
+    "Update .env.example: Remove the AZURE_AI_ENDPOINT, AZURE_AI_KEY lines. Remove AZURE_OPENAI_ENDPOINT and AZURE_OPENAI_KEY references if present. Add GOOGLE_CLOUD_PROJECT and GOOGLE_CLOUD_LOCATION variables with comments explaining their purpose.",
+    "Update next.config.ts: Remove 'onnxruntime-node' from serverExternalPackages (no longer needed). Keep 'sharp' if still used.",
+    "Verify the setup compiles: run npx tsc --noEmit to check for any immediate type errors from the dependency changes (some errors expected from routes still importing azure - that is fine, they will be fixed in FEAT-002)."
+  ],
+  "acceptance_criteria": [
+    "@google/genai is in package.json dependencies",
+    "@azure/ai-projects and @azure/identity are removed from package.json",
+    "lib/gemini.ts exists and exports a configured GoogleGenAI client",
+    ".env.example references GOOGLE_CLOUD_PROJECT and GOOGLE_CLOUD_LOCATION instead of Azure vars",
+    "npm install completes without errors"
+  ],
+  "verification": [
+    "Run: export PATH=/opt/toolchains/.nvm/versions/node/v20.20.2/bin:$PATH && cd /projects/sandbox/cost-smart && npm install && echo 'SUCCESS: npm install passed'",
+    "Run: export PATH=/opt/toolchains/.nvm/versions/node/v20.20.2/bin:$PATH && cd /projects/sandbox/cost-smart && cat lib/gemini.ts to verify it exists"
+  ],
+  "blocked_reason": null,
+  "findings": "npm install completes successfully. tsc --noEmit shows expected errors in files that still import removed Azure/transformers packages (app/api/azure/ai-advisor/route.ts, lib/hooks/ai-worker.ts) - these will be fixed in FEAT-002. lib/gemini.ts compiles cleanly with skipLibCheck enabled."
+}

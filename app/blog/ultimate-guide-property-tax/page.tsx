@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Ultimate Guide to Property Tax Calculation | CostSmart',
   description: 'Everything you need to know about Property Tax. Formulas, examples, and expert tips for accurate calculation.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/blog/ultimate-guide-property-tax',
+    canonical: '/blog/ultimate-guide-property-tax',
   },
 };
 

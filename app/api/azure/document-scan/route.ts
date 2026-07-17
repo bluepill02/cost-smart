@@ -1,9 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { isValidSubscriptionId, verifySubscription } from '@/lib/paypal';
-
-const AZURE_ENDPOINT_BASE = process.env.AZURE_AI_ENDPOINT || '';
-const AZURE_ENDPOINT = `${AZURE_ENDPOINT_BASE}/vision/v3.2/read/analyze`;
-const AZURE_API_KEY = process.env.AZURE_AI_KEY || '';
+import { azureReadOCR } from '@/lib/azure-ai';
 
 interface ScanRequest {
   image: string; // base64 encoded image
@@ -149,44 +146,6 @@ function extractFinancialData(text: string): ExtractedData {
   };
 }
 
-async function pollForResults(operationUrl: string): Promise<string> {
-  // Production deployments may need a higher maxAttempts for large documents,
-  // but 8 seconds fits within Vercel Hobby/Pro function timeout limits.
-  const maxAttempts = 8;
-  const delay = 1000;
-
-  for (let i = 0; i < maxAttempts; i++) {
-    await new Promise(resolve => setTimeout(resolve, delay));
-
-    const response = await fetch(operationUrl, {
-      headers: {
-        'Ocp-Apim-Subscription-Key': AZURE_API_KEY,
-      },
-    });
-
-    if (!response.ok) {
-      throw new Error(`Poll request failed with status ${response.status}`);
-    }
-
-    const result = await response.json();
-
-    if (result.status === 'succeeded') {
-      const pages = result.analyzeResult?.readResults || [];
-      const allText = pages
-        .map((page: { lines: { text: string }[] }) =>
-          page.lines.map((line: { text: string }) => line.text).join('\n')
-        )
-        .join('\n');
-      return allText;
-    } else if (result.status === 'failed') {
-      throw new Error('OCR analysis failed');
-    }
-    // status is 'running' or 'notStarted', continue polling
-  }
-
-  throw new Error('OCR polling timed out');
-}
-
 export async function POST(request: NextRequest) {
   try {
     const body: ScanRequest = await request.json();
@@ -222,39 +181,20 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // Convert base64 to buffer
+    // Convert base64 to Buffer for Azure Computer Vision Read API
     const imageBuffer = Buffer.from(base64Data, 'base64');
 
-    // Call Azure Computer Vision OCR
-    const analyzeResponse = await fetch(AZURE_ENDPOINT, {
-      method: 'POST',
-      headers: {
-        'Ocp-Apim-Subscription-Key': AZURE_API_KEY,
-        'Content-Type': 'application/octet-stream',
-      },
-      body: imageBuffer,
-    });
-
-    if (!analyzeResponse.ok) {
-      const errText = await analyzeResponse.text();
-      console.error('Azure OCR API error:', analyzeResponse.status, errText);
+    // Use Azure Computer Vision Read API (async polling) for OCR
+    let extractedText = '';
+    try {
+      extractedText = await azureReadOCR(imageBuffer);
+    } catch (apiErr) {
+      console.error('Azure Computer Vision OCR error:', apiErr);
       return NextResponse.json(
         { error: 'OCR service unavailable. Please try again later.' },
         { status: 502 }
       );
     }
-
-    // Get operation location for polling
-    const operationLocation = analyzeResponse.headers.get('Operation-Location');
-    if (!operationLocation) {
-      return NextResponse.json(
-        { error: 'Failed to initiate OCR analysis' },
-        { status: 502 }
-      );
-    }
-
-    // Poll for results
-    const extractedText = await pollForResults(operationLocation);
 
     if (!extractedText) {
       return NextResponse.json(

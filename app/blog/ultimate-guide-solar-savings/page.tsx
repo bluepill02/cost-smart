@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Ultimate Guide to Solar Savings Calculation | CostSmart',
   description: 'Everything you need to know about Solar Savings. Formulas, examples, and expert tips for accurate calculation.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/blog/ultimate-guide-solar-savings',
+    canonical: '/blog/ultimate-guide-solar-savings',
   },
 };
 

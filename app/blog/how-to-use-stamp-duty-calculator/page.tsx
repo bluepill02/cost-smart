@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'How to use the Stamp Duty Calculator | CostSmart Guide',
   description: 'Step-by-step guide on how to use the Stamp Duty Calculator to calculate Property Registration Cost. Accurate, fast, and free online tool.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/blog/how-to-use-stamp-duty-calculator',
+    canonical: '/blog/how-to-use-stamp-duty-calculator',
   },
 };
 

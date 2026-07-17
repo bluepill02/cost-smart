@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Ultimate Guide to Water Bill Calculation | CostSmart',
   description: 'Everything you need to know about Water Bill. Formulas, examples, and expert tips for accurate calculation.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/blog/ultimate-guide-water-bill',
+    canonical: '/blog/ultimate-guide-water-bill',
   },
 };
 

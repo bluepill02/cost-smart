@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from 'react';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
@@ -137,7 +138,7 @@ export default function PropertyRegistrationCalculator() {
             <ShareButton
                title="Property Charges Estimate"
                text={`Registration charges in ${stateData.state} are approx ${formatCurrency(results.total)}.`}
-               url="https://cost-smart-five.vercel.app/in/property-registration-cost-calculator"
+               url={`${CANONICAL_DOMAIN}/in/property-registration-cost-calculator`}
             />
           </div>
         </div>

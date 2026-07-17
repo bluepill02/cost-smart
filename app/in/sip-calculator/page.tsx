@@ -1,18 +1,18 @@
 import { Metadata } from 'next';
 import { Suspense } from 'react';
-import { getCalculatorSchema } from '@/lib/seo-utils';
 import InvestmentCalculator from '@/components/calculators/investment/InvestmentCalculator';
 import AdContainer from '@/components/ads/AdContainer';
 import AfterResultAd from '@/components/ads/AfterResultAd';
 import { Badge } from '@/components/ui/badge';
 import { TrendingUp, IndianRupee } from 'lucide-react';
-import JsonLd from '@/components/seo/JsonLd';
+import CalculatorSchemaInjector from '@/components/seo/CalculatorSchemaInjector';
 import Breadcrumbs from '@/components/features/Breadcrumbs';
 import ShareResultButton from '@/components/features/ShareResultButton';
 import RelatedCalculators from '@/components/features/RelatedCalculators';
 import EmailResultsButton from '@/components/features/EmailResultsButton';
 import StickyUpgradeNudge from '@/components/premium/StickyUpgradeNudge';
 import CalculatorResultGate from '@/components/lead-capture/CalculatorResultGate';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 
 export const metadata: Metadata = {
     title: 'SIP Calculator India | CostSmart',
@@ -20,24 +20,18 @@ export const metadata: Metadata = {
     openGraph: {
     title: 'SIP Calculator India | CostSmart',
     description: 'Calculate SIP returns with compound interest over 5-30 years. Compare monthly vs lumpsum investing, see wealth growth charts, and plan your mutual fund goals.',
-    url: 'https://cost-smart-five.vercel.app/in/sip-calculator',
+    url: `${CANONICAL_DOMAIN}/in/sip-calculator`,
     type: 'website',
   },
   alternates: {
-        canonical: 'https://cost-smart-five.vercel.app/in/sip-calculator',
+        canonical: '/in/sip-calculator',
     }
 };
 
 export default function SIPCalculatorPage() {
-    const jsonLd = getCalculatorSchema(
-        'CostSmart SIP Calculator India',
-        'Calculate mutual fund SIP returns over 5, 10, or 20 years.',
-        '/in/sip-calculator'
-    );
-
     return (
         <div className="container mx-auto px-4 py-12 max-w-5xl">
-            <JsonLd data={jsonLd} />
+            <CalculatorSchemaInjector calculatorName="CostSmart SIP Calculator India" calculatorDescription="Calculate mutual fund SIP returns over 5, 10, or 20 years." urlPath="/in/sip-calculator" calculatorType="investment" />
             <Breadcrumbs items={[
                 { label: 'India Calculators', href: '/in' },
                 { label: 'SIP Calculator' },

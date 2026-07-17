@@ -1,0 +1,29 @@
+{
+  "id": "FEAT-001",
+  "type": "feat",
+  "description": "Implement Upgrade Gate Modal and Pro Feature Badge system - the core Product-Led Growth conversion components. Create a reusable UpgradeGateModal that triggers when free users attempt Pro actions (PDF export, AI advice, etc.), and a ProBadge component that marks greyed-out Pro features with a 'PRO' badge that opens the upgrade modal on click.",
+  "status": "completed",
+  "steps": [
+    "Create components/premium/UpgradeGateModal.tsx - a modal dialog component that accepts a featureName prop, displays a compelling message about the Pro feature the user tried to access, shows the Pro price ($4.99/month), lists 3-4 key Pro benefits, and includes a CTA button linking to /pricing. Use the existing dark gradient styling pattern from PremiumBanner.tsx and Radix UI primitives. Should be dismissible. Track the attempted feature for analytics via window.gtag if available.",
+    "Create components/premium/ProBadge.tsx - a small inline badge component that shows 'PRO' in emerald/teal styling. Props: featureName (string), onClick (optional callback). When clicked, it should open the UpgradeGateModal for that feature. Should use a visual lock icon (from Lucide) next to 'PRO' text.",
+    "Create components/premium/ProFeatureWrapper.tsx - a wrapper component that accepts children (the feature preview UI), isPro from useProStatus(), featureName, and renders children normally for Pro users, but for free users overlays the content with a blurred/greyed treatment and shows the ProBadge. Clicking anywhere on the wrapped area opens the UpgradeGateModal.",
+    "Create lib/pro-features.ts - a configuration file listing all Pro features with their names, descriptions, and benefit messages used by the UpgradeGateModal. Include entries for: 'PDF Export', 'AI Financial Advice', 'Ad-Free Experience', 'Advanced Analytics', 'Document Scanner', 'Custom Report Branding', 'Voice Input', 'Language Translation'.",
+    "Update components/premium/PDFExportButton.tsx to use the new UpgradeGateModal pattern instead of just disabling the button - show the modal when a free user clicks it.",
+    "Export all new components from their respective files and ensure they work with the existing ProStatusProvider context."
+  ],
+  "acceptance_criteria": [
+    "UpgradeGateModal renders a modal with feature name, benefits, pricing, and CTA to /pricing page",
+    "ProBadge displays a small 'PRO' tag with lock icon that triggers UpgradeGateModal on click",
+    "ProFeatureWrapper shows blurred overlay + ProBadge for free users, normal content for Pro users",
+    "PDFExportButton shows UpgradeGateModal when clicked by non-Pro users",
+    "lib/pro-features.ts contains feature configuration for all Pro features",
+    "All components use 'use client' directive and integrate with useProStatus() hook",
+    "next build completes without errors"
+  ],
+  "verification": [
+    "Run npx next build from /projects/sandbox/cost-smart and confirm no errors",
+    "Verify TypeScript types are correct by checking build output for type errors"
+  ],
+  "blocked_reason": null,
+  "findings": "Build passes cleanly (TypeScript + Next.js 16.2.6 with Turbopack). Node v22.22.3 at /opt/toolchains/.nvm/versions/node/v22.22.3/bin. npm install required before build. Chart width warnings in build output are pre-existing and unrelated. window.gtag types already declared in types/gtag.d.ts."
+}

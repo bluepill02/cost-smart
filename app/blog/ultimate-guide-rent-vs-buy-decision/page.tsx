@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Rent vs Buy Decision Guide India | CostSmart',
   description: 'Everything you need to know about Rent vs Buy Decision. Formulas, examples, and expert tips for accurate calculation.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/blog/ultimate-guide-rent-vs-buy-decision',
+    canonical: '/blog/ultimate-guide-rent-vs-buy-decision',
   },
 };
 

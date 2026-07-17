@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Ultimate Guide to PPF Maturity Calculation | CostSmart',
   description: 'Everything you need to know about PPF Maturity. Formulas, examples, and expert tips for accurate calculation.',
   alternates: {
-    canonical: 'https://cost-smart-five.vercel.app/blog/ultimate-guide-ppf-maturity',
+    canonical: '/blog/ultimate-guide-ppf-maturity',
   },
 };
 
