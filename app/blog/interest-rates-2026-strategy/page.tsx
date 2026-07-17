@@ -66,9 +66,12 @@ export default function InterestRates2026StrategyPage() {
       </p>
 
       <div className="my-8">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?q=80&w=2071&auto=format&fit=crop"
           alt="Visualization of compounding interest over time with coins stacked in ascending order"
+          loading="lazy"
+          decoding="async"
           className="rounded-2xl shadow-md w-full h-auto object-cover max-h-[400px]"
         />
         <p className="text-sm text-center text-slate-500 mt-2">Every basis point matters when compounding cash at 3.75% over a multi-year timeline.</p>
