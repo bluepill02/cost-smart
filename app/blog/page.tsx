@@ -18,6 +18,13 @@ export const metadata: Metadata = {
 
 const FEATURED = [
   {
+    slug: 'interest-rates-2026-strategy',
+    title: 'Where to Park Cash With 3.75% Rates in 2026',
+    desc: 'The Federal Reserve has paused the Fed Funds rate at 3.75% in July 2026. Here is exactly how to restructure your savings, investments, and debt.',
+    tag: 'Investing',
+    color: 'emerald',
+  },
+  {
     slug: 'mortgage-rates-2026-guide',
     title: '2026 Mortgage Rates Guide: Lock, Float, or Wait?',
     desc: 'Are 2026 mortgage rates dropping? Discover the real numbers, historical comparisons, and proven strategies to handle today\'s 6.5%+ housing market.',
