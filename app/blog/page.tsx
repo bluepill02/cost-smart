@@ -18,6 +18,13 @@ export const metadata: Metadata = {
 
 const FEATURED = [
   {
+    slug: 'credit-card-debt-strategy-2026',
+    title: 'How to Beat 2026\'s 19.35% Credit Card Interest Rates',
+    desc: 'The average credit card interest rate has reached 19.35% in July 2026. Here is the mathematically optimal strategy to eliminate high-interest balances.',
+    tag: 'Debt',
+    color: 'orange',
+  },
+  {
     slug: 'interest-rates-2026-strategy',
     title: 'Where to Park Cash With 3.75% Rates in 2026',
     desc: 'The Federal Reserve has paused the Fed Funds rate at 3.75% in July 2026. Here is exactly how to restructure your savings, investments, and debt.',
