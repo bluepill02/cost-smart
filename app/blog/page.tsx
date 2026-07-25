@@ -18,11 +18,11 @@ export const metadata: Metadata = {
 
 const FEATURED = [
   {
-    slug: 'credit-card-debt-strategy-2026',
-    title: 'How to Beat 2026\'s 19.35% Credit Card Interest Rates',
-    desc: 'The average credit card interest rate has reached 19.35% in July 2026. Here is the mathematically optimal strategy to eliminate high-interest balances.',
-    tag: 'Debt',
-    color: 'orange',
+    slug: '2026-tax-and-inflation-guide',
+    title: 'The 2026 Tax and Cost of Living Survival Guide',
+    desc: 'Tax brackets are shifting, standard deductions are rising, and the OBBBA is rewriting the rules. Here is exactly how 2026 inflation and tax changes impact your bottom line.',
+    tag: 'Tax',
+    color: 'blue',
   },
   {
     slug: 'interest-rates-2026-strategy',
@@ -129,6 +129,7 @@ const CATEGORIES = [
     icon: Receipt,
     color: 'blue',
     posts: [
+      { slug: '2026-tax-and-inflation-guide', title: '2026 Cost of Living & Tax Guide' },
       { slug: 'us-tcja-2026-sunset-tax-changes', title: '2026 Tax Brackets: TCJA Sunset & OBBBA' },
       { slug: 'new-tax-regime-2026-salary-guide', title: 'New Tax Regime 2026: Where Salaried Savers Should Park Cash' },
       { slug: 'new-vs-old-tax-regime', title: 'New vs Old Tax Regime Explained' },
