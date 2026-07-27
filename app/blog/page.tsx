@@ -18,6 +18,13 @@ export const metadata: Metadata = {
 
 const FEATURED = [
   {
+    slug: 'beating-inflation-2026',
+    title: 'How to Beat the 3.5% Inflation Rate in 2026',
+    desc: 'The only way to beat 2026\'s 3.5% inflation is to move your idle cash out of zero-yield accounts and into productive assets.',
+    tag: 'Investing',
+    color: 'emerald',
+  },
+  {
     slug: '2026-tax-and-inflation-guide',
     title: 'The 2026 Tax and Cost of Living Survival Guide',
     desc: 'Tax brackets are shifting, standard deductions are rising, and the OBBBA is rewriting the rules. Here is exactly how 2026 inflation and tax changes impact your bottom line.',
