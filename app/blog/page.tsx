@@ -18,6 +18,13 @@ export const metadata: Metadata = {
 
 const FEATURED = [
   {
+    slug: 'us-fed-interest-rates-2026',
+    title: 'Fed Interest Rate Decision July 2026: 3.75% Rates Hold Steady',
+    desc: 'The Federal Reserve kept interest rates at 3.50%-3.75% in July 2026. Discover how this affects your mortgage, credit cards, and high-yield savings.',
+    tag: 'Market News',
+    color: 'blue',
+  },
+  {
     slug: '2026-tax-and-inflation-guide',
     title: 'The 2026 Tax and Cost of Living Survival Guide',
     desc: 'Tax brackets are shifting, standard deductions are rising, and the OBBBA is rewriting the rules. Here is exactly how 2026 inflation and tax changes impact your bottom line.',
@@ -116,6 +123,7 @@ const CATEGORIES = [
     icon: TrendingUp,
     color: 'emerald',
     posts: [
+      { slug: 'us-fed-interest-rates-2026', title: 'Fed Interest Rate Decision July 2026: 3.75% Rates Hold Steady' },
       { slug: 'sip-vs-lumpsum', title: 'SIP vs Lumpsum: Which Strategy Wins?' },
       { slug: 'fd-vs-mutual-funds', title: 'FD vs Mutual Funds: Where to Invest?' },
       { slug: 'retirement-corpus-guide', title: 'How to Calculate Your Retirement Corpus' },
