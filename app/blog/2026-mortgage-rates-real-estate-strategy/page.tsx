@@ -38,7 +38,7 @@ export default function BlogPost() {
 
             <figure className="my-8">
                 <Image
-                    src="/icon.svg"
+                    src="/images/blog/emergency-fund-2026-runway.svg"
                     alt="A modern suburban home representing the 2026 real estate market landscape with financial charts overlaid"
                     width={800}
                     height={450}
@@ -362,7 +362,7 @@ export default function BlogPost() {
                     <p className="text-sm text-slate-600">See how much house you can afford at today&apos;s 6.2% rates.</p>
                 </div>
                  <div className="flex gap-2 shrink-0 mt-4 md:mt-0">
-                     <Link href="/home-loan-calculator">
+                     <Link href="/home-loan-calculator?amount=400000&rate=6.2&tenure=30&currency=USD&locale=en-US">
                         <Button variant="outline">Mortgage Calculator</Button>
                     </Link>
                 </div>
