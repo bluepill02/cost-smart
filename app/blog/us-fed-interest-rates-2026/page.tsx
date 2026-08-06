@@ -105,7 +105,7 @@ export default function USFedRates2026() {
                             </p>
 
                             <p>
-                                Conversely, if buying now stretches you too thin, the pause is a signal to keep renting and aggressively save for a larger down payment. The housing market is local, and in some areas, inventory is finally starting to creep up as sellers accept the new normal. Use our <Link href="/calculators/home-loan" className="text-blue-600 hover:underline">Home Loan EMI Calculator</Link> to run different scenarios based on potential future rates.
+                                Conversely, if buying now stretches you too thin, the pause is a signal to keep renting and aggressively save for a larger down payment. The housing market is local, and in some areas, inventory is finally starting to creep up as sellers accept the new normal. Use our <Link href="/home-loan-calculator" className="text-blue-600 hover:underline">Home Loan EMI Calculator</Link> to run different scenarios based on potential future rates.
                             </p>
 
                             <h2 className="text-2xl font-bold text-slate-900 mt-10 mb-4">2. Savings: Enjoy the Yield While It Lasts</h2>
@@ -169,7 +169,7 @@ export default function USFedRates2026() {
                             </div>
 
                             <p>
-                                Use our <Link href="/calculators/debt-payoff" className="text-blue-600 hover:underline">debt payoff calculator</Link> to figure out if the <Link href="/blog/snowball-vs-avalanche" className="text-blue-600 hover:underline">Avalanche or Snowball method</Link> works best for your brain and your wallet. The Avalanche method saves you the most money mathematically by tackling the highest interest rate first. The Snowball method provides quick psychological wins by clearing the smallest balances first. Pick the one you will actually stick to.
+                                Use our <Link href="/debt-payoff-calculator" className="text-blue-600 hover:underline">debt payoff calculator</Link> to figure out if the <Link href="/blog/debt-snowball-vs-avalanche" className="text-blue-600 hover:underline">Avalanche or Snowball method</Link> works best for your brain and your wallet. The Avalanche method saves you the most money mathematically by tackling the highest interest rate first. The Snowball method provides quick psychological wins by clearing the smallest balances first. Pick the one you will actually stick to.
                             </p>
 
                             <h2 className="text-2xl font-bold text-slate-900 mt-10 mb-4">4. Auto Loans: Prepare for Sticker Shock</h2>
@@ -233,19 +233,19 @@ export default function USFedRates2026() {
                         <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-6">
                             <h3 className="text-lg font-bold text-slate-900 mb-4">Related Calculators</h3>
                             <div className="flex flex-col gap-3">
-                                <Link href="/calculators/emi" className="text-blue-600 font-medium hover:underline flex items-center justify-between group">
+                                <Link href="/in/emi-calculator" className="text-blue-600 font-medium hover:underline flex items-center justify-between group">
                                     EMI Calculator
                                     <span className="text-slate-400 group-hover:text-blue-600 transition-colors">→</span>
                                 </Link>
-                                <Link href="/calculators/debt-payoff" className="text-blue-600 font-medium hover:underline flex items-center justify-between group">
+                                <Link href="/debt-payoff-calculator" className="text-blue-600 font-medium hover:underline flex items-center justify-between group">
                                     Debt Payoff Calculator
                                     <span className="text-slate-400 group-hover:text-blue-600 transition-colors">→</span>
                                 </Link>
-                                <Link href="/calculators/sip" className="text-blue-600 font-medium hover:underline flex items-center justify-between group">
+                                <Link href="/in/sip-calculator" className="text-blue-600 font-medium hover:underline flex items-center justify-between group">
                                     SIP Investment Calculator
                                     <span className="text-slate-400 group-hover:text-blue-600 transition-colors">→</span>
                                 </Link>
-                                <Link href="/calculators/emergency-fund" className="text-blue-600 font-medium hover:underline flex items-center justify-between group">
+                                <Link href="/emergency-fund-calculator" className="text-blue-600 font-medium hover:underline flex items-center justify-between group">
                                     Emergency Fund Calculator
                                     <span className="text-slate-400 group-hover:text-blue-600 transition-colors">→</span>
                                 </Link>

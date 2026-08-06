@@ -239,6 +239,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     'ultimate-guide-tds-deduction',
     'ultimate-guide-volumetric-weight',
     'ultimate-guide-water-bill',
+    'us-fed-interest-rates-2026',
   ];
 
   blogPosts.forEach((post) => {
