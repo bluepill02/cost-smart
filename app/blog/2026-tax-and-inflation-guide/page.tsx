@@ -40,7 +40,7 @@ export default function TaxAndInflationGuide2026() {
 
         <h2 className="text-2xl mt-12 mb-6">Inflation Adjustments and Tax Brackets</h2>
         <p>
-          While the baseline tax rates remain unchanged for 2026, the income thresholds have shifted upward to account for inflation. This shift is designed to prevent "bracket creep"—a scenario where inflation pushes you into a higher tax bracket without an actual increase in purchasing power.
+          While the baseline tax rates remain unchanged for 2026, the income thresholds have shifted upward to account for inflation. This shift is designed to prevent &quot;bracket creep&quot;—a scenario where inflation pushes you into a higher tax bracket without an actual increase in purchasing power.
         </p>
         <p>
           According to recent updates, the top marginal tax rate remains <strong>37%</strong>. However, the threshold for this top rate now applies to incomes greater than <strong>$640,600</strong> for individuals and <strong>$768,700</strong> for married couples filing jointly. This represents a significant upward revision from previous years.
@@ -88,7 +88,7 @@ export default function TaxAndInflationGuide2026() {
 
         <h2 className="text-2xl mt-12 mb-6">Estate and Gift Taxes Under OBBBA</h2>
         <p>
-          The "One Big Beautiful Bill Act" (OBBBA) made waves by amending or making permanent many provisions of the original Tax Cuts and Jobs Act (TCJA). One of the most critical changes for wealth planning is the permanent increase in the lifetime gift and estate exemption.
+          The &quot;One Big Beautiful Bill Act&quot; (OBBBA) made waves by amending or making permanent many provisions of the original Tax Cuts and Jobs Act (TCJA). One of the most critical changes for wealth planning is the permanent increase in the lifetime gift and estate exemption.
         </p>
         <p>
           For 2026, this exemption is annually indexed for inflation and has increased to a staggering <strong>$15,000,000</strong>. The annual gift exclusion remains steady at <strong>$19,000</strong>.

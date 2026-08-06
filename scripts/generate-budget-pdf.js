@@ -12,8 +12,8 @@
  * Light gray bg: 0.945 0.969 0.961
  */
 
-const fs = require('fs');
-const path = require('path');
+import fs from "fs";
+import path from "path";
 
 // Helper to escape PDF string special characters
 function pdfStr(s) {

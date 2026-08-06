@@ -31,7 +31,7 @@ export default function InterestRates2026StrategyPage() {
       </p>
 
       <p>
-        With the Federal Reserve holding rates steady in this new "higher for longer" era, waiting for the elusive "perfect" moment to invest is a mathematical mistake that costs you compounding power every single day. Here is the exact, data-backed framework you need to navigate the current 2026 interest rate environment, restructure your debt, and maximize your returns without taking on unnecessary risk.
+        With the Federal Reserve holding rates steady in this new &quot;higher for longer&quot; era, waiting for the elusive &quot;perfect&quot; moment to invest is a mathematical mistake that costs you compounding power every single day. Here is the exact, data-backed framework you need to navigate the current 2026 interest rate environment, restructure your debt, and maximize your returns without taking on unnecessary risk.
       </p>
 
       <h2>The Current 2026 Market Reality</h2>
@@ -39,7 +39,7 @@ export default function InterestRates2026StrategyPage() {
         As of July 2026, the target Federal Funds Rate sits firmly in the <strong>3.50% - 3.75%</strong> range, a plateau that the Fed has maintained to balance slowing inflation against a resilient labor market. This rate is significantly lower than the peak of previous turbulent years, but it is still high enough that lazy cash is a silent portfolio killer.
       </p>
       <p>
-        Simultaneously, the broader equity market has ignored the rate plateau. The S&P 500 has posted incredibly strong returns through the first half of 2026, driven almost entirely by a massive artificial intelligence infrastructure boom. Capital spending by the biggest tech players is estimated at a staggering <strong>$750 billion</strong> this year alone. In fact, just ten major technology companies accounted for 78% of the S&P 500's year-to-date return in early 2026.
+        Simultaneously, the broader equity market has ignored the rate plateau. The S&P 500 has posted incredibly strong returns through the first half of 2026, driven almost entirely by a massive artificial intelligence infrastructure boom. Capital spending by the biggest tech players is estimated at a staggering <strong>$750 billion</strong> this year alone. In fact, just ten major technology companies accounted for 78% of the S&P 500&apos;s year-to-date return in early 2026.
       </p>
 
       <div className="my-8 rounded-3xl border border-blue-200 bg-blue-50 p-6">
@@ -99,7 +99,7 @@ export default function InterestRates2026StrategyPage() {
       </ol>
 
       <p>
-        For detailed statistics on current lending conditions, you can review the <a href="https://www.federalreserve.gov/releases/h15/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Federal Reserve's H.15 Selected Interest Rates data</a>, which provides the daily baseline for all consumer and commercial lending in the US.
+        For detailed statistics on current lending conditions, you can review the <a href="https://www.federalreserve.gov/releases/h15/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Federal Reserve&apos;s H.15 Selected Interest Rates data</a>, which provides the daily baseline for all consumer and commercial lending in the US.
       </p>
 
       <h2>Strategy 3: Investing Beyond the Cash Safety Net</h2>
@@ -107,7 +107,7 @@ export default function InterestRates2026StrategyPage() {
         Cash is brilliant for short-term safety and psychological comfort, but it is a terrible asset class for building generational wealth. Despite the seductive comfort of a guaranteed <strong>3.50% - 3.75%</strong> yield, broad-market equities remain absolutely essential for beating long-term inflation and achieving real, compounding growth.
       </p>
       <p>
-        The S&P 500 consensus earnings growth for 2026 expects a massive <strong>20% or better increase</strong>. This growth isn't uniform; it is largely fueled by the relentless expansion of technology, artificial intelligence infrastructure, and cloud computing.
+        The S&P 500 consensus earnings growth for 2026 expects a massive <strong>20% or better increase</strong>. This growth isn&apos;t uniform; it is largely fueled by the relentless expansion of technology, artificial intelligence infrastructure, and cloud computing.
       </p>
 
       <h3>Why Market Timing Will Destroy Your Returns</h3>
