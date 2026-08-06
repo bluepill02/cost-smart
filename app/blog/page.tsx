@@ -67,6 +67,13 @@ const FEATURED = [
     color: 'emerald',
   },
   {
+    slug: '2026-mortgage-rates-real-estate-strategy',
+    title: '2026 Mortgage Rates & Real Estate Strategy: Rent vs. Buy',
+    desc: 'A data-driven breakdown of the 2026 housing market. Should you buy a home with 6.2% mortgage rates or keep renting?',
+    tag: 'Home & Property',
+    color: 'orange',
+  },
+  {
     slug: 'new-vs-old-tax-regime',
     title: 'New vs Old Tax Regime: Full Comparison',
     desc: 'Which income tax regime saves you more money in FY 2026-25?',
@@ -158,6 +165,7 @@ const CATEGORIES = [
     icon: Home,
     color: 'orange',
     posts: [
+      { slug: '2026-mortgage-rates-real-estate-strategy', title: '2026 Mortgage Rates Strategy: Rent vs. Buy' },
       { slug: 'rent-vs-buy-math', title: 'Rent vs Buy: The Real Math' },
       { slug: 'ultimate-guide-rent-vs-buy-decision', title: 'Rent vs Buy Decision Guide' },
       { slug: 'ultimate-guide-property-tax', title: 'Property Tax Calculation Guide' },
