@@ -18,11 +18,11 @@ export const metadata: Metadata = {
 
 const FEATURED = [
   {
-    slug: 'beating-inflation-2026',
-    title: 'How to Beat the 3.5% Inflation Rate in 2026',
-    desc: 'The only way to beat 2026\'s 3.5% inflation is to move your idle cash out of zero-yield accounts and into productive assets.',
-    tag: 'Investing',
-    color: 'emerald',
+    slug: 'us-fed-interest-rates-2026',
+    title: 'Fed Interest Rate Decision July 2026: 3.75% Rates Hold Steady',
+    desc: 'The Federal Reserve kept interest rates at 3.50%-3.75% in July 2026. Discover how this affects your mortgage, credit cards, and high-yield savings.',
+    tag: 'Market News',
+    color: 'blue',
   },
   {
     slug: '2026-tax-and-inflation-guide',
@@ -123,6 +123,7 @@ const CATEGORIES = [
     icon: TrendingUp,
     color: 'emerald',
     posts: [
+      { slug: 'us-fed-interest-rates-2026', title: 'Fed Interest Rate Decision July 2026: 3.75% Rates Hold Steady' },
       { slug: 'sip-vs-lumpsum', title: 'SIP vs Lumpsum: Which Strategy Wins?' },
       { slug: 'fd-vs-mutual-funds', title: 'FD vs Mutual Funds: Where to Invest?' },
       { slug: 'retirement-corpus-guide', title: 'How to Calculate Your Retirement Corpus' },
