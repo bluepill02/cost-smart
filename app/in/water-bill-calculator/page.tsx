@@ -22,10 +22,10 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="container mx-auto px-4 py-12 max-w-4xl">
-      <CalculatorSchemaInjector calculatorName="Water Bill Calculator" calculatorDescription="Calculate estimated water bill charges based on usage." urlPath="/in/water-bill-calculator" calculatorType="general" />
+      <CalculatorSchemaInjector calculatorName="Water Bill Calculator" calculatorDescription="Calculate your monthly water bill based on usage in kilolitres. Covers slab rates for major Indian cities including Mumbai, Delhi, Chennai, and Bangalore." urlPath="/in/water-bill-calculator" calculatorType="general" />
       <div className="mb-8 text-center">
         <h1 className="text-4xl font-bold text-slate-900 mb-4">Water Bill Calculator</h1>
-        <p className="text-xl text-slate-600 max-w-2xl mx-auto">Calculate estimated water bill charges based on usage.</p>
+        <p className="text-xl text-slate-600 max-w-2xl mx-auto">Calculate your monthly water bill based on usage in kilolitres. Covers slab rates for major Indian cities including Mumbai, Delhi, Chennai, and Bangalore.</p>
       </div>
 
       <WaterBillCalculator />

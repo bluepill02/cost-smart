@@ -7,7 +7,7 @@ import { LayoutDashboard } from 'lucide-react';
 
 
 export const metadata = {
-      alternates: { canonical: '/dashboard' },
+      alternates: { canonical: '${CANONICAL_DOMAIN}/dashboard' },
   title: 'My Finance Hub - CostSmart',
     description: 'Track your saved scenarios and view real-time market data.',
 };

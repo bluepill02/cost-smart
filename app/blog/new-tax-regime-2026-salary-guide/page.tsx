@@ -101,7 +101,7 @@ export default function NewTaxRegime2026SalaryGuidePage() {
         </p>
       </div>
 
-      <h2>What changed in 2026</h2>
+      <h1>What changed in 2026</h1>
       <p>
         The policy backdrop changed in a real way on <strong>April 1, 2026</strong>, when the <a href="https://www.incometaxindia.gov.in/documents/81799/11848482/FAQs-on-Interplay-and-Transition.pdf/05f80c1a-073c-a5d7-fb6f-55509242be53?t=1774082865717" target="_blank" rel="noreferrer">Income-tax Act, 2025</a> became the governing law for income earned in the new tax year. The old two-calendar confusion is gone, which is nice, because tax forms already do enough emotional damage.
       </p>

@@ -22,10 +22,10 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="container mx-auto px-4 py-12 max-w-4xl">
-      <CalculatorSchemaInjector calculatorName="Electricity Bill Calculator" calculatorDescription="Estimate your monthly electricity bill based on consumption." urlPath="/in/electricity-bill-calculator" calculatorType="general" />
+      <CalculatorSchemaInjector calculatorName="Electricity Bill Calculator" calculatorDescription="Estimate your monthly electricity bill using state-wise slab rates. Add appliances, get per-unit cost, and see how to reduce your power consumption in India." urlPath="/in/electricity-bill-calculator" calculatorType="general" />
       <div className="mb-8 text-center">
         <h1 className="text-4xl font-bold text-slate-900 mb-4">Electricity Bill Calculator</h1>
-        <p className="text-xl text-slate-600 max-w-2xl mx-auto">Estimate your monthly electricity bill based on consumption.</p>
+        <p className="text-xl text-slate-600 max-w-2xl mx-auto">Estimate your monthly electricity bill using state-wise slab rates. Add appliances, get per-unit cost, and see how to reduce your power consumption in India.</p>
       </div>
 
       <ElectricityBillCalculator />
