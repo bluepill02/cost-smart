@@ -41,6 +41,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'yearly',
       priority: 0.3,
     },
+    {
+      url: `${baseUrl}/blog`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/in`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.85,
+    },
   );
 
   // Base calculator pages (31 calculators)
@@ -166,12 +178,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Blog posts (70 articles)
   const blogPosts = [
     'ctc-vs-in-hand',
+    '2026-tax-and-inflation-guide',
+    '2026-mortgage-rates-real-estate-strategy',
+    'beating-inflation-2026',
     'cash-buffer-that-still-wins',
+    'credit-card-debt-strategy-2026',
     'emergency-fund-rule-2026',
     'emergency-fund-importance',
     'fd-vs-mutual-funds',
     'gst-inclusive-vs-exclusive',
     'home-loan-prepayment-benefits',
+    'interest-rates-2026-strategy',
+    'mortgage-rates-2026-guide',
     'how-to-use-break-even-calculator',
     'how-to-use-business-loan-calculator',
     'how-to-use-currency-converter',
@@ -240,6 +258,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     'ultimate-guide-volumetric-weight',
     'ultimate-guide-water-bill',
     'us-fed-interest-rates-2026',
+    'us-tcja-2026-sunset-tax-changes',
   ];
 
   blogPosts.forEach((post) => {
@@ -300,6 +319,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.7,
     },
     {
+      url: `${baseUrl}/tools/document-scanner`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.65,
+    },
+    {
+      url: `${baseUrl}/tools/financial-health`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.65,
+    },
+    {
+      url: `${baseUrl}/tools/translator`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.65,
+    },
+    {
       url: `${baseUrl}/investment-calculator`,
       lastModified: now,
       changeFrequency: 'monthly',
@@ -335,10 +372,42 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
+    {
+      url: `${baseUrl}/for/budget-savvy`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/for/freelancers`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/for/homebuyers`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/for/logistics`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/resources/budget-template`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
   );
 
   // Comparison pages (all 5)
   const comparisons = [
+    'cost-smart-vs-excel',
+    'cost-smart-vs-ynab',
     'emi-vs-sip',
     'fd-vs-mutual-fund',
     'ppf-vs-fd',

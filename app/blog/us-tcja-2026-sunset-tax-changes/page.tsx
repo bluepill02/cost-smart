@@ -130,7 +130,7 @@ export default function US2026TaxBracketsGuide() {
           The original TCJA doubled the standard deduction, causing most Americans to stop itemizing. TRAFWA didn&apos;t just make this permanent; it continued the aggressive inflation indexing.
         </p>
         <p>
-          For 2026, the standard deduction is a hefty <strong>$32,200</strong> for married couples filing jointly. This makes itemizing irrelevant for all but the wealthiest taxpayers or those with massive mortgage interest—which you can calculate using our <Link href="/calculators/home-loan">Home Loan EMI Calculator</Link>.
+          For 2026, the standard deduction is a hefty <strong>$32,200</strong> for married couples filing jointly. This makes itemizing irrelevant for all but the wealthiest taxpayers or those with massive mortgage interest—which you can calculate using our <Link href="/home-loan-calculator">Home Loan EMI Calculator</Link>.
         </p>
 
         <h3 className="text-xl mt-8 mb-4">The Brand New Senior Bonus</h3>
@@ -185,7 +185,7 @@ export default function US2026TaxBracketsGuide() {
             <strong>Reassess Roth Conversions:</strong> With the 22% and 24% brackets locked in, mid-career professionals have a predictable runway to convert traditional IRA funds to Roth without fear of the rates jumping unexpectedly in 2026.
           </li>
           <li className="pl-2">
-            <strong>Check Your Withholding:</strong> Use our <Link href="/calculators/salary">Salary Calculator</Link> to see how the adjusted brackets impact your take-home pay. With higher brackets, you might be overpaying the IRS every paycheck.
+            <strong>Check Your Withholding:</strong> Use our <Link href="/salary-calculator">Salary Calculator</Link> to see how the adjusted brackets impact your take-home pay. With higher brackets, you might be overpaying the IRS every paycheck.
           </li>
           <li className="pl-2">
             <strong>Maximize New Contribution Limits:</strong> TRAFWA increased limits for 401(k)s and IRAs. If you aren&apos;t maxing these out, you are leaving tax-free growth on the table.

@@ -10,13 +10,13 @@ import ProRecovery from '@/components/premium/ProRecovery';
 export const metadata: Metadata = {
   title: 'Pricing | CostSmart Pro - PDF Reports, Ad-Free, AI Advice',
   description:
-    'Upgrade to CostSmart Pro for $4.99/month. Get PDF report exports, ad-free experience, advanced AI financial advice, and priority support.',
+    'Upgrade to CostSmart Pro for $4.99/month. Get unlimited PDF exports, advanced AI action plans, ad-free calculators, and priority support.',
   alternates: {
     canonical: '/pricing',
   },
   openGraph: {
     title: 'Pricing | CostSmart Pro - PDF Reports, Ad-Free, AI Advice',
-    description: 'Upgrade to CostSmart Pro for $4.99/month. Get PDF report exports, ad-free experience, advanced AI financial advice, and priority support.',
+    description: 'Upgrade to CostSmart Pro for $4.99/month. Get unlimited PDF exports, advanced AI action plans, ad-free calculators, and priority support.',
     url: `${CANONICAL_DOMAIN}/pricing`,
     type: 'website',
     images: [{ url: `${CANONICAL_DOMAIN}/og-image.png`, width: 1200, height: 630, alt: 'CostSmart Pro Pricing' }],
@@ -48,6 +48,7 @@ const FAQ_ITEMS = [
 
 export default function PricingPage() {
   const { free, proMonthly, proYearly } = PREMIUM_CONFIG.plans;
+  const annualSavings = (proMonthly.price * 12 - proYearly.price).toFixed(2);
 
   return (
     <div className="min-h-screen">
@@ -64,11 +65,14 @@ export default function PricingPage() {
             <span className="text-sm font-medium text-emerald-400">CostSmart Pro</span>
           </div>
           <h1 className="text-4xl md:text-5xl font-extrabold text-white tracking-tight mb-4">
-            Choose Your Plan
+            Choose a Plan That Pays for Itself
           </h1>
           <p className="text-lg text-slate-400 max-w-2xl mx-auto">
             All calculators are free forever. Upgrade to Pro for premium exports,
-            ad-free experience, and advanced AI-powered financial advice.
+            ad-free experience, and advanced AI-powered financial advice you can act on.
+          </p>
+          <p className="text-sm text-emerald-300 mt-3">
+            Annual saves ${annualSavings} vs monthly billing.
           </p>
         </div>
       </section>
@@ -111,7 +115,7 @@ export default function PricingPage() {
             <ShieldCheck className="w-8 h-8 text-emerald-500 flex-shrink-0" />
             <div>
               <p className="text-sm font-semibold text-slate-900">30-Day Money Back</p>
-              <p className="text-xs text-slate-500">Full refund, no questions asked</p>
+              <p className="text-xs text-slate-500">Try Pro risk-free and request a full refund in 30 days</p>
             </div>
           </div>
           <div className="flex items-center gap-3 p-4 rounded-xl bg-white border border-slate-100">
@@ -125,7 +129,7 @@ export default function PricingPage() {
             <Sparkles className="w-8 h-8 text-emerald-500 flex-shrink-0" />
             <div>
               <p className="text-sm font-semibold text-slate-900">Cancel Anytime</p>
-              <p className="text-xs text-slate-500">No lock-in, no hidden fees</p>
+              <p className="text-xs text-slate-500">No contracts, lock-ins, or hidden fees</p>
             </div>
           </div>
         </div>
