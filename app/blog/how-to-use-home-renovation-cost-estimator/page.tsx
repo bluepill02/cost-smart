@@ -28,7 +28,7 @@ export default function Post() {
         estimate before you even talk to a contractor. Here is how to use it effectively.
       </p>
 
-      <h1>Step-by-Step Guide</h1>
+      <h2>Step-by-Step Guide</h2>
 
       <h3>1. Define Your Area</h3>
       <p>

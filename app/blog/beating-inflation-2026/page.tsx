@@ -34,7 +34,7 @@ export default function BeatingInflation2026Page() {
         With the cost of living persistently climbing, sitting in cash guarantees a massive loss of purchasing power over time. Here is your actionable, data-backed guide to fighting inflation today.
       </p>
 
-      <h1>The Reality of 3.5% Inflation in 2026</h1>
+      <h2>The Reality of 3.5% Inflation in 2026</h2>
       <p>
         According to the latest data from the <a href="https://www.bls.gov/cpi/" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:underline">Bureau of Labor Statistics (BLS)</a>, the Consumer Price Index (CPI) rose by <strong>3.5%</strong> over the 12 months ending in June 2026. This means the silent tax on your money is still very much active.
       </p>

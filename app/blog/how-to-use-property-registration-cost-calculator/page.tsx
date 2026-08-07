@@ -29,7 +29,7 @@ export default function Post() {
         Our <strong>Property Registration Charges Calculator</strong> helps you determine exactly how much extra cash you need to arrange.
       </p>
 
-      <h1>Using the Tool</h1>
+      <h2>Using the Tool</h2>
 
       <h3>1. Select Your State</h3>
       <p>
