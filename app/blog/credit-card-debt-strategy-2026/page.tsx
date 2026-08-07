@@ -262,7 +262,7 @@ export default function CreditCardDebtStrategy2026Page() {
             Calculate exactly how long it will take to become debt-free and how much interest you can save using our custom tools.
           </p>
           <Link
-            href="/how-to-use-debt-payoff-calculator"
+            href="/blog/how-to-use-debt-payoff-calculator"
             className="mt-4 inline-flex items-center rounded-xl bg-blue-600 px-4 py-2.5 text-sm font-bold text-white transition-colors hover:bg-blue-700"
           >
             Debt Payoff Guide
@@ -275,7 +275,7 @@ export default function CreditCardDebtStrategy2026Page() {
             Ensure you have the right baseline cash buffer so unexpected expenses don't force you back into credit card debt.
           </p>
           <Link
-            href="/how-to-use-emergency-fund-calculator"
+            href="/blog/how-to-use-emergency-fund-calculator"
             className="mt-4 inline-flex items-center rounded-xl bg-emerald-600 px-4 py-2.5 text-sm font-bold text-white transition-colors hover:bg-emerald-700"
           >
             Emergency Fund Guide

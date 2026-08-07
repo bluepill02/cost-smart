@@ -109,7 +109,7 @@ export default function TaxAndInflationGuide2026() {
 
         <ol className="space-y-4 my-6 pl-6 marker:text-blue-600 marker:font-bold">
           <li className="pl-2">
-            <strong>Check Your Withholding:</strong> With the standard deduction and tax brackets shifting, you might be over-withholding. Use our <Link href="/calculators/salary">Salary Calculator</Link> to dial in your precise liability.
+            <strong>Check Your Withholding:</strong> With the standard deduction and tax brackets shifting, you might be over-withholding. Use our <Link href="/salary-calculator">Salary Calculator</Link> to dial in your precise liability.
           </li>
           <li className="pl-2">
             <strong>Leverage the 529 Expansion:</strong> If you have school-aged children, the jump to a $20,000 limit for K-12 non-tuition expenses is a massive opportunity for tax-advantaged growth.
