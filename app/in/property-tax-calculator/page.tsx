@@ -22,10 +22,10 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="container mx-auto px-4 py-12 max-w-4xl">
-      <CalculatorSchemaInjector calculatorName="Property Tax Calculator" calculatorDescription="Estimate municipal property tax based on annual value and rates." urlPath="/in/property-tax-calculator" calculatorType="property" />
+      <CalculatorSchemaInjector calculatorName="Property Tax Calculator" calculatorDescription="Estimate municipal property tax for your home or commercial property. Covers major Indian cities with rates based on annual value, location, and property type." urlPath="/in/property-tax-calculator" calculatorType="property" />
       <div className="mb-8 text-center">
         <h1 className="text-4xl font-bold text-slate-900 mb-4">Property Tax Calculator</h1>
-        <p className="text-xl text-slate-600 max-w-2xl mx-auto">Estimate municipal property tax based on annual value and rates.</p>
+        <p className="text-xl text-slate-600 max-w-2xl mx-auto">Estimate municipal property tax for your home or commercial property. Covers major Indian cities with rates based on annual value, location, and property type.</p>
       </div>
 
       <PropertyTaxCalculator />

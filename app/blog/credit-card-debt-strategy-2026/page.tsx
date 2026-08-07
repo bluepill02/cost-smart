@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Metadata } from 'next';
 import Link from 'next/link';
 import BlogLayout from '@/components/blog/BlogLayout';
@@ -34,7 +35,7 @@ export default function CreditCardDebtStrategy2026Page() {
         With the national average credit card interest rate sitting at an oppressive <strong>19.35%</strong> as of July 2026, carrying a balance is no longer an inconvenience—it is a full-blown financial emergency. If you are only making the minimum payments, you are essentially setting your future wealth on fire. Let's break down the exact strategies, grounded in current market data, that you need to stop paying exorbitant interest, restructure your liabilities, and get out of debt as quickly as possible.
       </p>
 
-      <h2>The Brutal Reality of Credit Card Debt in 2026</h2>
+      <h1>The Brutal Reality of Credit Card Debt in 2026</h1>
       <p>
         Credit card interest rates have plateaued at historically high levels. According to recent <a href="https://www.experian.com/blogs/ask-experian/research/current-credit-card-interest-rate/" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:underline">Curinos and Experian data</a>, the average credit card annual percentage rate (APR) is <strong>19.35%</strong> for consumer cards, with many retail store cards charging upwards of <strong>33%</strong>. This persistently elevated rate environment is a direct result of the Federal Reserve keeping benchmark interest rates elevated to combat inflation over the past few years.
       </p>

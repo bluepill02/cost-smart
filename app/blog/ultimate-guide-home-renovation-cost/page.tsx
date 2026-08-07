@@ -24,7 +24,7 @@ export default function Post() {
         have seen a shift. This guide breaks down everything you need to know.
       </p>
 
-      <h2>Average Cost Per Square Foot</h2>
+      <h1>Average Cost Per Square Foot</h1>
       <p>
         For a comprehensive full-home renovation in a metro city like Mumbai or Bengaluru, the costs typically range as follows:
       </p>

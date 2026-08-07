@@ -24,7 +24,7 @@ export default function Post() {
         the government charges—Stamp Duty and Registration Fees—are non-negotiable and substantial.
       </p>
 
-      <h2>What are these charges?</h2>
+      <h1>What are these charges?</h1>
       <ul>
         <li><strong>Stamp Duty:</strong> A tax levied by the state government on the transaction of property. It acts as legal evidence of ownership.</li>
         <li><strong>Registration Charge:</strong> A fee paid to the Sub-Registrar of Assurances to preserve the sale deed in government records.</li>

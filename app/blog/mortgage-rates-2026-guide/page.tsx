@@ -52,7 +52,7 @@ export default function MortgageRates2026GuidePage() {
         This guide cuts through the noise, providing data-driven strategies for navigating an environment where capital is no longer cheap.
       </p>
 
-      <h2>The Real Numbers Right Now</h2>
+      <h1>The Real Numbers Right Now</h1>
       <p>
         You cannot negotiate with gravity, and right now, macroeconomic gravity is pulling interest rates down only reluctantly.
         According to recent lender surveys, including data compiled by <a href="https://www.experian.com/blogs/ask-experian/compare-current-mortgage-rates/" target="_blank" rel="noopener noreferrer" className="font-medium text-blue-600 underline decoration-blue-300 underline-offset-4 hover:decoration-blue-600">Experian</a> and Bankrate, the landscape looks like a slightly deflated balloon compared to last fall&apos;s peak.

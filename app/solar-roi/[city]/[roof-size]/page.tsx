@@ -1,6 +1,7 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import SolarForm from '@/components/calculators/SolarForm';
 import AdContainer from '@/components/ads/AdContainer';
 import RelatedTools from '@/components/layouts/RelatedTools';
@@ -35,7 +36,7 @@ export async function generateMetadata({ params }: { params: Promise<{ city: str
         title: `Solar ROI for ${size} sq ft Roof in ${city.city_name} - Detailed Report`,
         description: `How much can you save with a ${size} sq ft solar installation in ${city.city_name}? Calculate generation, cost, and subsidies in ${city.state}.`,
         alternates: {
-            canonical: `/solar-roi/${cityParam}/${size}`,
+            canonical: `${CANONICAL_DOMAIN}/solar-roi/${cityParam}/${size}`,
         }
     };
 }

@@ -22,10 +22,10 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="container mx-auto px-4 py-12 max-w-4xl">
-      <CalculatorSchemaInjector calculatorName="LPG Subsidy Calculator" calculatorDescription="Calculate annual savings from LPG subsidies." urlPath="/in/lpg-subsidy-calculator" calculatorType="general" />
+      <CalculatorSchemaInjector calculatorName="LPG Subsidy Calculator" calculatorDescription="Calculate your annual LPG subsidy savings. Enter cylinder count and subsidy rate to know your total yearly benefit under PMUY and other government schemes." urlPath="/in/lpg-subsidy-calculator" calculatorType="general" />
       <div className="mb-8 text-center">
         <h1 className="text-4xl font-bold text-slate-900 mb-4">LPG Subsidy Calculator</h1>
-        <p className="text-xl text-slate-600 max-w-2xl mx-auto">Calculate annual savings from LPG subsidies.</p>
+        <p className="text-xl text-slate-600 max-w-2xl mx-auto">Calculate your annual LPG subsidy savings. Enter cylinder count and subsidy rate to know your total yearly benefit under PMUY and other government schemes.</p>
       </div>
 
       <LPGSubsidyCalculator />
