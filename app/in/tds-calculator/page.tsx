@@ -22,10 +22,10 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="container mx-auto px-4 py-12 max-w-4xl">
-      <CalculatorSchemaInjector calculatorName="TDS Calculator" calculatorDescription="Calculate TDS deduction rates for salary, contractors, professionals, rent, and interest. Know exactly how much is deducted at source under Income Tax Act." urlPath="/in/tds-calculator" calculatorType="tax" />
+      <CalculatorSchemaInjector calculatorName="TDS Calculator" calculatorDescription="Calculate TDS deduction for contractors, professionals, and rent." urlPath="/in/tds-calculator" calculatorType="tax" />
       <div className="mb-8 text-center">
         <h1 className="text-4xl font-bold text-slate-900 mb-4">TDS Calculator</h1>
-        <p className="text-xl text-slate-600 max-w-2xl mx-auto">Calculate TDS deduction rates for salary, contractors, professionals, rent, and interest. Know exactly how much is deducted at source under Income Tax Act.</p>
+        <p className="text-xl text-slate-600 max-w-2xl mx-auto">Calculate TDS deduction for contractors, professionals, and rent.</p>
       </div>
 
       <TDSCalculator />

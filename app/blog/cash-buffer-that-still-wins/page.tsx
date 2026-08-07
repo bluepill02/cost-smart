@@ -76,7 +76,7 @@ export default function Post() {
         },
       ]}
     >
-      <h1>Introduction</h1>
+      <h2>Introduction</h2>
       <p>
         There are two kinds of money advice. One kind sounds exciting, gets shared on social media, and
         usually ages like milk in the sun. The other kind is the financial equivalent of a seatbelt:

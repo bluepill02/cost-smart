@@ -31,7 +31,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!cityData) {
     return {
       title: 'City Not Found',
-      description: 'City Not Found',
     };
   }
 

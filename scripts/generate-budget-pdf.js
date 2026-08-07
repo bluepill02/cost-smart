@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable */
 /**
  * Generates a professional multi-page budget template PDF using raw PDF syntax.
  * CostSmart brand colors: #059669 (emerald), #0D9488 (teal), #00D4AA (accent)

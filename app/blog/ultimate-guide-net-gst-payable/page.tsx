@@ -20,7 +20,7 @@ export default function Post() {
       category="Education"
     >
 
-      <h1>Introduction</h1>
+      <h2>Introduction</h2>
       <p>The <strong>Net Gst Payable</strong> is an essential financial tool designed to help individuals and professionals make data-driven decisions. In today&apos;s complex economic landscape, accuracy is paramount. This guide will walk you through how to use our calculator to optimize your financial planning, whether you are managing personal wealth or business finances.</p>
 
       <h2>How to Use This Calculator</h2>

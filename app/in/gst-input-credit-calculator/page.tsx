@@ -22,10 +22,10 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="container mx-auto px-4 py-12 max-w-4xl">
-      <CalculatorSchemaInjector calculatorName="GST Input Credit Calculator" calculatorDescription="Calculate net GST payable after claiming Input Tax Credit (ITC). Enter GST collected on sales and GST paid on purchases to find your exact tax liability." urlPath="/in/gst-input-credit-calculator" calculatorType="tax" />
+      <CalculatorSchemaInjector calculatorName="GST Input Credit Calculator" calculatorDescription="Calculate Net GST Payable after Input Tax Credit adjustment." urlPath="/in/gst-input-credit-calculator" calculatorType="tax" />
       <div className="mb-8 text-center">
         <h1 className="text-4xl font-bold text-slate-900 mb-4">GST Input Credit Calculator</h1>
-        <p className="text-xl text-slate-600 max-w-2xl mx-auto">Calculate net GST payable after claiming Input Tax Credit (ITC). Enter GST collected on sales and GST paid on purchases to find your exact tax liability.</p>
+        <p className="text-xl text-slate-600 max-w-2xl mx-auto">Calculate Net GST Payable after Input Tax Credit adjustment.</p>
       </div>
 
       <GSTInputCreditCalculator />

@@ -1,17 +1,14 @@
-
 import { Metadata } from 'next';
 import { FileText, CheckCircle, PiggyBank, Target, ClipboardList, CreditCard } from 'lucide-react';
 import BudgetTemplateForm from './BudgetTemplateForm';
 
 export const metadata: Metadata = {
   title: 'Free Monthly Budget Template Download | CostSmart',
-  alternates: { canonical: '${CANONICAL_DOMAIN}/resources/budget-template' },
   description:
     'Download our free monthly budget template with income tracking, expense categories (50/30/20 rule), savings goals, and a monthly review checklist. Start taking control of your finances today.',
   openGraph: {
     title: 'Free Monthly Budget Template Download | CostSmart',
-    alternates: { canonical: '${CANONICAL_DOMAIN}/resources/budget-template' },
-  description:
+    description:
       'Download our free monthly budget template with income tracking, expense categories, savings goals, and monthly review checklist.',
     type: 'website',
   },
@@ -21,32 +18,27 @@ const TEMPLATE_FEATURES = [
   {
     icon: CreditCard,
     title: 'Income Tracking Worksheet',
-    alternates: { canonical: '${CANONICAL_DOMAIN}/resources/budget-template' },
-  description: 'Track all income sources including salary, freelance, investments, and side hustles.',
+    description: 'Track all income sources including salary, freelance, investments, and side hustles.',
   },
   {
     icon: PiggyBank,
     title: 'Expense Categories (50/30/20 Rule)',
-    alternates: { canonical: '${CANONICAL_DOMAIN}/resources/budget-template' },
-  description: 'Pre-built categories following the proven 50/30/20 budgeting framework for needs, wants, and savings.',
+    description: 'Pre-built categories following the proven 50/30/20 budgeting framework for needs, wants, and savings.',
   },
   {
     icon: Target,
     title: 'Savings Goals Tracker',
-    alternates: { canonical: '${CANONICAL_DOMAIN}/resources/budget-template' },
-  description: 'Set and monitor progress toward your financial goals with visual progress indicators.',
+    description: 'Set and monitor progress toward your financial goals with visual progress indicators.',
   },
   {
     icon: ClipboardList,
     title: 'Monthly Review Checklist',
-    alternates: { canonical: '${CANONICAL_DOMAIN}/resources/budget-template' },
-  description: 'A structured checklist to review your spending, adjust categories, and plan for the month ahead.',
+    description: 'A structured checklist to review your spending, adjust categories, and plan for the month ahead.',
   },
   {
     icon: FileText,
     title: 'Debt Payoff Planner',
-    alternates: { canonical: '${CANONICAL_DOMAIN}/resources/budget-template' },
-  description: 'Organize your debts, track minimum payments, and plan your path to becoming debt-free.',
+    description: 'Organize your debts, track minimum payments, and plan your path to becoming debt-free.',
   },
 ];
 

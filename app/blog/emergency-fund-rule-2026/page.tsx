@@ -151,7 +151,7 @@ export default function Post() {
         </p>
       </div>
 
-      <h1>Why six months still wins in 2026</h1>
+      <h2>Why six months still wins in 2026</h2>
       <p>
         Emergency funds exist to buy time. Time to replace income, time to avoid bad debt, and time to stop making financial decisions while annoyed, tired, or panicked.
       </p>
