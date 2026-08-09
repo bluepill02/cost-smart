@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/ultimate-guide-loan-emi',
   },
+  openGraph: {
+    title: 'Ultimate Guide to Loan EMI Calculation | CostSmart',
+    description: 'Everything you need to know about Loan EMI. Formulas, examples, and expert tips for accurate calculation.',
+  },
 };
 
 export default function Post() {

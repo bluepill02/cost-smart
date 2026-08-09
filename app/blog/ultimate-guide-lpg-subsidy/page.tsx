@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/ultimate-guide-lpg-subsidy',
   },
+  openGraph: {
+    title: 'Ultimate Guide to LPG Subsidy Calculation | CostSmart',
+    description: 'Everything you need to know about LPG Subsidy. Formulas, examples, and expert tips for accurate calculation.',
+  },
 };
 
 export default function Post() {

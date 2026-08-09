@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/ultimate-guide-volumetric-weight',
   },
+  openGraph: {
+    title: 'Ultimate Guide to Volumetric Weight Calculation | CostSmart',
+    description: 'Everything you need to know about Volumetric Weight. Formulas, examples, and expert tips for accurate calculation.',
+  },
 };
 
 export default function Post() {

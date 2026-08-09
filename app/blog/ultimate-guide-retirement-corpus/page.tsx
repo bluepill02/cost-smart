@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/ultimate-guide-retirement-corpus',
   },
+  openGraph: {
+    title: 'Ultimate Guide to Retirement Corpus Calculation | CostSmart',
+    description: 'Everything you need to know about Retirement Corpus. Formulas, examples, and expert tips for accurate calculation.',
+  },
 };
 
 export default function Post() {

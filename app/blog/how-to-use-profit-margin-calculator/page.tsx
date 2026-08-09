@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/how-to-use-profit-margin-calculator',
   },
+  openGraph: {
+    title: 'How to use the Profit Margin Calculator | CostSmart Guide',
+    description: 'Step-by-step guide on how to use the Profit Margin Calculator to calculate Profit Margin. Accurate, fast, and free online tool.',
+  },
 };
 
 export default function Post() {

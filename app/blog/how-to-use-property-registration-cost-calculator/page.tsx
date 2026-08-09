@@ -7,6 +7,10 @@ export const metadata: Metadata = {
   title: 'Property Registration Cost Calculator Guide | CostSmart',
   description: 'Step-by-step guide to using CostSmart Property Registration Calculator. Calculate stamp duty and registration charges by state.',
   alternates: { canonical: '/blog/how-to-use-property-registration-cost-calculator' },
+  openGraph: {
+    title: 'Property Registration Cost Calculator Guide | CostSmart',
+    description: 'Step-by-step guide to using CostSmart Property Registration Calculator. Calculate stamp duty and registration charges by state.',
+  },
 };
 
 

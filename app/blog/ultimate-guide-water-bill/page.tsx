@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/ultimate-guide-water-bill',
   },
+  openGraph: {
+    title: 'Ultimate Guide to Water Bill Calculation | CostSmart',
+    description: 'Everything you need to know about Water Bill. Formulas, examples, and expert tips for accurate calculation.',
+  },
 };
 
 export default function Post() {

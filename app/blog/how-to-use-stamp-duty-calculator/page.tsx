@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/how-to-use-stamp-duty-calculator',
   },
+  openGraph: {
+    title: 'How to use the Stamp Duty Calculator | CostSmart Guide',
+    description: 'Step-by-step guide on how to use the Stamp Duty Calculator to calculate Property Registration Cost. Accurate, fast, and free online tool.',
+  },
 };
 
 export default function Post() {

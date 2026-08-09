@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/how-to-use-solar-roi-calculator',
   },
+  openGraph: {
+    title: 'How to use the Solar ROI Calculator | CostSmart Guide',
+    description: 'Step-by-step guide on how to use the Solar ROI Calculator to calculate Solar Savings. Accurate, fast, and free online tool.',
+  },
 };
 
 export default function Post() {

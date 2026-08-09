@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/how-to-use-business-loan-calculator',
   },
+  openGraph: {
+    title: 'How to use the Business Loan Calculator | CostSmart Guide',
+    description: 'Step-by-step guide on how to use the Business Loan Calculator to calculate Business Loan EMI. Accurate, fast, and free online tool.',
+  },
 };
 
 export default function Post() {

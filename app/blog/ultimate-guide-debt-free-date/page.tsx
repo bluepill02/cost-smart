@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/ultimate-guide-debt-free-date',
   },
+  openGraph: {
+    title: 'Ultimate Guide to Debt Free Date Calculation | CostSmart',
+    description: 'Everything you need to know about Debt Free Date. Formulas, examples, and expert tips for accurate calculation.',
+  },
 };
 
 export default function Post() {

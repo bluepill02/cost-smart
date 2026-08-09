@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/ultimate-guide-rent-vs-buy-decision',
   },
+  openGraph: {
+    title: 'Rent vs Buy Decision Guide India | CostSmart',
+    description: 'Everything you need to know about Rent vs Buy Decision. Formulas, examples, and expert tips for accurate calculation.',
+  },
 };
 
 export default function Post() {

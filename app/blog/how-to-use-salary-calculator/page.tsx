@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/how-to-use-salary-calculator',
   },
+  openGraph: {
+    title: 'How to use the Salary Calculator | CostSmart Guide',
+    description: 'Step-by-step guide on how to use the Salary Calculator to calculate In-Hand Salary. Accurate, fast, and free online tool.',
+  },
 };
 
 export default function Post() {

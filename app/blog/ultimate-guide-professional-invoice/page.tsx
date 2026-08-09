@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/ultimate-guide-professional-invoice',
   },
+  openGraph: {
+    title: 'Professional Invoice Creation Guide | CostSmart',
+    description: 'Everything you need to know about Professional Invoice. Formulas, examples, and expert tips for accurate calculation.',
+  },
 };
 
 export default function Post() {

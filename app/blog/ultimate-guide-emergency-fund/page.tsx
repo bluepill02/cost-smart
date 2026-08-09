@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/ultimate-guide-emergency-fund',
   },
+  openGraph: {
+    title: 'Ultimate Guide to Emergency Fund Calculation | CostSmart',
+    description: 'Everything you need to know about Emergency Fund. Formulas, examples, and expert tips for accurate calculation.',
+  },
 };
 
 export default function Post() {

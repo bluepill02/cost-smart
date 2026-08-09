@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/ultimate-guide-electricity-bill',
   },
+  openGraph: {
+    title: 'Ultimate Guide to Electricity Bill Calculation | CostSmart',
+    description: 'Everything you need to know about Electricity Bill. Formulas, examples, and expert tips for accurate calculation.',
+  },
 };
 
 export default function Post() {

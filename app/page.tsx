@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   title: 'CostSmart | Free Financial Calculators — EMI, SIP, Tax & More',
   description:
     'Free online financial calculators for loans, EMI, SIP, taxes, solar ROI, salary, and 35+ more tools. India-focused. No signup. Make smarter money decisions.',
-  alternates: { canonical: CANONICAL_DOMAIN },
+  alternates: { canonical: '/' },
   keywords: ['financial calculator', 'EMI calculator', 'SIP calculator', 'income tax calculator', 'loan calculator', 'free calculators online'],
   openGraph: {
     title: 'CostSmart | Free Financial Calculators — EMI, SIP, Tax & More',

@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/how-to-use-water-bill-calculator',
   },
+  openGraph: {
+    title: 'How to use the Water Bill Calculator | CostSmart Guide',
+    description: 'Step-by-step guide on how to use the Water Bill Calculator to calculate Water Bill. Accurate, fast, and free online tool.',
+  },
 };
 
 export default function Post() {

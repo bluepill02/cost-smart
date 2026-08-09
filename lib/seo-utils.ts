@@ -2,7 +2,7 @@ import { WithContext, SoftwareApplication, FAQPage, BreadcrumbList, Article, New
 
 // Canonical domain - single source of truth for all schema markup and metadata
 // Override via NEXT_PUBLIC_SITE_URL environment variable in production
-export const CANONICAL_DOMAIN = process.env.NEXT_PUBLIC_SITE_URL || 'https://costsmart.co';
+export const CANONICAL_DOMAIN = process.env.NEXT_PUBLIC_SITE_URL || 'https://cost-smart-five.vercel.app';
 
 export function getCalculatorSchema(
   name: string,

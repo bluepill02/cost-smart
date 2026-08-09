@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/how-to-use-ppf-calculator',
   },
+  openGraph: {
+    title: 'How to use the PPF Calculator | CostSmart Guide',
+    description: 'Step-by-step guide on how to use the PPF Calculator to calculate PPF Maturity. Accurate, fast, and free online tool.',
+  },
 };
 
 export default function Post() {

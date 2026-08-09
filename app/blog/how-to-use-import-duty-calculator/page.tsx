@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/how-to-use-import-duty-calculator',
   },
+  openGraph: {
+    title: 'How to use the Import Duty Calculator | CostSmart Guide',
+    description: 'Step-by-step guide on how to use the Import Duty Calculator to calculate Import Duty. Accurate, fast, and free online tool.',
+  },
 };
 
 export default function Post() {

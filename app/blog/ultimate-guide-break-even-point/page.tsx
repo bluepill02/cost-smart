@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/ultimate-guide-break-even-point',
   },
+  openGraph: {
+    title: 'Ultimate Guide to Break-Even Point Calculation | CostSmart',
+    description: 'Everything you need to know about Break-Even Point. Formulas, examples, and expert tips for accurate calculation.',
+  },
 };
 
 export default function Post() {

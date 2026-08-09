@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/how-to-use-fd-calculator',
   },
+  openGraph: {
+    title: 'How to use the FD Calculator | CostSmart Guide',
+    description: 'Step-by-step guide on how to use the FD Calculator to calculate Fixed Deposit Interest. Accurate, fast, and free online tool.',
+  },
 };
 
 export default function Post() {

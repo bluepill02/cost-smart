@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/how-to-use-gst-calculator',
   },
+  openGraph: {
+    title: 'How to use the GST Calculator | CostSmart Guide',
+    description: 'Step-by-step guide on how to use the GST Calculator to calculate GST Amount. Accurate, fast, and free online tool.',
+  },
 };
 
 export default function Post() {

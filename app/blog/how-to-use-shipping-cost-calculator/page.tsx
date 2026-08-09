@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/how-to-use-shipping-cost-calculator',
   },
+  openGraph: {
+    title: 'How to use the Shipping Cost Calculator | CostSmart Guide',
+    description: 'Step-by-step guide on how to use the Shipping Cost Calculator to calculate Volumetric Weight. Accurate, fast, and free online tool.',
+  },
 };
 
 export default function Post() {

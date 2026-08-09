@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/ultimate-guide-property-registration-cost',
   },
+  openGraph: {
+    title: 'Property Registration Cost Guide India | CostSmart',
+    description: 'Everything you need to know about Property Registration Cost. Formulas, examples, and expert tips for accurate calculation.',
+  },
 };
 
 export default function Post() {
