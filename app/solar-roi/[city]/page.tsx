@@ -294,6 +294,27 @@ export default async function CitySolarPage({ params }: { params: Promise<{ city
             </div>
 
             <RelatedTools currentTool="solar" />
+
+            {/* Internal Links: Roof Size Sub-Pages */}
+            <div className="container mx-auto px-4 max-w-5xl mt-12 mb-8">
+                <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+                    <h2 className="text-xl font-bold text-slate-900 mb-4">Calculate for Different Roof Sizes in {city.city_name}</h2>
+                    <p className="text-sm text-slate-600 mb-4">
+                        See how solar ROI changes based on your roof area in {city.city_name}.
+                    </p>
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+                        {[500, 1000, 1500, 2000, 3000, 5000].map((size) => (
+                            <Link
+                                key={size}
+                                href={`/solar-roi/${city.slug || cityParam}/${size}`}
+                                className="bg-slate-50 hover:bg-emerald-50 border border-slate-200 hover:border-emerald-200 rounded-lg p-3 text-center transition-colors"
+                            >
+                                <div className="font-bold text-slate-800">{size.toLocaleString()} sq ft</div>
+                            </Link>
+                        ))}
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }

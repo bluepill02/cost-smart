@@ -7,14 +7,29 @@ import { LayoutDashboard } from 'lucide-react';
 
 
 export const metadata = {
-      alternates: { canonical: '/dashboard' },
-  title: 'My Finance Hub - CostSmart',
-    description: 'Track your saved scenarios and view real-time market data.',
+  title: 'My Finance Hub - Track & Compare Financial Scenarios | CostSmart',
+  description: 'Track saved calculation scenarios, compare financial options, and access real-time market data. Your personal finance dashboard for EMI, SIP, tax, and loan calculations.',
+  alternates: { canonical: '/dashboard' },
+  openGraph: {
+    title: 'My Finance Hub - Track & Compare Financial Scenarios | CostSmart',
+    description: 'Track saved calculation scenarios, compare financial options, and access real-time market data. Your personal finance dashboard for EMI, SIP, tax, and loan calculations.',
+  },
 };
 
 export default function DashboardPage() {
     return (
         <div className="min-h-screen bg-slate-50 py-12">
+            {/* JSON-LD WebPage Schema */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify({
+                    '@context': 'https://schema.org',
+                    '@type': 'WebPage',
+                    name: 'My Finance Hub',
+                    description: 'Track saved calculation scenarios, compare financial options, and access real-time market data.',
+                    url: 'https://cost-smart-five.vercel.app/dashboard',
+                }) }}
+            />
             <div className="container mx-auto px-4 max-w-5xl">
 
                 <div className="flex items-center justify-between mb-8">

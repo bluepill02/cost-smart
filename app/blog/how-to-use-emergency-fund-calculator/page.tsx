@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/how-to-use-emergency-fund-calculator',
   },
+  openGraph: {
+    title: 'How to use the Emergency Fund Calculator | CostSmart Guide',
+    description: 'Step-by-step guide on how to use the Emergency Fund Calculator to calculate Emergency Fund. Accurate, fast, and free online tool.',
+  },
 };
 
 export default function Post() {

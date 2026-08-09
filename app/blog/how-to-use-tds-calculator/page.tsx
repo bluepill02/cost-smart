@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/how-to-use-tds-calculator',
   },
+  openGraph: {
+    title: 'How to use the TDS Calculator | CostSmart Guide',
+    description: 'Step-by-step guide on how to use the TDS Calculator to calculate TDS Deduction. Accurate, fast, and free online tool.',
+  },
 };
 
 export default function Post() {

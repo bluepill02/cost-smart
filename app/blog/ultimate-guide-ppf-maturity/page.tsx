@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/ultimate-guide-ppf-maturity',
   },
+  openGraph: {
+    title: 'Ultimate Guide to PPF Maturity Calculation | CostSmart',
+    description: 'Everything you need to know about PPF Maturity. Formulas, examples, and expert tips for accurate calculation.',
+  },
 };
 
 export default function Post() {

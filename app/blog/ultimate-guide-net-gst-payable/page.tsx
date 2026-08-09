@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/ultimate-guide-net-gst-payable',
   },
+  openGraph: {
+    title: 'Ultimate Guide to Net GST Payable Calculation | CostSmart',
+    description: 'Everything you need to know about Net GST Payable. Formulas, examples, and expert tips for accurate calculation.',
+  },
 };
 
 export default function Post() {

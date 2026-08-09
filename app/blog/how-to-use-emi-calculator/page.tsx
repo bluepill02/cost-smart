@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/how-to-use-emi-calculator',
   },
+  openGraph: {
+    title: 'How to use the EMI Calculator | CostSmart Guide',
+    description: 'Step-by-step guide on how to use the EMI Calculator to calculate Loan EMI. Accurate, fast, and free online tool.',
+  },
 };
 
 export default function Post() {

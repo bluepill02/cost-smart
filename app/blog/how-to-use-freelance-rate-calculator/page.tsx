@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/how-to-use-freelance-rate-calculator',
   },
+  openGraph: {
+    title: 'How to use the Freelance Rate Calculator | CostSmart Guide',
+    description: 'Step-by-step guide on how to use the Freelance Rate Calculator to calculate Freelance Hourly Rate. Accurate, fast, and free online tool.',
+  },
 };
 
 export default function Post() {

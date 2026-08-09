@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/how-to-use-retirement-calculator',
   },
+  openGraph: {
+    title: 'How to use the Retirement Calculator | CostSmart Guide',
+    description: 'Step-by-step guide on how to use the Retirement Calculator to calculate Retirement Corpus. Accurate, fast, and free online tool.',
+  },
 };
 
 export default function Post() {

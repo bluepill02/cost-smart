@@ -7,6 +7,10 @@ export const metadata: Metadata = {
   title: 'Property Registration Charges in India 2025 | CostSmart',
   description: 'State-wise stamp duty and registration charges in India 2025. Learn rates for Maharashtra, Karnataka, Delhi, UP, and how to save with Section 80C deduction.',
   alternates: { canonical: '/blog/ultimate-guide-property-registration-charges' },
+  openGraph: {
+    title: 'Property Registration Charges in India 2025 | CostSmart',
+    description: 'State-wise stamp duty and registration charges in India 2025. Learn rates for Maharashtra, Karnataka, Delhi, UP, and how to save with Section 80C deduction.',
+  },
 };
 
 

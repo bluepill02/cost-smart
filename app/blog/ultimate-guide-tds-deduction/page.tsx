@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/ultimate-guide-tds-deduction',
   },
+  openGraph: {
+    title: 'Ultimate Guide to TDS Deduction Calculation | CostSmart',
+    description: 'Everything you need to know about TDS Deduction. Formulas, examples, and expert tips for accurate calculation.',
+  },
 };
 
 export default function Post() {

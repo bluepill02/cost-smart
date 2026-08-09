@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/ultimate-guide-solar-savings',
   },
+  openGraph: {
+    title: 'Ultimate Guide to Solar Savings Calculation | CostSmart',
+    description: 'Everything you need to know about Solar Savings. Formulas, examples, and expert tips for accurate calculation.',
+  },
 };
 
 export default function Post() {

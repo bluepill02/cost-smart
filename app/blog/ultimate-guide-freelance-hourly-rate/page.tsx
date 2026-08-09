@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/ultimate-guide-freelance-hourly-rate',
   },
+  openGraph: {
+    title: 'Freelance Hourly Rate Calculation Guide | CostSmart',
+    description: 'Everything you need to know about Freelance Hourly Rate. Formulas, examples, and expert tips for accurate calculation.',
+  },
 };
 
 export default function Post() {

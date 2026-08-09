@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/how-to-use-electricity-bill-calculator',
   },
+  openGraph: {
+    title: 'How to use the Electricity Bill Calculator | CostSmart Guide',
+    description: 'Step-by-step guide on how to use the Electricity Bill Calculator to calculate Electricity Bill. Accurate, fast, and free online tool.',
+  },
 };
 
 export default function Post() {

@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/ultimate-guide-gst-amount',
   },
+  openGraph: {
+    title: 'Ultimate Guide to GST Amount Calculation | CostSmart',
+    description: 'Everything you need to know about GST Amount. Formulas, examples, and expert tips for accurate calculation.',
+  },
 };
 
 export default function Post() {

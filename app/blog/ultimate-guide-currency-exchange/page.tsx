@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/ultimate-guide-currency-exchange',
   },
+  openGraph: {
+    title: 'Ultimate Guide to Currency Exchange Calculation | CostSmart',
+    description: 'Everything you need to know about Currency Exchange. Formulas, examples, and expert tips for accurate calculation.',
+  },
 };
 
 export default function Post() {

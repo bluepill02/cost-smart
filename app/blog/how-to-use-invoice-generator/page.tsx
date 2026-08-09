@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/how-to-use-invoice-generator',
   },
+  openGraph: {
+    title: 'How to use the Invoice Generator | CostSmart Guide',
+    description: 'Step-by-step guide on how to use the Invoice Generator to calculate Professional Invoice. Accurate, fast, and free online tool.',
+  },
 };
 
 export default function Post() {

@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/ultimate-guide-fixed-deposit-interest',
   },
+  openGraph: {
+    title: 'Fixed Deposit Interest Calculation Guide | CostSmart',
+    description: 'Everything you need to know about Fixed Deposit Interest. Formulas, examples, and expert tips for accurate calculation.',
+  },
 };
 
 export default function Post() {

@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/ultimate-guide-property-tax',
   },
+  openGraph: {
+    title: 'Ultimate Guide to Property Tax Calculation | CostSmart',
+    description: 'Everything you need to know about Property Tax. Formulas, examples, and expert tips for accurate calculation.',
+  },
 };
 
 export default function Post() {

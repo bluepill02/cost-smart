@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/ultimate-guide-profit-margin',
   },
+  openGraph: {
+    title: 'Ultimate Guide to Profit Margin Calculation | CostSmart',
+    description: 'Everything you need to know about Profit Margin. Formulas, examples, and expert tips for accurate calculation.',
+  },
 };
 
 export default function Post() {

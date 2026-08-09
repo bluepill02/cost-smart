@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/ultimate-guide-income-tax-liability',
   },
+  openGraph: {
+    title: 'Income Tax Liability Calculation Guide | CostSmart',
+    description: 'Everything you need to know about Income Tax Liability. Formulas, examples, and expert tips for accurate calculation.',
+  },
 };
 
 export default function Post() {

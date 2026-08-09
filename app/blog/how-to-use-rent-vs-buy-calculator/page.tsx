@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/how-to-use-rent-vs-buy-calculator',
   },
+  openGraph: {
+    title: 'How to use the Rent vs Buy Calculator | CostSmart Guide',
+    description: 'Step-by-step guide on how to use the Rent vs Buy Calculator to calculate Rent vs Buy Decision. Accurate, fast, and free online tool.',
+  },
 };
 
 export default function Post() {

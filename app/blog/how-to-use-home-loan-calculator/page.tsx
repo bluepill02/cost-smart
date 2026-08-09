@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/how-to-use-home-loan-calculator',
   },
+  openGraph: {
+    title: 'How to use the Home Loan Calculator | CostSmart Guide',
+    description: 'Step-by-step guide on how to use the Home Loan Calculator to calculate Home Loan EMI. Accurate, fast, and free online tool.',
+  },
 };
 
 export default function Post() {

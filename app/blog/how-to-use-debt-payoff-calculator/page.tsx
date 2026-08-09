@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/how-to-use-debt-payoff-calculator',
   },
+  openGraph: {
+    title: 'How to use the Debt Payoff Calculator | CostSmart Guide',
+    description: 'Step-by-step guide on how to use the Debt Payoff Calculator to calculate Debt Free Date. Accurate, fast, and free online tool.',
+  },
 };
 
 export default function Post() {

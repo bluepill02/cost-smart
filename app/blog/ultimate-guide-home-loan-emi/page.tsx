@@ -8,6 +8,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/blog/ultimate-guide-home-loan-emi',
   },
+  openGraph: {
+    title: 'Ultimate Guide to Home Loan EMI Calculation | CostSmart',
+    description: 'Everything you need to know about Home Loan EMI. Formulas, examples, and expert tips for accurate calculation.',
+  },
 };
 
 export default function Post() {
