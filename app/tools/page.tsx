@@ -2,13 +2,12 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { Bot, PieChart, Camera, Languages, HeartPulse, ArrowRight, Zap, Shield } from 'lucide-react';
 import AdContainer from '@/components/ads/AdContainer';
-import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 
 export const metadata: Metadata = {
   title: 'Free AI Financial Tools | CostSmart',
   description:
     'Advanced AI-powered financial tools: budget analyzer and smart financial advisor. Get personalized insights on your spending and savings.',
-  alternates: { canonical: `${CANONICAL_DOMAIN}/tools` },
+  alternates: { canonical: '/tools' },
 };
 
 const TOOLS = [
