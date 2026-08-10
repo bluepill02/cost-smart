@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: 'Rent vs Buy Calculator | CostSmart',
   description: 'Should you rent or buy? Compare the long-term financial impact of buying a home vs renting and investing the difference. Expert level analysis.',
   alternates: {
-    canonical: `${CANONICAL_DOMAIN}/rent-vs-buy-calculator`,
+    canonical: '/rent-vs-buy-calculator',
   },
   keywords: 'rent vs buy calculator, renting vs buying, real estate investment, property appreciation, opportunity cost',
   openGraph: {

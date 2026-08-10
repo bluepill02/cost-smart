@@ -6,13 +6,13 @@ import {
 } from 'lucide-react';
 import EmailCaptureSection from '@/components/features/EmailCaptureSection';
 import JsonLd from '@/components/seo/JsonLd';
-import { CANONICAL_DOMAIN, getCalculatorSchema } from '@/lib/seo-utils';
+import { getCalculatorSchema } from '@/lib/seo-utils';
 
 export const metadata: Metadata = {
   title: 'Take Control of Your Money | Budget Tools | CostSmart',
   description:
     'Free budget tools to take control of your money. Pay off debt faster, build an emergency fund, start investing, and plan retirement. Stop wondering where your salary goes.',
-  alternates: { canonical: `${CANONICAL_DOMAIN}/for/budget-savvy` },
+  alternates: { canonical: '/for/budget-savvy' },
 };
 
 export default function BudgetSavvyLandingPage() {

@@ -11,6 +11,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Fixed Deposit Interest Calculation Guide | CostSmart',
     description: 'Everything you need to know about Fixed Deposit Interest. Formulas, examples, and expert tips for accurate calculation.',
+    type: 'article',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Fixed Deposit Interest Calculation Guide | CostSmart' }],
   },
 };
 

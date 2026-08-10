@@ -8,6 +8,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Home Renovation Costs India 2025 Guide | CostSmart',
     description: 'Complete guide to home renovation costs in India 2025. Get per sq ft rates for painting, flooring, electrical, plumbing, modular kitchen, and hidden costs.',
+    type: 'article',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Home Renovation Costs India 2025 Guide | CostSmart' }],
   },
 };
 

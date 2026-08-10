@@ -11,6 +11,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'How to use the Currency Converter | CostSmart Guide',
     description: 'Step-by-step guide on how to use the Currency Converter to calculate Currency Exchange. Accurate, fast, and free online tool.',
+    type: 'article',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'How to use the Currency Converter | CostSmart Guide' }],
   },
 };
 

@@ -11,6 +11,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Freelance Hourly Rate Calculation Guide | CostSmart',
     description: 'Everything you need to know about Freelance Hourly Rate. Formulas, examples, and expert tips for accurate calculation.',
+    type: 'article',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Freelance Hourly Rate Calculation Guide | CostSmart' }],
   },
 };
 

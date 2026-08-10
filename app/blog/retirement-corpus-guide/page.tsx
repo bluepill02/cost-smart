@@ -15,6 +15,7 @@ export const metadata: Metadata = {
         description: 'Stop guessing your retirement number. Learn how to calculate your inflation-adjusted corpus requirement and how much to save each month to retire comfortably.',
         url: `${CANONICAL_DOMAIN}/blog/retirement-corpus-guide`,
         type: 'article',
+        images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'How Much Money Do You Need to Retire?' }],
     },
 };
 

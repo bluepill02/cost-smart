@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     type: 'website',
   },
   alternates: {
-    canonical: `${CANONICAL_DOMAIN}/tools/ai-advisor`,
+    canonical: '/tools/ai-advisor',
   },
 };
 

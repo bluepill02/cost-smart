@@ -15,6 +15,7 @@ export const metadata: Metadata = {
         description: 'Offered 10 LPA but only 60k per month? Full breakdown of CTC vs in-hand salary — PF, gratuity, HRA, and all deductions explained for FY 2024-25. Net Salary.',
         url: `${CANONICAL_DOMAIN}/blog/ctc-vs-in-hand`,
         type: 'article',
+        images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'CTC vs In-Hand Salary: Why is it Different?' }],
     },
 };
 

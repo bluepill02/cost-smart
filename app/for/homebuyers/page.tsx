@@ -6,13 +6,13 @@ import {
 } from 'lucide-react';
 import EmailCaptureSection from '@/components/features/EmailCaptureSection';
 import JsonLd from '@/components/seo/JsonLd';
-import { CANONICAL_DOMAIN, getCalculatorSchema } from '@/lib/seo-utils';
+import { getCalculatorSchema } from '@/lib/seo-utils';
 
 export const metadata: Metadata = {
   title: 'Home Buying Calculator & Toolkit | CostSmart',
   description:
     'Free home buying toolkit with EMI calculator, rent vs buy analysis, neighborhood explorer, stamp duty calculator, and more. Everything you need to decide: Should I buy this house?',
-  alternates: { canonical: `${CANONICAL_DOMAIN}/for/homebuyers` },
+  alternates: { canonical: '/for/homebuyers' },
 };
 
 export default function HomebuyersLandingPage() {

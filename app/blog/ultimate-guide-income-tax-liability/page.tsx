@@ -11,6 +11,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Income Tax Liability Calculation Guide | CostSmart',
     description: 'Everything you need to know about Income Tax Liability. Formulas, examples, and expert tips for accurate calculation.',
+    type: 'article',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Income Tax Liability Calculation Guide | CostSmart' }],
   },
 };
 

@@ -15,6 +15,7 @@ export const metadata: Metadata = {
         description: 'A comprehensive comparison between Fixed Deposits (FD) and Mutual Funds. Understand risk, returns, taxation, and liquidity.',
         url: `${CANONICAL_DOMAIN}/blog/fd-vs-mutual-funds`,
         type: 'article',
+        images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'FD vs Mutual Funds: Where Should You Invest?' }],
     },
 };
 

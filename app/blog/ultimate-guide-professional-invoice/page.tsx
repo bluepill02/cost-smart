@@ -11,6 +11,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Professional Invoice Creation Guide | CostSmart',
     description: 'Everything you need to know about Professional Invoice. Formulas, examples, and expert tips for accurate calculation.',
+    type: 'article',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Professional Invoice Creation Guide | CostSmart' }],
   },
 };
 

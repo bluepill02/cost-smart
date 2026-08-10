@@ -15,7 +15,7 @@ const DATE = '2026-08-10';
 export const metadata: Metadata = {
   title: `${TITLE} | CostSmart`,
   description: DESCRIPTION,
-  alternates: { canonical: `${CANONICAL_DOMAIN}${PATH}` },
+  alternates: { canonical: PATH },
   openGraph: {
     title: TITLE,
     description: DESCRIPTION,
@@ -24,6 +24,7 @@ export const metadata: Metadata = {
     publishedTime: DATE,
     modifiedTime: DATE,
     authors: ['CostSmart Financial Expert'],
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: '2026 Retirement Plan Contribution Limits: How to Maximize 401(k)s, IRAs, and HSAs' }],
   },
 };
 

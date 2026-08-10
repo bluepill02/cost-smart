@@ -5,7 +5,7 @@ import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
 import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 
 export const metadata: Metadata = {
-  alternates: { canonical: `${CANONICAL_DOMAIN}/tools/document-scanner` },
+  alternates: { canonical: '/tools/document-scanner' },
   title: 'AI Receipt & Invoice Scanner - OCR Expense Tracker | CostSmart',
   description: 'Scan receipts, invoices, and bills with AI-powered OCR. Extract amounts, dates, vendor names, GST details, and line items automatically. Turn photos into organized expense data.',
   keywords: 'receipt scanner, invoice OCR, expense tracker from photos, bill scanner, receipt to text, GST scanner, document OCR, expense management, receipt digitizer',

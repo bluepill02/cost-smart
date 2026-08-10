@@ -8,6 +8,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'How to Use the Home Renovation Cost Estimator | CostSmart',
     description: 'Step-by-step guide to using the CostSmart Home Renovation Cost Estimator. Estimate painting, flooring, plumbing, and civil work costs for your Indian home.',
+    type: 'article',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'How to Use the Home Renovation Cost Estimator | CostSmart' }],
   },
 };
 

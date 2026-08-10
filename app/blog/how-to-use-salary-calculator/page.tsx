@@ -11,6 +11,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'How to use the Salary Calculator | CostSmart Guide',
     description: 'Step-by-step guide on how to use the Salary Calculator to calculate In-Hand Salary. Accurate, fast, and free online tool.',
+    type: 'article',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'How to use the Salary Calculator | CostSmart Guide' }],
   },
 };
 

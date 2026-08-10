@@ -7,12 +7,13 @@ export const metadata: Metadata = {
   title: 'Financial Blog | CostSmart — Money, Tax & Investment Guides',
   description:
     'Free guides on SIP vs Lumpsum, EMI, income tax, rent vs buy, debt payoff, and more. Written by financial experts to help you make smarter money decisions.',
-  alternates: { canonical: `${CANONICAL_DOMAIN}/blog` },
+  alternates: { canonical: '/blog' },
   openGraph: {
     title: 'Financial Blog | CostSmart',
     description: 'Expert guides on investments, loans, taxes and savings.',
     url: `${CANONICAL_DOMAIN}/blog`,
     type: 'website',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Financial Blog | CostSmart' }],
   },
 };
 
