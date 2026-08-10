@@ -1,0 +1,12 @@
+{
+  "id": "FEAT-002",
+  "title": "SEO Metadata Standardization - Canonical paths, OG type, OG images",
+  "status": "completed",
+  "description": "Standardize all pages to use relative canonical paths. Add type: 'article' to blog post OpenGraph blocks. Add OG images for blog posts.",
+  "findings": [
+    "The 2026-retirement-contribution-limits post uses variable references (TITLE, DESCRIPTION, PATH) in metadata - converted canonical from ${CANONICAL_DOMAIN}${PATH} to just PATH.",
+    "credit-card-debt-strategy-2026 title contains an apostrophe (2026's) requiring escaped single quote in alt text.",
+    "Some blog posts use 8-space indentation (ctc-vs-in-hand, fd-vs-mutual-funds, etc.) while others use 4-space.",
+    "The workspace has two separate copies of the repo - ~/cost-smart (git working tree) and /projects/sandbox/cost-smart. All changes were made on ~/cost-smart."
+  ]
+}
