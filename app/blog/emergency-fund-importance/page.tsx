@@ -15,6 +15,7 @@ export const metadata: Metadata = {
         description: 'An emergency fund is your financial seatbelt. Learn why you need it, how much to save, and where to park this cash.',
         url: `${CANONICAL_DOMAIN}/blog/emergency-fund-importance`,
         type: 'article',
+        images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Why You Need an Emergency Fund (Before Investing)' }],
     },
 };
 

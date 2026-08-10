@@ -11,6 +11,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'How to use the Rent vs Buy Calculator | CostSmart Guide',
     description: 'Step-by-step guide on how to use the Rent vs Buy Calculator to calculate Rent vs Buy Decision. Accurate, fast, and free online tool.',
+    type: 'article',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'How to use the Rent vs Buy Calculator | CostSmart Guide' }],
   },
 };
 

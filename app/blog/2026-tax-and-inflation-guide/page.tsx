@@ -7,12 +7,13 @@ export const metadata: Metadata = {
   title: '2026 Cost of Living & Tax Guide: How Inflation Impacts Your Wallet',
   description:
     'A deep dive into the 2026 cost of living, inflation adjustments, and tax changes. Discover how the One Big Beautiful Bill Act (OBBBA), new standard deductions, and updated tax brackets affect your personal finances.',
-  alternates: { canonical: `${CANONICAL_DOMAIN}/blog/2026-tax-and-inflation-guide` },
+  alternates: { canonical: '/blog/2026-tax-and-inflation-guide' },
   openGraph: {
     title: '2026 Cost of Living & Tax Guide',
     description: 'A deep dive into the 2026 cost of living, inflation adjustments, and tax changes.',
     url: `${CANONICAL_DOMAIN}/blog/2026-tax-and-inflation-guide`,
     type: 'article',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: '2026 Cost of Living & Tax Guide' }],
   },
 };
 

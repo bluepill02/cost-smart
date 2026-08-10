@@ -16,6 +16,7 @@ export const metadata: Metadata = {
         description: 'The Federal Reserve kept interest rates at 3.50%-3.75% in July 2026. Discover how this affects your mortgage, credit cards, and high-yield savings.',
         url: `${CANONICAL_DOMAIN}/blog/us-fed-interest-rates-2026`,
         type: 'article',
+        images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Fed Interest Rate Decision July 2026: 3.75% Rates Hold Steady' }],
     },
 };
 

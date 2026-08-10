@@ -6,12 +6,13 @@ import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 export const metadata: Metadata = {
   title: 'Where to Park Cash With 3.75% Rates in 2026',
   description: 'A current, data-backed guide to investing and saving when the Fed Funds Rate is stuck at 3.75% in 2026.',
-  alternates: { canonical: `${CANONICAL_DOMAIN}/blog/interest-rates-2026-strategy` },
+  alternates: { canonical: '/blog/interest-rates-2026-strategy' },
   openGraph: {
     title: 'Where to Park Cash With 3.75% Rates in 2026',
     description: 'A current, data-backed guide to investing and saving when the Fed Funds Rate is stuck at 3.75% in 2026.',
     url: `${CANONICAL_DOMAIN}/blog/interest-rates-2026-strategy`,
     type: 'article',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Where to Park Cash With 3.75% Rates in 2026' }],
   },
 };
 

@@ -11,6 +11,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'How to use the Debt Payoff Calculator | CostSmart Guide',
     description: 'Step-by-step guide on how to use the Debt Payoff Calculator to calculate Debt Free Date. Accurate, fast, and free online tool.',
+    type: 'article',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'How to use the Debt Payoff Calculator | CostSmart Guide' }],
   },
 };
 

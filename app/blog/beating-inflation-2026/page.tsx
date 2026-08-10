@@ -6,12 +6,13 @@ import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 export const metadata: Metadata = {
   title: 'How to Beat the 3.5% Inflation Rate in 2026',
   description: 'A comprehensive, data-backed guide on how to protect your purchasing power and grow your wealth against 2026&apos;s 3.5% inflation rate.',
-  alternates: { canonical: `${CANONICAL_DOMAIN}/blog/beating-inflation-2026` },
+  alternates: { canonical: '/blog/beating-inflation-2026' },
   openGraph: {
     title: 'How to Beat the 3.5% Inflation Rate in 2026',
     description: 'A comprehensive, data-backed guide on how to protect your purchasing power and grow your wealth against 2026&apos;s 3.5% inflation rate.',
     url: `${CANONICAL_DOMAIN}/blog/beating-inflation-2026`,
     type: 'article',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'How to Beat the 3.5% Inflation Rate in 2026' }],
   },
 };
 

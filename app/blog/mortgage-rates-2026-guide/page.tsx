@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: '2026 Mortgage Rates Guide: Lock, Float, or Wait? | CostSmart',
   description:
     'Are 2026 mortgage rates dropping? Discover the real numbers, historical comparisons, and proven strategies to handle today\'s 6.5%+ housing market.',
-  alternates: { canonical: `${CANONICAL_DOMAIN}/blog/mortgage-rates-2026-guide` },
+  alternates: { canonical: '/blog/mortgage-rates-2026-guide' },
   openGraph: {
     title: '2026 Mortgage Rates Guide: Lock, Float, or Wait?',
     description: 'Expert analysis on navigating 2026\'s volatile mortgage market, featuring current rates, inflation context, and refinancing math.',

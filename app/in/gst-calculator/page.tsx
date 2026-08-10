@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: 'GST Calculator India | CostSmart',
   description: 'Calculate GST amount, pre-tax value, and total cost instantly. Supports 5%, 12%, 18%, 28% tax slabs. Differentiate between Inclusive and Exclusive GST.',
   alternates: {
-    canonical: `${CANONICAL_DOMAIN}/in/gst-calculator`,
+    canonical: '/in/gst-calculator',
   },
   keywords: 'gst calculator, gst inclusive calculator, gst exclusive calculator, india gst rates, gst calculation formula',
   openGraph: {

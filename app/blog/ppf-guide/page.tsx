@@ -15,6 +15,7 @@ export const metadata: Metadata = {
         description: 'Understand PPF rules, interest rates, tax benefits, and withdrawal limits. Why PPF is the safest long-term investment in India.',
         url: `${CANONICAL_DOMAIN}/blog/ppf-guide`,
         type: 'article',
+        images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Complete Guide to PPF (Public Provident Fund)' }],
     },
 };
 

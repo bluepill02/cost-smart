@@ -16,6 +16,7 @@ export const metadata: Metadata = {
         description: 'A data-driven breakdown of the 2026 housing market. Should you buy a home with 6.2% mortgage rates or keep renting?',
         url: `${CANONICAL_DOMAIN}/blog/2026-mortgage-rates-real-estate-strategy`,
         type: 'article',
+        images: [{ url: '/og-image.png', width: 1200, height: 630, alt: '2026 Mortgage Rates & Real Estate Strategy' }],
     },
 };
 

@@ -10,6 +10,8 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Property Registration Cost Calculator Guide | CostSmart',
     description: 'Step-by-step guide to using CostSmart Property Registration Calculator. Calculate stamp duty and registration charges by state.',
+    type: 'article',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Property Registration Cost Calculator Guide | CostSmart' }],
   },
 };
 

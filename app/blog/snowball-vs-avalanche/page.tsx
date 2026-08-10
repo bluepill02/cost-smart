@@ -15,6 +15,7 @@ export const metadata: Metadata = {
         description: 'Compare Dave Ramsey\'s Snowball method with the mathematical Avalanche method. Find out which one will help you become debt-free faster.',
         url: `${CANONICAL_DOMAIN}/blog/snowball-vs-avalanche`,
         type: 'article',
+        images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Snowball vs Avalanche: Which Debt Strategy is Best?' }],
     },
 };
 
