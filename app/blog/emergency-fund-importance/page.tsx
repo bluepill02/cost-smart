@@ -6,13 +6,13 @@ import JsonLd from '@/components/seo/JsonLd';
 
 export const metadata: Metadata = {
     title: 'Why You Need an Emergency Fund (Before Investing)',
-    description: 'An emergency fund is your financial seatbelt. Learn why you need it, how much to save, and where to park this cash.',
+    description: 'An emergency fund is your financial seatbelt. Learn why you need one before investing, how much to save, and the best places to park this money safely.',
     alternates: {
         canonical: '/blog/emergency-fund-importance',
     },
     openGraph: {
         title: 'Why You Need an Emergency Fund (Before Investing)',
-        description: 'An emergency fund is your financial seatbelt. Learn why you need it, how much to save, and where to park this cash.',
+        description: 'An emergency fund is your financial seatbelt. Learn why you need one before investing, how much to save, and the best places to park this money safely.',
         url: `${CANONICAL_DOMAIN}/blog/emergency-fund-importance`,
         type: 'article',
         images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Why You Need an Emergency Fund (Before Investing)' }],
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 export default function BlogPost() {
     return (
         <article>
-            <JsonLd data={getArticleSchema({ headline: 'Why You Need an Emergency Fund (Before Investing)', description: 'An emergency fund is your financial seatbelt. Learn why you need it, how much to save, and where to park this cash.', urlPath: '/blog/emergency-fund-importance', datePublished: '2025-01-08T10:00:00+05:30', dateModified: '2025-01-08T10:00:00+05:30' })} />
+            <JsonLd data={getArticleSchema({ headline: 'Why You Need an Emergency Fund (Before Investing)', description: 'An emergency fund is your financial seatbelt. Learn why you need one before investing, how much to save, and the best places to park this money safely.', urlPath: '/blog/emergency-fund-importance', datePublished: '2025-01-08T10:00:00+05:30', dateModified: '2025-01-08T10:00:00+05:30' })} />
             <h1>Why You Need an Emergency Fund (Before Investing)</h1>
             <p className="lead">
                 Life is unpredictable. Layoffs, medical emergencies, or car repairs can strike anytime. Without an emergency fund, you might be forced to break your investments or take high-interest debt.

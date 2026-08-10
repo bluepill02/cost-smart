@@ -4,13 +4,13 @@ import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'How to use the FD Calculator | CostSmart Guide',
-  description: 'Step-by-step guide on how to use the FD Calculator to calculate Fixed Deposit Interest. Accurate, fast, and free online tool.',
+  description: 'Step-by-step guide on how to use the FD Calculator to estimate maturity returns. Compare interest rates, compounding options, and tenure scenarios.',
   alternates: {
     canonical: '/blog/how-to-use-fd-calculator',
   },
   openGraph: {
     title: 'How to use the FD Calculator | CostSmart Guide',
-    description: 'Step-by-step guide on how to use the FD Calculator to calculate Fixed Deposit Interest. Accurate, fast, and free online tool.',
+    description: 'Step-by-step guide on how to use the FD Calculator to estimate maturity returns. Compare interest rates, compounding options, and tenure scenarios.',
     type: 'article',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'How to use the FD Calculator | CostSmart Guide' }],
   },

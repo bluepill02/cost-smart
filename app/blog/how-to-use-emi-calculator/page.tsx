@@ -4,13 +4,13 @@ import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'How to use the EMI Calculator | CostSmart Guide',
-  description: 'Step-by-step guide on how to use the EMI Calculator to calculate Loan EMI. Accurate, fast, and free online tool.',
+  description: 'Step-by-step guide on how to use the EMI Calculator to plan loan repayments. Calculate monthly installments, total interest, and amortization schedules.',
   alternates: {
     canonical: '/blog/how-to-use-emi-calculator',
   },
   openGraph: {
     title: 'How to use the EMI Calculator | CostSmart Guide',
-    description: 'Step-by-step guide on how to use the EMI Calculator to calculate Loan EMI. Accurate, fast, and free online tool.',
+    description: 'Step-by-step guide on how to use the EMI Calculator to plan loan repayments. Calculate monthly installments, total interest, and amortization schedules.',
     type: 'article',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'How to use the EMI Calculator | CostSmart Guide' }],
   },

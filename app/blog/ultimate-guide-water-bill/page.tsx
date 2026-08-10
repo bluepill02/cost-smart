@@ -4,13 +4,13 @@ import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'Ultimate Guide to Water Bill Calculation | CostSmart',
-  description: 'Everything you need to know about Water Bill. Formulas, examples, and expert tips for accurate calculation.',
+  description: 'Everything you need to know about Water Bill calculation. Slab rate formulas, meter reading examples, and expert tips for estimating monthly municipal water charges.',
   alternates: {
     canonical: '/blog/ultimate-guide-water-bill',
   },
   openGraph: {
     title: 'Ultimate Guide to Water Bill Calculation | CostSmart',
-    description: 'Everything you need to know about Water Bill. Formulas, examples, and expert tips for accurate calculation.',
+    description: 'Everything you need to know about Water Bill calculation. Slab rate formulas, meter reading examples, and expert tips for estimating monthly municipal water charges.',
     type: 'article',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Ultimate Guide to Water Bill Calculation | CostSmart' }],
   },

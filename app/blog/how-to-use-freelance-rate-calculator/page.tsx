@@ -4,13 +4,13 @@ import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'How to use the Freelance Rate Calculator | CostSmart Guide',
-  description: 'Step-by-step guide on how to use the Freelance Rate Calculator to calculate Freelance Hourly Rate. Accurate, fast, and free online tool.',
+  description: 'Step-by-step guide on how to use the Freelance Rate Calculator to set competitive pricing. Factor in expenses, taxes, and desired annual income.',
   alternates: {
     canonical: '/blog/how-to-use-freelance-rate-calculator',
   },
   openGraph: {
     title: 'How to use the Freelance Rate Calculator | CostSmart Guide',
-    description: 'Step-by-step guide on how to use the Freelance Rate Calculator to calculate Freelance Hourly Rate. Accurate, fast, and free online tool.',
+    description: 'Step-by-step guide on how to use the Freelance Rate Calculator to set competitive pricing. Factor in expenses, taxes, and desired annual income.',
     type: 'article',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'How to use the Freelance Rate Calculator | CostSmart Guide' }],
   },

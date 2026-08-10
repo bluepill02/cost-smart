@@ -4,13 +4,13 @@ import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'How to use the Business Loan Calculator | CostSmart Guide',
-  description: 'Step-by-step guide on how to use the Business Loan Calculator to calculate Business Loan EMI. Accurate, fast, and free online tool.',
+  description: 'Step-by-step guide on using the Business Loan Calculator to estimate EMI and total interest. Covers term loans, working capital, and repayment planning.',
   alternates: {
     canonical: '/blog/how-to-use-business-loan-calculator',
   },
   openGraph: {
     title: 'How to use the Business Loan Calculator | CostSmart Guide',
-    description: 'Step-by-step guide on how to use the Business Loan Calculator to calculate Business Loan EMI. Accurate, fast, and free online tool.',
+    description: 'Step-by-step guide on using the Business Loan Calculator to estimate EMI and total interest. Covers term loans, working capital, and repayment planning.',
     type: 'article',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'How to use the Business Loan Calculator | CostSmart Guide' }],
   },

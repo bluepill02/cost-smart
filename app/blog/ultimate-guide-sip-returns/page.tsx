@@ -4,13 +4,13 @@ import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'Ultimate Guide to SIP Returns Calculation | CostSmart',
-  description: 'Everything you need to know about SIP Returns. Formulas, examples, and expert tips for accurate calculation.',
+  description: 'Everything you need to know about SIP Returns calculation. Compound growth formulas, XIRR examples, and expert tips to project mutual fund wealth over long periods.',
   alternates: {
     canonical: '/blog/ultimate-guide-sip-returns',
   },
   openGraph: {
     title: 'Ultimate Guide to SIP Returns Calculation | CostSmart',
-    description: 'Everything you need to know about SIP Returns. Formulas, examples, and expert tips for accurate calculation.',
+    description: 'Everything you need to know about SIP Returns calculation. Compound growth formulas, XIRR examples, and expert tips to project mutual fund wealth over long periods.',
     type: 'article',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Ultimate Guide to SIP Returns Calculation | CostSmart' }],
   },

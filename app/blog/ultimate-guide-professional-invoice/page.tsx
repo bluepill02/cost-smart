@@ -4,13 +4,13 @@ import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'Professional Invoice Creation Guide | CostSmart',
-  description: 'Everything you need to know about Professional Invoice. Formulas, examples, and expert tips for accurate calculation.',
+  description: 'Everything you need to know about creating a Professional Invoice. Mandatory fields, tax calculation rules, and expert tips for error-free billing documents.',
   alternates: {
     canonical: '/blog/ultimate-guide-professional-invoice',
   },
   openGraph: {
     title: 'Professional Invoice Creation Guide | CostSmart',
-    description: 'Everything you need to know about Professional Invoice. Formulas, examples, and expert tips for accurate calculation.',
+    description: 'Everything you need to know about creating a Professional Invoice. Mandatory fields, tax calculation rules, and expert tips for error-free billing documents.',
     type: 'article',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Professional Invoice Creation Guide | CostSmart' }],
   },

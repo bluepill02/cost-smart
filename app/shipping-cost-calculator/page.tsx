@@ -6,13 +6,13 @@ import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'Shipping Cost Calculator | CostSmart',
-  description: 'Calculate volumetric weight and estimated shipping costs.',
+  description: 'Calculate volumetric weight, dimensional weight, and estimated shipping costs across major carriers. Compare rates for domestic and international shipments.',
   alternates: {
     canonical: '/shipping-cost-calculator',
   },
   openGraph: {
     title: 'Shipping Cost Calculator | CostSmart',
-    description: 'Calculate volumetric weight and estimated shipping costs.',
+    description: 'Calculate volumetric weight, dimensional weight, and estimated shipping costs across major carriers. Compare rates for domestic and international shipments.',
     url: `${CANONICAL_DOMAIN}/shipping-cost-calculator`,
     type: 'website',
   },
@@ -21,10 +21,10 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="container mx-auto px-4 py-12 max-w-4xl">
-      <CalculatorSchemaInjector calculatorName="Shipping Cost Calculator" calculatorDescription="Calculate volumetric weight and estimated shipping costs." urlPath="/shipping-cost-calculator" calculatorType="business" />
+      <CalculatorSchemaInjector calculatorName="Shipping Cost Calculator" calculatorDescription="Calculate volumetric weight, dimensional weight, and estimated shipping costs across major carriers. Compare rates for domestic and international shipments." urlPath="/shipping-cost-calculator" calculatorType="business" />
       <div className="mb-8 text-center">
         <h1 className="text-4xl font-bold text-slate-900 mb-4">Shipping Cost Calculator</h1>
-        <p className="text-xl text-slate-600 max-w-2xl mx-auto">Calculate volumetric weight and estimated shipping costs.</p>
+        <p className="text-xl text-slate-600 max-w-2xl mx-auto">Calculate volumetric weight, dimensional weight, and estimated shipping costs across major carriers. Compare rates for domestic and international shipments.</p>
       </div>
 
       <ShippingCalculator />

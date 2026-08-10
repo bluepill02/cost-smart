@@ -4,13 +4,13 @@ import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'How to use the Profit Margin Calculator | CostSmart Guide',
-  description: 'Step-by-step guide on how to use the Profit Margin Calculator to calculate Profit Margin. Accurate, fast, and free online tool.',
+  description: 'Step-by-step guide on using the Profit Margin Calculator to analyze pricing. Compute gross margin, markup, and net profit for better business decisions.',
   alternates: {
     canonical: '/blog/how-to-use-profit-margin-calculator',
   },
   openGraph: {
     title: 'How to use the Profit Margin Calculator | CostSmart Guide',
-    description: 'Step-by-step guide on how to use the Profit Margin Calculator to calculate Profit Margin. Accurate, fast, and free online tool.',
+    description: 'Step-by-step guide on using the Profit Margin Calculator to analyze pricing. Compute gross margin, markup, and net profit for better business decisions.',
     type: 'article',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'How to use the Profit Margin Calculator | CostSmart Guide' }],
   },

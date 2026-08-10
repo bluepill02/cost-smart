@@ -4,13 +4,13 @@ import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'How to use the Invoice Generator | CostSmart Guide',
-  description: 'Step-by-step guide on how to use the Invoice Generator to calculate Professional Invoice. Accurate, fast, and free online tool.',
+  description: 'Step-by-step guide on how to use the Invoice Generator to create professional PDF invoices. Add line items, taxes, and your branding in minutes.',
   alternates: {
     canonical: '/blog/how-to-use-invoice-generator',
   },
   openGraph: {
     title: 'How to use the Invoice Generator | CostSmart Guide',
-    description: 'Step-by-step guide on how to use the Invoice Generator to calculate Professional Invoice. Accurate, fast, and free online tool.',
+    description: 'Step-by-step guide on how to use the Invoice Generator to create professional PDF invoices. Add line items, taxes, and your branding in minutes.',
     type: 'article',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'How to use the Invoice Generator | CostSmart Guide' }],
   },

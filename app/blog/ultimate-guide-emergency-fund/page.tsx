@@ -4,13 +4,13 @@ import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'Ultimate Guide to Emergency Fund Calculation | CostSmart',
-  description: 'Everything you need to know about Emergency Fund. Formulas, examples, and expert tips for accurate calculation.',
+  description: 'Everything you need to know about Emergency Fund sizing. Savings rules, multiplier formulas, and expert tips to build the right financial safety net for you.',
   alternates: {
     canonical: '/blog/ultimate-guide-emergency-fund',
   },
   openGraph: {
     title: 'Ultimate Guide to Emergency Fund Calculation | CostSmart',
-    description: 'Everything you need to know about Emergency Fund. Formulas, examples, and expert tips for accurate calculation.',
+    description: 'Everything you need to know about Emergency Fund sizing. Savings rules, multiplier formulas, and expert tips to build the right financial safety net for you.',
     type: 'article',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Ultimate Guide to Emergency Fund Calculation | CostSmart' }],
   },

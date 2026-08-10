@@ -4,13 +4,13 @@ import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'Ultimate Guide to Import Duty Calculation | CostSmart',
-  description: 'Everything you need to know about Import Duty. Formulas, examples, and expert tips for accurate calculation.',
+  description: 'Everything you need to know about Import Duty calculation. Customs tariff formulas, HS code examples, and expert tips for computing total landed cost of goods.',
   alternates: {
     canonical: '/blog/ultimate-guide-import-duty',
   },
   openGraph: {
     title: 'Ultimate Guide to Import Duty Calculation | CostSmart',
-    description: 'Everything you need to know about Import Duty. Formulas, examples, and expert tips for accurate calculation.',
+    description: 'Everything you need to know about Import Duty calculation. Customs tariff formulas, HS code examples, and expert tips for computing total landed cost of goods.',
     type: 'article',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Ultimate Guide to Import Duty Calculation | CostSmart' }],
   },

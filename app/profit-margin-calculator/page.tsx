@@ -7,13 +7,13 @@ import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'Profit Margin Calculator | CostSmart',
-  description: 'Calculate Gross Margin, Markup, and Net Profit.',
+  description: 'Calculate gross margin, markup percentage, and net profit for your products or services. Essential for pricing strategy and profitability analysis.',
   alternates: {
     canonical: '/profit-margin-calculator',
   },
   openGraph: {
     title: 'Profit Margin Calculator | CostSmart',
-    description: 'Calculate Gross Margin, Markup, and Net Profit.',
+    description: 'Calculate gross margin, markup percentage, and net profit for your products or services. Essential for pricing strategy and profitability analysis.',
     url: `${CANONICAL_DOMAIN}/profit-margin-calculator`,
     type: 'website',
     images: [{ url: `${CANONICAL_DOMAIN}/og-image.png`, width: 1200, height: 630, alt: 'Profit Margin Calculator' }],
@@ -23,10 +23,10 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="container mx-auto px-4 py-12 max-w-4xl">
-      <CalculatorSchemaInjector calculatorName="Profit Margin Calculator" calculatorDescription="Calculate Gross Margin, Markup, and Net Profit." urlPath="/profit-margin-calculator" calculatorType="business" />
+      <CalculatorSchemaInjector calculatorName="Profit Margin Calculator" calculatorDescription="Calculate gross margin, markup percentage, and net profit for your products or services. Essential for pricing strategy and profitability analysis." urlPath="/profit-margin-calculator" calculatorType="business" />
       <div className="mb-8 text-center">
         <h1 className="text-4xl font-bold text-slate-900 mb-4">Profit Margin Calculator</h1>
-        <p className="text-xl text-slate-600 max-w-2xl mx-auto">Calculate Gross Margin, Markup, and Net Profit.</p>
+        <p className="text-xl text-slate-600 max-w-2xl mx-auto">Calculate gross margin, markup percentage, and net profit for your products or services. Essential for pricing strategy and profitability analysis.</p>
       </div>
 
       <ProfitMarginCalculator />

@@ -4,13 +4,13 @@ import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'Ultimate Guide to Debt Free Date Calculation | CostSmart',
-  description: 'Everything you need to know about Debt Free Date. Formulas, examples, and expert tips for accurate calculation.',
+  description: 'Everything you need to know about calculating your Debt-Free Date. Formulas, repayment strategies, and expert tips to accelerate your journey out of debt.',
   alternates: {
     canonical: '/blog/ultimate-guide-debt-free-date',
   },
   openGraph: {
     title: 'Ultimate Guide to Debt Free Date Calculation | CostSmart',
-    description: 'Everything you need to know about Debt Free Date. Formulas, examples, and expert tips for accurate calculation.',
+    description: 'Everything you need to know about calculating your Debt-Free Date. Formulas, repayment strategies, and expert tips to accelerate your journey out of debt.',
     type: 'article',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Ultimate Guide to Debt Free Date Calculation | CostSmart' }],
   },

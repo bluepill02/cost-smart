@@ -4,13 +4,13 @@ import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'How to use the Salary Calculator | CostSmart Guide',
-  description: 'Step-by-step guide on how to use the Salary Calculator to calculate In-Hand Salary. Accurate, fast, and free online tool.',
+  description: 'Step-by-step guide on how to use the Salary Calculator to find take-home pay. Deduct taxes, PF, insurance, and other components from your gross CTC.',
   alternates: {
     canonical: '/blog/how-to-use-salary-calculator',
   },
   openGraph: {
     title: 'How to use the Salary Calculator | CostSmart Guide',
-    description: 'Step-by-step guide on how to use the Salary Calculator to calculate In-Hand Salary. Accurate, fast, and free online tool.',
+    description: 'Step-by-step guide on how to use the Salary Calculator to find take-home pay. Deduct taxes, PF, insurance, and other components from your gross CTC.',
     type: 'article',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'How to use the Salary Calculator | CostSmart Guide' }],
   },

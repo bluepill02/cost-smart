@@ -4,13 +4,13 @@ import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'Ultimate Guide to Volumetric Weight Calculation | CostSmart',
-  description: 'Everything you need to know about Volumetric Weight. Formulas, examples, and expert tips for accurate calculation.',
+  description: 'Everything you need to know about Volumetric Weight calculation. DIM weight formulas, carrier-specific divisors, and tips to reduce shipping costs on large items.',
   alternates: {
     canonical: '/blog/ultimate-guide-volumetric-weight',
   },
   openGraph: {
     title: 'Ultimate Guide to Volumetric Weight Calculation | CostSmart',
-    description: 'Everything you need to know about Volumetric Weight. Formulas, examples, and expert tips for accurate calculation.',
+    description: 'Everything you need to know about Volumetric Weight calculation. DIM weight formulas, carrier-specific divisors, and tips to reduce shipping costs on large items.',
     type: 'article',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Ultimate Guide to Volumetric Weight Calculation | CostSmart' }],
   },

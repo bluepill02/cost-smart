@@ -3,11 +3,11 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Home Renovation Costs India 2025 Guide | CostSmart',
-  description: 'Complete guide to home renovation costs in India 2025. Get per sq ft rates for painting, flooring, electrical, plumbing, modular kitchen, and hidden costs.',
+  description: 'Everything you need to know about Home Renovation Cost estimation. Room-wise budgets, material cost formulas, and expert tips to avoid common overspending.',
   alternates: { canonical: '/blog/ultimate-guide-home-renovation-cost' },
   openGraph: {
     title: 'Home Renovation Costs India 2025 Guide | CostSmart',
-    description: 'Complete guide to home renovation costs in India 2025. Get per sq ft rates for painting, flooring, electrical, plumbing, modular kitchen, and hidden costs.',
+    description: 'Everything you need to know about Home Renovation Cost estimation. Room-wise budgets, material cost formulas, and expert tips to avoid common overspending.',
     type: 'article',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Home Renovation Costs India 2025 Guide | CostSmart' }],
   },

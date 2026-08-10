@@ -4,13 +4,13 @@ import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'Income Tax Liability Calculation Guide | CostSmart',
-  description: 'Everything you need to know about Income Tax Liability. Formulas, examples, and expert tips for accurate calculation.',
+  description: 'Everything you need to know about Income Tax Liability calculation. Slab formulas, deduction examples, and expert tips for old and new tax regimes in India.',
   alternates: {
     canonical: '/blog/ultimate-guide-income-tax-liability',
   },
   openGraph: {
     title: 'Income Tax Liability Calculation Guide | CostSmart',
-    description: 'Everything you need to know about Income Tax Liability. Formulas, examples, and expert tips for accurate calculation.',
+    description: 'Everything you need to know about Income Tax Liability calculation. Slab formulas, deduction examples, and expert tips for old and new tax regimes in India.',
     type: 'article',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Income Tax Liability Calculation Guide | CostSmart' }],
   },

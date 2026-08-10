@@ -4,13 +4,13 @@ import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'How to use the Electricity Bill Calculator | CostSmart Guide',
-  description: 'Step-by-step guide on how to use the Electricity Bill Calculator to calculate Electricity Bill. Accurate, fast, and free online tool.',
+  description: 'Step-by-step guide on using the Electricity Bill Calculator to estimate monthly charges. Enter units consumed and tariff rates for accurate results.',
   alternates: {
     canonical: '/blog/how-to-use-electricity-bill-calculator',
   },
   openGraph: {
     title: 'How to use the Electricity Bill Calculator | CostSmart Guide',
-    description: 'Step-by-step guide on how to use the Electricity Bill Calculator to calculate Electricity Bill. Accurate, fast, and free online tool.',
+    description: 'Step-by-step guide on using the Electricity Bill Calculator to estimate monthly charges. Enter units consumed and tariff rates for accurate results.',
     type: 'article',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'How to use the Electricity Bill Calculator | CostSmart Guide' }],
   },

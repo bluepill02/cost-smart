@@ -9,13 +9,13 @@ import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
     title: 'Inflation Calculator (CPI) | CostSmart',
-    description: 'Calculate the value of the US Dollar over time. See how much purchasing power has changed using official BLS CPI data.',
+    description: 'Calculate the value of the US Dollar over time using official BLS CPI data. See how inflation has eroded purchasing power between any two years.',
     alternates: {
         canonical: '/inflation',
     },
     openGraph: {
         title: 'Inflation Calculator (CPI) | CostSmart',
-        description: 'Calculate the value of the US Dollar over time. See how much purchasing power has changed using official BLS CPI data.',
+        description: 'Calculate the value of the US Dollar over time using official BLS CPI data. See how inflation has eroded purchasing power between any two years.',
         url: `${CANONICAL_DOMAIN}/inflation`,
         type: 'website',
     },

@@ -7,13 +7,13 @@ import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'Break-Even Calculator | CostSmart',
-  description: 'Find your break-even point in units and revenue.',
+  description: 'Find your break-even point in units and revenue. Enter fixed costs, variable costs, and selling price to see when your business turns profitable.',
   alternates: {
     canonical: '/break-even-calculator',
   },
   openGraph: {
     title: 'Break-Even Calculator | CostSmart',
-    description: 'Find your break-even point in units and revenue.',
+    description: 'Find your break-even point in units and revenue. Enter fixed costs, variable costs, and selling price to see when your business turns profitable.',
     url: `${CANONICAL_DOMAIN}/break-even-calculator`,
     type: 'website',
     images: [{ url: `${CANONICAL_DOMAIN}/og-image.png`, width: 1200, height: 630, alt: 'Break-Even Calculator' }],
@@ -23,10 +23,10 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="container mx-auto px-4 py-12 max-w-4xl">
-      <CalculatorSchemaInjector calculatorName="Break-Even Calculator" calculatorDescription="Find your break-even point in units and revenue." urlPath="/break-even-calculator" calculatorType="business" />
+      <CalculatorSchemaInjector calculatorName="Break-Even Calculator" calculatorDescription="Find your break-even point in units and revenue. Enter fixed costs, variable costs, and selling price to see when your business turns profitable." urlPath="/break-even-calculator" calculatorType="business" />
       <div className="mb-8 text-center">
         <h1 className="text-4xl font-bold text-slate-900 mb-4">Break-Even Calculator</h1>
-        <p className="text-xl text-slate-600 max-w-2xl mx-auto">Find your break-even point in units and revenue.</p>
+        <p className="text-xl text-slate-600 max-w-2xl mx-auto">Find your break-even point in units and revenue. Enter fixed costs, variable costs, and selling price to see when your business turns profitable.</p>
       </div>
 
       <BreakEvenCalculator />

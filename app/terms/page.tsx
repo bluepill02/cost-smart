@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
     title: 'Terms of Service | CostSmart',
-    description: 'Terms of Service for CostSmart.',
+    description: 'Terms of Service governing your use of CostSmart financial calculators and tools. Free tools provided for informational purposes.',
     alternates: {
         canonical: '/terms',
     }

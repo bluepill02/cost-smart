@@ -4,13 +4,13 @@ import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'Freelance Hourly Rate Calculation Guide | CostSmart',
-  description: 'Everything you need to know about Freelance Hourly Rate. Formulas, examples, and expert tips for accurate calculation.',
+  description: 'Everything you need to know about setting your Freelance Hourly Rate. Pricing formulas, market benchmarks, and expert tips to charge what your skills deserve.',
   alternates: {
     canonical: '/blog/ultimate-guide-freelance-hourly-rate',
   },
   openGraph: {
     title: 'Freelance Hourly Rate Calculation Guide | CostSmart',
-    description: 'Everything you need to know about Freelance Hourly Rate. Formulas, examples, and expert tips for accurate calculation.',
+    description: 'Everything you need to know about setting your Freelance Hourly Rate. Pricing formulas, market benchmarks, and expert tips to charge what your skills deserve.',
     type: 'article',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Freelance Hourly Rate Calculation Guide | CostSmart' }],
   },

@@ -4,13 +4,13 @@ import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'How to use the Currency Converter | CostSmart Guide',
-  description: 'Step-by-step guide on how to use the Currency Converter to calculate Currency Exchange. Accurate, fast, and free online tool.',
+  description: 'Step-by-step guide on how to use the Currency Converter to get real-time exchange rates. Supports 150+ currencies with live market data and fees.',
   alternates: {
     canonical: '/blog/how-to-use-currency-converter',
   },
   openGraph: {
     title: 'How to use the Currency Converter | CostSmart Guide',
-    description: 'Step-by-step guide on how to use the Currency Converter to calculate Currency Exchange. Accurate, fast, and free online tool.',
+    description: 'Step-by-step guide on how to use the Currency Converter to get real-time exchange rates. Supports 150+ currencies with live market data and fees.',
     type: 'article',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'How to use the Currency Converter | CostSmart Guide' }],
   },

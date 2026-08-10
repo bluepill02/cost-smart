@@ -4,13 +4,13 @@ import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'How to use the PPF Calculator | CostSmart Guide',
-  description: 'Step-by-step guide on how to use the PPF Calculator to calculate PPF Maturity. Accurate, fast, and free online tool.',
+  description: 'Step-by-step guide on how to use the PPF Calculator to project your maturity amount. Model yearly contributions and see tax-free compound growth over 15 years.',
   alternates: {
     canonical: '/blog/how-to-use-ppf-calculator',
   },
   openGraph: {
     title: 'How to use the PPF Calculator | CostSmart Guide',
-    description: 'Step-by-step guide on how to use the PPF Calculator to calculate PPF Maturity. Accurate, fast, and free online tool.',
+    description: 'Step-by-step guide on how to use the PPF Calculator to project your maturity amount. Model yearly contributions and see tax-free compound growth over 15 years.',
     type: 'article',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'How to use the PPF Calculator | CostSmart Guide' }],
   },

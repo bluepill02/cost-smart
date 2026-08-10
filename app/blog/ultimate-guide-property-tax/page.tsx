@@ -4,13 +4,13 @@ import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'Ultimate Guide to Property Tax Calculation | CostSmart',
-  description: 'Everything you need to know about Property Tax. Formulas, examples, and expert tips for accurate calculation.',
+  description: 'Everything you need to know about Property Tax calculation. Annual Rental Value formulas, municipal rate examples, and tips for exemptions and timely payment.',
   alternates: {
     canonical: '/blog/ultimate-guide-property-tax',
   },
   openGraph: {
     title: 'Ultimate Guide to Property Tax Calculation | CostSmart',
-    description: 'Everything you need to know about Property Tax. Formulas, examples, and expert tips for accurate calculation.',
+    description: 'Everything you need to know about Property Tax calculation. Annual Rental Value formulas, municipal rate examples, and tips for exemptions and timely payment.',
     type: 'article',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Ultimate Guide to Property Tax Calculation | CostSmart' }],
   },
