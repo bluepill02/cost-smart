@@ -4,13 +4,13 @@ import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'How to use the TDS Calculator | CostSmart Guide',
-  description: 'Step-by-step guide on how to use the TDS Calculator to calculate TDS Deduction. Accurate, fast, and free online tool.',
+  description: 'Step-by-step guide on how to use the TDS Calculator to determine tax deducted at source. Covers salary, rent, professional fees, and contractor payments.',
   alternates: {
     canonical: '/blog/how-to-use-tds-calculator',
   },
   openGraph: {
     title: 'How to use the TDS Calculator | CostSmart Guide',
-    description: 'Step-by-step guide on how to use the TDS Calculator to calculate TDS Deduction. Accurate, fast, and free online tool.',
+    description: 'Step-by-step guide on how to use the TDS Calculator to determine tax deducted at source. Covers salary, rent, professional fees, and contractor payments.',
     type: 'article',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'How to use the TDS Calculator | CostSmart Guide' }],
   },

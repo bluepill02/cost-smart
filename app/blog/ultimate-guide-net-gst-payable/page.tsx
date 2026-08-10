@@ -4,13 +4,13 @@ import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'Ultimate Guide to Net GST Payable Calculation | CostSmart',
-  description: 'Everything you need to know about Net GST Payable. Formulas, examples, and expert tips for accurate calculation.',
+  description: 'Everything you need to know about Net GST Payable calculation. Input credit formulas, return filing examples, and tips to minimize your GST cash outflow legally.',
   alternates: {
     canonical: '/blog/ultimate-guide-net-gst-payable',
   },
   openGraph: {
     title: 'Ultimate Guide to Net GST Payable Calculation | CostSmart',
-    description: 'Everything you need to know about Net GST Payable. Formulas, examples, and expert tips for accurate calculation.',
+    description: 'Everything you need to know about Net GST Payable calculation. Input credit formulas, return filing examples, and tips to minimize your GST cash outflow legally.',
     type: 'article',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Ultimate Guide to Net GST Payable Calculation | CostSmart' }],
   },

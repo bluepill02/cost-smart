@@ -4,13 +4,13 @@ import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'How to use the Break-Even Calculator | CostSmart Guide',
-  description: 'Step-by-step guide on how to use the Break-Even Calculator to calculate Break-Even Point. Accurate, fast, and free online tool.',
+  description: 'Step-by-step guide on how to use the Break-Even Calculator to find your break-even point. Includes formulas, examples, and tips for business owners.',
   alternates: {
     canonical: '/blog/how-to-use-break-even-calculator',
   },
   openGraph: {
     title: 'How to use the Break-Even Calculator | CostSmart Guide',
-    description: 'Step-by-step guide on how to use the Break-Even Calculator to calculate Break-Even Point. Accurate, fast, and free online tool.',
+    description: 'Step-by-step guide on how to use the Break-Even Calculator to find your break-even point. Includes formulas, examples, and tips for business owners.',
     type: 'article',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'How to use the Break-Even Calculator | CostSmart Guide' }],
   },

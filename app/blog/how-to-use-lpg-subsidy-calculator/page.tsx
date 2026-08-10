@@ -4,13 +4,13 @@ import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'How to use the LPG Subsidy Calculator | CostSmart Guide',
-  description: 'Step-by-step guide on how to use the LPG Subsidy Calculator to calculate LPG Subsidy. Accurate, fast, and free online tool.',
+  description: 'Step-by-step guide on using the LPG Subsidy Calculator to check eligibility and savings. See current rates, transfer amounts, and savings per cylinder.',
   alternates: {
     canonical: '/blog/how-to-use-lpg-subsidy-calculator',
   },
   openGraph: {
     title: 'How to use the LPG Subsidy Calculator | CostSmart Guide',
-    description: 'Step-by-step guide on how to use the LPG Subsidy Calculator to calculate LPG Subsidy. Accurate, fast, and free online tool.',
+    description: 'Step-by-step guide on using the LPG Subsidy Calculator to check eligibility and savings. See current rates, transfer amounts, and savings per cylinder.',
     type: 'article',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'How to use the LPG Subsidy Calculator | CostSmart Guide' }],
   },

@@ -4,13 +4,13 @@ import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'Property Registration Cost Guide India | CostSmart',
-  description: 'Everything you need to know about Property Registration Cost. Formulas, examples, and expert tips for accurate calculation.',
+  description: 'Everything you need to know about Property Registration Cost. Stamp duty, legal fees, brokerage formulas, and expert tips to budget total home-buying expenses.',
   alternates: {
     canonical: '/blog/ultimate-guide-property-registration-cost',
   },
   openGraph: {
     title: 'Property Registration Cost Guide India | CostSmart',
-    description: 'Everything you need to know about Property Registration Cost. Formulas, examples, and expert tips for accurate calculation.',
+    description: 'Everything you need to know about Property Registration Cost. Stamp duty, legal fees, brokerage formulas, and expert tips to budget total home-buying expenses.',
     type: 'article',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Property Registration Cost Guide India | CostSmart' }],
   },

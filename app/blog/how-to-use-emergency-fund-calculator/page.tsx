@@ -4,13 +4,13 @@ import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'How to use the Emergency Fund Calculator | CostSmart Guide',
-  description: 'Step-by-step guide on how to use the Emergency Fund Calculator to calculate Emergency Fund. Accurate, fast, and free online tool.',
+  description: 'Step-by-step guide on using the Emergency Fund Calculator to set your ideal savings target. Factor in monthly expenses, dependents, and job stability.',
   alternates: {
     canonical: '/blog/how-to-use-emergency-fund-calculator',
   },
   openGraph: {
     title: 'How to use the Emergency Fund Calculator | CostSmart Guide',
-    description: 'Step-by-step guide on how to use the Emergency Fund Calculator to calculate Emergency Fund. Accurate, fast, and free online tool.',
+    description: 'Step-by-step guide on using the Emergency Fund Calculator to set your ideal savings target. Factor in monthly expenses, dependents, and job stability.',
     type: 'article',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'How to use the Emergency Fund Calculator | CostSmart Guide' }],
   },

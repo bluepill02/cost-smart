@@ -3,11 +3,11 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'How to Use the Home Renovation Cost Estimator | CostSmart',
-  description: 'Step-by-step guide to using the CostSmart Home Renovation Cost Estimator. Estimate painting, flooring, plumbing, and civil work costs for your Indian home.',
+  description: 'Step-by-step guide on using the Home Renovation Cost Estimator to budget your project. Get room-by-room cost breakdowns and material estimates.',
   alternates: { canonical: '/blog/how-to-use-home-renovation-cost-estimator' },
   openGraph: {
     title: 'How to Use the Home Renovation Cost Estimator | CostSmart',
-    description: 'Step-by-step guide to using the CostSmart Home Renovation Cost Estimator. Estimate painting, flooring, plumbing, and civil work costs for your Indian home.',
+    description: 'Step-by-step guide on using the Home Renovation Cost Estimator to budget your project. Get room-by-room cost breakdowns and material estimates.',
     type: 'article',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'How to Use the Home Renovation Cost Estimator | CostSmart' }],
   },

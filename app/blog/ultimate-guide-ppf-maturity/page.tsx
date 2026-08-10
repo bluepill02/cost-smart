@@ -4,13 +4,13 @@ import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'Ultimate Guide to PPF Maturity Calculation | CostSmart',
-  description: 'Everything you need to know about PPF Maturity. Formulas, examples, and expert tips for accurate calculation.',
+  description: 'Everything you need to know about PPF Maturity calculation. Compound interest formulas, yearly contribution examples, and tips to maximize tax-free returns.',
   alternates: {
     canonical: '/blog/ultimate-guide-ppf-maturity',
   },
   openGraph: {
     title: 'Ultimate Guide to PPF Maturity Calculation | CostSmart',
-    description: 'Everything you need to know about PPF Maturity. Formulas, examples, and expert tips for accurate calculation.',
+    description: 'Everything you need to know about PPF Maturity calculation. Compound interest formulas, yearly contribution examples, and tips to maximize tax-free returns.',
     type: 'article',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Ultimate Guide to PPF Maturity Calculation | CostSmart' }],
   },

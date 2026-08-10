@@ -8,13 +8,13 @@ import CalculatorSchemaInjector from '@/components/seo/CalculatorSchemaInjector'
 
 export const metadata: Metadata = {
     title: 'CD Calculator | Certificate of Deposit Interest',
-    description: 'Calculate returns on Certificates of Deposit (CD) and Term Deposits. Compare annual yields and see your money grow.',
+    description: 'Calculate returns on Certificates of Deposit (CD) and Term Deposits. Compare annual yields, compounding frequencies, and maturity values instantly.',
     alternates: {
         canonical: '/fd-calculator',
     },
     openGraph: {
         title: 'CD Calculator | Certificate of Deposit Interest',
-        description: 'Calculate returns on Certificates of Deposit (CD) and Term Deposits. Compare annual yields and see your money grow.',
+        description: 'Calculate returns on Certificates of Deposit (CD) and Term Deposits. Compare annual yields, compounding frequencies, and maturity values instantly.',
         url: `${CANONICAL_DOMAIN}/fd-calculator`,
         type: 'website',
     },

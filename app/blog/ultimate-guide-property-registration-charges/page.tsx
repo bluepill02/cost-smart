@@ -5,11 +5,11 @@ import { BlogLayout } from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'Property Registration Charges in India 2025 | CostSmart',
-  description: 'State-wise stamp duty and registration charges in India 2025. Learn rates for Maharashtra, Karnataka, Delhi, UP, and how to save with Section 80C deduction.',
+  description: 'Everything you need to know about Property Registration Charges in India. Stamp duty formulas, state-wise rates, and tips to reduce home purchase overhead costs.',
   alternates: { canonical: '/blog/ultimate-guide-property-registration-charges' },
   openGraph: {
     title: 'Property Registration Charges in India 2025 | CostSmart',
-    description: 'State-wise stamp duty and registration charges in India 2025. Learn rates for Maharashtra, Karnataka, Delhi, UP, and how to save with Section 80C deduction.',
+    description: 'Everything you need to know about Property Registration Charges in India. Stamp duty formulas, state-wise rates, and tips to reduce home purchase overhead costs.',
     type: 'article',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Property Registration Charges in India 2025 | CostSmart' }],
   },

@@ -4,13 +4,13 @@ import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'How to use the Solar ROI Calculator | CostSmart Guide',
-  description: 'Step-by-step guide on how to use the Solar ROI Calculator to calculate Solar Savings. Accurate, fast, and free online tool.',
+  description: 'Step-by-step guide on using the Solar ROI Calculator to estimate panel savings. Calculate payback period, government subsidies, and lifetime returns.',
   alternates: {
     canonical: '/blog/how-to-use-solar-roi-calculator',
   },
   openGraph: {
     title: 'How to use the Solar ROI Calculator | CostSmart Guide',
-    description: 'Step-by-step guide on how to use the Solar ROI Calculator to calculate Solar Savings. Accurate, fast, and free online tool.',
+    description: 'Step-by-step guide on using the Solar ROI Calculator to estimate panel savings. Calculate payback period, government subsidies, and lifetime returns.',
     type: 'article',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'How to use the Solar ROI Calculator | CostSmart Guide' }],
   },

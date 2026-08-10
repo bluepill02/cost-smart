@@ -5,11 +5,11 @@ import { BlogLayout } from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'Property Registration Cost Calculator Guide | CostSmart',
-  description: 'Step-by-step guide to using CostSmart Property Registration Calculator. Calculate stamp duty and registration charges by state.',
+  description: 'Guide to using the Property Registration Cost Calculator to estimate stamp duty, registration fees, and total transaction costs by state in India.',
   alternates: { canonical: '/blog/how-to-use-property-registration-cost-calculator' },
   openGraph: {
     title: 'Property Registration Cost Calculator Guide | CostSmart',
-    description: 'Step-by-step guide to using CostSmart Property Registration Calculator. Calculate stamp duty and registration charges by state.',
+    description: 'Guide to using the Property Registration Cost Calculator to estimate stamp duty, registration fees, and total transaction costs by state in India.',
     type: 'article',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Property Registration Cost Calculator Guide | CostSmart' }],
   },

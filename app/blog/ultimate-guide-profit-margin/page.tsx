@@ -4,13 +4,13 @@ import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'Ultimate Guide to Profit Margin Calculation | CostSmart',
-  description: 'Everything you need to know about Profit Margin. Formulas, examples, and expert tips for accurate calculation.',
+  description: 'Everything you need to know about Profit Margin calculation. Gross, net, and operating margin formulas with examples and expert pricing strategy tips.',
   alternates: {
     canonical: '/blog/ultimate-guide-profit-margin',
   },
   openGraph: {
     title: 'Ultimate Guide to Profit Margin Calculation | CostSmart',
-    description: 'Everything you need to know about Profit Margin. Formulas, examples, and expert tips for accurate calculation.',
+    description: 'Everything you need to know about Profit Margin calculation. Gross, net, and operating margin formulas with examples and expert pricing strategy tips.',
     type: 'article',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Ultimate Guide to Profit Margin Calculation | CostSmart' }],
   },

@@ -4,13 +4,13 @@ import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'Ultimate Guide to GST Amount Calculation | CostSmart',
-  description: 'Everything you need to know about GST Amount. Formulas, examples, and expert tips for accurate calculation.',
+  description: 'Everything you need to know about GST Amount calculation. Inclusive and exclusive formulas, Indian slab rates, and expert tips for accurate goods and services tax.',
   alternates: {
     canonical: '/blog/ultimate-guide-gst-amount',
   },
   openGraph: {
     title: 'Ultimate Guide to GST Amount Calculation | CostSmart',
-    description: 'Everything you need to know about GST Amount. Formulas, examples, and expert tips for accurate calculation.',
+    description: 'Everything you need to know about GST Amount calculation. Inclusive and exclusive formulas, Indian slab rates, and expert tips for accurate goods and services tax.',
     type: 'article',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Ultimate Guide to GST Amount Calculation | CostSmart' }],
   },

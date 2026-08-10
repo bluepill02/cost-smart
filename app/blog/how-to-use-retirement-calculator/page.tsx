@@ -4,13 +4,13 @@ import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'How to use the Retirement Calculator | CostSmart Guide',
-  description: 'Step-by-step guide on how to use the Retirement Calculator to calculate Retirement Corpus. Accurate, fast, and free online tool.',
+  description: 'Step-by-step guide on how to use the Retirement Calculator to plan your corpus. Factor in inflation, expenses, and investments for comfortable retirement.',
   alternates: {
     canonical: '/blog/how-to-use-retirement-calculator',
   },
   openGraph: {
     title: 'How to use the Retirement Calculator | CostSmart Guide',
-    description: 'Step-by-step guide on how to use the Retirement Calculator to calculate Retirement Corpus. Accurate, fast, and free online tool.',
+    description: 'Step-by-step guide on how to use the Retirement Calculator to plan your corpus. Factor in inflation, expenses, and investments for comfortable retirement.',
     type: 'article',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'How to use the Retirement Calculator | CostSmart Guide' }],
   },

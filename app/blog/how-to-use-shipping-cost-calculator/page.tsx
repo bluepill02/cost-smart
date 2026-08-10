@@ -4,13 +4,13 @@ import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'How to use the Shipping Cost Calculator | CostSmart Guide',
-  description: 'Step-by-step guide on how to use the Shipping Cost Calculator to calculate Volumetric Weight. Accurate, fast, and free online tool.',
+  description: 'Step-by-step guide on using the Shipping Cost Calculator to estimate delivery charges. Compare volumetric weight and carrier rates for your packages.',
   alternates: {
     canonical: '/blog/how-to-use-shipping-cost-calculator',
   },
   openGraph: {
     title: 'How to use the Shipping Cost Calculator | CostSmart Guide',
-    description: 'Step-by-step guide on how to use the Shipping Cost Calculator to calculate Volumetric Weight. Accurate, fast, and free online tool.',
+    description: 'Step-by-step guide on using the Shipping Cost Calculator to estimate delivery charges. Compare volumetric weight and carrier rates for your packages.',
     type: 'article',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'How to use the Shipping Cost Calculator | CostSmart Guide' }],
   },

@@ -4,13 +4,13 @@ import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'How to use the Debt Payoff Calculator | CostSmart Guide',
-  description: 'Step-by-step guide on how to use the Debt Payoff Calculator to calculate Debt Free Date. Accurate, fast, and free online tool.',
+  description: 'Step-by-step guide on how to use the Debt Payoff Calculator to create a debt-free timeline. Compare snowball and avalanche repayment strategies.',
   alternates: {
     canonical: '/blog/how-to-use-debt-payoff-calculator',
   },
   openGraph: {
     title: 'How to use the Debt Payoff Calculator | CostSmart Guide',
-    description: 'Step-by-step guide on how to use the Debt Payoff Calculator to calculate Debt Free Date. Accurate, fast, and free online tool.',
+    description: 'Step-by-step guide on how to use the Debt Payoff Calculator to create a debt-free timeline. Compare snowball and avalanche repayment strategies.',
     type: 'article',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'How to use the Debt Payoff Calculator | CostSmart Guide' }],
   },

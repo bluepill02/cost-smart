@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
     title: 'Privacy Policy | CostSmart',
-    description: 'Privacy Policy for CostSmart.',
+    description: 'How CostSmart handles your data. We process calculations locally in your browser and collect only anonymized usage analytics.',
     alternates: {
         canonical: '/privacy',
     }

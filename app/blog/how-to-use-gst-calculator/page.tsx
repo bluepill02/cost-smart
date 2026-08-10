@@ -4,13 +4,13 @@ import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'How to use the GST Calculator | CostSmart Guide',
-  description: 'Step-by-step guide on how to use the GST Calculator to calculate GST Amount. Accurate, fast, and free online tool.',
+  description: 'Step-by-step guide on how to use the GST Calculator to compute inclusive and exclusive GST amounts. Supports all Indian tax slabs: 5%, 12%, 18%, 28%.',
   alternates: {
     canonical: '/blog/how-to-use-gst-calculator',
   },
   openGraph: {
     title: 'How to use the GST Calculator | CostSmart Guide',
-    description: 'Step-by-step guide on how to use the GST Calculator to calculate GST Amount. Accurate, fast, and free online tool.',
+    description: 'Step-by-step guide on how to use the GST Calculator to compute inclusive and exclusive GST amounts. Supports all Indian tax slabs: 5%, 12%, 18%, 28%.',
     type: 'article',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'How to use the GST Calculator | CostSmart Guide' }],
   },
