@@ -29,7 +29,7 @@ export const metadata: Metadata = {
 
 export default function BlogPost() {
   return (
-    <article className="max-w-4xl mx-auto px-4 py-8 md:py-12">
+    <>
       {/* JSON-LD Schema */}
       <script
         type="application/ld+json"
@@ -67,7 +67,7 @@ export default function BlogPost() {
       {/* Featured Image */}
       <div className="relative w-full aspect-video rounded-2xl overflow-hidden mb-12 shadow-lg border border-slate-200">
         <Image
-          src="/images/blog/retirement-planning-2026.jpg"
+          src="/images/blog/tax-brackets-2026-obbba.svg"
           alt="A calculator, pen, and financial charts illustrating retirement planning in 2026"
           fill
           className="object-cover"
@@ -142,15 +142,15 @@ export default function BlogPost() {
               <tr>
                 <td className="p-4 font-medium">Total Limit (Employee + Employer)</td>
                 <td className="p-4 text-slate-500">$70,000</td>
-                <td className="p-4 font-bold text-emerald-700">$73,000</td>
-                <td className="p-4 text-emerald-600">+$3,000</td>
+                <td className="p-4 font-bold text-emerald-700">$72,000</td>
+                <td className="p-4 text-emerald-600">+$2,000</td>
               </tr>
             </tbody>
           </table>
         </div>
 
         <p>
-          The employer-side limit increases are especially relevant for the self-employed. If you run a solo 401(k), the total contribution limit (employee + employer profit sharing) climbed to <strong>$73,000</strong> (up from $70,000).
+          The employer-side limit increases are especially relevant for the self-employed. If you run a solo 401(k), the total contribution limit (employee + employer profit sharing) climbed to <strong>$72,000</strong> (up from $70,000).
         </p>
 
         <h3>The Catch-Up and Super Catch-Up Rules</h3>
@@ -158,7 +158,7 @@ export default function BlogPost() {
           For those aged 50 and older, the standard catch-up contribution rose to <strong>$8,000</strong>. This means an older worker can funnel a total of <strong>$32,500</strong> into their 401(k) in 2026.
         </p>
         <p>
-          Introduced by SECURE 2.0, the &quot;super catch-up&quot; allows workers precisely between the ages of 60 and 63 to contribute up to <strong>$11,250</strong> as a catch-up, enabling a maximum employee deferral of <strong>$35,750</strong>. Remember, if you make over $145,000 in the prior year, your catch-up contributions <strong>must</strong> be made on a Roth (after-tax) basis.
+          Introduced by SECURE 2.0, the &quot;super catch-up&quot; allows workers precisely between the ages of 60 and 63 to contribute up to <strong>$11,250</strong> as a catch-up, enabling a maximum employee deferral of <strong>$35,750</strong>. Remember, if you make over $150,000 in the prior year, your catch-up contributions <strong>must</strong> be made on a Roth (after-tax) basis.
         </p>
 
         <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mt-12 mb-6">
@@ -282,7 +282,7 @@ export default function BlogPost() {
         </p>
       </div>
 
-      <div className="mt-16 pt-8 border-t border-slate-200">
+      <div className="mt-16 pt-8 border-t border-slate-200 not-prose">
         <h3 className="text-lg font-bold text-slate-900 mb-4">Read Next</h3>
         <div className="grid sm:grid-cols-2 gap-4">
           <Link href="/blog/us-tcja-2026-sunset-tax-changes" className="group block p-4 bg-slate-50 rounded-xl border border-slate-200 hover:border-emerald-500 transition-colors">
@@ -301,6 +301,6 @@ export default function BlogPost() {
           </Link>
         </div>
       </div>
-    </article>
+    </>
   );
 }
