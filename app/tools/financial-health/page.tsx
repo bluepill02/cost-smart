@@ -5,7 +5,7 @@ import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
 import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 
 export const metadata: Metadata = {
-  alternates: { canonical: `${CANONICAL_DOMAIN}/tools/financial-health` },
+  alternates: { canonical: '/tools/financial-health' },
   title: 'AI Financial Health Score - Money Health Check & Spending Analysis | CostSmart',
   description: 'Get your AI-powered Financial Health Score (0-100). Analyze bank statements and spending patterns with sentiment analysis. Detect financial stress indicators and get personalized recommendations.',
   keywords: 'financial health check, money health score, spending analysis AI, financial wellness, bank statement analyzer, financial stress test, money habits analysis, personal finance score, financial behavior analysis',
