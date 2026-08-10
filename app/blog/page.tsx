@@ -18,6 +18,13 @@ export const metadata: Metadata = {
 
 const FEATURED = [
   {
+    slug: '2026-retirement-contribution-limits',
+    title: '2026 Retirement Plan Contribution Limits: How to Maximize 401(k)s, IRAs, and HSAs',
+    desc: 'The IRS has raised 401(k) and IRA contribution limits for 2026. Discover how to adapt your strategy for $24,500 401(k) limits, $7,500 IRAs, and updated HSA ceilings.',
+    tag: 'Investing',
+    color: 'emerald',
+  },
+  {
     slug: 'us-fed-interest-rates-2026',
     title: 'Fed Interest Rate Decision July 2026: 3.75% Rates Hold Steady',
     desc: 'The Federal Reserve kept interest rates at 3.50%-3.75% in July 2026. Discover how this affects your mortgage, credit cards, and high-yield savings.',
@@ -130,6 +137,7 @@ const CATEGORIES = [
     icon: TrendingUp,
     color: 'emerald',
     posts: [
+      { slug: '2026-retirement-contribution-limits', title: '2026 Retirement Plan Limits: 401(k), IRA, HSA' },
       { slug: 'us-fed-interest-rates-2026', title: 'Fed Interest Rate Decision July 2026: 3.75% Rates Hold Steady' },
       { slug: 'sip-vs-lumpsum', title: 'SIP vs Lumpsum: Which Strategy Wins?' },
       { slug: 'fd-vs-mutual-funds', title: 'FD vs Mutual Funds: Where to Invest?' },
