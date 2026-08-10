@@ -1,0 +1,13 @@
+{
+  "id": "FEAT-003",
+  "title": "Expand short meta descriptions to 120-160 characters",
+  "status": "completed",
+  "description": "Expand all meta descriptions under 120 characters to 120-160 characters with meaningful, keyword-rich content.",
+  "findings": [
+    "All calculator pages used the same description text in 4 places: metadata description, OG description, CalculatorSchemaInjector prop, and subtitle <p> tag. Using sed with global flag updated all occurrences at once.",
+    "Two how-to-use posts (home-renovation-cost-estimator, property-registration-cost-calculator) had custom descriptions instead of the template pattern.",
+    "Two ultimate-guide posts (home-renovation-cost, property-registration-charges) had custom descriptions instead of the template pattern.",
+    "The emergency-fund-importance blog post has descriptions in 3 places: metadata, OG, and inline JsonLd schema call.",
+    "Build passes successfully with all changes."
+  ]
+}
