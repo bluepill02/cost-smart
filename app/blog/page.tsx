@@ -19,6 +19,13 @@ export const metadata: Metadata = {
 
 const FEATURED = [
   {
+    slug: '2026-tax-strategies-guide',
+    title: '2026 Tax Strategies Guide: Navigating New Brackets & Deductions',
+    desc: 'Master the 2026 tax landscape with our expert guide. We break down the new $16,100 standard deduction, 37% top bracket, and updated retirement limits so you can keep more of your money.',
+    tag: 'Tax',
+    color: 'blue',
+  },
+  {
     slug: '2026-retirement-contribution-limits',
     title: '2026 Retirement Plan Contribution Limits: How to Maximize 401(k)s, IRAs, and HSAs',
     desc: 'The IRS has raised 401(k) and IRA contribution limits for 2026. Discover how to adapt your strategy for $24,500 401(k) limits, $7,500 IRAs, and updated HSA ceilings.',
@@ -153,6 +160,7 @@ const CATEGORIES = [
     icon: Receipt,
     color: 'blue',
     posts: [
+      { slug: '2026-tax-strategies-guide', title: '2026 Tax Strategies Guide' },
       { slug: '2026-tax-and-inflation-guide', title: '2026 Cost of Living & Tax Guide' },
       { slug: 'us-tcja-2026-sunset-tax-changes', title: '2026 Tax Brackets: TCJA Sunset & OBBBA' },
       { slug: 'new-tax-regime-2026-salary-guide', title: 'New Tax Regime 2026: Where Salaried Savers Should Park Cash' },
