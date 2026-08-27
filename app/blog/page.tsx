@@ -19,6 +19,13 @@ export const metadata: Metadata = {
 
 const FEATURED = [
   {
+    slug: '2026-social-security-cola-inflation',
+    title: 'Beating Inflation 2026: Social Security COLA Guide',
+    desc: 'The 2027 Social Security COLA is projected at 2.8%, increasing the average benefit to $2,081.46. Discover how to beat inflation and stretch your retirement income in 2026.',
+    tag: 'Retirement',
+    color: 'emerald',
+  },
+  {
     slug: '2026-tax-strategies-guide',
     title: '2026 Tax Strategies Guide: Navigating New Brackets & Deductions',
     desc: 'Master the 2026 tax landscape with our expert guide. We break down the new $16,100 standard deduction, 37% top bracket, and updated retirement limits so you can keep more of your money.',
