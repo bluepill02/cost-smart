@@ -19,6 +19,13 @@ export const metadata: Metadata = {
 
 const FEATURED = [
   {
+    slug: 'tcja-sunset-2026-preparation',
+    title: 'TCJA Sunset 2026: How to Prepare Your Finances for Higher Taxes',
+    desc: 'The 2017 Tax Cuts and Jobs Act is officially sunsetting. We break down the old tax brackets returning in 2026 and how to shield your paycheck.',
+    tag: 'Tax',
+    color: 'blue',
+  },
+  {
     slug: '2026-tax-strategies-guide',
     title: '2026 Tax Strategies Guide: Navigating New Brackets & Deductions',
     desc: 'Master the 2026 tax landscape with our expert guide. We break down the new $16,100 standard deduction, 37% top bracket, and updated retirement limits so you can keep more of your money.',
@@ -160,6 +167,7 @@ const CATEGORIES = [
     icon: Receipt,
     color: 'blue',
     posts: [
+      { slug: 'tcja-sunset-2026-preparation', title: 'TCJA Sunset 2026: Tax Prep' },
       { slug: '2026-tax-strategies-guide', title: '2026 Tax Strategies Guide' },
       { slug: '2026-tax-and-inflation-guide', title: '2026 Cost of Living & Tax Guide' },
       { slug: 'us-tcja-2026-sunset-tax-changes', title: '2026 Tax Brackets: TCJA Sunset & OBBBA' },
