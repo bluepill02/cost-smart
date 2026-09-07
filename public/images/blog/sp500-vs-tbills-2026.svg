@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="100%" height="100%">
+  <!-- Background -->
+  <rect width="800" height="400" fill="#f8fafc" rx="16" />
+
+  <!-- Title -->
+  <text x="400" y="40" font-family="sans-serif" font-size="24" font-weight="bold" fill="#0f172a" text-anchor="middle">
+    August 2026: S&amp;P 500 Return vs. Treasury Bill Yield
+  </text>
+
+  <!-- Subtitle -->
+  <text x="400" y="65" font-family="sans-serif" font-size="14" fill="#64748b" text-anchor="middle">
+    Trailing 1-Year Equity Performance vs. 13-Week Risk-Free Yield
+  </text>
+
+  <!-- Grid Lines -->
+  <line x1="100" y1="100" x2="700" y2="100" stroke="#e2e8f0" stroke-width="1" />
+  <line x1="100" y1="150" x2="700" y2="150" stroke="#e2e8f0" stroke-width="1" />
+  <line x1="100" y1="200" x2="700" y2="200" stroke="#e2e8f0" stroke-width="1" />
+  <line x1="100" y1="250" x2="700" y2="250" stroke="#e2e8f0" stroke-width="1" />
+  <line x1="100" y1="300" x2="700" y2="300" stroke="#94a3b8" stroke-width="2" />
+
+  <!-- Y-Axis Labels -->
+  <text x="80" y="105" font-family="sans-serif" font-size="14" fill="#64748b" text-anchor="end">20%</text>
+  <text x="80" y="155" font-family="sans-serif" font-size="14" fill="#64748b" text-anchor="end">15%</text>
+  <text x="80" y="205" font-family="sans-serif" font-size="14" fill="#64748b" text-anchor="end">10%</text>
+  <text x="80" y="255" font-family="sans-serif" font-size="14" fill="#64748b" text-anchor="end">5%</text>
+  <text x="80" y="305" font-family="sans-serif" font-size="14" fill="#64748b" text-anchor="end">0%</text>
+
+  <!-- Bar 1: T-Bills (3.71%) -->
+  <!-- Calculation: Max Y = 100, Min Y = 300. Range = 200px for 20%. 1% = 10px. 3.71% = 37.1px -->
+  <rect x="250" y="262.9" width="100" height="37.1" fill="#3b82f6" rx="4" />
+  <text x="300" y="245" font-family="sans-serif" font-size="20" font-weight="bold" fill="#1e40af" text-anchor="middle">3.71%</text>
+  <text x="300" y="325" font-family="sans-serif" font-size="16" font-weight="bold" fill="#334155" text-anchor="middle">13-Week T-Bills</text>
+  <text x="300" y="345" font-family="sans-serif" font-size="12" fill="#64748b" text-anchor="middle">(Current Yield)</text>
+
+  <!-- Bar 2: S&P 500 (18.67%) -->
+  <!-- Calculation: Max Y = 100, Min Y = 300. Range = 200px for 20%. 1% = 10px. 18.67% = 186.7px -->
+  <rect x="450" y="113.3" width="100" height="186.7" fill="#10b981" rx="4" />
+  <text x="500" y="95" font-family="sans-serif" font-size="20" font-weight="bold" fill="#047857" text-anchor="middle">18.67%</text>
+  <text x="500" y="325" font-family="sans-serif" font-size="16" font-weight="bold" fill="#334155" text-anchor="middle">S&amp;P 500</text>
+  <text x="500" y="345" font-family="sans-serif" font-size="12" fill="#64748b" text-anchor="middle">(1-Year Return)</text>
+
+</svg>
