@@ -274,6 +274,7 @@ const CATEGORIES = [
       { slug: 'beating-inflation-2026', title: 'How to Beat Inflation in 2026' },
       { slug: 'credit-card-debt-strategy-2026', title: 'Credit Card Debt Strategy 2026' },
       { slug: 'gst-inclusive-vs-exclusive', title: 'GST Inclusive vs Exclusive' },
+      { slug: 'tcja-sunset-2026-tax-changes', title: '2026 TCJA Sunset: What Tax Bracket Will You Fall Into?' },
     ],
   },
 ];
