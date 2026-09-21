@@ -19,6 +19,13 @@ export const metadata: Metadata = {
 
 const FEATURED = [
   {
+    slug: 'sp500-vs-gold-2026',
+    title: 'S&P 500 vs Gold in Late 2026: A Strategy Guide',
+    desc: 'In late 2026, with the S&P 500 at 7,650 and Gold soaring to 4,391, investors must rebalance. Discover our data-driven asset allocation strategy.',
+    tag: 'Investing',
+    color: 'amber',
+  },
+  {
     slug: 'sp500-vs-treasury-bills-2026',
     title: 'S&P 500 vs 3.7% T-Bills: Where to Invest Cash in 2026',
     desc: 'With 13-week Treasury Bills at 3.71% and the S&P 500 returning 18.67% over the last year, where should you park your cash in 2026? A data-driven guide.',
@@ -152,6 +159,7 @@ const CATEGORIES = [
     icon: TrendingUp,
     color: 'emerald',
     posts: [
+      { slug: 'sp500-vs-gold-2026', title: 'S&P 500 vs Gold in Late 2026: A Strategy Guide' },
       { slug: 'sp500-vs-treasury-bills-2026', title: 'S&P 500 vs 3.7% T-Bills: Where to Invest Cash in 2026' },
       { slug: '2026-retirement-contribution-limits', title: '2026 Retirement Plan Limits: 401(k), IRA, HSA' },
       { slug: 'us-fed-interest-rates-2026', title: 'Fed Interest Rate Decision July 2026: 3.75% Rates Hold Steady' },
