@@ -60,7 +60,7 @@ export function useAIClassifier() {
     }, []);
 
     const classify = useCallback((text: string, labels: string[]) => {
-        const id = Math.random().toString(36).substring(7);
+        const id = crypto.randomUUID();
         requestIdRef.current = id;
         setLoading(true);
         workerManager.postMessage({

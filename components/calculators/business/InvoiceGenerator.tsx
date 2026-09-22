@@ -29,7 +29,7 @@ export default function InvoiceGenerator() {
     ]);
 
     const addItem = () => {
-        setItems([...items, { id: Math.random().toString(), description: '', quantity: 1, rate: 0 }]);
+        setItems([...items, { id: crypto.randomUUID(), description: '', quantity: 1, rate: 0 }]);
     };
 
     const removeItem = (id: string) => {
