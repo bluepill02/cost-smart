@@ -188,7 +188,8 @@ export default function FDCalculator({
                                     width={40}
                                 />
                                 {}
-                                <RechartsTooltip formatter={(value: number | string | undefined | readonly (number | string)[]) => formatCurrency(Number(value), currency, locale)} />
+                                {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
+                                <RechartsTooltip formatter={(value: any) => formatCurrency(Number(value), currency, locale)} />
                                 <Area type="monotone" dataKey="value" stroke="#10b981" fillOpacity={1} fill="url(#colorVal)" />
                             </AreaChart>
                         </ResponsiveContainer>
