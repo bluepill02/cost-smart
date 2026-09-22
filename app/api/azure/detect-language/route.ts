@@ -32,18 +32,7 @@ interface DetectRequest {
 export async function POST(request: NextRequest) {
   try {
     // Rate limiting by IP
-    let ip = 'unknown';
-    if (process.env.TRUST_PROXY === 'true') {
-      const forwarded = request.headers.get('x-forwarded-for');
-      if (forwarded) {
-        ip = forwarded.split(',')[0].trim();
-      } else {
-        const realIp = request.headers.get('x-real-ip');
-        if (realIp) {
-          ip = realIp;
-        }
-      }
-    }
+    const ip = (request as any).ip || '127.0.0.1';
     if (isRateLimited(ip)) {
       return NextResponse.json(
         { error: 'Too many requests. Please try again later.' },
