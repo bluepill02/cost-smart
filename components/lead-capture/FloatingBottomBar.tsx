@@ -50,7 +50,6 @@ export default function FloatingBottomBar() {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (!email) return;
-    console.log('[CostSmart Bottom Bar]', { email });
     markLeadCaptured();
     submitLeadCapture({ email, formSource: 'costsmart-bottombar-form', pageUrl: window.location.href });
     setSubmitted(true);
