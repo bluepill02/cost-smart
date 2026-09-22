@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
     title: 'Cookie Policy | CostSmart',
-    description: 'Cookie Policy for CostSmart.',
+    description: 'Learn how CostSmart uses cookies for analytics and functionality. Manage your cookie preferences and understand our data practices.',
     alternates: {
         canonical: '/cookies',
     }

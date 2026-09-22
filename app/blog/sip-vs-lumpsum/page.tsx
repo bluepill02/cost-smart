@@ -16,6 +16,7 @@ export const metadata: Metadata = {
         description: 'Compare Systematic Investment Plans (SIP) with Lumpsum investing. Understand the pros and cons of each strategy for mutual funds.',
         url: `${CANONICAL_DOMAIN}/blog/sip-vs-lumpsum`,
         type: 'article',
+        images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'SIP vs Lumpsum: Which is Better for You?' }],
     },
 };
 

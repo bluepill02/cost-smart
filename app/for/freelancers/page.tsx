@@ -6,13 +6,13 @@ import {
 } from 'lucide-react';
 import EmailCaptureSection from '@/components/features/EmailCaptureSection';
 import JsonLd from '@/components/seo/JsonLd';
-import { CANONICAL_DOMAIN, getCalculatorSchema } from '@/lib/seo-utils';
+import { getCalculatorSchema } from '@/lib/seo-utils';
 
 export const metadata: Metadata = {
   title: 'Financial Tools for Freelancers | CostSmart',
   description:
     'Free financial tools built for freelancers. Calculate profit margins, generate invoices, estimate taxes (income tax + GST), and track break-even points. Separate business from personal finances.',
-  alternates: { canonical: `${CANONICAL_DOMAIN}/for/freelancers` },
+  alternates: { canonical: '/for/freelancers' },
 };
 
 export default function FreelancersLandingPage() {

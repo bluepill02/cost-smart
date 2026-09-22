@@ -13,13 +13,13 @@ import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
     title: 'Investment Return Calculator | CostSmart',
-    description: 'Calculate how your investments grow over time with compound interest. Model monthly contributions and initial lumpsums.',
+    description: 'Calculate how your investments grow over time with compound interest. Model monthly contributions, lump sums, and see projected portfolio value.',
     alternates: {
         canonical: '/investment-calculator',
     },
     openGraph: {
         title: 'Investment Return Calculator | CostSmart',
-        description: 'Calculate how your investments grow over time with compound interest. Model monthly contributions and initial lumpsums.',
+        description: 'Calculate how your investments grow over time with compound interest. Model monthly contributions, lump sums, and see projected portfolio value.',
         url: `${CANONICAL_DOMAIN}/investment-calculator`,
         type: 'website',
     },
@@ -30,7 +30,7 @@ export default function InvestmentCalculatorPage() {
         <div className="container mx-auto px-4 py-12 max-w-5xl">
             <CalculatorSchemaInjector
                 calculatorName="Investment Return Calculator"
-                calculatorDescription="Calculate how your investments grow over time with compound interest. Model monthly contributions and initial lumpsums."
+                calculatorDescription="Calculate how your investments grow over time with compound interest. Model monthly contributions, lump sums, and see projected portfolio value."
                 urlPath="/investment-calculator"
                 calculatorType="investment"
             />

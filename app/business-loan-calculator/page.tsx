@@ -7,13 +7,13 @@ import AmazonRecommendations from '@/components/affiliate/AmazonRecommendations'
 
 export const metadata: Metadata = {
   title: 'Business Loan Calculator | CostSmart',
-  description: 'Calculate business loan EMI and check eligibility.',
+  description: 'Calculate business loan EMI, total interest, and repayment schedule. Compare term loans, working capital, and check eligibility instantly.',
   alternates: {
     canonical: '/business-loan-calculator',
   },
   openGraph: {
     title: 'Business Loan Calculator | CostSmart',
-    description: 'Calculate business loan EMI and check eligibility.',
+    description: 'Calculate business loan EMI, total interest, and repayment schedule. Compare term loans, working capital, and check eligibility instantly.',
     url: `${CANONICAL_DOMAIN}/business-loan-calculator`,
     type: 'website',
   },
@@ -22,10 +22,10 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="container mx-auto px-4 py-12 max-w-4xl">
-      <CalculatorSchemaInjector calculatorName="Business Loan Calculator" calculatorDescription="Calculate business loan EMI and check eligibility." urlPath="/business-loan-calculator" calculatorType="loan" />
+      <CalculatorSchemaInjector calculatorName="Business Loan Calculator" calculatorDescription="Calculate business loan EMI, total interest, and repayment schedule. Compare term loans, working capital, and check eligibility instantly." urlPath="/business-loan-calculator" calculatorType="loan" />
       <div className="mb-8 text-center">
         <h1 className="text-4xl font-bold text-slate-900 mb-4">Business Loan Calculator</h1>
-        <p className="text-xl text-slate-600 max-w-2xl mx-auto">Calculate business loan EMI and check eligibility.</p>
+        <p className="text-xl text-slate-600 max-w-2xl mx-auto">Calculate business loan EMI, total interest, and repayment schedule. Compare term loans, working capital, and check eligibility instantly.</p>
       </div>
 
       <BusinessLoanCalculator />

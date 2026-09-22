@@ -5,7 +5,7 @@ import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
 import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 
 export const metadata: Metadata = {
-  alternates: { canonical: `${CANONICAL_DOMAIN}/tools/translator` },
+  alternates: { canonical: '/tools/translator' },
   title: 'Financial Calculator in Hindi, Tamil & 10+ Indian Languages | CostSmart Translator',
   description: 'Translate EMI calculator results, SIP returns, tax summaries, and financial advice into Hindi, Tamil, Telugu, Bengali, Marathi, Gujarati, Kannada, Malayalam, Punjabi, and Odia. Break the English barrier in financial literacy.',
   keywords: 'financial calculator in Hindi, EMI calculator Tamil, SIP calculator Telugu, tax calculator Bengali, financial translator, Indian language finance, Hindi finance tools, Tamil finance calculator, multilingual calculator India',

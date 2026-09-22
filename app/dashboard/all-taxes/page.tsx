@@ -10,7 +10,7 @@ import { Calculator, Percent, FileText } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'All Taxes Dashboard | Income Tax, GST, TDS Calculator India',
-  description: 'Complete India Tax Dashboard. Calculate Income Tax (New vs Old), GST, and TDS in one place. Updated for FY 2024-25.',
+  description: 'Complete India Tax Dashboard. Calculate Income Tax (New vs Old regime), GST, and TDS in one place. Updated for FY 2024-25 with latest slab rates.',
   alternates: {
     canonical: '/dashboard/all-taxes',
   },

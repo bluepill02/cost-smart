@@ -6,13 +6,13 @@ import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'Invoice Generator | CostSmart',
-  description: 'Create professional PDF invoices instantly for free.',
+  description: 'Create professional PDF invoices instantly for free. Add line items, taxes, discounts, and your logo. Download or email to clients.',
   alternates: {
     canonical: '/invoice-generator',
   },
   openGraph: {
     title: 'Invoice Generator | CostSmart',
-    description: 'Create professional PDF invoices instantly for free.',
+    description: 'Create professional PDF invoices instantly for free. Add line items, taxes, discounts, and your logo. Download or email to clients.',
     url: `${CANONICAL_DOMAIN}/invoice-generator`,
     type: 'website',
   },
@@ -21,10 +21,10 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="container mx-auto px-4 py-12 max-w-4xl">
-      <CalculatorSchemaInjector calculatorName="Invoice Generator" calculatorDescription="Create professional PDF invoices instantly for free." urlPath="/invoice-generator" calculatorType="business" />
+      <CalculatorSchemaInjector calculatorName="Invoice Generator" calculatorDescription="Create professional PDF invoices instantly for free. Add line items, taxes, discounts, and your logo. Download or email to clients." urlPath="/invoice-generator" calculatorType="business" />
       <div className="mb-8 text-center">
         <h1 className="text-4xl font-bold text-slate-900 mb-4">Invoice Generator</h1>
-        <p className="text-xl text-slate-600 max-w-2xl mx-auto">Create professional PDF invoices instantly for free.</p>
+        <p className="text-xl text-slate-600 max-w-2xl mx-auto">Create professional PDF invoices instantly for free. Add line items, taxes, discounts, and your logo. Download or email to clients.</p>
       </div>
 
       <InvoiceGenerator />

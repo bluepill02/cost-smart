@@ -7,13 +7,13 @@ import {
 import LandedCostReport from '@/components/calculators/LandedCostReport';
 import EmailCaptureSection from '@/components/features/EmailCaptureSection';
 import JsonLd from '@/components/seo/JsonLd';
-import { CANONICAL_DOMAIN, getCalculatorSchema } from '@/lib/seo-utils';
+import { getCalculatorSchema } from '@/lib/seo-utils';
 
 export const metadata: Metadata = {
   title: 'Landed Cost Calculator for US Importers | CostSmart',
   description:
     'Calculate your total landed cost before you ship. Duties, taxes, freight, route distance, and last-mile delivery in one free report.',
-  alternates: { canonical: `${CANONICAL_DOMAIN}/for/logistics` },
+  alternates: { canonical: '/for/logistics' },
 };
 
 export default function LogisticsLandingPage() {

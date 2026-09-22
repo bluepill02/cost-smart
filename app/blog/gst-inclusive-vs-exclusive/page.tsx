@@ -1,13 +1,18 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'GST Inclusive vs Exclusive: How to Calculate Correctly?',
   description: 'Confused by GST calculations? Learn the difference between Inclusive and Exclusive GST with simple formulas and examples.',
   alternates: {
-    canonical: `${CANONICAL_DOMAIN}/blog/gst-inclusive-vs-exclusive`,
+    canonical: '/blog/gst-inclusive-vs-exclusive',
+  },
+  openGraph: {
+    title: 'GST Inclusive vs Exclusive: How to Calculate Correctly?',
+    description: 'Confused by GST calculations? Learn the difference between Inclusive and Exclusive GST with simple formulas and examples.',
+    type: 'article',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'GST Inclusive vs Exclusive: How to Calculate Correctly?' }],
   },
 };
 

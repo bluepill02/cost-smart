@@ -8,13 +8,13 @@ import RelatedCalculators from '@/components/features/RelatedCalculators';
 
 export const metadata: Metadata = {
   title: 'Freelance Rate Calculator | CostSmart',
-  description: 'Calculate your ideal hourly rate as a freelancer.',
+  description: 'Calculate your ideal freelance hourly rate based on desired income, expenses, taxes, and billable hours. Stop undercharging for your work.',
   alternates: {
     canonical: '/freelance-rate-calculator',
   },
   openGraph: {
     title: 'Freelance Rate Calculator | CostSmart',
-    description: 'Calculate your ideal hourly rate as a freelancer.',
+    description: 'Calculate your ideal freelance hourly rate based on desired income, expenses, taxes, and billable hours. Stop undercharging for your work.',
     url: `${CANONICAL_DOMAIN}/freelance-rate-calculator`,
     type: 'website',
   },
@@ -23,10 +23,10 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <div className="container mx-auto px-4 py-12 max-w-4xl">
-      <CalculatorSchemaInjector calculatorName="Freelance Rate Calculator" calculatorDescription="Calculate your ideal hourly rate as a freelancer." urlPath="/freelance-rate-calculator" calculatorType="business" />
+      <CalculatorSchemaInjector calculatorName="Freelance Rate Calculator" calculatorDescription="Calculate your ideal freelance hourly rate based on desired income, expenses, taxes, and billable hours. Stop undercharging for your work." urlPath="/freelance-rate-calculator" calculatorType="business" />
       <div className="mb-8 text-center">
         <h1 className="text-4xl font-bold text-slate-900 mb-4">Freelance Rate Calculator</h1>
-        <p className="text-xl text-slate-600 max-w-2xl mx-auto">Calculate your ideal hourly rate as a freelancer.</p>
+        <p className="text-xl text-slate-600 max-w-2xl mx-auto">Calculate your ideal freelance hourly rate based on desired income, expenses, taxes, and billable hours. Stop undercharging for your work.</p>
       </div>
 
       <FreelanceRateCalculator />

@@ -15,6 +15,7 @@ export const metadata: Metadata = {
         description: 'Confusion about the new tax slabs? We explain the difference between Old and New Regime and help you choose the right one.',
         url: `${CANONICAL_DOMAIN}/blog/new-vs-old-tax-regime`,
         type: 'article',
+        images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'New vs Old Tax Regime FY 2024-25: Which is Better?' }],
     },
 };
 

@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   title: 'Home Loan EMI Calculator | CostSmart',
   description: 'Calculate home loan EMI, total interest payable, and full amortization schedule. Supports all loan types with prepayment simulation for Indian banks.',
   alternates: {
-    canonical: `${CANONICAL_DOMAIN}/home-loan-calculator`,
+    canonical: '/home-loan-calculator',
   },
   openGraph: {
     title: 'Home Loan EMI Calculator | CostSmart',

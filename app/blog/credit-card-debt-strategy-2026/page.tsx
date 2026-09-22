@@ -6,12 +6,13 @@ import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 export const metadata: Metadata = {
   title: 'How to Beat 2026\'s 19.35% Credit Card Interest Rates',
   description: 'A data-backed guide to crushing credit card debt when average interest rates sit at 19.35% in July 2026.',
-  alternates: { canonical: `${CANONICAL_DOMAIN}/blog/credit-card-debt-strategy-2026` },
+  alternates: { canonical: '/blog/credit-card-debt-strategy-2026' },
   openGraph: {
     title: 'How to Beat 2026\'s 19.35% Credit Card Interest Rates',
     description: 'A data-backed guide to crushing credit card debt when average interest rates sit at 19.35% in July 2026.',
     url: `${CANONICAL_DOMAIN}/blog/credit-card-debt-strategy-2026`,
     type: 'article',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'How to Beat 2026\'s 19.35% Credit Card Interest Rates' }],
   },
 };
 

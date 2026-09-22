@@ -8,7 +8,7 @@ import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
 
 export const metadata: Metadata = {
   title: 'Financial Comparisons | CostSmart',
-  description: 'Compare FD vs Mutual Funds, PPF vs FD, Solar vs Wind, Rent vs Buy. Data-driven India-focused analysis.',
+  description: 'Compare FD vs Mutual Funds, PPF vs FD, Solar vs Wind, and Rent vs Buy side by side. Data-driven, India-focused analysis for smarter financial decisions.',
   alternates: {
     canonical: '/compare',
   },

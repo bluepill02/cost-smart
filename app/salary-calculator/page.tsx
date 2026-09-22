@@ -8,7 +8,7 @@ import CalculatorSchemaInjector from '@/components/seo/CalculatorSchemaInjector'
 
 export const metadata: Metadata = {
     title: 'Salary Calculator | Paycheck & Take Home Pay Estimator',
-    description: 'Calculate your true take-home pay (net salary) after taxes and deductions. Plan your monthly budget with accuracy.',
+    description: 'Calculate your true take-home pay after federal and state taxes, FICA, and deductions. Plan your monthly budget with paycheck-level accuracy.',
     alternates: {
         canonical: '/salary-calculator',
     }
@@ -19,7 +19,7 @@ export default function SalaryCalculatorPage() {
         <div className="container mx-auto px-4 py-12 max-w-5xl">
             <CalculatorSchemaInjector
                 calculatorName="Salary Calculator"
-                calculatorDescription="Calculate your true take-home pay (net salary) after taxes and deductions. Plan your monthly budget with accuracy."
+                calculatorDescription="Calculate your true take-home pay after federal and state taxes, FICA, and deductions. Plan your monthly budget with paycheck-level accuracy."
                 urlPath="/salary-calculator"
                 calculatorType="tax"
             />

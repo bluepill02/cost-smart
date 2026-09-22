@@ -1,13 +1,18 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'Rent vs Buy: The Mathematical Truth (No Emotions)',
   description: 'Is buying always better? We break down the Opportunity Cost method to calculate the true financial winner between renting and buying.',
   alternates: {
-    canonical: `${CANONICAL_DOMAIN}/blog/rent-vs-buy-math`,
+    canonical: '/blog/rent-vs-buy-math',
+  },
+  openGraph: {
+    title: 'Rent vs Buy: The Mathematical Truth (No Emotions)',
+    description: 'Is buying always better? We break down the Opportunity Cost method to calculate the true financial winner between renting and buying.',
+    type: 'article',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Rent vs Buy: The Mathematical Truth (No Emotions)' }],
   },
 };
 
