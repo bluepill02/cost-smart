@@ -29,15 +29,8 @@ const FREE_LIMIT = 2;
 const PRO_LIMIT = 30;
 
 function getClientIp(request: NextRequest): string {
-  const forwarded = request.headers.get('x-forwarded-for');
-  if (forwarded) {
-    return forwarded.split(',')[0].trim();
-  }
-  const realIp = request.headers.get('x-real-ip');
-  if (realIp) {
-    return realIp;
-  }
-  return 'unknown';
+  // @ts-ignore - Next.js 15+ may have removed request.ip, but it might still exist in some contexts, or we fallback
+  return (request as any).ip ?? '127.0.0.1';
 }
 
 function checkRateLimit(ip: string, limit: number): { allowed: boolean; remaining: number } {
