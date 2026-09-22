@@ -76,12 +76,6 @@ export default function SalaryCalculator({
 
             const monthlyTDS = annualTax / 12;
 
-            // const inHand = monthlyCTC - totalDeductions; // Ignoring Employer PF part of CTC for simplicity or assuming CTC includes it
-
-            // Note: Usually CTC includes Employer PF. If so, Gross Salary = CTC - Employer PF.
-            // Let's assume input is "Gross Salary" for simplicity, or adjust.
-            // "CTC" implies Cost to Company. Employer PF (12% of Basic) is part of CTC but not Gross.
-            // Let's refine:
             const employerPF = basic * (pfRate / 100);
             const grossSalary = monthlyCTC - employerPF;
             const employeePF = basic * (pfRate / 100); // Same amount usually
