@@ -22,7 +22,7 @@ export function useAdBlockDetected(): boolean {
       const bait = document.createElement('div');
       bait.className = 'adsbox ad-container adsbygoogle';
       bait.style.cssText = 'position:absolute;top:-999px;left:-999px;width:1px;height:1px;';
-      bait.innerHTML = '&nbsp;';
+      bait.textContent = '\u00A0';
       document.body.appendChild(bait);
 
       // Wait a tick for ad blockers to hide/remove it
