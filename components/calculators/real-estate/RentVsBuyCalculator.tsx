@@ -235,8 +235,7 @@ export default function RentVsBuyCalculator() {
                                     axisLine={false}
                                 />
                                 <Tooltip
-                                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                                    formatter={(value: any) => formatCurrency(value, currency)}
+                                    formatter={(value: unknown) => { if (typeof value === "number") return formatCurrency(value, currency); return String(value); }}
                                     labelFormatter={(label) => `Year ${label}`}
                                 />
                                 <Legend />
