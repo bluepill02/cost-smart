@@ -1,6 +1,4 @@
-🧹 [code health] fix: replace 'any' with 'Record<string, unknown>' for adsbygoogle
-
-🎯 **What:** Replaced the `any[]` type with `Record<string, unknown>[]` for the `adsbygoogle` array in the `Window` interface within `components/ads/AfterResultAd.tsx` and `components/ads/AdContainer.tsx`. Removed unnecessary `// eslint-disable-next-line @typescript-eslint/no-explicit-any` comments.
-💡 **Why:** Using `any` bypasses TypeScript's type checking. Replacing it with `Record<string, unknown>` provides better type safety while still allowing the required behavior (pushing empty objects `{}` to the array for Google AdSense).
-✅ **Verification:** Verified by running `npm run lint` and `npm run build` which passed without errors. Also ran `npx playwright test tests/seo.spec.ts` which executed successfully.
-✨ **Result:** Improved code maintainability and type safety without altering the existing AdSense functionality.
+🎯 **What:** Removed the explicit `any` type and the `eslint-disable` comment for `Tooltip` `formatter` prop in `EMIVsSIPCalculator.tsx`, replacing it with `number | string | readonly (string | number)[] | undefined` to match `recharts` API.
+💡 **Why:** Using `any` defeats TypeScript's safety features and relying on eslint disables is bad practice. Providing proper types improves codebase maintainability and type safety.
+✅ **Verification:** Verified by running `npm run lint`, `npm run build`, and running playwright tests to confirm the build, typecheck, and rendering remain unbroken.
+✨ **Result:** Enhanced typing of Recharts Tooltip without behavioral changes, reducing lint workarounds and improving codebase health.
