@@ -6,7 +6,7 @@ import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { ArrowRightLeft, Globe, TrendingUp } from 'lucide-react';
-import { PPP_DATA } from '@/lib/ppp-data';
+import { PPP_DATA, PPP_DATA_BY_CODE } from '@/lib/ppp-data';
 import { formatCurrency } from '@/lib/formatters';
 
 export default function PPPCalculator() {
@@ -14,8 +14,8 @@ export default function PPPCalculator() {
     const [sourceCode, setSourceCode] = useState<string>('USA');
     const [targetCode, setTargetCode] = useState<string>('GBR');
 
-    const sourceCountry = PPP_DATA.find(c => c.code === sourceCode) || PPP_DATA[0];
-    const targetCountry = PPP_DATA.find(c => c.code === targetCode) || PPP_DATA[1];
+    const sourceCountry = PPP_DATA_BY_CODE[sourceCode] || PPP_DATA[0];
+    const targetCountry = PPP_DATA_BY_CODE[targetCode] || PPP_DATA[1];
 
     const result = useMemo(() => {
         // Convert Source to International Dollars
