@@ -30,7 +30,7 @@ export default function ShareButton({ title, text = "Check out this calculation!
                     url: shareUrl,
                 });
             } catch (error) {
-                console.log('Error sharing', error);
+
             }
         } else {
             try {
