@@ -276,7 +276,7 @@ export default function InvestmentCalculator({
                         </CardContent>
                     </Card>
                 </div>
-                
+
                 {/* Dynamically placed in-content ad slot */}
                 <div className="my-4 print:hidden">
                     <AdContainer slotId="4057982103" size="square" />
@@ -309,8 +309,8 @@ export default function InvestmentCalculator({
                                     tick={{fontSize: 12}}
                                     width={40}
                                 />
-                                {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-                                <RechartsTooltip formatter={(value: any) => formatCurrency(Number(value), currency, locale)} />
+
+                                <RechartsTooltip formatter={(value: number | string | ReadonlyArray<number | string> | undefined) => formatCurrency(Number(value), currency, locale)} />
                                 <Area
                                     type="monotone"
                                     dataKey="value"
