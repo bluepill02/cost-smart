@@ -179,7 +179,7 @@ export default function PPFCalculator() {
                                     width={40}
                                 />
                                 {}
-                                <RechartsTooltip formatter={(value: number | string) => formatCurrency(Number(value), 'INR', 'en-IN')} />
+                                <RechartsTooltip formatter={(value: number | string | undefined | readonly (number | string)[]) => formatCurrency(Number(value), 'INR', 'en-IN')} />
                                 <Legend />
                                 <Bar dataKey="invested" name="Invested" stackId="a" fill="#94a3b8" />
                                 <Bar dataKey="interest" name="Interest" stackId="a" fill="#10b981" />

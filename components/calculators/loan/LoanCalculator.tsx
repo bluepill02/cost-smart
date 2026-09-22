@@ -346,7 +346,7 @@ export default function LoanCalculator({
                                     ))}
                                 </Pie>
                                 {}
-                                <RechartsTooltip formatter={(value: number | string) => formatCurrency(Number(value), currency, locale)} />
+                                <RechartsTooltip formatter={(value: number | string | undefined | readonly (number | string)[]) => formatCurrency(Number(value), currency, locale)} />
                                 <Legend verticalAlign="bottom" height={36}/>
                             </PieChart>
                         </ResponsiveContainer>
