@@ -137,8 +137,7 @@ export default function InflationCalculator() {
                                 </defs>
                                 <XAxis dataKey="year" tick={{fontSize: 10}} minTickGap={30} />
                                 <YAxis hide domain={['auto', 'auto']} />
-                                {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-                                <Tooltip formatter={(val: any) => `$${Number(val).toFixed(2)}`} />
+                                <Tooltip formatter={(value: number | string | readonly (number | string)[] | undefined) => `$${Number(value || 0).toFixed(2)}`} />
                                 <Area type="monotone" dataKey="value" stroke="#059669" fillOpacity={1} fill="url(#colorVal)" />
                             </AreaChart>
                         </ResponsiveContainer>
