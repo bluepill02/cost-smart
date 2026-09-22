@@ -29,16 +29,15 @@ const FREE_LIMIT = 2;
 const PRO_LIMIT = 30;
 
 function getClientIp(request: NextRequest): string {
-  if ((request as any).ip) {
-    return (request as any).ip;
-  }
-  const forwarded = request.headers.get('x-forwarded-for');
-  if (forwarded) {
-    return forwarded.split(',')[0].trim();
-  }
-  const realIp = request.headers.get('x-real-ip');
-  if (realIp) {
-    return realIp;
+  if (process.env.TRUST_PROXY === 'true') {
+    const forwarded = request.headers.get('x-forwarded-for');
+    if (forwarded) {
+      return forwarded.split(',')[0].trim();
+    }
+    const realIp = request.headers.get('x-real-ip');
+    if (realIp) {
+      return realIp;
+    }
   }
   return 'unknown';
 }
