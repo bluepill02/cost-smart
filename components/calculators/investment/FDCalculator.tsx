@@ -187,8 +187,7 @@ export default function FDCalculator({
                                     tick={{fontSize: 12}}
                                     width={40}
                                 />
-
-                                <RechartsTooltip formatter={(value: number | string | ReadonlyArray<number | string> | undefined) => formatCurrency(Number(value), currency, locale)} />
+                                <RechartsTooltip formatter={(value: number | string | readonly (number | string)[] | undefined) => formatCurrency(Number(value), currency, locale)} />
                                 <Area type="monotone" dataKey="value" stroke="#10b981" fillOpacity={1} fill="url(#colorVal)" />
                             </AreaChart>
                         </ResponsiveContainer>
