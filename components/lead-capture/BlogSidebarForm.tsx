@@ -20,7 +20,7 @@ export default function BlogSidebarForm() {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (!email) return;
-    console.log('[CostSmart Blog Sidebar]', { email });
+
     markLeadCaptured();
     submitLeadCapture({ email, formSource: 'costsmart-blog-sidebar-form', pageUrl: window.location.href });
     setSubmitted(true);
