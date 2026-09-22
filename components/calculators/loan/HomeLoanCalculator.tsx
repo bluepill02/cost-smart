@@ -274,8 +274,7 @@ export default function HomeLoanCalculator({
                                     tick={{fontSize: 12}}
                                 />
                                 <Tooltip
-                                    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                                formatter={(value: any) => formatCurrency(value, currency, locale)}
+                                formatter={(value: number) => formatCurrency(value, currency, locale)}
                                     labelFormatter={(label) => `Year ${label}`}
                                 />
                                 <Area
