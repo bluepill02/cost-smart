@@ -4,15 +4,9 @@ import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'Ultimate Guide to Business Loan EMI Calculation | CostSmart',
-  description: 'Everything you need to know about Business Loan EMI calculation. Formulas, amortization examples, and tips for managing commercial loan repayments effectively.',
+  description: 'Everything you need to know about Business Loan EMI. Formulas, examples, and expert tips for accurate calculation.',
   alternates: {
     canonical: '/blog/ultimate-guide-business-loan-emi',
-  },
-  openGraph: {
-    title: 'Ultimate Guide to Business Loan EMI Calculation | CostSmart',
-    description: 'Everything you need to know about Business Loan EMI calculation. Formulas, amortization examples, and tips for managing commercial loan repayments effectively.',
-    type: 'article',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Ultimate Guide to Business Loan EMI Calculation | CostSmart' }],
   },
 };
 

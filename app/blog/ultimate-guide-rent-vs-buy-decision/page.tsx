@@ -4,15 +4,9 @@ import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'Rent vs Buy Decision Guide India | CostSmart',
-  description: 'Everything you need to know about the Rent vs Buy Decision. Opportunity cost formulas, net-worth comparison examples, and tips for making the right housing choice.',
+  description: 'Everything you need to know about Rent vs Buy Decision. Formulas, examples, and expert tips for accurate calculation.',
   alternates: {
     canonical: '/blog/ultimate-guide-rent-vs-buy-decision',
-  },
-  openGraph: {
-    title: 'Rent vs Buy Decision Guide India | CostSmart',
-    description: 'Everything you need to know about the Rent vs Buy Decision. Opportunity cost formulas, net-worth comparison examples, and tips for making the right housing choice.',
-    type: 'article',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Rent vs Buy Decision Guide India | CostSmart' }],
   },
 };
 

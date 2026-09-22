@@ -4,15 +4,9 @@ import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'Ultimate Guide to LPG Subsidy Calculation | CostSmart',
-  description: 'Everything you need to know about LPG Subsidy eligibility and amounts. Transfer formulas, current rates, and expert tips to verify and claim your gas subsidy.',
+  description: 'Everything you need to know about LPG Subsidy. Formulas, examples, and expert tips for accurate calculation.',
   alternates: {
     canonical: '/blog/ultimate-guide-lpg-subsidy',
-  },
-  openGraph: {
-    title: 'Ultimate Guide to LPG Subsidy Calculation | CostSmart',
-    description: 'Everything you need to know about LPG Subsidy eligibility and amounts. Transfer formulas, current rates, and expert tips to verify and claim your gas subsidy.',
-    type: 'article',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Ultimate Guide to LPG Subsidy Calculation | CostSmart' }],
   },
 };
 

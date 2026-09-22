@@ -4,15 +4,9 @@ import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'How to use the GST Input Credit Calculator | CostSmart Guide',
-  description: 'Step-by-step guide on using the GST Input Credit Calculator to determine claimable ITC. Track CGST, SGST, and IGST credits for your business.',
+  description: 'Step-by-step guide on how to use the GST Input Credit Calculator to calculate Net GST Payable. Accurate, fast, and free online tool.',
   alternates: {
     canonical: '/blog/how-to-use-gst-input-credit-calculator',
-  },
-  openGraph: {
-    title: 'How to use the GST Input Credit Calculator | CostSmart Guide',
-    description: 'Step-by-step guide on using the GST Input Credit Calculator to determine claimable ITC. Track CGST, SGST, and IGST credits for your business.',
-    type: 'article',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'How to use the GST Input Credit Calculator | CostSmart Guide' }],
   },
 };
 

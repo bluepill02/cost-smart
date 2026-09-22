@@ -4,15 +4,9 @@ import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'How to use the Property Tax Calculator | CostSmart Guide',
-  description: 'Step-by-step guide on using the Property Tax Calculator to estimate annual liability. Supports municipal rates across major Indian cities and towns.',
+  description: 'Step-by-step guide on how to use the Property Tax Calculator to calculate Property Tax. Accurate, fast, and free online tool.',
   alternates: {
     canonical: '/blog/how-to-use-property-tax-calculator',
-  },
-  openGraph: {
-    title: 'How to use the Property Tax Calculator | CostSmart Guide',
-    description: 'Step-by-step guide on using the Property Tax Calculator to estimate annual liability. Supports municipal rates across major Indian cities and towns.',
-    type: 'article',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'How to use the Property Tax Calculator | CostSmart Guide' }],
   },
 };
 

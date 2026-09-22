@@ -4,15 +4,9 @@ import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'Fixed Deposit Interest Calculation Guide | CostSmart',
-  description: 'Everything you need to know about Fixed Deposit interest calculation. Compounding formulas, maturity examples, and expert tips to maximize your FD returns.',
+  description: 'Everything you need to know about Fixed Deposit Interest. Formulas, examples, and expert tips for accurate calculation.',
   alternates: {
     canonical: '/blog/ultimate-guide-fixed-deposit-interest',
-  },
-  openGraph: {
-    title: 'Fixed Deposit Interest Calculation Guide | CostSmart',
-    description: 'Everything you need to know about Fixed Deposit interest calculation. Compounding formulas, maturity examples, and expert tips to maximize your FD returns.',
-    type: 'article',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Fixed Deposit Interest Calculation Guide | CostSmart' }],
   },
 };
 

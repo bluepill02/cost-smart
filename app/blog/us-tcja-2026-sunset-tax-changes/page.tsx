@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import BlogLayout from '@/components/blog/BlogLayout';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 
 const ARTICLE_SLUG = 'us-tcja-2026-sunset-tax-changes';
 const HERO_IMAGE = '/images/blog/tax-brackets-2026-obbba.svg';
@@ -10,13 +11,7 @@ export const metadata: Metadata = {
   title: '2026 US Tax Brackets: The TCJA Sunset & OBBBA Reality Check',
   description: 'The expected 2026 TCJA tax sunset was canceled by the One Big Beautiful Bill (OBBBA). See the new permanent tax brackets, higher standard deductions, and the $6,000 senior bonus.',
   alternates: {
-    canonical: `/blog/${ARTICLE_SLUG}`,
-  },
-  openGraph: {
-    title: '2026 US Tax Brackets: The TCJA Sunset & OBBBA Reality Check',
-    description: 'The expected 2026 TCJA tax sunset was canceled by the One Big Beautiful Bill (OBBBA). See the new permanent tax brackets, higher standard deductions, and the $6,000 senior bonus.',
-    type: 'article',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: '2026 US Tax Brackets: The TCJA Sunset & OBBBA Reality Check' }],
+    canonical: `${CANONICAL_DOMAIN}/blog/${ARTICLE_SLUG}`,
   },
 };
 

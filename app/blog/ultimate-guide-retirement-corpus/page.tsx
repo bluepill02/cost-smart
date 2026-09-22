@@ -4,15 +4,9 @@ import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'Ultimate Guide to Retirement Corpus Calculation | CostSmart',
-  description: 'Everything you need to know about Retirement Corpus calculation. Inflation-adjusted formulas, monthly savings examples, and tips to retire comfortably on time.',
+  description: 'Everything you need to know about Retirement Corpus. Formulas, examples, and expert tips for accurate calculation.',
   alternates: {
     canonical: '/blog/ultimate-guide-retirement-corpus',
-  },
-  openGraph: {
-    title: 'Ultimate Guide to Retirement Corpus Calculation | CostSmart',
-    description: 'Everything you need to know about Retirement Corpus calculation. Inflation-adjusted formulas, monthly savings examples, and tips to retire comfortably on time.',
-    type: 'article',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Ultimate Guide to Retirement Corpus Calculation | CostSmart' }],
   },
 };
 

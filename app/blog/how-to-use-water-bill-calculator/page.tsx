@@ -4,15 +4,9 @@ import BlogLayout from '@/components/blog/BlogLayout';
 
 export const metadata: Metadata = {
   title: 'How to use the Water Bill Calculator | CostSmart Guide',
-  description: 'Step-by-step guide on how to use the Water Bill Calculator to estimate monthly charges. Enter consumption and see slab-wise breakdowns for your city.',
+  description: 'Step-by-step guide on how to use the Water Bill Calculator to calculate Water Bill. Accurate, fast, and free online tool.',
   alternates: {
     canonical: '/blog/how-to-use-water-bill-calculator',
-  },
-  openGraph: {
-    title: 'How to use the Water Bill Calculator | CostSmart Guide',
-    description: 'Step-by-step guide on how to use the Water Bill Calculator to estimate monthly charges. Enter consumption and see slab-wise breakdowns for your city.',
-    type: 'article',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'How to use the Water Bill Calculator | CostSmart Guide' }],
   },
 };
 

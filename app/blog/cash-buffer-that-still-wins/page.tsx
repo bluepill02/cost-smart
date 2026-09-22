@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import BlogLayout from '@/components/blog/BlogLayout';
+import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 
 const rateSnapshot = [
   { label: 'Inflation', value: 4.6, note: 'Prices are still rising faster than most people remember from the easy-money era.', bar: 'bg-rose-500' },
@@ -38,13 +39,7 @@ export const metadata: Metadata = {
   description:
     'A witty, data-backed guide to emergency funds, cash buffers, and the right amount of liquidity when inflation and interest rates are both moving targets.',
   alternates: {
-    canonical: '/blog/cash-buffer-that-still-wins',
-  },
-  openGraph: {
-    title: 'The Cash Buffer That Still Wins: How to Build an Emergency Fund That Survives Inflation',
-    description: 'A witty, data-backed guide to emergency funds, cash buffers, and the right amount of liquidity when inflation and interest rates are both moving targets.',
-    type: 'article',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'The Cash Buffer That Still Wins: How to Build an Emergency Fund That Survives Inflation' }],
+    canonical: `${CANONICAL_DOMAIN}/blog/cash-buffer-that-still-wins`,
   },
 };
 
