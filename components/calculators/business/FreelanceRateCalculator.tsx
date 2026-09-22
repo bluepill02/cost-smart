@@ -29,9 +29,10 @@ export default function FreelanceRateCalculator() {
         let currency = 'USD';
         let currencySymbol = '$';
 
+        const benchmark = PPP_DATA.find(c => c.code === benchmarkCountryCode) || PPP_DATA[0];
+        const local = PPP_DATA.find(c => c.code === myCountryCode) || PPP_DATA[1];
+
         if (geoMode) {
-            const benchmark = PPP_DATA.find(c => c.code === benchmarkCountryCode) || PPP_DATA[0];
-            const local = PPP_DATA.find(c => c.code === myCountryCode) || PPP_DATA[1];
 
             // Convert "Benchmark Income" to "Local Equivalent"
             // (Input / Benchmark PPP) * Local PPP
@@ -59,7 +60,9 @@ export default function FreelanceRateCalculator() {
             taxAmount: grossIncomeNeeded - effectiveTargetIncome,
             effectiveTargetIncome,
             currency,
-            currencySymbol
+            currencySymbol,
+            benchmarkCountry: benchmark,
+            localCountry: local
         };
     }, [targetIncome, expenses, taxRate, billableHours, weeksOff, geoMode, benchmarkCountryCode, myCountryCode]);
 
@@ -110,7 +113,7 @@ export default function FreelanceRateCalculator() {
                         <div className="grid md:grid-cols-2 gap-6">
                              <div className="space-y-2">
                                 <Label htmlFor="income">
-                                    {geoMode ? `Benchmark Net Income (${PPP_DATA.find(c => c.code === benchmarkCountryCode)?.currencySymbol})` : 'Target Annual Net Income ($)'}
+                                    {geoMode ? `Benchmark Net Income (${result.benchmarkCountry.currencySymbol})` : 'Target Annual Net Income ($)'}
                                 </Label>
                                 <Input
                                     id="income"
@@ -204,7 +207,7 @@ export default function FreelanceRateCalculator() {
                             <div>
                                 <h4 className="font-bold text-emerald-900 text-sm">Geo-Arbitrage Win</h4>
                                 <p className="text-xs text-emerald-800 mt-1 leading-relaxed">
-                                    You only need <strong>{formatCurrency(result.effectiveTargetIncome, result.currency)}</strong> in {PPP_DATA.find(c => c.code === myCountryCode)?.name} to live like someone earning <strong>{formatCurrency(targetIncome, PPP_DATA.find(c => c.code === benchmarkCountryCode)?.currency || 'USD')}</strong> in {PPP_DATA.find(c => c.code === benchmarkCountryCode)?.name}.
+                                    You only need <strong>{formatCurrency(result.effectiveTargetIncome, result.currency)}</strong> in {result.localCountry.name} to live like someone earning <strong>{formatCurrency(targetIncome, result.benchmarkCountry.currency || 'USD')}</strong> in {result.benchmarkCountry.name}.
                                 </p>
                             </div>
                         </CardContent>
