@@ -55,7 +55,6 @@ export default function ExitIntentPopup() {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (!email) return;
-    console.log('[CostSmart Exit Intent]', { name, email });
     markLeadCaptured();
     submitLeadCapture({ email, name, formSource: 'costsmart-exit-intent-form', pageUrl: window.location.href });
     setSubmitted(true);
