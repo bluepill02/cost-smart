@@ -21,7 +21,6 @@ export default function CalculatorResultGate() {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (!email) return;
-    console.log('[CostSmart Calculator Gate]', { name, email });
     markLeadCaptured();
     submitLeadCapture({ email, name, formSource: 'costsmart-calculator-gate-form', pageUrl: window.location.href, calculatorContext: { calculatorName: 'SIP Calculator', resultSummary: 'Calculator result gate submission' } });
     setSubmitted(true);

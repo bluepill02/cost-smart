@@ -21,7 +21,6 @@ export default function NewsletterInlineForm() {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     if (!email) return;
-    console.log('[CostSmart Newsletter]', { name, email });
     markLeadCaptured();
     submitLeadCapture({ email, name, formSource: 'costsmart-newsletter-form', pageUrl: window.location.href });
     setSubmitted(true);
