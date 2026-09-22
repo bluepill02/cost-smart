@@ -13,13 +13,16 @@ import ShareButton from '@/components/features/ShareButton';
 import { Info } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
+
+const STATES_MAP = new Map(INDIAN_STATES_STAMP_DUTY.map(s => [s.slug, s]));
+
 export default function PropertyRegistrationCalculator() {
   const [propertyValue, setPropertyValue] = useState<number>(5000000);
   const [selectedStateSlug, setSelectedStateSlug] = useState<string>('maharashtra');
   const [gender, setGender] = useState<'male' | 'female' | 'joint'>('male');
 
   const stateData = useMemo(() =>
-    INDIAN_STATES_STAMP_DUTY.find(s => s.slug === selectedStateSlug) || INDIAN_STATES_STAMP_DUTY[0],
+    STATES_MAP.get(selectedStateSlug) || INDIAN_STATES_STAMP_DUTY[0],
   [selectedStateSlug]);
 
   const results = useMemo(() => {
