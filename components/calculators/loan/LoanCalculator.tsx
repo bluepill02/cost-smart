@@ -15,6 +15,7 @@ import { saveHistoryItem } from '@/lib/history-manager';
 import { formatCurrency } from '@/lib/formatters';
 import SmartInsight from '@/components/calculators/SmartInsight';
 import PremiumAIAdvisor from '@/components/calculators/PremiumAIAdvisor';
+import { ValueType } from 'recharts/types/component/DefaultTooltipContent';
 
 // Lazy load Recharts components
 const PieChart = dynamic(() => import('recharts').then(mod => mod.PieChart), { ssr: false });
@@ -303,7 +304,7 @@ export default function LoanCalculator({
                         </CardContent>
                     </Card>
                 </div>
-
+                
                 {/* Dynamically placed in-content ad slot */}
                 <div className="my-4 print:hidden">
                     <AdContainer slotId="4057982103" size="square" />
@@ -345,8 +346,7 @@ export default function LoanCalculator({
                                         <Cell key={`cell-${index}`} fill={entry.color} />
                                     ))}
                                 </Pie>
-
-                                <RechartsTooltip formatter={(value: number | string | ReadonlyArray<number | string> | undefined) => formatCurrency(Number(value), currency, locale)} />
+                                <RechartsTooltip formatter={(value: ValueType | undefined) => formatCurrency(Number(value || 0), currency, locale)} />
                                 <Legend verticalAlign="bottom" height={36}/>
                             </PieChart>
                         </ResponsiveContainer>
