@@ -20,6 +20,10 @@ const LANGUAGES = [
   { code: 'en', name: 'English', native: 'English', free: true },
 ];
 
+const LANGUAGES_MAP: Record<string, typeof LANGUAGES[0]> = Object.fromEntries(
+  LANGUAGES.map(l => [l.code, l])
+);
+
 const FREE_CHAR_LIMIT = 500;
 
 const FINANCIAL_TERMS = ['EMI', 'SIP', 'TDS', 'GST', 'NPS', 'PPF', 'FD', 'RD', 'ITR', 'HRA'];
@@ -39,7 +43,7 @@ export default function FinancialTranslator() {
   const subscriptionId = typeof window !== 'undefined' ? localStorage.getItem('subscriptionId') : null;
   const isPro = !!subscriptionId;
 
-  const selectedLang = LANGUAGES.find(l => l.code === targetLang);
+  const selectedLang = LANGUAGES_MAP[targetLang];
   const charCount = sourceText.length;
   const isOverLimit = !isPro && charCount > FREE_CHAR_LIMIT;
 
@@ -47,7 +51,7 @@ export default function FinancialTranslator() {
     if (!sourceText.trim()) return;
     if (isOverLimit) return;
 
-    const lang = LANGUAGES.find(l => l.code === targetLang);
+    const lang = selectedLang;
     if (!lang?.free && !isPro) {
       setRequiresPro(true);
       setError('This language requires a Pro subscription.');
@@ -145,7 +149,7 @@ export default function FinancialTranslator() {
               <div className="flex items-center gap-2">
                 {detectedLang && (
                   <Badge variant="secondary" className="text-xs">
-                    Detected: {LANGUAGES.find(l => l.code === detectedLang)?.name || detectedLang}
+                    Detected: {LANGUAGES_MAP[detectedLang]?.name || detectedLang}
                   </Badge>
                 )}
                 <Button
