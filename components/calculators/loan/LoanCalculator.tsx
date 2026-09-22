@@ -345,6 +345,7 @@ export default function LoanCalculator({
                                         <Cell key={`cell-${index}`} fill={entry.color} />
                                     ))}
                                 </Pie>
+                                {}
                                 {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
                                 <RechartsTooltip formatter={(value: any) => formatCurrency(Number(value), currency, locale)} />
                                 <Legend verticalAlign="bottom" height={36}/>
