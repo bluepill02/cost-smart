@@ -55,7 +55,7 @@ test.describe('Phase 1 Final Verification (30 Calculators)', () => {
     // Verify all routes load
     for (const route of calculators) {
         test(`Route ${route} loads successfully`, async ({ page }) => {
-            await page.goto(route);
+            await page.goto(route, { waitUntil: 'domcontentloaded' });
             // Check for H1 to ensure page rendered. Use .first() to handle multiple H1s (e.g. invoice preview)
             await expect(page.locator('h1').first()).toBeVisible();
         });

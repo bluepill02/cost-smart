@@ -23,21 +23,22 @@ export default function FreelanceRateCalculator() {
     const [benchmarkCountryCode, setBenchmarkCountryCode] = useState('USA');
     const [myCountryCode, setMyCountryCode] = useState('USA');
 
-    const benchmarkCountry = useMemo(() => PPP_DATA.find(c => c.code === benchmarkCountryCode) || PPP_DATA[0], [benchmarkCountryCode]);
-    const localCountry = useMemo(() => PPP_DATA.find(c => c.code === myCountryCode) || PPP_DATA[1], [myCountryCode]);
-
     const result = useMemo(() => {
         // 1. Calculate Effective Target Income based on Geo-Arbitrage
         let effectiveTargetIncome = targetIncome;
         let currency = 'USD';
         let currencySymbol = '$';
 
+        const benchmark = PPP_DATA.find(c => c.code === benchmarkCountryCode) || PPP_DATA[0];
+        const local = PPP_DATA.find(c => c.code === myCountryCode) || PPP_DATA[1];
+
         if (geoMode) {
+
             // Convert "Benchmark Income" to "Local Equivalent"
             // (Input / Benchmark PPP) * Local PPP
-            effectiveTargetIncome = (targetIncome / benchmarkCountry.pppFactor) * localCountry.pppFactor;
-            currency = localCountry.currency;
-            currencySymbol = localCountry.currencySymbol;
+            effectiveTargetIncome = (targetIncome / benchmark.pppFactor) * local.pppFactor;
+            currency = local.currency;
+            currencySymbol = local.currencySymbol;
         }
 
         const annualExpenses = expenses * 12;
@@ -59,9 +60,11 @@ export default function FreelanceRateCalculator() {
             taxAmount: grossIncomeNeeded - effectiveTargetIncome,
             effectiveTargetIncome,
             currency,
-            currencySymbol
+            currencySymbol,
+            benchmarkCountry: benchmark,
+            localCountry: local
         };
-    }, [targetIncome, expenses, taxRate, billableHours, weeksOff, geoMode, benchmarkCountry, localCountry]);
+    }, [targetIncome, expenses, taxRate, billableHours, weeksOff, geoMode, benchmarkCountryCode, myCountryCode]);
 
     return (
         <div className="grid lg:grid-cols-[1.5fr_1fr] gap-8">
@@ -110,7 +113,7 @@ export default function FreelanceRateCalculator() {
                         <div className="grid md:grid-cols-2 gap-6">
                              <div className="space-y-2">
                                 <Label htmlFor="income">
-                                    {geoMode ? `Benchmark Net Income (${benchmarkCountry.currencySymbol})` : 'Target Annual Net Income ($)'}
+                                    {geoMode ? `Benchmark Net Income (${result.benchmarkCountry.currencySymbol})` : 'Target Annual Net Income ($)'}
                                 </Label>
                                 <Input
                                     id="income"
@@ -204,7 +207,7 @@ export default function FreelanceRateCalculator() {
                             <div>
                                 <h4 className="font-bold text-emerald-900 text-sm">Geo-Arbitrage Win</h4>
                                 <p className="text-xs text-emerald-800 mt-1 leading-relaxed">
-                                    You only need <strong>{formatCurrency(result.effectiveTargetIncome, result.currency)}</strong> in {localCountry.name} to live like someone earning <strong>{formatCurrency(targetIncome, benchmarkCountry.currency)}</strong> in {benchmarkCountry.name}.
+                                    You only need <strong>{formatCurrency(result.effectiveTargetIncome, result.currency)}</strong> in {result.localCountry.name} to live like someone earning <strong>{formatCurrency(targetIncome, result.benchmarkCountry.currency || 'USD')}</strong> in {result.benchmarkCountry.name}.
                                 </p>
                             </div>
                         </CardContent>
