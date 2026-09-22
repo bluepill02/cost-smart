@@ -15,6 +15,9 @@ const FREE_LIMIT = 5;
 const PRO_LIMIT = 50;
 
 function getClientIp(request: NextRequest): string {
+  if ((request as any).ip) {
+    return (request as any).ip;
+  }
   const forwarded = request.headers.get('x-forwarded-for');
   if (forwarded) {
     return forwarded.split(',')[0].trim();
