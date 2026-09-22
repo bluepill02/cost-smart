@@ -10,7 +10,8 @@ interface AfterResultAdProps {
 
 declare global {
   interface Window {
-    adsbygoogle: Array<Record<string, unknown>>;
+
+    adsbygoogle: Record<string, unknown>[];
   }
 }
 

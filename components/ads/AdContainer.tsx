@@ -14,7 +14,8 @@ interface AdContainerProps {
 
 declare global {
     interface Window {
-        adsbygoogle: Array<Record<string, unknown>>;
+
+        adsbygoogle: Record<string, unknown>[];
     }
 }
 
@@ -52,29 +53,29 @@ export default function AdContainer({ slotId, className = "", size = 'leaderboar
     useEffect(() => {
         if (isPro) return;
         if (inView && activeSlotId && adState === 'loading') {
-            try {
-                const checkAdBlock = () => {
-                   if (typeof window !== 'undefined' && !window.adsbygoogle) {
-                       setAdState('blocked');
-                       return;
-                   }
+   try {
+       const checkAdBlock = () => {
+          if (typeof window !== 'undefined' && !window.adsbygoogle) {
+              setAdState('blocked');
+              return;
+          }
 
-                    try {
-                        (window.adsbygoogle = window.adsbygoogle || []).push({});
-                        setAdState('loaded');
-                    } catch (e) {
-                        console.error("AdSense error:", e);
-                        setAdState('blocked');
-                    }
-                };
+           try {
+               (window.adsbygoogle = window.adsbygoogle || []).push({});
+               setAdState('loaded');
+           } catch (e) {
+               console.error("AdSense error:", e);
+               setAdState('blocked');
+           }
+       };
 
-                const timer = setTimeout(checkAdBlock, 500);
-                return () => clearTimeout(timer);
+       const timer = setTimeout(checkAdBlock, 500);
+       return () => clearTimeout(timer);
 
-            } catch {
-                // eslint-disable-next-line react-hooks/set-state-in-effect
-                setAdState('blocked');
-            }
+   } catch {
+       // eslint-disable-next-line react-hooks/set-state-in-effect
+       setAdState('blocked');
+   }
         }
     }, [inView, activeSlotId, adState, isPro]);
 
@@ -95,29 +96,29 @@ export default function AdContainer({ slotId, className = "", size = 'leaderboar
 
     return (
         <div
-            ref={ref}
-            className={`w-full ${heightClass} ${className} relative min-h-[90px]`}
+   ref={ref}
+   className={`w-full ${heightClass} ${className} relative min-h-[90px]`}
         >
-            <div ref={adRef} className={`w-full h-full ${adState === 'blocked' ? 'hidden' : 'block'}`}>
-                 {!inView && (
-                    <div className="w-full h-full bg-slate-50 border border-slate-100 rounded-lg flex items-center justify-center">
-                        <span className="text-xs text-slate-300 uppercase tracking-widest">Ad Loading...</span>
-                    </div>
-                 )}
-                 {inView && activeSlotId && (
-                     <ins className="adsbygoogle"
-                     style={{ display: 'block', width: '100%', height: '100%' }}
-                     data-ad-client="ca-pub-4280161410958958"
-                     data-ad-slot={activeSlotId}
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"
-                     ></ins>
-                )}
-            </div>
+   <div ref={adRef} className={`w-full h-full ${adState === 'blocked' ? 'hidden' : 'block'}`}>
+        {!inView && (
+           <div className="w-full h-full bg-slate-50 border border-slate-100 rounded-lg flex items-center justify-center">
+               <span className="text-xs text-slate-300 uppercase tracking-widest">Ad Loading...</span>
+           </div>
+        )}
+        {inView && activeSlotId && (
+            <ins className="adsbygoogle"
+            style={{ display: 'block', width: '100%', height: '100%' }}
+            data-ad-client="ca-pub-4280161410958958"
+            data-ad-slot={activeSlotId}
+            data-ad-format="auto"
+            data-full-width-responsive="true"
+            ></ins>
+       )}
+   </div>
 
-            {adState === 'blocked' && (
-                <AdBlockRecovery size={recoverySize} forceVisible />
-            )}
+   {adState === 'blocked' && (
+       <AdBlockRecovery size={recoverySize} forceVisible />
+   )}
         </div>
     );
 }
