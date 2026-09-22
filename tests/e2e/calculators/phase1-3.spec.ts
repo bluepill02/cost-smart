@@ -6,7 +6,7 @@ test.describe('Phase 1.3 Calculators', () => {
     await page.goto('/in/income-tax-calculator');
 
     // Input: Gross Income ₹12,00,000 (12 Lakhs)
-    const incomeInput = page.locator('input').first();
+    const incomeInput = page.getByLabel('Gross Annual Income (₹)');
     await incomeInput.fill('1200000');
 
     // New Regime Calculation (Default):
