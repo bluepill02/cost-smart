@@ -183,12 +183,20 @@ export class ShareableURLManager {
   }
 
   /**
-   * Shorten shareable URL (for future implementation with URL shortener service)
+   * Shorten shareable URL using TinyURL service
    */
   static async shortenURL(longURL: string): Promise<string> {
-    // TODO: Implement with URL shortener service (Bitly, TinyURL, etc.)
-    // For now, return the original URL
-    return longURL;
+    try {
+      const response = await fetch(`https://tinyurl.com/api-create.php?url=${encodeURIComponent(longURL)}`);
+      if (response.ok) {
+        return await response.text();
+      }
+      console.error('URL shortening service responded with an error:', response.statusText);
+      return longURL;
+    } catch (error) {
+      console.error('Error shortening URL:', error);
+      return longURL;
+    }
   }
 
   /**
