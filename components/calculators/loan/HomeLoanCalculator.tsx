@@ -2,6 +2,7 @@
 
 import React, { useState, useMemo } from 'react';
 import { useSearchParams } from 'next/navigation';
+import { ValueType } from 'recharts/types/component/DefaultTooltipContent';
 import { Calculator, ArrowRight, TrendingDown, Share2, Check as CheckIcon } from 'lucide-react';
 import { buildShareableURL } from '@/lib/shareable-url';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -274,7 +275,7 @@ export default function HomeLoanCalculator({
                                     tick={{fontSize: 12}}
                                 />
                                 <Tooltip
-                                formatter={(value: number) => formatCurrency(value, currency, locale)}
+                                formatter={(value: ValueType | undefined) => formatCurrency(Number(value), currency, locale)}
                                     labelFormatter={(label) => `Year ${label}`}
                                 />
                                 <Area
