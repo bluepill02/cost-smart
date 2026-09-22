@@ -310,13 +310,7 @@ export async function POST(request: NextRequest) {
       if (verifiedPro) {
         categoryResults.push({
           category: CATEGORY_NAMES[i],
-          places: processedPlaces.map((p: PlaceResult) => ({
-            name: p.name,
-            distance: p.distance,
-            rating: p.rating,
-            userRatingCount: p.userRatingCount,
-            formattedAddress: p.formattedAddress,
-          })),
+          places: processedPlaces,
         });
       } else {
         // Free tier: top 3 with name and distance only
