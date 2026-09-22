@@ -16,34 +16,8 @@ const FREE_LIMIT = 3;
 const PRO_LIMIT = 30;
 
 function getClientIp(request: NextRequest): string {
-  // Use NextRequest.ip which is set securely by platforms like Vercel.
-  // We must typecast it or use an alternative because Next.js NextRequest may not have `.ip` in some contexts,
-  // but if it's available, it's the safest.
-  // To avoid TypeScript errors in standard NextRequest without modifying interface:
-  const req = request as any;
-  if (req.ip) {
-      return req.ip;
-  }
-
-  // If .ip is not available, we fall back to headers.
-  // When parsing x-forwarded-for, the left-most IP is client-provided and can be spoofed.
-  // The right-most IP is added by the proxy closest to our server.
-  // Depending on the proxy setup (like Cloudflare -> Vercel), we might need the IP just before the last proxy.
-  // Assuming a standard single proxy (Vercel) setup, x-real-ip is often provided and safer.
-
-  const realIp = request.headers.get('x-real-ip');
-  if (realIp) {
-    return realIp.trim();
-  }
-
-  const forwardedFor = request.headers.get('x-forwarded-for');
-  if (forwardedFor) {
-    const ips = forwardedFor.split(',');
-    // Taking the right-most IP (closest to server) to avoid arbitrary client spoofing
-    return ips[ips.length - 1].trim();
-  }
-
-  return 'unknown';
+  // @ts-ignore - Next.js 15+ may have removed request.ip, but it might still exist in some contexts, or we fallback
+  return (request as any).ip ?? '127.0.0.1';
 }
 
 function checkRateLimit(ip: string, limit: number): { allowed: boolean; remaining: number } {
