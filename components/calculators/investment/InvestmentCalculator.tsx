@@ -1,6 +1,7 @@
 "use client";
 
 import dynamic from 'next/dynamic';
+import type { ValueType } from "recharts/types/component/DefaultTooltipContent";
 import React, { useState, useMemo } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { TrendingUp, Save, Printer, Share2, Check as CheckIcon } from 'lucide-react';
@@ -276,7 +277,7 @@ export default function InvestmentCalculator({
                         </CardContent>
                     </Card>
                 </div>
-
+                
                 {/* Dynamically placed in-content ad slot */}
                 <div className="my-4 print:hidden">
                     <AdContainer slotId="4057982103" size="square" />
@@ -309,8 +310,7 @@ export default function InvestmentCalculator({
                                     tick={{fontSize: 12}}
                                     width={40}
                                 />
-
-                                <RechartsTooltip formatter={(value: number | string | ReadonlyArray<number | string> | undefined) => formatCurrency(Number(value), currency, locale)} />
+                                <RechartsTooltip formatter={(value: ValueType | undefined) => formatCurrency(Number(value), currency, locale)} />
                                 <Area
                                     type="monotone"
                                     dataKey="value"
