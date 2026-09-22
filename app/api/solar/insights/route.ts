@@ -16,7 +16,7 @@ const FREE_LIMIT = 3;
 const PRO_LIMIT = 30;
 
 function getClientIp(request: NextRequest): string {
-  return request.ip || '127.0.0.1';
+  return (request as any).ip || '127.0.0.1';
 }
 
 function checkRateLimit(ip: string, limit: number): { allowed: boolean; remaining: number } {

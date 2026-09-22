@@ -32,7 +32,7 @@ interface DetectRequest {
 export async function POST(request: NextRequest) {
   try {
     // Rate limiting by IP
-    const ip = request.ip || '127.0.0.1';
+    const ip = (request as any).ip || '127.0.0.1';
     if (isRateLimited(ip)) {
       return NextResponse.json(
         { error: 'Too many requests. Please try again later.' },
