@@ -217,8 +217,7 @@ export default function EMIVsSIPCalculator() {
                                     tickFormatter={(v) => `${(v/100000).toFixed(0)}L`}
                                     width={40}
                                 />
-                                {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-                                <Tooltip formatter={(val: any) => formatCurrency(Number(val), 'INR')} />
+                                <Tooltip formatter={(val: number | string | readonly (string | number)[] | undefined) => val !== undefined ? formatCurrency(Number(val), 'INR') : ''} />
                                 <Legend />
                                 <Line type="monotone" dataKey="loanCost" name="Total Paid (EMI)" stroke="#ef4444" strokeWidth={2} />
                                 <Line type="monotone" dataKey="sipValue" name="Investment Value (SIP)" stroke="#10b981" strokeWidth={2} />
