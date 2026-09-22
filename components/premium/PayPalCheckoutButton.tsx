@@ -73,7 +73,6 @@ export default function PayPalCheckoutButton({ planType = "monthly" }: PayPalChe
           });
         }}
         onApprove={async (data) => {
-          console.log("Subscription approved:", data.subscriptionID);
           if (data.subscriptionID) {
             setApprovedSubId(data.subscriptionID);
             // Verify subscription with server to get email
