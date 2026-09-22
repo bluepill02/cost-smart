@@ -3,6 +3,7 @@
 import dynamic from 'next/dynamic';
 import React, { useState, useMemo } from 'react';
 import { Landmark, Lock, Save } from 'lucide-react';
+
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
@@ -179,7 +180,7 @@ export default function PPFCalculator() {
                                     width={40}
                                 />
 
-                                <RechartsTooltip formatter={(value: number | string | ReadonlyArray<number | string> | undefined) => formatCurrency(Number(value), 'INR', 'en-IN')} />
+                                <RechartsTooltip formatter={(value) => formatCurrency(Number(value), 'INR', 'en-IN')} />
                                 <Legend />
                                 <Bar dataKey="invested" name="Invested" stackId="a" fill="#94a3b8" />
                                 <Bar dataKey="interest" name="Interest" stackId="a" fill="#10b981" />
