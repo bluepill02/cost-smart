@@ -19,17 +19,10 @@ export const metadata: Metadata = {
 
 const FEATURED = [
   {
-    slug: '2026-social-security-cola-inflation',
-    title: 'Beating Inflation 2026: Social Security COLA Guide',
-    desc: 'The 2027 Social Security COLA is projected at 2.8%, increasing the average benefit to $2,081.46. Discover how to beat inflation and stretch your retirement income in 2026.',
-    tag: 'Retirement',
-    color: 'emerald',
-  },
-  {
-    slug: 'sp500-vs-treasury-bills-2026',
-    title: 'S&P 500 vs 3.7% T-Bills: Where to Invest Cash in 2026',
-    desc: 'With 13-week Treasury Bills at 3.71% and the S&P 500 returning 18.67% over the last year, where should you park your cash in 2026? A data-driven guide.',
-    tag: 'Investing',
+    slug: 'tcja-sunset-2026-preparation',
+    title: 'TCJA Sunset 2026: How to Prepare Your Finances for Higher Taxes',
+    desc: 'The 2017 Tax Cuts and Jobs Act is officially sunsetting. We break down the old tax brackets returning in 2026 and how to shield your paycheck.',
+    tag: 'Tax',
     color: 'blue',
   },
   {
@@ -159,7 +152,6 @@ const CATEGORIES = [
     icon: TrendingUp,
     color: 'emerald',
     posts: [
-      { slug: 'sp500-vs-treasury-bills-2026', title: 'S&P 500 vs 3.7% T-Bills: Where to Invest Cash in 2026' },
       { slug: '2026-retirement-contribution-limits', title: '2026 Retirement Plan Limits: 401(k), IRA, HSA' },
       { slug: 'us-fed-interest-rates-2026', title: 'Fed Interest Rate Decision July 2026: 3.75% Rates Hold Steady' },
       { slug: 'sip-vs-lumpsum', title: 'SIP vs Lumpsum: Which Strategy Wins?' },
@@ -175,6 +167,7 @@ const CATEGORIES = [
     icon: Receipt,
     color: 'blue',
     posts: [
+      { slug: 'tcja-sunset-2026-preparation', title: 'TCJA Sunset 2026: Tax Prep' },
       { slug: '2026-tax-strategies-guide', title: '2026 Tax Strategies Guide' },
       { slug: '2026-tax-and-inflation-guide', title: '2026 Cost of Living & Tax Guide' },
       { slug: 'us-tcja-2026-sunset-tax-changes', title: '2026 Tax Brackets: TCJA Sunset & OBBBA' },
