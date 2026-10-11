@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { getClientIp } from '@/lib/ip';
 import { azureDetectLanguage } from '@/lib/azure-ai';
 
 // NOTE (accepted trade-off): This in-memory rate limiter resets on each
@@ -32,7 +33,7 @@ interface DetectRequest {
 export async function POST(request: NextRequest) {
   try {
     // Rate limiting by IP
-    const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
+    const ip = getClientIp(request);
     if (isRateLimited(ip)) {
       return NextResponse.json(
         { error: 'Too many requests. Please try again later.' },

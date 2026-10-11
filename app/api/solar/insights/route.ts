@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { getClientIp } from '@/lib/ip';
 import { getSubscriptionByEmail } from '@/lib/kv-store';
 
 interface SolarInsightRequest {
@@ -15,17 +16,7 @@ const rateLimitStore = new Map<string, { count: number; date: string }>();
 const FREE_LIMIT = 3;
 const PRO_LIMIT = 30;
 
-function getClientIp(request: NextRequest): string {
-  const forwarded = request.headers.get('x-forwarded-for');
-  if (forwarded) {
-    return forwarded.split(',')[0].trim();
-  }
-  const realIp = request.headers.get('x-real-ip');
-  if (realIp) {
-    return realIp;
-  }
-  return 'unknown';
-}
+
 
 function checkRateLimit(ip: string, limit: number): { allowed: boolean; remaining: number } {
   const today = new Date().toISOString().split('T')[0];
