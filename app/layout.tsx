@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Sora, DM_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
@@ -16,22 +15,6 @@ import FloatingChatWidget from "@/components/features/FloatingChatWidget";
 import ExitIntentPopup from "@/components/lead-capture/ExitIntentPopup";
 import FloatingBottomBar from "@/components/lead-capture/FloatingBottomBar";
 import { LeadCaptureProvider } from "@/components/lead-capture/LeadCaptureContext";
-
-// DM Sans — refined body font with excellent legibility
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-  display: 'swap',
-  variable: '--font-dm-sans',
-  weight: ['400', '500', '600', '700'],
-});
-
-// Sora — geometric display font for headings
-const sora = Sora({
-  subsets: ["latin"],
-  display: 'swap',
-  variable: '--font-sora',
-  weight: ['600', '700', '800'],
-});
 
 export const metadata: Metadata = {
   title: "CostSmart | Free Financial Calculators — EMI, SIP & Tax",
@@ -112,7 +95,7 @@ export default function RootLayout({
           {`function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,o.onload=function(){window.trackingFunctions.onLoad({appId:"69578e180e012c0019664915"})},document.head.appendChild(o)}initApollo();`}
         </Script>
       </head>
-      <body className={`${dmSans.variable} ${sora.variable} ${dmSans.className} min-h-screen flex flex-col bg-slate-50 text-slate-900 antialiased`}>
+      <body className="min-h-screen flex flex-col bg-slate-50 text-slate-900 antialiased">
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe
