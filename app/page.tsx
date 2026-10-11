@@ -13,8 +13,8 @@ import MiniSIPWidget from '@/components/features/MiniSIPWidget';
 import { CANONICAL_DOMAIN, getCalculatorSchema } from '@/lib/seo-utils';
 import JsonLd from '@/components/seo/JsonLd';
 
-const TestimonialsSection = dynamic(() => import('@/components/features/TestimonialsSection'), { ssr: false });
-const NewsletterInlineForm = dynamic(() => import('@/components/lead-capture/NewsletterInlineForm'), { ssr: false });
+const TestimonialsSection = dynamic(() => import('@/components/features/TestimonialsSection'));
+const NewsletterInlineForm = dynamic(() => import('@/components/lead-capture/NewsletterInlineForm'));
 
 export const metadata: Metadata = {
   title: 'CostSmart | Free Financial Calculators — EMI, SIP, Tax & More',

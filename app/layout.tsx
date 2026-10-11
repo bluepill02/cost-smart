@@ -4,12 +4,10 @@ import "./globals.css";
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import Script from "next/script";
-import dynamic from "next/dynamic";
+import AdContainer from '@/components/ads/AdContainer';
 import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
+import ClientEnhancements from '@/components/layouts/ClientEnhancements';
 import Providers from "@/components/providers/Providers";
-
-const AdContainer = dynamic(() => import('@/components/ads/AdContainer'), { ssr: false });
-const ClientEnhancements = dynamic(() => import('@/components/layouts/ClientEnhancements'), { ssr: false });
 
 // DM Sans — refined body font with excellent legibility
 const dmSans = DM_Sans({
