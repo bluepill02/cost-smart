@@ -20,3 +20,5 @@ export const PPP_DATA: CountryPPP[] = [
     { name: 'Singapore', code: 'SGP', currency: 'SGD', currencySymbol: 'S$', pppFactor: 0.86 },
     { name: 'Switzerland', code: 'CHE', currency: 'CHF', currencySymbol: 'Fr', pppFactor: 1.12 }
 ].sort((a, b) => a.name.localeCompare(b.name));
+
+export const PPP_DATA_BY_CODE = new Map(PPP_DATA.map(c => [c.code, c]));
