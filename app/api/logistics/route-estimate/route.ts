@@ -1,5 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { getSubscriptionByEmail } from '@/lib/kv-store';
+import { NextRequest, NextResponse } from "next/server";
+import { getSubscriptionByEmail } from "@/lib/kv-store";
 
 interface RouteEstimateRequest {
   origin: string;
@@ -16,19 +16,26 @@ const FREE_LIMIT = 3;
 const PRO_LIMIT = 30;
 
 function getClientIp(request: NextRequest): string {
-  const forwarded = request.headers.get('x-forwarded-for');
-  if (forwarded) {
-    return forwarded.split(',')[0].trim();
+  const ip = (request as any).ip;
+  if (ip) {
+    return ip;
   }
-  const realIp = request.headers.get('x-real-ip');
+  const realIp = request.headers.get("x-real-ip");
   if (realIp) {
     return realIp;
   }
-  return 'unknown';
+  const forwarded = request.headers.get("x-forwarded-for");
+  if (forwarded) {
+    return forwarded.split(",").pop()?.trim() || "unknown";
+  }
+  return "unknown";
 }
 
-function checkRateLimit(ip: string, limit: number): { allowed: boolean; remaining: number } {
-  const today = new Date().toISOString().split('T')[0];
+function checkRateLimit(
+  ip: string,
+  limit: number,
+): { allowed: boolean; remaining: number } {
+  const today = new Date().toISOString().split("T")[0];
   const entry = rateLimitStore.get(ip);
 
   if (!entry || entry.date !== today) {
@@ -44,7 +51,7 @@ function checkRateLimit(ip: string, limit: number): { allowed: boolean; remainin
 }
 
 function incrementRateLimit(ip: string): void {
-  const today = new Date().toISOString().split('T')[0];
+  const today = new Date().toISOString().split("T")[0];
   const entry = rateLimitStore.get(ip);
 
   if (!entry || entry.date !== today) {
@@ -71,27 +78,31 @@ export async function POST(request: NextRequest) {
     const { origin, destination, isPro, email } = body;
 
     // Validate origin and destination
-    if (!origin || typeof origin !== 'string' || origin.trim().length === 0) {
+    if (!origin || typeof origin !== "string" || origin.trim().length === 0) {
       return NextResponse.json(
-        { error: 'Invalid request: origin must be a non-empty string' },
-        { status: 400 }
+        { error: "Invalid request: origin must be a non-empty string" },
+        { status: 400 },
       );
     }
 
-    if (!destination || typeof destination !== 'string' || destination.trim().length === 0) {
+    if (
+      !destination ||
+      typeof destination !== "string" ||
+      destination.trim().length === 0
+    ) {
       return NextResponse.json(
-        { error: 'Invalid request: destination must be a non-empty string' },
-        { status: 400 }
+        { error: "Invalid request: destination must be a non-empty string" },
+        { status: 400 },
       );
     }
 
     // Server-side Pro verification via email
     let verifiedPro = false;
-    if (isPro && email && typeof email === 'string') {
+    if (isPro && email && typeof email === "string") {
       try {
         const normalizedEmail = email.toLowerCase().trim();
         const record = await getSubscriptionByEmail(normalizedEmail);
-        verifiedPro = record !== null && record.status === 'ACTIVE';
+        verifiedPro = record !== null && record.status === "ACTIVE";
       } catch {
         verifiedPro = false;
       }
@@ -105,57 +116,61 @@ export async function POST(request: NextRequest) {
     if (!allowed) {
       return NextResponse.json(
         {
-          error: 'Rate limit exceeded. Please try again tomorrow.',
+          error: "Rate limit exceeded. Please try again tomorrow.",
           limit,
-          resetAt: 'midnight UTC',
+          resetAt: "midnight UTC",
         },
         {
           status: 429,
           headers: {
-            'Retry-After': '86400',
-            'X-RateLimit-Limit': String(limit),
-            'X-RateLimit-Remaining': '0',
+            "Retry-After": "86400",
+            "X-RateLimit-Limit": String(limit),
+            "X-RateLimit-Remaining": "0",
           },
-        }
+        },
       );
     }
 
     // Check API key configuration
     const apiKey = process.env.GOOGLE_MAPS_API_KEY;
     if (!apiKey) {
-      console.error('GOOGLE_MAPS_API_KEY is not configured');
+      console.error("GOOGLE_MAPS_API_KEY is not configured");
       return NextResponse.json(
-        { error: 'Routes API is not configured' },
-        { status: 500 }
+        { error: "Routes API is not configured" },
+        { status: 500 },
       );
     }
 
     // Call Google Routes API v2
     const routesResponse = await fetch(
-      'https://routes.googleapis.com/directions/v2:computeRoutes',
+      "https://routes.googleapis.com/directions/v2:computeRoutes",
       {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
-          'X-Goog-Api-Key': apiKey,
-          'X-Goog-FieldMask':
-            'routes.duration,routes.distanceMeters,routes.legs.duration,routes.legs.distanceMeters',
+          "Content-Type": "application/json",
+          "X-Goog-Api-Key": apiKey,
+          "X-Goog-FieldMask":
+            "routes.duration,routes.distanceMeters,routes.legs.duration,routes.legs.distanceMeters",
         },
         body: JSON.stringify({
           origin: { address: origin.trim() },
           destination: { address: destination.trim() },
-          travelMode: 'DRIVE',
+          travelMode: "DRIVE",
         }),
-      }
+      },
     );
 
     if (!routesResponse.ok) {
       const errorText = await routesResponse.text();
-      console.error('Google Routes API error:', routesResponse.status, errorText);
+      console.error(
+        "Google Routes API error:",
+        routesResponse.status,
+        errorText,
+      );
 
       return NextResponse.json(
-        { error: 'Failed to fetch route data from upstream API' },
-        { status: 502 }
+        { error: "Failed to fetch route data from upstream API" },
+        { status: 502 },
       );
     }
 
@@ -167,8 +182,8 @@ export async function POST(request: NextRequest) {
     const route = routesData.routes?.[0];
     if (!route) {
       return NextResponse.json(
-        { error: 'No route found between the specified locations' },
-        { status: 404 }
+        { error: "No route found between the specified locations" },
+        { status: 404 },
       );
     }
 
@@ -176,8 +191,8 @@ export async function POST(request: NextRequest) {
     const distanceMiles = Math.round((distanceMeters / 1609.344) * 100) / 100;
 
     // Duration comes as a string like "1234s"
-    const durationStr = route.duration || '0s';
-    const durationSeconds = parseInt(durationStr.replace('s', ''), 10) || 0;
+    const durationStr = route.duration || "0s";
+    const durationSeconds = parseInt(durationStr.replace("s", ""), 10) || 0;
     const durationText = formatDuration(durationSeconds);
 
     const response = {
@@ -196,17 +211,17 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(response, {
       headers: {
-        'Cache-Control': 'private, max-age=3600',
-        'Content-Type': 'application/json',
-        'X-RateLimit-Limit': String(limit),
-        'X-RateLimit-Remaining': String(remaining),
+        "Cache-Control": "private, max-age=3600",
+        "Content-Type": "application/json",
+        "X-RateLimit-Limit": String(limit),
+        "X-RateLimit-Remaining": String(remaining),
       },
     });
   } catch (error) {
-    console.error('Route estimate error:', error);
+    console.error("Route estimate error:", error);
     return NextResponse.json(
-      { error: 'Internal server error' },
-      { status: 500 }
+      { error: "Internal server error" },
+      { status: 500 },
     );
   }
 }

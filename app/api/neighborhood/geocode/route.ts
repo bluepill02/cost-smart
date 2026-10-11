@@ -1,5 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { getSubscriptionByEmail } from '@/lib/kv-store';
+import { NextRequest, NextResponse } from "next/server";
+import { getSubscriptionByEmail } from "@/lib/kv-store";
 
 interface GeocodeRequest {
   address: string;
@@ -15,19 +15,26 @@ const FREE_LIMIT = 5;
 const PRO_LIMIT = 50;
 
 function getClientIp(request: NextRequest): string {
-  const forwarded = request.headers.get('x-forwarded-for');
-  if (forwarded) {
-    return forwarded.split(',')[0].trim();
+  const ip = (request as any).ip;
+  if (ip) {
+    return ip;
   }
-  const realIp = request.headers.get('x-real-ip');
+  const realIp = request.headers.get("x-real-ip");
   if (realIp) {
     return realIp;
   }
-  return 'unknown';
+  const forwarded = request.headers.get("x-forwarded-for");
+  if (forwarded) {
+    return forwarded.split(",").pop()?.trim() || "unknown";
+  }
+  return "unknown";
 }
 
-function checkRateLimit(ip: string, limit: number): { allowed: boolean; remaining: number } {
-  const today = new Date().toISOString().split('T')[0];
+function checkRateLimit(
+  ip: string,
+  limit: number,
+): { allowed: boolean; remaining: number } {
+  const today = new Date().toISOString().split("T")[0];
   const entry = rateLimitStore.get(ip);
 
   if (!entry || entry.date !== today) {
@@ -42,7 +49,7 @@ function checkRateLimit(ip: string, limit: number): { allowed: boolean; remainin
 }
 
 function incrementRateLimit(ip: string): void {
-  const today = new Date().toISOString().split('T')[0];
+  const today = new Date().toISOString().split("T")[0];
   const entry = rateLimitStore.get(ip);
 
   if (!entry || entry.date !== today) {
@@ -59,20 +66,27 @@ export async function POST(request: NextRequest) {
     const { address, isPro, email } = body;
 
     // Validate address
-    if (!address || typeof address !== 'string' || address.trim().length === 0) {
+    if (
+      !address ||
+      typeof address !== "string" ||
+      address.trim().length === 0
+    ) {
       return NextResponse.json(
-        { error: 'Invalid request: address is required and must be a non-empty string' },
-        { status: 400 }
+        {
+          error:
+            "Invalid request: address is required and must be a non-empty string",
+        },
+        { status: 400 },
       );
     }
 
     // Server-side Pro verification via email
     let verifiedPro = false;
-    if (isPro && email && typeof email === 'string') {
+    if (isPro && email && typeof email === "string") {
       try {
         const normalizedEmail = email.toLowerCase().trim();
         const record = await getSubscriptionByEmail(normalizedEmail);
-        verifiedPro = record !== null && record.status === 'ACTIVE';
+        verifiedPro = record !== null && record.status === "ACTIVE";
       } catch {
         verifiedPro = false;
       }
@@ -86,28 +100,28 @@ export async function POST(request: NextRequest) {
     if (!allowed) {
       return NextResponse.json(
         {
-          error: 'Rate limit exceeded. Please try again tomorrow.',
+          error: "Rate limit exceeded. Please try again tomorrow.",
           limit,
-          resetAt: 'midnight UTC',
+          resetAt: "midnight UTC",
         },
         {
           status: 429,
           headers: {
-            'Retry-After': '86400',
-            'X-RateLimit-Limit': String(limit),
-            'X-RateLimit-Remaining': '0',
+            "Retry-After": "86400",
+            "X-RateLimit-Limit": String(limit),
+            "X-RateLimit-Remaining": "0",
           },
-        }
+        },
       );
     }
 
     // Check API key configuration
     const apiKey = process.env.GOOGLE_MAPS_API_KEY;
     if (!apiKey) {
-      console.error('GOOGLE_MAPS_API_KEY is not configured');
+      console.error("GOOGLE_MAPS_API_KEY is not configured");
       return NextResponse.json(
-        { error: 'Geocoding API is not configured' },
-        { status: 500 }
+        { error: "Geocoding API is not configured" },
+        { status: 500 },
       );
     }
 
@@ -115,18 +129,22 @@ export async function POST(request: NextRequest) {
     const geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(address.trim())}&key=${apiKey}`;
 
     const geocodeResponse = await fetch(geocodeUrl, {
-      method: 'GET',
+      method: "GET",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
     });
 
     if (!geocodeResponse.ok) {
       const errorText = await geocodeResponse.text();
-      console.error('Google Geocoding API error:', geocodeResponse.status, errorText);
+      console.error(
+        "Google Geocoding API error:",
+        geocodeResponse.status,
+        errorText,
+      );
       return NextResponse.json(
-        { error: 'Failed to fetch geocoding data from upstream API' },
-        { status: 502 }
+        { error: "Failed to fetch geocoding data from upstream API" },
+        { status: 502 },
       );
     }
 
@@ -135,11 +153,11 @@ export async function POST(request: NextRequest) {
     if (
       !geocodeData.results ||
       geocodeData.results.length === 0 ||
-      geocodeData.status === 'ZERO_RESULTS'
+      geocodeData.status === "ZERO_RESULTS"
     ) {
       return NextResponse.json(
-        { error: 'No results found for the given address' },
-        { status: 404 }
+        { error: "No results found for the given address" },
+        { status: 404 },
       );
     }
 
@@ -164,17 +182,17 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(response, {
       headers: {
-        'Cache-Control': 'private, max-age=3600',
-        'Content-Type': 'application/json',
-        'X-RateLimit-Limit': String(limit),
-        'X-RateLimit-Remaining': String(remaining),
+        "Cache-Control": "private, max-age=3600",
+        "Content-Type": "application/json",
+        "X-RateLimit-Limit": String(limit),
+        "X-RateLimit-Remaining": String(remaining),
       },
     });
   } catch (error) {
-    console.error('Geocode error:', error);
+    console.error("Geocode error:", error);
     return NextResponse.json(
-      { error: 'Internal server error' },
-      { status: 500 }
+      { error: "Internal server error" },
+      { status: 500 },
     );
   }
 }

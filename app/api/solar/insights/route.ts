@@ -1,5 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { getSubscriptionByEmail } from '@/lib/kv-store';
+import { NextRequest, NextResponse } from "next/server";
+import { getSubscriptionByEmail } from "@/lib/kv-store";
 
 interface SolarInsightRequest {
   latitude: number;
@@ -16,19 +16,26 @@ const FREE_LIMIT = 3;
 const PRO_LIMIT = 30;
 
 function getClientIp(request: NextRequest): string {
-  const forwarded = request.headers.get('x-forwarded-for');
-  if (forwarded) {
-    return forwarded.split(',')[0].trim();
+  const ip = (request as any).ip;
+  if (ip) {
+    return ip;
   }
-  const realIp = request.headers.get('x-real-ip');
+  const realIp = request.headers.get("x-real-ip");
   if (realIp) {
     return realIp;
   }
-  return 'unknown';
+  const forwarded = request.headers.get("x-forwarded-for");
+  if (forwarded) {
+    return forwarded.split(",").pop()?.trim() || "unknown";
+  }
+  return "unknown";
 }
 
-function checkRateLimit(ip: string, limit: number): { allowed: boolean; remaining: number } {
-  const today = new Date().toISOString().split('T')[0];
+function checkRateLimit(
+  ip: string,
+  limit: number,
+): { allowed: boolean; remaining: number } {
+  const today = new Date().toISOString().split("T")[0];
   const entry = rateLimitStore.get(ip);
 
   if (!entry || entry.date !== today) {
@@ -44,7 +51,7 @@ function checkRateLimit(ip: string, limit: number): { allowed: boolean; remainin
 }
 
 function incrementRateLimit(ip: string): void {
-  const today = new Date().toISOString().split('T')[0];
+  const today = new Date().toISOString().split("T")[0];
   const entry = rateLimitStore.get(ip);
 
   if (!entry || entry.date !== today) {
@@ -64,38 +71,41 @@ export async function POST(request: NextRequest) {
     if (
       latitude === undefined ||
       longitude === undefined ||
-      typeof latitude !== 'number' ||
-      typeof longitude !== 'number' ||
+      typeof latitude !== "number" ||
+      typeof longitude !== "number" ||
       isNaN(latitude) ||
       isNaN(longitude)
     ) {
       return NextResponse.json(
-        { error: 'Invalid request: latitude and longitude must be valid numbers' },
-        { status: 400 }
+        {
+          error:
+            "Invalid request: latitude and longitude must be valid numbers",
+        },
+        { status: 400 },
       );
     }
 
     if (latitude < -90 || latitude > 90) {
       return NextResponse.json(
-        { error: 'Invalid latitude: must be between -90 and 90' },
-        { status: 400 }
+        { error: "Invalid latitude: must be between -90 and 90" },
+        { status: 400 },
       );
     }
 
     if (longitude < -180 || longitude > 180) {
       return NextResponse.json(
-        { error: 'Invalid longitude: must be between -180 and 180' },
-        { status: 400 }
+        { error: "Invalid longitude: must be between -180 and 180" },
+        { status: 400 },
       );
     }
 
     // Server-side Pro verification via email (same pattern as /api/pro/status)
     let verifiedPro = false;
-    if (isPro && email && typeof email === 'string') {
+    if (isPro && email && typeof email === "string") {
       try {
         const normalizedEmail = email.toLowerCase().trim();
         const record = await getSubscriptionByEmail(normalizedEmail);
-        verifiedPro = record !== null && record.status === 'ACTIVE';
+        verifiedPro = record !== null && record.status === "ACTIVE";
       } catch {
         verifiedPro = false;
       }
@@ -109,55 +119,55 @@ export async function POST(request: NextRequest) {
     if (!allowed) {
       return NextResponse.json(
         {
-          error: 'Rate limit exceeded. Please try again tomorrow.',
+          error: "Rate limit exceeded. Please try again tomorrow.",
           limit,
-          resetAt: 'midnight UTC',
+          resetAt: "midnight UTC",
         },
         {
           status: 429,
           headers: {
-            'Retry-After': '86400',
-            'X-RateLimit-Limit': String(limit),
-            'X-RateLimit-Remaining': '0',
+            "Retry-After": "86400",
+            "X-RateLimit-Limit": String(limit),
+            "X-RateLimit-Remaining": "0",
           },
-        }
+        },
       );
     }
 
     // Call Google Solar API
     const apiKey = process.env.GOOGLE_SOLAR_API_KEY;
     if (!apiKey) {
-      console.error('GOOGLE_SOLAR_API_KEY is not configured');
+      console.error("GOOGLE_SOLAR_API_KEY is not configured");
       return NextResponse.json(
-        { error: 'Solar API is not configured' },
-        { status: 500 }
+        { error: "Solar API is not configured" },
+        { status: 500 },
       );
     }
 
     const solarUrl = `https://solar.googleapis.com/v1/buildingInsights:findClosest?location.latitude=${latitude}&location.longitude=${longitude}&requiredQuality=HIGH&key=${apiKey}`;
 
     const solarResponse = await fetch(solarUrl, {
-      method: 'GET',
+      method: "GET",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
     });
 
     if (!solarResponse.ok) {
       const errorText = await solarResponse.text();
-      console.error('Google Solar API error:', solarResponse.status, errorText);
+      console.error("Google Solar API error:", solarResponse.status, errorText);
 
       if (solarResponse.status === 404) {
         // Do not increment rate limit on 404 - user should not burn a lookup
         return NextResponse.json(
-          { error: 'No solar data available for this location' },
-          { status: 404 }
+          { error: "No solar data available for this location" },
+          { status: 404 },
         );
       }
 
       return NextResponse.json(
-        { error: 'Failed to fetch solar data from upstream API' },
-        { status: 502 }
+        { error: "Failed to fetch solar data from upstream API" },
+        { status: 502 },
       );
     }
 
@@ -177,7 +187,8 @@ export async function POST(request: NextRequest) {
           maxArrayPanelsCount: solarPotential?.maxArrayPanelsCount,
           maxArrayAreaMeters2: solarPotential?.maxArrayAreaMeters2,
           maxSunshineHoursPerYear: solarPotential?.maxSunshineHoursPerYear,
-          carbonOffsetFactorKgPerMwh: solarPotential?.carbonOffsetFactorKgPerMwh,
+          carbonOffsetFactorKgPerMwh:
+            solarPotential?.carbonOffsetFactorKgPerMwh,
           panelCapacityWatts: solarPotential?.panelCapacityWatts,
           panelHeightMeters: solarPotential?.panelHeightMeters,
           panelWidthMeters: solarPotential?.panelWidthMeters,
@@ -198,17 +209,17 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(response, {
       headers: {
-        'Cache-Control': 'private, max-age=3600',
-        'Content-Type': 'application/json',
-        'X-RateLimit-Limit': String(limit),
-        'X-RateLimit-Remaining': String(remaining),
+        "Cache-Control": "private, max-age=3600",
+        "Content-Type": "application/json",
+        "X-RateLimit-Limit": String(limit),
+        "X-RateLimit-Remaining": String(remaining),
       },
     });
   } catch (error) {
-    console.error('Solar insights error:', error);
+    console.error("Solar insights error:", error);
     return NextResponse.json(
-      { error: 'Internal server error' },
-      { status: 500 }
+      { error: "Internal server error" },
+      { status: 500 },
     );
   }
 }

@@ -1,5 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { azureDetectLanguage } from '@/lib/azure-ai';
+import { NextRequest, NextResponse } from "next/server";
+import { azureDetectLanguage } from "@/lib/azure-ai";
 
 // NOTE (accepted trade-off): This in-memory rate limiter resets on each
 // serverless cold start and is not shared across concurrent Vercel function
@@ -32,11 +32,21 @@ interface DetectRequest {
 export async function POST(request: NextRequest) {
   try {
     // Rate limiting by IP
-    const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
+    let ip = (request as any).ip;
+    if (!ip) {
+      ip = request.headers.get("x-real-ip");
+    }
+    if (!ip) {
+      const forwarded = request.headers.get("x-forwarded-for");
+      if (forwarded) {
+        ip = forwarded.split(",").pop()?.trim();
+      }
+    }
+    ip = ip || "unknown";
     if (isRateLimited(ip)) {
       return NextResponse.json(
-        { error: 'Too many requests. Please try again later.' },
-        { status: 429 }
+        { error: "Too many requests. Please try again later." },
+        { status: 429 },
       );
     }
 
@@ -45,20 +55,20 @@ export async function POST(request: NextRequest) {
 
     if (!text) {
       return NextResponse.json(
-        { error: 'Missing required field: text' },
-        { status: 400 }
+        { error: "Missing required field: text" },
+        { status: 400 },
       );
     }
 
     if (text.length > 1000) {
       return NextResponse.json(
-        { error: 'Text too long for detection. Maximum 1,000 characters.' },
-        { status: 400 }
+        { error: "Text too long for detection. Maximum 1,000 characters." },
+        { status: 400 },
       );
     }
 
     // Call Azure Translator Detect REST API
-    let language = 'unknown';
+    let language = "unknown";
     let confidence = 0;
     let alternatives: { language: string; score: number }[] = [];
     let isRealAI = false;
@@ -68,37 +78,58 @@ export async function POST(request: NextRequest) {
 
       if (!results || results.length === 0) {
         return NextResponse.json(
-          { error: 'Language detection service unavailable. Please try again later.' },
-          { status: 502 }
+          {
+            error:
+              "Language detection service unavailable. Please try again later.",
+          },
+          { status: 502 },
         );
       }
 
       const primary = results[0];
-      language = primary.language || 'unknown';
+      language = primary.language || "unknown";
       confidence = primary.score || 0;
       alternatives = primary.alternatives || [];
       isRealAI = true;
     } catch (apiErr) {
-      console.error('Azure Translator Detect API error (using fallback):', apiErr);
+      console.error(
+        "Azure Translator Detect API error (using fallback):",
+        apiErr,
+      );
       // Simple heuristic-based language detection fallback
       const lowerText = text.toLowerCase();
-      if (/[àâçéèêëîïôûùüÿœæ]/.test(text) || /\b(le|la|les|de|du|des|un|une|et|est|sont|dans|pour|avec|que|qui|ce|se|ne|pas|nous|vous|ils|elles)\b/.test(lowerText)) {
-        language = 'fr';
+      if (
+        /[àâçéèêëîïôûùüÿœæ]/.test(text) ||
+        /\b(le|la|les|de|du|des|un|une|et|est|sont|dans|pour|avec|que|qui|ce|se|ne|pas|nous|vous|ils|elles)\b/.test(
+          lowerText,
+        )
+      ) {
+        language = "fr";
         confidence = 0.7;
-      } else if (/[äöüß]/.test(text) || /\b(der|die|das|ein|eine|und|ist|sind|nicht|ich|du|er|sie|wir|ihr|haben|werden)\b/.test(lowerText)) {
-        language = 'de';
+      } else if (
+        /[äöüß]/.test(text) ||
+        /\b(der|die|das|ein|eine|und|ist|sind|nicht|ich|du|er|sie|wir|ihr|haben|werden)\b/.test(
+          lowerText,
+        )
+      ) {
+        language = "de";
         confidence = 0.7;
-      } else if (/[áéíóúñ¿¡]/.test(text) || /\b(el|la|los|las|un|una|de|del|en|es|son|que|por|para|con|se|no|su|al)\b/.test(lowerText)) {
-        language = 'es';
+      } else if (
+        /[áéíóúñ¿¡]/.test(text) ||
+        /\b(el|la|los|las|un|una|de|del|en|es|son|que|por|para|con|se|no|su|al)\b/.test(
+          lowerText,
+        )
+      ) {
+        language = "es";
         confidence = 0.7;
       } else if (/[\u0900-\u097F]/.test(text)) {
-        language = 'hi';
+        language = "hi";
         confidence = 0.9;
       } else if (/[\u0B80-\u0BFF]/.test(text)) {
-        language = 'ta';
+        language = "ta";
         confidence = 0.9;
       } else {
-        language = 'en';
+        language = "en";
         confidence = 0.5;
       }
       isRealAI = false;
@@ -112,10 +143,10 @@ export async function POST(request: NextRequest) {
       alternatives,
     });
   } catch (error) {
-    console.error('Language detection error:', error);
+    console.error("Language detection error:", error);
     return NextResponse.json(
-      { error: 'Failed to detect language. Please try again.' },
-      { status: 500 }
+      { error: "Failed to detect language. Please try again." },
+      { status: 500 },
     );
   }
 }
