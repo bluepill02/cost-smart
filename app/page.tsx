@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 import {
   Calculator, TrendingUp, Home, Briefcase, Sun, DollarSign,
   ArrowRight, Star, Shield, Zap, Users, BarChart3, Receipt,
@@ -9,10 +10,11 @@ import {
 import AdContainer from '@/components/ads/AdContainer';
 import HeroSearch from '@/components/features/HeroSearch';
 import MiniSIPWidget from '@/components/features/MiniSIPWidget';
-import TestimonialsSection from '@/components/features/TestimonialsSection';
-import NewsletterInlineForm from '@/components/lead-capture/NewsletterInlineForm';
 import { CANONICAL_DOMAIN, getCalculatorSchema } from '@/lib/seo-utils';
 import JsonLd from '@/components/seo/JsonLd';
+
+const TestimonialsSection = dynamic(() => import('@/components/features/TestimonialsSection'), { ssr: false });
+const NewsletterInlineForm = dynamic(() => import('@/components/lead-capture/NewsletterInlineForm'), { ssr: false });
 
 export const metadata: Metadata = {
   title: 'CostSmart | Free Financial Calculators — EMI, SIP, Tax & More',
