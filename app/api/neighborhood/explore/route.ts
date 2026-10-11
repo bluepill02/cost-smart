@@ -1,5 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { getSubscriptionByEmail } from '@/lib/kv-store';
+import { NextRequest, NextResponse } from "next/server";
+import { getSubscriptionByEmail } from "@/lib/kv-store";
 
 interface ExploreRequest {
   latitude: number;
@@ -29,19 +29,26 @@ const FREE_LIMIT = 2;
 const PRO_LIMIT = 30;
 
 function getClientIp(request: NextRequest): string {
-  const forwarded = request.headers.get('x-forwarded-for');
-  if (forwarded) {
-    return forwarded.split(',')[0].trim();
+  const ip = (request as any).ip;
+  if (ip) {
+    return ip;
   }
-  const realIp = request.headers.get('x-real-ip');
+  const realIp = request.headers.get("x-real-ip");
   if (realIp) {
     return realIp;
   }
-  return 'unknown';
+  const forwarded = request.headers.get("x-forwarded-for");
+  if (forwarded) {
+    return forwarded.split(",").pop()?.trim() || "unknown";
+  }
+  return "unknown";
 }
 
-function checkRateLimit(ip: string, limit: number): { allowed: boolean; remaining: number } {
-  const today = new Date().toISOString().split('T')[0];
+function checkRateLimit(
+  ip: string,
+  limit: number,
+): { allowed: boolean; remaining: number } {
+  const today = new Date().toISOString().split("T")[0];
   const entry = rateLimitStore.get(ip);
 
   if (!entry || entry.date !== today) {
@@ -56,7 +63,7 @@ function checkRateLimit(ip: string, limit: number): { allowed: boolean; remainin
 }
 
 function incrementRateLimit(ip: string): void {
-  const today = new Date().toISOString().split('T')[0];
+  const today = new Date().toISOString().split("T")[0];
   const entry = rateLimitStore.get(ip);
 
   if (!entry || entry.date !== today) {
@@ -71,7 +78,7 @@ function calculateDistance(
   lat1: number,
   lng1: number,
   lat2: number,
-  lng2: number
+  lng2: number,
 ): number {
   const R = 6371000; // Earth radius in meters
   const dLat = ((lat2 - lat1) * Math.PI) / 180;
@@ -87,7 +94,7 @@ function calculateDistance(
 }
 
 function calculateNeighborhoodScore(
-  categories: { places: PlaceResult[]; maxRadius: number }[]
+  categories: { places: PlaceResult[]; maxRadius: number }[],
 ): number {
   let totalScore = 0;
 
@@ -113,19 +120,19 @@ function calculateNeighborhoodScore(
 }
 
 const CATEGORIES = [
-  { query: 'schools', radius: 2000 },
-  { query: 'hospitals clinics', radius: 3000 },
-  { query: 'parks recreation', radius: 2000 },
-  { query: 'transit stations', radius: 1500 },
-  { query: 'grocery shopping', radius: 1500 },
+  { query: "schools", radius: 2000 },
+  { query: "hospitals clinics", radius: 3000 },
+  { query: "parks recreation", radius: 2000 },
+  { query: "transit stations", radius: 1500 },
+  { query: "grocery shopping", radius: 1500 },
 ] as const;
 
 const CATEGORY_NAMES = [
-  'Schools',
-  'Hospitals/Clinics',
-  'Parks/Recreation',
-  'Transit Stations',
-  'Grocery/Shopping',
+  "Schools",
+  "Hospitals/Clinics",
+  "Parks/Recreation",
+  "Transit Stations",
+  "Grocery/Shopping",
 ];
 
 export async function POST(request: NextRequest) {
@@ -137,38 +144,41 @@ export async function POST(request: NextRequest) {
     if (
       latitude === undefined ||
       longitude === undefined ||
-      typeof latitude !== 'number' ||
-      typeof longitude !== 'number' ||
+      typeof latitude !== "number" ||
+      typeof longitude !== "number" ||
       isNaN(latitude) ||
       isNaN(longitude)
     ) {
       return NextResponse.json(
-        { error: 'Invalid request: latitude and longitude must be valid numbers' },
-        { status: 400 }
+        {
+          error:
+            "Invalid request: latitude and longitude must be valid numbers",
+        },
+        { status: 400 },
       );
     }
 
     if (latitude < -90 || latitude > 90) {
       return NextResponse.json(
-        { error: 'Invalid latitude: must be between -90 and 90' },
-        { status: 400 }
+        { error: "Invalid latitude: must be between -90 and 90" },
+        { status: 400 },
       );
     }
 
     if (longitude < -180 || longitude > 180) {
       return NextResponse.json(
-        { error: 'Invalid longitude: must be between -180 and 180' },
-        { status: 400 }
+        { error: "Invalid longitude: must be between -180 and 180" },
+        { status: 400 },
       );
     }
 
     // Server-side Pro verification via email
     let verifiedPro = false;
-    if (isPro && email && typeof email === 'string') {
+    if (isPro && email && typeof email === "string") {
       try {
         const normalizedEmail = email.toLowerCase().trim();
         const record = await getSubscriptionByEmail(normalizedEmail);
-        verifiedPro = record !== null && record.status === 'ACTIVE';
+        verifiedPro = record !== null && record.status === "ACTIVE";
       } catch {
         verifiedPro = false;
       }
@@ -182,41 +192,39 @@ export async function POST(request: NextRequest) {
     if (!allowed) {
       return NextResponse.json(
         {
-          error: 'Rate limit exceeded. Please try again tomorrow.',
+          error: "Rate limit exceeded. Please try again tomorrow.",
           limit,
-          resetAt: 'midnight UTC',
+          resetAt: "midnight UTC",
         },
         {
           status: 429,
           headers: {
-            'Retry-After': '86400',
-            'X-RateLimit-Limit': String(limit),
-            'X-RateLimit-Remaining': '0',
+            "Retry-After": "86400",
+            "X-RateLimit-Limit": String(limit),
+            "X-RateLimit-Remaining": "0",
           },
-        }
+        },
       );
     }
 
     // Check API key configuration
     const apiKey = process.env.GOOGLE_MAPS_API_KEY;
     if (!apiKey) {
-      console.error('GOOGLE_MAPS_API_KEY is not configured');
+      console.error("GOOGLE_MAPS_API_KEY is not configured");
       return NextResponse.json(
-        { error: 'Neighborhood API is not configured' },
-        { status: 500 }
+        { error: "Neighborhood API is not configured" },
+        { status: 500 },
       );
     }
 
     // Call Google Places API (New) Text Search for all categories in parallel
     const fieldMask =
-      'places.id,places.displayName,places.formattedAddress,places.rating,places.userRatingCount,places.location';
+      "places.id,places.displayName,places.formattedAddress,places.rating,places.userRatingCount,places.location";
 
     const categoryResults: CategoryResult[] = [];
     const scoreInputs: { places: PlaceResult[]; maxRadius: number }[] = [];
 
-    async function fetchCategoryPlaces(
-      categoryIndex: number
-    ): Promise<{
+    async function fetchCategoryPlaces(categoryIndex: number): Promise<{
       index: number;
       processedPlaces: PlaceResult[];
       radius: number;
@@ -225,13 +233,13 @@ export async function POST(request: NextRequest) {
       const textQuery = `${query} near ${latitude},${longitude}`;
 
       const placesResponse = await fetch(
-        'https://places.googleapis.com/v1/places:searchText',
+        "https://places.googleapis.com/v1/places:searchText",
         {
-          method: 'POST',
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
-            'X-Goog-Api-Key': apiKey as string,
-            'X-Goog-FieldMask': fieldMask,
+            "Content-Type": "application/json",
+            "X-Goog-Api-Key": apiKey as string,
+            "X-Goog-FieldMask": fieldMask,
           },
           body: JSON.stringify({
             textQuery,
@@ -242,7 +250,7 @@ export async function POST(request: NextRequest) {
               },
             },
           }),
-        }
+        },
       );
 
       if (!placesResponse.ok) {
@@ -250,7 +258,7 @@ export async function POST(request: NextRequest) {
         console.error(
           `Google Places API error for ${CATEGORY_NAMES[categoryIndex]}:`,
           placesResponse.status,
-          errorText
+          errorText,
         );
         return { index: categoryIndex, processedPlaces: [], radius };
       }
@@ -259,24 +267,32 @@ export async function POST(request: NextRequest) {
       const places = placesData.places || [];
 
       const processedPlaces: PlaceResult[] = places
-        .map((place: { displayName?: { text?: string }; location?: { latitude?: number; longitude?: number }; rating?: number; userRatingCount?: number; formattedAddress?: string }) => {
-          const placeLat = place.location?.latitude ?? latitude;
-          const placeLng = place.location?.longitude ?? longitude;
-          const distance = calculateDistance(
-            latitude,
-            longitude,
-            placeLat,
-            placeLng
-          );
+        .map(
+          (place: {
+            displayName?: { text?: string };
+            location?: { latitude?: number; longitude?: number };
+            rating?: number;
+            userRatingCount?: number;
+            formattedAddress?: string;
+          }) => {
+            const placeLat = place.location?.latitude ?? latitude;
+            const placeLng = place.location?.longitude ?? longitude;
+            const distance = calculateDistance(
+              latitude,
+              longitude,
+              placeLat,
+              placeLng,
+            );
 
-          return {
-            name: place.displayName?.text || 'Unknown',
-            distance: Math.round(distance),
-            rating: place.rating,
-            userRatingCount: place.userRatingCount,
-            formattedAddress: place.formattedAddress,
-          };
-        })
+            return {
+              name: place.displayName?.text || "Unknown",
+              distance: Math.round(distance),
+              rating: place.rating,
+              userRatingCount: place.userRatingCount,
+              formattedAddress: place.formattedAddress,
+            };
+          },
+        )
         .sort((a: PlaceResult, b: PlaceResult) => a.distance - b.distance)
         .slice(0, 5);
 
@@ -284,18 +300,15 @@ export async function POST(request: NextRequest) {
     }
 
     const settled = await Promise.allSettled(
-      CATEGORIES.map((_, i) => fetchCategoryPlaces(i))
+      CATEGORIES.map((_, i) => fetchCategoryPlaces(i)),
     );
 
     // Process settled results in order
     for (let i = 0; i < CATEGORIES.length; i++) {
       const result = settled[i];
 
-      if (result.status === 'rejected') {
-        console.error(
-          `Error fetching ${CATEGORY_NAMES[i]}:`,
-          result.reason
-        );
+      if (result.status === "rejected") {
+        console.error(`Error fetching ${CATEGORY_NAMES[i]}:`, result.reason);
         categoryResults.push({ category: CATEGORY_NAMES[i], places: [] });
         scoreInputs.push({ places: [], maxRadius: CATEGORIES[i].radius });
         continue;
@@ -350,17 +363,17 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(response, {
       headers: {
-        'Cache-Control': 'private, max-age=3600',
-        'Content-Type': 'application/json',
-        'X-RateLimit-Limit': String(limit),
-        'X-RateLimit-Remaining': String(remaining),
+        "Cache-Control": "private, max-age=3600",
+        "Content-Type": "application/json",
+        "X-RateLimit-Limit": String(limit),
+        "X-RateLimit-Remaining": String(remaining),
       },
     });
   } catch (error) {
-    console.error('Neighborhood explore error:', error);
+    console.error("Neighborhood explore error:", error);
     return NextResponse.json(
-      { error: 'Internal server error' },
-      { status: 500 }
+      { error: "Internal server error" },
+      { status: 500 },
     );
   }
 }
