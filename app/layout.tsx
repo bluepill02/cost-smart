@@ -3,20 +3,11 @@ import "./globals.css";
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import Script from "next/script";
-import dynamic from "next/dynamic";
 import AdContainer from '@/components/ads/AdContainer';
 import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
 import GoogleAnalyticsTracker from "@/components/analytics/GoogleAnalytics";
 import Providers from "@/components/providers/Providers";
-import { LeadCaptureProvider } from "@/components/lead-capture/LeadCaptureContext";
-
-const CookieConsent = dynamic(() => import("@/components/ui/CookieConsent"), { ssr: false });
-const BotpressLoader = dynamic(() => import("@/components/ui/BotpressLoader"), { ssr: false });
-const SoftAdBlockMessage = dynamic(() => import("@/components/ads/SoftAdBlockMessage"), { ssr: false });
-const AdBlockWall = dynamic(() => import("@/components/ads/AdBlockWall"), { ssr: false });
-const FloatingChatWidget = dynamic(() => import("@/components/features/FloatingChatWidget"), { ssr: false });
-const ExitIntentPopup = dynamic(() => import("@/components/lead-capture/ExitIntentPopup"), { ssr: false });
-const FloatingBottomBar = dynamic(() => import("@/components/lead-capture/FloatingBottomBar"), { ssr: false });
+import DeferredClientWidgets from "@/components/performance/DeferredClientWidgets";
 
 export const metadata: Metadata = {
   title: "CostSmart | Free Financial Calculators — EMI, SIP & Tax",
@@ -126,17 +117,8 @@ export default function RootLayout({
         </div>
 
         <Footer />
-        <SoftAdBlockMessage />
-        <AdBlockWall />
-        {!process.env.NEXT_PUBLIC_BOTPRESS_BOT_URL && <FloatingChatWidget />}
-        <LeadCaptureProvider>
-          <ExitIntentPopup />
-          <FloatingBottomBar />
-        </LeadCaptureProvider>
         </Providers>
-        <CookieConsent />
-        {/* BotpressLoader activates when NEXT_PUBLIC_BOTPRESS_BOT_URL is set; FloatingChatWidget is the fallback */}
-        <BotpressLoader botConfigUrl={process.env.NEXT_PUBLIC_BOTPRESS_BOT_URL} />
+        <DeferredClientWidgets botConfigUrl={process.env.NEXT_PUBLIC_BOTPRESS_BOT_URL} />
 
         {/* Google Tag Manager */}
         <Script id="google-tag-manager" strategy="lazyOnload">
