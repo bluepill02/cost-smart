@@ -3,18 +3,20 @@ import "./globals.css";
 import Navbar from "@/components/layouts/Navbar";
 import Footer from "@/components/layouts/Footer";
 import Script from "next/script";
+import dynamic from "next/dynamic";
 import AdContainer from '@/components/ads/AdContainer';
 import { CANONICAL_DOMAIN } from '@/lib/seo-utils';
-import CookieConsent from "@/components/ui/CookieConsent";
-import BotpressLoader from "@/components/ui/BotpressLoader";
 import GoogleAnalyticsTracker from "@/components/analytics/GoogleAnalytics";
 import Providers from "@/components/providers/Providers";
-import SoftAdBlockMessage from "@/components/ads/SoftAdBlockMessage";
-import AdBlockWall from "@/components/ads/AdBlockWall";
-import FloatingChatWidget from "@/components/features/FloatingChatWidget";
-import ExitIntentPopup from "@/components/lead-capture/ExitIntentPopup";
-import FloatingBottomBar from "@/components/lead-capture/FloatingBottomBar";
 import { LeadCaptureProvider } from "@/components/lead-capture/LeadCaptureContext";
+
+const CookieConsent = dynamic(() => import("@/components/ui/CookieConsent"), { ssr: false });
+const BotpressLoader = dynamic(() => import("@/components/ui/BotpressLoader"), { ssr: false });
+const SoftAdBlockMessage = dynamic(() => import("@/components/ads/SoftAdBlockMessage"), { ssr: false });
+const AdBlockWall = dynamic(() => import("@/components/ads/AdBlockWall"), { ssr: false });
+const FloatingChatWidget = dynamic(() => import("@/components/features/FloatingChatWidget"), { ssr: false });
+const ExitIntentPopup = dynamic(() => import("@/components/lead-capture/ExitIntentPopup"), { ssr: false });
+const FloatingBottomBar = dynamic(() => import("@/components/lead-capture/FloatingBottomBar"), { ssr: false });
 
 export const metadata: Metadata = {
   title: "CostSmart | Free Financial Calculators — EMI, SIP & Tax",
@@ -64,8 +66,8 @@ export default function RootLayout({
         <meta name="theme-color" content="#f8fafc" />
 
         {/* AdSense - standard async tag (no data-nscript) */}
-        <script
-          async
+        <Script
+          strategy="lazyOnload"
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4280161410958958"
           crossOrigin="anonymous"
         />
@@ -91,7 +93,7 @@ export default function RootLayout({
         />
 
         {/* Apollo.io Website Tracker */}
-        <Script id="apollo-tracker" strategy="afterInteractive">
+        <Script id="apollo-tracker" strategy="lazyOnload">
           {`function initApollo(){var n=Math.random().toString(36).substring(7),o=document.createElement("script");o.src="https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache="+n,o.async=!0,o.defer=!0,o.onload=function(){window.trackingFunctions.onLoad({appId:"69578e180e012c0019664915"})},document.head.appendChild(o)}initApollo();`}
         </Script>
       </head>
@@ -137,7 +139,7 @@ export default function RootLayout({
         <BotpressLoader botConfigUrl={process.env.NEXT_PUBLIC_BOTPRESS_BOT_URL} />
 
         {/* Google Tag Manager */}
-        <Script id="google-tag-manager" strategy="afterInteractive">
+        <Script id="google-tag-manager" strategy="lazyOnload">
           {`
             (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
             new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -150,9 +152,9 @@ export default function RootLayout({
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-HF2NW9CQRJ"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
