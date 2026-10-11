@@ -51,9 +51,12 @@ async function loadDataIfNeeded() {
 
         // Combine: US Cities + Indian Cities + Legacy
         const combined = [...US_CITIES, ...pseoData];
+        const existingCities = new Set(combined.map(c => c.city_name.toLowerCase()));
         legacyData.forEach(l => {
-            if (!combined.find(c => c.city_name.toLowerCase() === l.city_name.toLowerCase())) {
+            const cityNameLower = l.city_name.toLowerCase();
+            if (!existingCities.has(cityNameLower)) {
                 combined.push(l);
+                existingCities.add(cityNameLower);
             }
         });
 
