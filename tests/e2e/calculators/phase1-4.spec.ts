@@ -5,9 +5,6 @@ test.describe('Phase 1.4 Calculators', () => {
   test('GST Calculator (India)', async ({ page }) => {
     await page.goto('/in/gst-calculator');
 
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const amountInput = page.getByLabel('Amount (₹)');
-    // const rateInput = page.getByLabel('GST Rate (%)'); // Not used directly, relying on buttons/default
 
     // 1. Exclusive Check
     // Default Exclusive. Amount 10000. Rate 18.
