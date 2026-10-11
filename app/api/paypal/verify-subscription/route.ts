@@ -18,8 +18,25 @@ export async function POST(request: NextRequest) {
       CANONICAL_DOMAIN,
       'https://costsmart.vercel.app',
     ];
-    const isAllowed = allowedOrigins.some((allowed) => origin.startsWith(allowed));
-    if (!isAllowed && origin !== '') {
+    let isAllowed = false;
+    if (origin === '') {
+      isAllowed = true;
+    } else {
+      try {
+        const requestOrigin = new URL(origin).origin;
+        isAllowed = allowedOrigins.some((allowed) => {
+          try {
+            return new URL(allowed).origin === requestOrigin;
+          } catch {
+            return allowed === requestOrigin;
+          }
+        });
+      } catch {
+        isAllowed = allowedOrigins.includes(origin);
+      }
+    }
+
+    if (!isAllowed) {
       return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
     }
 
