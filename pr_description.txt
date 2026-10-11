@@ -1,0 +1,4 @@
+🎯 **What:** Removed commented-out code in `components/calculators/income/SalaryCalculator.tsx`.
+💡 **Why:** The commented-out code was dead code (a block that read `// const inHand = monthlyCTC...` along with related explanatory comments) that added clutter to the file, and removing it improves readability and maintainability.
+✅ **Verification:** Verified that linting (`npm run lint`), building (`npm run build`), and testing (`npm test`) pass properly to confirm the removal hasn't negatively impacted functionality.
+✨ **Result:** Cleaned up the `SalaryCalculator.tsx` file, removing unnecessary dead code from the file.
