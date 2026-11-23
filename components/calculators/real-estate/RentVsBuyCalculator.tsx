@@ -29,7 +29,7 @@ export default function RentVsBuyCalculator() {
     // Buy Inputs
     const [propertyPrice, setPropertyPrice] = useState<number>(500000);
     const [downPaymentPercent, setDownPaymentPercent] = useState<number>(20);
-    const [interestRate, setInterestRate] = useState<number>(8.5);
+    const [interestRate, setInterestRate] = useState<number>(6.5);
     const [tenureYears, setTenureYears] = useState<number>(20);
     const [appreciationRate, setAppreciationRate] = useState<number>(5);
     const [maintenanceRate, setMaintenanceRate] = useState<number>(0.5); // % of value per year
@@ -39,9 +39,9 @@ export default function RentVsBuyCalculator() {
     const [rentInflation, setRentInflation] = useState<number>(5);
     const [investmentReturn, setInvestmentReturn] = useState<number>(7); // Opportunity cost return
 
-    // Update defaults when region changes
-    React.useEffect(() => {
-        if (isGlobal) {
+    const handleRegionChange = (global: boolean) => {
+        setIsGlobal(global);
+        if (global) {
             setPropertyPrice(500000); // $500k
             setMonthlyRent(2500); // $2.5k
             setInterestRate(6.5);
@@ -52,7 +52,7 @@ export default function RentVsBuyCalculator() {
             setInterestRate(8.5);
             setInvestmentReturn(10);
         }
-    }, [isGlobal]);
+    };
 
     const result = useMemo(() => {
         const years = tenureYears;
@@ -145,7 +145,7 @@ export default function RentVsBuyCalculator() {
                                 <Label htmlFor="region-mode" className="text-xs font-medium text-slate-500">
                                     {isGlobal ? 'Global (USD)' : 'India (INR)'}
                                 </Label>
-                                <Switch id="region-mode" checked={isGlobal} onCheckedChange={setIsGlobal} />
+                                <Switch id="region-mode" checked={isGlobal} onCheckedChange={handleRegionChange} />
                             </div>
                         </div>
                     </CardHeader>

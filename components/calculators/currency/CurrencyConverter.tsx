@@ -8,7 +8,7 @@ import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
-import { getHistoricalRates, ExchangeRates } from '@/lib/currency-api';
+import { getFallbackRates, getHistoricalRates, ExchangeRates } from '@/lib/currency-api';
 
 // Lazy load Recharts components
 const AreaChart = dynamic(() => import('recharts').then(mod => mod.AreaChart), { ssr: false });
@@ -63,6 +63,11 @@ export default function CurrencyConverter({ initialRates }: CurrencyConverterPro
                 }
             } catch (err) {
                 console.error("Failed to update base rate", err);
+                if (active) {
+                    const fallback = getFallbackRates(fromCurrency);
+                    setRates(fallback);
+                    ratesCache.current[fromCurrency] = fallback;
+                }
             }
         }
         updateBase();
