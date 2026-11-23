@@ -16,10 +16,6 @@ const FREE_LIMIT = 3;
 const PRO_LIMIT = 30;
 
 function getClientIp(request: NextRequest): string {
-  const ip = (request as any).ip;
-  if (ip) {
-    return ip;
-  }
   const realIp = request.headers.get("x-real-ip");
   if (realIp) {
     return realIp;

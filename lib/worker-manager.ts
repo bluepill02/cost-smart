@@ -26,8 +26,9 @@ class WorkerManager {
     }
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    public postMessage(_message: any) {
+    public postMessage(message: any) {
         // No-op: client-side classification has been replaced by server-side Gemini.
+        void message;
     }
 
     public isReady() {
